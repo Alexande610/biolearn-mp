@@ -11,18 +11,19 @@
   },
   "dependencies": {
     "@google/genai": "^1.50.1",
+    "@jvmr/pptx-to-html": "^1.0.1",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.0",
     "@supabase/supabase-js": "^2.103.3",
+    "@vercel/analytics": "^2.0.1",
     "axios": "^1.15.0",
     "firebase": "^12.12.0",
     "lucide-react": "^1.8.0",
+    "molstar": "5.6.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.14.1",
-    "three": "^0.184.0",
-    "molstar": "5.6.1",
-    "@jvmr/pptx-to-html": "^1.0.1"
+    "three": "^0.184.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
@@ -36,8 +37,8 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
     "postcss": "^8.5.10",
+    "sass": "^1.83.4",
     "tailwindcss": "^4.2.2",
-    "vite": "^8.0.4",
-    "sass": "^1.83.4"
+    "vite": "^8.0.4"
   }
 }
