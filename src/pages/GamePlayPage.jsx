@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { 
-  ArrowLeft, Star, Lightbulb, Coins, 
+  ArrowLeft, Star, Lightbulb, Coins, Leaf,
   CheckCircle, XCircle, Trophy, Zap, Shuffle, Edit3
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
@@ -484,7 +484,7 @@ function OrderingGame({ data, onComplete, onWrongAnswer }) {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-green-800/80 to-green-900/80 rounded-2xl p-6 flex-1 flex flex-col">
+      <div className="bg-gradient-to-br from-green-800/80 to-green-900/80 rounded-2xl p-6 flex flex-col">
         <h2 className="text-white text-lg font-bold mb-4 text-center">{data.question}</h2>
         
         {showHint && data.hint && (
@@ -556,7 +556,7 @@ function OrderingGame({ data, onComplete, onWrongAnswer }) {
           </div>
         )}
 
-        <div className="flex gap-3 mt-auto">
+        <div className="game-action-bar flex gap-3 mt-auto">
           {!showHint && !showResult && (
             <button onClick={() => setShowHint(true)} className="w-12 h-12 rounded-xl bg-yellow-500/30 flex items-center justify-center">
               <Lightbulb className="w-6 h-6 text-yellow-400" />
@@ -564,7 +564,7 @@ function OrderingGame({ data, onComplete, onWrongAnswer }) {
           )}
           <button
             onClick={showResult ? handleNext : handleSubmit}
-            className="flex-1 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700"
+            className="game-action-button flex-1 py-3 rounded-xl font-bold"
           >
             {showResult ? 'Hoàn thành' : 'Trả lời'}
           </button>
@@ -670,7 +670,7 @@ function FillBlankGame({ data, onComplete, onWrongAnswer }) {
       <div className="bg-purple-500/20 rounded-xl p-3 mb-4">
         <p className="text-purple-200 text-center"><Edit3 className="inline w-4 h-4 mr-1" />Điền từ thích hợp vào chỗ trống</p>
       </div>
-      <div className="game-card flex-1 flex flex-col justify-center">
+      <div className="game-card flex flex-col justify-center">
         {renderSentence()}
         {showHint && currentQ.hint && (
           <div className="bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-3 mt-4">
@@ -705,7 +705,7 @@ function FillBlankGame({ data, onComplete, onWrongAnswer }) {
           </div>
         )}
       </div>
-      <div className="flex gap-3 mt-4">
+      <div className="game-action-bar flex gap-3">
         {!showResult ? (
           <>
             <button onClick={() => setShowHint(true)} disabled={showHint} 
@@ -713,12 +713,12 @@ function FillBlankGame({ data, onComplete, onWrongAnswer }) {
               <Lightbulb className="w-5 h-5 text-yellow-400" />
             </button>
             <button onClick={handleSubmit} disabled={!selectedAnswer} 
-              className={`flex-1 py-3 rounded-xl font-bold ${selectedAnswer ? 'bg-green-500 hover:bg-green-400 text-white' : 'bg-gray-600 text-gray-400 cursor-not-allowed'}`}>
+              className="game-action-button flex-1 py-3 rounded-xl font-bold disabled:cursor-not-allowed">
               Kiểm tra
             </button>
           </>
         ) : (
-          <button onClick={handleNext} className="flex-1 py-3 rounded-xl font-bold bg-green-500 hover:bg-green-400 text-white">
+          <button onClick={handleNext} className="game-action-button flex-1 py-3 rounded-xl font-bold">
             {currentIndex < questions.length - 1 ? 'Câu tiếp theo' : 'Hoàn thành'}
           </button>
         )}
@@ -787,7 +787,7 @@ function QuizGame({ questions, onComplete, onWrongAnswer }) {
       </div>
       <p className="text-center text-white/60 text-sm mb-4">Câu {currentIndex + 1} / {questions.length}</p>
       
-      <div className="game-card flex-1 flex flex-col">
+      <div className="game-card flex flex-col">
         <h2 className="text-xl text-white font-bold mb-6 leading-relaxed">{currentQuestion.question}</h2>
         {showHint && currentQuestion.hint && (
           <div className="bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-3 mb-4">
@@ -843,7 +843,7 @@ function QuizGame({ questions, onComplete, onWrongAnswer }) {
           </div>
         )}
       </div>
-      <div className="flex gap-3 mt-4">
+      <div className="game-action-bar flex gap-3">
         {!showResult ? (
           <>
             <button onClick={() => setShowHint(true)} disabled={showHint} 
@@ -851,12 +851,12 @@ function QuizGame({ questions, onComplete, onWrongAnswer }) {
               <Lightbulb className="w-5 h-5 text-yellow-400" />
             </button>
             <button onClick={handleSubmit} disabled={!selectedAnswer} 
-              className={`flex-1 py-3 rounded-xl font-bold ${selectedAnswer ? 'bg-green-500 hover:bg-green-400 text-white' : 'bg-gray-600 text-gray-400 cursor-not-allowed'}`}>
+              className="game-action-button flex-1 py-3 rounded-xl font-bold disabled:cursor-not-allowed">
               Trả lời
             </button>
           </>
         ) : (
-          <button onClick={handleNext} className="flex-1 py-3 rounded-xl font-bold bg-green-500 hover:bg-green-400 text-white">
+          <button onClick={handleNext} className="game-action-button flex-1 py-3 rounded-xl font-bold">
             {currentIndex < questions.length - 1 ? 'Câu tiếp theo' : 'Hoàn thành'}
           </button>
         )}
@@ -1185,17 +1185,39 @@ export default function GamePlayPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div 
+      style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        background: 'linear-gradient(to bottom, #0f2d1e, #143e29, #0a1f14)',
+        overflowY: 'auto'
+      }}
+    >
       {/* Header */}
       <header className="bg-green-800/50 backdrop-blur-lg sticky top-0 z-50 border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 py-3">
-          <div className="flex items-center gap-4">
-            <button onClick={() => navigate(`/map/${classId}`)} className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20">
-              <ArrowLeft className="w-5 h-5 text-white" />
-            </button>
-            <div>
-              <h1 className="text-white font-bold">{getGameTitle()}</h1>
-              <p className="text-white/60 text-sm">{lessonData?.title || `Bài ${lessonId}`}</p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <button onClick={() => navigate(`/map/${classId}`)} className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20">
+                <ArrowLeft className="w-5 h-5 text-white" />
+              </button>
+              <div>
+                <h1 className="text-white font-bold">{getGameTitle()}</h1>
+                <p className="text-white/60 text-sm">{lessonData?.title || `Bài ${lessonId}`}</p>
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 bg-green-700/50 px-2.5 py-1 rounded-lg">
+                <Leaf className="w-4 h-4 text-green-300 animate-pulse" />
+                <span className="text-white text-sm font-semibold">{userStats?.stamina ?? userStats?.energy ?? 0}</span>
+              </div>
+              <div className="flex items-center gap-1 bg-yellow-600/50 px-2.5 py-1 rounded-lg">
+                <Coins className="w-4 h-4 text-yellow-300" />
+                <span className="text-white text-sm font-semibold">{userStats?.coins ?? 0}</span>
+              </div>
             </div>
           </div>
         </div>
