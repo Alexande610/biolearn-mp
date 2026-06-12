@@ -1,20 +1,20 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 /**
  * Optimized Galaxy Background Component
  * Renders 120 hardware-accelerated stars and subtle space glows.
  */
+const STARS = Array.from({ length: 80 }).map((_, i) => ({
+  id: i,
+  size: Math.random() * 2 + 0.5,
+  top: Math.random() * 100,
+  left: Math.random() * 100,
+  duration: Math.random() * 3 + 3,
+  delay: Math.random() * 5,
+}));
+
 const GalaxyBackground = () => {
-  const stars = useMemo(() => {
-    return Array.from({ length: 80 }).map((_, i) => ({
-      id: i,
-      size: Math.random() * 2 + 0.5,
-      top: Math.random() * 100,
-      left: Math.random() * 100,
-      duration: Math.random() * 3 + 3,
-      delay: Math.random() * 5,
-    }));
-  }, []);
+  const stars = STARS;
 
   return (
     <div className="fixed inset-0 z-0 galaxy-bg pointer-events-none">

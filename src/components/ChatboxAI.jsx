@@ -44,22 +44,24 @@ const AVAILABLE_MODELS = [
 ];
 
 const ChatboxAI = ({ user }) => {
+  const displayName = user?.displayName || user?.username || 'bạn';
+  const userId = user?.uid || user?.firebaseUid || user?._id || user?.id || '';
 
-
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return sessionStorage.getItem('chatboxOpen') === 'true';
+  });
   const [isHidden, setIsHidden] = useState(() => {
     if (typeof window === 'undefined') return false;
     return localStorage.getItem('chatboxHidden') === 'true';
   });
   const [messages, setMessages] = useState([]);
+  const [loadedUserId, setLoadedUserId] = useState('');
+  
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [hasGreeted, setHasGreeted] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const endRef = useRef(null);
-
-  const displayName = user?.displayName || user?.username || 'bạn';
-  const userId = user?.uid || user?.firebaseUid || user?._id || '';
 
   const intents = useMemo(() => ([
     {
@@ -115,15 +117,39 @@ const ChatboxAI = ({ user }) => {
   );
 
   useEffect(() => {
-    if (isOpen && !hasGreeted) {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('chatboxOpen', String(isOpen));
+    }
+  }, [isOpen]);
+
+  // Load chat messages when userId changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && userId) {
+      const saved = sessionStorage.getItem(`chatboxMessages_${userId}`);
+      setMessages(saved ? JSON.parse(saved) : []);
+      setLoadedUserId(userId);
+    } else {
+      setMessages([]);
+      setLoadedUserId('');
+    }
+  }, [userId]);
+
+  // Save chat messages only if they belong to the currently loaded user
+  useEffect(() => {
+    if (typeof window !== 'undefined' && userId && loadedUserId === userId) {
+      sessionStorage.setItem(`chatboxMessages_${userId}`, JSON.stringify(messages));
+    }
+  }, [messages, userId, loadedUserId]);
+
+  useEffect(() => {
+    if (isOpen && loadedUserId === userId && messages.length === 0) {
       setMessages([{
         id: `greet-${Date.now()}`,
         role: 'assistant',
-        text: `Xin chào ${displayName}! Mình là trợ lý Sinh học NextGen. Mình có thể hỗ trợ gì về kiến thức Sinh học từ lớp 6 đến lớp 12 cho bạn hôm nay?`,
+        text: `Xin chào ${displayName}! Mình là trợ lý Sinh học BioLearn. Mình có thể hỗ trợ gì về kiến thức Sinh học từ lớp 6 đến lớp 12 cho bạn hôm nay?`,
       }]);
-      setHasGreeted(true);
     }
-  }, [displayName, hasGreeted, isOpen]);
+  }, [displayName, isOpen, messages.length, userId, loadedUserId]);
 
   useEffect(() => {
     if (endRef.current) {
@@ -201,62 +227,63 @@ const ChatboxAI = ({ user }) => {
   };
 
   const fetchAiReply = async (text, context = '') => {
-    const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-    if (!API_KEY) return '⚠️ Chưa cấu hình VITE_GEMINI_API_KEY trong .env';
+    if (!window.puter) {
+      return '⚠️ Hệ thống AI đang khởi tạo, vui lòng gửi lại câu hỏi sau vài giây!';
+    }
 
-    const history = buildHistoryPayload(messages);
-    const currentMessage = { role: 'user', parts: [{ text }] };
-    
-    const systemPrompt = `Bạn là trợ lý AI chuyên gia Sinh học (Biology Tutor) cho nền tảng NextGen. 
+    const systemPrompt = `Bạn là trợ lý AI chuyên gia Sinh học (Biology Tutor) cho nền tảng BioLearn. 
 Tên người dùng: ${displayName}. 
 PHẠM VI CÔNG VIỆC: Chỉ trả lời các nội dung liên quan đến SINH HỌC từ lớp 6 đến lớp 12.
 NGUỒN DỮ LIỆU: Sử dụng [NỘI DUNG SÁCH GIÁO KHOA] dưới đây để hỗ trợ trả lời. Nếu không thấy trong sách, hãy sử dụng kiến thức Sinh học chuẩn của bạn.
 LƯU Ý:
 1. Nếu hỏi vấn đề KHÔNG LIÊN QUAN ĐẾN SINH HỌC, lịch sự từ chối và giải thích mình là chuyên gia Sinh học.
-2. Trả lời thân thiện, giáo dục. Nếu hỏi tóm tắt (summary), hãy dựa vào Mục lục và các ý chính trong tri thức bản xứ.
+2. Trả lời thân thiện, giáo dục.
 
 [NỘI DUNG SÁCH GIÁO KHOA]:
 ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
 
-    const payload = {
-      system_instruction: { parts: [{ text: systemPrompt }] },
-      contents: [...history, currentMessage],
-      generationConfig: { temperature: 0.6, maxOutputTokens: 1000 }
-    };
+    const formattedMessages = [
+      { role: 'system', content: systemPrompt }
+    ];
 
-    // Model Rotation Loop
-    for (const modelName of AVAILABLE_MODELS) {
-      try {
-        console.log(`Trying Chatbox AI with model: ${modelName}...`);
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${API_KEY}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
+    // Build chat history of last 10 messages
+    messages.slice(-10).forEach(msg => {
+      formattedMessages.push({
+        role: msg.role === 'assistant' ? 'assistant' : 'user',
+        content: msg.text
+      });
+    });
 
-        if (response.ok) {
-          const data = await response.json();
-          if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
-            console.log(`Model ${modelName} responded successfully.`);
-            return data.candidates[0].content.parts[0].text;
-          }
-        } else {
-          const status = response.status;
-          const errData = await response.json().catch(() => ({}));
-          console.warn(`Model ${modelName} failed with status ${status}:`, errData);
-          
-          if (status === 429 || status === 503 || status === 400) {
-            continue; 
-          } else if (errData?.error?.message?.includes('API key not valid')) {
-            return '⚠️ API Key không hợp lệ.';
-          }
-        }
-      } catch (err) {
-        console.error(`Error with model ${modelName}:`, err);
+    // Append current user message
+    formattedMessages.push({
+      role: 'user',
+      content: text
+    });
+
+    try {
+      console.log('Sending query to Puter AI...');
+      const response = await window.puter.ai.chat(formattedMessages, { model: 'gpt-3.5-turbo' });
+      
+      if (response && response.message && response.message.content) {
+        return response.message.content;
+      } else if (typeof response === 'string') {
+        return response;
       }
+      throw new Error('No content returned from Puter AI');
+    } catch (err) {
+      console.warn('Primary Puter AI model failed, trying fallback model...', err);
+      try {
+        const fallbackResponse = await window.puter.ai.chat(formattedMessages, { model: 'claude-3-haiku' });
+        if (fallbackResponse && fallbackResponse.message && fallbackResponse.message.content) {
+          return fallbackResponse.message.content;
+        } else if (typeof fallbackResponse === 'string') {
+          return fallbackResponse;
+        }
+      } catch (fallbackErr) {
+        console.error('Puter AI fallback query failed:', fallbackErr);
+      }
+      return 'Hiện tại tất cả các mô hình AI đều đang bận hoặc quá tải. Bạn hãy thử lại sau giây lát nhé, mình xin lỗi vì sự bất tiện này!';
     }
-
-    return 'Hiện tại tất cả các mô hình AI đều đang bận hoặc quá tải. Bạn hãy thử lại sau giây lát nhé, mình xin lỗi vì sự bất tiện này!';
   };
 
   const handleSend = async () => {
@@ -371,7 +398,7 @@ ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
 
   return (
     <div
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-6 right-6 z-[9999]"
     >
       {!isOpen ? (
         <button

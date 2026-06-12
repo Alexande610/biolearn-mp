@@ -245,6 +245,7 @@ export default function BattlePage() {
         .update({
           xp: (profile?.xp || 0) + xpGain,
           total_score: (profile?.total_score || 0) + xpGain,
+          level: Math.max(profile?.level || 1, Math.floor(((profile?.total_score || 0) + xpGain) / 1000) + 1),
           weekly_score: (profile?.weekly_score || 0) + xpGain,
           coins: (profile?.coins || 0) + coinsGain,
           last_active_at: new Date().toISOString()

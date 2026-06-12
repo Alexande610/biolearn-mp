@@ -3,9 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, User, BookOpen,
   ChevronRight, ChevronDown, ChevronUp, ExternalLink, X,
-  Microscope, Gamepad2
+  Microscope, Gamepad2, Play, Trash2, Plus, Edit
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
+import { supabase } from '../lib/supabase';
+import { useToast } from '../components/Toast';
 
 // Lesson data với tên chương đúng từ SGK và nội dung tóm tắt
 const lessonsData = {
@@ -479,7 +481,8 @@ const buildLessonOverrideKey = (classId, partId, chapterId, lessonId) => `lesson
 const MorePage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user } = useAuth();
+  const { user, pauseBgMusic, resumeBgMusic } = useAuth();
+  const { showToast } = useToast();
   const [activeSection, setActiveSection] = useState('menu');
   const [selectedClass, setSelectedClass] = useState(null);
   const [expandedPart, setExpandedPart] = useState(null);
@@ -494,6 +497,143 @@ const MorePage = () => {
   const isAdmin = user?.role === 'admin';
   const isAdminLessonRoute = location.pathname === '/admin/lessons';
   const isAdminEditMode = isAdmin && (new URLSearchParams(location.search).get('adminEdit') === '1' || isAdminLessonRoute);
+
+  const [videos, setVideos] = useState([]);
+  const [videosLoading, setVideosLoading] = useState(false);
+  const [activeVideoId, setActiveVideoId] = useState(null);
+  const [newVideoTitle, setNewVideoTitle] = useState('');
+  const [newVideoUrl, setNewVideoUrl] = useState('');
+  const [addingVideo, setAddingVideo] = useState(false);
+
+  const [editingVideoId, setEditingVideoId] = useState(null);
+  const [editingVideoTitle, setEditingVideoTitle] = useState('');
+  const [editingVideoUrl, setEditingVideoUrl] = useState('');
+  const [savingVideoId, setSavingVideoId] = useState('');
+
+  // Helper to extract YouTube video ID
+  const getYouTubeId = (url) => {
+    if (!url) return null;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  // Load videos when class is selected
+  useEffect(() => {
+    if (selectedClass) {
+      fetchVideos();
+    }
+  }, [selectedClass]);
+
+  const fetchVideos = async () => {
+    setVideosLoading(true);
+    try {
+      const { data, error } = await supabase
+        .from('study_videos')
+        .select('*')
+        .eq('class_id', selectedClass)
+        .order('created_at', { ascending: true });
+      if (!error && data) {
+        setVideos(data);
+      } else {
+        setVideos([]);
+      }
+    } catch (err) {
+      console.error("Lỗi tải video:", err);
+      setVideos([]);
+    }
+    setVideosLoading(false);
+  };
+
+  const handleAddVideo = async (e) => {
+    e.preventDefault();
+    if (!newVideoTitle.trim() || !newVideoUrl.trim() || !selectedClass) return;
+
+    setAddingVideo(true);
+    try {
+      const { error } = await supabase
+        .from('study_videos')
+        .insert([{
+          class_id: selectedClass,
+          title: newVideoTitle.trim(),
+          url: newVideoUrl.trim()
+        }]);
+
+      if (error) throw error;
+      
+      setNewVideoTitle('');
+      setNewVideoUrl('');
+      fetchVideos();
+    } catch (err) {
+      showToast("Lỗi thêm video: " + err.message, 'error');
+    }
+    setAddingVideo(false);
+  };
+
+  const handleDeleteVideo = async (videoId) => {
+    if (!window.confirm("Bạn có chắc chắn muốn xóa video này không?")) return;
+
+    try {
+      const { error } = await supabase
+        .from('study_videos')
+        .delete()
+        .eq('id', videoId);
+      if (error) throw error;
+      fetchVideos();
+    } catch (err) {
+      showToast("Lỗi xóa video: " + err.message, 'error');
+    }
+  };
+
+  const handleStartEditVideo = (video) => {
+    setEditingVideoId(video.id);
+    setEditingVideoTitle(video.title);
+    setEditingVideoUrl(video.url);
+  };
+
+  const handleCancelEditVideo = () => {
+    setEditingVideoId(null);
+    setEditingVideoTitle('');
+    setEditingVideoUrl('');
+  };
+
+  const handleSaveEditVideo = async (videoId) => {
+    if (!editingVideoTitle.trim() || !editingVideoUrl.trim()) return;
+
+    setSavingVideoId(videoId);
+    try {
+      const { error } = await supabase
+        .from('study_videos')
+        .update({
+          title: editingVideoTitle.trim(),
+          url: editingVideoUrl.trim()
+        })
+        .eq('id', videoId);
+
+      if (error) throw error;
+      
+      setEditingVideoId(null);
+      fetchVideos();
+    } catch (err) {
+      showToast("Lỗi sửa video: " + err.message, 'error');
+    }
+    setSavingVideoId('');
+  };
+
+  const handlePlayVideo = (videoUrl) => {
+    const videoId = getYouTubeId(videoUrl);
+    if (videoId) {
+      pauseBgMusic();
+      setActiveVideoId(videoId);
+    } else {
+      window.open(videoUrl, '_blank');
+    }
+  };
+
+  const handleCloseVideo = () => {
+    setActiveVideoId(null);
+    resumeBgMusic();
+  };
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -1110,6 +1250,189 @@ const MorePage = () => {
                 })
               )}
             </div>
+
+            {/* Video bài giảng & tài liệu tham khảo theo phong cách Sinh học */}
+            <div className="mt-10 pt-8 border-t border-white/10">
+              <div className="flex items-center gap-3 mb-6 text-[#B2EE55]">
+                <div className="w-10 h-10 rounded-xl bg-[#B2EE55]/10 flex items-center justify-center border border-[#B2EE55]/20 shadow-[0_0_15px_rgba(178,238,85,0.15)]">
+                  <Play className="w-5 h-5 fill-[#B2EE55] text-[#B2EE55]" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-white tracking-wider uppercase italic">Video Bài Giảng & Học Liệu Tham Khảo</h3>
+                  <p className="text-xs text-white/40">Bài giảng minh họa trực quan sinh động</p>
+                </div>
+              </div>
+
+              {videosLoading ? (
+                <div className="flex items-center justify-center py-10">
+                  <div className="w-10 h-10 border-2 border-[#B2EE55] border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              ) : videos.length === 0 ? (
+                <div className="text-white/40 text-sm py-8 bg-white/5 border border-white/5 rounded-[2rem] text-center italic">
+                  Chưa có video bài giảng nào cho lớp này.
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {videos.map((video) => {
+                    const videoId = getYouTubeId(video.url);
+                    const thumbUrl = videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : '/images/default-video.jpg';
+                    const isEditing = editingVideoId === video.id;
+
+                    if (isEditing) {
+                      return (
+                        <div 
+                          key={video.id} 
+                          className="relative overflow-hidden rounded-2xl border border-cyan-500/40 bg-slate-900/60 backdrop-blur-xl shadow-2xl p-4 flex flex-col justify-between h-full space-y-3"
+                        >
+                          <h4 className="text-cyan-300 font-black text-[10px] uppercase tracking-wider">Hiệu chỉnh Video</h4>
+                          <div className="space-y-2 flex-1">
+                            <div>
+                              <label className="text-[9px] text-gray-400 uppercase tracking-widest font-black block mb-0.5">Tiêu đề</label>
+                              <input 
+                                type="text"
+                                value={editingVideoTitle}
+                                onChange={(e) => setEditingVideoTitle(e.target.value)}
+                                className="w-full px-2.5 py-1.5 text-xs bg-white/5 border border-white/10 rounded-xl text-white outline-none focus:ring-1 focus:ring-cyan-400"
+                              />
+                            </div>
+                            <div>
+                              <label className="text-[9px] text-gray-400 uppercase tracking-widest font-black block mb-0.5">Đường dẫn YouTube</label>
+                              <input 
+                                type="text"
+                                value={editingVideoUrl}
+                                onChange={(e) => setEditingVideoUrl(e.target.value)}
+                                className="w-full px-2.5 py-1.5 text-xs bg-white/5 border border-white/10 rounded-xl text-white outline-none focus:ring-1 focus:ring-cyan-400"
+                              />
+                            </div>
+                          </div>
+                          
+                          <div className="flex gap-2 pt-2 border-t border-white/5">
+                            <button
+                              type="button"
+                              disabled={savingVideoId === video.id}
+                              onClick={() => handleSaveEditVideo(video.id)}
+                              className="flex-1 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white font-black text-[9px] uppercase tracking-widest rounded-xl transition-colors text-center disabled:opacity-60 cursor-pointer"
+                            >
+                              {savingVideoId === video.id ? 'Đang lưu...' : 'Lưu'}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={handleCancelEditVideo}
+                              className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white font-black text-[9px] uppercase tracking-widest rounded-xl transition-colors cursor-pointer"
+                            >
+                              Hủy
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div 
+                        key={video.id} 
+                        className="relative overflow-hidden rounded-2xl border border-emerald-500/10 bg-slate-900/30 backdrop-blur-md hover:border-emerald-400/40 shadow-xl hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all duration-300 group flex flex-col hover:-translate-y-0.5"
+                      >
+                        {/* Nhãn sinh học ở góc */}
+                        <div className="absolute top-2.5 right-2.5 bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 text-[8px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider select-none z-10">
+                          Lớp {selectedClass}
+                        </div>
+
+                        {/* Thumbnail Video */}
+                        <div className="relative aspect-video bg-black/60 overflow-hidden cursor-pointer" onClick={() => handlePlayVideo(video.url)}>
+                          <img 
+                            src={thumbUrl} 
+                            alt={video.title} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=500&auto=format&fit=crop'; }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+                          <div className="absolute inset-0 bg-black/25 flex items-center justify-center opacity-85 group-hover:opacity-100 transition-opacity">
+                            <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/40 transform group-hover:scale-110 transition-all duration-300">
+                              <Play className="w-5 h-5 fill-white text-white ml-0.5" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Chi tiết Video */}
+                        <div className="p-4 flex-1 flex flex-col justify-between">
+                          <h4 className="text-white font-bold text-xs line-clamp-2 mb-3 leading-relaxed group-hover:text-emerald-300 transition-colors uppercase tracking-wide">
+                            {video.title}
+                          </h4>
+                          
+                          <div className="flex items-center justify-between gap-2 pt-2.5 border-t border-white/5">
+                            <a 
+                              href={video.url} 
+                              target="_blank" 
+                              rel="noreferrer"
+                              className="text-[9px] font-black text-white/50 hover:text-white flex items-center gap-1 transition-colors uppercase tracking-wider"
+                            >
+                              <ExternalLink className="w-3.5 h-3.5" />
+                              <span>Link Youtube (Tải)</span>
+                            </a>
+
+                            {isAdminEditMode && (
+                              <div className="flex gap-1.5">
+                                <button
+                                  onClick={() => handleStartEditVideo(video)}
+                                  className="p-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/20 text-cyan-300 hover:text-white transition-all duration-200 cursor-pointer"
+                                  title="Chỉnh sửa video"
+                                >
+                                  <Edit className="w-3.5 h-3.5" />
+                                </button>
+                                <button
+                                  onClick={() => handleDeleteVideo(video.id)}
+                                  className="p-1.5 rounded-lg bg-red-500/10 hover:bg-red-500 border border-red-500/20 text-red-300 hover:text-white transition-all duration-200 cursor-pointer"
+                                  title="Xóa video"
+                                >
+                                  <Trash2 className="w-3.5 h-3.5" />
+                                </button>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Admin Panel: Thêm đường dẫn video */}
+              {isAdminEditMode && (
+                <form onSubmit={handleAddVideo} className="mt-8 p-6 rounded-[2rem] border border-cyan-500/20 bg-cyan-500/5 backdrop-blur-md">
+                  <h4 className="text-cyan-300 font-black text-xs uppercase tracking-widest mb-4">Thêm Video Bài Giảng Mới</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <label className="text-[10px] text-gray-400 block mb-1 uppercase tracking-widest font-black">Tiêu đề video</label>
+                      <input 
+                        type="text" 
+                        placeholder="Ví dụ: Bài 17: Tế bào - Đơn vị cơ sở của sự sống"
+                        value={newVideoTitle}
+                        onChange={(e) => setNewVideoTitle(e.target.value)}
+                        className="w-full px-4 py-3 text-sm bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-1 focus:ring-cyan-400/50"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[10px] text-gray-400 block mb-1 uppercase tracking-widest font-black">Đường dẫn YouTube</label>
+                      <input 
+                        type="text" 
+                        placeholder="Ví dụ: https://www.youtube.com/watch?v=..."
+                        value={newVideoUrl}
+                        onChange={(e) => setNewVideoUrl(e.target.value)}
+                        className="w-full px-4 py-3 text-sm bg-white/5 border border-white/10 rounded-2xl text-white outline-none focus:ring-1 focus:ring-cyan-400/50"
+                      />
+                    </div>
+                    <button 
+                      type="submit" 
+                      disabled={addingVideo}
+                      className="w-full py-3 bg-cyan-500 hover:bg-cyan-400 text-white font-black text-xs uppercase tracking-widest rounded-2xl flex items-center justify-center gap-2 transition-all shadow-lg active:scale-95 disabled:opacity-60"
+                    >
+                      <Plus className="w-4 h-4" />
+                      <span>{addingVideo ? 'Đang thêm...' : 'Thêm Video'}</span>
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
           </>
         )}
       </div>
@@ -1249,6 +1572,34 @@ const MorePage = () => {
                 Bài giảng đang được hiển thị trực tiếp từ file PPTX trong trình duyệt. Nếu thiết bị gặp lỗi hiển thị, bấm "Mở tab mới" để mở bằng ứng dụng ngoài.
               </p>
             </div>
+          </div>
+        </div>
+      )}
+      {/* Cửa sổ phát Video Youtube phóng to */}
+      {activeVideoId && (
+        <div className="fixed inset-0 z-[10000] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="relative w-full max-w-[900px] aspect-video rounded-3xl overflow-hidden border border-emerald-500/40 bg-black shadow-2xl flex flex-col animate-in zoom-in-95 duration-200">
+            
+            {/* Header / Nút đóng */}
+            <div className="absolute top-4 right-4 z-50">
+              <button 
+                onClick={handleCloseVideo}
+                className="w-10 h-10 rounded-full bg-black/60 hover:bg-emerald-500/80 text-white flex items-center justify-center backdrop-blur-sm transition-colors cursor-pointer"
+                title="Đóng video"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Video Iframe */}
+            <iframe 
+              src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1&rel=0`}
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen
+              className="w-full h-full"
+            />
           </div>
         </div>
       )}

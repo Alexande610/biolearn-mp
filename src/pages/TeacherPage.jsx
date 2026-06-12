@@ -3,6 +3,20 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import './TeacherPage.css';
 
+const ROOM_CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
+function createRoomCode() {
+  let code = '';
+  for (let i = 0; i < 6; i++) {
+    code += ROOM_CODE_CHARS[Math.floor(Math.random() * ROOM_CODE_CHARS.length)];
+  }
+  return code;
+}
+
+function nowMs() {
+  return Date.now();
+}
+
 export default function TeacherPage({ user }) {
   const navigate = useNavigate();
   const channelRef = useRef(null);
@@ -44,7 +58,7 @@ export default function TeacherPage({ user }) {
     }
   }, []);
 
-  const fetchMyRooms = async () => {
+  async function fetchMyRooms() {
     try {
       const { data, error } = await supabase
         .from('quiz_rooms')
@@ -62,13 +76,13 @@ export default function TeacherPage({ user }) {
       }));
       setMyRooms(formattedRooms);
     } catch(e) { console.error(e); }
-  };
+  }
 
-  // ── File upload (Xử lý đọc file cục bộ thay vì gọi API) ─────────────
+  // â”€â”€ File upload (Xá»­ lĂ½ Ä‘á»c file cá»¥c bá»™ thay vĂ¬ gá»i API) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    setUploadStatus('⏳ Đang đọc file...');
+    setUploadStatus('â³ Äang Ä‘á»c file...');
     
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -103,27 +117,25 @@ export default function TeacherPage({ user }) {
         }
         
         setQuestions(parsedQ);
-        setUploadStatus(`✅ Đọc được ${parsedQ.length} câu hỏi từ file`);
+        setUploadStatus(`âœ… Äá»c Ä‘Æ°á»£c ${parsedQ.length} cĂ¢u há»i tá»« file`);
       } catch (err) {
-        setUploadStatus('❌ Lỗi khi đọc file: ' + err.message);
+        setUploadStatus('âŒ Lá»—i khi Ä‘á»c file: ' + err.message);
       }
     };
     reader.readAsText(file);
   };
 
-  // ── Create room ──────────────────────────────────────────────────────────
+  // â”€â”€ Create room â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const handleCreateRoom = async () => {
-    if (questions.length === 0) { setError('Cần ít nhất 1 câu hỏi'); return; }
+    if (questions.length === 0) { setError('Cáº§n Ă­t nháº¥t 1 cĂ¢u há»i'); return; }
     setLoading(true); setError('');
     try {
-      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-      let code = '';
-      for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+      const code = createRoomCode();
       
       const { data, error } = await supabase.from('quiz_rooms').insert([{
         room_code: code,
         teacher_id: user.id,
-        title: roomTitle || 'Phòng thi đấu Sinh Học',
+        title: roomTitle || 'PhĂ²ng thi Ä‘áº¥u Sinh Há»c',
         status: 'waiting',
         questions: questions,
         settings: { timePerQuestion: 20 }
@@ -143,36 +155,46 @@ export default function TeacherPage({ user }) {
     }
   };
 
-  // ── Supabase Realtime cho Server (Giáo Viên) ────────────────────────────
+  // â”€â”€ Supabase Realtime cho Server (GiĂ¡o ViĂªn) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const openRoomSocket = (room) => {
     if (channelRef.current) supabase.removeChannel(channelRef.current);
     
-    // Tạo mảng học sinh local tracking
+    // Táº¡o máº£ng há»c sinh local tracking
     let currentStudents = [];
-    let currentLb = [];
-    
     const channel = supabase.channel(`room:${room.roomCode}`, {
       config: { presence: { key: user.id } }
     });
     
     channelRef.current = channel;
 
+    const broadcastStudentList = () => {
+      channel.send({
+        type: 'broadcast',
+        event: 'student_list',
+        payload: { students: currentStudents }
+      });
+    };
+
     channel
       .on('broadcast', { event: 'student_join' }, ({ payload }) => {
-        currentStudents.push(payload);
+        if (!currentStudents.some((student) => student.studentId === payload.studentId)) {
+          currentStudents.push({ ...payload, score: 0 });
+        }
         setStudents([...currentStudents]);
+        broadcastStudentList();
       })
       .on('broadcast', { event: 'student_answer' }, ({ payload }) => {
-        // Cập nhật điểm cho Học sinh
         const std = currentStudents.find(s => s.studentId === payload.studentId);
         if (std) {
           std.score = (std.score || 0) + payload.score;
           std.lastAnswerTime = payload.timeLeft;
         }
+        setStudents([...currentStudents]);
+        broadcastStudentList();
       })
       .subscribe();
       
-    // Gắn state lên ref để truy cập trong interval
+    // Gáº¯n state lĂªn ref Ä‘á»ƒ truy cáº­p trong interval
     channel.currentStudents = currentStudents;
   };
 
@@ -184,7 +206,7 @@ export default function TeacherPage({ user }) {
     channelRef.current.send({
       type: 'broadcast',
       event: 'quiz_started',
-      payload: { startedAt: Date.now() }
+      payload: { startedAt: nowMs() }
     });
     
     setQuizState('playing');
@@ -196,7 +218,7 @@ export default function TeacherPage({ user }) {
   const playQuestion = (qIndex) => {
     const qData = activeRoom.questions[qIndex];
     if (!qData) {
-       // Hết câu hỏi -> kết thúc
+       // Háº¿t cĂ¢u há»i -> káº¿t thĂºc
        handleEndQuiz();
        return;
     }
@@ -212,7 +234,7 @@ export default function TeacherPage({ user }) {
     setQuizState('question');
     setTimer(questionPayload.timeLimit);
     
-    // Bắn sang cho HS
+    // Báº¯n sang cho HS
     channelRef.current.send({
       type: 'broadcast',
       event: 'quiz_question',
@@ -224,8 +246,8 @@ export default function TeacherPage({ user }) {
       setTimer(t => { 
         if (t <= 1) { 
           clearInterval(timerRef.current); 
-          // Hết giờ -> Show kết quả (Bảng xếp hạng local)
-          showResult(qIndex);
+          // Háº¿t giá» -> Show káº¿t quáº£ (Báº£ng xáº¿p háº¡ng local)
+          showResult();
           return 0; 
         } 
         return t - 1; 
@@ -233,7 +255,7 @@ export default function TeacherPage({ user }) {
     }, 1000);
   };
   
-  const showResult = async (qIndex) => {
+  const showResult = async () => {
     const lb = channelRef.current.currentStudents
                  .sort((a,b) => b.score - a.score || b.lastAnswerTime - a.lastAnswerTime);
     setLeaderboard([...lb]);
@@ -273,36 +295,36 @@ export default function TeacherPage({ user }) {
       {/* Sidebar */}
       <aside className="teacher-sidebar">
         <div className="sidebar-logo">
-          <span>🏫</span>
+          <span>đŸ«</span>
           <div>
             <div className="sidebar-name">{user.displayName || user.username}</div>
-            <div className="sidebar-role">Giáo viên</div>
+            <div className="sidebar-role">GiĂ¡o viĂªn</div>
           </div>
         </div>
         <nav className="sidebar-nav">
-          <button className={view === 'dashboard' ? 'active' : ''} onClick={() => setView('dashboard')}>📊 Bảng điều khiển</button>
-          <button className={view === 'create-room' ? 'active' : ''} onClick={() => setView('create-room')}>➕ Tạo phòng Quiz</button>
-          {activeRoom && <button className={view === 'room-live' ? 'active' : ''} onClick={() => setView('room-live')}>🔴 Phòng đang mở</button>}
+          <button className={view === 'dashboard' ? 'active' : ''} onClick={() => setView('dashboard')}>đŸ“ Báº£ng Ä‘iá»u khiá»ƒn</button>
+          <button className={view === 'create-room' ? 'active' : ''} onClick={() => setView('create-room')}>â• Táº¡o phĂ²ng Quiz</button>
+          {activeRoom && <button className={view === 'room-live' ? 'active' : ''} onClick={() => setView('room-live')}>đŸ”´ PhĂ²ng Ä‘ang má»Ÿ</button>}
         </nav>
-        <button className="sidebar-logout" onClick={() => navigate('/')}>← Về trang chủ</button>
+        <button className="sidebar-logout" onClick={() => navigate('/')}>â† Vá» trang chá»§</button>
       </aside>
 
       {/* Main content */}
       <main className="teacher-main">
 
-        {/* ── DASHBOARD ── */}
+        {/* â”€â”€ DASHBOARD â”€â”€ */}
         {view === 'dashboard' && (
           <div className="teacher-dashboard">
-            <h2>📊 Bảng điều khiển</h2>
+            <h2>đŸ“ Báº£ng Ä‘iá»u khiá»ƒn</h2>
             <div className="dash-stats">
-              <div className="stat-card"><span>🏠</span><div><b>{myRooms.length}</b><small>Tổng phòng</small></div></div>
-              <div className="stat-card"><span>▶️</span><div><b>{myRooms.filter(r => r.status === 'playing').length}</b><small>Đang chạy</small></div></div>
-              <div className="stat-card"><span>✅</span><div><b>{myRooms.filter(r => r.status === 'finished').length}</b><small>Đã kết thúc</small></div></div>
+              <div className="stat-card"><span>đŸ </span><div><b>{myRooms.length}</b><small>Tá»•ng phĂ²ng</small></div></div>
+              <div className="stat-card"><span>â–¶ï¸</span><div><b>{myRooms.filter(r => r.status === 'playing').length}</b><small>Äang cháº¡y</small></div></div>
+              <div className="stat-card"><span>âœ…</span><div><b>{myRooms.filter(r => r.status === 'finished').length}</b><small>ÄĂ£ káº¿t thĂºc</small></div></div>
             </div>
 
-            <h3>📋 Phòng gần đây</h3>
+            <h3>đŸ“‹ PhĂ²ng gáº§n Ä‘Ă¢y</h3>
             {myRooms.length === 0 ? (
-              <div className="empty-state">Chưa có phòng nào. <button onClick={() => setView('create-room')}>Tạo ngay →</button></div>
+              <div className="empty-state">ChÆ°a cĂ³ phĂ²ng nĂ o. <button onClick={() => setView('create-room')}>Táº¡o ngay â†’</button></div>
             ) : (
               <div className="rooms-list">
                 {myRooms.map(room => (
@@ -310,9 +332,9 @@ export default function TeacherPage({ user }) {
                     <div className="room-code">#{room.roomCode}</div>
                     <div className="room-info">
                       <b>{room.title}</b>
-                      <small>{room.questionCount} câu · {room.studentCount} học sinh</small>
+                      <small>{room.questionCount} cĂ¢u Â· {room.studentCount} há»c sinh</small>
                     </div>
-                    <div className={`room-status ${room.status}`}>{room.status === 'waiting' ? '⏳ Chờ' : room.status === 'playing' ? '🔴 Live' : '✅ Xong'}</div>
+                    <div className={`room-status ${room.status}`}>{room.status === 'waiting' ? 'â³ Chá»' : room.status === 'playing' ? 'đŸ”´ Live' : 'âœ… Xong'}</div>
                   </div>
                 ))}
               </div>
@@ -320,33 +342,33 @@ export default function TeacherPage({ user }) {
           </div>
         )}
 
-        {/* ── CREATE ROOM ── */}
+        {/* â”€â”€ CREATE ROOM â”€â”€ */}
         {view === 'create-room' && (
           <div className="create-room">
-            <h2>➕ Tạo phòng Quiz mới</h2>
-            {error && <div className="teacher-error">❌ {error}</div>}
+            <h2>â• Táº¡o phĂ²ng Quiz má»›i</h2>
+            {error && <div className="teacher-error">âŒ {error}</div>}
 
             <div className="form-section">
-              <label>Tên phòng Quiz</label>
-              <input value={roomTitle} onChange={e => setRoomTitle(e.target.value)} placeholder="VD: Ôn tập Chương 1 - Tế bào" className="teacher-input" />
+              <label>TĂªn phĂ²ng Quiz</label>
+              <input value={roomTitle} onChange={e => setRoomTitle(e.target.value)} placeholder="VD: Ă”n táº­p ChÆ°Æ¡ng 1 - Táº¿ bĂ o" className="teacher-input" />
             </div>
 
             <div className="upload-section">
-              <h3>📁 Upload file câu hỏi</h3>
+              <h3>đŸ“ Upload file cĂ¢u há»i</h3>
               <div className="upload-format">
                 <p><b>Format file TXT/Word/PDF:</b></p>
-                <pre>{`Q: Câu hỏi của bạn?
-A: Đáp án A
-B: Đáp án B
-C: Đáp án C
-D: Đáp án D
+                <pre>{`Q: CĂ¢u há»i cá»§a báº¡n?
+A: ÄĂ¡p Ă¡n A
+B: ÄĂ¡p Ă¡n B
+C: ÄĂ¡p Ă¡n C
+D: ÄĂ¡p Ă¡n D
 Answer: A
 
-Q: Câu hỏi tiếp theo?
+Q: CĂ¢u há»i tiáº¿p theo?
 ...`}</pre>
               </div>
               <label className="upload-btn">
-                📎 Chọn file (TXT, PDF, DOCX)
+                đŸ“ Chá»n file (TXT, PDF, DOCX)
                 <input type="file" accept=".txt,.pdf,.doc,.docx" onChange={handleFileUpload} hidden />
               </label>
               {uploadStatus && <p className="upload-status">{uploadStatus}</p>}
@@ -354,7 +376,7 @@ Q: Câu hỏi tiếp theo?
 
             {questions.length > 0 && (
               <div className="questions-preview">
-                <h3>📝 Preview {questions.length} câu hỏi</h3>
+                <h3>đŸ“ Preview {questions.length} cĂ¢u há»i</h3>
                 {questions.slice(0, 5).map((q, i) => (
                   <div className="q-preview" key={i}>
                     <b>{i+1}. {q.question}</b>
@@ -365,58 +387,58 @@ Q: Câu hỏi tiếp theo?
                     </div>
                   </div>
                 ))}
-                {questions.length > 5 && <p className="q-more">... và {questions.length - 5} câu nữa</p>}
+                {questions.length > 5 && <p className="q-more">... vĂ  {questions.length - 5} cĂ¢u ná»¯a</p>}
               </div>
             )}
 
             <button className="btn-create-room" onClick={handleCreateRoom} disabled={loading || questions.length === 0}>
-              {loading ? '⏳ Đang tạo...' : `🚀 Tạo phòng (${questions.length} câu)`}
+              {loading ? 'â³ Äang táº¡o...' : `đŸ€ Táº¡o phĂ²ng (${questions.length} cĂ¢u)`}
             </button>
           </div>
         )}
 
-        {/* ── ROOM LIVE ── */}
+        {/* â”€â”€ ROOM LIVE â”€â”€ */}
         {view === 'room-live' && activeRoom && (
           <div className="room-live">
             <div className="room-header">
               <div>
-                <h2>🔴 {activeRoom.title}</h2>
-                <div className="room-code-display">Mã phòng: <strong>{activeRoom.roomCode}</strong></div>
+                <h2>đŸ”´ {activeRoom.title}</h2>
+                <div className="room-code-display">MĂ£ phĂ²ng: <strong>{activeRoom.roomCode}</strong></div>
               </div>
               <div className="room-qr">
-                <div className="qr-placeholder">📱 Học sinh nhập mã: <b>{activeRoom.roomCode}</b></div>
+                <div className="qr-placeholder">đŸ“± Há»c sinh nháº­p mĂ£: <b>{activeRoom.roomCode}</b></div>
               </div>
             </div>
 
             {/* Student list */}
             <div className="students-joined">
-              <h3>👥 Học sinh đã vào ({students.length})</h3>
+              <h3>đŸ‘¥ Há»c sinh Ä‘Ă£ vĂ o ({students.length})</h3>
               <div className="student-chips">
                 {students.map(s => (
                   <div className="student-chip" key={s.studentId}>
-                    <span>{s.studentAvatar || '🐸'}</span> {s.studentName}
+                    <span>{s.studentAvatar || 'đŸ¸'}</span> {s.studentName}
                   </div>
                 ))}
-                {students.length === 0 && <p className="empty-students">Chờ học sinh vào phòng...</p>}
+                {students.length === 0 && <p className="empty-students">Chá» há»c sinh vĂ o phĂ²ng...</p>}
               </div>
             </div>
 
             {/* Controls */}
             {quizState === 'waiting' && (
               <button className="btn-start-quiz" onClick={handleStartQuiz} disabled={students.length === 0}>
-                ▶ Bắt đầu Quiz {students.length > 0 ? `(${students.length} người)` : '(Chờ học sinh)'}
+                â–¶ Báº¯t Ä‘áº§u Quiz {students.length > 0 ? `(${students.length} ngÆ°á»i)` : '(Chá» há»c sinh)'}
               </button>
             )}
 
             {quizState === 'question' && currentQ && (
               <div className="live-question">
-                <div className="q-progress">Câu {currentQ.questionIndex + 1}/{currentQ.totalQuestions}</div>
+                <div className="q-progress">CĂ¢u {currentQ.questionIndex + 1}/{currentQ.totalQuestions}</div>
                 <div className="q-timer" style={{ '--pct': `${(timer / currentQ.timeLimit) * 100}%` }}>{timer}s</div>
                 <div className="q-text">{currentQ.question}</div>
                 <div className="q-options-grid">
                   {currentQ.options.map((opt, i) => (
                     <div className="q-option-box" key={i} style={{ background: ['#e74c3c','#3498db','#2ecc71','#f39c12'][i] }}>
-                      <span>{['▲','◆','●','■'][i]}</span> {opt}
+                      <span>{['â–²','â—†','â—','â– '][i]}</span> {opt}
                     </div>
                   ))}
                 </div>
@@ -425,7 +447,7 @@ Q: Câu hỏi tiếp theo?
 
             {quizState === 'result' && (
               <div className="live-result">
-                <h3>📊 Sau câu hỏi này</h3>
+                <h3>đŸ“ Sau cĂ¢u há»i nĂ y</h3>
                 <div className="leaderboard">
                   {leaderboard.slice(0, 5).map((s, i) => (
                     <div className="lb-row" key={s.studentId}>
@@ -435,18 +457,18 @@ Q: Câu hỏi tiếp theo?
                     </div>
                   ))}
                 </div>
-                <button className="btn-next-q" onClick={handleNextQuestion}>▶ Câu tiếp theo</button>
+                <button className="btn-next-q" onClick={handleNextQuestion}>â–¶ CĂ¢u tiáº¿p theo</button>
               </div>
             )}
 
             {quizState === 'ended' && (
               <div className="quiz-ended">
-                <h2>🏆 Quiz kết thúc!</h2>
+                <h2>đŸ† Quiz káº¿t thĂºc!</h2>
                 <div className="final-leaderboard">
                   {leaderboard.map((s, i) => (
                     <div className="lb-row final" key={s.studentId}>
                       <span className="lb-rank" style={{ color: medalColors[i] || '#aaa', fontSize: i < 3 ? '24px' : '18px' }}>
-                        {i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i+1}.`}
+                        {i === 0 ? 'đŸ¥‡' : i === 1 ? 'đŸ¥ˆ' : i === 2 ? 'đŸ¥‰' : `${i+1}.`}
                       </span>
                       <span className="lb-name">{s.studentName}</span>
                       <span className="lb-score">{s.score} pts</span>
@@ -454,7 +476,7 @@ Q: Câu hỏi tiếp theo?
                   ))}
                 </div>
                 <button className="btn-new-room" onClick={() => { setView('create-room'); setActiveRoom(null); setQuizState('waiting'); }}>
-                  ➕ Tạo phòng mới
+                  â• Táº¡o phĂ²ng má»›i
                 </button>
               </div>
             )}

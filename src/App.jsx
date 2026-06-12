@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import GalaxyBackground from './components/GalaxyBackground';
+import { ToastProvider } from './components/Toast';
 import { supabase } from './lib/supabase';
 // Pages
 import LoginPage from './pages/LoginPage';
@@ -17,6 +18,7 @@ import ProfilePage from './pages/ProfilePage';
 import AdminPage from './pages/AdminPage';
 import AdminUsersPage from './pages/AdminUsersPage';
 import AdminLogsPage from './pages/AdminLogsPage';
+import AdminReportsPage from './pages/AdminReportsPage';
 import MorePage from './pages/MorePage';
 import BattlePage from './pages/BattlePage';
 import BattlePvPPage from './pages/BattlePvPPage';
@@ -43,6 +45,14 @@ const getDefaultRouteForUser = (currentUser) => {
   if (currentUser.role === 'admin') return '/admin';
   if (currentUser.role === 'teacher') return '/teacher';
   return '/home';
+};
+
+const ChatboxManager = ({ user }) => {
+  const location = useLocation();
+  if (user && location.pathname === '/home') {
+    return <ChatboxAI user={user} />;
+  }
+  return null;
 };
 
 function App() {
@@ -142,6 +152,13 @@ function App() {
         // Đợi một chút để trigger SQL chạy nếu là tài khoản mới
         await new Promise(resolve => setTimeout(resolve, 800));
 
+        // Tự động kiểm tra và reset nhiệm vụ ngày/tuần mới
+        try {
+          await supabase.rpc('check_and_reset_missions', { p_user_id: sessionUser.id });
+        } catch (e) {
+          console.error("Error resetting missions:", e);
+        }
+
         // Lấy toàn bộ thông tin profile
         const { data: profile, error } = await supabase
           .from('profiles')
@@ -156,6 +173,29 @@ function App() {
             setLoading(false);
           }
           return;
+        }
+
+        if (profile?.is_locked) {
+          if (mounted) {
+            setLockNotice({
+              reason: profile.lock_reason || DEFAULT_LOCK_REASON,
+              lockedAt: profile.locked_at || null
+            });
+            const mergedUser = {
+              ...sessionUser,
+              ...profile,
+              uid: sessionUser.id,
+              displayName: profile?.display_name || sessionUser.user_metadata?.full_name || sessionUser.email,
+              avatar: profile?.avatar_url || sessionUser.user_metadata?.avatar_url || '',
+            };
+            setUser(mergedUser);
+            setLoading(false);
+          }
+          return;
+        } else {
+          if (mounted) {
+            setLockNotice(null);
+          }
         }
 
         // --- HỆ THỐNG TỰ HỒI THỂ LỰC (5 phút / 1 điểm) ---
@@ -197,7 +237,7 @@ function App() {
             avatar_url: profile?.avatar_url || sessionUser.user_metadata?.avatar_url || 'adventurer-1',
             coins: profile?.coins || 0,
             xp: profile?.xp || 0,
-            level: Math.floor((profile?.total_score || 0) / 1000) + 1,
+            level: Math.max(profile?.level || 1, Math.floor((profile?.total_score || 0) / 1000) + 1),
             totalScore: profile?.total_score || 0,
             total_score: profile?.total_score || 0,
             weeklyScore: profile?.weekly_score || 0,
@@ -285,6 +325,8 @@ function App() {
   const refreshUserStats = async () => {
     if (user?.id) {
       try {
+        await supabase.rpc('check_and_reset_missions', { p_user_id: user.id });
+
         const { data, error } = await supabase
           .from('profiles')
           .select('*')
@@ -292,6 +334,16 @@ function App() {
           .single();
           
         if (!error && data) {
+          if (data.is_locked) {
+            setLockNotice({
+              reason: data.lock_reason || DEFAULT_LOCK_REASON,
+              lockedAt: data.locked_at || null
+            });
+            return;
+          } else {
+            setLockNotice(null);
+          }
+
           // --- HỆ THỐNG TỰ HỒI THỂ LỰC (5 phút / 1 điểm) ---
           let currentStamina = data.stamina ?? 20;
           const maxStamina = data.max_stamina ?? 20;
@@ -312,7 +364,7 @@ function App() {
             avatar_url: data.avatar_url || 'adventurer-1',
             coins: data.coins || 0,
             xp: data.xp || 0,
-            level: Math.floor((data.total_score || 0) / 1000) + 1,
+            level: Math.max(data?.level || 1, Math.floor((data?.total_score || 0) / 1000) + 1),
             totalScore: data.total_score || 0,
             total_score: data.total_score || 0,
             weeklyScore: data.weekly_score || 0,
@@ -401,145 +453,153 @@ function App() {
   }
 
   const BackgroundManager = () => {
-    const location = useLocation();
-    const isAdminPath = location.pathname.startsWith('/admin');
-    
-    return !isAdminPath ? <GalaxyBackground /> : null;
+    return <GalaxyBackground />;
   };
 
   return (
-    <AuthContext.Provider value={authValue}>
-      <Router>
-        <div className="min-h-screen relative">
-          <BackgroundManager />
-          {user && lockNotice ? (
-            <div className="min-h-screen flex items-center justify-center px-4">
-              <div className="w-full max-w-2xl rounded-2xl border border-red-400/40 bg-red-900/70 backdrop-blur-md p-6 md:p-8 text-center">
-                <h1 className="text-2xl md:text-3xl font-bold text-red-100 mb-2">Tài khoản của bạn đã bị khóa</h1>
-                <p className="text-red-100/90 mb-4">Hệ thống phát hiện hành vi bất thường và đã chặn truy cập tài khoản.</p>
+    <ToastProvider>
+      <AuthContext.Provider value={authValue}>
+        <Router>
+          <div className="min-h-screen relative">
+            <BackgroundManager />
+            {user && lockNotice ? (
+              <div className="min-h-screen flex items-center justify-center px-4">
+                <div className="w-full max-w-2xl rounded-2xl border border-red-400/40 bg-red-900/70 backdrop-blur-md p-6 md:p-8 text-center">
+                  <h1 className="text-2xl md:text-3xl font-bold text-red-100 mb-2">Tài khoản của bạn đã bị khóa</h1>
+                  <p className="text-red-100/90 mb-4">Hệ thống phát hiện hành vi bất thường và đã chặn truy cập tài khoản.</p>
 
-                <div className="text-left bg-black/20 border border-white/10 rounded-xl p-4 mb-6">
-                  <p className="text-red-100 text-sm mb-2"><span className="font-semibold">Lý do:</span> {lockNotice.reason}</p>
-                  <p className="text-red-100 text-sm"><span className="font-semibold">Thời gian khóa:</span> {formatDateTime(lockNotice.lockedAt)}</p>
+                  <div className="text-left bg-black/20 border border-white/10 rounded-xl p-4 mb-6 space-y-2">
+                    <p className="text-red-100 text-sm"><span className="font-semibold text-red-200">Lý do khóa:</span> {lockNotice.reason}</p>
+                    <p className="text-red-100 text-sm"><span className="font-semibold text-red-200">Thời gian khóa:</span> {formatDateTime(lockNotice.lockedAt)}</p>
+                    <div className="pt-2 border-t border-white/10 mt-2">
+                      <p className="text-red-200 text-xs leading-relaxed font-semibold">
+                        ⚠️ Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ số tổng đài hỗ trợ: <span className="text-yellow-300 font-bold underline">1900 8888</span> hoặc gửi email đến <span className="text-yellow-300 font-bold underline">support@biolearn.vn</span> để được hỗ trợ mở khóa.
+                      </p>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={handleLockedLogout}
+                    className="px-6 py-3 rounded-xl bg-white text-red-700 font-semibold hover:bg-red-100 transition shadow-lg active:scale-95"
+                  >
+                    Về đăng nhập
+                  </button>
                 </div>
-
-                <button
-                  onClick={handleLockedLogout}
-                  className="px-6 py-3 rounded-xl bg-white text-red-700 font-semibold hover:bg-red-100 transition"
-                >
-                  Về đăng nhập
-                </button>
               </div>
-            </div>
-          ) : (
-            <>
-              <Routes>
-                {/* Public routes */}
-                <Route 
-                  path="/login" 
-                  element={
-                    user
-                      ? <Navigate to={getDefaultRouteForUser(user)} replace />
-                      : <LoginPage onLogin={(u, token) => { if (token) localStorage.setItem('token', token); setUser(u); }} />
-                  }
-                />
-                <Route 
-                  path="/register" 
-                  element={user ? <Navigate to={getDefaultRouteForUser(user)} replace /> : <RegisterPage />} 
-                />
+            ) : (
+              <>
+                <Routes>
+                  {/* Public routes */}
+                  <Route 
+                    path="/login" 
+                    element={
+                      user
+                        ? <Navigate to={getDefaultRouteForUser(user)} replace />
+                        : <LoginPage onLogin={(u, token) => { if (token) localStorage.setItem('token', token); setUser(u); }} />
+                    }
+                  />
+                  <Route 
+                    path="/register" 
+                    element={user ? <Navigate to={getDefaultRouteForUser(user)} replace /> : <RegisterPage />} 
+                  />
 
-                {/* Protected routes */}
-                <Route 
-                  path="/home" 
-                  element={renderStudentOnly(<HomePage />)} 
-                />
-                <Route 
-                  path="/class-select" 
-                  element={renderStudentOnly(<ClassSelectPage />)} 
-                />
-                <Route 
-                  path="/map/:classId" 
-                  element={renderStudentOnly(<MapPage />)} 
-                />
-                <Route 
-                  path="/play/:classId/:chapterId/:lessonId" 
-                  element={renderStudentOnly(<GamePlayPage />)} 
-                />
-                <Route 
-                  path="/minigame/:classId" 
-                  element={renderStudentOnly(<MiniGamePage />)} 
-                />
-                <Route 
-                  path="/boss/:classId/:chapterId/:lessonId" 
-                  element={renderStudentOnly(<BossBattlePage />)} 
-                />
-                <Route 
-                  path="/leaderboard" 
-                  element={renderStudentOnly(<LeaderboardPage />)} 
-                />
-                <Route 
-                  path="/missions" 
-                  element={renderStudentOnly(<MissionPage />)} 
-                />
-                <Route 
-                  path="/profile" 
-                  element={renderStudentOnly(<ProfilePage />)} 
-                />
-                <Route 
-                  path="/admin" 
-                  element={renderAdminOnly(<AdminPage user={user} />)} 
-                />
-                <Route 
-                  path="/admin/users" 
-                  element={renderAdminOnly(<AdminUsersPage user={user} />)} 
-                />
-                <Route 
-                  path="/admin/logs" 
-                  element={renderAdminOnly(<AdminLogsPage user={user} />)} 
-                />
-                <Route 
-                  path="/admin/lessons" 
-                  element={renderAdminOnly(<MorePage />)} 
-                />
-                <Route 
-                  path="/teacher" 
-                  element={renderTeacherOnly(<TeacherPage user={user} />)} 
-                />
-                <Route 
-                  path="/quiz-room" 
-                  element={renderStudentOnly(<StudentQuizRoomPage />)} 
-                />
-                <Route 
-                  path="/more" 
-                  element={renderStudentOnly(<MorePage />)} 
-                />
-                <Route 
-                  path="/battle" 
-                  element={renderStudentOnly(<BattlePage />)} 
-                />
-                <Route 
-                  path="/battle-pvp" 
-                  element={renderStudentOnly(<BattlePvPPage />)} 
-                />
-                <Route 
-                  path="/simulations" 
-                  element={renderStudentOnly(<SimulationsPage />)} 
-                />
-                <Route 
-                  path="/biology3d" 
-                  element={renderStudentOnly(<Biology3DPage />)} 
-                />
+                  {/* Protected routes */}
+                  <Route 
+                    path="/home" 
+                    element={renderStudentOnly(<HomePage />)} 
+                  />
+                  <Route 
+                    path="/class-select" 
+                    element={renderStudentOnly(<ClassSelectPage />)} 
+                  />
+                  <Route 
+                    path="/map/:classId" 
+                    element={renderStudentOnly(<MapPage />)} 
+                  />
+                  <Route 
+                    path="/play/:classId/:chapterId/:lessonId" 
+                    element={renderStudentOnly(<GamePlayPage />)} 
+                  />
+                  <Route 
+                    path="/minigame/:classId" 
+                    element={renderStudentOnly(<MiniGamePage />)} 
+                  />
+                  <Route 
+                    path="/boss/:classId/:chapterId/:lessonId" 
+                    element={renderStudentOnly(<BossBattlePage />)} 
+                  />
+                  <Route 
+                    path="/leaderboard" 
+                    element={renderStudentOnly(<LeaderboardPage />)} 
+                  />
+                  <Route 
+                    path="/missions" 
+                    element={renderStudentOnly(<MissionPage />)} 
+                  />
+                  <Route 
+                    path="/profile" 
+                    element={renderStudentOnly(<ProfilePage />)} 
+                  />
+                  <Route 
+                    path="/admin" 
+                    element={renderAdminOnly(<AdminPage user={user} />)} 
+                  />
+                  <Route 
+                    path="/admin/users" 
+                    element={renderAdminOnly(<AdminUsersPage user={user} />)} 
+                  />
+                  <Route 
+                    path="/admin/logs" 
+                    element={renderAdminOnly(<AdminLogsPage user={user} />)} 
+                  />
+                  <Route 
+                    path="/admin/reports" 
+                    element={renderAdminOnly(<AdminReportsPage />)} 
+                  />
+                  <Route 
+                    path="/admin/lessons" 
+                    element={renderAdminOnly(<MorePage />)} 
+                  />
+                  <Route 
+                    path="/teacher" 
+                    element={renderTeacherOnly(<TeacherPage user={user} />)} 
+                  />
+                  <Route 
+                    path="/quiz-room" 
+                    element={renderStudentOnly(<StudentQuizRoomPage />)} 
+                  />
+                  <Route 
+                    path="/more" 
+                    element={renderStudentOnly(<MorePage />)} 
+                  />
+                  <Route 
+                    path="/battle" 
+                    element={renderStudentOnly(<BattlePage />)} 
+                  />
+                  <Route 
+                    path="/battle-pvp" 
+                    element={renderStudentOnly(<BattlePvPPage />)} 
+                  />
+                  <Route 
+                    path="/simulations" 
+                    element={renderStudentOnly(<SimulationsPage />)} 
+                  />
+                  <Route 
+                    path="/biology3d" 
+                    element={renderStudentOnly(<Biology3DPage />)} 
+                  />
 
-                {/* Default redirect */}
-                <Route path="/" element={<LandingPage />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </Routes>
-              {user && <ChatboxAI user={user} />}
-            </>
-          )}
-        </div>
-      </Router>
-    </AuthContext.Provider>
+                  {/* Default redirect */}
+                  <Route path="/" element={<LandingPage />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+                <ChatboxManager user={user} />
+              </>
+            )}
+          </div>
+        </Router>
+      </AuthContext.Provider>
+    </ToastProvider>
   );
 }
 

@@ -54,3 +54,49 @@ export const useWeeklyCountdown = () => {
 
   return timeLeft;
 };
+
+/**
+ * Hook to calculate time until the next midnight (00:00 AM of the next day)
+ */
+export const useDailyCountdown = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    totalSeconds: 0
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setDate(now.getDate() + 1);
+      tomorrow.setHours(0, 0, 0, 0);
+
+      const diff = tomorrow.getTime() - now.getTime();
+      const totalSeconds = Math.floor(diff / 1000);
+
+      if (totalSeconds <= 0) {
+        return { hours: 0, minutes: 0, seconds: 0, totalSeconds: 0 };
+      }
+
+      return {
+        hours: Math.floor(totalSeconds / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60,
+        totalSeconds
+      };
+    };
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    setTimeLeft(calculateTimeLeft());
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return timeLeft;
+};
+

@@ -6,7 +6,7 @@ import {
   Star, Flame, Calendar, Trophy, Coins, Lock, Gamepad2, Timer, BookOpen
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { useWeeklyCountdown } from '../hooks/useCountdown';
+import { useWeeklyCountdown, useDailyCountdown } from '../hooks/useCountdown';
 import BurningFlame from '../components/BurningFlame';
 
 export default function MissionPage() {
@@ -211,9 +211,9 @@ export default function MissionPage() {
   };
 
   // Calculate time until reset (Use the new hook)
-  const timeLeft = useWeeklyCountdown();
-  const formatWeeklyTime = () => {
-    return `${timeLeft.days}n ${timeLeft.hours}g ${timeLeft.minutes}p`;
+  const dailyTimeLeft = useDailyCountdown();
+  const formatDailyTime = () => {
+    return `${dailyTimeLeft.hours}g ${dailyTimeLeft.minutes}p ${dailyTimeLeft.seconds}s`;
   };
 
   const completedDaily = dailyMissions.filter(m => m.completed).length;
@@ -270,7 +270,7 @@ export default function MissionPage() {
                 <h2 className="text-xl font-bold text-white">Nhiệm vụ hàng ngày</h2>
                 <p className="text-orange-300 flex items-center gap-1">
                   <Clock className="w-3 h-3" />
-                  Mới sau: <span className="font-mono font-bold text-white">{formatWeeklyTime()}</span>
+                  Mới sau: <span className="font-mono font-bold text-white">{formatDailyTime()}</span>
                 </p>
               </div>
             </div>

@@ -401,6 +401,7 @@ export default function BossBattlePage() {
           coins: newCoins,
           xp: newXp,
           total_score: newXp,
+          level: Math.max(userStats?.level || 1, Math.floor(newXp / 1000) + 1),
           bosses_defeated: newBossesDefeated,
           class_progress: {
             ...userStats?.class_progress,

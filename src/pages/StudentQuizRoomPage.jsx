@@ -157,6 +157,9 @@ export default function StudentQuizRoomPage() {
       .on('broadcast', { event: 'quiz_started' }, () => {
         setPhase('waiting');
       })
+      .on('broadcast', { event: 'student_list' }, ({ payload }) => {
+        setPlayers(Array.isArray(payload?.students) ? payload.students : []);
+      })
       .on('broadcast', { event: 'quiz_question' }, ({ payload }) => {
         setQuestion(payload);
         setPhase('question');

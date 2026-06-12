@@ -201,9 +201,7 @@ function GameCard({ game, onPlay }) {
 function GamePlayer({ game, onClose, onComplete }) {
   const [key, setKey] = useState(0);
   const voyageMusicRef = useRef(null);
-  let authCtx;
-  try { authCtx = useAuth(); } catch { authCtx = {}; }
-  const { pauseBgMusic, resumeBgMusic } = authCtx;
+  const { pauseBgMusic, resumeBgMusic } = useAuth();
 
   useEffect(() => {
     // Pause bg music & play voyage music

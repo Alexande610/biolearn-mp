@@ -7,29 +7,29 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
-// 14 hình ảnh cho 7 lớp (mỗi lớp 2 hình) - tạo 14 cặp = 28 thẻ
+// 14 hÄ‚Â¬nh Ă¡ÂºÂ£nh cho 7 lĂ¡Â»â€ºp (mĂ¡Â»â€”i lĂ¡Â»â€ºp 2 hÄ‚Â¬nh) - tĂ¡ÂºÂ¡o 14 cĂ¡ÂºÂ·p = 28 thĂ¡ÂºÂ»
 const BIOLOGY_IMAGES = [
-  { id: 'c6_1', emoji: '🔬', name: 'Tế bào' },
-  { id: 'c6_2', emoji: '🦠', name: 'Vi sinh vật' },
-  { id: 'c7_1', emoji: '☀️', name: 'Quang hợp' },
-  { id: 'c7_2', emoji: '💨', name: 'Hô hấp' },
-  { id: 'c8_1', emoji: '❤️', name: 'Tim mạch' },
-  { id: 'c8_2', emoji: '🧠', name: 'Thần kinh' },
-  { id: 'c9_1', emoji: '🧬', name: 'ADN' },
-  { id: 'c9_2', emoji: '🔗', name: 'NST' },
-  { id: 'c10_1', emoji: '⚡', name: 'Ti thể' },
-  { id: 'c10_2', emoji: '🟢', name: 'Lục lạp' },
-  { id: 'c11_1', emoji: '🌿', name: 'Sinh lý' },
-  { id: 'c11_2', emoji: '💧', name: 'Thoát nước' },
-  { id: 'c12_1', emoji: '🧪', name: 'Gen' },
-  { id: 'c12_2', emoji: '🧫', name: 'Đột biến' },
+  { id: 'c6_1', emoji: 'Ä‘Å¸â€Â¬', name: 'TĂ¡ÂºÂ¿ bÄ‚Â o' },
+  { id: 'c6_2', emoji: 'Ä‘Å¸Â¦Â ', name: 'Vi sinh vĂ¡ÂºÂ­t' },
+  { id: 'c7_1', emoji: 'Ă¢Ëœâ‚¬Ă¯Â¸Â', name: 'Quang hĂ¡Â»Â£p' },
+  { id: 'c7_2', emoji: 'Ä‘Å¸â€™Â¨', name: 'HÄ‚Â´ hĂ¡ÂºÂ¥p' },
+  { id: 'c8_1', emoji: 'Ă¢ÂÂ¤Ă¯Â¸Â', name: 'Tim mĂ¡ÂºÂ¡ch' },
+  { id: 'c8_2', emoji: 'Ä‘Å¸Â§Â ', name: 'ThĂ¡ÂºÂ§n kinh' },
+  { id: 'c9_1', emoji: 'Ä‘Å¸Â§Â¬', name: 'ADN' },
+  { id: 'c9_2', emoji: 'Ä‘Å¸â€â€”', name: 'NST' },
+  { id: 'c10_1', emoji: 'Ă¢ÂÂ¡', name: 'Ti thĂ¡Â»Æ’' },
+  { id: 'c10_2', emoji: 'Ä‘Å¸Å¸Â¢', name: 'LĂ¡Â»Â¥c lĂ¡ÂºÂ¡p' },
+  { id: 'c11_1', emoji: 'Ä‘Å¸Å’Â¿', name: 'Sinh lÄ‚Â½' },
+  { id: 'c11_2', emoji: 'Ä‘Å¸â€™Â§', name: 'ThoÄ‚Â¡t nĂ†Â°Ă¡Â»â€ºc' },
+  { id: 'c12_1', emoji: 'Ä‘Å¸Â§Âª', name: 'Gen' },
+  { id: 'c12_2', emoji: 'Ä‘Å¸Â§Â«', name: 'Ă„ÂĂ¡Â»â„¢t biĂ¡ÂºÂ¿n' },
 ];
 
-// Tạo 28 thẻ từ 14 hình (mỗi hình tạo 2 thẻ giống nhau)
+// TĂ¡ÂºÂ¡o 28 thĂ¡ÂºÂ» tĂ¡Â»Â« 14 hÄ‚Â¬nh (mĂ¡Â»â€”i hÄ‚Â¬nh tĂ¡ÂºÂ¡o 2 thĂ¡ÂºÂ» giĂ¡Â»â€˜ng nhau)
 function createCards() {
   const cards = [];
   BIOLOGY_IMAGES.forEach((img) => {
-    // Tạo 2 thẻ cho mỗi hình
+    // TĂ¡ÂºÂ¡o 2 thĂ¡ÂºÂ» cho mĂ¡Â»â€”i hÄ‚Â¬nh
     cards.push({
       id: `${img.id}-a`,
       pairId: img.id,
@@ -52,8 +52,8 @@ export default function MiniGamePage() {
   const { user, updateStats } = useAuth();
 
   const [cards, setCards] = useState([]);
-  const [flipped, setFlipped] = useState([]); // IDs của thẻ đang lật
-  const [matched, setMatched] = useState([]); // pairIds đã ghép đúng
+  const [flipped, setFlipped] = useState([]); // IDs cĂ¡Â»Â§a thĂ¡ÂºÂ» Ă„â€˜ang lĂ¡ÂºÂ­t
+  const [matched, setMatched] = useState([]); // pairIds Ă„â€˜Ä‚Â£ ghÄ‚Â©p Ă„â€˜Ä‚Âºng
   const [moves, setMoves] = useState(0);
   const [timeLeft, setTimeLeft] = useState(300);
   const [gameStarted, setGameStarted] = useState(false);
@@ -65,12 +65,6 @@ export default function MiniGamePage() {
   const [showExit, setShowExit] = useState(false);
   const [animatingSwap, setAnimatingSwap] = useState(null);
   const cardRefs = useRef([]);
-
-  // Khởi tạo game
-  useEffect(() => {
-    startNewGame();
-    checkPlaysLeft();
-  }, []);
 
   const startNewGame = () => {
     setCards(createCards());
@@ -97,13 +91,13 @@ export default function MiniGamePage() {
         .single();
         
       if (!error && data) {
-        // Kiểm tra xem đã qua ngày mới chưa
+        // KiĂ¡Â»Æ’m tra xem Ă„â€˜Ä‚Â£ qua ngÄ‚Â y mĂ¡Â»â€ºi chĂ†Â°a
         const today = new Date().toDateString();
         const lastActive = data.last_active_at ? new Date(data.last_active_at).toDateString() : '';
         
         let claimsToday = data.mini_game_claims_today || 0;
         if (today !== lastActive) {
-          claimsToday = 0; // Reset ngày mới
+          claimsToday = 0; // Reset ngÄ‚Â y mĂ¡Â»â€ºi
         }
         
         setPlaysLeft(Math.max(0, 2 - claimsToday));
@@ -113,6 +107,12 @@ export default function MiniGamePage() {
       console.error(err);
     }
   };
+
+  // Khởi tạo game
+  useEffect(() => {
+    startNewGame();
+    checkPlaysLeft();
+  }, []);
 
   // Timer
   useEffect(() => {
@@ -131,7 +131,7 @@ export default function MiniGamePage() {
 
   const formatTime = (s) => `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
 
-  // Click thẻ
+  // Click thĂ¡ÂºÂ»
   const handleClick = (card) => {
     if (isChecking || animatingSwap) return;
     if (flipped.includes(card.id)) return;
@@ -151,7 +151,7 @@ export default function MiniGamePage() {
       const second = cards.find(c => c.id === newFlipped[1]);
 
       if (first.pairId === second.pairId) {
-        // Đúng cặp
+        // Ă„ÂÄ‚Âºng cĂ¡ÂºÂ·p
         setTimeout(() => {
           setMatched(m => [...m, first.pairId]);
           setFlipped([]);
@@ -161,10 +161,10 @@ export default function MiniGamePage() {
           }
         }, 600);
       } else {
-        // Sai - hoán đổi vị trí 2 thẻ
+        // Sai - hoÄ‚Â¡n Ă„â€˜Ă¡Â»â€¢i vĂ¡Â»â€¹ trÄ‚Â­ 2 thĂ¡ÂºÂ»
         setTimeout(() => {
           setFlipped([]);
-          // Chờ thẻ úp xuống xong rồi mới tráo đổi
+          // ChĂ¡Â»Â thĂ¡ÂºÂ» Ä‚Âºp xuĂ¡Â»â€˜ng xong rĂ¡Â»â€œi mĂ¡Â»â€ºi trÄ‚Â¡o Ă„â€˜Ă¡Â»â€¢i
           setTimeout(() => {
             swapCards(first, second);
           }, 300);
@@ -173,12 +173,12 @@ export default function MiniGamePage() {
     }
   };
 
-  // Hoán đổi 2 thẻ sai với animation
+  // HoÄ‚Â¡n Ă„â€˜Ă¡Â»â€¢i 2 thĂ¡ÂºÂ» sai vĂ¡Â»â€ºi animation
   const swapCards = (card1, card2) => {
     const idx1 = cards.findIndex(c => c.id === card1.id);
     const idx2 = cards.findIndex(c => c.id === card2.id);
     
-    // Tính toán khoảng cách để CSS Translate di chuyển thẻ
+    // TÄ‚Â­nh toÄ‚Â¡n khoĂ¡ÂºÂ£ng cÄ‚Â¡ch Ă„â€˜Ă¡Â»Æ’ CSS Translate di chuyĂ¡Â»Æ’n thĂ¡ÂºÂ»
     const el1 = cardRefs.current[idx1];
     const el2 = cardRefs.current[idx2];
     
@@ -206,7 +206,7 @@ export default function MiniGamePage() {
       });
       setAnimatingSwap(null);
       setIsChecking(false);
-    }, 600); // 600ms = thời gian thẻ "bay"
+    }, 600); // 600ms = thĂ¡Â»Âi gian thĂ¡ÂºÂ» "bay"
   };
 
   const handleWin = async () => {
@@ -217,7 +217,7 @@ export default function MiniGamePage() {
 
       const { data: profile } = await supabase
         .from('profiles')
-        .select('energy, mini_game_claims_today, last_active_at')
+        .select('stamina, max_stamina, energy, mini_game_claims_today, last_active_at')
         .eq('id', userId)
         .single();
 
@@ -230,12 +230,15 @@ export default function MiniGamePage() {
       }
 
       if (claimsToday < 2) {
-        const newEnergy = (profile?.energy || 0) + 10;
+        const currentStamina = profile?.stamina ?? profile?.energy ?? 0;
+        const maxStamina = profile?.max_stamina ?? 20;
+        const newEnergy = Math.min(maxStamina, currentStamina + 10);
         const newClaims = claimsToday + 1;
 
         await supabase
           .from('profiles')
           .update({
+            stamina: newEnergy,
             energy: newEnergy,
             mini_game_claims_today: newClaims,
             last_active_at: new Date().toISOString()
@@ -254,7 +257,7 @@ export default function MiniGamePage() {
   const isFlipped = (card) => flipped.includes(card.id) || matched.includes(card.pairId);
   const isMatched = (card) => matched.includes(card.pairId);
 
-  // Không còn lượt
+  // KhÄ‚Â´ng cÄ‚Â²n lĂ†Â°Ă¡Â»Â£t
   if (!canPlay) {
     return (
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-900 to-indigo-900">
@@ -268,10 +271,10 @@ export default function MiniGamePage() {
         <main className="flex-1 flex items-center justify-center p-4">
           <div className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center max-w-sm">
             <Clock className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h2 className="text-xl font-bold text-white mb-2">Hết lượt chơi!</h2>
-            <p className="text-gray-300 mb-4">Bạn đã chơi đủ 2 lượt hôm nay</p>
+            <h2 className="text-xl font-bold text-white mb-2">HĂ¡ÂºÂ¿t lĂ†Â°Ă¡Â»Â£t chĂ†Â¡i!</h2>
+            <p className="text-gray-300 mb-4">BĂ¡ÂºÂ¡n Ă„â€˜Ä‚Â£ chĂ†Â¡i Ă„â€˜Ă¡Â»Â§ 2 lĂ†Â°Ă¡Â»Â£t hÄ‚Â´m nay</p>
             <button onClick={() => navigate('/home')} className="w-full py-3 bg-purple-500 rounded-xl text-white font-semibold">
-              Về trang chủ
+              VĂ¡Â»Â trang chĂ¡Â»Â§
             </button>
           </div>
         </main>
@@ -303,7 +306,7 @@ export default function MiniGamePage() {
             <Clock className={`w-4 h-4 ${timeLeft <= 60 ? 'text-red-400' : 'text-white'}`} />
             <span className={`font-mono ${timeLeft <= 60 ? 'text-red-400' : 'text-white'}`}>{formatTime(timeLeft)}</span>
           </div>
-          <div className="text-white">Lượt: <b>{moves}</b></div>
+          <div className="text-white">LĂ†Â°Ă¡Â»Â£t: <b>{moves}</b></div>
           <div className="flex items-center gap-1">
             <Trophy className="w-4 h-4 text-yellow-400" />
             <span className="text-white font-bold">{matched.length}/14</span>
@@ -318,14 +321,14 @@ export default function MiniGamePage() {
           <div className="bg-green-500/30 border border-green-500 rounded-xl p-2 mb-3 text-center text-sm">
             <Leaf className="w-4 h-4 inline mr-1 text-green-400" />
             <span className="text-green-300 leading-relaxed">
-              Hoàn thành để nhận +10 năng lượng! 
-              <span className="hidden sm:inline"> • </span>
+              HoÄ‚Â n thÄ‚Â nh Ă„â€˜Ă¡Â»Æ’ nhĂ¡ÂºÂ­n +10 nĂ„Æ’ng lĂ†Â°Ă¡Â»Â£ng! 
+              <span className="hidden sm:inline"> Ă¢â‚¬Â¢ </span>
               <br className="sm:hidden" />
-              <strong className="text-yellow-300">⚠ Chú ý: Lật sai 2 thẻ sẽ bị bay tráo đổi vị trí!</strong>
+              <strong className="text-yellow-300">Ă¢ÂÂ  ChÄ‚Âº Ä‚Â½: LĂ¡ÂºÂ­t sai 2 thĂ¡ÂºÂ» sĂ¡ÂºÂ½ bĂ¡Â»â€¹ bay trÄ‚Â¡o Ă„â€˜Ă¡Â»â€¢i vĂ¡Â»â€¹ trÄ‚Â­!</strong>
             </span>
           </div>
 
-          {/* Grid 7x4 = 28 thẻ */}
+          {/* Grid 7x4 = 28 thĂ¡ÂºÂ» */}
           <div className="grid grid-cols-7 gap-1.5">
             {cards.map((card, idx) => {
               const flippedState = isFlipped(card);
@@ -372,15 +375,15 @@ export default function MiniGamePage() {
                       transform: flippedState ? 'rotateY(180deg)' : 'rotateY(0deg)'
                     }}
                   >
-                    {/* Mặt sau (úp) */}
+                    {/* MĂ¡ÂºÂ·t sau (Ä‚Âºp) */}
                     <div 
                       className="absolute inset-0 rounded-lg bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center backface-hidden"
                       style={{ backfaceVisibility: 'hidden' }}
                     >
-                      <span className="text-base">🧬</span>
+                      <span className="text-base">Ä‘Å¸Â§Â¬</span>
                     </div>
                     
-                    {/* Mặt trước (ngửa) */}
+                    {/* MĂ¡ÂºÂ·t trĂ†Â°Ă¡Â»â€ºc (ngĂ¡Â»Â­a) */}
                     <div 
                       className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-700 flex flex-col items-center justify-center backface-hidden"
                       style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
@@ -394,72 +397,72 @@ export default function MiniGamePage() {
             })}
           </div>
 
-          {/* Hướng dẫn */}
+          {/* HĂ†Â°Ă¡Â»â€ºng dĂ¡ÂºÂ«n */}
           {!gameStarted && (
             <div className="text-center mt-3 text-gray-400 text-sm">
-              <p>Nhấn vào thẻ để bắt đầu!</p>
-              <p className="text-xs">Ghép 2 hình giống nhau (14 cặp)</p>
+              <p>NhĂ¡ÂºÂ¥n vÄ‚Â o thĂ¡ÂºÂ» Ă„â€˜Ă¡Â»Æ’ bĂ¡ÂºÂ¯t Ă„â€˜Ă¡ÂºÂ§u!</p>
+              <p className="text-xs">GhÄ‚Â©p 2 hÄ‚Â¬nh giĂ¡Â»â€˜ng nhau (14 cĂ¡ÂºÂ·p)</p>
             </div>
           )}
           
-          <p className="text-center text-gray-500 text-xs mt-2">Còn {playsLeft} lượt hôm nay</p>
+          <p className="text-center text-gray-500 text-xs mt-2">CÄ‚Â²n {playsLeft} lĂ†Â°Ă¡Â»Â£t hÄ‚Â´m nay</p>
         </div>
       </main>
 
-      {/* Modal thoát */}
+      {/* Modal thoÄ‚Â¡t */}
       {showExit && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
           <div className="bg-gray-800 rounded-2xl p-6 max-w-sm text-center">
             <AlertTriangle className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-            <h2 className="text-lg font-bold text-white mb-2">Cảnh báo!</h2>
-            <p className="text-gray-300 mb-4">Thoát sẽ mất lượt chơi và không nhận thưởng!</p>
+            <h2 className="text-lg font-bold text-white mb-2">CĂ¡ÂºÂ£nh bÄ‚Â¡o!</h2>
+            <p className="text-gray-300 mb-4">ThoÄ‚Â¡t sĂ¡ÂºÂ½ mĂ¡ÂºÂ¥t lĂ†Â°Ă¡Â»Â£t chĂ†Â¡i vÄ‚Â  khÄ‚Â´ng nhĂ¡ÂºÂ­n thĂ†Â°Ă¡Â»Å¸ng!</p>
             <div className="flex gap-3">
               <button onClick={() => { setShowExit(false); navigate('/home'); }} 
-                className="flex-1 py-2 bg-red-500 rounded-xl text-white font-semibold">Thoát</button>
+                className="flex-1 py-2 bg-red-500 rounded-xl text-white font-semibold">ThoÄ‚Â¡t</button>
               <button onClick={() => setShowExit(false)} 
-                className="flex-1 py-2 bg-green-500 rounded-xl text-white font-semibold">Chơi tiếp</button>
+                className="flex-1 py-2 bg-green-500 rounded-xl text-white font-semibold">ChĂ†Â¡i tiĂ¡ÂºÂ¿p</button>
             </div>
           </div>
         </div>
       )}
 
-      {/* Modal hết giờ */}
+      {/* Modal hĂ¡ÂºÂ¿t giĂ¡Â»Â */}
       {gameOver && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
           <div className="bg-gray-800 rounded-2xl p-6 max-w-sm text-center">
             <X className="w-12 h-12 text-red-400 mx-auto mb-3" />
-            <h2 className="text-lg font-bold text-white mb-2">Hết thời gian!</h2>
-            <p className="text-gray-300 mb-4">Ghép được {matched.length}/14 cặp</p>
+            <h2 className="text-lg font-bold text-white mb-2">HĂ¡ÂºÂ¿t thĂ¡Â»Âi gian!</h2>
+            <p className="text-gray-300 mb-4">GhÄ‚Â©p Ă„â€˜Ă†Â°Ă¡Â»Â£c {matched.length}/14 cĂ¡ÂºÂ·p</p>
             <div className="flex gap-3">
               <button onClick={() => navigate('/home')} 
-                className="flex-1 py-2 bg-gray-600 rounded-xl text-white font-semibold">Về trang chủ</button>
+                className="flex-1 py-2 bg-gray-600 rounded-xl text-white font-semibold">VĂ¡Â»Â trang chĂ¡Â»Â§</button>
               {playsLeft > 0 && (
                 <button onClick={startNewGame} 
-                  className="flex-1 py-2 bg-purple-500 rounded-xl text-white font-semibold">Chơi lại</button>
+                  className="flex-1 py-2 bg-purple-500 rounded-xl text-white font-semibold">ChĂ†Â¡i lĂ¡ÂºÂ¡i</button>
               )}
             </div>
           </div>
         </div>
       )}
 
-      {/* Modal thắng */}
+      {/* Modal thĂ¡ÂºÂ¯ng */}
       {gameWon && (
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
           <div className="bg-gray-800 rounded-2xl p-6 max-w-sm text-center">
             <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-3 animate-bounce" />
-            <h2 className="text-lg font-bold text-white mb-2">Tuyệt vời!</h2>
-            <p className="text-gray-300 mb-2">Hoàn thành trong {moves} lượt!</p>
+            <h2 className="text-lg font-bold text-white mb-2">TuyĂ¡Â»â€¡t vĂ¡Â»Âi!</h2>
+            <p className="text-gray-300 mb-2">HoÄ‚Â n thÄ‚Â nh trong {moves} lĂ†Â°Ă¡Â»Â£t!</p>
             <div className="bg-green-500/20 border border-green-500 rounded-xl p-3 mb-4">
               <Leaf className="w-6 h-6 text-green-400 inline mr-2" />
-              <span className="text-green-300 font-bold">+10 Năng lượng</span>
+              <span className="text-green-300 font-bold">+10 NĂ„Æ’ng lĂ†Â°Ă¡Â»Â£ng</span>
             </div>
-            <p className="text-gray-400 text-sm mb-3">Còn {playsLeft} lượt hôm nay</p>
+            <p className="text-gray-400 text-sm mb-3">CÄ‚Â²n {playsLeft} lĂ†Â°Ă¡Â»Â£t hÄ‚Â´m nay</p>
             <div className="flex gap-3">
               <button onClick={() => navigate('/home')} 
-                className="flex-1 py-2 bg-gray-600 rounded-xl text-white font-semibold">Về trang chủ</button>
+                className="flex-1 py-2 bg-gray-600 rounded-xl text-white font-semibold">VĂ¡Â»Â trang chĂ¡Â»Â§</button>
               {playsLeft > 0 && (
                 <button onClick={startNewGame} 
-                  className="flex-1 py-2 bg-purple-500 rounded-xl text-white font-semibold">Chơi tiếp</button>
+                  className="flex-1 py-2 bg-purple-500 rounded-xl text-white font-semibold">ChĂ†Â¡i tiĂ¡ÂºÂ¿p</button>
               )}
             </div>
           </div>

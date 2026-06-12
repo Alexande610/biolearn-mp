@@ -177,6 +177,7 @@ export default function AdminPage() {
           name: item.display_name || item.username || item.email || 'Người dùng',
           role: item.role || 'student',
           score: item.total_score || 0,
+          avatarUrl: item.avatar_url,
           lastActive: item.last_active_at ? new Date(item.last_active_at).toLocaleString('vi-VN') : 'Không rõ',
         }))
       );
@@ -207,8 +208,8 @@ export default function AdminPage() {
 
   const pendingTeacherRequests = teacherRequests.filter((request) => request.status === 'pending');
   const activeApprovedRequests = teacherRequests.filter((request) => {
-    if (request.status !== 'approved' || !request.codeExpiresAt) return false;
-    return new Date(request.codeExpiresAt).getTime() > Date.now();
+    if (request.status !== 'approved' || !request.code_expires_at) return false;
+    return new Date(request.code_expires_at).getTime() > Date.now();
   });
 
   return (
@@ -243,21 +244,6 @@ export default function AdminPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
-        <div className="bg-blue-500/20 border border-blue-500/50 rounded-xl p-4 mb-6">
-          <div className="flex items-center gap-3">
-            <BarChart2 className="w-6 h-6 text-blue-400" />
-            <div>
-              <h3 className="text-white font-semibold">Google Analytics</h3>
-              <p className="text-blue-200 text-sm">Tracking ID: G-948G9QV2DF</p>
-            </div>
-            <button
-              onClick={openAnalytics}
-              className="ml-auto px-4 py-2 bg-blue-500 hover:bg-blue-400 rounded-lg text-white text-sm"
-            >
-              Xem Analytics
-            </button>
-          </div>
-        </div>
 
         <div className="game-card mb-6">
           <div className="flex items-center justify-between mb-4">
@@ -285,26 +271,26 @@ export default function AdminPage() {
 
           <div className="space-y-3">
             {pendingTeacherRequests.map((request) => (
-              <div key={request._id} className="p-4 rounded-xl bg-white/5 border border-white/10">
+              <div key={request.id} className="p-4 rounded-xl bg-white/5 border border-white/10">
                 <div className="flex flex-col md:flex-row md:items-center gap-3 md:justify-between">
                   <div>
                     <p className="text-white font-semibold">{request.username}</p>
                     <p className="text-gray-300 text-sm">{request.email}</p>
-                    <p className="text-gray-400 text-xs mt-1">Gửi lúc: {formatDateTime(request.createdAt)}</p>
+                    <p className="text-gray-400 text-xs mt-1">Gửi lúc: {formatDateTime(request.created_at)}</p>
                   </div>
 
                   <div className="flex gap-2">
                     <button
-                      onClick={() => approveTeacherRequest(request._id)}
-                      disabled={processingRequestId === request._id}
+                      onClick={() => approveTeacherRequest(request.id)}
+                      disabled={processingRequestId === request.id}
                       className="px-3 py-2 rounded-lg bg-green-500 hover:bg-green-400 text-white text-sm disabled:opacity-60"
                     >
-                      {processingRequestId === request._id ? 'Đang xử lý...' : 'Duyệt cấp mã'}
+                      {processingRequestId === request.id ? 'Đang xử lý...' : 'Duyệt cấp mã'}
                     </button>
 
                     <button
-                      onClick={() => rejectTeacherRequest(request._id)}
-                      disabled={processingRequestId === request._id}
+                      onClick={() => rejectTeacherRequest(request.id)}
+                      disabled={processingRequestId === request.id}
                       className="px-3 py-2 rounded-lg bg-red-500/80 hover:bg-red-500 text-white text-sm disabled:opacity-60"
                     >
                       Từ chối
@@ -320,14 +306,14 @@ export default function AdminPage() {
               <h4 className="text-white font-medium mb-2">Mã đã cấp còn hiệu lực</h4>
               <div className="space-y-2">
                 {activeApprovedRequests.map((request) => (
-                  <div key={`approved-${request._id}`} className="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
+                  <div key={`approved-${request.id}`} className="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
                     <p className="text-green-200 text-sm">
-                      <strong>{request.username}</strong> - {request.email}
+                       <strong>{request.username}</strong> - {request.email}
                     </p>
                     <p className="text-white mt-1">
-                      Mã: <span className="font-bold tracking-wider">{request.approvedCode}</span>
+                      Mã: <span className="font-bold tracking-wider">{request.approved_code}</span>
                     </p>
-                    <p className="text-green-100/80 text-xs mt-1">Hết hạn lúc: {formatDateTime(request.codeExpiresAt)}</p>
+                    <p className="text-green-100/80 text-xs mt-1">Hết hạn lúc: {formatDateTime(request.code_expires_at)}</p>
                   </div>
                 ))}
               </div>
@@ -423,9 +409,17 @@ export default function AdminPage() {
             <div className="space-y-3">
               {activeUsers.map((onlineUser) => (
                 <div key={onlineUser.id} className="flex items-center gap-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
-                    <span className="text-white font-bold">{onlineUser.name.charAt(0)}</span>
-                  </div>
+                  {onlineUser.avatarUrl ? (
+                    <img 
+                      src={onlineUser.avatarUrl} 
+                      alt={onlineUser.name} 
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
+                      <span className="text-white font-bold">{onlineUser.name.charAt(0).toUpperCase()}</span>
+                    </div>
+                  )}
                   <div className="flex-1">
                     <p className="text-white font-semibold">{onlineUser.name}</p>
                     <p className="text-gray-400 text-sm">{onlineUser.score} điểm • {getRoleLabel(onlineUser.role)}</p>
@@ -456,7 +450,7 @@ export default function AdminPage() {
             <span className="text-white text-sm">Quản lý bài học</span>
           </button>
           <button
-            onClick={openAnalytics}
+            onClick={() => navigate('/admin/reports')}
             className="game-card text-center hover:bg-white/20 transition-colors"
           >
             <BarChart2 className="w-8 h-8 text-purple-400 mx-auto mb-2" />

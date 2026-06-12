@@ -551,7 +551,7 @@ export default function LeaderboardPage() {
           <div className="flex flex-col items-center">
              <div className="flex items-center gap-2 mb-0.5">
                 <Trophy className="w-5 h-5 text-yellow-400" />
-                <span className="text-[10px] font-black tracking-[0.3em] text-yellow-400/80 uppercase">NextGen Bio</span>
+                <span className="text-[10px] font-black tracking-[0.3em] text-yellow-400/80 uppercase">BioLearn</span>
              </div>
              <h1 className="text-xl font-black text-white tracking-widest uppercase italic">BẢNG XẾP HẠNG</h1>
           </div>
@@ -693,7 +693,7 @@ export default function LeaderboardPage() {
                              {actualPlayer.weekly_score?.toLocaleString() || 0} <span className="opacity-60 text-[8px]">XP</span>
                            </div>
                            <p className="text-white/40 text-[9px] font-black mt-2 uppercase tracking-widest truncate w-32">
-                             {actualPlayer.school || actualPlayer.school_name || 'NextGen Student'}
+                             {actualPlayer.school || actualPlayer.school_name || 'BioLearn Student'}
                            </p>
                         </div>
                       </div>
@@ -754,7 +754,7 @@ export default function LeaderboardPage() {
                              {isCurrentUser && <span className="bg-white/20 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest">Bạn</span>}
                           </div>
                           <p className={`text-[10px] font-black uppercase tracking-widest truncate ${isCurrentUser ? 'text-white/60' : 'text-white/30'}`}>
-                            {player.school || player.school_name || 'NextGen Bio Student'}
+                            {player.school || player.school_name || 'BioLearn Student'}
                           </p>
                         </div>
 

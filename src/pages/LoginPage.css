@@ -1,473 +1,670 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+/* NextGen Cosmic Login Stylesheet */
 
-:root {
-  --login-primary: #a259ff;
-  --login-primary-hover: #8b3dff;
-  --login-sidebar-gradient: linear-gradient(145deg, #3a8dff 0%, #2941bf 50%, #a259ff 100%);
-  --login-text-dark: #1e293b;
-  --login-text-muted: #64748b;
-  --login-bg-soft: #f8fafc;
-}
-
-.login-page {
-  font-family: 'Outfit', sans-serif;
-  z-index: 10;
-}
-
-/* Base Wrapper */
-.login-wrapper {
-  display: flex;
-  width: 100%;
-  max-width: 1000px;
-  min-height: 640px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Sidebar Styling */
-.login-sidebar {
-  flex: 0 0 42%;
-  background: var(--login-sidebar-gradient);
-  padding: 40px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.login-screen-cosmic {
+  width: 100vw;
+  height: 100vh;
   position: relative;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  color: white;
 }
 
-.sidebar-header {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.back-link {
+/* Back Link on Landing State */
+.cosmic-back-home {
+  position: absolute;
+  top: 24px;
+  left: 24px;
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  transition: color 0.2s;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 40;
 }
 
-.back-link:hover {
+.cosmic-back-home:hover {
   color: white;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
-.platform-logo-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.platform-name {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.sidebar-middle {
-  margin-top: -20px;
+/* Layout Container */
+.cosmic-layout-container {
   width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.welcome-box {
+.cosmic-layout-container.dragging,
+.cosmic-layout-container.dragging *,
+.cosmic-brand-identity.dragging,
+.cosmic-login-panel.dragging {
+  transition: none !important;
+}
+
+/* --- Brand Identity (Left / Centered Section) --- */
+.cosmic-brand-identity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), width 0.7s ease, left 0.7s ease;
+  z-index: 20;
+}
+
+.cosmic-layout-container.panel-open .cosmic-brand-identity {
+  width: 48%;
+  max-width: 500px;
+}
+
+.brand-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  margin-bottom: 40px;
+  width: 100%;
 }
 
-.sidebar-big-logo {
-  width: 220px;
+.cosmic-layout-container.panel-open .brand-wrapper {
+  align-items: center;
+}
+
+.brand-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.brand-giant-logo {
+  width: 440px;
   height: auto;
-  margin-bottom: 32px;
-  filter: drop-shadow(0 15px 30px rgba(255, 255, 255, 0.3));
-  animation: logoFloat 4s ease-in-out infinite;
-  display: block;
+  filter: drop-shadow(0 0 35px rgba(162, 89, 255, 0.45));
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes logoFloat {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-10px) scale(1.05); }
+.cosmic-layout-container.panel-open .brand-giant-logo {
+  width: 320px;
+  filter: drop-shadow(0 0 20px rgba(162, 89, 255, 0.3));
 }
 
-.welcome-title {
-  font-size: 28px;
+.brand-main-title {
+  display: none; /* Removed because logo already contains title */
+}
+
+.cosmic-layout-container.panel-open .brand-main-title {
+  display: none;
+}
+
+.brand-slogan-text {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin-bottom: 36px;
+  max-width: 480px;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cosmic-layout-container.panel-open .brand-slogan-text {
+  font-size: 14px;
+  margin-bottom: 0;
+  max-width: 100%;
+}
+
+/* --- Slide to Unlock Slider --- */
+.cosmic-slider-track {
+  position: relative;
+  width: 360px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+  overflow: hidden;
+  user-select: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cosmic-slider-handle {
+  position: absolute;
+  right: 4px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #a259ff, #2941bf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  box-shadow: 0 4px 15px rgba(162, 89, 255, 0.6);
+  z-index: 10;
+  transition: transform 0.1s ease-out;
+}
+
+.cosmic-slider-handle:active {
+  cursor: grabbing;
+}
+
+.cosmic-slider-text {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
   font-weight: 700;
-  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.5px;
+  padding-left: 20px;
+  padding-right: 48px;
+  pointer-events: none;
+  z-index: 5;
+  white-space: nowrap;
+  animation: shineText 2.5s infinite linear;
+  background: linear-gradient(to right, #ffffff99 20%, #fff 50%, #ffffff99 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes shineText {
+  to { background-position: -200% center; }
+}
+
+/* --- Cosmic Glassmorphism Login Panel (Right Section) --- */
+.cosmic-login-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44%;
+  max-width: 550px;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(20, 25, 45, 0.45) 0%, rgba(5, 8, 20, 0.6) 100%);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  z-index: 30;
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.7), 
+              inset 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+.cosmic-login-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(162, 89, 255, 0.8), rgba(58, 141, 255, 0.8), transparent);
+  opacity: 0.8;
+  z-index: 10;
+}
+
+.cosmic-panel-drag-edge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  cursor: ew-resize;
+  z-index: 100;
+  background: transparent;
+  transition: background-color 0.2s ease;
+}
+
+.cosmic-panel-drag-edge:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.cosmic-login-panel.active {
+  transform: translateX(0);
+}
+
+/* Panel Retract Button */
+.cosmic-retract-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 35;
+  transition: all 0.3s ease;
+}
+
+.cosmic-retract-btn:hover {
+  color: white;
+  transform: translateX(-2px);
+}
+
+.panel-scroll-container {
+  flex: 1;
+  overflow-y: hidden;
+  padding: 30px 48px 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-form-card {
+  width: 100%;
+  max-width: 400px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.form-header-cosmic {
+  text-align: center;
   margin-bottom: 12px;
 }
 
-.welcome-desc {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  margin-bottom: 40px;
+.form-title-cosmic {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
 }
 
-.feature-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
-  padding-left: 20px;
-}
-
-.feature-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.feature-check {
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.feature-label {
-  font-weight: 600;
-  font-size: 15px;
-  margin-bottom: 2px;
-}
-
-.feature-sub {
+.form-subtitle-cosmic {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* Form Area Styling */
-.login-form-area {
-  flex: 1;
-  background: white;
-  padding: 40px 60px;
+/* Tab Selector for Login/Registration Mode */
+.cosmic-tabs {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.form-header {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
-.form-title {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--login-text-dark);
-  margin-bottom: 8px;
-}
-
-.form-subtitle {
-  font-size: 15px;
-  color: var(--login-text-muted);
-}
-
-/* Tabs Styling */
-.login-tabs-modern {
-  display: flex;
-  gap: 12px;
-  background: #f1f5f9;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 4px;
-  border-radius: 14px;
-  margin-bottom: 24px;
+  border-radius: 12px;
+  margin-bottom: 12px;
 }
 
-.tab-btn-modern {
+.cosmic-tab-btn {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px;
+  padding: 8px;
   border: none;
   background: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cosmic-tab-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styling */
+.cosmic-form-body {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.cosmic-mode-toggle {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 12px;
+}
+
+.cosmic-mode-toggle button {
+  flex: 1;
+  padding: 8px;
+  background: none;
+  border: none;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: var(--login-text-muted);
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.tab-btn-modern.active {
-  background: white;
-  color: var(--login-primary);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-/* Mode Tabs */
-.mode-tabs {
-  display: flex;
-  border-bottom: 1px solid #e2e8f0;
-  margin-bottom: 24px;
-}
-
-.mode-tabs button {
-  flex: 1;
-  padding: 12px;
-  background: none;
-  border: none;
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--login-text-muted);
+  color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   position: relative;
+  transition: color 0.3s ease;
 }
 
-.mode-tabs button.active {
-  color: var(--login-primary);
+.cosmic-mode-toggle button.active {
+  color: white;
 }
 
-.mode-tabs button.active::after {
+.cosmic-mode-toggle button.active::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--login-primary);
+  background: #a259ff;
 }
 
-/* Forms */
-.form-group-modern {
-  margin-bottom: 20px;
+.cosmic-info-badge {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 10px;
+  color: #7dd3fc;
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
-.form-group-modern label {
-  display: block;
-  font-size: 14px;
+.cosmic-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cosmic-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cosmic-input-group label {
+  font-size: 13px;
   font-weight: 600;
-  color: var(--login-text-dark);
-  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.input-wrapper {
+.cosmic-input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.input-icon {
+.wrapper-icon {
   position: absolute;
-  left: 16px;
-  width: 18px;
-  height: 18px;
-  color: var(--login-text-muted);
+  left: 14px;
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
-.form-group-modern input {
+.cosmic-input-wrapper input {
   width: 100%;
-  padding: 14px 16px 14px 48px;
-  background: #fef9f2; /* Light creamy background like mockup */
-  border: 1px solid #fedcba44; 
-  border-radius: 14px;
+  padding: 10px 14px 10px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
   font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  color: var(--login-text-dark);
-  transition: all 0.2s;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.form-group-modern input:focus {
+.cosmic-input-wrapper input:focus {
   outline: none;
-  border-color: var(--login-primary);
-  background: white;
-  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #a259ff;
+  box-shadow: 0 0 15px rgba(162, 89, 255, 0.2);
 }
 
-.password-toggle {
+.cosmic-pass-toggle {
   position: absolute;
-  right: 16px;
+  right: 14px;
   background: none;
   border: none;
-  color: var(--login-text-muted);
+  color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   display: flex;
+  padding: 0;
 }
 
-.password-toggle:hover {
-  color: var(--login-text-dark);
+.cosmic-pass-toggle:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.form-extras {
+.cosmic-tip {
+  font-size: 11px;
+  color: rgba(251, 191, 36, 0.8);
+  margin-top: 4px;
+}
+
+/* Actions block */
+.cosmic-form-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-top: 2px;
 }
 
-.remember-me {
+.cosmic-checkbox-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--login-text-muted);
+  position: relative;
+  padding-left: 24px;
   cursor: pointer;
+  user-select: none;
 }
 
-.remember-me input {
-  width: 16px;
+.cosmic-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
   height: 16px;
-  accent-color: var(--login-primary);
+  width: 16px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
-.forgot-pass {
+.cosmic-checkbox-container:hover input ~ .checkmark {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.cosmic-checkbox-container input:checked ~ .checkmark {
+  background-color: #a259ff;
+  border-color: #a259ff;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.cosmic-checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.cosmic-checkbox-container .checkmark:after {
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.cosmic-forgot {
   background: none;
   border: none;
   font-family: 'Outfit', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--login-primary);
+  color: #a259ff;
   cursor: pointer;
+  padding: 0;
 }
 
-.submit-btn-modern {
+.cosmic-forgot:hover {
+  text-decoration: underline;
+}
+
+/* Submit & Social Buttons */
+.cosmic-submit-btn {
   width: 100%;
-  padding: 14px;
-  background: var(--login-primary);
+  padding: 10px;
+  background: linear-gradient(90deg, #a259ff, #6366f1);
   color: white;
   border: none;
-  border-radius: 14px;
+  border-radius: 10px;
   font-family: 'Outfit', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
-  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(162, 89, 255, 0.3);
+  margin-top: 4px;
 }
 
-.submit-btn-modern:hover {
-  background: var(--login-primary-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+.cosmic-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(162, 89, 255, 0.5);
+  background: linear-gradient(90deg, #b172ff, #7478ff);
 }
 
-.submit-btn-modern:active {
-  transform: translateY(0);
-}
-
-.submit-btn-modern:disabled {
-  opacity: 0.7;
+.cosmic-submit-btn:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }
 
-/* Divider */
-.divider-modern {
+.cosmic-divider {
   display: flex;
   align-items: center;
-  margin: 24px 0;
-  color: var(--login-text-muted);
-  font-size: 13px;
+  margin: 12px 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
 }
 
-.divider-modern::before, .divider-modern::after {
+.cosmic-divider::before, .cosmic-divider::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: #e2e8f0;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.divider-modern span {
+.cosmic-divider span {
   padding: 0 16px;
 }
 
-/* Google Button */
-.google-btn-modern {
+.cosmic-google-btn {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 12px;
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
+  gap: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   font-family: 'Outfit', sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--login-text-dark);
+  color: white;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 }
 
-.google-btn-modern:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
+.cosmic-google-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
-.google-btn-modern img {
-  width: 20px;
-  height: 20px;
+.cosmic-google-btn img {
+  width: 18px;
+  height: 18px;
 }
 
-/* Footer */
-.form-footer {
+/* Footer links inside form */
+.cosmic-form-footer {
   text-align: center;
-  margin-top: 32px;
-  font-size: 14px;
-  color: var(--login-text-muted);
+  margin-top: 12px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.footer-link {
+.cosmic-footer-link {
   background: none;
   border: none;
-  color: var(--login-primary);
+  color: #a259ff;
   font-weight: 700;
   font-family: 'Outfit', sans-serif;
   cursor: pointer;
   margin-left: 4px;
 }
 
-.footer-link:hover {
+.cosmic-footer-link:hover {
   text-decoration: underline;
 }
 
-/* Error/Info box */
-.error-message {
-  padding: 12px;
-  background: #fef2f2;
-  border: 1px solid #fee2e2;
+/* Error Alert */
+.cosmic-error-box {
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: 12px;
-  color: #b91c1c;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.teacher-info-box {
-  display: flex;
-  gap: 12px;
-  padding: 14px;
-  background: #f0f9ff;
-  border: 1px solid #e0f2fe;
-  border-radius: 12px;
-  color: #0369a1;
+  color: #fca5a5;
   font-size: 13px;
   margin-bottom: 20px;
 }
 
-/* Loading */
-.loading-spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+/* Spinner */
+.cosmic-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-top-color: white;
   border-radius: 50%;
   animation: spinner 0.8s linear infinite;
@@ -478,18 +675,36 @@
   to { transform: rotate(360deg); }
 }
 
-/* Responsive */
+/* --- Mobile / Tablet Responsiveness --- */
 @media (max-width: 900px) {
-  .login-sidebar {
-    display: none;
+  .cosmic-layout-container {
+    flex-direction: column;
   }
-  .login-wrapper {
-    max-width: 480px;
+  
+  .cosmic-brand-identity {
+    position: relative;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    height: 60%;
+    width: 90%;
+    justify-content: center;
+    padding-top: 60px;
   }
-}
 
-@media (max-width: 480px) {
-  .login-form-area {
-    padding: 30px;
+  .cosmic-layout-container.panel-open .cosmic-brand-identity {
+    display: none; /* Hide branding on mobile when form is open */
+  }
+
+  .cosmic-login-panel {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  .panel-scroll-container {
+    padding: 80px 24px 40px 24px;
   }
 }

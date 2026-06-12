@@ -7,6 +7,7 @@ import {
   Volume2, VolumeX
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useToast } from '../components/Toast';
 
 // Available avatars từ folder /images/Avatar/ - sử dụng tên file đơn giản
 // Nhóm theo style để dễ quản lý
@@ -51,6 +52,7 @@ const getAvatarById = (avatarId) => {
 export default function ProfilePage() {
   const navigate = useNavigate();
   const { user, userStats, updateStats, refreshUserStats, bgVolume, sfxVolume, bgMuted, sfxMuted, setBgVolume, setSfxVolume, toggleBgMute, toggleSfxMute } = useAuth();
+  const { showToast } = useToast();
   const [activeTab, setActiveTab] = useState('stats');
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [unlockedAvatars, setUnlockedAvatars] = useState(['adventurer-1', 'adventurer-2', 'adventurer-3', 'adventurer-4', 'adventurer-5']);
@@ -72,7 +74,7 @@ export default function ProfilePage() {
     }
   }, [user]);
 
-  const fetchProfile = async () => {
+  async function fetchProfile() {
     try {
       // Dữ liệu đã được fetch trong App.jsx qua refreshUserStats/useAuth
       // Chúng ta chỉ cần ánh xạ từ userStats sang các state local
@@ -83,7 +85,7 @@ export default function ProfilePage() {
     } catch (err) {
       console.error('Error fetching profile:', err);
     }
-  };
+  }
 
     const fileInputRef = useRef(null);
     const [uploading, setUploading] = useState(false);
@@ -97,7 +99,7 @@ export default function ProfilePage() {
 
         // Giới hạn 2MB
         if (file.size > 2 * 1024 * 1024) {
-          alert('Ảnh quá lớn! Vui lòng chọn ảnh dưới 2MB.');
+          showToast('Ảnh quá lớn! Vui lòng chọn ảnh dưới 2MB.', 'warning');
           return;
         }
 
@@ -129,9 +131,10 @@ export default function ProfilePage() {
 
         setCurrentAvatar(publicUrl);
         if (refreshUserStats) await refreshUserStats();
+        showToast('Đã cập nhật ảnh đại diện!', 'success');
       } catch (err) {
         console.error('Error uploading avatar:', err);
-        alert('Lỗi khi tải ảnh lên. Hãy đảm bảo bạn đã tạo bucket "avatars" công khai trong Supabase Storage.');
+        showToast('Lỗi khi tải ảnh lên. Hãy đảm bảo bucket "avatars" đã được tạo trong Supabase Storage.', 'error');
       } finally {
         setUploading(false);
       }
@@ -174,7 +177,7 @@ export default function ProfilePage() {
       if (!avatarToUnlock) return;
       
       if (avatarToUnlock.cost > 0 && (userStats?.coins || 0) < avatarToUnlock.cost) {
-        alert('Không đủ xu!');
+        showToast('Không đủ xu!', 'warning');
         return;
       }
 
@@ -198,12 +201,13 @@ export default function ProfilePage() {
           setShowUnlockModal(false);
           setAvatarToUnlock(null);
           if (refreshUserStats) await refreshUserStats();
+          showToast('Đã mở khóa avatar mới!', 'success');
         } else {
-          alert('Có lỗi xảy ra!');
+          showToast('Có lỗi xảy ra!', 'error');
         }
       } catch (err) {
         console.error('Error unlocking avatar:', err);
-        alert('Có lỗi xảy ra!');
+        showToast('Có lỗi xảy ra!', 'error');
       }
     };
 
@@ -245,13 +249,14 @@ export default function ProfilePage() {
           if (refreshUserStats) {
             await refreshUserStats();
           }
+          showToast('Đã cập nhật tên hiển thị!', 'success');
         } else {
           console.error('Update error:', error);
-          alert('Không thể cập nhật tên: ' + error.message);
+          showToast('Không thể cập nhật tên: ' + error.message, 'error');
         }
       } catch (err) {
         console.error('Error updating name:', err);
-        alert('Có lỗi xảy ra!');
+        showToast('Có lỗi xảy ra!', 'error');
       }
     };
 
