@@ -61,7 +61,7 @@ function App() {
   const [userStats, setUserStats] = useState(null);
   const [lockNotice, setLockNotice] = useState(null);
   const prevUserRef = useRef(null);
-  
+
   // Đồng bộ ref với state user
   useEffect(() => {
     prevUserRef.current = user;
@@ -90,7 +90,7 @@ function App() {
 
     const startMusic = () => {
       if (!bgMusicStartedRef.current && bgMusicRef.current) {
-        bgMusicRef.current.play().catch(() => {});
+        bgMusicRef.current.play().catch(() => { });
         bgMusicStartedRef.current = true;
       }
     };
@@ -203,20 +203,20 @@ function App() {
         const maxStamina = profile.max_stamina ?? 20;
         const lastUpdate = new Date(profile.last_stamina_update || Date.now());
         const now = new Date();
-        
+
         if (currentStamina < maxStamina) {
           const secondsPassed = Math.floor((now - lastUpdate) / 1000);
           const pointsToRecover = Math.floor(secondsPassed / (5 * 60)); // 5 phút = 300s
-          
+
           if (pointsToRecover > 0) {
             currentStamina = Math.min(maxStamina, currentStamina + pointsToRecover);
-            
+
             // Cập nhật DB (Background)
             supabase
               .from('profiles')
-              .update({ 
-                stamina: currentStamina, 
-                last_stamina_update: now.toISOString() 
+              .update({
+                stamina: currentStamina,
+                last_stamina_update: now.toISOString()
               })
               .eq('id', sessionUser.id)
               .then();
@@ -247,7 +247,7 @@ function App() {
             levels_completed: profile?.levels_completed || 0,
             stamina: currentStamina,
             maxStamina: maxStamina,
-            energy: currentStamina, 
+            energy: currentStamina,
             max_energy: maxStamina,
             daily_missions: profile?.daily_missions || {},
             inventory: profile?.inventory || [],
@@ -332,7 +332,7 @@ function App() {
           .select('*')
           .eq('id', user.id)
           .single();
-          
+
         if (!error && data) {
           if (data.is_locked) {
             setLockNotice({
@@ -349,7 +349,7 @@ function App() {
           const maxStamina = data.max_stamina ?? 20;
           const lastUpdate = new Date(data.last_stamina_update || Date.now());
           const now = new Date();
-          
+
           if (currentStamina < maxStamina) {
             const secondsPassed = Math.floor((now - lastUpdate) / 1000);
             const pointsToRecover = Math.floor(secondsPassed / (5 * 60));
@@ -385,9 +385,9 @@ function App() {
           // Chỉ cập nhật nếu có thay đổi thực sự để tránh nhấp nháy UI (flashing)
           const newDisplayName = data.display_name || user.email;
           const newAvatar = data.avatar_url || 'adventurer-1';
-          
-          const hasChanged = 
-            prevUserRef.current?.displayName !== newDisplayName || 
+
+          const hasChanged =
+            prevUserRef.current?.displayName !== newDisplayName ||
             prevUserRef.current?.avatar !== newAvatar ||
             prevUserRef.current?.display_name !== newDisplayName ||
             prevUserRef.current?.avatar_url !== newAvatar;
@@ -473,7 +473,7 @@ function App() {
                     <p className="text-red-100 text-sm"><span className="font-semibold text-red-200">Thời gian khóa:</span> {formatDateTime(lockNotice.lockedAt)}</p>
                     <div className="pt-2 border-t border-white/10 mt-2">
                       <p className="text-red-200 text-xs leading-relaxed font-semibold">
-                        ⚠️ Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ số tổng đài hỗ trợ: <span className="text-yellow-300 font-bold underline">1900 8888</span> hoặc gửi email đến <span className="text-yellow-300 font-bold underline">support@biolearn.vn</span> để được hỗ trợ mở khóa.
+                        ⚠️ Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ số tổng đài hỗ trợ: <span className="text-yellow-300 font-bold underline">0838667369</span> hoặc gửi email đến <span className="text-yellow-300 font-bold underline">support@biolearn.vn</span> để được hỗ trợ mở khóa.
                       </p>
                     </div>
                   </div>
@@ -490,103 +490,103 @@ function App() {
               <>
                 <Routes>
                   {/* Public routes */}
-                  <Route 
-                    path="/login" 
+                  <Route
+                    path="/login"
                     element={
                       user
                         ? <Navigate to={getDefaultRouteForUser(user)} replace />
                         : <LoginPage onLogin={(u, token) => { if (token) localStorage.setItem('token', token); setUser(u); }} />
                     }
                   />
-                  <Route 
-                    path="/register" 
-                    element={user ? <Navigate to={getDefaultRouteForUser(user)} replace /> : <RegisterPage />} 
+                  <Route
+                    path="/register"
+                    element={user ? <Navigate to={getDefaultRouteForUser(user)} replace /> : <RegisterPage />}
                   />
 
                   {/* Protected routes */}
-                  <Route 
-                    path="/home" 
-                    element={renderStudentOnly(<HomePage />)} 
+                  <Route
+                    path="/home"
+                    element={renderStudentOnly(<HomePage />)}
                   />
-                  <Route 
-                    path="/class-select" 
-                    element={renderStudentOnly(<ClassSelectPage />)} 
+                  <Route
+                    path="/class-select"
+                    element={renderStudentOnly(<ClassSelectPage />)}
                   />
-                  <Route 
-                    path="/map/:classId" 
-                    element={renderStudentOnly(<MapPage />)} 
+                  <Route
+                    path="/map/:classId"
+                    element={renderStudentOnly(<MapPage />)}
                   />
-                  <Route 
-                    path="/play/:classId/:chapterId/:lessonId" 
-                    element={renderStudentOnly(<GamePlayPage />)} 
+                  <Route
+                    path="/play/:classId/:chapterId/:lessonId"
+                    element={renderStudentOnly(<GamePlayPage />)}
                   />
-                  <Route 
-                    path="/minigame/:classId" 
-                    element={renderStudentOnly(<MiniGamePage />)} 
+                  <Route
+                    path="/minigame/:classId"
+                    element={renderStudentOnly(<MiniGamePage />)}
                   />
-                  <Route 
-                    path="/boss/:classId/:chapterId/:lessonId" 
-                    element={renderStudentOnly(<BossBattlePage />)} 
+                  <Route
+                    path="/boss/:classId/:chapterId/:lessonId"
+                    element={renderStudentOnly(<BossBattlePage />)}
                   />
-                  <Route 
-                    path="/leaderboard" 
-                    element={renderStudentOnly(<LeaderboardPage />)} 
+                  <Route
+                    path="/leaderboard"
+                    element={renderStudentOnly(<LeaderboardPage />)}
                   />
-                  <Route 
-                    path="/missions" 
-                    element={renderStudentOnly(<MissionPage />)} 
+                  <Route
+                    path="/missions"
+                    element={renderStudentOnly(<MissionPage />)}
                   />
-                  <Route 
-                    path="/profile" 
-                    element={renderStudentOnly(<ProfilePage />)} 
+                  <Route
+                    path="/profile"
+                    element={renderStudentOnly(<ProfilePage />)}
                   />
-                  <Route 
-                    path="/admin" 
-                    element={renderAdminOnly(<AdminPage user={user} />)} 
+                  <Route
+                    path="/admin"
+                    element={renderAdminOnly(<AdminPage user={user} />)}
                   />
-                  <Route 
-                    path="/admin/users" 
-                    element={renderAdminOnly(<AdminUsersPage user={user} />)} 
+                  <Route
+                    path="/admin/users"
+                    element={renderAdminOnly(<AdminUsersPage user={user} />)}
                   />
-                  <Route 
-                    path="/admin/logs" 
-                    element={renderAdminOnly(<AdminLogsPage user={user} />)} 
+                  <Route
+                    path="/admin/logs"
+                    element={renderAdminOnly(<AdminLogsPage user={user} />)}
                   />
-                  <Route 
-                    path="/admin/reports" 
-                    element={renderAdminOnly(<AdminReportsPage />)} 
+                  <Route
+                    path="/admin/reports"
+                    element={renderAdminOnly(<AdminReportsPage />)}
                   />
-                  <Route 
-                    path="/admin/lessons" 
-                    element={renderAdminOnly(<MorePage />)} 
+                  <Route
+                    path="/admin/lessons"
+                    element={renderAdminOnly(<MorePage />)}
                   />
-                  <Route 
-                    path="/teacher" 
-                    element={renderTeacherOnly(<TeacherPage user={user} />)} 
+                  <Route
+                    path="/teacher"
+                    element={renderTeacherOnly(<TeacherPage user={user} />)}
                   />
-                  <Route 
-                    path="/quiz-room" 
-                    element={renderStudentOnly(<StudentQuizRoomPage />)} 
+                  <Route
+                    path="/quiz-room"
+                    element={renderStudentOnly(<StudentQuizRoomPage />)}
                   />
-                  <Route 
-                    path="/more" 
-                    element={renderStudentOnly(<MorePage />)} 
+                  <Route
+                    path="/more"
+                    element={renderStudentOnly(<MorePage />)}
                   />
-                  <Route 
-                    path="/battle" 
-                    element={renderStudentOnly(<BattlePage />)} 
+                  <Route
+                    path="/battle"
+                    element={renderStudentOnly(<BattlePage />)}
                   />
-                  <Route 
-                    path="/battle-pvp" 
-                    element={renderStudentOnly(<BattlePvPPage />)} 
+                  <Route
+                    path="/battle-pvp"
+                    element={renderStudentOnly(<BattlePvPPage />)}
                   />
-                  <Route 
-                    path="/simulations" 
-                    element={renderStudentOnly(<SimulationsPage />)} 
+                  <Route
+                    path="/simulations"
+                    element={renderStudentOnly(<SimulationsPage />)}
                   />
-                  <Route 
-                    path="/biology3d" 
-                    element={renderStudentOnly(<Biology3DPage />)} 
+                  <Route
+                    path="/biology3d"
+                    element={renderStudentOnly(<Biology3DPage />)}
                   />
 
                   {/* Default redirect */}
