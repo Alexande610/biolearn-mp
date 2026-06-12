@@ -65,6 +65,7 @@ export default function MissionPage() {
     const minutesActive = Math.floor(activeTime / 60);
     
     if (minutesActive > lastSavedMinute.current) {
+      const diff = minutesActive - lastSavedMinute.current;
       lastSavedMinute.current = minutesActive;
       
       const updateTimeProgress = async () => {
@@ -72,12 +73,12 @@ export default function MissionPage() {
           const userId = user?.id || user?.uid;
           if (!userId) return;
 
-          // Cập nhật mission3Progress (Học tập 20 phút) qua RPC để kích hoạt logic tính chuỗi
+          // Cập nhật mission3Progress (Học tập 20 phút) lũy tiến qua RPC
           await supabase.rpc('update_mission_progress', {
             p_user_id: userId,
             p_mission_id: 3,
-            p_progress_gain: minutesActive,
-            p_is_absolute: true
+            p_progress_gain: diff,
+            p_is_absolute: false
           });
             
           if (refreshUserStats) refreshUserStats();

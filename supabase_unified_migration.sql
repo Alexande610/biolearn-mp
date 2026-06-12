@@ -282,6 +282,7 @@ declare
   _res_target integer;
   _res_is_new_day boolean;
   _res_is_new_week boolean;
+  _res_today date;
 begin
   -- Load current data
   select daily_missions, last_active_at, last_streak_date, login_streak
@@ -291,10 +292,11 @@ begin
 
   _res_missions := coalesce(_res_missions, '{}'::jsonb);
   _res_streak := coalesce(_res_streak, 0);
+  _res_today := (now() at time zone 'Asia/Ho_Chi_Minh')::date;
 
-  -- Check new day & new week (weekly reset matches Monday 00:00 AM)
-  _res_is_new_day := (_res_last_active is null or _res_last_active::date < current_date);
-  _res_is_new_week := (_res_last_active is null or date_trunc('week', _res_last_active::timestamp) < date_trunc('week', now()));
+  -- Check new day & new week (weekly reset matches Monday 00:00 AM in Vietnam)
+  _res_is_new_day := (_res_last_active is null or (_res_last_active at time zone 'Asia/Ho_Chi_Minh')::date < _res_today);
+  _res_is_new_week := (_res_last_active is null or date_trunc('week', _res_last_active at time zone 'Asia/Ho_Chi_Minh') < date_trunc('week', now() at time zone 'Asia/Ho_Chi_Minh'));
 
   -- Handle Weekly Reset (Monday 00:00 AM)
   if _res_is_new_week then
@@ -307,7 +309,7 @@ begin
   -- Handle Daily Reset (00:00 AM)
   if _res_is_new_day then
     -- If streak wasn't updated yesterday, reset to 0
-    if _res_last_streak is null or _res_last_streak < current_date - 1 then
+    if _res_last_streak is null or _res_last_streak < _res_today - 1 then
       _res_streak := 0;
     end if;
     -- Clear daily missions progress and claim status
@@ -339,14 +341,14 @@ begin
   if coalesce((_res_new_missions->>'mission1Completed')::boolean, false) = true 
      and coalesce((_res_new_missions->>'mission2Completed')::boolean, false) = true 
      and coalesce((_res_new_missions->>'mission3Completed')::boolean, false) = true
-     and (_res_last_streak is null or _res_last_streak < current_date) 
+     and (_res_last_streak is null or _res_last_streak < _res_today) 
   then
-    if _res_last_streak = current_date - 1 then
+    if _res_last_streak = _res_today - 1 then
       _res_streak := _res_streak + 1;
     else
       _res_streak := 1;
     end if;
-    _res_last_streak := current_date;
+    _res_last_streak := _res_today;
   end if;
 
   -- Update Profile
@@ -388,6 +390,7 @@ declare
   v_missions jsonb;
   v_is_new_day boolean;
   v_is_new_week boolean;
+  v_today date;
 begin
   select last_active_at, last_streak_date, login_streak, daily_missions
   into v_last_active, v_last_streak, v_streak, v_missions
@@ -401,9 +404,10 @@ begin
 
   v_missions := coalesce(v_missions, '{}'::jsonb);
   v_streak := coalesce(v_streak, 0);
+  v_today := (now() at time zone 'Asia/Ho_Chi_Minh')::date;
 
-  v_is_new_day := (v_last_active::date < current_date);
-  v_is_new_week := (date_trunc('week', v_last_active::timestamp) < date_trunc('week', now()));
+  v_is_new_day := ((v_last_active at time zone 'Asia/Ho_Chi_Minh')::date < v_today);
+  v_is_new_week := (date_trunc('week', v_last_active at time zone 'Asia/Ho_Chi_Minh') < date_trunc('week', now() at time zone 'Asia/Ho_Chi_Minh'));
 
   if v_is_new_week or v_is_new_day then
     if v_is_new_week then
@@ -413,7 +417,7 @@ begin
     end if;
 
     if v_is_new_day then
-      if v_last_streak is null or v_last_streak < current_date - 1 then
+      if v_last_streak is null or v_last_streak < v_today - 1 then
         v_streak := 0;
       end if;
       v_missions := v_missions 

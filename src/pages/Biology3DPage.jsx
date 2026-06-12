@@ -459,7 +459,7 @@ export default function Biology3DPage() {
       <div className="max-w-6xl mx-auto px-4 py-4 space-y-3">
         {/* Type filter */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
-          <span className="text-gray-400 text-sm whitespace-nowrap">Loại:</span>
+          <span className="text-gray-300 text-sm whitespace-nowrap font-semibold">Loại:</span>
           {[
             { key: null, label: 'Tất cả', icon: '🔬' },
             { key: 'scientific', label: 'Khoa học thật (GLB + Mol*)', icon: '⚛️' },
@@ -468,11 +468,7 @@ export default function Biology3DPage() {
             <button
               key={type.key || 'all'}
               onClick={() => setFilterType(type.key)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition whitespace-nowrap ${
-                filterType === type.key 
-                  ? 'bg-purple-500 text-white' 
-                  : 'bg-white/10 text-gray-300 hover:bg-white/20'
-              }`}
+              className={`filter-btn ${filterType === type.key ? 'active-purple' : ''}`}
             >
               {type.icon} {type.label}
             </button>
@@ -481,12 +477,10 @@ export default function Biology3DPage() {
 
         {/* Grade filter */}
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-          <span className="text-gray-400 text-sm whitespace-nowrap">Lớp:</span>
+          <span className="text-gray-300 text-sm whitespace-nowrap font-semibold">Lớp:</span>
           <button
             onClick={() => setFilterGrade(null)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition whitespace-nowrap ${
-              filterGrade === null ? 'bg-blue-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/20'
-            }`}
+            className={`filter-btn ${filterGrade === null ? 'active-blue' : ''}`}
           >
             Tất cả
           </button>
@@ -494,9 +488,7 @@ export default function Biology3DPage() {
             <button
               key={grade}
               onClick={() => setFilterGrade(grade)}
-              className={`px-3 py-1.5 rounded-full text-sm font-medium transition whitespace-nowrap ${
-                filterGrade === grade ? 'bg-blue-500 text-white' : 'bg-white/10 text-gray-300 hover:bg-white/20'
-              }`}
+              className={`filter-btn ${filterGrade === grade ? 'active-blue' : ''}`}
             >
               Lớp {grade}
             </button>
@@ -504,7 +496,7 @@ export default function Biology3DPage() {
         </div>
       </div>
 
-      {/* Models Grid */}
+            {/* Models Grid */}
       <div className="max-w-6xl mx-auto px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredModels.map((model, index) => (
