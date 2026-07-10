@@ -245,11 +245,11 @@ export default function StudentQuizRoomPage() {
   };
 
   return (
-    <div className="min-h-screen pb-8 relative overflow-hidden bg-gradient-to-br from-emerald-950 via-teal-900 to-cyan-950">
+    <div className="min-h-screen pb-8 relative overflow-hidden bg-transparent">
       <div className="pointer-events-none absolute -top-36 -left-24 w-80 h-80 rounded-full bg-emerald-400/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -right-20 w-96 h-96 rounded-full bg-cyan-400/10 blur-3xl" />
 
-      <header className="bg-emerald-900/50 backdrop-blur-xl sticky top-0 z-40 border-b border-white/10">
+      <header className="bg-black/40 backdrop-blur-xl sticky top-0 z-40 border-b border-white/5">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
           <button
             onClick={() => {

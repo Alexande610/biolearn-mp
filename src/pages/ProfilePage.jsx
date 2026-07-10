@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { 
-  ArrowLeft, User, Star, Coins, Trophy, Leaf,
+import {
+  ArrowLeft, User, Star, Coins, Trophy, Leaf, Flame,
   Lock, Check, Settings, Camera, BookOpen, Edit2, Save, X,
-  Volume2, VolumeX
+  Volume2, VolumeX, Sun, Moon
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useToast } from '../components/Toast';
@@ -51,7 +51,7 @@ const getAvatarById = (avatarId) => {
 
 export default function ProfilePage() {
   const navigate = useNavigate();
-  const { user, userStats, updateStats, refreshUserStats, bgVolume, sfxVolume, bgMuted, sfxMuted, setBgVolume, setSfxVolume, toggleBgMute, toggleSfxMute } = useAuth();
+  const { user, userStats, updateStats, refreshUserStats, bgVolume, sfxVolume, bgMuted, sfxMuted, setBgVolume, setSfxVolume, toggleBgMute, toggleSfxMute, theme, toggleTheme } = useAuth();
   const { showToast } = useToast();
   const [activeTab, setActiveTab] = useState('stats');
   const [selectedAvatar, setSelectedAvatar] = useState(null);
@@ -59,7 +59,7 @@ export default function ProfilePage() {
   const [currentAvatar, setCurrentAvatar] = useState(null); // Bắt đầu với null để đợi load từ server
   const [showUnlockModal, setShowUnlockModal] = useState(false);
   const [avatarToUnlock, setAvatarToUnlock] = useState(null);
-  
+
   // Chỉnh sửa tên
   const [isEditingName, setIsEditingName] = useState(false);
   const [editName, setEditName] = useState('');
@@ -87,228 +87,244 @@ export default function ProfilePage() {
     }
   }
 
-    const fileInputRef = useRef(null);
-    const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef(null);
+  const [uploading, setUploading] = useState(false);
 
-    // Xử lý tải lên ảnh
-    const handleFileUpload = async (event) => {
-      try {
-        setUploading(true);
-        const file = event.target.files[0];
-        if (!file) return;
+  // Xử lý tải lên ảnh
+  const handleFileUpload = async (event) => {
+    try {
+      setUploading(true);
+      const file = event.target.files[0];
+      if (!file) return;
 
-        // Giới hạn 2MB
-        if (file.size > 2 * 1024 * 1024) {
-          showToast('Ảnh quá lớn! Vui lòng chọn ảnh dưới 2MB.', 'warning');
-          return;
-        }
-
-        const userId = user?.id || user?.uid;
-        const fileExt = file.name.split('.').pop();
-        const fileName = `${userId}-${Math.random().toString(36).substring(2)}.${fileExt}`;
-        const filePath = `${fileName}`;
-
-        // Tải lên Supabase Storage
-        // Lưu ý: Người dùng cần tạo bucket 'avatars' trước trong dashboard
-        const { error: uploadError } = await supabase.storage
-          .from('avatars')
-          .upload(filePath, file);
-
-        if (uploadError) throw uploadError;
-
-        // Lấy URL công khai
-        const { data: { publicUrl } } = supabase.storage
-          .from('avatars')
-          .getPublicUrl(filePath);
-
-        // Cập nhật DB
-        const { error: updateError } = await supabase
-          .from('profiles')
-          .update({ avatar_url: publicUrl })
-          .eq('id', userId);
-
-        if (updateError) throw updateError;
-
-        setCurrentAvatar(publicUrl);
-        if (refreshUserStats) await refreshUserStats();
-        showToast('Đã cập nhật ảnh đại diện!', 'success');
-      } catch (err) {
-        console.error('Error uploading avatar:', err);
-        showToast('Lỗi khi tải ảnh lên. Hãy đảm bảo bucket "avatars" đã được tạo trong Supabase Storage.', 'error');
-      } finally {
-        setUploading(false);
+      // Giới hạn 2MB
+      if (file.size > 2 * 1024 * 1024) {
+        showToast('Ảnh quá lớn! Vui lòng chọn ảnh dưới 2MB.', 'warning');
+        return;
       }
-    };
 
-    const handleSelectAvatar = (avatar) => {
-      // Avatar miễn phí luôn được chọn
-      const freeAvatarIds = avatarImages.filter(a => a.cost === 0).map(a => a.id);
-      const isUnlocked = freeAvatarIds.includes(avatar.id) || unlockedAvatars.includes(avatar.id);
-      
-      if (isUnlocked) {
-        setSelectedAvatar(avatar.id);
-        setCurrentAvatar(avatar.id);
-        saveAvatarSelection(avatar.id);
+      const userId = user?.id || user?.uid;
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${userId}-${Math.random().toString(36).substring(2)}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      // Tải lên Supabase Storage
+      // Lưu ý: Người dùng cần tạo bucket 'avatars' trước trong dashboard
+      const { error: uploadError } = await supabase.storage
+        .from('avatars')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      // Lấy URL công khai
+      const { data: { publicUrl } } = supabase.storage
+        .from('avatars')
+        .getPublicUrl(filePath);
+
+      // Cập nhật DB
+      const { error: updateError } = await supabase
+        .from('profiles')
+        .update({ avatar_url: publicUrl })
+        .eq('id', userId);
+
+      if (updateError) throw updateError;
+
+      setCurrentAvatar(publicUrl);
+      if (refreshUserStats) await refreshUserStats();
+      showToast('Đã cập nhật ảnh đại diện!', 'success');
+    } catch (err) {
+      console.error('Error uploading avatar:', err);
+      showToast('Lỗi khi tải ảnh lên. Hãy đảm bảo bucket "avatars" đã được tạo trong Supabase Storage.', 'error');
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleSelectAvatar = (avatar) => {
+    // Avatar miễn phí luôn được chọn
+    const freeAvatarIds = avatarImages.filter(a => a.cost === 0).map(a => a.id);
+    const isUnlocked = freeAvatarIds.includes(avatar.id) || unlockedAvatars.includes(avatar.id);
+
+    if (isUnlocked) {
+      setSelectedAvatar(avatar.id);
+      setCurrentAvatar(avatar.id);
+      saveAvatarSelection(avatar.id);
+    } else {
+      setAvatarToUnlock(avatar);
+      setShowUnlockModal(true);
+    }
+  };
+
+  const saveAvatarSelection = async (avatarId) => {
+    try {
+      const userId = user?.id || user?.uid;
+      const avatar = getAvatarById(avatarId);
+
+      await supabase
+        .from('profiles')
+        .update({
+          avatar_url: avatar.id // Nếu chọn từ list mẫu, lưu ID mẫu
+        })
+        .eq('id', userId);
+
+      if (refreshUserStats) await refreshUserStats();
+    } catch (err) {
+      console.error('Error saving avatar:', err);
+    }
+  };
+
+  const unlockAvatar = async () => {
+    if (!avatarToUnlock) return;
+
+    if (avatarToUnlock.cost > 0 && (userStats?.coins || 0) < avatarToUnlock.cost) {
+      showToast('Không đủ xu!', 'warning');
+      return;
+    }
+
+    try {
+      const userId = user?.id || user?.uid;
+      const newCoins = (userStats?.coins || 0) - avatarToUnlock.cost;
+      const newInventory = [...(userStats?.inventory || []), avatarToUnlock.id];
+
+      const { error } = await supabase
+        .from('profiles')
+        .update({
+          coins: newCoins,
+          inventory: newInventory,
+          avatar_url: avatarToUnlock.id
+        })
+        .eq('id', userId);
+
+      if (!error) {
+        setUnlockedAvatars(newInventory);
+        setCurrentAvatar(avatarToUnlock.id);
+        setShowUnlockModal(false);
+        setAvatarToUnlock(null);
+        if (refreshUserStats) await refreshUserStats();
+        showToast('Đã mở khóa avatar mới!', 'success');
       } else {
-        setAvatarToUnlock(avatar);
-        setShowUnlockModal(true);
+        showToast('Có lỗi xảy ra!', 'error');
       }
-    };
+    } catch (err) {
+      console.error('Error unlocking avatar:', err);
+      showToast('Có lỗi xảy ra!', 'error');
+    }
+  };
 
-    const saveAvatarSelection = async (avatarId) => {
-      try {
-        const userId = user?.id || user?.uid;
-        const avatar = getAvatarById(avatarId);
-        
-        await supabase
-          .from('profiles')
-          .update({ 
-            avatar_url: avatar.id // Nếu chọn từ list mẫu, lưu ID mẫu
-          })
-          .eq('id', userId);
-          
-        if (refreshUserStats) await refreshUserStats();
-      } catch (err) {
-        console.error('Error saving avatar:', err);
-      }
-    };
+  // Lưu tên mới - SỬA LỖI ĐỔI TÊN
+  const saveDisplayName = async () => {
+    const nameToSave = editName.trim();
+    if (!nameToSave || nameToSave.length < 2) {
+      setNameError('Tên phải có ít nhất 2 ký tự');
+      return;
+    }
 
-    const unlockAvatar = async () => {
-      if (!avatarToUnlock) return;
-      
-      if (avatarToUnlock.cost > 0 && (userStats?.coins || 0) < avatarToUnlock.cost) {
-        showToast('Không đủ xu!', 'warning');
+    try {
+      const userId = user?.id || user?.uid;
+
+      // Kiểm tra trùng tên
+      const { data: existing, error: checkError } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('display_name', nameToSave)
+        .neq('id', userId)
+        .maybeSingle();
+
+      if (existing) {
+        setNameError('Tên này đã bị trùng, vui lòng chọn tên khác');
         return;
       }
 
-      try {
-        const userId = user?.id || user?.uid;
-        const newCoins = (userStats?.coins || 0) - avatarToUnlock.cost;
-        const newInventory = [...(userStats?.inventory || []), avatarToUnlock.id];
+      setNameError('');
+      const { error } = await supabase
+        .from('profiles')
+        .update({
+          display_name: nameToSave
+        })
+        .eq('id', userId);
 
-        const { error } = await supabase
-          .from('profiles')
-          .update({
-            coins: newCoins,
-            inventory: newInventory,
-            avatar_url: avatarToUnlock.id
-          })
-          .eq('id', userId);
-
-        if (!error) {
-          setUnlockedAvatars(newInventory);
-          setCurrentAvatar(avatarToUnlock.id);
-          setShowUnlockModal(false);
-          setAvatarToUnlock(null);
-          if (refreshUserStats) await refreshUserStats();
-          showToast('Đã mở khóa avatar mới!', 'success');
-        } else {
-          showToast('Có lỗi xảy ra!', 'error');
+      if (!error) {
+        setDisplayName(nameToSave);
+        setIsEditingName(false);
+        if (refreshUserStats) {
+          await refreshUserStats();
         }
-      } catch (err) {
-        console.error('Error unlocking avatar:', err);
-        showToast('Có lỗi xảy ra!', 'error');
+        showToast('Đã cập nhật tên hiển thị!', 'success');
+      } else {
+        console.error('Update error:', error);
+        showToast('Không thể cập nhật tên: ' + error.message, 'error');
       }
-    };
+    } catch (err) {
+      console.error('Error updating name:', err);
+      showToast('Có lỗi xảy ra!', 'error');
+    }
+  };
 
-    // Lưu tên mới - SỬA LỖI ĐỔI TÊN
-    const saveDisplayName = async () => {
-      const nameToSave = editName.trim();
-      if (!nameToSave || nameToSave.length < 2) {
-        setNameError('Tên phải có ít nhất 2 ký tự');
-        return;
-      }
-      
-      try {
-        const userId = user?.id || user?.uid;
-        
-        // Kiểm tra trùng tên
-        const { data: existing, error: checkError } = await supabase
-          .from('profiles')
-          .select('id')
-          .eq('display_name', nameToSave)
-          .neq('id', userId)
-          .maybeSingle();
+  const currentAvatarData = getAvatarById(currentAvatar);
+  // Ưu tiên hiển thị: 1. URL (ảnh tải lên) -> 2. Ảnh mẫu từ list (theo ID) -> 3. Ảnh mặc định
+  const displayedAvatar = currentAvatar?.includes('/')
+    ? currentAvatar
+    : (currentAvatarData?.src || '/images/Avatar/adventurer-1.png');
 
-        if (existing) {
-          setNameError('Tên này đã bị trùng, vui lòng chọn tên khác');
-          return;
-        }
+  // Chỉ hiện tiến độ các lớp đã chơi khi đã hoàn thành hoàn hảo màn đầu tiên (1_1_0) hoặc review (1_review_0)
+  const playedClasses = [6, 7, 8, 9, 10, 11, 12].filter(classNum => {
+    const classProg = userStats?.class_progress?.[classNum];
+    const completed = classProg?.completedLevels || [];
+    return completed.includes('1_1_0') || completed.includes('1_review_0');
+  });
 
-        setNameError('');
-        const { error } = await supabase
-          .from('profiles')
-          .update({
-            display_name: nameToSave
-          })
-          .eq('id', userId);
-        
-        if (!error) {
-          setDisplayName(nameToSave);
-          setIsEditingName(false);
-          if (refreshUserStats) {
-            await refreshUserStats();
-          }
-          showToast('Đã cập nhật tên hiển thị!', 'success');
-        } else {
-          console.error('Update error:', error);
-          showToast('Không thể cập nhật tên: ' + error.message, 'error');
-        }
-      } catch (err) {
-        console.error('Error updating name:', err);
-        showToast('Có lỗi xảy ra!', 'error');
-      }
-    };
+  const stats = [
+    { label: 'Tổng điểm', value: userStats?.total_score || 0, icon: Star, color: 'text-yellow-400' },
+    { label: 'Điểm tuần', value: userStats?.weekly_score || 0, icon: Trophy, color: 'text-orange-400' },
+    { label: 'Xu', value: userStats?.coins || 0, icon: Coins, color: 'text-yellow-300' },
+    { label: 'Màn hoàn thành', value: userStats?.levels_completed || 0, icon: Check, color: 'text-green-400' },
+    { label: 'Chuỗi ngày', value: userStats?.login_streak || 0, icon: Flame, color: 'text-orange-500' },
+  ];
 
-    const currentAvatarData = getAvatarById(currentAvatar);
-    // Ưu tiên hiển thị: 1. URL (ảnh tải lên) -> 2. Ảnh mẫu từ list (theo ID) -> 3. Ảnh mặc định
-    const displayedAvatar = currentAvatar?.includes('/') 
-      ? currentAvatar 
-      : (currentAvatarData?.src || '/images/Avatar/adventurer-1.png');
-    
-    // Chỉ hiện tiến độ các lớp đã chơi (có progress > 0 hoặc có completedLessons)
-    const playedClasses = [6, 7, 8, 9, 10, 11, 12].filter(classNum => {
-      const progress = userStats?.classProgress?.[classNum] || 0;
-      const completed = userStats?.completedLessons?.filter(l => l.startsWith(`class${classNum}`))?.length || 0;
-      return progress > 0 || completed > 0;
-    });
+  return (
+    <div className="min-h-screen relative bg-transparent">
+      {/* Hidden File Input */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        className="hidden"
+        accept="image/*"
+        onChange={handleFileUpload}
+      />
 
-    const stats = [
-      { label: 'Tổng điểm', value: userStats?.total_score || 0, icon: Star, color: 'text-yellow-400' },
-      { label: 'Điểm tuần', value: userStats?.weekly_score || 0, icon: Trophy, color: 'text-orange-400' },
-      { label: 'Xu', value: userStats?.coins || 0, icon: Coins, color: 'text-yellow-300' },
-      { label: 'Màn hoàn thành', value: userStats?.levels_completed || 0, icon: Check, color: 'text-green-400' },
-      { label: 'Chuỗi ngày', value: userStats?.login_streak || 0, icon: Leaf, color: 'text-green-300' },
-    ];
+      {/* Header */}
+      <header className="bg-black/40 backdrop-blur-xl sticky top-0 z-50 border-b border-white/5">
+        <div className="max-w-4xl mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => navigate(-1)}
+              className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+            >
+              <ArrowLeft className="w-5 h-5 text-white" />
+            </button>
 
-    return (
-      <div className="min-h-screen relative bg-transparent">
-        {/* Hidden File Input */}
-        <input 
-          type="file" 
-          ref={fileInputRef} 
-          className="hidden" 
-          accept="image/*"
-          onChange={handleFileUpload}
-        />
+            <h1 className="text-xl font-bold text-white flex items-center gap-2">
+              <User className="w-5 h-5 text-blue-400" />
+              Hồ sơ
+            </h1>
 
-        {/* Header */}
-        <header className="bg-black/40 backdrop-blur-xl sticky top-0 z-50 border-b border-white/5">
-          <div className="max-w-4xl mx-auto px-4 py-3">
-            <div className="flex items-center justify-between">
-              <button 
-                onClick={() => navigate(-1)}
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+            <div className="flex items-center gap-3">
+              {/* Nút bật tắt chế độ Ngày/Đêm */}
+              <button
+                onClick={toggleTheme}
+                className="theme-toggle-btn"
+                title={theme === 'light' ? 'Chuyển sang chế độ Đêm' : 'Chuyển sang chế độ Ngày'}
               >
-                <ArrowLeft className="w-5 h-5 text-white" />
+                <div className="theme-toggle-thumb">
+                  {theme === 'light' ? (
+                    <Sun className="theme-toggle-icon text-amber-500 fill-amber-500/20" />
+                  ) : (
+                    <Moon className="theme-toggle-icon text-indigo-300 fill-indigo-300/20" />
+                  )}
+                </div>
               </button>
 
-              <h1 className="text-xl font-bold text-white flex items-center gap-2">
-                <User className="w-5 h-5 text-blue-400" />
-                Hồ sơ
-              </h1>
-
-              <button 
+              <button
                 onClick={() => navigate('/settings')}
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
               >
@@ -316,35 +332,36 @@ export default function ProfilePage() {
               </button>
             </div>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <main className="max-w-4xl mx-auto px-4 py-6">
-          {/* Profile Card */}
-          <div className="game-card text-center mb-6">
-            {/* Avatar - Sử dụng hình ảnh thay vì emoji */}
-            <div className="relative inline-block">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4 avatar-circle overflow-hidden border-4 border-white/20">
-                {uploading ? (
-                  <div className="animate-spin w-8 h-8 border-4 border-white border-t-transparent rounded-full" />
-                ) : (
-                  <img 
-                    src={displayedAvatar} 
-                    alt="Current Avatar"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.src = '/images/Avatar/adventurer-1.png';
-                    }}
-                  />
-                )}
-              </div>
-              <button 
-                onClick={() => fileInputRef.current?.click()}
-                disabled={uploading}
-                className="absolute bottom-2 right-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-400 shadow-lg"
-              >
-                <Camera className="w-4 h-4 text-white" />
-              </button>
+      <main className="max-w-4xl mx-auto px-4 py-6">
+        {/* Profile Card */}
+        <div className="game-card text-center mb-6">
+          {/* Avatar - Sử dụng hình ảnh thay vì emoji */}
+          <div className="relative inline-block">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4 avatar-circle overflow-hidden border-4 border-white/20">
+              {uploading ? (
+                <div className="animate-spin w-8 h-8 border-4 border-white border-t-transparent rounded-full" />
+              ) : (
+                <img
+                  src={displayedAvatar}
+                  alt="Current Avatar"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.src = '/images/Avatar/adventurer-1.png';
+                  }}
+                />
+              )}
             </div>
+            <button
+              onClick={() => fileInputRef.current?.click()}
+              disabled={uploading}
+              className="absolute bottom-2 right-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-400 shadow-lg"
+            >
+              <Camera className="w-4 h-4 text-white" />
+            </button>
+          </div>
 
           {/* Tên người dùng - có thể chỉnh sửa */}
           {isEditingName ? (
@@ -405,31 +422,28 @@ export default function ProfilePage() {
         <div className="flex gap-2 mb-6">
           <button
             onClick={() => setActiveTab('stats')}
-            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${
-              activeTab === 'stats' 
-                ? 'bg-blue-500 text-white' 
+            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${activeTab === 'stats'
+                ? 'bg-blue-500 text-white'
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
-            }`}
+              }`}
           >
             Thống kê
           </button>
           <button
             onClick={() => setActiveTab('avatars')}
-            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${
-              activeTab === 'avatars' 
-                ? 'bg-blue-500 text-white' 
+            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${activeTab === 'avatars'
+                ? 'bg-blue-500 text-white'
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
-            }`}
+              }`}
           >
             Avatar
           </button>
           <button
             onClick={() => setActiveTab('achievements')}
-            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${
-              activeTab === 'achievements' 
-                ? 'bg-blue-500 text-white' 
+            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${activeTab === 'achievements'
+                ? 'bg-blue-500 text-white'
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
-            }`}
+              }`}
           >
             Thành tựu
           </button>
@@ -438,13 +452,21 @@ export default function ProfilePage() {
         {/* Stats Tab */}
         {activeTab === 'stats' && (
           <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat, index) => (
-              <div key={index} className="game-card text-center">
-                <stat.icon className={`w-8 h-8 mx-auto mb-2 ${stat.color}`} />
-                <p className="text-2xl font-bold text-white">{stat.value.toLocaleString()}</p>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
-              </div>
-            ))}
+            {stats.map((stat, index) => {
+              const isStreak = stat.label === 'Chuỗi ngày';
+              return (
+                <div key={index} className="game-card text-center flex flex-col justify-center items-center">
+                  <stat.icon className={`w-8 h-8 mx-auto mb-2 ${stat.color}`} />
+                  <p className="text-2xl font-bold text-white">{stat.value.toLocaleString()}</p>
+                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                  {isStreak && (
+                    <p className="text-[10px] text-orange-400 font-bold mt-1 uppercase tracking-wider">
+                      Kỷ lục: {userStats?.highestStreak || 0} ngày
+                    </p>
+                  )}
+                </div>
+              );
+            })}
 
             {/* Class Progress - Chỉ hiện lớp đã chơi */}
             {playedClasses.length > 0 && (
@@ -469,7 +491,7 @@ export default function ProfilePage() {
                           <span className="text-gray-400">{progress}%</span>
                         </div>
                         <div className="h-2 bg-white/20 rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className={`h-full bg-gradient-to-r ${colors[classNum]}`}
                             style={{ width: `${progress}%` }}
                           />
@@ -488,6 +510,68 @@ export default function ProfilePage() {
                 <p className="text-gray-500 text-sm">Hãy chọn lớp và bắt đầu học!</p>
               </div>
             )}
+
+            {/* Âm thanh Controls */}
+            <div className="mt-6 bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10 col-span-2">
+              <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
+                <Volume2 className="w-5 h-5 text-blue-400" />
+                Âm thanh
+              </h3>
+
+              {/* Nhạc nền */}
+              <div className="flex items-center gap-3 mb-4">
+                <button
+                  onClick={toggleBgMute}
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all shrink-0 ${bgMuted ? 'bg-red-500/30 text-red-400' : 'bg-blue-500/30 text-blue-400'
+                    }`}
+                >
+                  {bgMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                </button>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-300 mb-1.5">Nhạc nền</p>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={bgMuted ? 0 : bgVolume}
+                    onChange={(e) => {
+                      const val = Number(e.target.value);
+                      setBgVolume(val);
+                      if (bgMuted && val > 0) toggleBgMute();
+                    }}
+                    className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:shadow-lg"
+                  />
+                </div>
+                <span className="text-white text-sm font-medium w-10 text-right shrink-0">{bgMuted ? 0 : bgVolume}%</span>
+              </div>
+
+              {/* Hiệu ứng âm thanh */}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={toggleSfxMute}
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all shrink-0 ${sfxMuted ? 'bg-red-500/30 text-red-400' : 'bg-green-500/30 text-green-400'
+                    }`}
+                >
+                  {sfxMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                </button>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm text-gray-300 mb-1.5">Hiệu ứng âm thanh</p>
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value={sfxMuted ? 0 : sfxVolume}
+                    onChange={(e) => {
+                      const val = Number(e.target.value);
+                      setSfxVolume(val);
+                      if (sfxMuted && val > 0) toggleSfxMute();
+                    }}
+                    className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-green-500 [&::-webkit-slider-thumb]:shadow-lg"
+                  />
+                </div>
+                <span className="text-white text-sm font-medium w-10 text-right shrink-0">{sfxMuted ? 0 : sfxVolume}%</span>
+              </div>
+            </div>
           </div>
         )}
 
@@ -506,20 +590,19 @@ export default function ProfilePage() {
               {avatarImages.map((avatar) => {
                 const isUnlocked = unlockedAvatars.includes(avatar.id) || avatar.cost === 0;
                 const isSelected = currentAvatar === avatar.id;
-                
+
                 return (
                   <button
                     key={avatar.id}
                     onClick={() => handleSelectAvatar(avatar)}
-                    className={`relative aspect-square rounded-xl flex flex-col items-center justify-center p-2 transition-all overflow-hidden ${
-                      isSelected 
-                        ? 'bg-blue-500/50 ring-2 ring-blue-400' 
-                        : isUnlocked 
-                          ? 'bg-white/10 hover:bg-white/20' 
+                    className={`relative aspect-square rounded-xl flex flex-col items-center justify-center p-2 transition-all overflow-hidden ${isSelected
+                        ? 'bg-blue-500/50 ring-2 ring-blue-400'
+                        : isUnlocked
+                          ? 'bg-white/10 hover:bg-white/20'
                           : 'bg-white/5'
-                    }`}
+                      }`}
                   >
-                    <img 
+                    <img
                       src={avatar.src}
                       alt={avatar.name}
                       className={`w-12 h-12 rounded-full object-cover ${!isUnlocked ? 'opacity-30' : ''}`}
@@ -527,7 +610,7 @@ export default function ProfilePage() {
                     <span className={`text-xs mt-1 truncate w-full text-center ${isUnlocked ? 'text-gray-300' : 'text-gray-500'}`}>
                       {avatar.name}
                     </span>
-                    
+
                     {!isUnlocked && (
                       <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-xl">
                         <div className="text-center">
@@ -536,7 +619,7 @@ export default function ProfilePage() {
                         </div>
                       </div>
                     )}
-                    
+
                     {isSelected && (
                       <div className="absolute top-1 right-1">
                         <Check className="w-4 h-4 text-green-400" />
@@ -559,70 +642,6 @@ export default function ProfilePage() {
             </div>
           </div>
         )}
-
-        {/* Âm thanh Controls */}
-        <div className="mt-6 bg-white/5 backdrop-blur-sm rounded-2xl p-5 border border-white/10">
-          <h3 className="text-white font-bold text-lg mb-4 flex items-center gap-2">
-            <Volume2 className="w-5 h-5 text-blue-400" />
-            Âm thanh
-          </h3>
-
-          {/* Nhạc nền */}
-          <div className="flex items-center gap-3 mb-4">
-            <button
-              onClick={toggleBgMute}
-              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all shrink-0 ${
-                bgMuted ? 'bg-red-500/30 text-red-400' : 'bg-blue-500/30 text-blue-400'
-              }`}
-            >
-              {bgMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-            </button>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm text-gray-300 mb-1.5">Nhạc nền</p>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={bgMuted ? 0 : bgVolume}
-                onChange={(e) => {
-                  const val = Number(e.target.value);
-                  setBgVolume(val);
-                  if (bgMuted && val > 0) toggleBgMute();
-                }}
-                className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:shadow-lg"
-              />
-            </div>
-            <span className="text-white text-sm font-medium w-10 text-right shrink-0">{bgMuted ? 0 : bgVolume}%</span>
-          </div>
-
-          {/* Hiệu ứng âm thanh */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={toggleSfxMute}
-              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all shrink-0 ${
-                sfxMuted ? 'bg-red-500/30 text-red-400' : 'bg-green-500/30 text-green-400'
-              }`}
-            >
-              {sfxMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-            </button>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm text-gray-300 mb-1.5">Hiệu ứng âm thanh</p>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={sfxMuted ? 0 : sfxVolume}
-                onChange={(e) => {
-                  const val = Number(e.target.value);
-                  setSfxVolume(val);
-                  if (sfxMuted && val > 0) toggleSfxMute();
-                }}
-                className="w-full h-2 bg-white/20 rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-green-500 [&::-webkit-slider-thumb]:shadow-lg"
-              />
-            </div>
-            <span className="text-white text-sm font-medium w-10 text-right shrink-0">{sfxMuted ? 0 : sfxVolume}%</span>
-          </div>
-        </div>
       </main>
 
       {/* Unlock Avatar Modal - Sử dụng ảnh */}
@@ -630,15 +649,15 @@ export default function ProfilePage() {
         <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
           <div className="game-card max-w-md w-full text-center">
             <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4 overflow-hidden">
-              <img 
+              <img
                 src={avatarToUnlock.src}
                 alt={avatarToUnlock.name}
                 className="w-full h-full object-cover"
               />
             </div>
-            
+
             <h2 className="text-xl font-bold text-white mb-2">Mở khóa {avatarToUnlock.name}?</h2>
-            
+
             <div className="flex items-center justify-center gap-2 mb-6">
               <Coins className="w-6 h-6 text-yellow-400" />
               <span className="text-2xl font-bold text-yellow-300">{avatarToUnlock.cost}</span>
@@ -659,11 +678,10 @@ export default function ProfilePage() {
               <button
                 onClick={unlockAvatar}
                 disabled={(userStats?.coins || 0) < avatarToUnlock.cost}
-                className={`flex-1 py-3 rounded-xl font-semibold ${
-                  (userStats?.coins || 0) >= avatarToUnlock.cost
+                className={`flex-1 py-3 rounded-xl font-semibold ${(userStats?.coins || 0) >= avatarToUnlock.cost
                     ? 'bg-blue-500 hover:bg-blue-400 text-white'
                     : 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                }`}
+                  }`}
               >
                 Mở khóa
               </button>

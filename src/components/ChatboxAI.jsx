@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { EyeOff, MessageCircle, Send, X } from 'lucide-react';
+import { EyeOff, MessageCircle, Send, X, Dna } from 'lucide-react';
 
 const normalizeText = (value) => {
   if (!value) return '';
@@ -27,9 +27,9 @@ const BIOLOGY_TOPICS = {
 };
 
 const BIO_KEYWORDS = [
-  'sinh hoc', 'te bao', 'gen', 'di truyen', 'he sinh thai', 'trao doi chat', 
-  'ho hap', 'quang hop', 'tieu hoa', 'tuan hoan', 'than kinh', 'noi tiet', 
-  'sinh san', 'tien hoa', 'vi sinh vat', 'virus', 'vi khuan', 'nam', 'thuc vat', 
+  'sinh hoc', 'te bao', 'gen', 'di truyen', 'he sinh thai', 'trao doi chat',
+  'ho hap', 'quang hop', 'tieu hoa', 'tuan hoan', 'than kinh', 'noi tiet',
+  'sinh san', 'tien hoa', 'vi sinh vat', 'virus', 'vi khuan', 'nam', 'thuc vat',
   'dong vat', 'da dang sinh hoc', 'bao ve moi truong', 'nguyen phan', 'giam phan',
   'dna', 'rna', 'protein', 'enzyme', 'cacbonhidrat', 'lipid', 'axit nucleic',
   'co the nguoi', 'suc khoe', 'benh', 'vac xin', 'khang the', 'mien dich'
@@ -57,7 +57,7 @@ const ChatboxAI = ({ user }) => {
   });
   const [messages, setMessages] = useState([]);
   const [loadedUserId, setLoadedUserId] = useState('');
-  
+
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -191,13 +191,13 @@ const ChatboxAI = ({ user }) => {
           if (!response.ok) continue;
 
           const content = await response.text();
-          
+
           // Greedy: Always take the first 4000 chars as it usually contains the TOC/Mục lục
           const tocContext = content.substring(0, 4000);
           fullContext += `\n--- CẤU TRÚC SÁCH LỚP ${grade} ---\n${tocContext}\n`;
 
           const searchKeywords = BIO_KEYWORDS.filter(kw => normalizedQuery.includes(normalizeText(kw)));
-          
+
           if (searchKeywords.length > 0) {
             let bestIdx = -1;
             for (const kw of searchKeywords) {
@@ -214,7 +214,7 @@ const ChatboxAI = ({ user }) => {
               fullContext += `\n--- CHI TIẾT LỚP ${grade} ---\n${content.substring(start, end)}\n`;
             }
           }
-          if (fullContext.length > 15000) break; 
+          if (fullContext.length > 15000) break;
         } catch (e) {
           console.warn(`Could not fetch textbook for grade ${grade}`, e);
         }
@@ -227,10 +227,6 @@ const ChatboxAI = ({ user }) => {
   };
 
   const fetchAiReply = async (text, context = '') => {
-    if (!window.puter) {
-      return '⚠️ Hệ thống AI đang khởi tạo, vui lòng gửi lại câu hỏi sau vài giây!';
-    }
-
     const systemPrompt = `Bạn là trợ lý AI chuyên gia Sinh học (Biology Tutor) cho nền tảng BioLearn. 
 Tên người dùng: ${displayName}. 
 PHẠM VI CÔNG VIỆC: Chỉ trả lời các nội dung liên quan đến SINH HỌC từ lớp 6 đến lớp 12.
@@ -261,27 +257,30 @@ ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
     });
 
     try {
-      console.log('Sending query to Puter AI...');
-      const response = await window.puter.ai.chat(formattedMessages, { model: 'gpt-3.5-turbo' });
-      
-      if (response && response.message && response.message.content) {
-        return response.message.content;
-      } else if (typeof response === 'string') {
-        return response;
+      console.log('Sending query to Pollinations AI via Proxy...');
+      const response = await fetch('/api/ai', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: formattedMessages,
+          model: 'openai',
+          jsonMode: false
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
       }
-      throw new Error('No content returned from Puter AI');
+
+      const data = await response.json();
+      if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+        return data.choices[0].message.content;
+      }
+      throw new Error('No content returned from AI');
     } catch (err) {
-      console.warn('Primary Puter AI model failed, trying fallback model...', err);
-      try {
-        const fallbackResponse = await window.puter.ai.chat(formattedMessages, { model: 'claude-3-haiku' });
-        if (fallbackResponse && fallbackResponse.message && fallbackResponse.message.content) {
-          return fallbackResponse.message.content;
-        } else if (typeof fallbackResponse === 'string') {
-          return fallbackResponse;
-        }
-      } catch (fallbackErr) {
-        console.error('Puter AI fallback query failed:', fallbackErr);
-      }
+      console.error('AI query failed:', err);
       return 'Hiện tại tất cả các mô hình AI đều đang bận hoặc quá tải. Bạn hãy thử lại sau giây lát nhé, mình xin lỗi vì sự bất tiện này!';
     }
   };
@@ -313,7 +312,7 @@ ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
     try {
       const context = await fetchKnowledge(trimmed);
       const reply = await fetchAiReply(trimmed, context);
-      
+
       addMessage({
         id: `assistant-${Date.now()}`,
         role: 'assistant',
@@ -398,19 +397,22 @@ ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
 
   return (
     <div
-      className="fixed bottom-6 right-6 z-[9999]"
+      className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-[9999]"
     >
       {!isOpen ? (
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="w-14 h-14 rounded-full bg-emerald-500/70 text-white shadow-lg flex items-center justify-center hover:bg-emerald-400/80 transition backdrop-blur-md"
+          className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-black/15 bg-white/70 dark:bg-white/80 backdrop-blur-xl text-black shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
           aria-label="Mở chatbox AI"
         >
-          <MessageCircle className="w-6 h-6" />
+          <div className="w-8 h-8 rounded-full border-2 border-black flex items-center justify-center bg-black/5">
+            <Dna className="w-4 h-4 text-black stroke-[2.5]" />
+          </div>
+          <span className="font-bold tracking-tight text-black text-sm pr-1">BioAI</span>
         </button>
       ) : (
-        <div className="w-[90vw] max-w-[340px] h-[60vh] max-h-[450px] bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="chatbox-ai-container w-[90vw] max-w-[340px] h-[60vh] max-h-[450px] bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           <div
             className="flex items-center justify-between px-4 py-3 bg-slate-900/80 border-b border-white/10"
           >
@@ -498,9 +500,9 @@ ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
             <h3 className="text-xl font-bold text-white text-center mb-2">Ẩn Chatbox?</h3>
             <p className="text-gray-300 text-center text-sm mb-6 leading-relaxed">
               Bạn có muốn ẩn trợ lý AI? Đừng lo, bạn có thể mở lại bất cứ lúc nào:
-              <br/><br/>
+              <br /><br />
               <span className="text-emerald-400 font-semibold">Máy tính:</span> Nhấn <kbd className="bg-white/10 px-1.5 py-0.5 rounded text-white text-xs border border-white/20">Ctrl + Shift + C</kbd>
-              <br/>
+              <br />
               <span className="text-emerald-400 font-semibold">Điện thoại:</span> <span className="text-white/80">Lắc máy</span> để gọi trợ lý.
             </p>
             <div className="flex gap-3">

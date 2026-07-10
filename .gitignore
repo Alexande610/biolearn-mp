@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 .env
 .env.*
+
+# Temp brain folder
+temp_brain/
+
+# Large PDF files
+public/document/*.pdf

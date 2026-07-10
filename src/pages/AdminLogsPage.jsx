@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Activity, ArrowLeft, FileText, RefreshCw } from 'lucide-react';
+import { Activity, ArrowLeft, FileText, RefreshCw, Sun, Moon } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 
@@ -8,7 +8,7 @@ const LOGS_PAGE_LIMIT = 20;
 
 export default function AdminLogsPage() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, theme, toggleTheme } = useAuth();
 
   const [logs, setLogs] = useState([]);
   const [logsLoading, setLogsLoading] = useState(false);
@@ -123,12 +123,22 @@ export default function AdminLogsPage() {
               </div>
             </div>
 
-            <button
-              onClick={fetchSystemLogs}
-              className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
-            >
-              <RefreshCw className={`w-5 h-5 text-white ${logsLoading ? 'animate-spin' : ''}`} />
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={toggleTheme}
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 active:scale-95 transition cursor-pointer"
+                title={theme === 'light' ? 'Chuyển sang chế độ tối' : 'Chuyển sang chế độ sáng'}
+              >
+                {theme === 'light' ? <Moon className="w-5 h-5 text-white" /> : <Sun className="w-5 h-5 text-yellow-400 animate-pulse" />}
+              </button>
+
+              <button
+                onClick={fetchSystemLogs}
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+              >
+                <RefreshCw className={`w-5 h-5 text-white ${logsLoading ? 'animate-spin' : ''}`} />
+              </button>
+            </div>
           </div>
         </div>
       </header>

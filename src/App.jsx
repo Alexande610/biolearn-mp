@@ -35,6 +35,183 @@ import { AuthContext } from './hooks/useAuth';
 const API_URL = '/api';
 const DEFAULT_LOCK_REASON = 'Phát hiện hành vi bất thường. Vui lòng liên hệ quản trị viên.';
 
+const helperComputeClassProgress = (classProgressData = {}) => {
+  const classProgress = {};
+  const classStructure = {
+    6: [{ id: 1, lessons: [1, 2, 3] }, { id: 2, lessons: [4, 5] }, { id: 3, lessons: [6, 7, 8, 9, 10] }],
+    7: [{ id: 1, lessons: [1, 2, 3] }, { id: 2, lessons: [4, 5] }],
+    8: [{ id: 1, lessons: [1, 2, 3] }],
+    9: [{ id: 1, lessons: [1, 2] }],
+    10: [
+      { id: 1, lessons: [1, 2, 3] },
+      { id: 2, lessons: [4, 5, 6] },
+      { id: 3, lessons: [7, 8, 9] },
+      { id: 4, lessons: [10, 11, 12] },
+      { id: 5, lessons: [13, 14] },
+      { id: 6, lessons: [16, 17, 19] },
+      { id: 7, lessons: [21, 22] },
+      { id: 8, lessons: [24, 25] }
+    ],
+    11: [
+      { id: 1, lessons: [1, 2, 4, 6, 8, 9, 10] },
+      { id: 2, lessons: [14, 15, 17, 18] },
+      { id: 3, lessons: [19, 20, 22] },
+      { id: 4, lessons: [24, 25, 27] }
+    ],
+    12: [
+      { id: 1, lessons: [1, 2, 3, 4] },
+      { id: 2, lessons: [6, 7, 10, 11] },
+      { id: 3, lessons: [8] },
+      { id: 4, lessons: [12] }
+    ]
+  };
+
+  const totalLevelsMap = {
+    6: 106, 7: 54, 8: 32, 9: 22, 10: 226, 11: 178, 12: 108
+  };
+
+  [6, 7, 8, 9, 10, 11, 12].forEach(classNum => {
+    const classProg = classProgressData[classNum];
+    if (!classProg || !classProg.completedLevels) {
+      classProgress[classNum] = 0;
+      return;
+    }
+    const completed = classProg.completedLevels;
+    const completedSet = new Set(completed);
+    
+    const isFirstLevelDone = completed.includes('1_1_0') || completed.includes('1_review_0');
+    if (!isFirstLevelDone) {
+      classProgress[classNum] = 0;
+      return;
+    }
+
+    let completedCount = 0;
+    const chapters = classStructure[classNum] || [];
+    chapters.forEach(chapter => {
+      if (completedSet.has(`${chapter.id}_review_0`)) {
+        completedCount += chapter.lessons.length * 10 + 2;
+      } else {
+        chapter.lessons.forEach(lessonId => {
+          for (let lv = 0; lv < 10; lv++) {
+            if (completedSet.has(`${chapter.id}_${lessonId}_${lv}`)) {
+              completedCount++;
+            }
+          }
+        });
+        for (let pv = 0; pv < 2; pv++) {
+          if (completedSet.has(`${chapter.id}_99_${pv}`) || completedSet.has(`${chapter.id}_practice_${pv}`)) {
+            completedCount++;
+          }
+        }
+      }
+    });
+    const total = totalLevelsMap[classNum] || 100;
+    classProgress[classNum] = Math.min(100, Math.round((completedCount / total) * 100));
+  });
+  return classProgress;
+};
+
+const helperGetHighestStreak = (userId, currentStreak, dbHighestStreak) => {
+  if (!userId) return Math.max(currentStreak, dbHighestStreak || 0);
+  const key = `highest_streak_${userId}`;
+  const storedHighest = localStorage.getItem(key) || 0;
+  const highest = Math.max(Number(storedHighest), currentStreak, dbHighestStreak || 0);
+  if (highest > Number(storedHighest)) {
+    localStorage.setItem(key, String(highest));
+  }
+  return highest;
+};
+
+const helperUpdateStaminaAndStreak = async (profile, userId) => {
+  if (!profile || !userId) return { stamina: 20, login_streak: 0 };
+
+  // 1. Recover Stamina
+  let currentStamina = profile.stamina ?? 20;
+  const maxStamina = profile.max_stamina ?? 20;
+  const lastStaminaUpdate = new Date(profile.last_stamina_update || Date.now());
+  const now = new Date();
+
+  if (currentStamina < maxStamina) {
+    const secondsPassed = Math.floor((now - lastStaminaUpdate) / 1000);
+    const pointsToRecover = Math.floor(secondsPassed / (5 * 60)); // 5 mins
+    if (pointsToRecover > 0) {
+      currentStamina = Math.min(maxStamina, currentStamina + pointsToRecover);
+    }
+  }
+
+  // 2. Login Streak
+  const lastActiveStr = profile.last_active_at;
+  const todayStr = now.toISOString().split('T')[0];
+  let newStreak = profile.login_streak ?? 0;
+  let shouldUpdateStreak = false;
+
+  if (!lastActiveStr) {
+    newStreak = 0;
+    shouldUpdateStreak = true;
+  } else {
+    const lastActiveDate = new Date(lastActiveStr.split('T')[0] + 'T00:00:00');
+    const todayDate = new Date(todayStr + 'T00:00:00');
+    const diffTime = todayDate - lastActiveDate;
+    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 1) {
+      newStreak = (profile.login_streak ?? 0) + 1;
+      shouldUpdateStreak = true;
+    } else if (diffDays > 1) {
+      newStreak = 1;
+      shouldUpdateStreak = true;
+    }
+  }
+
+  const isNewDayActive = !lastActiveStr || lastActiveStr.split('T')[0] !== todayStr;
+
+  // 3. Database Update
+  const updateData = {};
+  let finalStaminaUpdate = profile.last_stamina_update;
+
+  if (currentStamina !== profile.stamina) {
+    updateData.stamina = currentStamina;
+    updateData.last_stamina_update = now.toISOString();
+    finalStaminaUpdate = updateData.last_stamina_update;
+  }
+  if (shouldUpdateStreak) {
+    updateData.login_streak = newStreak;
+  }
+  if (isNewDayActive) {
+    updateData.last_active_at = now.toISOString();
+  }
+
+  if (Object.keys(updateData).length > 0) {
+    try {
+      await supabase
+        .from('profiles')
+        .update(updateData)
+        .eq('id', userId);
+
+      if (shouldUpdateStreak) {
+        const key = `highest_streak_${userId}`;
+        const storedHighest = localStorage.getItem(key) || 0;
+        if (newStreak > Number(storedHighest)) {
+          localStorage.setItem(key, String(newStreak));
+          await supabase
+            .from('profiles')
+            .update({ highest_streak: newStreak })
+            .eq('id', userId);
+        }
+      }
+    } catch (err) {
+      console.error("Error updating stamina/streak in DB:", err);
+    }
+  }
+
+  return {
+    stamina: currentStamina,
+    login_streak: newStreak,
+    last_stamina_update: finalStaminaUpdate,
+    last_active_at: isNewDayActive ? now.toISOString() : lastActiveStr
+  };
+};
+
 const normalizeLockNotice = (source = {}) => ({
   reason: source.lockReason || source.reason || DEFAULT_LOCK_REASON,
   lockedAt: source.lockedAt || null,
@@ -61,7 +238,7 @@ function App() {
   const [userStats, setUserStats] = useState(null);
   const [lockNotice, setLockNotice] = useState(null);
   const prevUserRef = useRef(null);
-  
+
   // Đồng bộ ref với state user
   useEffect(() => {
     prevUserRef.current = user;
@@ -81,6 +258,28 @@ function App() {
   const [bgMuted, setBgMutedRaw] = useState(() => localStorage.getItem('bgMuted') === 'true');
   const [sfxMuted, setSfxMutedRaw] = useState(() => localStorage.getItem('sfxMuted') === 'true');
 
+  // Theme state - mặc định là 'light' (Day mode)
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved !== null ? saved : 'light';
+  });
+
+  const toggleTheme = () => {
+    setTheme(prev => {
+      const next = prev === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', next);
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.body.classList.add('light-theme');
+    } else {
+      document.body.classList.remove('light-theme');
+    }
+  }, [theme]);
+
   // Background music (All.mp3)
   useEffect(() => {
     const audio = new Audio('/music/All.mp3');
@@ -90,7 +289,7 @@ function App() {
 
     const startMusic = () => {
       if (!bgMusicStartedRef.current && bgMusicRef.current) {
-        bgMusicRef.current.play().catch(() => {});
+        bgMusicRef.current.play().catch(() => { });
         bgMusicStartedRef.current = true;
       }
     };
@@ -198,30 +397,11 @@ function App() {
           }
         }
 
-        // --- HỆ THỐNG TỰ HỒI THỂ LỰC (5 phút / 1 điểm) ---
-        let currentStamina = profile.stamina ?? 20;
+        // --- HỆ THỐNG TỰ ĐỘNG CẬP NHẬT CHUỖI ĐĂNG NHẬP (LOGIN STREAK) & THỂ LỰC ---
+        const updatedStats = await helperUpdateStaminaAndStreak(profile, sessionUser.id);
+        const currentStamina = updatedStats.stamina;
+        const currentStreak = updatedStats.login_streak;
         const maxStamina = profile.max_stamina ?? 20;
-        const lastUpdate = new Date(profile.last_stamina_update || Date.now());
-        const now = new Date();
-        
-        if (currentStamina < maxStamina) {
-          const secondsPassed = Math.floor((now - lastUpdate) / 1000);
-          const pointsToRecover = Math.floor(secondsPassed / (5 * 60)); // 5 phút = 300s
-          
-          if (pointsToRecover > 0) {
-            currentStamina = Math.min(maxStamina, currentStamina + pointsToRecover);
-            
-            // Cập nhật DB (Background)
-            supabase
-              .from('profiles')
-              .update({ 
-                stamina: currentStamina, 
-                last_stamina_update: now.toISOString() 
-              })
-              .eq('id', sessionUser.id)
-              .then();
-          }
-        }
 
         if (mounted) {
           const mergedUser = {
@@ -230,6 +410,9 @@ function App() {
             uid: sessionUser.id,
             displayName: profile?.display_name || sessionUser.user_metadata?.full_name || sessionUser.email,
             avatar: profile?.avatar_url || sessionUser.user_metadata?.avatar_url || '',
+            stamina: currentStamina,
+            login_streak: currentStreak,
+            last_active_at: updatedStats.last_active_at,
           };
 
           setUserStats({
@@ -242,16 +425,19 @@ function App() {
             total_score: profile?.total_score || 0,
             weeklyScore: profile?.weekly_score || 0,
             weekly_score: profile?.weekly_score || 0,
-            loginStreak: profile?.login_streak || 0,
-            login_streak: profile?.login_streak || 0,
+            loginStreak: currentStreak,
+            login_streak: currentStreak,
+            highestStreak: helperGetHighestStreak(sessionUser.id, currentStreak, profile?.highest_streak || 0),
+            highest_streak: helperGetHighestStreak(sessionUser.id, currentStreak, profile?.highest_streak || 0),
             levels_completed: profile?.levels_completed || 0,
             stamina: currentStamina,
             maxStamina: maxStamina,
-            energy: currentStamina, 
+            energy: currentStamina,
             max_energy: maxStamina,
             daily_missions: profile?.daily_missions || {},
             inventory: profile?.inventory || [],
-            class_progress: profile?.class_progress || {}
+            class_progress: profile?.class_progress || {},
+            classProgress: helperComputeClassProgress(profile?.class_progress || {})
           });
 
           setUser(mergedUser);
@@ -332,7 +518,7 @@ function App() {
           .select('*')
           .eq('id', user.id)
           .single();
-          
+
         if (!error && data) {
           if (data.is_locked) {
             setLockNotice({
@@ -344,20 +530,11 @@ function App() {
             setLockNotice(null);
           }
 
-          // --- HỆ THỐNG TỰ HỒI THỂ LỰC (5 phút / 1 điểm) ---
-          let currentStamina = data.stamina ?? 20;
+          // --- HỆ THỐNG TỰ ĐỘNG CẬP NHẬT CHUỖI ĐĂNG NHẬP (LOGIN STREAK) & THỂ LỰC ---
+          const updatedStats = await helperUpdateStaminaAndStreak(data, user.id);
+          const currentStamina = updatedStats.stamina;
+          const currentStreak = updatedStats.login_streak;
           const maxStamina = data.max_stamina ?? 20;
-          const lastUpdate = new Date(data.last_stamina_update || Date.now());
-          const now = new Date();
-          
-          if (currentStamina < maxStamina) {
-            const secondsPassed = Math.floor((now - lastUpdate) / 1000);
-            const pointsToRecover = Math.floor(secondsPassed / (5 * 60));
-            if (pointsToRecover > 0) {
-              currentStamina = Math.min(maxStamina, currentStamina + pointsToRecover);
-              supabase.from('profiles').update({ stamina: currentStamina, last_stamina_update: now.toISOString() }).eq('id', user.id).then();
-            }
-          }
 
           setUserStats({
             display_name: data.display_name || user.email,
@@ -369,8 +546,10 @@ function App() {
             total_score: data.total_score || 0,
             weeklyScore: data.weekly_score || 0,
             weekly_score: data.weekly_score || 0,
-            loginStreak: data.login_streak || 0,
-            login_streak: data.login_streak || 0,
+            loginStreak: currentStreak,
+            login_streak: currentStreak,
+            highestStreak: helperGetHighestStreak(user.id, currentStreak, data.highest_streak || 0),
+            highest_streak: helperGetHighestStreak(user.id, currentStreak, data.highest_streak || 0),
             levels_completed: data.levels_completed || 0,
             stamina: currentStamina,
             maxStamina: maxStamina,
@@ -379,18 +558,21 @@ function App() {
             daily_missions: data.daily_missions || {},
             inventory: data.inventory || [],
             wins: data.wins || 0,
-            class_progress: data.class_progress || {}
+            class_progress: data.class_progress || {},
+            classProgress: helperComputeClassProgress(data.class_progress || {})
           });
 
           // Chỉ cập nhật nếu có thay đổi thực sự để tránh nhấp nháy UI (flashing)
           const newDisplayName = data.display_name || user.email;
           const newAvatar = data.avatar_url || 'adventurer-1';
-          
-          const hasChanged = 
-            prevUserRef.current?.displayName !== newDisplayName || 
+
+          const hasChanged =
+            prevUserRef.current?.displayName !== newDisplayName ||
             prevUserRef.current?.avatar !== newAvatar ||
             prevUserRef.current?.display_name !== newDisplayName ||
-            prevUserRef.current?.avatar_url !== newAvatar;
+            prevUserRef.current?.avatar_url !== newAvatar ||
+            prevUserRef.current?.login_streak !== currentStreak ||
+            prevUserRef.current?.stamina !== currentStamina;
 
           if (hasChanged) {
             setUser(prev => ({
@@ -398,7 +580,10 @@ function App() {
               displayName: newDisplayName,
               avatar: newAvatar,
               display_name: newDisplayName,
-              avatar_url: newAvatar
+              avatar_url: newAvatar,
+              stamina: currentStamina,
+              login_streak: currentStreak,
+              last_active_at: updatedStats.last_active_at,
             }));
           }
         }
@@ -420,7 +605,8 @@ function App() {
     pauseBgMusic,
     resumeBgMusic,
     bgVolume, sfxVolume, bgMuted, sfxMuted,
-    setBgVolume, setSfxVolume, toggleBgMute, toggleSfxMute
+    setBgVolume, setSfxVolume, toggleBgMute, toggleSfxMute,
+    theme, toggleTheme
   };
 
   const renderStudentOnly = (element) => {
@@ -490,103 +676,103 @@ function App() {
               <>
                 <Routes>
                   {/* Public routes */}
-                  <Route 
-                    path="/login" 
+                  <Route
+                    path="/login"
                     element={
                       user
                         ? <Navigate to={getDefaultRouteForUser(user)} replace />
                         : <LoginPage onLogin={(u, token) => { if (token) localStorage.setItem('token', token); setUser(u); }} />
                     }
                   />
-                  <Route 
-                    path="/register" 
-                    element={user ? <Navigate to={getDefaultRouteForUser(user)} replace /> : <RegisterPage />} 
+                  <Route
+                    path="/register"
+                    element={user ? <Navigate to={getDefaultRouteForUser(user)} replace /> : <RegisterPage />}
                   />
 
                   {/* Protected routes */}
-                  <Route 
-                    path="/home" 
-                    element={renderStudentOnly(<HomePage />)} 
+                  <Route
+                    path="/home"
+                    element={renderStudentOnly(<HomePage />)}
                   />
-                  <Route 
-                    path="/class-select" 
-                    element={renderStudentOnly(<ClassSelectPage />)} 
+                  <Route
+                    path="/class-select"
+                    element={renderStudentOnly(<ClassSelectPage />)}
                   />
-                  <Route 
-                    path="/map/:classId" 
-                    element={renderStudentOnly(<MapPage />)} 
+                  <Route
+                    path="/map/:classId"
+                    element={renderStudentOnly(<MapPage />)}
                   />
-                  <Route 
-                    path="/play/:classId/:chapterId/:lessonId" 
-                    element={renderStudentOnly(<GamePlayPage />)} 
+                  <Route
+                    path="/play/:classId/:chapterId/:lessonId"
+                    element={renderStudentOnly(<GamePlayPage />)}
                   />
-                  <Route 
-                    path="/minigame/:classId" 
-                    element={renderStudentOnly(<MiniGamePage />)} 
+                  <Route
+                    path="/minigame/:classId"
+                    element={renderStudentOnly(<MiniGamePage />)}
                   />
-                  <Route 
-                    path="/boss/:classId/:chapterId/:lessonId" 
-                    element={renderStudentOnly(<BossBattlePage />)} 
+                  <Route
+                    path="/boss/:classId/:chapterId/:lessonId"
+                    element={renderStudentOnly(<BossBattlePage />)}
                   />
-                  <Route 
-                    path="/leaderboard" 
-                    element={renderStudentOnly(<LeaderboardPage />)} 
+                  <Route
+                    path="/leaderboard"
+                    element={renderStudentOnly(<LeaderboardPage />)}
                   />
-                  <Route 
-                    path="/missions" 
-                    element={renderStudentOnly(<MissionPage />)} 
+                  <Route
+                    path="/missions"
+                    element={renderStudentOnly(<MissionPage />)}
                   />
-                  <Route 
-                    path="/profile" 
-                    element={renderStudentOnly(<ProfilePage />)} 
+                  <Route
+                    path="/profile"
+                    element={renderStudentOnly(<ProfilePage />)}
                   />
-                  <Route 
-                    path="/admin" 
-                    element={renderAdminOnly(<AdminPage user={user} />)} 
+                  <Route
+                    path="/admin"
+                    element={renderAdminOnly(<AdminPage user={user} />)}
                   />
-                  <Route 
-                    path="/admin/users" 
-                    element={renderAdminOnly(<AdminUsersPage user={user} />)} 
+                  <Route
+                    path="/admin/users"
+                    element={renderAdminOnly(<AdminUsersPage user={user} />)}
                   />
-                  <Route 
-                    path="/admin/logs" 
-                    element={renderAdminOnly(<AdminLogsPage user={user} />)} 
+                  <Route
+                    path="/admin/logs"
+                    element={renderAdminOnly(<AdminLogsPage user={user} />)}
                   />
-                  <Route 
-                    path="/admin/reports" 
-                    element={renderAdminOnly(<AdminReportsPage />)} 
+                  <Route
+                    path="/admin/reports"
+                    element={renderAdminOnly(<AdminReportsPage />)}
                   />
-                  <Route 
-                    path="/admin/lessons" 
-                    element={renderAdminOnly(<MorePage />)} 
+                  <Route
+                    path="/admin/lessons"
+                    element={renderAdminOnly(<MorePage />)}
                   />
-                  <Route 
-                    path="/teacher" 
-                    element={renderTeacherOnly(<TeacherPage user={user} />)} 
+                  <Route
+                    path="/teacher"
+                    element={renderTeacherOnly(<TeacherPage user={user} />)}
                   />
-                  <Route 
-                    path="/quiz-room" 
-                    element={renderStudentOnly(<StudentQuizRoomPage />)} 
+                  <Route
+                    path="/quiz-room"
+                    element={renderStudentOnly(<StudentQuizRoomPage />)}
                   />
-                  <Route 
-                    path="/more" 
-                    element={renderStudentOnly(<MorePage />)} 
+                  <Route
+                    path="/more"
+                    element={renderStudentOnly(<MorePage />)}
                   />
-                  <Route 
-                    path="/battle" 
-                    element={renderStudentOnly(<BattlePage />)} 
+                  <Route
+                    path="/battle"
+                    element={renderStudentOnly(<BattlePage />)}
                   />
-                  <Route 
-                    path="/battle-pvp" 
-                    element={renderStudentOnly(<BattlePvPPage />)} 
+                  <Route
+                    path="/battle-pvp"
+                    element={renderStudentOnly(<BattlePvPPage />)}
                   />
-                  <Route 
-                    path="/simulations" 
-                    element={renderStudentOnly(<SimulationsPage />)} 
+                  <Route
+                    path="/simulations"
+                    element={renderStudentOnly(<SimulationsPage />)}
                   />
-                  <Route 
-                    path="/biology3d" 
-                    element={renderStudentOnly(<Biology3DPage />)} 
+                  <Route
+                    path="/biology3d"
+                    element={renderStudentOnly(<Biology3DPage />)}
                   />
 
                   {/* Default redirect */}

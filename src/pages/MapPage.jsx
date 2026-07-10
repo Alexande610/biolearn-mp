@@ -971,9 +971,9 @@ export default function MapPage() {
   const stats = calculateStats();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-900 via-green-800 to-emerald-900">
+    <div className="min-h-screen bg-transparent">
       {/* Header cố định */}
-      <header className="bg-green-800/80 backdrop-blur-lg sticky top-0 z-50 border-b border-white/10">
+      <header className="bg-black/40 backdrop-blur-xl sticky top-0 z-50 border-b border-white/5">
         <div className="max-w-lg mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">

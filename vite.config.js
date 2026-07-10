@@ -10,5 +10,18 @@ export default defineConfig({
   ],
   resolve: {
     dedupe: ['react', 'react-dom']
+  },
+  server: {
+    proxy: {
+      '/api/ai': {
+        target: 'https://text.pollinations.ai',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/ai/, '/openai'),
+        headers: {
+          'Origin': 'https://text.pollinations.ai',
+          'Referer': 'https://text.pollinations.ai/'
+        }
+      }
+    }
   }
 })

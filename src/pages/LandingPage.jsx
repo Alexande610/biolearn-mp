@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { 
-  Home, Info, Phone, LogIn, ChevronRight, 
-  GraduationCap, Users, Mail, MapPin, 
+import {
+  Home, Info, Phone, LogIn, ChevronRight,
+  GraduationCap, Users, Mail, MapPin,
   Trophy, BookOpen, Star, Sparkles, User, LogOut, ChevronDown, UserCircle, Gamepad2
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
@@ -66,17 +66,17 @@ const LandingHeader = () => {
         {/* Logo - Standardized h-28 */}
         <div className="flex items-center -ml-4">
           <Link to="/">
-            <img 
-              src="/images/Logo.png" 
-              alt="BioLearn Logo" 
-              className="logo-standard" 
+            <img
+              src="/images/Logo.png"
+              alt="BioLearn Logo"
+              className="logo-standard"
             />
           </Link>
         </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
-          <button 
+          <button
             onClick={() => user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="text-white/90 hover-text-gradient font-medium transition-all flex items-center gap-2 cursor-pointer group"
           >
@@ -94,14 +94,14 @@ const LandingHeader = () => {
         <div className="relative">
           {user ? (
             <div className="flex items-center gap-4">
-              <button 
+              <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center gap-3 glass p-1 rounded-full hover:bg-white/10 transition-all border border-white/10 active:scale-95"
               >
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-purple-500/50">
-                  <img 
-                    src={getAvatarUrl()} 
-                    alt="Avatar" 
+                  <img
+                    src={getAvatarUrl()}
+                    alt="Avatar"
                     className="w-full h-full object-cover"
                     onError={(e) => { e.target.src = '/images/Avatar/adventurer-1.png'; }}
                   />
@@ -123,9 +123,9 @@ const LandingHeader = () => {
                     <div className="px-4 py-3 border-b border-white/5 mb-2">
                       <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Tài khoản của tôi</p>
                     </div>
-                    
-                    <Link 
-                      to="/profile" 
+
+                    <Link
+                      to="/profile"
                       onClick={() => setIsDropdownOpen(false)}
                       className="flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 transition-all group overflow-hidden relative"
                     >
@@ -134,7 +134,7 @@ const LandingHeader = () => {
                       <span className="font-semibold relative z-10 group-hover:text-white">Hồ sơ cá nhân</span>
                     </Link>
 
-                    <button 
+                    <button
                       onClick={handleLogout}
                       className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-red-500/80 transition-all group mt-1"
                     >
@@ -146,11 +146,11 @@ const LandingHeader = () => {
               )}
             </div>
           ) : (
-            <Link 
-              to="/login" 
-              className="px-6 py-2.5 rounded-xl bg-gradient-purple text-white font-bold transition-all shadow-xl shadow-purple-500/20 flex items-center gap-2 btn-shiny group text-sm"
+            <Link
+              to="/login"
+              className="px-6 py-2.5 rounded-xl btn-liquid-glass text-white font-bold flex items-center gap-2 group text-sm"
             >
-              <LogIn className="w-4 h-4 group-hover:rotate-12 transition-transform" /> 
+              <LogIn className="w-4 h-4 group-hover:rotate-12 transition-transform" />
               Đăng nhập
             </Link>
           )}
@@ -177,19 +177,19 @@ const LandingHero = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
         <div className="z-10 text-center lg:text-left space-y-8 animate-fade-in">
-          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full glass-frosted border border-white/20 shadow-2xl group">
+          <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full badge-liquid-glass group">
             <Gamepad2 className="w-5 h-5 text-gradient-moving" />
             <span className="text-gradient-moving text-xs font-black uppercase tracking-[0.2em]">
               Học mà chơi - Chơi mà học
             </span>
           </div>
-          
+
           <div className="space-y-4">
             <h1 className="hero-title-balanced text-white">
-              Khám phá trò chơi 
+              Khám phá trò chơi
             </h1>
             <h1 className="hero-title-balanced text-white flex items-center justify-center lg:justify-start gap-4 flex-wrap">
-              và học tập 
+              và học tập
               <span className="inline-flex items-center gap-3">
                 <span className="text-gradient-moving animate-twinkle px-2">thú vị</span>
                 <Sparkles className="w-10 h-10 text-gradient-moving animate-twinkle" />
@@ -199,16 +199,16 @@ const LandingHero = () => {
               cùng BioLearn
             </h1>
           </div>
-          
+
           <p className="text-base text-white/60 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-            Nền tảng giáo dục tương tác hàng đầu dành cho học sinh đam mê Sinh học. 
+            Nền tảng giáo dục tương tác hàng đầu dành cho học sinh đam mê Sinh học.
             Biến mọi bài học thành một cuộc phiêu lưu kỳ thú.
           </p>
 
           <div className="flex justify-center lg:justify-start pt-2">
-            <button 
+            <button
               onClick={handleStart}
-              className="px-10 py-4 rounded-2xl bg-gradient-purple text-white font-black text-lg flex items-center justify-center gap-4 shadow-[0_20px_50px_rgba(58,141,255,0.4)] btn-shiny btn-pop group"
+              className="px-10 py-4 rounded-2xl btn-liquid-glass text-white font-black text-lg flex items-center justify-center gap-4 btn-pop group"
             >
               Khám phá <ChevronRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
             </button>
@@ -220,9 +220,9 @@ const LandingHero = () => {
           <div className="sparkle-border-container max-w-xl group">
             <div className="sparkle-border-content">
               <div className="absolute inset-x-0 -bottom-10 h-2/3 bg-gradient-to-t from-purple-500/20 to-transparent blur-3xl opacity-40" />
-              <img 
-                src="/images/BIOGOD.png" 
-                alt="BioLearn Hero" 
+              <img
+                src="/images/BIOGOD.png"
+                alt="BioLearn Hero"
                 className="relative rounded-[3rem] w-full h-auto hero-image-zoom cursor-pointer shadow-[0_30px_100px_rgba(0,0,0,0.6)]"
               />
             </div>
@@ -244,9 +244,9 @@ const LandingRoadmap = () => {
             <div className="sparkle-border-container w-full max-w-[320px] lg:max-w-[420px]">
               <div className="sparkle-border-content">
                 <div className="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
-                <img 
-                  src="/images/LoTrinh.png" 
-                  alt="Biology Roadmap" 
+                <img
+                  src="/images/LoTrinh.png"
+                  alt="Biology Roadmap"
                   className="relative w-full image-square-premium hero-image-zoom cursor-pointer"
                 />
               </div>
@@ -260,12 +260,12 @@ const LandingRoadmap = () => {
               <span className="text-gradient-moving">Sinh học phổ thông</span>
             </h2>
             <p className="text-xl text-white/40 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
-              Kiến thức Sinh học được chuẩn hóa từ dự án giáo dục hiện đại. 
+              Kiến thức Sinh học được chuẩn hóa từ dự án giáo dục hiện đại.
               Mỗi chặng đường là một trải nghiệm mới với đầy đủ lý thuyết, bài tập và kho tàng kiến thức sống động.
             </p>
-            <button 
+            <button
               onClick={() => navigate('/more')}
-              className="px-12 py-5 rounded-2xl bg-gradient-purple text-white font-black text-xl flex items-center justify-center gap-4 shadow-2xl btn-pop group mx-auto lg:mx-0"
+              className="px-12 py-5 rounded-2xl btn-liquid-glass text-white font-black text-xl flex items-center justify-center gap-4 btn-pop group mx-auto lg:mx-0"
             >
               Lớp học <ChevronRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </button>
@@ -290,12 +290,12 @@ const LandingSimulation = () => {
               <span className="text-gradient-moving">Tương tác Sống động</span>
             </h2>
             <p className="text-xl text-white/40 leading-relaxed font-medium max-w-2xl mx-auto lg:mx-0">
-              Khám phá thế giới vi quan và vĩ quan qua nền tảng mô phỏng 3D độc quyền. 
+              Khám phá thế giới vi quan và vĩ quan qua nền tảng mô phỏng 3D độc quyền.
               Trải nghiệm thực tế ảo ngay trên trình duyệt, giúp nắm vững cơ chế sinh học phức tạp nhất.
             </p>
-            <button 
+            <button
               onClick={() => navigate('/simulations')}
-              className="px-12 py-5 rounded-2xl bg-gradient-purple text-white font-black text-xl flex items-center justify-center gap-4 shadow-2xl btn-pop group mx-auto lg:mx-0"
+              className="px-12 py-5 rounded-2xl btn-liquid-glass text-white font-black text-xl flex items-center justify-center gap-4 btn-pop group mx-auto lg:mx-0"
             >
               Mô phỏng <ChevronRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
             </button>
@@ -305,9 +305,9 @@ const LandingSimulation = () => {
             <div className="sparkle-border-container w-full max-w-[320px] lg:max-w-[420px]">
               <div className="sparkle-border-content">
                 <div className="absolute inset-0 bg-purple-500/10 blur-[100px] rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-700" />
-                <img 
-                  src="/images/MoPhong.png" 
-                  alt="Biology Simulation" 
+                <img
+                  src="/images/MoPhong.png"
+                  alt="Biology Simulation"
                   className="relative w-full image-square-premium hero-image-zoom cursor-pointer"
                 />
               </div>
@@ -324,29 +324,29 @@ const LandingMission = () => {
 
   const missions = {
     student: [
-      { 
-        title: "Học tập sống động", 
+      {
+        title: "Học tập sống động",
         desc: "Học thông qua các bài giảng 3D và trò chơi tương tác đầy màu sắc.",
         icon: BookOpen,
         color: "text-blue-400",
         bg: "bg-blue-400/10"
       },
-      { 
-        title: "Cạnh tranh lành mạnh", 
+      {
+        title: "Cạnh tranh lành mạnh",
         desc: "Tham gia giải đấu PvP và leo bảng xếp hạng cùng bạn bè trên toàn quốc.",
         icon: Trophy,
         color: "text-yellow-400",
         bg: "bg-yellow-400/10"
       },
-      { 
-        title: "Phòng thí nghiệm ảo", 
+      {
+        title: "Phòng thí nghiệm ảo",
         desc: "Thực hành thí nghiệm sinh học ngay trên trình duyệt mà không cần dụng cụ thật.",
         icon: Sparkles,
         color: "text-purple-400",
         bg: "bg-purple-400/10"
       },
-      { 
-        title: "Lộ trình cá nhân", 
+      {
+        title: "Lộ trình cá nhân",
         desc: "Hệ thống tự động đề xuất bài học dựa trên năng lực và sở thích của bạn.",
         icon: GraduationCap,
         color: "text-green-400",
@@ -354,29 +354,29 @@ const LandingMission = () => {
       },
     ],
     teacher: [
-      { 
-        title: "Quản lý lớp học", 
+      {
+        title: "Quản lý lớp học",
         desc: "Theo dõi tiến độ học tập và điểm số của từng học sinh một cách trực quan.",
         icon: Users,
         color: "text-cyan-400",
         bg: "bg-cyan-400/10"
       },
-      { 
-        title: "Thư viện bài giảng", 
+      {
+        title: "Thư viện bài giảng",
         desc: "Tiếp cận kho tài liệu sinh học phong phú và công cụ tạo bài giảng tương tác.",
         icon: BookOpen,
         color: "text-emerald-400",
         bg: "bg-emerald-400/10"
       },
-      { 
-        title: "Phòng Quiz trực tuyến", 
+      {
+        title: "Phòng Quiz trực tuyến",
         desc: "Tổ chức các buổi kiểm tra nhanh với hiệu ứng gamification sinh động.",
         icon: Trophy,
         color: "text-amber-400",
         bg: "bg-amber-400/10"
       },
-      { 
-        title: "Báo cáo phân tích", 
+      {
+        title: "Báo cáo phân tích",
         desc: "Nhận báo cáo chi tiết về lỗ hổng kiến thức của lớp để có phương án hỗ trợ.",
         icon: Info,
         color: "text-rose-400",
@@ -391,30 +391,30 @@ const LandingMission = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-6xl font-black text-white mb-6 uppercase tracking-tighter">Sứ mệnh của BioLearn</h2>
           <p className="text-lg text-white/50 max-w-3xl mx-auto font-medium">
-            BioLearn sinh ra để đem lại một môi trường học tập Sinh học hiện đại, 
+            BioLearn sinh ra để đem lại một môi trường học tập Sinh học hiện đại,
             kết hợp giữa kiến thức chuyên sâu và trải nghiệm giải trí hấp dẫn.
           </p>
         </div>
 
-        {/* Tabs Sliding Switcher */}
+        {/* Tabs Sliding Switcher - Upgraded to Liquid Glass */}
         <div className="flex justify-center mb-20">
-          <div className="glass p-1.5 rounded-full flex gap-1 relative overflow-hidden w-full max-w-[360px] border border-white/10 shadow-2xl">
+          <div className="tab-liquid-glass p-1.5 rounded-full flex gap-1 relative overflow-hidden w-full max-w-[360px]">
             {/* Sliding Indicator */}
-            <div 
-              className="tab-active-blob"
+            <div
+              className="tab-active-blob-liquid"
               style={{
                 width: 'calc(50% - 6px)',
                 left: activeTab === 'student' ? '4px' : 'calc(50% + 2px)',
               }}
             />
-            
-            <button 
+
+            <button
               onClick={() => setActiveTab('student')}
               className={`flex-1 py-4 rounded-full font-black text-sm uppercase tracking-widest transition-all duration-300 relative z-10 ${activeTab === 'student' ? 'text-white' : 'text-white/40 hover:text-white'}`}
             >
               Học sinh
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('teacher')}
               className={`flex-1 py-4 rounded-full font-black text-sm uppercase tracking-widest transition-all duration-300 relative z-10 ${activeTab === 'teacher' ? 'text-white' : 'text-white/40 hover:text-white'}`}
             >
@@ -422,11 +422,11 @@ const LandingMission = () => {
             </button>
           </div>
         </div>
- 
-        {/* Content Grid */}
+
+        {/* Content Grid - 4 cards upgraded to Liquid Glass */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {missions[activeTab].map((item, idx) => (
-            <div key={idx} className="glass p-10 rounded-[3rem] group hover:bg-white/5 transition-all border border-white/5 card-shine-effect relative overflow-hidden">
+            <div key={idx} className="card-liquid-glass p-10 rounded-[3rem] group card-shine-effect relative overflow-hidden">
               <div className={`w-20 h-20 ${item.bg} rounded-[2rem] flex items-center justify-center mb-10 transition-all group-hover:scale-110 group-hover:rotate-12 shadow-2xl`}>
                 <item.icon className={`w-10 h-10 ${item.color}`} />
               </div>
@@ -456,7 +456,7 @@ const LandingFooter = () => {
                 <span className="text-2xl font-black text-gradient-moving tracking-widest uppercase">BIOLEARN</span>
               </div>
               <p className="text-white/30 leading-relaxed font-medium text-lg max-w-sm">
-                Kiến tạo tương lai Sinh học Việt Nam thông qua công nghệ và sự sáng tạo. 
+                Kiến tạo tương lai Sinh học Việt Nam thông qua công nghệ và sự sáng tạo.
                 Cùng nhau học tập, cùng nhau khám phá.
               </p>
             </div>
@@ -466,7 +466,7 @@ const LandingFooter = () => {
               <h4 className="text-white font-black text-2xl mb-10 uppercase tracking-widest text-gradient-moving">Liên kết</h4>
               <ul className="space-y-6">
                 <li>
-                  <button 
+                  <button
                     onClick={() => user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl cursor-pointer"
                   >
@@ -503,7 +503,7 @@ const LandingFooter = () => {
                 </li>
                 <li className="flex items-start gap-5 group justify-center lg:justify-start text-left">
                   <MapPin className="w-7 h-7 text-purple-500 shrink-0 group-hover:scale-110 transition-transform mt-1" />
-                  <span className="text-white/40 font-bold text-lg leading-snug">3F Nguyễn Hữu Thọ, Tân Hưng, <br/> Hồ Chí Minh, Vietnam</span>
+                  <span className="text-white/40 font-bold text-lg leading-snug">3F Nguyễn Hữu Thọ, Tân Hưng, <br /> Hồ Chí Minh, Vietnam</span>
                 </li>
               </ul>
             </div>
@@ -520,7 +520,7 @@ const LandingFooter = () => {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden selection:bg-purple-500/30 selection:text-white relative">
+    <div className="landing-page min-h-screen overflow-x-hidden selection:bg-purple-500/30 selection:text-white relative">
       <GalaxyBackground />
       <LandingHeader />
       <main className="relative z-10 h-auto">
