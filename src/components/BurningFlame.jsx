@@ -10,10 +10,10 @@ const BurningFlame = ({ size = 'md', active = false }) => {
   };
 
   return (
-    <div className={`relative flex items-center justify-center ${sizeClasses[size]}`}>
+    <div className={`burning-flame relative flex items-center justify-center ${sizeClasses[size]}`}>
       {/* Background Heat Glow Layer */}
       {active && (
-        <div className="absolute inset-0 rounded-full bg-orange-600/30 blur-xl animate-heat-glow scale-125" />
+        <div className="flame-glow absolute inset-0 rounded-full bg-orange-600/30 blur-xl animate-heat-glow scale-125" />
       )}
 
       {/* Flame Shapes (Stacked for realistic glow/depth) */}
@@ -21,7 +21,7 @@ const BurningFlame = ({ size = 'md', active = false }) => {
         {/* Layer 1: Outer Orange Glow (Blurred) */}
         {active && (
           <Flame 
-            className="absolute text-red-600 opacity-70 blur-[4px] animate-flicker-slow w-full h-full"
+            className="flame-outer absolute text-red-600 opacity-70 blur-[4px] animate-flicker-slow w-full h-full"
             fill="currentColor"
           />
         )}
@@ -29,19 +29,19 @@ const BurningFlame = ({ size = 'md', active = false }) => {
         {/* Layer 2: Middle Vibrant Orange/Yellow */}
         {active ? (
           <Flame 
-            className="absolute text-orange-500 blur-[1px] animate-flicker-medium w-[90%] h-[90%]"
+            className="flame-middle absolute text-orange-500 blur-[1px] animate-flicker-medium w-[90%] h-[90%]"
             fill="currentColor"
           />
         ) : (
           <Flame 
-            className="absolute text-orange-950/40 w-[90%] h-[90%] stroke-[1.5]"
+            className="flame-inactive absolute text-orange-950/40 w-[90%] h-[90%] stroke-[1.5]"
           />
         )}
 
         {/* Layer 3: Inner Bright Core */}
         {active && (
           <Flame 
-            className="absolute text-yellow-300 animate-flicker-fast w-[75%] h-[75%]"
+            className="flame-inner absolute text-yellow-300 animate-flicker-fast w-[75%] h-[75%]"
             fill="currentColor"
           />
         )}
@@ -49,7 +49,7 @@ const BurningFlame = ({ size = 'md', active = false }) => {
         {/* Layer 4: Hot White Center Spot */}
         {active && (
           <Flame 
-            className="absolute text-white animate-pulse w-[45%] h-[45%] opacity-90"
+            className="flame-core absolute text-white animate-pulse w-[45%] h-[45%] opacity-90"
             fill="currentColor"
           />
         )}
@@ -58,13 +58,48 @@ const BurningFlame = ({ size = 'md', active = false }) => {
       {/* Spark particles floating upwards */}
       {active && (
         <div className="absolute inset-x-0 -top-8 h-8 overflow-visible pointer-events-none">
-          <div className="absolute left-[30%] w-1.5 h-1.5 rounded-full bg-orange-400 animate-spark-1" />
-          <div className="absolute left-[50%] w-1 h-1 rounded-full bg-yellow-300 animate-spark-2" />
-          <div className="absolute left-[70%] w-1.5 h-1.5 rounded-full bg-red-400 animate-spark-3" />
+          <div className="spark-1 absolute left-[30%] w-1.5 h-1.5 rounded-full bg-orange-400 animate-spark-1" />
+          <div className="spark-2 absolute left-[50%] w-1 h-1 rounded-full bg-yellow-300 animate-spark-2" />
+          <div className="spark-3 absolute left-[70%] w-1.5 h-1.5 rounded-full bg-red-400 animate-spark-3" />
         </div>
       )}
 
       <style dangerouslySetInnerHTML={{ __html: `
+        .burning-flame svg:not(.flame-inactive) { stroke: none !important; }
+        .burning-flame .flame-outer { color: #dc2626 !important; fill: #dc2626 !important; }
+        .burning-flame .flame-middle { color: #f97316 !important; fill: #f97316 !important; }
+        .burning-flame .flame-inner { color: #fde047 !important; fill: #fde047 !important; }
+        .burning-flame .flame-core { color: #ffffff !important; fill: #ffffff !important; }
+        .burning-flame .flame-inactive { color: #ea580c !important; opacity: 0.35 !important; }
+        .burning-flame .spark-1 { background-color: #fb923c !important; }
+        .burning-flame .spark-2 { background-color: #fde047 !important; }
+        .burning-flame .spark-3 { background-color: #f87171 !important; }
+        
+        /* Light Theme Optimizations */
+        body.light-theme .burning-flame {
+          filter: drop-shadow(0 2px 6px rgba(239, 68, 68, 0.45)) drop-shadow(0 4px 12px rgba(249, 115, 22, 0.3)) !important;
+        }
+        body.light-theme .burning-flame .flame-glow {
+          background-color: rgba(239, 68, 68, 0.45) !important;
+        }
+        body.light-theme .burning-flame .flame-outer {
+          color: #e11d48 !important;
+          fill: #e11d48 !important;
+          opacity: 0.85 !important;
+        }
+        body.light-theme .burning-flame .flame-middle {
+          color: #ea580c !important;
+          fill: #ea580c !important;
+        }
+        body.light-theme .burning-flame .flame-inner {
+          color: #eab308 !important;
+          fill: #eab308 !important;
+        }
+        body.light-theme .burning-flame .flame-inactive {
+          color: #c2410c !important;
+          opacity: 0.45 !important;
+        }
+
         @keyframes flicker-slow {
           0%, 100% { transform: scale(1) rotate(0deg) skewX(0deg); filter: brightness(1) blur(4px); }
           50% { transform: scale(1.06) rotate(-1deg) skewX(-2deg); filter: brightness(1.2) blur(3px); }

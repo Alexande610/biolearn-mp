@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1rem;
   background: #090A0F;
   color: white;
@@ -25,8 +25,15 @@ body {
 
 /* Energy Leaf Animation */
 @keyframes leafFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-5px) rotate(5deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-5px) rotate(5deg);
+  }
 }
 
 .leaf-energy {
@@ -35,8 +42,17 @@ body {
 
 /* Star Animation */
 @keyframes starPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.8; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
 }
 
 .star-pulse {
@@ -57,7 +73,8 @@ body {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   backface-visibility: hidden;
   position: absolute;
   width: 100%;
@@ -70,8 +87,13 @@ body {
 
 /* Hourglass Animation */
 @keyframes sandFall {
-  0% { height: 100%; }
-  100% { height: 0%; }
+  0% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
 }
 
 .sand-top {
@@ -112,8 +134,13 @@ body {
 
 /* Obstacle Runner Game */
 @keyframes runBackground {
-  0% { background-position: 0 0; }
-  100% { background-position: -1000px 0; }
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: -1000px 0;
+  }
 }
 
 .runner-background {
@@ -185,8 +212,15 @@ body {
 
 /* Toast Animation */
 @keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .toast-enter {
@@ -204,9 +238,19 @@ body {
 
 /* Bounce In Animation */
 @keyframes bounceIn {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .animate-bounce-in {
@@ -215,9 +259,19 @@ body {
 
 /* Shake Animation */
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
 }
 
 .animate-shake {
@@ -226,9 +280,18 @@ body {
 
 /* Card Match Success */
 @keyframes matchSuccess {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(34, 197, 94, 0.8); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.8);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .match-success {
@@ -242,8 +305,15 @@ body {
 
 /* Timer Warning */
 @keyframes timerWarning {
-  0%, 100% { background-color: rgba(239, 68, 68, 0.3); }
-  50% { background-color: rgba(239, 68, 68, 0.6); }
+
+  0%,
+  100% {
+    background-color: rgba(239, 68, 68, 0.3);
+  }
+
+  50% {
+    background-color: rgba(239, 68, 68, 0.6);
+  }
 }
 
 .timer-warning {
@@ -262,22 +332,45 @@ body {
 
 /* Level complete stars animation */
 @keyframes starDrop {
-  0% { transform: translateY(-50px) scale(0); opacity: 0; }
-  60% { transform: translateY(10px) scale(1.2); opacity: 1; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
+  0% {
+    transform: translateY(-50px) scale(0);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(10px) scale(1.2);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 .star-drop {
   animation: starDrop 0.6s ease-out forwards;
 }
 
-.star-drop-delay-1 { animation-delay: 0.2s; }
-.star-drop-delay-2 { animation-delay: 0.4s; }
+.star-drop-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.star-drop-delay-2 {
+  animation-delay: 0.4s;
+}
 
 /* Floating animation for decorations */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
@@ -320,8 +413,17 @@ body {
 
 /* Twinkling Stars Animation */
 @keyframes twinkle {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 .star {
@@ -340,7 +442,8 @@ body {
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-image-zoom:hover, .hero-image-zoom:active {
+.hero-image-zoom:hover,
+.hero-image-zoom:active {
   transform: scale(1.05);
 }
 
@@ -350,7 +453,8 @@ body {
 }
 
 .logo-standard {
-  height: 112px; /* h-28 equivalent */
+  height: 112px;
+  /* h-28 equivalent */
   width: auto;
   transition: all 0.3s ease;
   filter: drop-shadow(0 0 10px rgba(162, 89, 255, 0.2));
@@ -399,9 +503,17 @@ body {
 
 /* Shiny Sweep Effect */
 @keyframes shiny-sweep {
-  0% { left: -100%; }
-  50% { left: 100%; }
-  100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  50% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }
 
 .btn-shiny {
@@ -417,12 +529,10 @@ body {
   left: -100%;
   width: 50%;
   height: 200%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: rotate(25deg);
   pointer-events: none;
 }
@@ -439,11 +549,47 @@ body {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
+body.light-theme .glass-dropdown {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme header .glass-dropdown * {
+  color: #333333 !important;
+}
+
+body.light-theme header .glass-dropdown a,
+body.light-theme header .glass-dropdown button {
+  background-color: transparent !important;
+  color: #333333 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+body.light-theme header .glass-dropdown a:hover * {
+  color: #ffffff !important;
+}
+
+body.light-theme header .glass-dropdown button:hover {
+  background-color: #ef4444 !important;
+  color: #ffffff !important;
+}
+
+body.light-theme header .glass-dropdown button:hover * {
+  color: #ffffff !important;
+}
+
 /* --- Advanced Animations for Redesign --- */
 
 @keyframes textMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .text-gradient-moving {
@@ -456,8 +602,19 @@ body {
 }
 
 @keyframes sparkle {
-  0%, 100% { opacity: 1; transform: scale(1); filter: brightness(1) drop-shadow(0 0 5px rgba(162, 89, 255, 0.5)); }
-  50% { opacity: 0.9; transform: scale(1.1); filter: brightness(1.4) drop-shadow(0 0 15px rgba(162, 89, 255, 0.8)); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 5px rgba(162, 89, 255, 0.5));
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+    filter: brightness(1.4) drop-shadow(0 0 15px rgba(162, 89, 255, 0.8));
+  }
 }
 
 .animate-sparkle {
@@ -498,12 +655,10 @@ body {
   left: -100%;
   width: 50%;
   height: 300%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: rotate(35deg);
   pointer-events: none;
   z-index: 10;
@@ -514,14 +669,30 @@ body {
 }
 
 @keyframes elite-shine {
-  0% { left: -100%; top: -100%; }
-  100% { left: 150%; top: 100%; }
+  0% {
+    left: -100%;
+    top: -100%;
+  }
+
+  100% {
+    left: 150%;
+    top: 100%;
+  }
 }
 
 /* Refined Sparkle (No Scaling) */
 @keyframes twinkle-only {
-  0%, 100% { opacity: 1; filter: brightness(1) drop-shadow(0 0 5px rgba(162, 89, 255, 0.5)); }
-  50% { opacity: 0.9; filter: brightness(1.6) drop-shadow(0 0 20px rgba(162, 89, 255, 0.9)); }
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1) drop-shadow(0 0 5px rgba(162, 89, 255, 0.5));
+  }
+
+  50% {
+    opacity: 0.9;
+    filter: brightness(1.6) drop-shadow(0 0 20px rgba(162, 89, 255, 0.9));
+  }
 }
 
 .animate-twinkle {
@@ -576,7 +747,8 @@ body {
 /* Premium Sparkling Border Effect */
 .sparkle-border-container {
   position: relative;
-  padding: 4px; /* Padding for the "border" effect */
+  padding: 4px;
+  /* Padding for the "border" effect */
   background: rgba(255, 255, 255, 0.05);
   border-radius: 3.2rem;
   overflow: hidden;
@@ -590,20 +762,23 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(
-    transparent,
-    rgba(162, 89, 255, 0.5),
-    transparent 30%,
-    transparent 70%,
-    rgba(58, 141, 255, 0.5),
-    transparent
-  );
+  background: conic-gradient(transparent,
+      rgba(162, 89, 255, 0.5),
+      transparent 30%,
+      transparent 70%,
+      rgba(58, 141, 255, 0.5),
+      transparent);
   animation: sparkle-rotate 4s linear infinite;
 }
 
 @keyframes sparkle-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .sparkle-border-content {
@@ -613,46 +788,1526 @@ body {
   border-radius: 3rem;
 }
 
-/* Custom styles for 3D Filter buttons to ensure visibility */
-.filter-btn {
+/* Theme Toggle Button - Liquid Glass design */
+.theme-toggle-btn {
   position: relative;
+  width: 68px;
+  height: 36px;
+  border-radius: 9999px;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+body.light-theme .theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Toggle Slider */
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.25rem;
-  padding: 0.5rem 1.25rem;
+}
+
+body.light-theme .theme-toggle-thumb {
+  left: 35px;
+  /* Slide to right */
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-icon {
+  width: 16px;
+  height: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light theme overrides for index.css */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body.light-theme {
+  background: linear-gradient(135deg,
+      #a5f3fc 0%,
+      #c084fc 50%,
+      #a5f3fc 100%) !important;
+  background-size: 200% 200% !important;
+  animation: gradientBG 12s ease-in-out infinite !important;
+  background-attachment: fixed !important;
+  color: #333333 !important;
+}
+
+/* Smooth transition for body and galaxy background */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.galaxy-bg {
+  transition: opacity 0.5s ease !important;
+}
+
+body.light-theme .galaxy-bg {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* Custom text and background styles overrides for light-theme */
+body.light-theme .text-white {
+  color: #333333 !important;
+  /* Primary dark gray */
+}
+
+/* Map transparent white texts to readable dark gray shades */
+body.light-theme .text-white\/30 {
+  color: rgba(51, 51, 51, 0.45) !important;
+}
+
+body.light-theme .text-white\/40 {
+  color: rgba(51, 51, 51, 0.55) !important;
+}
+
+body.light-theme .text-white\/50 {
+  color: rgba(51, 51, 51, 0.65) !important;
+}
+
+body.light-theme .text-white\/60 {
+  color: rgba(51, 51, 51, 0.75) !important;
+}
+
+body.light-theme .text-white\/80 {
+  color: rgba(51, 51, 51, 0.85) !important;
+}
+
+body.light-theme .text-white\/90 {
+  color: rgba(51, 51, 51, 0.95) !important;
+}
+
+body.light-theme .text-gray-300 {
+  color: #444444 !important;
+}
+
+body.light-theme .text-gray-400 {
+  color: #555555 !important;
+}
+
+body.light-theme .text-gray-500 {
+  color: #666666 !important;
+}
+
+body.light-theme .text-blue-400 {
+  color: #1d4ed8 !important;
+  /* Darker blue for light bg contrast */
+}
+
+body.light-theme .text-purple-400 {
+  color: #7e22ce !important;
+  /* Dark purple */
+}
+
+body.light-theme .text-emerald-400 {
+  color: #047857 !important;
+  /* Dark emerald */
+}
+
+body.light-theme .text-yellow-400 {
+  color: #b45309 !important;
+}
+
+body.light-theme .text-orange-400 {
+  color: #c2410c !important;
+}
+
+body.light-theme .text-green-400 {
+  color: #15803d !important;
+}
+
+body.light-theme .text-green-300 {
+  color: #166534 !important;
+}
+
+body.light-theme .text-yellow-300 {
+  color: #b45309 !important;
+}
+
+body.light-theme .bg-black\/40 {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.light-theme .border-white\/5 {
+  border-color: rgba(153, 153, 153, 0.1) !important;
+}
+
+body.light-theme .border-white\/10 {
+  border-color: rgba(153, 153, 153, 0.18) !important;
+}
+
+body.light-theme .border-white\/20 {
+  border-color: rgba(153, 153, 153, 0.28) !important;
+}
+
+body.light-theme .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+}
+
+body.light-theme .bg-white\/20 {
+  background-color: rgba(153, 153, 153, 0.15) !important;
+}
+
+body.light-theme .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+body.light-theme .game-card {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(153, 153, 153, 0.22) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.light-theme .bg-blue-500\/50 {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+body.light-theme .bg-black\/80 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.light-theme .bg-white\/10.text-gray-300:hover {
+  background-color: rgba(153, 153, 153, 0.22) !important;
+}
+
+body.light-theme .avatar-circle {
+  border-color: #999999 !important;
+  box-shadow: 0 0 15px rgba(153, 153, 153, 0.15) !important;
+}
+
+/* Home Page Navigation Bar styling for Light Theme */
+body.light-theme nav.fixed.bottom-0 {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  border-top-color: rgba(153, 153, 153, 0.25) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+body.light-theme nav.fixed.bottom-0 a,
+body.light-theme nav.fixed.bottom-0 button {
+  color: #555555 !important;
+}
+
+body.light-theme nav.fixed.bottom-0 a:hover,
+body.light-theme nav.fixed.bottom-0 button:hover {
+  color: #15803d !important;
+}
+
+body.light-theme nav.fixed.bottom-0 .text-green-300 {
+  color: #15803d !important;
+}
+
+/* Home Page welcome banner styling for Light Theme */
+body.light-theme .bg-gradient-to-r.from-green-500\/30 {
+  background: linear-gradient(90deg, rgba(74, 222, 128, 0.25), rgba(96, 165, 250, 0.25)) !important;
+}
+
+body.light-theme .bg-gradient-to-r.from-green-500\/30 * {
+  color: #1e3a8a !important;
+}
+
+body.light-theme .bg-gradient-to-r.from-green-500\/30 .text-green-200 {
+  color: #0f172a !important;
+}
+
+/* Home Page status badges styling for Light Theme */
+body.light-theme .bg-green-700\/50 {
+  background-color: rgba(34, 197, 94, 0.15) !important;
+  border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+body.light-theme .bg-green-700\/50 * {
+  color: #15803d !important;
+}
+
+body.light-theme .bg-yellow-600\/50 {
+  background-color: rgba(234, 179, 8, 0.15) !important;
+  border-color: rgba(234, 179, 8, 0.3) !important;
+}
+
+body.light-theme .bg-yellow-600\/50 * {
+  color: #b45309 !important;
+}
+
+/* --- ADMIN LIGHT THEME OVERRIDES FOR MODALS, BADGES & DETAILS PANEL --- */
+body.light-theme .bg-slate-900,
+body.light-theme .bg-slate-900\/90,
+body.light-theme .bg-slate-950 {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  border-color: rgba(153, 153, 153, 0.22) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light-theme .bg-slate-900 * {
+  color: #333333;
+}
+
+body.light-theme .bg-slate-900\/90 * {
+  color: #333333;
+}
+
+/* Preserve readable light text on liquid glass cards in light theme */
+body.light-theme .bg-slate-900\/40 .text-white,
+body.light-theme .bg-slate-900\/60 .text-white,
+body.light-theme .bg-slate-900\/40 p.text-white,
+body.light-theme .bg-slate-900\/60 p.text-white {
+  color: #ffffff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+body.light-theme .bg-slate-900\/40 .text-gray-300,
+body.light-theme .bg-slate-900\/60 .text-gray-300 {
+  color: #f1f5f9 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .bg-slate-900\/40 .text-gray-400,
+body.light-theme .bg-slate-900\/60 .text-gray-400 {
+  color: #e2e8f0 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+body.light-theme .bg-slate-900\/40 .text-gray-500,
+body.light-theme .bg-slate-900\/60 .text-gray-500 {
+  color: #cbd5e1 !important;
+}
+
+body.light-theme .bg-black\/30,
+body.light-theme .bg-black\/20,
+body.light-theme .bg-black\/10 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Badges readability */
+body.light-theme .text-green-200 {
+  color: #15803d !important;
+  /* Dark green for clean contrast */
+}
+
+body.light-theme .bg-green-500\/20 {
+  background-color: rgba(34, 197, 94, 0.12) !important;
+  border-color: rgba(34, 197, 94, 0.25) !important;
+}
+
+/* Modal form input elements */
+body.light-theme input,
+body.light-theme textarea,
+body.light-theme select {
+  background-color: #ffffff !important;
+  color: #333333 !important;
+  border-color: rgba(153, 153, 153, 0.3) !important;
+}
+
+body.light-theme input::placeholder,
+body.light-theme textarea::placeholder {
+  color: #888888 !important;
+}
+
+/* Action button coloring in light theme */
+body.light-theme .bg-cyan-500\/20 {
+  background-color: rgba(6, 182, 212, 0.12) !important;
+  color: #0891b2 !important;
+  border-color: rgba(6, 182, 212, 0.25) !important;
+}
+
+body.light-theme .bg-cyan-500\/20 * {
+  color: #0891b2 !important;
+}
+
+body.light-theme .bg-cyan-500\/20:hover {
+  background-color: rgba(6, 182, 212, 0.22) !important;
+}
+
+/* Reports page headings contrast overrides */
+body.light-theme .text-purple-200 {
+  color: #581c87 !important;
+  /* Dark purple */
+}
+
+body.light-theme .text-blue-200 {
+  color: #1e3a8a !important;
+  /* Dark blue */
+}
+
+body.light-theme .text-emerald-200 {
+  color: #064e3b !important;
+  /* Dark emerald */
+}
+
+body.light-theme .text-red-200 {
+  color: #7f1d1d !important;
+  /* Dark red */
+}
+
+body.light-theme .text-yellow-200 {
+  color: #78350f !important;
+  /* Dark amber */
+}
+
+/* SVG Chart elements */
+.chart-node-label {
+  fill: #ffffff;
+}
+
+.chart-axis-label {
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+.chart-axis-line {
+  stroke: rgba(255, 255, 255, 0.15);
+}
+
+body.light-theme .chart-node-label {
+  fill: #333333 !important;
+}
+
+body.light-theme .chart-axis-label {
+  fill: #555555 !important;
+}
+
+body.light-theme .chart-axis-line {
+  stroke: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Scope Times New Roman font family ONLY to the landing page */
+.landing-page,
+.landing-page * {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+/* Global Text Cursor & Caret Prevention (Caret bug fix) */
+body,
+body * {
+  cursor: default !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+button,
+a,
+button *,
+a *,
+[role="button"],
+.cursor-pointer,
+.theme-toggle-btn,
+.theme-toggle-thumb {
+  cursor: pointer !important;
+}
+
+input,
+textarea,
+[contenteditable],
+input *,
+textarea *,
+[contenteditable] * {
+  cursor: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+/* Light mode header style overrides for Map, Quiz, and Play pages */
+body.light-theme header {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  border-bottom-color: rgba(153, 153, 153, 0.2) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+body.light-theme header * {
+  color: #333333 !important;
+}
+
+body.light-theme header button {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #333333 !important;
+}
+
+body.light-theme header button:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Chatbox AI styling for Light Theme */
+body.light-theme .chatbox-ai-container {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(153, 153, 153, 0.3) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12) !important;
+}
+
+body.light-theme .chatbox-ai-container .text-white {
+  color: #111111 !important;
+}
+
+body.light-theme .chatbox-ai-container .text-gray-300 {
+  color: #4b5563 !important;
+}
+
+body.light-theme .chatbox-ai-container .bg-slate-900\/80 {
+  background-color: rgba(243, 244, 246, 0.95) !important;
+  border-bottom-color: rgba(153, 153, 153, 0.25) !important;
+}
+
+body.light-theme .chatbox-ai-container .border-white\/10 {
+  border-color: rgba(153, 153, 153, 0.25) !important;
+}
+
+body.light-theme .chatbox-ai-container .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+  color: #1f2937 !important;
+}
+
+body.light-theme .chatbox-ai-container .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #1f2937 !important;
+}
+
+body.light-theme .chatbox-ai-container .text-gray-100 {
+  color: #111111 !important;
+}
+
+body.light-theme .chatbox-ai-container textarea {
+  color: #111111 !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.light-theme .chatbox-ai-container textarea::placeholder {
+  color: #6b7280 !important;
+}
+
+body.light-theme .chatbox-ai-container .bg-emerald-500\/90 {
+  background-color: #10b981 !important;
+  color: #ffffff !important;
+}
+
+body.light-theme .chatbox-ai-container .bg-emerald-500\/90 * {
+  color: #ffffff !important;
+}
+
+/* Mission Page overrides for Light Theme */
+body.light-theme .text-blue-200 {
+  color: #1e3a8a !important;
+}
+
+body.light-theme .text-blue-300 {
+  color: #1d4ed8 !important;
+}
+
+body.light-theme .bg-blue-500\/20 {
+  background-color: rgba(59, 130, 246, 0.12) !important;
+  border-color: rgba(59, 130, 246, 0.25) !important;
+}
+
+body.light-theme .text-orange-300 {
+  color: #c2410c !important;
+  /* Dark orange */
+}
+
+body.light-theme .text-purple-200 {
+  color: #5b21b6 !important;
+  /* Dark purple */
+}
+
+body.light-theme .text-yellow-200 {
+  color: #854d0e !important;
+  /* Dark yellow */
+}
+
+body.light-theme .text-cyan-200 {
+  color: #075985 !important;
+  /* Dark cyan */
+}
+
+body.light-theme .bg-yellow-500\/20 {
+  background-color: rgba(234, 179, 8, 0.15) !important;
+  border-color: rgba(234, 179, 8, 0.3) !important;
+}
+
+body.light-theme .bg-purple-500\/20 {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+  border-color: rgba(168, 85, 247, 0.3) !important;
+}
+
+body.light-theme .bg-cyan-500\/20 {
+  background-color: rgba(6, 182, 212, 0.15) !important;
+  border-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+body.light-theme .bg-gradient-to-r.from-orange-600\/30 {
+  background: linear-gradient(90deg, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15)) !important;
+}
+
+body.light-theme .bg-gradient-to-r.from-orange-600\/30 *:not(.burning-flame):not(.burning-flame *) {
+  color: #431407 !important;
+}
+
+body.light-theme .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Light theme overrides for ranking and matchup selection modal buttons */
+body.light-theme .battle-menu-btn-weekly {
+  background-color: rgba(234, 179, 8, 0.08) !important;
+  border-color: rgba(234, 179, 8, 0.35) !important;
+}
+
+body.light-theme .battle-menu-btn-weekly:hover {
+  background-color: rgba(234, 179, 8, 0.15) !important;
+}
+
+body.light-theme .battle-menu-btn-weekly p.text-white {
+  color: #854d0e !important;
+}
+
+body.light-theme .battle-menu-btn-weekly p.text-yellow-200\/70 {
+  color: rgba(133, 77, 14, 0.8) !important;
+}
+
+body.light-theme .battle-menu-btn-battle {
+  background-color: rgba(168, 85, 247, 0.08) !important;
+  border-color: rgba(168, 85, 247, 0.35) !important;
+}
+
+body.light-theme .battle-menu-btn-battle:hover {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+}
+
+body.light-theme .battle-menu-btn-battle p.text-white {
+  color: #6b21a8 !important;
+}
+
+body.light-theme .battle-menu-btn-battle p.text-purple-200\/70 {
+  color: rgba(107, 33, 168, 0.8) !important;
+}
+
+body.light-theme .battle-menu-btn-room {
+  background-color: rgba(6, 182, 212, 0.08) !important;
+  border-color: rgba(6, 182, 212, 0.35) !important;
+}
+
+body.light-theme .battle-menu-btn-room:hover {
+  background-color: rgba(6, 182, 212, 0.15) !important;
+}
+
+body.light-theme .battle-menu-btn-room p.text-white {
+  color: #0891b2 !important;
+}
+
+body.light-theme .battle-menu-btn-room p.text-cyan-200\/70 {
+  color: rgba(8, 145, 178, 0.8) !important;
+}
+
+/* ==========================================
+   PREMIUM iOS LIQUID GLASS DESIGN SYSTEM
+   ========================================== */
+
+/* 1. Liquid Glass Button (Used for Đăng nhập, Khám phá, Lớp học, Mô phỏng) */
+.btn-liquid-glass {
+  position: relative;
+  background: linear-gradient(135deg, rgba(162, 89, 255, 0.45) 0%, rgba(58, 141, 255, 0.3) 50%, rgba(99, 102, 241, 0.2) 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    0 15px 35px rgba(162, 89, 255, 0.25),
+    inset 0 16px 16px -8px rgba(255, 255, 255, 0.5),
+    /* Top specular glare reflection */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7),
+    /* Top edge highlight */
+    inset 0 -10px 20px -10px rgba(0, 0, 0, 0.3);
+  /* Bottom shadow depth */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-liquid-glass:hover {
+  background: linear-gradient(135deg, rgba(162, 89, 255, 0.6) 0%, rgba(58, 141, 255, 0.45) 50%, rgba(99, 102, 241, 0.35) 100%) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow:
+    0 20px 45px rgba(162, 89, 255, 0.35),
+    inset 0 18px 18px -9px rgba(255, 255, 255, 0.6),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+.btn-liquid-glass:active {
+  transform: translateY(-1px) scale(0.97) !important;
+}
+
+/* 2. Liquid Glass Badge (Used for "Học mà chơi - Chơi mà học") */
+.badge-liquid-glass {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1.2px solid rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    0 10px 30px 0 rgba(0, 0, 0, 0.25),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.25),
+    /* Top shine */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* 3. Liquid Glass Tab Switcher Container */
+.tab-liquid-glass {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.28) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.15),
+    /* Glossy reflection */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* 4. Liquid Glass Tab Active Indicator */
+.tab-active-blob-liquid {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  background: linear-gradient(135deg, rgba(58, 141, 255, 0.5) 0%, rgba(162, 89, 255, 0.4) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
   border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  white-space: nowrap;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  background: rgba(15, 23, 42, 0.92) !important;
-  color: #f8fafc !important;
-  box-shadow: 0 8px 22px rgba(2, 6, 23, 0.28) !important;
+  box-shadow:
+    0 4px 15px rgba(58, 141, 255, 0.3),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.35),
+    /* 3D sheen */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  z-index: 0;
 }
 
-.filter-btn:hover {
-  background-color: rgba(255, 255, 255, 0.18) !important;
-  color: #ffffff !important;
+/* 5. Liquid Glass Cards (Used for Student & Teacher 4 Mission Cards) */
+.card-liquid-glass {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    inset 0 16px 16px -8px rgba(255, 255, 255, 0.15),
+    /* Specular top glow */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.card-liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    inset 0 18px 18px -9px rgba(255, 255, 255, 0.28),
+    /* Brightened top glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4) !important;
+}
+
+/* 6. Fully Transparent Crystal Liquid Glass Card (Reflects underlying background naturally) */
+.card-clear-liquid-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 1.25rem;
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  /* 3D Liquid glass glossy reflections & shadows from iOS generator */
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.18),
+    /* Top specular glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.28),
+    /* Edge light reflection */
+    inset 0 -10px 15px -8px rgba(0, 0, 0, 0.25) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.card-clear-liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.48) !important;
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    inset 0 15px 15px -7px rgba(255, 255, 255, 0.28),
+    /* Sharper top glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.42) !important;
+}
+
+/* 7. Premium iOS Liquid Glass Effect for Colored Cards (Preserves original color and padding) */
+.game-card-liquid-glass-colored {
+  position: relative;
+  border: 1.5px solid rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  /* 3D Liquid glass glossy glare & border highlight reflections */
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    inset 0 16px 16px -8px rgba(255, 255, 255, 0.45),
+    /* Top specular glare reflection */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.65),
+    /* Edge light reflection */
+    inset 0 -10px 15px -8px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* 8. Hidden Liquid Glass Reveal Button (Reveals glass on hover/active, transparent idle) */
+.btn-hover-reveal-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1.5px solid transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: rgba(192, 132, 252, 0.9) !important;
+  /* Soft violet purple in dark theme */
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-hover-reveal-glass:hover,
+.btn-hover-reveal-glass:active {
+  background: rgba(255, 255, 255, 0.06) !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.2),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.2),
+    /* Specular top glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-2px) scale(1.02);
 }
 
-.filter-btn.active-blue {
-  background-color: #3b82f6 !important; /* blue-500 */
-  color: #ffffff !important;
-  border-color: #3b82f6 !important;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.5) !important;
+body.light-theme .btn-hover-reveal-glass {
+  color: #6b21a8 !important;
+  /* Deep royal purple in light theme */
 }
 
-.filter-btn.active-purple {
-  background-color: #a855f7 !important; /* purple-500 */
+body.light-theme .btn-hover-reveal-glass:hover,
+body.light-theme .btn-hover-reveal-glass:active {
+  background: rgba(107, 33, 168, 0.05) !important;
+  border-color: rgba(107, 33, 168, 0.25) !important;
+  color: #5b21b6 !important;
+  box-shadow:
+    0 8px 24px rgba(162, 89, 255, 0.08),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 9. Virtual Lab Cards (Glossy liquid glass with sharp, readable light-theme overrides) */
+.virtual-lab-card {
+  position: relative;
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.25),
+    inset 0 16px 16px -8px rgba(255, 255, 255, 0.4),
+    /* Specular top glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.55),
+    /* Edge light highlight */
+    inset 0 -10px 15px -8px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.virtual-lab-card:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    inset 0 18px 18px -9px rgba(255, 255, 255, 0.5),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Light Theme overrides: High-contrast, vibrant, extremely readable styles */
+body.light-theme .lab-card-purple {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(139, 92, 246, 0.08) 100%) !important;
+  border-color: rgba(168, 85, 247, 0.45) !important;
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.1), inset 0 12px 12px -6px rgba(255, 255, 255, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+body.light-theme .lab-card-purple h4 {
+  color: #5b21b6 !important;
+}
+
+body.light-theme .lab-card-purple p {
+  color: #7c3aed !important;
+}
+
+body.light-theme .lab-card-purple svg {
+  color: #6b21a8 !important;
+}
+
+body.light-theme .lab-card-pink {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.15) 0%, rgba(225, 29, 72, 0.08) 100%) !important;
+  border-color: rgba(244, 63, 94, 0.45) !important;
+  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.1), inset 0 12px 12px -6px rgba(255, 255, 255, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+body.light-theme .lab-card-pink h4 {
+  color: #9f1239 !important;
+}
+
+body.light-theme .lab-card-pink p {
+  color: #db2777 !important;
+}
+
+body.light-theme .lab-card-pink svg {
+  color: #be123c !important;
+}
+
+body.light-theme .lab-card-pink .rounded-full {
+  background-color: rgba(244, 63, 94, 0.15) !important;
+}
+
+body.light-theme .lab-card-cyan {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(8, 145, 178, 0.08) 100%) !important;
+  border-color: rgba(6, 182, 212, 0.45) !important;
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.1), inset 0 12px 12px -6px rgba(255, 255, 255, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+body.light-theme .lab-card-cyan h4 {
+  color: #0e7490 !important;
+}
+
+body.light-theme .lab-card-cyan p {
+  color: #0284c7 !important;
+}
+
+body.light-theme .lab-card-cyan svg {
+  color: #0891b2 !important;
+}
+
+body.light-theme .lab-card-red {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(220, 38, 38, 0.08) 100%) !important;
+  border-color: rgba(239, 68, 68, 0.45) !important;
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.1), inset 0 12px 12px -6px rgba(255, 255, 255, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+body.light-theme .lab-card-red h4 {
+  color: #991b1b !important;
+}
+
+body.light-theme .lab-card-red p {
+  color: #dc2626 !important;
+}
+
+body.light-theme .lab-card-red svg {
+  color: #b91c1c !important;
+}
+
+/* 10. Pure Colorless Liquid Glass Button (Used for 'Khám phá ngay' button) */
+.btn-pure-liquid-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   color: #ffffff !important;
-  border-color: #a855f7 !important;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5) !important;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.25),
+    /* Specular top glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4),
+    /* Edge reflection */
+    inset 0 -8px 16px -8px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-pure-liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  transform: translateY(-2px) scale(1.01) !important;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.25),
+    inset 0 14px 14px -7px rgba(255, 255, 255, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+.btn-pure-liquid-glass:active {
+  transform: translateY(0) scale(0.99) !important;
+}
+
+/* Light Theme Overrides for Biology 3D Card Elements (High contrast, extremely readable) */
+body.light-theme .biology-3d-title {
+  color: #1e293b !important;
+  /* Deep dark slate */
+}
+
+body.light-theme .biology-3d-desc {
+  color: #475569 !important;
+  /* Elegant slate gray with high legibility */
+}
+
+body.light-theme .biology-3d-icon-wrapper {
+  background: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(168, 85, 247, 0.3) !important;
+}
+
+body.light-theme .biology-3d-icon {
+  color: #6b21a8 !important;
+  /* Deep rich purple */
+}
+
+body.light-theme .btn-pure-liquid-glass {
+  background: rgba(255, 255, 255, 0.55) !important;
+  border: 1.5px solid rgba(0, 0, 0, 0.12) !important;
+  color: #1e293b !important;
+  /* Deep dark slate text */
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.04),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.75),
+    /* Bright white top glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -8px 16px -8px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-theme .btn-pure-liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
+  color: #0f172a !important;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.08),
+    inset 0 14px 14px -7px rgba(255, 255, 255, 0.85),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 11. Circular Back Button - Premium iOS Liquid Glass */
+.btn-back-liquid-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 9999px;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.25),
+    /* Top specular glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.4) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-back-liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  transform: scale(1.05) !important;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.22),
+    inset 0 10px 10px -5px rgba(255, 255, 255, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+.btn-back-liquid-glass:active {
+  transform: scale(0.95) !important;
+}
+
+body.light-theme .btn-back-liquid-glass {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.04),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.75),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+body.light-theme .btn-back-liquid-glass svg {
+  color: #1e293b !important;
+  /* Deep dark slate for arrow */
+}
+
+body.light-theme .btn-back-liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.08),
+    inset 0 10px 10px -5px rgba(255, 255, 255, 0.85),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 12. Transparent Liquid Glass Card - Light Theme Refinements (Reflects background naturally) */
+body.light-theme .card-clear-liquid-glass {
+  background: rgba(255, 255, 255, 0.55) !important;
+  /* semi-transparent white glass base */
+  border-color: rgba(255, 255, 255, 0.85) !important;
+  /* extremely glossy white border */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.05),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.8),
+    /* bright top glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -8px 16px -8px rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light-theme .card-clear-liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.95) !important;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.08),
+    inset 0 14px 14px -7px rgba(255, 255, 255, 0.95),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.98) !important;
+}
+
+/* 13. More Page Icon Wrappers - Premium Glossy Glass Gems */
+.more-icon-wrapper-profile {
+  background: rgba(59, 130, 246, 0.15) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  color: #60a5fa !important;
+  box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.light-theme .more-icon-wrapper-profile {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border: 1.5px solid rgba(37, 99, 235, 0.35) !important;
+  color: #1d4ed8 !important;
+  /* Deep blue */
+}
+
+.more-icon-wrapper-lessons {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #34d399 !important;
+  box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.light-theme .more-icon-wrapper-lessons {
+  background: rgba(5, 150, 105, 0.1) !important;
+  border: 1.5px solid rgba(5, 150, 105, 0.35) !important;
+  color: #047857 !important;
+  /* Deep green */
+}
+
+.more-icon-wrapper-simulations3d {
+  background: rgba(168, 85, 247, 0.15) !important;
+  border: 1px solid rgba(168, 85, 247, 0.3) !important;
+  color: #c084fc !important;
+  box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.light-theme .more-icon-wrapper-simulations3d {
+  background: rgba(124, 58, 237, 0.1) !important;
+  border: 1.5px solid rgba(124, 58, 237, 0.35) !important;
+  color: #6b21a8 !important;
+  /* Deep purple */
+}
+
+.more-icon-wrapper-games3d {
+  background: rgba(6, 182, 212, 0.15) !important;
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  color: #22d3ee !important;
+  box-shadow: inset 0 4px 6px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.light-theme .more-icon-wrapper-games3d {
+  background: rgba(8, 145, 178, 0.1) !important;
+  border: 1.5px solid rgba(8, 145, 178, 0.35) !important;
+  color: #0e7490 !important;
+  /* Deep cyan */
+}
+
+/* 14. Premium iOS Liquid Glass Filter Buttons */
+.btn-filter-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.2),
+    /* Top specular glare */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.btn-filter-glass:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px) !important;
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.18),
+    inset 0 10px 10px -5px rgba(255, 255, 255, 0.3),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Active Glass Button Modifiers */
+.btn-filter-glass.active-blue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.45) 0%, rgba(37, 99, 235, 0.25) 100%) !important;
+  border-color: rgba(96, 165, 250, 0.6) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 6px 20px rgba(37, 99, 235, 0.35),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.65) !important;
+}
+
+.btn-filter-glass.active-purple {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.45) 0%, rgba(124, 58, 237, 0.25) 100%) !important;
+  border-color: rgba(192, 132, 252, 0.6) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 6px 20px rgba(124, 58, 237, 0.35),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Light Theme Overrides for Filters */
+body.light-theme .btn-filter-glass {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #475569 !important;
+  /* Elegant slate gray */
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.04),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.75),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+body.light-theme .btn-filter-glass:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
+  color: #0f172a !important;
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.06),
+    inset 0 10px 10px -5px rgba(255, 255, 255, 0.85),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+
+body.light-theme .btn-filter-glass.active-blue {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.85) 0%, rgba(37, 99, 235, 0.75) 100%) !important;
+  border-color: rgba(37, 99, 235, 0.9) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 6px 16px rgba(37, 99, 235, 0.25),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+body.light-theme .btn-filter-glass.active-purple {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.85) 0%, rgba(124, 58, 237, 0.75) 100%) !important;
+  border-color: rgba(124, 58, 237, 0.9) !important;
+  color: #ffffff !important;
+  box-shadow:
+    0 6px 16px rgba(124, 58, 237, 0.25),
+    inset 0 8px 8px -4px rgba(255, 255, 255, 0.35),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 15. Premium Adaptive Glass Header */
+.glass-header {
+  background: rgba(15, 23, 42, 0.4) !important;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light-theme .glass-header {
+  background: rgba(255, 255, 255, 0.45) !important;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* 16. High-Fidelity Realistic 3D Glass Gemstone Icons (Sleek vector glass look, no cheap AI gradient) */
+.glass-gem-icon {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Vector glass gemstone styling: semi-transparent glassy base + subtle inner glow + specular glare */
+.glass-gem-purple {
+  background: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(168, 85, 247, 0.45) !important;
+  box-shadow:
+    0 8px 20px rgba(168, 85, 247, 0.18),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.3),
+    /* Top Specular reflection */
+    inset 0 -8px 16px -8px rgba(168, 85, 247, 0.45),
+    /* Bottom color glow */
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+  color: #c084fc !important;
+}
+
+body.light-theme .glass-gem-purple {
+  background: rgba(168, 85, 247, 0.15) !important;
+  border-color: rgba(168, 85, 247, 0.5) !important;
+  box-shadow:
+    0 6px 15px rgba(109, 40, 217, 0.12),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.75),
+    inset 0 -8px 16px -8px rgba(168, 85, 247, 0.3) !important;
+  color: #7c3aed !important;
+}
+
+.glass-gem-pink,
+.glass-gem-rose {
+  background: rgba(244, 63, 94, 0.12) !important;
+  border-color: rgba(244, 63, 94, 0.45) !important;
+  box-shadow:
+    0 8px 20px rgba(244, 63, 94, 0.18),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.3),
+    inset 0 -8px 16px -8px rgba(244, 63, 94, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+  color: #f43f5e !important;
+}
+
+body.light-theme .glass-gem-pink,
+body.light-theme .glass-gem-rose {
+  background: rgba(244, 63, 94, 0.15) !important;
+  border-color: rgba(244, 63, 94, 0.5) !important;
+  box-shadow:
+    0 6px 15px rgba(225, 29, 72, 0.12),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.75),
+    inset 0 -8px 16px -8px rgba(244, 63, 94, 0.3) !important;
+  color: #db2777 !important;
+}
+
+.glass-gem-blue,
+.glass-gem-sky {
+  background: rgba(14, 165, 233, 0.12) !important;
+  border-color: rgba(14, 165, 233, 0.45) !important;
+  box-shadow:
+    0 8px 20px rgba(14, 165, 233, 0.18),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.3),
+    inset 0 -8px 16px -8px rgba(14, 165, 233, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+  color: #38bdf8 !important;
+}
+
+body.light-theme .glass-gem-blue,
+body.light-theme .glass-gem-sky {
+  background: rgba(14, 165, 233, 0.15) !important;
+  border-color: rgba(14, 165, 233, 0.5) !important;
+  box-shadow:
+    0 6px 15px rgba(2, 132, 199, 0.12),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.75),
+    inset 0 -8px 16px -8px rgba(14, 165, 233, 0.3) !important;
+  color: #0284c7 !important;
+}
+
+.glass-gem-green,
+.glass-gem-emerald {
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  box-shadow:
+    0 8px 20px rgba(16, 185, 129, 0.18),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.3),
+    inset 0 -8px 16px -8px rgba(16, 185, 129, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+  color: #34d399 !important;
+}
+
+body.light-theme .glass-gem-green,
+body.light-theme .glass-gem-emerald {
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow:
+    0 6px 15px rgba(5, 150, 105, 0.12),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.75),
+    inset 0 -8px 16px -8px rgba(16, 185, 129, 0.3) !important;
+  color: #059669 !important;
+}
+
+.glass-gem-amber,
+.glass-gem-yellow,
+.glass-gem-orange {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.45) !important;
+  box-shadow:
+    0 8px 20px rgba(245, 158, 11, 0.18),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.3),
+    inset 0 -8px 16px -8px rgba(245, 158, 11, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+  color: #fbbf24 !important;
+}
+
+body.light-theme .glass-gem-amber,
+body.light-theme .glass-gem-yellow,
+body.light-theme .glass-gem-orange {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow:
+    0 6px 15px rgba(217, 119, 6, 0.12),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.75),
+    inset 0 -8px 16px -8px rgba(245, 158, 11, 0.3) !important;
+  color: #d97706 !important;
+}
+
+.glass-gem-violet,
+.glass-gem-indigo {
+  background: rgba(99, 102, 241, 0.12) !important;
+  border-color: rgba(99, 102, 241, 0.45) !important;
+  box-shadow:
+    0 8px 20px rgba(99, 102, 241, 0.18),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.3),
+    inset 0 -8px 16px -8px rgba(99, 102, 241, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.5) !important;
+  color: #818cf8 !important;
+}
+
+body.light-theme .glass-gem-violet,
+body.light-theme .glass-gem-indigo {
+  background: rgba(99, 102, 241, 0.15) !important;
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  box-shadow:
+    0 6px 15px rgba(79, 70, 229, 0.12),
+    inset 0 12px 12px -6px rgba(255, 255, 255, 0.75),
+    inset 0 -8px 16px -8px rgba(99, 102, 241, 0.3) !important;
+  color: #4f46e5 !important;
+}
+
+/* 17. Light Theme High-Contrast Badge and Text Colors Inside Clear Glass Cards */
+body.light-theme .card-clear-liquid-glass .text-rose-400 {
+  color: #be123c !important;
+}
+
+body.light-theme .card-clear-liquid-glass .text-purple-400 {
+  color: #6b21a8 !important;
+}
+
+body.light-theme .card-clear-liquid-glass .text-amber-400 {
+  color: #b45309 !important;
+}
+
+body.light-theme .card-clear-liquid-glass .text-red-400 {
+  color: #b91c1c !important;
+}
+
+body.light-theme .card-clear-liquid-glass .text-violet-400 {
+  color: #4338ca !important;
+}
+
+body.light-theme .card-clear-liquid-glass .text-green-400 {
+  color: #047857 !important;
+}
+
+body.light-theme .card-clear-liquid-glass .text-sky-400 {
+  color: #0369a1 !important;
+}
+
+body.light-theme .card-clear-liquid-glass .text-yellow-400 {
+  color: #a16207 !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-rose-500\/20 {
+  background-color: rgba(244, 63, 94, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-purple-500\/20 {
+  background-color: rgba(168, 85, 247, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-amber-500\/20 {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-red-500\/20 {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-violet-500\/20 {
+  background-color: rgba(139, 92, 246, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-green-500\/20 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-sky-500\/20 {
+  background-color: rgba(14, 165, 233, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass .bg-yellow-500\/20 {
+  background-color: rgba(234, 179, 8, 0.15) !important;
+}
+
+body.light-theme .card-clear-liquid-glass h3 {
+  color: #1e293b !important;
+}
+
+body.light-theme .card-clear-liquid-glass p {
+  color: #475569 !important;
+}
+
+body.light-theme .card-clear-liquid-glass span.bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #475569 !important;
+}
+
+body.light-theme .card-clear-liquid-glass div.bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .card-clear-liquid-glass div.bg-white\/5 svg {
+  color: #475569 !important;
+}
+
+body.light-theme .card-clear-liquid-glass div.bg-white\/5:hover svg {
+  color: #0f172a !important;
 }

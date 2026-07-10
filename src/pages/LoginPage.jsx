@@ -31,12 +31,28 @@ export default function LoginPage() {
   // Form fields
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [username, setUsername] = useState('');
   const [verCode, setVerCode] = useState('');   
   const [teacherRequestSent, setTeacherRequestSent] = useState(false);
   const [teacherRequestStatus, setTeacherRequestStatus] = useState('');
+  const [registerSuccessMsg, setRegisterSuccessMsg] = useState('');
 
-  const clearError = () => setError('');
+  const clearError = () => {
+    setError('');
+    setRegisterSuccessMsg('');
+  };
+
+  // Handle manual mode changes (clicking buttons/tabs to switch) to clear fields and avoid credential leakage
+  const handleManualModeChange = (newMode) => {
+    setMode(newMode);
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setUsername('');
+    clearError();
+    resetTeacherRequestFlow();
+  };
 
   const resetTeacherRequestFlow = () => {
     setTeacherRequestSent(false);
@@ -106,16 +122,30 @@ export default function LoginPage() {
     setLoading(true); clearError();
     try {
       if (mode === 'register') {
+        if (password !== confirmPassword) {
+          throw new Error('Mật khẩu xác nhận không khớp');
+        }
+        if (password.length < 6) {
+          throw new Error('Mật khẩu phải có ít nhất 6 ký tự');
+        }
+
         const { data, error: err } = await supabase.auth.signUp({
           email,
           password,
           options: { data: { full_name: username, role: tab } }
         });
         if (err) throw err;
-        if (data.user) {
-          setUser(data.user);
-          navigate(tab === 'teacher' ? '/teacher' : '/home');
-        }
+        
+        // Prevent immediate login upon registration by signing out immediately
+        await supabase.auth.signOut();
+        
+        // Set success message to show under the form instead of automatically switching mode
+        setRegisterSuccessMsg('Đăng ký thành công! Một liên kết xác thực đã được gửi đến email của bạn. Vui lòng xác thực email để kích hoạt tài khoản trước khi đăng nhập.');
+        
+        // Clear password and verification fields, keep email for visual context
+        setPassword('');
+        setConfirmPassword('');
+        setUsername('');
       } else {
         const { data, error: err } = await supabase.auth.signInWithPassword({
           email,
@@ -296,9 +326,7 @@ export default function LoginPage() {
                     className={`cosmic-tab-btn ${tab === t.id ? 'active' : ''}`}
                     onClick={() => {
                       setTab(t.id);
-                      setMode('login');
-                      clearError();
-                      resetTeacherRequestFlow();
+                      handleManualModeChange('login');
                     }}
                   >
                     {t.icon}
@@ -313,8 +341,8 @@ export default function LoginPage() {
               <div className="cosmic-form-body">
                 {tab === 'student' && (
                   <div className="cosmic-mode-toggle">
-                    <button className={mode === 'login' ? 'active' : ''} onClick={() => setMode('login')}>Đăng nhập</button>
-                    <button className={mode === 'register' ? 'active' : ''} onClick={() => setMode('register')}>Đăng ký</button>
+                    <button className={mode === 'login' ? 'active' : ''} onClick={() => handleManualModeChange('login')}>Đăng nhập</button>
+                    <button className={mode === 'register' ? 'active' : ''} onClick={() => handleManualModeChange('register')}>Đăng ký</button>
                   </div>
                 )}
 
@@ -379,6 +407,27 @@ export default function LoginPage() {
                       </button>
                     </div>
                   </div>
+
+                  {mode === 'register' && (
+                    <div className="cosmic-input-group">
+                      <label>Xác nhận mật khẩu</label>
+                      <div className="cosmic-input-wrapper">
+                        <Lock className="wrapper-icon" />
+                        <input 
+                          type={showPassword ? 'text' : 'password'} 
+                          placeholder="••••••••" 
+                          value={confirmPassword} 
+                          onChange={e => setConfirmPassword(e.target.value)} 
+                          required 
+                        />
+                      </div>
+                      {registerSuccessMsg && (
+                        <p className="cosmic-register-success-tip" style={{ color: '#4ade80', fontSize: '12px', marginTop: '6px', fontWeight: 'bold', lineHeight: '1.4' }}>
+                          ✓ {registerSuccessMsg}
+                        </p>
+                      )}
+                    </div>
+                  )}
 
                   {tab === 'teacher' && mode === 'register' && teacherRequestSent && (
                     <div className="cosmic-input-group">
@@ -448,8 +497,7 @@ export default function LoginPage() {
                       type="button" 
                       className="cosmic-footer-link" 
                       onClick={() => {
-                        setMode(mode === 'login' ? 'register' : 'login');
-                        resetTeacherRequestFlow();
+                        handleManualModeChange(mode === 'login' ? 'register' : 'login');
                       }}
                     >
                       {mode === 'login' ? 'Đăng ký ngay' : 'Đăng nhập'}

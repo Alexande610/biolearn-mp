@@ -12,6 +12,7 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState('');
   
   const { loginWithGoogle, setUser } = useAuth();
   const navigate = useNavigate();
@@ -46,10 +47,14 @@ export default function RegisterPage() {
 
       if (signUpError) throw signUpError;
 
-      if (data.user) {
-        setUser(data.user);
-        navigate('/home');
-      }
+      // Prevent immediate login upon registration by signing out immediately
+      await supabase.auth.signOut();
+
+      // Show success message and clear form fields
+      setRegisterSuccess('Đăng ký thành công! Một liên kết xác thực đã được gửi đến email của bạn. Vui lòng xác thực email để kích hoạt tài khoản trước khi tiến hành đăng nhập.');
+      setUsername('');
+      setPassword('');
+      setConfirmPassword('');
     } catch (err) {
       console.error('Register error:', err);
       if (err.message?.includes('already registered')) {
@@ -171,6 +176,11 @@ export default function RegisterPage() {
                   required
                 />
               </div>
+              {registerSuccess && (
+                <div className="bg-green-500/20 border border-green-500 text-green-200 px-4 py-3 rounded-xl mt-3 text-sm font-semibold leading-relaxed">
+                  ✓ {registerSuccess}
+                </div>
+              )}
             </div>
 
             <button

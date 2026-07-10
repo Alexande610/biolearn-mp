@@ -6,7 +6,7 @@ import {
   Plus, User, ChevronRight, Sparkles, Zap, MoreHorizontal, Swords,
   Microscope, Dna, FlaskConical, Heart,
   Sprout, TreePine, Flower2, GraduationCap, Bug, Activity, Atom,
-  Mail, X
+  Mail, X, HelpCircle
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useToast } from '../components/Toast';
@@ -265,28 +265,28 @@ export default function HomePage() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 py-6">
-        {/* Welcome Banner */}
-        <div className="game-card mb-6 bg-gradient-to-r from-green-500/30 to-blue-500/30">
+        {/* Welcome Banner - Upgraded to Clear Liquid Glass */}
+        <div className="card-clear-liquid-glass mb-6 p-4">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
-              <Sparkles className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-green-500/25 border border-green-500/40 rounded-2xl flex items-center justify-center shadow-lg shadow-green-500/10">
+              <Sparkles className="w-8 h-8 text-green-300" />
             </div>
             <div className="flex-1">
               <h2 className="text-xl font-bold text-white mb-1">Chào mừng trở lại!</h2>
-              <p className="text-green-200">Hãy tiếp tục hành trình khám phá Sinh học nào!</p>
+              <p className="text-green-300 font-medium">Hãy tiếp tục hành trình khám phá Sinh học nào!</p>
             </div>
           </div>
         </div>
 
-        {/* Quick Stats */}
+        {/* Quick Stats - Upgraded to Clear Liquid Glass */}
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <Link to="/leaderboard" className="game-card text-center hover:bg-white/20 transition-colors">
+          <Link to="/leaderboard" className="card-clear-liquid-glass text-center p-4">
             <Trophy className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
             <p className="text-white font-bold">{userStats?.total_score || 0}</p>
             <p className="text-green-300 text-sm">Tổng điểm</p>
           </Link>
           
-          <Link to="/missions" className="game-card text-center hover:bg-white/20 transition-colors">
+          <Link to="/missions" className="card-clear-liquid-glass text-center p-4">
             <Target className="w-8 h-8 text-red-400 mx-auto mb-2" />
             <p className="text-white font-bold">
               {userStats?.daily_missions ? 
@@ -298,7 +298,7 @@ export default function HomePage() {
             <p className="text-green-300 text-sm">Nhiệm vụ</p>
           </Link>
 
-          <Link to="/leaderboard" className="game-card text-center hover:bg-white/20 transition-colors">
+          <Link to="/leaderboard" className="card-clear-liquid-glass text-center p-4">
             <Zap className="w-8 h-8 text-purple-400 mx-auto mb-2" />
             <p className="text-white font-bold">{userStats?.weekly_score || 0}</p>
             <p className="text-green-300 text-sm">Điểm tuần</p>
@@ -316,7 +316,7 @@ export default function HomePage() {
             <Link
               key={cls.id}
               to={`/map/${cls.id}`}
-              className={`game-card bg-gradient-to-br ${cls.color} hover:scale-105 transition-all duration-300`}
+              className={`game-card bg-gradient-to-br ${cls.color} game-card-liquid-glass-colored hover:scale-105 transition-all duration-300`}
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -343,7 +343,7 @@ export default function HomePage() {
             <Link
               key={cls.id}
               to={`/map/${cls.id}`}
-              className={`game-card bg-gradient-to-br ${cls.color} hover:scale-105 transition-all duration-300`}
+              className={`game-card bg-gradient-to-br ${cls.color} game-card-liquid-glass-colored hover:scale-105 transition-all duration-300`}
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -372,10 +372,6 @@ export default function HomePage() {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-white font-bold">Mini Game - Lật thẻ</h4>
-                  <p className="text-purple-200 text-sm">Chơi để nhận thêm năng lượng!</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-green-300 font-bold">+10 🌱</p>
                   <p className="text-purple-200 text-xs">{2 - (userStats?.mini_game_claims_today || 0)} lượt còn</p>
                 </div>
               </div>
@@ -387,22 +383,22 @@ export default function HomePage() {
         <div className="mt-8">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-bold text-white flex items-center gap-2">
-              <FlaskConical className="w-6 h-6 text-cyan-400" />
+              <FlaskConical className="w-6 h-6 text-purple-400" />
               Phòng thí nghiệm ảo
             </h3>
             <Link 
               to="/simulations" 
-              className="text-cyan-400 text-sm hover:text-cyan-300 flex items-center gap-1"
+              className="btn-hover-reveal-glass font-bold"
             >
               Xem tất cả <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
           
           <div className="grid grid-cols-2 gap-4">
-            {/* DNA 3D */}
+            {/* DNA 3D - Purple Card */}
             <Link
               to="/simulations"
-              className="game-card bg-gradient-to-br from-purple-600/40 to-indigo-700/40 hover:from-purple-600/50 hover:to-indigo-700/50 transition-all"
+              className="game-card bg-gradient-to-br from-purple-600/40 to-indigo-700/40 virtual-lab-card lab-card-purple"
             >
               <div className="flex flex-col items-center text-center py-2">
                 <Dna className="w-12 h-12 text-purple-300 mb-2" />
@@ -411,10 +407,10 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Tế bào */}
+            {/* Tế bào - Pink Card */}
             <Link
               to="/simulations"
-              className="game-card bg-gradient-to-br from-pink-600/40 to-rose-700/40 hover:from-pink-600/50 hover:to-rose-700/50 transition-all"
+              className="game-card bg-gradient-to-br from-pink-600/40 to-rose-700/40 virtual-lab-card lab-card-pink"
             >
               <div className="flex flex-col items-center text-center py-2">
                 <div className="w-12 h-12 rounded-full bg-pink-500/30 flex items-center justify-center mb-2">
@@ -425,10 +421,10 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Kính hiển vi */}
+            {/* Kính hiển vi - Cyan Card */}
             <Link
               to="/simulations"
-              className="game-card bg-gradient-to-br from-cyan-600/40 to-blue-700/40 hover:from-cyan-600/50 hover:to-blue-700/50 transition-all"
+              className="game-card bg-gradient-to-br from-cyan-600/40 to-blue-700/40 virtual-lab-card lab-card-cyan"
             >
               <div className="flex flex-col items-center text-center py-2">
                 <Microscope className="w-12 h-12 text-cyan-300 mb-2" />
@@ -437,10 +433,10 @@ export default function HomePage() {
               </div>
             </Link>
 
-            {/* Cơ thể người */}
+            {/* Cơ thể người - Red Card */}
             <Link
               to="/simulations"
-              className="game-card bg-gradient-to-br from-red-600/40 to-rose-700/40 hover:from-red-600/50 hover:to-rose-700/50 transition-all"
+              className="game-card bg-gradient-to-br from-red-600/40 to-rose-700/40 virtual-lab-card lab-card-red"
             >
               <div className="flex flex-col items-center text-center py-2">
                 <Heart className="w-12 h-12 text-red-300 mb-2" />
@@ -451,49 +447,39 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* 🧬 MÔ HÌNH SINH HỌC 3D */}
+        {/* 🧬 MÔ HÌNH SINH HỌC 3D - Redesigned Pure Liquid Glass Card */}
         <div className="mt-8">
           <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
             <Dna className="w-6 h-6 text-purple-400" />
             Mô hình sinh học 3D
           </h3>
           
-          <div className="game-card bg-gradient-to-r from-indigo-900/50 to-purple-900/50 overflow-hidden">
-            <div className="flex items-center gap-4">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-inner">
-                <Dna className="w-10 h-10 text-white opacity-90" />
+          <div className="card-clear-liquid-glass p-8 text-center relative overflow-hidden group w-full">
+            <div className="absolute -top-24 -left-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/15 transition-all duration-500"></div>
+            
+            <div className="relative z-10 flex flex-col items-center">
+              {/* Icon Wrapper - Pure Glassmorphic */}
+              <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/20 flex items-center justify-center shadow-lg shadow-black/10 group-hover:scale-105 transition-transform duration-300 mb-6 biology-3d-icon-wrapper">
+                <Dna className="w-9 h-9 text-purple-400 biology-3d-icon" />
               </div>
-              <div className="flex-1">
-                <h4 className="text-white font-bold text-lg">Khám phá thế giới vi mô</h4>
-                <p className="text-purple-200 text-sm mt-1">
-                  Xoay, phóng to và tương tác với các mô hình ADN, tế bào, vi sinh vật
-                </p>
+              
+              {/* Title & Description */}
+              <h4 className="text-xl font-black text-white tracking-tight biology-3d-title">
+                Khám phá thế giới vi mô
+              </h4>
+              <p className="text-purple-200 text-sm mt-3 leading-relaxed font-medium max-w-xl mx-auto biology-3d-desc">
+                Xoay, phóng to và tương tác trực quan với các mô hình cấu trúc phân tử ADN, tế bào, và vi sinh vật sống động trong không gian 3 chiều.
+              </p>
+              
+              {/* Action Button - Pure Colorless Liquid Glass */}
+              <div className="mt-8 w-full max-w-md">
                 <Link 
                   to="/biology3d"
-                  className="inline-flex items-center gap-1 text-purple-300 text-sm mt-2 hover:text-white"
+                  className="w-full py-4 rounded-2xl btn-pure-liquid-glass text-white font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300"
                 >
                   Khám phá ngay <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
-            </div>
-            
-            {/* Preview thumbnails */}
-            <div className="flex gap-2 mt-4 overflow-x-auto pb-2 hover-scrollbar">
-              {[
-                { Icon: Dna, name: 'ADN', color: 'from-purple-500 to-indigo-600' },
-                { Icon: Atom, name: 'Tế bào', color: 'from-pink-500 to-rose-600' },
-                { Icon: Bug, name: 'Vi khuẩn', color: 'from-green-500 to-emerald-600' },
-                { Icon: Heart, name: 'Tim', color: 'from-red-500 to-rose-600' },
-                { Icon: Sprout, name: 'Quang hợp', color: 'from-lime-500 to-green-600' },
-              ].map((item, idx) => (
-                <div 
-                  key={idx} 
-                  className={`flex-shrink-0 w-16 h-16 bg-gradient-to-br ${item.color} rounded-xl flex flex-col items-center justify-center shadow-sm`}
-                >
-                  <item.Icon className="w-6 h-6 text-white mb-1 opacity-90" />
-                  <span className="text-white text-xs font-medium">{item.name}</span>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -535,7 +521,7 @@ export default function HomePage() {
 
       {/* Modal tùy chọn Xếp hạng / VS / Room Quiz */}
       {showBattleMenuModal && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex items-end sm:items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/70 z-[10000] flex items-end sm:items-center justify-center p-4">
           <div className="game-card w-full max-w-md">
             <h2 className="text-xl font-bold text-white mb-2">Xếp hạng & Đối kháng</h2>
             <p className="text-gray-300 text-sm mb-4">Chọn chế độ bạn muốn vào</p>
@@ -543,32 +529,51 @@ export default function HomePage() {
             <div className="space-y-3">
               <button
                 onClick={() => handleBattleMenuNavigate('weekly')}
-                className="w-full p-4 rounded-xl bg-yellow-500/20 hover:bg-yellow-500/30 border border-yellow-500/40 text-left"
+                className="w-full p-4 rounded-[1.5rem] bg-yellow-500/10 hover:bg-yellow-500/20 border border-yellow-500/20 text-left flex items-center gap-4 transition-all duration-300 hover:scale-[1.02] active:scale-98 cursor-pointer battle-menu-btn-weekly"
               >
-                <p className="text-white font-semibold">🏆 Xếp hạng</p>
-                <p className="text-yellow-200 text-sm">Xem bảng xếp hạng tuần</p>
+                <div className="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center border border-yellow-500/30 text-yellow-400 shadow-[0_0_15px_rgba(234,179,8,0.15)]">
+                  <Trophy className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-base">Xếp hạng</p>
+                  <p className="text-yellow-200/70 text-sm">Xem bảng xếp hạng tuần</p>
+                </div>
               </button>
 
               <button
                 onClick={() => handleBattleMenuNavigate('battle')}
-                className="w-full p-4 rounded-xl bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/40 text-left"
+                className="w-full p-4 rounded-[1.5rem] bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 text-left flex items-center gap-4 transition-all duration-300 hover:scale-[1.02] active:scale-98 cursor-pointer battle-menu-btn-battle"
               >
-                <p className="text-white font-semibold">⚔️ VS Đối kháng</p>
-                <p className="text-purple-200 text-sm">Ghép trận hoặc chơi với bot</p>
+                <div className="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30 text-purple-400 shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+                  <Swords className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-base">VS Đối kháng</p>
+                  <p className="text-purple-200/70 text-sm">Ghép trận hoặc chơi với bot</p>
+                </div>
               </button>
 
               <button
                 onClick={() => handleBattleMenuNavigate('room')}
-                className="w-full p-4 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-left"
+                className="w-full p-4 rounded-[1.5rem] bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/20 text-left flex items-center gap-4 transition-all duration-300 hover:scale-[1.02] active:scale-98 cursor-pointer battle-menu-btn-room"
               >
-                <p className="text-white font-semibold">🎯 Room Quiz</p>
-                <p className="text-cyan-200 text-sm">Nhập mã phòng do giáo viên cung cấp</p>
+                <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center border border-cyan-500/30 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+                  <HelpCircle className="w-6 h-6 stroke-[1.8]" />
+                </div>
+                <div>
+                  <p className="text-white font-bold text-base">Room Quiz</p>
+                  <p className="text-cyan-200/70 text-sm">Nhập mã phòng do giáo viên cung cấp</p>
+                </div>
               </button>
             </div>
 
             <button
               onClick={() => setShowBattleMenuModal(false)}
-              className="w-full mt-4 py-3 rounded-xl bg-gray-600 hover:bg-gray-500 text-white font-semibold"
+              className="w-full mt-4 py-3 rounded-xl bg-gray-600 hover:bg-gray-500 text-white font-semibold transition-colors duration-200 dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white"
+              style={{
+                backgroundColor: document.body?.classList?.contains('light-theme') ? '#e2e8f0' : undefined,
+                color: document.body?.classList?.contains('light-theme') ? '#1e293b' : undefined
+              }}
             >
               Đóng
             </button>
@@ -578,7 +583,7 @@ export default function HomePage() {
 
       {/* Modal xác nhận đăng xuất */}
       {showLogoutModal && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/80 z-[10000] flex items-center justify-center p-4">
           <div className="game-card max-w-md w-full text-center">
             <div className="w-16 h-16 bg-red-500/30 rounded-full flex items-center justify-center mx-auto mb-4">
               <LogOut className="w-10 h-10 text-red-400" />

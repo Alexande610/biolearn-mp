@@ -160,10 +160,10 @@ function GameCard({ game, onPlay }) {
   
   return (
     <div 
-      className={`relative bg-gradient-to-br ${game.color} rounded-2xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-all duration-300 cursor-pointer group`}
+      className={`relative bg-gradient-to-br ${game.color} rounded-2xl overflow-hidden game-card-liquid-glass-colored transform hover:scale-[1.02] transition-all duration-300 cursor-pointer group`}
       onClick={() => game.isAvailable && onPlay(game)}
     >
-      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-all" />
+      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all" />
       
       <div className="absolute top-3 right-3">
         <div className="bg-black/30 backdrop-blur-sm px-2 py-1 rounded-lg">
@@ -316,16 +316,16 @@ export default function SimulationsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900/20 to-slate-900">
+    <div className="min-h-screen bg-transparent">
       {/* Header */}
-      <div className="bg-black/30 backdrop-blur-md border-b border-white/10 sticky top-0 z-40">
+      <div className="sticky top-0 z-40 glass-header backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate(-1)}
-              className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+              className="w-10 h-10 btn-back-liquid-glass flex items-center justify-center"
             >
-              <ArrowLeft className="w-5 h-5 text-white" />
+              <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
               <h1 className="text-xl font-bold text-white flex items-center gap-2">
@@ -341,11 +341,13 @@ export default function SimulationsPage() {
       </div>
 
       {/* Grade Filter */}
-      <div className="max-w-6xl mx-auto px-4 py-4">
+      <div className="max-w-6xl mx-auto px-4 py-4 relative z-10">
         <div className="flex items-center gap-2 overflow-x-auto pb-2">
           <button
             onClick={() => setSelectedGrade(null)}
-            className={`filter-btn ${selectedGrade === null ? 'active-blue' : ''}`}
+            className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap btn-filter-glass ${
+              selectedGrade === null ? 'active-blue' : ''
+            }`}
           >
             Tất cả
           </button>
@@ -353,7 +355,9 @@ export default function SimulationsPage() {
             <button
               key={grade}
               onClick={() => setSelectedGrade(grade)}
-              className={`filter-btn ${selectedGrade === grade ? 'active-blue' : ''}`}
+              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap btn-filter-glass ${
+                selectedGrade === grade ? 'active-blue' : ''
+              }`}
             >
               Lớp {grade}
             </button>

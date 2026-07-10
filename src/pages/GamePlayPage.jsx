@@ -1190,12 +1190,12 @@ export default function GamePlayPage() {
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        background: 'linear-gradient(to bottom, #0f2d1e, #143e29, #0a1f14)',
+        background: 'transparent',
         overflowY: 'auto'
       }}
     >
       {/* Header */}
-      <header className="bg-green-800/50 backdrop-blur-lg sticky top-0 z-50 border-b border-white/10">
+      <header className="bg-black/40 backdrop-blur-xl sticky top-0 z-50 border-b border-white/5">
         <div className="max-w-4xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">

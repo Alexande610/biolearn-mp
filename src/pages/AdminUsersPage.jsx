@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Lock, RefreshCw, Search, Unlock, Users, 
-  Mail, Send, Copy, Check, Plus, Edit, X, Trophy, Zap, Target, Activity
+  Mail, Send, Copy, Check, Plus, Edit, X, Trophy, Zap, Target, Activity,
+  Sun, Moon, ChevronDown, ChevronUp, Award, Swords
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
@@ -74,7 +75,7 @@ const getAvatarUrl = (avatar) => {
 
 export default function AdminUsersPage() {
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, theme, toggleTheme } = useAuth();
   const { showToast } = useToast();
 
   const [users, setUsers] = useState([]);
@@ -230,14 +231,22 @@ export default function AdminUsersPage() {
   const fetchUserExtraDetails = async (userId) => {
     setExtraLoading(true);
     try {
-      const { data: pvpData } = await supabase
+      // 1. Fetch 20 PvP matches with player display names using select joins
+      const { data: pvpData, error: pvpErr } = await supabase
         .from('pvp_matches')
-        .select('*')
+        .select(`
+          *,
+          player1:player1_id (display_name, email),
+          player2:player2_id (display_name, email)
+        `)
         .or(`player1_id.eq.${userId},player2_id.eq.${userId}`)
         .order('created_at', { ascending: false })
-        .limit(5);
+        .limit(20);
+      
+      if (pvpErr) console.error('Error fetching PvP details:', pvpErr);
       setUserPvPMatches(pvpData || []);
 
+      // 2. Fetch system logs
       const { data: logsData } = await supabase
         .from('system_logs')
         .select('*')
@@ -246,13 +255,19 @@ export default function AdminUsersPage() {
         .limit(10);
       setUserSystemLogs(logsData || []);
 
-      const { data: roomsData } = await supabase
+      // 3. Fetch student's Quiz History using JSONB contains filter
+      const { data: quizData, error: quizErr } = await supabase
         .from('quiz_rooms')
-        .select('*')
-        .eq('teacher_id', userId)
+        .select(`
+          *,
+          teacher:teacher_id (display_name, email)
+        `)
+        .contains('participants', JSON.stringify([{ studentId: userId }]))
         .order('created_at', { ascending: false })
-        .limit(5);
-      setUserQuizRooms(roomsData || []);
+        .limit(20);
+      
+      if (quizErr) console.error('Error fetching Quiz details:', quizErr);
+      setUserQuizRooms(quizData || []);
     } catch (err) {
       console.error(err);
     }
@@ -411,6 +426,14 @@ export default function AdminUsersPage() {
               >
                 <Mail className="w-4 h-4" />
                 <span>Gửi thư toàn bộ</span>
+              </button>
+
+              <button
+                onClick={toggleTheme}
+                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 active:scale-95 transition cursor-pointer"
+                title={theme === 'light' ? 'Chuyển sang chế độ tối' : 'Chuyển sang chế độ sáng'}
+              >
+                {theme === 'light' ? <Moon className="w-5 h-5 text-white" /> : <Sun className="w-5 h-5 text-yellow-400 animate-pulse" />}
               </button>
 
               <button
@@ -651,36 +674,13 @@ export default function AdminUsersPage() {
                   </button>
                 </div>
 
-                {/* Học tập & Xếp hạng */}
-                <div className="p-4 rounded-3xl border border-white/5 bg-white/5 space-y-3">
-                  <h5 className="text-white font-black text-[10px] uppercase tracking-widest text-emerald-400">Thống kê học tập</h5>
-                  <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div className="bg-black/20 p-3 rounded-2xl border border-white/5">
-                      <p className="text-gray-400 text-[9px] uppercase font-black tracking-widest">Điểm tuần</p>
-                      <p className="text-white font-black text-sm mt-1">{(selectedUserDetail.weekly_score ?? 0).toLocaleString()} XP</p>
-                    </div>
-                    <div className="bg-black/20 p-3 rounded-2xl border border-white/5">
-                      <p className="text-gray-400 text-[9px] uppercase font-black tracking-widest">Tổng điểm</p>
-                      <p className="text-white font-black text-sm mt-1">{(selectedUserDetail.total_score ?? 0).toLocaleString()} XP</p>
-                    </div>
-                    <div className="bg-black/20 p-3 rounded-2xl border border-white/5">
-                      <p className="text-gray-400 text-[9px] uppercase font-black tracking-widest">Đăng nhập</p>
-                      <p className="text-white font-black text-sm mt-1">{selectedUserDetail.login_streak ?? 0} ngày liên tiếp</p>
-                    </div>
-                    <div className="bg-black/20 p-3 rounded-2xl border border-white/5">
-                      <p className="text-gray-400 text-[9px] uppercase font-black tracking-widest">Hoàn thành</p>
-                      <p className="text-white font-black text-sm mt-1">{selectedUserDetail.levels_completed ?? 0} cấp độ</p>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Tiến độ chi tiết từng lớp */}
                 <div className="p-4 rounded-3xl border border-white/5 bg-white/5 space-y-3">
                   <h5 className="text-white font-black text-[10px] uppercase tracking-widest text-purple-400">Tiến độ chi tiết các lớp</h5>
                   <div className="space-y-2 text-xs">
                     {['6', '7', '8', '9', '10', '11', '12'].map((classId) => {
                       const classProg = selectedUserDetail.class_progress?.[classId] || {};
-                      const completedCount = Object.keys(classProg).filter(k => classProg[k]?.completed).length;
+                      const completedCount = classProg.completedLevels?.length || 0;
 
                       return (
                         <div key={classId} className="flex items-center justify-between bg-black/10 px-3 py-2 rounded-xl border border-white/5">
@@ -692,22 +692,159 @@ export default function AdminUsersPage() {
                   </div>
                 </div>
 
-                {/* Room & PvP History */}
+                {/* Lịch sử PvP và Bỏ cuộc */}
                 <div className="p-4 rounded-3xl border border-white/5 bg-white/5 space-y-3">
-                  <h5 className="text-white font-black text-[10px] uppercase tracking-widest text-yellow-400">Lịch sử PvP & Room</h5>
+                  <h5 className="text-white font-black text-[10px] uppercase tracking-widest text-yellow-400">Lịch sử Đấu trường PvP</h5>
                   {extraLoading ? (
                     <p className="text-gray-400 text-xs">Đang tải...</p>
                   ) : (
-                    <div className="space-y-2 text-xs">
+                    <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
                       {userPvPMatches.length === 0 ? (
                         <p className="text-gray-500 italic text-[11px]">Chưa có lịch sử PvP</p>
                       ) : (
                         userPvPMatches.map((match) => {
                           const isWinner = match.winner_id === selectedUserDetail.id;
+                          const isPlayer1 = match.player1_id === selectedUserDetail.id;
+                          
+                          const myScore = isPlayer1 ? match.player1_score : match.player2_score;
+                          const oppScore = isPlayer1 ? match.player2_score : match.player1_score;
+                          
+                          const oppName = isPlayer1 
+                            ? (match.player2?.display_name || match.player2?.email?.split('@')[0] || 'Đối thủ')
+                            : (match.player1?.display_name || match.player1?.email?.split('@')[0] || 'Đối thủ');
+                          
+                          const myCorrectAnswers = Math.round(myScore / 10);
+                          const oppCorrectAnswers = Math.round(oppScore / 10);
+                          
+                          const hasSurrendered = match.status?.includes('surrendered');
+                          const quitterId = match.status === 'player1_surrendered' ? match.player1_id : (match.status === 'player2_surrendered' ? match.player2_id : null);
+                          const quitterName = quitterId === selectedUserDetail.id ? 'Bạn đầu hàng' : (quitterId ? 'Đối thủ đầu hàng' : '');
+
+                          const isExpanded = match.id === selectedUserDetail._expandedPvpId;
+
                           return (
-                            <div key={match.id} className="flex items-center justify-between bg-black/10 px-3 py-2 rounded-xl border border-white/5">
-                              <span className="text-white">Trận đấu PvP Lớp {match.class_id}</span>
-                              <span className={`font-bold ${isWinner ? 'text-green-400' : 'text-red-400'}`}>{isWinner ? 'Thắng' : 'Thua'}</span>
+                            <div key={match.id} className="bg-black/10 rounded-2xl border border-white/5 overflow-hidden transition">
+                              <div 
+                                onClick={() => {
+                                  setSelectedUserDetail(prev => ({
+                                    ...prev,
+                                    _expandedPvpId: isExpanded ? null : match.id
+                                  }));
+                                }}
+                                className="flex items-center justify-between px-3 py-2.5 cursor-pointer hover:bg-white/5 transition"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <Swords className="w-4 h-4 text-yellow-400" />
+                                  <span className="text-white font-bold text-[11px]">vs {oppName} (Lớp {match.class_id})</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <span className={`font-black text-[10px] px-2 py-0.5 rounded uppercase tracking-wider ${isWinner ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                                    {isWinner ? 'Thắng' : 'Thua'}
+                                  </span>
+                                  {isExpanded ? <ChevronUp className="w-3.5 h-3.5 text-gray-400" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-400" />}
+                                </div>
+                              </div>
+                              
+                              {isExpanded && (
+                                <div className="px-3 pb-3 pt-1 border-t border-white/5 bg-black/20 text-[10px] space-y-2 text-gray-300">
+                                  <div className="flex justify-between">
+                                    <span>Thời gian:</span>
+                                    <span className="text-white font-bold">{new Date(match.created_at).toLocaleString('vi-VN')}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span>Điểm số trận đấu:</span>
+                                    <span className="text-white font-bold">{myScore} - {oppScore}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span>Số câu trả lời đúng:</span>
+                                    <span className="text-white font-bold">{myCorrectAnswers} - {oppCorrectAnswers} câu</span>
+                                  </div>
+                                  {hasSurrendered && (
+                                    <div className="flex justify-between text-rose-400 font-bold">
+                                      <span>Trạng thái bỏ cuộc:</span>
+                                      <span>{quitterName} 🏳️</span>
+                                    </div>
+                                  )}
+                                  <div className="flex justify-between text-[9px] text-gray-500 font-mono">
+                                    <span>Mã phòng PvP:</span>
+                                    <span className="truncate max-w-[150px]">{match.room_id}</span>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Lịch sử Quiz phía dưới Lịch sử PvP */}
+                <div className="p-4 rounded-3xl border border-white/5 bg-white/5 space-y-3">
+                  <h5 className="text-white font-black text-[10px] uppercase tracking-widest text-cyan-400">Lịch sử Lớp học Quiz</h5>
+                  {extraLoading ? (
+                    <p className="text-gray-400 text-xs">Đang tải...</p>
+                  ) : (
+                    <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+                      {userQuizRooms.length === 0 ? (
+                        <p className="text-gray-500 italic text-[11px]">Chưa có lịch sử Quiz</p>
+                      ) : (
+                        userQuizRooms.map((room) => {
+                          const studentRecordIndex = room.participants?.findIndex(p => p.studentId === selectedUserDetail.id);
+                          const studentRecord = studentRecordIndex !== -1 ? room.participants[studentRecordIndex] : null;
+                          const rank = studentRecordIndex !== -1 ? studentRecordIndex + 1 : '-';
+                          const score = studentRecord ? studentRecord.score : 0;
+                          
+                          const teacherName = room.teacher?.display_name || room.teacher?.email?.split('@')[0] || 'Giáo viên';
+                          const isExpanded = room.id === selectedUserDetail._expandedQuizId;
+
+                          return (
+                            <div key={room.id} className="bg-black/10 rounded-2xl border border-white/5 overflow-hidden transition">
+                              <div 
+                                onClick={() => {
+                                  setSelectedUserDetail(prev => ({
+                                    ...prev,
+                                    _expandedQuizId: isExpanded ? null : room.id
+                                  }));
+                                }}
+                                className="flex items-center justify-between px-3 py-2.5 cursor-pointer hover:bg-white/5 transition"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <Award className="w-4 h-4 text-cyan-400" />
+                                  <span className="text-white font-bold text-[11px]">Phòng: #{room.room_code || room.id?.substring(0,6).toUpperCase()}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <span className="font-black text-[9px] bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded uppercase tracking-wider">
+                                    Hạng {rank}
+                                  </span>
+                                  {isExpanded ? <ChevronUp className="w-3.5 h-3.5 text-gray-400" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-400" />}
+                                </div>
+                              </div>
+
+                              {isExpanded && (
+                                <div className="px-3 pb-3 pt-1 border-t border-white/5 bg-black/20 text-[10px] space-y-2 text-gray-300">
+                                  <div className="flex justify-between">
+                                    <span>Giáo viên phụ trách:</span>
+                                    <span className="text-white font-bold">{teacherName}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span>Thời gian tạo phòng:</span>
+                                    <span className="text-white font-bold">{new Date(room.created_at).toLocaleString('vi-VN')}</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span>Tổng điểm số đạt được:</span>
+                                    <span className="text-white font-bold">{score} điểm</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span>Thứ hạng chung cuộc:</span>
+                                    <span className="text-cyan-300 font-bold">Hạng {rank} / {room.participants?.length || 0} học sinh</span>
+                                  </div>
+                                  <div className="flex justify-between text-[9px] text-gray-500 font-mono">
+                                    <span>Mã phòng (Code):</span>
+                                    <span className="font-bold text-gray-400">{room.room_code || room.id}</span>
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           );
                         })

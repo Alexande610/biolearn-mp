@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, User, BookOpen,
   ChevronRight, ChevronDown, ChevronUp, ExternalLink, X,
-  Microscope, Gamepad2, Play, Trash2, Plus, Edit
+  Microscope, Gamepad2, Play, Trash2, Plus, Edit,
+  Sprout, TreePine, Activity, Dna, FlaskConical, GraduationCap
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
@@ -798,64 +799,74 @@ const MorePage = () => {
     <div className="space-y-4">
       <button
         onClick={() => navigate('/profile')}
-        className="game-card w-full flex items-center gap-4 hover:bg-white/20 transition-all"
+        className="card-clear-liquid-glass w-full flex items-center gap-4 p-5 transition-all duration-300 hover:translate-y-[-2px]"
       >
-        <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-          <User className="w-6 h-6 text-blue-400" />
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 more-icon-wrapper-profile">
+          <User className="w-6 h-6" />
         </div>
         <div className="flex-1 text-left">
-          <h3 className="text-white font-semibold">Hồ sơ</h3>
-          <p className="text-gray-400 text-sm">Xem thông tin tài khoản và avatar</p>
+          <h3 className="text-white font-black tracking-wide">Hồ sơ</h3>
+          <p className="text-gray-400 text-xs mt-1 font-medium">Xem thông tin tài khoản và avatar</p>
         </div>
-        <ChevronRight className="w-5 h-5 text-gray-400" />
+        <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
       </button>
 
       <button
         onClick={() => setActiveSection('lessons')}
-        className="game-card w-full flex items-center gap-4 hover:bg-white/20 transition-all"
+        className="card-clear-liquid-glass w-full flex items-center gap-4 p-5 transition-all duration-300 hover:translate-y-[-2px]"
       >
-        <div className="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
-          <BookOpen className="w-6 h-6 text-green-400" />
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 more-icon-wrapper-lessons">
+          <BookOpen className="w-6 h-6" />
         </div>
         <div className="flex-1 text-left">
-          <h3 className="text-white font-semibold">Bài học</h3>
-          <p className="text-gray-400 text-sm">Tổng hợp bài học lớp 6-12</p>
+          <h3 className="text-white font-black tracking-wide">Bài học</h3>
+          <p className="text-gray-400 text-xs mt-1 font-medium">Tổng hợp bài học lớp 6-12</p>
         </div>
-        <ChevronRight className="w-5 h-5 text-gray-400" />
+        <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
       </button>
 
       <button
         onClick={() => navigate('/biology3d')}
-        className="game-card w-full flex items-center gap-4 hover:bg-white/20 transition-all"
+        className="card-clear-liquid-glass w-full flex items-center gap-4 p-5 transition-all duration-300 hover:translate-y-[-2px]"
       >
-        <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center">
-          <Microscope className="w-6 h-6 text-purple-400" />
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 more-icon-wrapper-simulations3d">
+          <Microscope className="w-6 h-6" />
         </div>
         <div className="flex-1 text-left">
-          <h3 className="text-white font-semibold">Mô phỏng 3D</h3>
-          <p className="text-gray-400 text-sm">Tế bào, ADN, Giải phẫu cơ thể người</p>
+          <h3 className="text-white font-black tracking-wide">Mô phỏng 3D</h3>
+          <p className="text-gray-400 text-xs mt-1 font-medium">Tế bào, ADN, Giải phẫu cơ thể người</p>
         </div>
-        <ChevronRight className="w-5 h-5 text-gray-400" />
+        <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
       </button>
 
       <button
         onClick={() => navigate('/simulations')}
-        className="game-card w-full flex items-center gap-4 hover:bg-white/20 transition-all"
+        className="card-clear-liquid-glass w-full flex items-center gap-4 p-5 transition-all duration-300 hover:translate-y-[-2px]"
       >
-        <div className="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center">
-          <Gamepad2 className="w-6 h-6 text-cyan-400" />
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 more-icon-wrapper-games3d">
+          <Gamepad2 className="w-6 h-6" />
         </div>
         <div className="flex-1 text-left">
-          <h3 className="text-white font-semibold">Game 3D</h3>
-          <p className="text-gray-400 text-sm">8 mini game sinh học tương tác</p>
+          <h3 className="text-white font-black tracking-wide">Game 3D</h3>
+          <p className="text-gray-400 text-xs mt-1 font-medium">8 mini game sinh học tương tác</p>
         </div>
-        <ChevronRight className="w-5 h-5 text-gray-400" />
+        <ChevronRight className="w-5 h-5 text-gray-400 flex-shrink-0" />
       </button>
     </div>
   );
 
   const renderLessons = () => {
     const selectedClassData = selectedClass ? lessonsData[selectedClass] : null;
+
+    const GRADE_METADATA = {
+      6: { icon: Sprout, label: 'Sinh học tế bào', desc: 'Thế giới tế bào & vi sinh' },
+      7: { icon: TreePine, label: 'Cơ thể sinh vật', desc: 'Thực vật & động vật' },
+      8: { icon: Activity, label: 'Hệ cơ quan', desc: 'Sinh học cơ thể người' },
+      9: { icon: Dna, label: 'Di truyền & Biến dị', desc: 'Gen, ADN & Tiến hóa' },
+      10: { icon: Microscope, label: 'Sinh học tế bào', desc: 'Cấu trúc tế bào & năng lượng' },
+      11: { icon: FlaskConical, label: 'Sinh học cơ thể', desc: 'Trao đổi chất & sinh lý' },
+      12: { icon: GraduationCap, label: 'Tiến hóa & Sinh thái', desc: 'Học thuyết di truyền & môi trường' },
+    };
 
     return (
       <div className="space-y-4">
@@ -903,37 +914,67 @@ const MorePage = () => {
 
             <div className="mb-6">
               <h3 className="text-gray-400 text-sm mb-3 uppercase tracking-wider">Trung học cơ sở</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {[6, 7, 8, 9].map((classNum) => (
-                  <button
-                    key={classNum}
-                    onClick={() => setSelectedClass(classNum)}
-                    className="game-card hover:bg-white/20 transition-all p-4"
-                  >
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${lessonsData[classNum].color} flex items-center justify-center mx-auto mb-2`}>
-                      <span className="text-white font-bold text-xl">{classNum}</span>
-                    </div>
-                    <p className="text-white font-semibold text-center">Lớp {classNum}</p>
-                  </button>
-                ))}
+              <div className="grid grid-cols-2 gap-4">
+                {[6, 7, 8, 9].map((classNum) => {
+                  const meta = GRADE_METADATA[classNum];
+                  const GradeIcon = meta.icon;
+                  return (
+                    <button
+                      key={classNum}
+                      onClick={() => setSelectedClass(classNum)}
+                      className="group relative overflow-hidden p-5 rounded-[2rem] border border-white/10 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 hover:scale-[1.03] hover:bg-slate-900/60 hover:border-emerald-500/30 text-left flex flex-col justify-between min-h-[150px] shadow-lg hover:shadow-xl hover:shadow-emerald-500/5 cursor-pointer"
+                    >
+                      {/* Floating glass number tag */}
+                      <div className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full border border-white/25 bg-white/5 backdrop-blur-md group-hover:border-emerald-400 group-hover:bg-emerald-500/20 transition-all duration-300">
+                        <span className="text-white group-hover:text-emerald-300 text-xs font-black tracking-tight">{classNum}</span>
+                      </div>
+
+                      {/* Icon container */}
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 transition-all duration-300 text-gray-300 group-hover:text-emerald-400">
+                        <GradeIcon className="w-6 h-6 stroke-[1.8]" />
+                      </div>
+
+                      <div className="mt-4">
+                        <p className="text-white font-extrabold text-lg tracking-tight group-hover:text-emerald-400 transition-colors">Lớp {classNum}</p>
+                        <p className="text-gray-300 text-xs mt-0.5 line-clamp-1 group-hover:text-white transition-colors">{meta.label}</p>
+                        <p className="text-gray-500 text-[10px] mt-1 leading-snug line-clamp-1 group-hover:text-gray-400 transition-colors">{meta.desc}</p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             <div>
               <h3 className="text-gray-400 text-sm mb-3 uppercase tracking-wider">Trung học phổ thông</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {[10, 11, 12].map((classNum) => (
-                  <button
-                    key={classNum}
-                    onClick={() => setSelectedClass(classNum)}
-                    className="game-card hover:bg-white/20 transition-all p-4"
-                  >
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${lessonsData[classNum].color} flex items-center justify-center mx-auto mb-2`}>
-                      <span className="text-white font-bold text-xl">{classNum}</span>
-                    </div>
-                    <p className="text-white font-semibold text-center">Lớp {classNum}</p>
-                  </button>
-                ))}
+              <div className="grid grid-cols-2 gap-4">
+                {[10, 11, 12].map((classNum) => {
+                  const meta = GRADE_METADATA[classNum];
+                  const GradeIcon = meta.icon;
+                  return (
+                    <button
+                      key={classNum}
+                      onClick={() => setSelectedClass(classNum)}
+                      className="group relative overflow-hidden p-5 rounded-[2rem] border border-white/10 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 hover:scale-[1.03] hover:bg-slate-900/60 hover:border-emerald-500/30 text-left flex flex-col justify-between min-h-[150px] shadow-lg hover:shadow-xl hover:shadow-emerald-500/5 cursor-pointer"
+                    >
+                      {/* Floating glass number tag */}
+                      <div className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full border border-white/25 bg-white/5 backdrop-blur-md group-hover:border-emerald-400 group-hover:bg-emerald-500/20 transition-all duration-300">
+                        <span className="text-white group-hover:text-emerald-300 text-xs font-black tracking-tight">{classNum}</span>
+                      </div>
+
+                      {/* Icon container */}
+                      <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 transition-all duration-300 text-gray-300 group-hover:text-emerald-400">
+                        <GradeIcon className="w-6 h-6 stroke-[1.8]" />
+                      </div>
+
+                      <div className="mt-4">
+                        <p className="text-white font-extrabold text-lg tracking-tight group-hover:text-emerald-400 transition-colors">Lớp {classNum}</p>
+                        <p className="text-gray-300 text-xs mt-0.5 line-clamp-1 group-hover:text-white transition-colors">{meta.label}</p>
+                        <p className="text-gray-500 text-[10px] mt-1 leading-snug line-clamp-1 group-hover:text-gray-400 transition-colors">{meta.desc}</p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </>
@@ -1454,9 +1495,9 @@ const MorePage = () => {
             }
             navigate('/home');
           }}
-          className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+          className="w-10 h-10 flex items-center justify-center btn-back-liquid-glass"
         >
-          <ArrowLeft className="w-5 h-5 text-white" />
+          <ArrowLeft className="w-5 h-5" />
         </button>
         <h1 className="text-2xl font-bold text-white">
           {activeSection === 'menu' && 'Thêm'}

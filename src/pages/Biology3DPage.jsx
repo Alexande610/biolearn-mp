@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, Dna, Circle, Leaf, Microscope, Sun, Heart,
   ChevronRight, X, Maximize2, Minimize2, Info, BookOpen, Star,
-  Bug, Atom, FlaskConical, AlertTriangle, RotateCcw
+  Bug, Atom, FlaskConical, AlertTriangle, RotateCcw, Gamepad2
 } from 'lucide-react';
 
 // Lazy load các components 3D
@@ -196,7 +196,7 @@ function ModelCard({ model, onSelect, index }) {
   return (
     <button
       onClick={() => onSelect(model)}
-      className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-4 text-left transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] hover:shadow-xl border border-white/10 hover:border-white/20"
+      className="group relative card-clear-liquid-glass rounded-2xl p-4 text-left w-full overflow-hidden"
       style={{ animationDelay: `${index * 80}ms` }}
     >
       {/* Badge */}
@@ -207,8 +207,8 @@ function ModelCard({ model, onSelect, index }) {
       )}
 
       {/* Icon */}
-      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${model.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
-        <Icon className="w-7 h-7 text-white" />
+      <div className={`glass-gem-icon glass-gem-${model.color.split('-')[1]} mb-3 group-hover:scale-110 transition-transform`}>
+        <Icon className="w-7 h-7" />
       </div>
       
       {/* Content */}
@@ -427,21 +427,21 @@ export default function Biology3DPage() {
   const grades = [6, 7, 8, 9, 10, 11, 12];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-900/30 to-slate-900">
+    <div className="min-h-screen bg-transparent">
       {/* Header */}
-      <div className="sticky top-0 z-40 bg-slate-900/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-40 glass-header backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => navigate(-1)}
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
+                className="w-10 h-10 btn-back-liquid-glass flex items-center justify-center"
               >
-                <ArrowLeft className="w-5 h-5 text-white" />
+                <ArrowLeft className="w-5 h-5" />
               </button>
               <div>
-                <h1 className="text-white font-bold text-xl flex items-center gap-2">
-                  <span className="text-2xl">🔬</span>
+                <h1 className="text-white font-bold text-xl flex items-center gap-3">
+                  <Microscope className="w-7 h-7 text-purple-400" />
                   Mô phỏng Sinh học 3D
                 </h1>
               </div>
@@ -456,23 +456,29 @@ export default function Biology3DPage() {
       </div>
 
       {/* Filter Section */}
-      <div className="max-w-6xl mx-auto px-4 py-4 space-y-3">
+      <div className="max-w-6xl mx-auto px-4 py-4 space-y-3 relative z-10">
         {/* Type filter */}
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
           <span className="text-gray-300 text-sm whitespace-nowrap font-semibold">Loại:</span>
           {[
-            { key: null, label: 'Tất cả', icon: '🔬' },
-            { key: 'scientific', label: 'Khoa học thật (GLB + Mol*)', icon: '⚛️' },
-            { key: 'interactive', label: 'Mô phỏng tương tác', icon: '🎮' },
-          ].map(type => (
-            <button
-              key={type.key || 'all'}
-              onClick={() => setFilterType(type.key)}
-              className={`filter-btn ${filterType === type.key ? 'active-purple' : ''}`}
-            >
-              {type.icon} {type.label}
-            </button>
-          ))}
+            { key: null, label: 'Tất cả', icon: Microscope },
+            { key: 'scientific', label: 'Khoa học thật (GLB + Mol*)', icon: Atom },
+            { key: 'interactive', label: 'Mô phỏng tương tác', icon: Gamepad2 },
+          ].map(type => {
+            const FilterIcon = type.icon;
+            return (
+              <button
+                key={type.key || 'all'}
+                onClick={() => setFilterType(type.key)}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap btn-filter-glass flex items-center gap-2 ${
+                  filterType === type.key ? 'active-purple' : ''
+                }`}
+              >
+                <FilterIcon className="w-4 h-4" />
+                {type.label}
+              </button>
+            );
+          })}
         </div>
 
         {/* Grade filter */}
@@ -480,7 +486,9 @@ export default function Biology3DPage() {
           <span className="text-gray-300 text-sm whitespace-nowrap font-semibold">Lớp:</span>
           <button
             onClick={() => setFilterGrade(null)}
-            className={`filter-btn ${filterGrade === null ? 'active-blue' : ''}`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap btn-filter-glass ${
+              filterGrade === null ? 'active-blue' : ''
+            }`}
           >
             Tất cả
           </button>
@@ -488,7 +496,9 @@ export default function Biology3DPage() {
             <button
               key={grade}
               onClick={() => setFilterGrade(grade)}
-              className={`filter-btn ${filterGrade === grade ? 'active-blue' : ''}`}
+              className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap btn-filter-glass ${
+                filterGrade === grade ? 'active-blue' : ''
+              }`}
             >
               Lớp {grade}
             </button>
@@ -496,8 +506,8 @@ export default function Biology3DPage() {
         </div>
       </div>
 
-            {/* Models Grid */}
-      <div className="max-w-6xl mx-auto px-4 pb-8">
+      {/* Models Grid */}
+      <div className="max-w-6xl mx-auto px-4 mt-10 pb-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredModels.map((model, index) => (
             <ModelCard

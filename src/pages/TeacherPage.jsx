@@ -276,9 +276,19 @@ export default function TeacherPage({ user }) {
   };
   
   const handleEndQuiz = async () => {
-    await supabase.from('quiz_rooms').update({ status: 'finished' }).eq('id', activeRoom.id);
-    setQuizState('ended');
     const finalLb = channelRef.current.currentStudents.sort((a,b) => b.score - a.score);
+    try {
+      await supabase
+        .from('quiz_rooms')
+        .update({ 
+          status: 'finished',
+          participants: finalLb
+        })
+        .eq('id', activeRoom.id);
+    } catch (err) {
+      console.error('Error updating quiz participants in DB:', err);
+    }
+    setQuizState('ended');
     channelRef.current.send({
       type: 'broadcast',
       event: 'quiz_ended',

@@ -32,6 +32,7 @@ create table if not exists public.profiles (
   class_progress jsonb default '{}'::jsonb,
   levels_completed integer default 0,
   login_streak integer default 0,
+  highest_streak integer default 0,
   last_streak_date date,
   last_active_at timestamptz,
   last_class_id text,
@@ -60,6 +61,7 @@ alter table public.profiles add column if not exists locked_at timestamptz;
 alter table public.profiles add column if not exists last_active_at timestamptz;
 alter table public.profiles alter column last_active_at type timestamptz using last_active_at::timestamptz;
 alter table public.profiles add column if not exists last_class_id text;
+alter table public.profiles add column if not exists highest_streak integer default 0;
 
 create table if not exists public.lesson_questions (
   id uuid default gen_random_uuid() primary key,
@@ -356,6 +358,7 @@ begin
   set 
     daily_missions = _res_new_missions,
     login_streak = _res_streak,
+    highest_streak = greatest(coalesce(highest_streak, 0), _res_streak),
     last_streak_date = _res_last_streak,
     last_active_at = now(),
     updated_at = now()
@@ -428,6 +431,7 @@ begin
 
     update public.profiles
     set login_streak = v_streak,
+        highest_streak = greatest(coalesce(highest_streak, 0), v_streak),
         last_streak_date = v_last_streak,
         daily_missions = v_missions,
         last_active_at = now(),
