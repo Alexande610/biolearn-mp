@@ -76,12 +76,16 @@ const LandingHeader = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
-          <button
-            onClick={() => user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' })}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="text-white/90 hover-text-gradient font-medium transition-all flex items-center gap-2 cursor-pointer group"
           >
             <Home className="w-5 h-5 group-hover:text-purple-400 transition-colors" /> Trang chủ
-          </button>
+          </a>
           <a href="#intro" className="text-white/90 hover-text-gradient font-medium transition-all flex items-center gap-2 group">
             <Info className="w-5 h-5 group-hover:text-purple-400 transition-colors" /> Giới thiệu
           </a>
@@ -466,12 +470,16 @@ const LandingFooter = () => {
               <h4 className="text-white font-black text-2xl mb-10 uppercase tracking-widest text-gradient-moving">Liên kết</h4>
               <ul className="space-y-6">
                 <li>
-                  <button
-                    onClick={() => user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl cursor-pointer"
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl cursor-pointer block"
                   >
                     Trang chủ
-                  </button>
+                  </a>
                 </li>
                 <li><a href="#intro" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Giới thiệu</a></li>
                 <li><Link to="/leaderboard" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Xếp hạng</Link></li>

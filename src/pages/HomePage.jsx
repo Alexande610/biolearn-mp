@@ -499,7 +499,7 @@ export default function HomePage() {
             </Link>
             <button
               onClick={() => setShowBattleMenuModal(true)}
-              className="flex flex-col items-center text-white/60 hover:text-green-300"
+              className="bg-transparent border-none flex flex-col items-center text-white/60 hover:text-green-300"
             >
               <div className="relative">
                 <Trophy className="w-6 h-6" />
@@ -511,7 +511,7 @@ export default function HomePage() {
               <MoreHorizontal className="w-6 h-6" />
               <span className="text-xs mt-1">Thêm</span>
             </Link>
-            <button onClick={handleLogout} className="flex flex-col items-center text-white/60 hover:text-red-400">
+            <button onClick={handleLogout} className="bg-transparent border-none flex flex-col items-center text-white/60 hover:text-red-400">
               <LogOut className="w-6 h-6" />
               <span className="text-xs mt-1">Đăng xuất</span>
             </button>
