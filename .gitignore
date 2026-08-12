@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.env
+.env.*
+
+# Temp brain folder
+temp_brain/
+
+# Curriculum source files are local-only. The verified inventory and hashes are
+# committed under docs; raw PDF/TXT files are not distributed with the product.
+documents/source/
+
+# Local remnants of the legacy worktree may remain after switching to the clean
+# V2 root. Canonical local sources live under documents/source/.
+public/document/
