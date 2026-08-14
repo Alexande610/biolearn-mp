@@ -36,7 +36,10 @@ Cold start
 
 ### Splash
 
-- Splash full-screen có illustration Sinh học nguyên bản và progress bar.
+- Splash full-screen dùng logo BioLearn legacy đã kiểm kê và thanh tiến độ ADN
+  nằm ngang: hai dải xoắn chuyển động, mầm cây chạy trên dải phía trên, phần trăm
+  thật nằm giữa. Chi tiết bắt buộc nằm trong
+  `STARTUP_AUTH_DAILY_STATION_VISUAL_SPEC.md`.
 - Tiến độ phản ánh các mốc thật như khởi tạo storage, khôi phục session và tải
   manifest; không chạy giả đến 99% rồi chờ vô hạn.
 - Nếu startup quá thời gian, hiển thị trạng thái offline/retry thay vì giữ người
@@ -47,6 +50,11 @@ Cold start
 
 - Hai lựa chọn `Học viên` và `Giáo viên` là điểm vào rõ ràng, nhưng backend luôn
   xác minh role; không tin lựa chọn trên client.
+- Học viên có Google, email/mật khẩu, đăng ký và quên mật khẩu. Giáo viên có
+  form riêng và luồng đăng ký/yêu cầu xác minh; không dùng mã xác minh demo hoặc
+  secret hard-code trong client.
+- Giao diện kế thừa độ đầu tư cosmic/liquid-glass của login legacy làm tham chiếu
+  thị giác, không port code Supabase/role cũ.
 - Giáo viên về sau đi đến teacher web; student app không chứa dashboard admin.
 - Có password recovery, loading, lỗi mạng, tài khoản khóa và accessibility.
 
@@ -86,6 +94,9 @@ component tự chọn blur/opacity tùy ý.
   palette AI sặc sỡ.
 - Dark: “galaxy sinh học ban đêm”, xanh đen sâu và phát quang có kiểm soát,
   không neon trên mọi thành phần.
+- Nền là scene layer độc lập với feature. Có thể thay ảnh tĩnh/nền động bằng
+  manifest mà không đổi layout, auth, progress, ranking, PvP hoặc teacher flow;
+  lỗi background phải rơi về fallback chứ không kéo sập màn hình.
 - Khi `Reduce Transparency`, hiệu năng thấp hoặc browser không hỗ trợ: thay blur
   bằng surface gần-đặc, giữ viền/độ tương phản.
 - Geometry, vùng chạm và ý nghĩa trạng thái không đổi giữa light/dark.
@@ -99,17 +110,26 @@ Nguồn nghiên cứu:
 ## 4. Trạm Sinh học hằng ngày
 
 Trạm Sinh học khác Map học. Đây là hành trình ngắn theo ngày để tạo thói quen,
-không dùng tàu hỏa hoặc bối cảnh không liên quan.
+với bố cục na ná ảnh tham chiếu: tuyến liên tục, các mốc ngày, dấu vị trí, khóa
+và tối đa ba sao. **Không chốt việc sao chép tàu hỏa/đường ray**; hình tượng phải
+được sáng tạo lại theo Sinh học như quy định trong
+`STARTUP_AUTH_DAILY_STATION_VISUAL_SPEC.md`.
 
-### Đề xuất hình tượng
+### Cấu trúc bắt buộc, hình tượng được sáng tạo lại
 
-Một “Trạm nghiên cứu sự sống” thay đổi biome theo lớp/chương: kính hiển vi, tế
-bào, hệ cơ quan, vườn thực vật, di truyền, tiến hóa và sinh thái. Học sinh di
-chuyển giữa các module phòng lab hoặc cổng khám phá, không chạy theo đường ray.
+- Có tuyến uốn liên tục, biểu tượng hành trình BioLearn ở vị trí hiện tại và các
+  biển `Ngày 1`, `Ngày 2`, ... theo thứ tự.
+- Mỗi trạm có ba vị trí sao; hoàn thành hoàn hảo là **3 sao**. Trạng thái
+  locked/current/completed không chỉ dựa vào màu.
+- Tuyến/phương tiện có thể dùng ADN, microtubule, mạch dẫn, sợi nấm, dây leo,
+  linh vật hoặc một ý tưởng khám phá Sinh học nguyên bản; không sao chép tàu,
+  ray, cây, màu và tỷ lệ từ ảnh.
+- `docs/assets/map-journey-visual-reference.png` là ảnh tham chiếu chính cho Trạm
+  ngày về bố cục/nhịp, không phải asset hoặc thiết kế cuối.
 
 ### Luật đề xuất
 
-- Mỗi ngày server mở một expedition; ngày chưa mở có lý do khóa rõ.
+- Mỗi ngày server mở một trạm; ngày chưa mở có lý do khóa rõ.
 - Một expedition gồm 3-5 hoạt động ngắn, phối hợp kiến thức, quan sát, ghép/sắp
   xếp và mini simulation từ content đã duyệt đúng lớp.
 - Hoàn thành hoạt động cuối mở rương; reward policy để cấu hình server và có
@@ -124,6 +144,7 @@ chuyển giữa các module phòng lab hoặc cổng khám phá, không chạy t
 “Mỗi ngày chỉ đi được một trạm” nên hiểu là **một expedition mới mỗi ngày**, không
 ngăn học sinh ôn trạm cũ. Bắt buộc chỉ chơi đúng một lần dễ gây hụt học và tạo
 FOMO, đặc biệt với học sinh có lịch học/khả năng tiếp cận thiết bị khác nhau.
+Ôn lại không được tự cấp reward lần hai; reward và số sao do server quyết định.
 
 ## 5. Map học và cơ chế sửa sai
 
@@ -270,7 +291,8 @@ flowchart LR
 
 ## 12. Quyết định còn cần người dùng duyệt
 
-- Tên chính thức và hình tượng của “Trạm Sinh học”.
+- Tên hiển thị cuối cùng của “Trạm hằng ngày” và concept Sinh học cuối cùng cho
+  tuyến/biểu tượng hành trình; cấu trúc ngày/khóa/ba sao đã được chốt.
 - Timezone nghiệp vụ khi học sinh ở nhiều vùng; mặc định có thể dùng
   `Asia/Ho_Chi_Minh` cho pilot tại Việt Nam.
 - Energy hồi theo thời gian, nhiệm vụ hay cả hai; giới hạn để không cản việc học.

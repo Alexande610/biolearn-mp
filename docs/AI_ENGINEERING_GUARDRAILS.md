@@ -16,8 +16,10 @@ Trước khi sửa bất kỳ file nào, AI phải đọc theo thứ tự:
 2. `docs/IMPLEMENTATION_STATUS.md` để biết giai đoạn và việc đang làm.
 3. `docs/BIOLEARN_V2_SYSTEM_BLUEPRINT.md` cho quyết định kiến trúc.
 4. `docs/BIOLEARN_V2_REPOSITORY_STRUCTURE.md` cho vị trí code/deploy.
-5. `docs/PROJECT_REBUILD_ROADMAP.md` cho hạng mục và tiêu chí nghiệm thu.
-6. Tài liệu chuyên biệt theo nhiệm vụ:
+5. `docs/SECURITY_BASELINE.md` cho mọi nhiệm vụ.
+6. `docs/PROJECT_REBUILD_ROADMAP.md` cho hạng mục và tiêu chí nghiệm thu.
+7. Tài liệu chuyên biệt theo nhiệm vụ:
+   - Security/runtime: `docs/workflows/SECURITY_THREAT_MODEL.md` và ADR liên quan.
    - Nội dung: `CURRICULUM_CONTENT_STANDARD.md` và
      `CURRICULUM_SOURCE_INVENTORY.md`.
    - Map/asset: mở ảnh `docs/assets/map-journey-visual-reference.png` và đọc
@@ -125,6 +127,11 @@ validation, idempotency key khi cần, transaction boundary, stable error code v
 audit/telemetry phù hợp. Migration phải có forward check, test và kế hoạch quay
 lại hoặc giải thích vì sao chỉ có forward-fix.
 
+Mọi endpoint/trust boundary còn phải tuân thủ `SECURITY_BASELINE.md`: rate limit
+được thực thi server-side bằng store dùng chung, payload/query/concurrency/timeout
+limit, schema strict và secret scan. Auth mật khẩu phải có test chứng minh tối đa
+5 lần thất bại trong 15 phút và không có đường gọi upstream để né policy.
+
 ## 7. Luật nội dung Sinh học
 
 - TXT/OCR trong `documents/source` chỉ là chỉ mục tìm kiếm, không phải nguồn chuẩn.
@@ -169,6 +176,10 @@ chiếu. Không được điền câu trả lời nghe hợp lý để lấp ch�
   app nếu `packages/tooling` phải sở hữu phần dùng chung.
 - Không sửa `vercel.json`, `eas.json`, app identifiers, signing hoặc production
   environment chỉ để chạy local.
+- Không hard-code key/token/password hoặc xem biến môi trường là đủ an toàn.
+  `VITE_*`/`EXPO_PUBLIC_*` là public; secret chỉ ở server secret store.
+- CI phải quét secret ở current diff và history, audit production dependency và
+  chặn advisory Critical/High theo policy; không chạy `audit fix --force`.
 
 ## 10. Git và bảo vệ thay đổi của người dùng
 
@@ -193,6 +204,7 @@ AI phải chọn kiểm tra theo blast radius, nhưng tối thiểu gồm:
 | Domain/contract | unit test + typecheck + contract compatibility |
 | Migration/RLS | local migration từ sạch + RLS/pgTAP + rollback/forward-fix review |
 | Command/reward | authz + validation + idempotency + concurrency test |
+| API/Auth/Security | rate-limit + oversized/malformed/unknown-field + abuse tests; secret/SAST/dependency scan |
 | Mobile UI | typecheck/test + iPhone target + light/dark + offline/error |
 | Web UI | build/test + light/dark + viewport quy định |
 | Map | ảnh/screenshot light/dark + node states + touch/scroll + visual regression |

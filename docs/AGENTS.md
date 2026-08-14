@@ -8,21 +8,33 @@ repository. Trước khi thay đổi mã nguồn, phải đọc:
 3. `docs/BIOLEARN_V2_SYSTEM_BLUEPRINT.md` nếu công việc liên quan hệ thống V2.
 4. `docs/BIOLEARN_V2_REPOSITORY_STRUCTURE.md` và
    `docs/AI_ENGINEERING_GUARDRAILS.md` nếu sửa hoặc tạo code/cấu hình V2.
-5. `docs/CURRICULUM_CONTENT_STANDARD.md` và
+5. `docs/SECURITY_BASELINE.md` cho mọi thay đổi. Đọc thêm
+   `docs/workflows/SECURITY_THREAT_MODEL.md` và ADR topology nếu liên quan auth,
+   API, dữ liệu, upload, Realtime, PvP, quiz, AI, deploy hoặc hạ tầng.
+6. `docs/CURRICULUM_CONTENT_STANDARD.md` và
    `docs/CURRICULUM_SOURCE_INVENTORY.md` nếu liên quan nội dung học tập.
-6. `docs/MAP_VISUAL_REFERENCE.md` nếu công việc liên quan Map hoặc asset.
-7. `docs/workflows/STUDENT_EXPERIENCE_V2.md` nếu công việc liên quan học viên.
-8. Các tệp đang được sửa và luồng gọi liên quan.
+7. `docs/MAP_VISUAL_REFERENCE.md` nếu công việc liên quan Trạm ngày, Map hoặc asset.
+8. `docs/workflows/STUDENT_EXPERIENCE_V2.md` nếu công việc liên quan học viên;
+   đọc thêm `docs/workflows/STARTUP_AUTH_DAILY_STATION_VISUAL_SPEC.md` nếu liên
+   quan splash, auth, Trạm ngày hoặc background.
+9. Các tệp đang được sửa và luồng gọi liên quan.
+
+Trước mọi scaffold V2 phải hoàn tất `V2-R0` theo ADR-0006 và runbook tạo
+repository riêng. Repository hiện tại chỉ là nguồn export; không tạo code,
+migration hoặc deploy V2 mới tại đây.
 
 Sau mỗi hạng mục, cập nhật `docs/IMPLEMENTATION_STATUS.md` để phiên làm việc sau
 có thể tiếp tục mà không phụ thuộc lịch sử trò chuyện.
 
 ## 1. Phạm vi dự án
 
-- Mục tiêu hiện hành là xây BioLearn V2 song song theo blueprint: backend-first
-  về nghiệp vụ, mobile-first về sản phẩm, giữ legacy làm nguồn đối soát.
+- Mục tiêu hiện hành là chuyển foundation sang repository private mới rồi xây
+  BioLearn V2 theo blueprint: backend-first về nghiệp vụ, mobile-first về sản
+  phẩm, giữ legacy làm nguồn đối soát.
 - `docs/assets/map-journey-visual-reference.png` là ảnh căn cứ chính thức cho
-  bố cục Map V2. Phải mở ảnh trước khi thiết kế; không chỉ dựa vào mô tả chữ.
+  bố cục Trạm hằng ngày theo tuyến/ngày/ba sao. Phải mở ảnh trước khi thiết kế;
+  không chỉ dựa vào mô tả chữ, không đồng nhất nó với Map chương trình và không
+  sao chép tàu hỏa/đường ray/asset mẫu.
 - Legacy chỉ maintenance; không thêm feature lớn trùng V2. 3D, Mission, Quiz,
   PvP, Teacher và Admin cũ là nguồn tham khảo nghiệp vụ, không phải code mẫu để port.
 - Không viết lại toàn bộ ứng dụng hoặc thay thế Supabase nếu chưa có quyết định
@@ -122,6 +134,23 @@ lint sạch nếu chỉ bỏ qua lỗi; phải phân biệt lỗi cũ và lỗi 
   phân tích và kết luận. Không đổi bài thực hành thành một bộ trắc nghiệm.
 - Nội dung hoặc đáp án chưa được reviewer chuyên môn xác nhận không được seed
   vào production.
+
+## 4.2. Quy tắc bảo mật và chống quá tải
+
+- Bốn bất biến rate limit, secret, input và audit trong
+  `docs/SECURITY_BASELINE.md` là release gate, không phải việc tối ưu sau.
+- Mọi endpoint phải có quota, payload/query/concurrency limit và timeout được khai
+  báo. Route đăng nhập mật khẩu tối đa 5 lần thất bại trong 15 phút theo nhiều
+  khóa chống abuse; không được triển khai theo cách cho phép khóa tài khoản nạn nhân.
+- Mọi trust boundary phải runtime-validate strict và mặc định từ chối field lạ,
+  payload quá lớn hoặc sai `Content-Type`; “frontend đã validate” không phải bằng chứng.
+- Không hard-code credential. `VITE_*` và `EXPO_PUBLIC_*` luôn là public. Khi phát
+  hiện credential từng vào Git phải revoke/rotate trước khi cân nhắc sửa history.
+- Không chia database/ledger theo server, role hoặc màn hình. Các workload có thể
+  scale riêng nhưng ranking, reward, classroom và PvP dùng chung canonical source
+  theo `docs/adr/ADR-0001-RUNTIME-TOPOLOGY-AND-SCALING.md`.
+- Critical/High chưa xử lý chặn production trừ khi có risk acceptance bằng văn
+  bản, owner, hạn hết hiệu lực và biện pháp bù.
 
 ## 5. Quy tắc giao diện sáng/tối
 

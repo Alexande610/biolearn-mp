@@ -9,6 +9,11 @@
 `docs/workflows/STUDENT_EXPERIENCE_V2.md`; tài liệu này chi tiết hóa scope sản
 phẩm nhưng không được vượt gate V2-A0/A1 của blueprint.
 
+> **Quyết định mới ngày 2026-08-12:** trước khi code `V2-A1`, thực hiện `V2-R0`
+> để chuyển foundation sang repository private mới, lịch sử Git mới và các
+> project dữ liệu/deploy mới theo ADR-0006. Không scaffold runtime trong
+> repository legacy.
+
 ## 1. Mục tiêu sản phẩm
 
 Nâng cấp trải nghiệm học Sinh học theo một tuyến bản đồ giống hành trình qua các
@@ -20,17 +25,20 @@ Mobile được phát triển bằng **React Native + Expo ngay từ foundation*
 với backend contracts. Logic tiến trình, content và reward vẫn phải nằm trong
 domain/backend trước khi screen mobile được phép ghi dữ liệu thật.
 
-## 1.1. Căn cứ hình ảnh
+## 1.1. Căn cứ hình ảnh Trạm hằng ngày
 
 Ảnh mẫu đã được lưu lâu dài tại:
 `docs/assets/map-journey-visual-reference.png`.
 
-![Ảnh mẫu Map hành trình](assets/map-journey-visual-reference.png)
+![Ảnh mẫu Trạm hằng ngày](assets/map-journey-visual-reference.png)
 
-Mọi công việc từ `P1.1` đến `P3.5` phải đọc
-`docs/MAP_VISUAL_REFERENCE.md`. Ảnh được dùng để căn cứ tuyến đường cong, bệ
-trạm, trạng thái khóa, vị trí hiện tại, thanh tiến độ và nhịp cảnh quan. Không
-sao chép thương hiệu hoặc asset cụ thể của ảnh mẫu.
+Tên file lịch sử có chữ “map”, nhưng phản hồi sản phẩm ngày 2026-08-12 chốt đây
+chỉ là căn cứ bố cục cho **Trạm hằng ngày**: tuyến uốn qua từng ngày, vị trí hiện
+tại, trạng thái khóa và 1-3 sao. Tàu/đường ray trong ảnh không phải thiết kế đích;
+phải tạo concept riêng theo Sinh học. Map chương trình chính là hệ riêng. Mọi
+công việc liên quan phải đọc `docs/MAP_VISUAL_REFERENCE.md` và
+`docs/workflows/STARTUP_AUTH_DAILY_STATION_VISUAL_SPEC.md`; không sao chép
+thương hiệu hoặc asset cụ thể của ảnh mẫu.
 
 ## 2. Phạm vi
 
@@ -183,16 +191,24 @@ Trạng thái dùng trong bảng: `TODO`, `DOING`, `BLOCKED`, `DONE`.
 
 | ID | Giai đoạn | Công việc chính | Sản phẩm bàn giao | Điều kiện hoàn tất |
 |---|---|---|---|---|
+| V2-R0.1 | Repository | Tạo Git private mới và export allowlist foundation | Lịch sử `main` mới | Không mang `.git`, secret, code/SQL/config legacy |
+| V2-R0.2 | Data/Deploy | Khóa project/environment V2 mới | Ma trận environment | Không dùng chung DB/auth/storage/deploy với legacy |
+| V2-R0.3 | Visual spec | Duyệt Splash/Auth/Trạm ngày light/dark | Wireframe + motion contract | ADN+mầm cây, login phân vai, tuyến ngày/3 sao và concept Sinh học nguyên bản |
 | P0.1 | Baseline | Chụp lại cấu trúc route, schema đang dùng và luồng reward/progress | Tài liệu hiện trạng | Có danh sách route, bảng, RPC và rủi ro |
 | P0.2 | Baseline | Ghi nhận build/lint hiện tại, lỗi tồn đọng và viewport chuẩn | Báo cáo baseline | Phân biệt được lỗi cũ và lỗi mới |
 | P0.3 | An toàn | Thiết lập feature flag `mapV2` và đường quay lại Map cũ | Cơ chế bật/tắt | Có thể quay lại Map cũ không mất dữ liệu |
+| S0.1 | Security | Khóa threat model và baseline rate limit/secret/input/audit | Security docs + risk register | Bốn bất biến thành release gate; auth 5 thất bại/15 phút |
+| S0.2 | Security | Quét secret current/history và cấu hình push protection | Báo cáo + CI gate | Không còn credential chưa rotate/revoke; public/server env được phân loại |
+| S0.3 | Security | Registry mọi endpoint và giới hạn tài nguyên | Typed API registry | Mỗi route có rate/payload/query/concurrency/timeout/cost policy |
+| S0.4 | Security | RLS/authz/idempotency/abuse test nền | Security integration suite | Cross-user/class, replay, payload sai/lớn và parallel request bị chặn |
+| S0.5 | Capacity | Load test splash/auth/query/quiz/PvP và chốt SLO | Capacity report | Có p95/p99, 429, DB/Realtime/queue budgets và ngưỡng scale |
 | C0.1 | Học thuật | Xác minh cấu trúc PDF lớp 6-12 và chọn nguồn chuẩn | Source inventory | Mỗi lớp có một PDF `CANONICAL` |
 | C0.2 | Học thuật | Xác minh Chương trình GDPT và sửa đổi hiện hành | Legal baseline | Có ngày kiểm tra và phạm vi ảnh hưởng |
 | C0.3 | Học thuật | Lập ma trận lớp-chương-bài-yêu cầu cần đạt | Curriculum matrix | Mỗi bài có nguồn chương trình và trang SGK |
 | C0.4 | Học thuật | Hiệu đính OCR, thuật ngữ, ký hiệu và glossary | Canonical text | Không lấy nguyên TXT làm content |
 | C0.5 | Học thuật | Lập ma trận toàn bộ bài thực hành | Practice matrix | Có mục tiêu, dụng cụ, an toàn, bước và báo cáo |
 | C0.6 | Học thuật | Duyệt chuyên môn và version nội dung | Approved content | Chỉ content được duyệt mới được publish |
-| P1.1 | Thiết kế | Wireframe Map V2 dựa trên ảnh tham chiếu cho mobile, tablet, desktop | Bộ wireframe | Đủ locked/current/completed/lab/boss và đã đối chiếu ảnh |
+| P1.1 | Thiết kế | Wireframe Map chương trình cho mobile, tablet, desktop; không dùng ảnh Trạm ngày để đồng nhất hai hệ | Bộ wireframe | Đủ locked/current/completed/lab/boss và đã đối chiếu learning-path/mobile UX |
 | P1.2 | Theme | Xây semantic tokens cho Map sáng/tối | Token + bảng tương phản | Đạt AA và không dùng màu làm tín hiệu duy nhất |
 | P1.3 | UX | Xác định thao tác chạm, scroll, mở chi tiết trạm và resume | Luồng UX | Dùng được bằng chuột, bàn phím, cảm ứng |
 | P2.1 | Core | Tách đọc `class_progress` khỏi `MapPage.jsx` | Progress adapter | Test được bằng dữ liệu cũ |
@@ -201,7 +217,7 @@ Trạng thái dùng trong bảng: `TODO`, `DOING`, `BLOCKED`, `DONE`.
 | P2.4 | Content | Đưa `classData` ra khỏi component thành schema/version rõ | Content module | Validate node và truy vết được curriculum/source |
 | P3.1 | Map V2 | Xây `BiologyJourneyMap` và track responsive | Map cơ bản | Không ảnh hưởng Map cũ |
 | P3.2 | Map V2 | Xây node cho lesson/challenge/lab/boss/reward | Bộ node | Mỗi loại có icon, trạng thái và tooltip |
-| P3.3 | Map V2 | Avatar/tàu chỉ vị trí, auto-focus node hiện tại | Resume UX | Không giật layout, hỗ trợ reduced motion |
+| P3.3 | Map V2 | Avatar/marker chỉ vị trí, auto-focus node hiện tại | Resume UX | Không giật layout, hỗ trợ reduced motion; không dùng lại nguyên component Trạm ngày |
 | P3.4 | Map V2 | Sheet/modal chi tiết trạm và CTA | Station detail | Loading/error/locked rõ ràng |
 | P3.5 | Map V2 | Kết nối route gameplay/Boss/3D hiện có | Route adapters | 3D, Mission, Quiz không đổi hành vi |
 | P4.1 | Practice | Định nghĩa Activity Engine và registry renderer | Activity shell | Có lifecycle start/submit/retry/resume |

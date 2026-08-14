@@ -1,7 +1,7 @@
 # BioLearn V2 - Cấu trúc repository và chiến lược triển khai
 
 - **Trạng thái:** Kiến trúc mục tiêu, bắt buộc áp dụng cho BioLearn V2
-- **Nhánh khởi tạo:** `biolearn-v2-foundation`
+- **Repository đích:** private repository mới; tên đề xuất `biolearn-v2`
 - **Cập nhật:** 2026-08-12
 
 Tài liệu này cụ thể hóa cấu trúc trong
@@ -21,8 +21,8 @@ Hướng V2 phải giữ **parity nghiệp vụ**, không giữ sự lộn xộn
 
 - Giữ BioLearn, các vai trò học sinh/giáo viên/admin và toàn bộ nhóm chức năng
   đã có làm danh mục đối soát.
-- Xây V2 trên root branch độc lập; legacy ở `democode`/`main` chỉ maintenance và
-  là nguồn tham khảo hành vi.
+- Xuất V2 sang repository private độc lập theo ADR-0006; legacy ở repository
+  `biolearn-mp` chỉ maintenance và là nguồn tham khảo hành vi.
 - Dùng modular monolith trên Supabase/Postgres; chưa tách microservice.
 - Bắt đầu Expo từ giai đoạn foundation, nhưng backend contract và luật nghiệp
   vụ phải được khóa trước khi nối màn hình thật.
@@ -44,6 +44,12 @@ NextGen/
       assets/                       # Asset đóng gói riêng cho mobile
       app.config.ts
       eas.json
+
+    student-web/                    # Next.js App Router, học sinh web responsive
+      src/
+        app/                        # Router, auth boundary, shell
+        features/                   # Composition riêng cho desktop/web
+        ui/
 
     teacher-web/                    # Lớp học, giao bài, báo cáo, quiz live
       src/
@@ -232,31 +238,38 @@ Không được tạo source of truth thứ hai trong JSON cục bộ, AsyncStor
 localStorage hoặc component state. Cache phải có version, TTL/invalidation và
 không được dùng làm căn cứ cấp reward.
 
-## 7. Chiến lược branch và Vercel
+## 7. Chiến lược repository, branch và Vercel
 
 ### 7.1. Branch
 
-- `main`: hiện là legacy production; việc đổi production branch sang V2 là một
-  cutover riêng sau pilot, backup và rollback rehearsal.
-- `biolearn-v2-foundation`: nhánh khởi tạo V2 hiện tại; dùng Preview, không
-  tự động xem là production.
-- Nhánh feature sau này: `<roadmap-id>-<ten-ngan>` hoặc quy ước team được
-  ghi trong ADR Git workflow.
-- Không merge trực tiếp vào `main` khi chưa có build/test và kiểm tra migration.
+- `biolearn-mp/main` thuộc repository legacy và không nhận merge V2.
+- Repository V2 mới có `main` riêng, lịch sử mới và branch protection; đây không
+  phải đổi tên hay đổi production branch của repository legacy.
+- Nhánh feature V2: `codex/<roadmap-id>-<ten-ngan>` hoặc quy ước team được ghi
+  trong ADR Git workflow.
+- Không merge trực tiếp vào `main` V2 khi chưa có PR, build/test, security gate
+  và kiểm tra migration.
 - Không dùng branch để thay thế backup database. Schema/data cần backup và
   rollback độc lập.
 
-Một branch mới **có thể** public bằng Vercel dưới dạng Preview Deployment khi
-repository đã kết nối Git và branch được push. Production Domain chỉ trỏ vào
-Production Branch được cấu hình. Do V2 có lịch sử root độc lập, không merge
-unrelated histories vào `main`; khi cutover phải đổi production/default branch
-theo runbook đã duyệt hoặc tách repository.
+Mọi Preview/Production Deployment V2 phải được tạo từ repository V2 mới. Không
+nối branch V2 trong repository legacy vào Vercel/EAS/Supabase V2 và không reuse
+deployment project hoặc environment set cũ. Quy trình xuất nằm tại
+`docs/runbooks/CREATE_DEDICATED_V2_REPOSITORY.md`.
 
 ### 7.2. Topology triển khai
 
+Topology runtime chính thức nằm tại
+`docs/adr/ADR-0001-RUNTIME-TOPOLOGY-AND-SCALING.md`: deployment có thể tách theo
+workload/app, nhưng dùng chung identity, contracts và canonical Postgres/ledger
+trong mỗi environment. Không tạo database, leaderboard hoặc PvP riêng theo
+“server học sinh/giáo viên”. Splash/static dùng CDN; command/query/Realtime/worker
+phân tải và scale độc lập theo metric.
+
 | Thành phần | Kênh triển khai | Ghi chú |
 |---|---|---|
-| Legacy web hiện tại | Vercel từ `main`/cấu hình hiện hành | Không lấy config legacy sang nhánh V2 |
+| Legacy web hiện tại | Vercel từ repository `biolearn-mp`/cấu hình hiện hành | Không lấy config legacy sang repository V2 |
+| Student Web | Một Vercel Project, Root Directory `apps/student-web` | Dùng chung contract/backend với mobile, không tạo hệ dữ liệu riêng |
 | Teacher Web | Một Vercel Project, Root Directory `apps/teacher-web` | Preview theo branch, production từ `main` |
 | Admin Web | Một Vercel Project, Root Directory `apps/admin-web` | Có deployment protection cho preview nhạy cảm |
 | Content Studio | Một Vercel Project, Root Directory `apps/content-studio` | Không dùng production secrets trong preview |
@@ -278,9 +291,11 @@ thuận.
 | Staging | staging riêng | dữ liệu đã ẩn danh hoặc seed | UAT/pilot nội bộ |
 | Production V2 sau cutover được duyệt | production | dữ liệu thật | sau release gate |
 
-- Mỗi environment có biến riêng; `EXPO_PUBLIC_*` và `VITE_*` đều là dữ liệu
-  công khai đối với client.
+- Mỗi environment có biến riêng; `EXPO_PUBLIC_*`, `NEXT_PUBLIC_*` và `VITE_*`
+  đều là dữ liệu công khai đối với client.
 - Preview không được ghi vào production database.
+- Local/staging/production-v2 là project mới, không dùng chung database, auth
+  tenant, storage bucket, signing secret hoặc project ID legacy.
 - `SUPABASE_SERVICE_ROLE_KEY`, signing secret và admin credential chỉ tồn tại ở
   server secret store phù hợp.
 - Không sửa `vercel.json` để chuẩn bị trước cho cấu trúc chưa tồn tại. Thay đổi
@@ -298,15 +313,18 @@ thuận.
 
 ## 8. Trình tự tạo móng
 
-1. **V2-A0:** ADR cho monorepo, Expo, Supabase V2, command/query plane và 3D
-   bridge; inventory legacy; threat model; vertical slice và UI direction.
-2. **V2-A1:** tạo workspace tối thiểu, Expo shell, contracts, tokens, Supabase
-   local và CI. Không tạo toàn bộ thư mục rỗng trong cây mục tiêu.
-3. **V2-A2:** auth/role, curriculum, journey, attempt, progress và ledger; test
+1. **V2-R0:** tạo repository private mới, export allowlist đã quét, bật branch
+   protection và cô lập environment/data/deploy khỏi legacy.
+2. **V2-A0:** ADR cho monorepo, Expo, Supabase V2, command/query plane và 3D
+   bridge; inventory legacy; threat model; vertical slice và UI direction. Các
+   quyết định foundation đã chốt tại ADR-0001 đến ADR-0005.
+3. **V2-A1:** tạo workspace tối thiểu trong repository mới, Expo shell, student web shell, contracts,
+   tokens, Supabase local và CI. Không tạo toàn bộ thư mục rỗng trong cây mục tiêu.
+4. **V2-A2:** auth/role, curriculum, journey, attempt, progress và ledger; test
    RLS/idempotency trước UI chức năng.
-4. **V2-A3:** một cụm bài thật end-to-end gồm lesson, thực hành thao tác, Mini
+5. **V2-A3:** một cụm bài thật end-to-end gồm lesson, thực hành thao tác, Mini
    Boss, reward và Map trên iPhone light/dark.
-5. Chỉ mở rộng sang mission, teacher/admin, quiz live, PvP và simulation scale
+6. Chỉ mở rộng sang mission, teacher/admin, quiz live, PvP và simulation scale
    sau khi gate tương ứng trong blueprint đạt.
 
 ## 9. Nghiệm thu cấu trúc
@@ -319,6 +337,8 @@ Một pull request chỉ đạt chuẩn cấu trúc khi:
 - Web app build độc lập theo Root Directory; mobile tạo được development build
   theo gate hiện hành.
 - Biến môi trường được phân loại public/server và không lộ secret.
+- Endpoint có registry rate/payload/query/concurrency/timeout limit; auth 5 lần
+  thất bại/15 phút và schema strict đã có abuse/integration test.
 - Test nằm cùng domain hoặc đúng vùng integration/backend.
 - Tài liệu ADR/workflow/runbook/status được cập nhật khi thay đổi contract,
   schema, topology hoặc nghiệp vụ.

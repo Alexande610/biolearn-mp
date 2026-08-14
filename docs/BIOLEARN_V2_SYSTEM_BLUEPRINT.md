@@ -14,8 +14,9 @@ BioLearn V2 được xây như một sản phẩm mới chạy song song với h
 - **Backend-first về nghiệp vụ:** domain, schema, quyền, transaction và hợp đồng
   API phải có trước khi màn hình thật được phép ghi dữ liệu.
 - **Không phá hệ thống cũ:** code cũ được giữ trên `democode`/`main` làm
-  legacy/reference và nguồn đối soát; nhánh nền V2 là root độc lập, không chuyển
-  từng component cũ sang app mới một cách máy móc.
+  legacy/reference và nguồn đối soát; V2 được xuất sang repository private mới,
+  không chuyển từng component cũ sang app mới một cách máy móc và không merge
+  trở lại `main` legacy.
 - **Modular monolith:** một Postgres/Supabase được chia domain rõ ràng; chưa dùng
   microservice khi chưa có nhu cầu vận hành thực tế.
 - **Server-authoritative:** client không tự quyết định reward, progress, streak,
@@ -23,8 +24,10 @@ BioLearn V2 được xây như một sản phẩm mới chạy song song với h
 - **Vertical slice:** làm hoàn chỉnh một lát cắt từ SGK đến Map, lesson, lab,
   Mini Boss, progress và reward trước khi mở rộng toàn bộ lớp 6-12.
 
-“Xây lại hoàn toàn” ở đây có nghĩa là tạo nền tảng V2 sạch và có hợp đồng rõ,
-không có nghĩa là xóa code/dữ liệu cũ rồi viết lại trong một lần.
+“Xây lại hoàn toàn” ở đây có nghĩa là tạo nền tảng, schema và dữ liệu V2 sạch từ
+empty migrations trong project mới. Nó không có nghĩa là xóa code/database cũ.
+Mặc định V2 không import legacy; nếu sau này cần chuyển tài khoản/tiến độ thật,
+đó là dự án migration riêng có dry-run, đối soát và rollback.
 
 ## 2. Phản biện hệ thống hiện tại
 
@@ -70,6 +73,10 @@ không có nghĩa là xóa code/dữ liệu cũ rồi viết lại trong một l
 - Database thay đổi duy nhất bằng migration đã commit.
 - Mọi command có `requestId`/idempotency key.
 - Mọi thay đổi tiền, XP, reward, role và publish đều có audit trail.
+- Mọi endpoint có rate limit, payload/query/concurrency limit và timeout theo
+  `SECURITY_BASELINE.md`; đăng nhập mật khẩu tối đa 5 lần thất bại/15 phút.
+- Mọi trust boundary runtime-validate schema strict; secret chỉ ở server secret
+  store và CI phải quét current diff + Git history.
 - Published content là immutable; sửa nội dung tạo version mới.
 - Không dùng `any` để né schema; không dùng `Record<string, unknown>` cho dữ liệu
   nghiệp vụ cốt lõi nếu có thể định nghĩa discriminated union.
@@ -80,8 +87,10 @@ không có nghĩa là xóa code/dữ liệu cũ rồi viết lại trong một l
 ```mermaid
 flowchart LR
   M["Expo Mobile App\nStudent experience"]
+  W["Student Web\nResponsive experience"]
   T["Teacher Web\nClass & quiz"]
   A["Admin/Content Studio\nReview & operations"]
+  E["CDN / WAF / Auth & rate-limit gateway"]
   Q["Query Plane\nRLS-safe reads"]
   C["Command Plane\nEdge Functions / private RPC"]
   D["Postgres\nDomain tables + RLS"]
@@ -89,19 +98,22 @@ flowchart LR
   S["Storage/CDN\nMedia and simulation assets"]
   O["Outbox/Workers\nMissions, rankings, notifications"]
 
-  M --> Q
-  T --> Q
-  A --> Q
-  M --> C
-  T --> C
-  A --> C
+  M --> E
+  W --> E
+  T --> E
+  A --> E
+  E --> Q
+  E --> C
+  E --> R
   Q --> D
   C --> D
   C --> O
   D --> R
   R --> M
+  R --> W
   R --> T
   M --> S
+  W --> S
   T --> S
   A --> S
 ```
@@ -117,12 +129,18 @@ Mọi thao tác có hậu quả nghiệp vụ đi qua Edge Function hoặc priva
 function: submit attempt, cấp reward, nhận mission, publish content, tạo match,
 trả lời PvP, khóa user, đổi role và gửi quà.
 
+Topology runtime, cách phân tải nhưng giữ một nguồn dữ liệu thống nhất, ngưỡng
+để tách match coordinator/read replica và chiến lược load shedding được chốt tại
+`docs/adr/ADR-0001-RUNTIME-TOPOLOGY-AND-SCALING.md`. Không tách database/ranking
+theo server, role hoặc màn hình.
+
 ## 5. Cấu trúc repository mục tiêu
 
-V2 được tạo trên nhánh root độc lập `biolearn-v2-foundation`. Legacy tiếp tục ở
-`democode`/`main`; không xuất hiện trong worktree/snapshot V2. Nếu cần lấy lại
-một asset hoặc hành vi, phải inventory, kiểm tra quyền/chất lượng và port có chủ
-đích. Không merge cả cây legacy vào V2.
+V2 được đặt trong repository private mới theo ADR-0006, với lịch sử `main` mới.
+Legacy tiếp tục ở repository `biolearn-mp` trên `democode`/`main`; không xuất
+hiện trong worktree/snapshot V2. Nếu cần lấy lại một asset hoặc hành vi, phải
+inventory, kiểm tra quyền/chất lượng và port có chủ đích. Không merge cả cây hoặc
+lịch sử legacy vào V2.
 
 Cây thư mục chi tiết, luật đặt file, mapping chức năng legacy và topology
 Vercel/Expo được quy định bắt buộc tại
@@ -132,9 +150,11 @@ thủ `docs/AI_ENGINEERING_GUARDRAILS.md`.
 ```text
 apps/
   mobile/                    Expo + Expo Router, student-first
+  student-web/               Next.js App Router, student web responsive
   teacher-web/               quản lý lớp, quiz, báo cáo
   admin-web/                 vận hành, user, audit
   content-studio/            biên soạn và duyệt học thuật
+  simulation-web/            runtime 2D/3D tách biệt cho WebView/web
 
 packages/
   domain/                    entity, value object, use-case, state machine
@@ -430,10 +450,14 @@ fallback material đồng nhất; tôn trọng Reduce Transparency và Increase 
 
 - Light: phòng lab ban ngày, bề mặt sạch, tương phản tốt, cảnh quan tươi nhưng
   node/controls nổi rõ.
-- Dark: đêm sinh học/phòng lab tối với điểm nhấn phát quang có kiểm soát; không
-  chỉ đảo màu hoặc phủ đen.
+- Dark: galaxy/vũ trụ BioLearn như tinh thần hệ thống legacy, xanh đen sâu, sao
+  và điểm nhấn phát quang có kiểm soát; không chỉ đảo màu hoặc phủ đen.
 - Geometry, touch target và trạng thái không đổi giữa theme.
 - Trạng thái luôn có icon/hình dạng/nhãn, không chỉ khác màu.
+- Background là scene layer độc lập, có fallback và error boundary; thay ảnh
+  tĩnh/nền động không được thay contract hoặc làm hỏng auth, progress, ranking,
+  PvP và teacher flow. Contract chi tiết nằm trong
+  `workflows/STARTUP_AUTH_DAILY_STATION_VISUAL_SPEC.md`.
 
 ### 12.5. Điều hướng mobile đề xuất
 
@@ -502,8 +526,10 @@ mobile student app.
 - Database migration từ empty và từ snapshot staging.
 - pgTAP/RLS test theo student/teacher/admin/anonymous.
 - Edge Function tests và idempotency tests.
+- Rate-limit/oversized/malformed/abuse/load tests theo route registry.
 - Mobile component tests, E2E smoke và screenshot light/dark.
-- Secret scan, dependency audit có kiểm soát và asset budget check.
+- Secret scan current + history, dependency/SAST audit có kiểm soát và asset
+  budget check; Critical/High chặn production theo security baseline.
 
 ### 14.4. Definition of Done
 
@@ -519,6 +545,7 @@ mobile student app.
 
 | ID | Giai đoạn | Mục tiêu | Gate để đi tiếp |
 |---|---|---|---|
+| V2-R0 | Tách repository | Tạo Git private mới, export allowlist, cô lập dữ liệu/deploy | Lịch sử mới, scan sạch, branch protection, không nối legacy DB |
 | V2-A0 | Khóa kiến trúc | Freeze legacy, threat model, ADR, inventory API/schema | Không còn quyết định nền tảng mơ hồ |
 | V2-A1 | Foundation song song | Monorepo V2, Expo shell, tokens, local Supabase, CI | Mobile build + migration + tests chạy từ sạch |
 | V2-A2 | Backend core | Auth/role, curriculum, journey, attempt, progress, ledger | RLS/idempotency/contract tests xanh |
@@ -534,10 +561,14 @@ Expo app bắt đầu ở `V2-A1`, không chờ đến cuối. Tuy vậy, screen
 
 ## 16. Chiến lược chuyển từ legacy
 
-- Legacy trên `democode`/`main` ở trạng thái maintenance-only: chỉ sửa lỗi nghiêm
-  trọng, không thêm feature lớn trùng V2.
+- Legacy nằm trong repository `biolearn-mp` ở trạng thái maintenance-only; V2
+  nằm trong repository private mới theo ADR-0006. Không merge/cutover branch
+  giữa hai lịch sử Git.
+- Project database/auth/storage V2 được tạo mới và dựng từ empty migrations;
+  mặc định không import legacy.
 - Lập bảng mapping user, role, class progress, XP, coin, streak và inventory.
-- Viết migration tool có dry-run, report chênh lệch và idempotency.
+- Chỉ nếu người sở hữu sau này duyệt migration tài khoản/tiến độ: viết migration
+  tool có dry-run, report chênh lệch và idempotency.
 - Không copy JSONB cũ sang nguyên dạng; chuyển qua canonical mapping.
 - Pilot bằng tài khoản nội bộ, sau đó nhóm nhỏ; dual-read chỉ trong thời gian ngắn.
 - Cutover có feature flag, backup, reconciliation report và đường quay lại.
@@ -555,11 +586,12 @@ Expo app bắt đầu ở `V2-A1`, không chờ đến cuối. Tuy vậy, screen
 
 ## 18. Bước bắt đầu được phép
 
-Bước tiếp theo là `V2-A0`, chỉ đọc/thiết kế và tạo tài liệu:
+Bước tiếp theo là `V2-R0`, chỉ tách repository và khóa wireframe/spec; chưa
+scaffold runtime trong repository legacy:
 
-1. Lập ADR cho Supabase V2, monorepo, Expo, query/command plane và 3D bridge.
-2. Chụp schema/API/role/flow của legacy; đánh dấu dữ liệu phải migration.
-3. Viết threat model cho auth, reward, progress, quiz và PvP.
-4. Chốt vertical slice học thuật đầu tiên sau khi PDF/YCCĐ được duyệt.
-5. Chốt token/UI direction bằng wireframe iPhone light/dark.
-6. Sau khi A0 được duyệt mới scaffold V2-A1; chưa chạy migration production.
+1. Xác nhận Git provider, owner, tên và private visibility của remote V2.
+2. Thực hiện runbook export allowlist, secret scan và khởi tạo lịch sử `main` mới.
+3. Bật branch protection/CI nền và xác nhận không có connection/project ID legacy.
+4. Chốt wireframe Splash, Student Auth, Teacher Auth và Trạm ngày light/dark theo
+   `workflows/STARTUP_AUTH_DAILY_STATION_VISUAL_SPEC.md`.
+5. Sau khi `V2-R0` đạt mới scaffold `V2-A1`; chưa chạy migration hosted production.
