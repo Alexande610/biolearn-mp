@@ -12,6 +12,10 @@ export default defineConfig({
     dedupe: ['react', 'react-dom']
   },
   server: {
+    // Giữ cố định URL local để khớp Supabase Auth Redirect URLs.
+    // strictPort ngăn Vite âm thầm nhảy sang 5176 nếu cổng bị chiếm.
+    port: 5175,
+    strictPort: true,
     proxy: {
       '/api/ai': {
         target: 'https://text.pollinations.ai',
