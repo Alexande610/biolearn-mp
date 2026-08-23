@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, Clock, Trophy, Users, XCircle } from 'lucide-react';
+import { ArrowLeft, CalendarClock, CheckCircle2, Clock, History, PlayCircle, Trophy, Users, XCircle } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
 
@@ -28,6 +28,17 @@ const ANSWER_THEMES = [
   },
 ];
 
+const formatCountdown = (milliseconds) => {
+  const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+  return [days ? `${days} ngày` : '', `${String(hours).padStart(2, '0')} giờ`, `${String(minutes).padStart(2, '0')} phút`, `${String(seconds).padStart(2, '0')} giây`]
+    .filter(Boolean)
+    .join(' ');
+};
+
 export default function StudentQuizRoomPage() {
   const navigate = useNavigate();
   const { user, userStats } = useAuth();
@@ -54,6 +65,10 @@ export default function StudentQuizRoomPage() {
   const [answerResult, setAnswerResult] = useState(null);
 
   const [leaderboard, setLeaderboard] = useState([]);
+  const [attemptId, setAttemptId] = useState('');
+  const [assignmentScore, setAssignmentScore] = useState(0);
+  const [recentRooms, setRecentRooms] = useState([]);
+  const [clockNow, setClockNow] = useState(0);
 
   const studentId = useMemo(
     () => user?.uid || user?.firebaseUid || user?.id || user?._id || '',
@@ -61,6 +76,7 @@ export default function StudentQuizRoomPage() {
   );
   const studentName = user?.displayName || user?.username || 'Học sinh';
   const studentAvatar = userStats?.avatar || user?.avatar || 'adventurer-1';
+  const recentRoomsKey = studentId ? `biolearn_recent_quiz_rooms_${studentId}` : '';
 
   const clearTimer = () => {
     if (timerRef.current) {
@@ -118,6 +134,40 @@ export default function StudentQuizRoomPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const tick = () => setClockNow(Date.now());
+    tick();
+    const clock = setInterval(tick, 1000);
+    return () => clearInterval(clock);
+  }, []);
+
+  useEffect(() => {
+    if (!recentRoomsKey) return;
+    let savedRooms = [];
+    try {
+      const saved = JSON.parse(localStorage.getItem(recentRoomsKey) || '[]');
+      savedRooms = Array.isArray(saved) ? saved.slice(0, 5) : [];
+    } catch { /* Ignore invalid temporary history data. */ }
+    const syncHistory = setTimeout(() => setRecentRooms(savedRooms), 0);
+    return () => clearTimeout(syncHistory);
+  }, [recentRoomsKey]);
+
+  const rememberRoom = (room, code) => {
+    if (!recentRoomsKey) return;
+    const summary = {
+      code,
+      title: room.title,
+      teacherName: room.teacher_name || room.teacherName || 'Giáo viên',
+      roomType: room.room_type || 'live',
+      opensAt: room.opens_at || null,
+      closesAt: room.closes_at || null,
+      visitedAt: new Date().toISOString()
+    };
+    const next = [summary, ...recentRooms.filter(item => item.code !== code)].slice(0, 5);
+    setRecentRooms(next);
+    localStorage.setItem(recentRoomsKey, JSON.stringify(next));
+  };
+
   const connectSocketAndJoin = (resolvedRoomCode) => {
     clearSocket();
     setJoiningRoom(true);
@@ -168,6 +218,10 @@ export default function StudentQuizRoomPage() {
         setAnswerResult(null);
         startTimer(Number(payload?.timeLimit || 20));
       })
+      .on('broadcast', { event: 'answer_ack' }, ({ payload }) => {
+        if (payload?.studentId !== studentId) return;
+        setAnswerResult({ isCorrect: Boolean(payload.isCorrect), points: Number(payload.points || 0) });
+      })
       .on('broadcast', { event: 'quiz_result' }, ({ payload }) => {
         clearTimer();
         setLeaderboard(Array.isArray(payload.leaderboard) ? payload.leaderboard : []);
@@ -180,7 +234,32 @@ export default function StudentQuizRoomPage() {
       });
   };
 
-  const handleJoinRoom = async () => {
+  const beginAssignmentRoom = async (room) => {
+    if (!room || !studentId) return;
+    setJoiningRoom(true);
+    try {
+      const { data: attempt, error: attemptError } = await supabase.from('quiz_attempts').upsert({
+        room_id: room.id,
+        student_id: studentId,
+        display_name: studentName,
+        avatar_url: studentAvatar,
+        status: 'playing'
+      }, { onConflict: 'room_id,student_id' }).select().single();
+      if (attemptError) throw attemptError;
+      setAttemptId(attempt.id);
+      const firstQuestion = { ...room.questions[0], questionIndex: 0, totalQuestions: room.questions.length, timeLimit: Number(room.question_time_seconds || 20) };
+      setQuestion(firstQuestion);
+      setPhase('question');
+      setError('');
+      startTimer(firstQuestion.timeLimit);
+    } catch (startError) {
+      setError(startError.message || 'Không thể bắt đầu bài quiz.');
+    } finally {
+      setJoiningRoom(false);
+    }
+  };
+
+  const handleJoinRoom = async (requestedCode) => {
     setError('');
 
     if (!studentId) {
@@ -188,7 +267,7 @@ export default function StudentQuizRoomPage() {
       return;
     }
 
-    const normalizedCode = normalizeRoomCode(roomCodeInput);
+    const normalizedCode = normalizeRoomCode(typeof requestedCode === 'string' ? requestedCode : roomCodeInput);
     if (!normalizedCode || normalizedCode.length < 4) {
       setError('Vui lòng nhập mã phòng hợp lệ.');
       return;
@@ -197,22 +276,46 @@ export default function StudentQuizRoomPage() {
     setCheckingRoom(true);
     try {
       const { data: room, error: err } = await supabase
-        .from('quiz_rooms')
-        .select(`*, profiles(display_name)`)
-        .eq('room_code', normalizedCode)
-        .single();
+        .rpc('get_quiz_room_for_player', { p_room_code: normalizedCode });
 
       if (err || !room) {
         throw new Error('Phòng không tồn tại.');
       }
 
-      if (room.status !== 'waiting') {
+      const roomType = room.room_type || 'live';
+      if (roomType === 'live' && room.status !== 'waiting') {
         throw new Error('Phòng quiz đang diễn ra. Hãy chờ phiên mới từ giáo viên.');
       }
 
-      setRoomInfo({ title: room.title, teacherName: room.profiles?.display_name || 'Giáo viên' });
+      if (roomType === 'assignment') {
+        const now = Date.now();
+        if (room.archived_at) throw new Error('Bài quiz này đã được lưu trữ.');
+        if (room.closes_at && now > new Date(room.closes_at).getTime()) throw new Error('Bài quiz đã hết hạn.');
+      }
+
+      setRoomInfo({ ...room, title: room.title, teacherName: room.teacher_name || 'Giáo viên' });
       setRoomCode(normalizedCode);
-      connectSocketAndJoin(normalizedCode);
+      setRoomCodeInput(normalizedCode);
+      rememberRoom(room, normalizedCode);
+      if (roomType === 'assignment') {
+        setJoined(true);
+        if (room.opens_at && Date.now() < new Date(room.opens_at).getTime()) {
+          setPhase('scheduled');
+        } else {
+          await beginAssignmentRoom(room);
+        }
+      } else {
+        const { data: attempt, error: attemptError } = await supabase.from('quiz_attempts').upsert({
+          room_id: room.id,
+          student_id: studentId,
+          display_name: studentName,
+          avatar_url: studentAvatar,
+          status: 'joined'
+        }, { onConflict: 'room_id,student_id' }).select().single();
+        if (attemptError) throw attemptError;
+        setAttemptId(attempt.id);
+        connectSocketAndJoin(normalizedCode);
+      }
     } catch (err) {
       setError(err.message || 'Không thể vào phòng quiz.');
     } finally {
@@ -220,28 +323,64 @@ export default function StudentQuizRoomPage() {
     }
   };
 
-  const handleSelectAnswer = (index) => {
-    if (!socketRef.current || phase !== 'question' || answerLocked || !question) return;
+  const handleSelectAnswer = async (index) => {
+    if (phase !== 'question' || answerLocked || !question) return;
 
     setSelectedAnswer(index);
     setAnswerLocked(true);
     
-    // Tự đánh giá điểm Client-side cho nhẹ Server
-    const isCorrect = (index === question.correctAnswer);
-    const timeRatio = timer / question.timeLimit;
-    const points = isCorrect ? Math.round(1000 * timeRatio) : 0;
-    
-    setAnswerResult({ isCorrect, points });
-
-    socketRef.current.send({
-      type: 'broadcast',
-      event: 'student_answer',
-      payload: {
-        studentId,
-        score: points,
-        timeLeft: timer,
+    if (roomInfo?.room_type === 'assignment') {
+      const responseMs = Math.max(0, (question.timeLimit - timer) * 1000);
+      const { data: graded, error: gradeError } = await supabase.rpc('submit_assignment_answer', {
+        p_attempt_id: attemptId,
+        p_question_index: question.questionIndex,
+        p_selected_option: index,
+        p_response_ms: responseMs
+      });
+      if (gradeError) {
+        setError(gradeError.message || 'Không thể chấm câu trả lời.');
+        setAnswerLocked(false);
+        return;
       }
-    });
+      setAssignmentScore(Number(graded.total_score || 0));
+      setAnswerResult({ isCorrect: Boolean(graded.is_correct), points: Number(graded.points || 0) });
+    } else if (socketRef.current) {
+      // Giáo viên/chủ phòng mới là bên tính đúng-sai và điểm của phòng live.
+      socketRef.current.send({
+        type: 'broadcast', event: 'student_answer',
+        payload: { studentId, attemptId, answerIndex: index }
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (phase !== 'scheduled' || !roomInfo?.opens_at || joiningRoom) return;
+    if (clockNow >= new Date(roomInfo.opens_at).getTime()) {
+      const openScheduledRoom = setTimeout(() => beginAssignmentRoom(roomInfo), 0);
+      return () => clearTimeout(openScheduledRoom);
+    }
+    // beginAssignmentRoom intentionally runs once when the countdown reaches zero.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, roomInfo, clockNow, joiningRoom]);
+
+  const handleNextAssignmentQuestion = async () => {
+    const nextIndex = Number(question?.questionIndex || 0) + 1;
+    if (nextIndex >= (roomInfo?.questions?.length || 0)) {
+      clearTimer();
+      await supabase.from('quiz_attempts').update({
+        status: 'completed', score: assignmentScore,
+        completed_at: new Date().toISOString()
+      }).eq('id', attemptId);
+      setLeaderboard([{ studentId, studentName, score: assignmentScore, rank: 1 }]);
+      setPhase('ended');
+      return;
+    }
+    const next = { ...roomInfo.questions[nextIndex], questionIndex: nextIndex, totalQuestions: roomInfo.questions.length, timeLimit: Number(roomInfo.question_time_seconds || 20) };
+    setQuestion(next);
+    setSelectedAnswer(null);
+    setAnswerLocked(false);
+    setAnswerResult(null);
+    startTimer(next.timeLimit);
   };
 
   return (
@@ -302,12 +441,45 @@ export default function StudentQuizRoomPage() {
               <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-emerald-100">2. Chờ giáo viên bắt đầu</div>
               <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-emerald-100">3. Trả lời theo thời gian thực</div>
             </div>
+
+            {recentRooms.length > 0 && (
+              <div className="mt-6 pt-5 border-t border-white/15">
+                <div className="flex items-center gap-2 mb-3 text-white font-bold">
+                  <History className="w-5 h-5 text-cyan-300" />
+                  Phòng đã mở gần đây
+                </div>
+                <div className="grid gap-2">
+                  {recentRooms.map((recent) => {
+                    const opensIn = recent.opensAt ? new Date(recent.opensAt).getTime() - clockNow : 0;
+                    const expired = recent.closesAt ? clockNow > new Date(recent.closesAt).getTime() : false;
+                    return (
+                      <button
+                        key={recent.code}
+                        type="button"
+                        disabled={expired}
+                        onClick={() => handleJoinRoom(recent.code)}
+                        className="group flex items-center justify-between gap-3 rounded-2xl border border-white/20 bg-white/10 hover:bg-white/20 px-4 py-3 text-left transition disabled:opacity-50"
+                      >
+                        <div className="min-w-0">
+                          <p className="text-white font-semibold truncate">{recent.title}</p>
+                          <p className="text-cyan-100/75 text-xs mt-1">#{recent.code} · {recent.teacherName}</p>
+                          {recent.roomType === 'assignment' && opensIn > 0 && (
+                            <p className="text-violet-100 text-xs mt-1">Mở sau {formatCountdown(opensIn)}</p>
+                          )}
+                        </div>
+                        <PlayCircle className="w-6 h-6 shrink-0 text-cyan-300 group-hover:scale-110 transition" />
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </section>
         )}
 
         {joined && roomInfo && (
           <>
-            <section className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-4 sm:p-5">
+            {roomInfo.room_type !== 'assignment' && <section className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-4 sm:p-5">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <h2 className="text-white font-bold text-lg">{roomInfo.title || 'Quiz Room'}</h2>
@@ -320,7 +492,7 @@ export default function StudentQuizRoomPage() {
                   Rời phòng
                 </button>
               </div>
-            </section>
+            </section>}
 
             <section className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-4 sm:p-5">
               <div className="flex items-center gap-2 mb-3">
@@ -349,6 +521,21 @@ export default function StudentQuizRoomPage() {
                   <Clock className="w-4 h-4" />
                   Sẵn sàng vào trận
                 </div>
+              </section>
+            )}
+
+            {phase === 'scheduled' && roomInfo?.opens_at && (
+              <section className="rounded-[28px] border border-white/35 bg-gradient-to-br from-white/20 via-violet-300/10 to-cyan-300/15 backdrop-blur-2xl p-7 text-center shadow-2xl shadow-indigo-950/20">
+                <div className="mx-auto mb-4 w-16 h-16 rounded-2xl border border-white/60 bg-gradient-to-br from-violet-300/80 to-cyan-400/80 shadow-lg shadow-violet-500/20 flex items-center justify-center">
+                  <CalendarClock className="w-8 h-8 text-white drop-shadow" />
+                </div>
+                <p className="text-violet-100 text-sm font-semibold">Phòng đang chuẩn bị</p>
+                <h3 className="text-white font-extrabold text-2xl mt-1">Sẽ mở lúc {new Date(roomInfo.opens_at).toLocaleString('vi-VN')}</h3>
+                <div className="mt-5 inline-flex flex-col items-center rounded-2xl border border-white/25 bg-black/15 px-6 py-4">
+                  <span className="text-cyan-100/75 text-xs uppercase tracking-[.18em]">Còn lại</span>
+                  <strong className="text-white text-xl sm:text-2xl mt-1 tabular-nums">{formatCountdown(new Date(roomInfo.opens_at).getTime() - clockNow)}</strong>
+                </div>
+                <p className="text-white/65 text-sm mt-4">Bạn có thể giữ nguyên trang này. Bài quiz sẽ tự động mở khi bộ đếm về 0.</p>
               </section>
             )}
 
@@ -397,6 +584,11 @@ export default function StudentQuizRoomPage() {
                       {answerResult.isCorrect ? 'Bạn trả lời đúng!' : 'Bạn trả lời chưa đúng.'}
                     </div>
                     <p className="text-sm mt-1">+{answerResult.points || 0} điểm</p>
+                    {roomInfo.room_type === 'assignment' && (
+                      <button onClick={handleNextAssignmentQuestion} className="mt-3 px-4 py-2 rounded-lg bg-white/15 hover:bg-white/25 text-white font-semibold">
+                        {question.questionIndex + 1 >= question.totalQuestions ? 'Hoàn thành bài quiz' : 'Câu tiếp theo'}
+                      </button>
+                    )}
                   </div>
                 )}
               </section>

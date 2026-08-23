@@ -6,7 +6,7 @@ import {
   Plus, User, ChevronRight, Sparkles, Zap, MoreHorizontal, Swords,
   Microscope, Dna, FlaskConical, Heart,
   Sprout, TreePine, Flower2, GraduationCap, Bug, Activity, Atom,
-  Mail, X, HelpCircle
+  Mail, X, HelpCircle, Compass, MapPin
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useToast } from '../components/Toast';
@@ -41,7 +41,7 @@ const avatarMap = {
 };
 
 export default function HomePage() {
-  const { user, userStats, logout, refreshUserStats } = useAuth();
+  const { user, userStats, logout, refreshUserStats, theme } = useAuth();
   const { showToast } = useToast();
   const navigate = useNavigate();
   const [energy, setEnergy] = useState({ energy: 20, maxEnergy: 20, minutesUntilNextEnergy: 0 });
@@ -305,6 +305,50 @@ export default function HomePage() {
           </Link>
         </div>
 
+        {/* 🚀 TRẠM SINH HỌC - CỔNG DỊCH CHUYỂN LIQUID GLASS TRONG SUỐT NGUYÊN BẢN */}
+        <div className="mb-8">
+          <Link
+            to="/stations"
+            className="portal-video-banner-card block relative rounded-[2.5rem] overflow-hidden group card-clear-liquid-glass p-6 md:p-10 transition-all duration-500 min-h-[250px] md:min-h-[290px] flex flex-col justify-between hover:scale-[1.01]"
+          >
+            {/* Background Video Cloudinary giữ nguyên màu sắc nguyên bản rực rỡ */}
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000 ease-out"
+              src="https://res.cloudinary.com/de513yqvf/video/upload/v1787106520/JKFRE3537_wfzovc.mov"
+            />
+
+            {/* Gradient mờ nhẹ giúp nâng cao độ nét của chữ trắng trên video */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/30 group-hover:via-black/20 transition-all duration-500" />
+
+            {/* Top Badges - Liquid Glass Trong Suốt Đồng Bộ Hệ Thống */}
+            <div className="relative z-10 flex items-center justify-between">
+              <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full shadow-lg">
+                <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+                <span className="text-xs font-black text-white uppercase tracking-widest">CỔNG DỊCH CHUYỂN</span>
+              </div>
+
+              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-white text-xs font-bold shadow-lg">
+                <Compass className="w-4 h-4 text-cyan-400 animate-spin-slow" />
+                <span className="text-white">Trạm Sinh Học</span>
+              </div>
+            </div>
+
+            {/* Bottom Content Title & Description */}
+            <div className="relative z-10 mt-6">
+              <h3 className="text-2xl md:text-3xl font-black text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)] tracking-tight flex items-center gap-3">
+                Trạm Sinh Học
+              </h3>
+              <p className="text-slate-100 font-semibold text-sm md:text-base mt-1.5 drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] max-w-xl">
+                Bước qua cánh cổng không gian để khám phá các Trạm Sinh học theo ngày.
+              </p>
+            </div>
+          </Link>
+        </div>
+
         {/* Class Selection - THCS */}
         <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
           <Leaf className="w-6 h-6 text-green-400" />
@@ -493,6 +537,10 @@ export default function HomePage() {
               <Leaf className="w-6 h-6" />
               <span className="text-xs mt-1">Trang chủ</span>
             </Link>
+            <Link to="/stations" className="flex flex-col items-center text-emerald-400 hover:text-emerald-300">
+              <Compass className="w-6 h-6" />
+              <span className="text-xs mt-1">Trạm game</span>
+            </Link>
             <Link to="/missions" className="flex flex-col items-center text-white/60 hover:text-green-300">
               <Target className="w-6 h-6" />
               <span className="text-xs mt-1">Nhiệm vụ</span>
@@ -610,25 +658,37 @@ export default function HomePage() {
           </div>
         </div>
       )}
-      {/* Modal Hộp thư - Liquid Glass trong suốt hiện đại */}
+      {/* Modal Hộp thư - Thích ứng Light & Dark Theme */}
       {showInboxModal && (
-        <div className="fixed inset-0 z-[10000] bg-black/75 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="w-full max-w-lg rounded-[2.5rem] border border-white/10 bg-slate-900/40 backdrop-blur-xl p-6 md:p-8 flex flex-col max-h-[80vh] shadow-2xl relative animate-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-[10000] bg-black/60 backdrop-blur-md flex items-center justify-center p-4">
+          <div className={`w-full max-w-lg rounded-[2.5rem] p-6 md:p-8 flex flex-col max-h-[80vh] shadow-2xl relative animate-in zoom-in-95 duration-200 border ${
+            theme === 'light'
+              ? 'bg-white/95 border-sky-200 text-slate-900 shadow-sky-500/10'
+              : 'bg-slate-900/90 border-white/10 text-white shadow-black/50'
+          }`}>
             
             {/* Header */}
-            <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+            <div className={`flex items-center justify-between mb-6 pb-4 border-b ${
+              theme === 'light' ? 'border-slate-200' : 'border-white/10'
+            }`}>
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-xl bg-green-500/20 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-green-400" />
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-emerald-500" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-black text-white uppercase tracking-wider italic">Hộp Thư Của Bạn</h3>
-                  <p className="text-xs text-white/40 font-bold">Thư sẽ tự động xóa sau 7 ngày</p>
+                  <h3 className={`text-lg font-black uppercase tracking-wider italic ${
+                    theme === 'light' ? 'text-slate-900' : 'text-white'
+                  }`}>Hộp Thư Của Bạn</h3>
+                  <p className={`text-xs font-bold ${
+                    theme === 'light' ? 'text-slate-500' : 'text-white/40'
+                  }`}>Thư sẽ tự động xóa sau 7 ngày</p>
                 </div>
               </div>
               <button 
                 onClick={() => setShowInboxModal(false)}
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 text-white flex items-center justify-center transition cursor-pointer"
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition cursor-pointer ${
+                  theme === 'light' ? 'bg-slate-100 hover:bg-slate-200 text-slate-700' : 'bg-white/5 hover:bg-white/10 text-white'
+                }`}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -637,38 +697,50 @@ export default function HomePage() {
             {/* Mail List */}
             <div className="flex-1 overflow-y-auto space-y-4 pr-1">
               {mails.length === 0 ? (
-                <div className="text-center py-12 text-white/30 italic text-sm font-semibold">
+                <div className={`text-center py-12 italic text-sm font-semibold ${
+                  theme === 'light' ? 'text-slate-400' : 'text-white/30'
+                }`}>
                   Hộp thư trống
                 </div>
               ) : (
                 mails.map((mail) => (
                   <div 
                     key={mail.id} 
-                    className="p-4 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors flex flex-col justify-between gap-3"
+                    className={`p-4 rounded-3xl border transition-colors flex flex-col justify-between gap-3 ${
+                      theme === 'light'
+                        ? 'bg-sky-50/80 border-sky-200 hover:bg-sky-100/80'
+                        : 'bg-white/5 border-white/5 hover:bg-white/10'
+                    }`}
                   >
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <h4 className="text-white font-bold text-sm tracking-wide">{mail.title}</h4>
-                        <p className="text-[10px] text-white/30 font-semibold mt-1">
+                        <h4 className={`font-bold text-sm tracking-wide ${
+                          theme === 'light' ? 'text-slate-900' : 'text-white'
+                        }`}>{mail.title}</h4>
+                        <p className={`text-[10px] font-semibold mt-1 ${
+                          theme === 'light' ? 'text-slate-400' : 'text-white/30'
+                        }`}>
                           {new Date(mail.created_at).toLocaleString('vi-VN')}
                         </p>
                       </div>
                     </div>
-                    <p className="text-gray-300 text-xs leading-relaxed whitespace-pre-line">{mail.content}</p>
+                    <p className={`text-xs leading-relaxed whitespace-pre-line ${
+                      theme === 'light' ? 'text-slate-700' : 'text-gray-300'
+                    }`}>{mail.content}</p>
                     
                     {mail.coins_attached > 0 && (
-                      <div className="mt-2 flex items-center justify-between bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-3">
+                      <div className="mt-2 flex items-center justify-between bg-amber-500/10 border border-amber-500/20 rounded-2xl p-3">
                         <div className="flex items-center gap-2">
-                          <Coins className="w-4 h-4 text-yellow-400 animate-bounce" />
-                          <span className="text-yellow-400 text-xs font-bold">Kèm theo: +{mail.coins_attached.toLocaleString()} Xu</span>
+                          <Coins className="w-4 h-4 text-amber-500 animate-bounce" />
+                          <span className="text-amber-600 text-xs font-bold">Kèm theo: +{mail.coins_attached.toLocaleString()} Xu</span>
                         </div>
                         <button
                           onClick={() => handleClaimCoins(mail)}
                           disabled={mail.is_claimed}
                           className={`px-4 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition ${
                             mail.is_claimed 
-                              ? 'bg-white/10 text-white/40 border border-white/5' 
-                              : 'bg-yellow-500 hover:bg-yellow-400 text-black shadow-lg shadow-yellow-500/20 active:scale-95 cursor-pointer'
+                              ? 'bg-slate-300 text-slate-500 border border-slate-300' 
+                              : 'bg-amber-500 hover:bg-amber-400 text-black shadow-lg shadow-amber-500/20 active:scale-95 cursor-pointer'
                           }`}
                         >
                           {mail.is_claimed ? 'Đã nhận' : 'Nhận quà'}

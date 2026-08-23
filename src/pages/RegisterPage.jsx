@@ -26,8 +26,8 @@ export default function RegisterPage() {
       return;
     }
 
-    if (password.length < 6) {
-      setError('Mật khẩu phải có ít nhất 6 ký tự');
+    if (password.length < 8) {
+      setError('Mật khẩu phải có ít nhất 8 ký tự');
       return;
     }
 
@@ -144,10 +144,10 @@ export default function RegisterPage() {
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Ít nhất 6 ký tự"
+                  placeholder="Ít nhất 8 ký tự"
                   className="game-input !pl-11 pr-12"
                   required
-                  minLength={6}
+                  minLength={8}
                 />
                 <button
                   type="button"

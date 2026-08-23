@@ -8,6 +8,12 @@ import {
 } from 'lucide-react';
 import './LoginPage.css';
 
+const isObfuscatedExistingUser = (data) => (
+  Boolean(data?.user) &&
+  Array.isArray(data.user.identities) &&
+  data.user.identities.length === 0
+);
+
 export default function LoginPage() {
   const navigate = useNavigate();
   const { loginWithGoogle, setUser } = useAuth();
@@ -117,58 +123,112 @@ export default function LoginPage() {
   }, [isDragging, dragX]);
 
   // Auth processing
+  const validateTeacherPassword = (pwd) => {
+    if (!pwd || pwd.length < 8) {
+      return { valid: false, message: 'Mật khẩu giáo viên phải có ít nhất 8 ký tự.' };
+    }
+    const hasUpper = /[A-Z]/.test(pwd);
+    const hasLower = /[a-z]/.test(pwd);
+    const hasNumber = /[0-9]/.test(pwd);
+    const hasSpecial = /[!@#$%^&*()_+={};':"|,.<>?/-]/.test(pwd);
+
+    if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+      return { 
+        valid: false, 
+        message: 'Mật khẩu yêu cầu độ mạnh cao: phải bao gồm chữ hoa (A-Z), chữ thường (a-z), chữ số (0-9) và ký tự đặc biệt (!@#$%...).' 
+      };
+    }
+    return { valid: true, message: '' };
+  };
+
+  // Auth processing
   const handleEmailAuth = async (e) => {
     e.preventDefault();
     setLoading(true); clearError();
     try {
+      const cleanEmail = email.trim().toLowerCase();
+
       if (mode === 'register') {
         if (password !== confirmPassword) {
           throw new Error('Mật khẩu xác nhận không khớp');
         }
-        if (password.length < 6) {
-          throw new Error('Mật khẩu phải có ít nhất 6 ký tự');
+        if (password.length < 8) {
+          throw new Error('Mật khẩu phải có ít nhất 8 ký tự');
         }
 
         const { data, error: err } = await supabase.auth.signUp({
-          email,
+          email: cleanEmail,
           password,
-          options: { data: { full_name: username, role: tab } }
+          options: {
+            data: { full_name: username, role: tab },
+            emailRedirectTo: `${window.location.origin}/login`
+          }
         });
         if (err) throw err;
+
+        if (!data.user || isObfuscatedExistingUser(data)) {
+          throw new Error('EMAIL_ALREADY_EXISTS_OR_SOCIAL');
+        }
+
+        if (data.session) {
+          await supabase.auth.signOut();
+        }
         
-        // Prevent immediate login upon registration by signing out immediately
-        await supabase.auth.signOut();
+        // Chuyển sang chế độ đăng nhập và hiển thị thông báo
+        setMode('login');
+        setEmail(cleanEmail);
+        setRegisterSuccessMsg(
+          data.session
+            ? '✅ Đăng ký thành công! Hãy đăng nhập bằng mật khẩu BioLearn vừa tạo.'
+            : `📩 Tài khoản đã được tạo. Hãy mở email ${cleanEmail} và bấm liên kết xác nhận của Supabase trước khi đăng nhập. Mật khẩu đăng nhập là mật khẩu BioLearn vừa tạo, không phải mật khẩu Gmail.`
+        );
         
-        // Set success message to show under the form instead of automatically switching mode
-        setRegisterSuccessMsg('Đăng ký thành công! Một liên kết xác thực đã được gửi đến email của bạn. Vui lòng xác thực email để kích hoạt tài khoản trước khi đăng nhập.');
-        
-        // Clear password and verification fields, keep email for visual context
+        // Xóa mật khẩu cũ, giữ lại email
         setPassword('');
         setConfirmPassword('');
         setUsername('');
       } else {
         const { data, error: err } = await supabase.auth.signInWithPassword({
-          email,
+          email: cleanEmail,
           password
         });
         if (err) throw err;
         if (data.user) {
-          const { data: profile } = await supabase
+          const { data: profile, error: profileError } = await supabase
             .from('profiles')
             .select('role')
             .eq('id', data.user.id)
             .single();
-          
-          const role = profile?.role || 'student';
+
+          if (profileError) throw profileError;
+
+          let role = profile?.role || data.user.user_metadata?.role || 'student';
+
+          if (tab === 'teacher' && !['teacher', 'admin'].includes(role)) {
+            await supabase.auth.signOut();
+            throw new Error('Tài khoản này chưa được cấp quyền Giáo viên. Hãy hoàn tất đăng ký bằng mã Admin trước.');
+          }
+
+          // Mã duyệt không bị xóa. RPC chỉ đánh dấu yêu cầu đã được dùng sau
+          // lần đăng nhập Giáo viên thành công để Admin tự động ẩn yêu cầu này.
+          if (tab === 'teacher' && role === 'teacher') {
+            const { error: consumeError } = await supabase.rpc('consume_teacher_approval', {
+              p_email: cleanEmail
+            });
+            if (consumeError && !consumeError.message?.includes('Could not find the function')) {
+              console.warn('Không thể đánh dấu mã Giáo viên đã sử dụng:', consumeError.message);
+            }
+          }
+
           setUser({ ...data.user, role });
-          
+
           if (role === 'admin') navigate('/admin');
           else if (role === 'teacher') navigate('/teacher');
           else navigate('/home');
         }
       }
     } catch (err) {
-      setError(translateAuthError(err.message));
+      setError(translateAuthError(err));
     } finally {
       setLoading(false);
     }
@@ -185,40 +245,154 @@ export default function LoginPage() {
 
   const handleTeacherRequestCode = async (e) => {
     e.preventDefault();
-    setLoading(true); clearError();
-    setTimeout(() => {
-      setTeacherRequestSent(true);
-      setTeacherRequestStatus('Bản Demo: Mặc định mã xác thực Teacher là ADMIN123');
-      setLoading(false);
-    }, 500);
-  };
-
-  const handleTeacherRegister = async (e) => {
-    e.preventDefault();
+    if (!email || !email.trim()) {
+      setError('Vui lòng nhập địa chỉ email giáo viên.');
+      return;
+    }
+    const cleanEmail = email.trim().toLowerCase();
     setLoading(true); clearError();
     try {
-      if (!teacherRequestSent) throw new Error('Bạn cần gửi yêu cầu mã xác thực trước khi đăng ký');
-      if (verCode !== 'ADMIN123') throw new Error('Mã xác thực không hợp lệ (Dùng ADMIN123 cho Demo)');
-
-      const { data, error } = await supabase.auth.signUp({
-        email, password, options: { data: { full_name: username, role: 'teacher' } }
+      // RPC chỉ trả trạng thái, tuyệt đối không trả approved_code ra client.
+      const { data: req, error: fetchErr } = await supabase.rpc('get_teacher_request_status', {
+        p_email: cleanEmail
       });
-      if (error) throw error;
-      if (data.user) {
-        setUser(data.user);
-        navigate('/teacher');
+      if (fetchErr) throw fetchErr;
+
+      if (req?.exists) {
+        if (req.status === 'approved') {
+          setTeacherRequestStatus(`✅ Email ${cleanEmail} đã được Admin duyệt cấp mã xác thực. Vui lòng nhập mã và bấm "Đăng ký ngay".`);
+        } else if (req.status === 'pending') {
+          setTeacherRequestStatus(`⏳ Yêu cầu mã xác thực cho email ${cleanEmail} đã gửi trước đó và đang chờ Admin duyệt. Vui lòng liên hệ Admin qua email supportbiolearn@gmail.com để nhận mã.`);
+        } else if (req.status === 'registered') {
+          throw new Error('Tài khoản Giáo viên với email này đã tồn tại. Hãy chuyển sang Đăng nhập hoặc dùng Quên mật khẩu.');
+        } else {
+          await supabase.from('teacher_requests').insert([{
+            email: cleanEmail,
+            username: username.trim() || cleanEmail.split('@')[0],
+            status: 'pending'
+          }]);
+          setTeacherRequestStatus(`📬 Yêu cầu cấp mã mới đã được gửi tới Admin cho email: ${cleanEmail}. Vui lòng chờ Admin duyệt!`);
+        }
+      } else {
+        const { error: insertErr } = await supabase.from('teacher_requests').insert([{
+          email: cleanEmail,
+          username: username.trim() || cleanEmail.split('@')[0],
+          status: 'pending'
+        }]);
+        if (insertErr) {
+          console.error('Lỗi tạo yêu cầu giáo viên:', insertErr);
+        }
+        setTeacherRequestStatus(`📬 Yêu cầu cấp mã xác thực đã được gửi thành công đến Admin cho địa chỉ email: ${cleanEmail}. Vui lòng chờ Admin duyệt và cấp mã qua email supportbiolearn@gmail.com!`);
       }
+      setTeacherRequestSent(true);
     } catch (err) {
-      setError(translateAuthError(err.message));
+      setError(err.message || 'Không thể gửi yêu cầu mã xác thực. Vui lòng thử lại.');
     } finally {
       setLoading(false);
     }
   };
 
-  function translateAuthError(msg) {
-    if (msg.includes('already registered')) return 'Email đã được sử dụng';
-    if (msg.includes('Invalid login credentials')) return 'Email hoặc mật khẩu không đúng';
-    if (msg.includes('Password should be at least')) return 'Mật khẩu phải có ít nhất 6 ký tự';
+  const handleTeacherRegister = async (e) => {
+    e.preventDefault();
+    const cleanEmail = email.trim().toLowerCase();
+    const codeUpper = verCode.trim().toUpperCase();
+
+    if (!codeUpper) {
+      setError('Vui lòng nhập mã xác thực do Admin cấp.');
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError('Mật khẩu xác nhận không khớp');
+      return;
+    }
+    
+    // Kiểm tra độ mạnh mật khẩu Giáo viên (8+ ký tự, HOA, thường, số, đặc biệt)
+    const passCheck = validateTeacherPassword(password);
+    if (!passCheck.valid) {
+      setError(passCheck.message);
+      return;
+    }
+
+    setLoading(true); clearError();
+    try {
+      const { data: matchedReq, error: codeError } = await supabase.rpc('validate_teacher_approval', {
+        p_email: cleanEmail,
+        p_code: codeUpper
+      });
+
+      if (codeError) throw codeError;
+
+      if (!matchedReq?.valid) {
+        throw new Error('Mã xác thực không hợp lệ hoặc chưa được Admin phê duyệt cho email này.');
+      }
+
+      // Tạo tài khoản trong Supabase
+      const { data, error: signUpErr } = await supabase.auth.signUp({
+        email: cleanEmail,
+        password,
+        options: {
+          data: {
+            full_name: username.trim() || cleanEmail.split('@')[0],
+            role: 'teacher'
+          },
+          emailRedirectTo: `${window.location.origin}/login`
+        }
+      });
+
+      if (signUpErr) throw signUpErr;
+
+      if (!data.user || isObfuscatedExistingUser(data)) {
+        throw new Error('EMAIL_ALREADY_EXISTS_OR_SOCIAL');
+      }
+
+      // Không xóa approved_code tại đây. Mã được giữ để audit và chỉ được
+      // đánh dấu consumed sau lần đăng nhập Giáo viên thành công.
+
+      if (data.session) {
+        await supabase.from('profiles').update({ role: 'teacher' }).eq('id', data.user.id);
+        await supabase.auth.signOut();
+      }
+
+      // Chuyển chế độ giao diện sang Đăng Nhập Giáo Viên
+      setTab('teacher');
+      setMode('login');
+      setEmail(cleanEmail);
+      setPassword('');
+      setConfirmPassword('');
+      setVerCode('');
+      setTeacherRequestSent(false);
+      setTeacherRequestStatus('');
+
+      setRegisterSuccessMsg(
+        data.session
+          ? '🎉 Đăng ký tài khoản Giáo viên thành công! Hãy đăng nhập bằng mật khẩu BioLearn vừa tạo.'
+          : `📩 Tài khoản Giáo viên đã được tạo. Hãy mở email ${cleanEmail} và bấm liên kết xác nhận của Supabase trước khi đăng nhập. Mật khẩu cần dùng là mật khẩu BioLearn vừa tạo, không phải mật khẩu Gmail.`
+      );
+    } catch (err) {
+      setError(translateAuthError(err));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  function translateAuthError(errorValue) {
+    const msg = typeof errorValue === 'string' ? errorValue : (errorValue?.message || 'Đã xảy ra lỗi xác thực');
+    const code = typeof errorValue === 'object' ? errorValue?.code : '';
+
+    if (msg === 'EMAIL_ALREADY_EXISTS_OR_SOCIAL' || code === 'user_already_exists' || msg.includes('already registered')) {
+      return tab === 'teacher'
+        ? 'Tài khoản Giáo viên với email này đã tồn tại. Hãy đăng nhập bằng mật khẩu BioLearn đã tạo hoặc dùng “Quên mật khẩu?”.'
+        : 'Email này đã có tài khoản. Hãy đăng nhập bằng phương thức đã dùng trước đó hoặc đặt lại mật khẩu.';
+    }
+    if (code === 'email_not_confirmed' || msg.toLowerCase().includes('email not confirmed')) {
+      return 'Email chưa được xác nhận. Hãy mở email xác nhận từ Supabase (kiểm tra cả Spam), bấm liên kết xác nhận rồi đăng nhập lại.';
+    }
+    if (code === 'invalid_credentials' || msg.includes('Invalid login credentials')) {
+      return tab === 'teacher'
+        ? 'Email hoặc mật khẩu BioLearn không đúng. Đây là mật khẩu bạn đã tạo khi đăng ký Giáo viên, không phải mật khẩu Gmail.'
+        : 'Email hoặc mật khẩu không đúng, email chưa xác nhận, hoặc tài khoản dùng đăng nhập Google.';
+    }
+    if (msg.includes('Password should be at least')) return 'Mật khẩu phải có ít nhất 8 ký tự';
     return msg;
   }
 
@@ -421,11 +595,18 @@ export default function LoginPage() {
                           required 
                         />
                       </div>
-                      {registerSuccessMsg && (
-                        <p className="cosmic-register-success-tip" style={{ color: '#4ade80', fontSize: '12px', marginTop: '6px', fontWeight: 'bold', lineHeight: '1.4' }}>
-                          ✓ {registerSuccessMsg}
-                        </p>
-                      )}
+                    </div>
+                  )}
+
+                  {tab === 'teacher' && mode === 'register' && (
+                    <p className="cosmic-tip" style={{ color: '#67e8f9', fontSize: '11px', marginTop: '6px', lineHeight: '1.4' }}>
+                      🛡️ Yêu cầu: Mật khẩu tối thiểu 8 ký tự, chứa ít nhất 1 chữ HOA, 1 chữ thường, 1 chữ số và 1 ký tự đặc biệt (!@#$...).
+                    </p>
+                  )}
+
+                  {registerSuccessMsg && (
+                    <div className="bg-emerald-500/25 border border-emerald-400 text-emerald-100 px-4 py-3 rounded-xl my-3 text-xs md:text-sm font-bold leading-relaxed shadow-lg backdrop-blur-md">
+                      {registerSuccessMsg}
                     </div>
                   )}
 

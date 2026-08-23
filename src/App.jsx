@@ -24,7 +24,10 @@ import BattlePage from './pages/BattlePage';
 import BattlePvPPage from './pages/BattlePvPPage';
 import SimulationsPage from './pages/SimulationsPage';
 import Biology3DPage from './pages/Biology3DPage';
+import StationExpeditionPage from './pages/StationExpeditionPage';
+import AdminStationPage from './pages/AdminStationPage';
 import ChatboxAI from './components/ChatboxAI';
+
 import TeacherPage from './pages/TeacherPage';
 import StudentQuizRoomPage from './pages/StudentQuizRoomPage';
 import LandingPage from './pages/LandingPage';
@@ -404,9 +407,18 @@ function App() {
         const maxStamina = profile.max_stamina ?? 20;
 
         if (mounted) {
+          const userRole = (profile?.role && profile.role !== 'student')
+            ? profile.role
+            : (sessionUser?.user_metadata?.role || profile?.role || 'student');
+
+          if (profile && sessionUser?.user_metadata?.role === 'teacher' && profile.role !== 'teacher') {
+            supabase.from('profiles').update({ role: 'teacher' }).eq('id', sessionUser.id).then(() => { });
+          }
+
           const mergedUser = {
             ...sessionUser,
             ...profile,
+            role: userRole,
             uid: sessionUser.id,
             displayName: profile?.display_name || sessionUser.user_metadata?.full_name || sessionUser.email,
             avatar: profile?.avatar_url || sessionUser.user_metadata?.avatar_url || '',
@@ -615,6 +627,12 @@ function App() {
     return <Navigate to={getDefaultRouteForUser(user)} replace />;
   };
 
+  const renderStudentOrAdmin = (element) => {
+    if (!user) return <Navigate to="/login" replace />;
+    if (user.role === 'student' || user.role === 'admin') return element;
+    return <Navigate to={getDefaultRouteForUser(user)} replace />;
+  };
+
   const renderAdminOnly = (element) => {
     if (!user) return <Navigate to="/login" replace />;
     if (user.role === 'admin') return element;
@@ -743,9 +761,14 @@ function App() {
                     element={renderAdminOnly(<AdminReportsPage />)}
                   />
                   <Route
+                    path="/admin/stations"
+                    element={renderAdminOnly(<AdminStationPage />)}
+                  />
+                  <Route
                     path="/admin/lessons"
                     element={renderAdminOnly(<MorePage />)}
                   />
+
                   <Route
                     path="/teacher"
                     element={renderTeacherOnly(<TeacherPage user={user} />)}
@@ -773,6 +796,10 @@ function App() {
                   <Route
                     path="/biology3d"
                     element={renderStudentOnly(<Biology3DPage />)}
+                  />
+                  <Route
+                    path="/stations"
+                    element={renderStudentOrAdmin(<StationExpeditionPage />)}
                   />
 
                   {/* Default redirect */}

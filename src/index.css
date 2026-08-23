@@ -2292,7 +2292,34 @@ body.light-theme .card-clear-liquid-glass h3 {
 }
 
 body.light-theme .card-clear-liquid-glass p {
-  color: #475569 !important;
+  color: #334155 !important;
+}
+
+/* Override đặc biệt dành riêng cho Portal Video Banner Card: Chữ luôn trắng sáng 100% trên nền video tối kể cả khi ở Light Theme */
+.portal-video-banner-card,
+body.light-theme .portal-video-banner-card,
+body:not(.light-theme) .portal-video-banner-card {
+  color: #ffffff !important;
+}
+
+.portal-video-banner-card h3,
+body.light-theme .portal-video-banner-card h3,
+body:not(.light-theme) .portal-video-banner-card h3 {
+  color: #ffffff !important;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.95);
+}
+
+.portal-video-banner-card p,
+body.light-theme .portal-video-banner-card p,
+body:not(.light-theme) .portal-video-banner-card p {
+  color: #f1f5f9 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.portal-video-banner-card span,
+body.light-theme .portal-video-banner-card span,
+body:not(.light-theme) .portal-video-banner-card span {
+  color: #ffffff !important;
 }
 
 body.light-theme .card-clear-liquid-glass span.bg-white\/5 {
@@ -2311,3 +2338,647 @@ body.light-theme .card-clear-liquid-glass div.bg-white\/5 svg {
 body.light-theme .card-clear-liquid-glass div.bg-white\/5:hover svg {
   color: #0f172a !important;
 }
+
+/* ==========================================================================
+   BIO GAME STATIONS & EXPEDITION MAP (LIQUID GLASS 2.0 & HIGH-END ANIMATIONS)
+   ========================================================================== */
+
+/* 1. Expedition Liquid Glass Panels */
+.expedition-glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 2rem;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.light-theme .expedition-glass-panel {
+  background: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9) !important;
+  color: #0f172a !important;
+}
+
+/* 2. Glossy 3D Metallic Star Pop Animation */
+@keyframes star-pop-glossy {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+    filter: drop-shadow(0 0 0 rgba(251, 191, 36, 0));
+  }
+  60% {
+    transform: scale(1.35) rotate(10deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.9));
+  }
+  80% {
+    transform: scale(0.92) rotate(-5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+    filter: drop-shadow(0 4px 12px rgba(245, 158, 11, 0.5));
+  }
+}
+
+.animate-star-pop {
+  animation: star-pop-glossy 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.glossy-star-gold {
+  background: radial-gradient(circle at 30% 30%, #fffbeb 0%, #fbbf24 40%, #d97706 80%, #78350f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.6));
+}
+
+/* 3. Treasure Chest Loot Glow & Beams */
+@keyframes chest-beam-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+    filter: brightness(1) blur(10px);
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+    filter: brightness(1.6) blur(18px);
+  }
+}
+
+.animate-chest-glow {
+  animation: chest-beam-pulse 2s infinite ease-in-out;
+}
+
+@keyframes loot-float {
+  0% {
+    transform: translateY(0px) scale(0.9);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0px) scale(0.9);
+  }
+}
+
+.animate-loot-float {
+  animation: loot-float 3s infinite ease-in-out;
+}
+
+/* 4. Bio Vessel / Submarine Sailing Animation */
+@keyframes vessel-wave-bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(3px) rotate(2deg);
+  }
+}
+
+.animate-vessel-sail {
+  animation: vessel-wave-bounce 2.5s infinite ease-in-out;
+}
+
+/* 5. Station Node Pulsing Ring */
+@keyframes node-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.active-node-ring {
+  animation: node-pulse-ring 2s infinite;
+}
+
+/* 6. Light Theme Specific Enhancements for Expedition Page */
+body.light-theme .station-title-text {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+body.light-theme .station-desc-text {
+  color: #334155 !important;
+}
+
+body.light-theme .station-day-card {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .station-day-card p,
+body.light-theme .station-day-card span {
+  color: #0f172a !important;
+}
+
+/* ==========================================================================
+   BLOX FRUITS STYLE BIO ARCHIPELAGO OCEAN MAP & S-CURVE ISLAND TRAILS
+   ========================================================================== */
+
+/* 1. Bio Ocean Background Texture */
+.bio-ocean-bg {
+  background: radial-gradient(circle at 50% 30%, #0f2b48 0%, #07192c 60%, #030d17 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+body.light-theme .bio-ocean-bg {
+  background: radial-gradient(circle at 50% 30%, #e0f2fe 0%, #bae6fd 60%, #7dd3fc 100%) !important;
+}
+
+/* 2. Floating Island Card (Blox Fruits Style) */
+.bloxfruits-island-card {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  border: 2px solid rgba(56, 189, 248, 0.3);
+  border-radius: 2.5rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bloxfruits-island-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(56, 189, 248, 0.8);
+  box-shadow: 
+    0 30px 60px rgba(14, 165, 233, 0.3),
+    inset 0 2px 6px rgba(255, 255, 255, 0.4);
+}
+
+body.light-theme .bloxfruits-island-card {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: rgba(14, 165, 233, 0.35) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+  color: #0f172a !important;
+}
+
+/* 3. Ocean Waves Animation */
+@keyframes ocean-wave-shift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+.animate-ocean-waves {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 2px, transparent 2px);
+  background-size: 40px 40px;
+  animation: ocean-wave-shift 20s linear infinite;
+}
+
+/* 4. S-Curve Path Glow & Dash */
+@keyframes dash-pulse {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.s-curve-path-glow {
+  stroke-dasharray: 8 8;
+  animation: dash-pulse 2s linear infinite;
+}
+
+/* 5. Ship Sailing Path Animation */
+@keyframes ship-float-tilt {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-4deg); }
+}
+
+.animate-ship-float {
+  animation: ship-float-tilt 3s ease-in-out infinite;
+}
+
+/* 6. Horizontal Ocean Track Scrollbar Styling */
+.horizontal-ocean-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1.5rem;
+}
+
+.horizontal-ocean-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-ocean-slider::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 9999px;
+}
+
+.horizontal-ocean-slider::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.4);
+  border-radius: 9999px;
+}
+
+.horizontal-ocean-slider::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.8);
+}
+
+/* 7. Strict Light Theme High-Contrast Text Overrides */
+body.light-theme .bio-ocean-bg h1,
+body.light-theme .bio-ocean-bg h2,
+body.light-theme .bio-ocean-bg h3,
+body.light-theme .bio-ocean-bg h4 {
+  color: #0f172a !important;
+}
+
+body.light-theme .bio-ocean-bg p,
+body.light-theme .bio-ocean-bg span {
+  color: #334155 !important;
+}
+
+body.light-theme .bio-ocean-bg .text-cyan-300,
+body.light-theme .bio-ocean-bg .text-cyan-200 {
+  color: #0284c7 !important;
+}
+
+body.light-theme .bio-ocean-bg .text-emerald-300,
+body.light-theme .bio-ocean-bg .text-emerald-400 {
+  color: #059669 !important;
+}
+
+body.light-theme .bio-ocean-bg .text-slate-300,
+body.light-theme .bio-ocean-bg .text-slate-400 {
+  color: #475569 !important;
+}
+
+body.light-theme .bio-ocean-bg .text-white {
+  color: #0f172a !important;
+}
+
+/* 8. Mascot Walking Along Trail Animation */
+@keyframes mascot-walk-bounce {
+  0% { transform: scale(1) translateY(0); }
+  25% { transform: scale(1.15) translateY(-10px) rotate(-8deg); }
+  50% { transform: scale(1) translateY(0); }
+  75% { transform: scale(1.15) translateY(-10px) rotate(8deg); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+.animate-mascot-walk {
+  animation: mascot-walk-bounce 0.8s ease-in-out infinite;
+}
+
+/* 9. 3D Biological Floating Island Badge (Blox Fruits RPG Style) */
+.horizontal-ocean-slider {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: visible !important;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 4.75rem;
+  padding-bottom: 2rem;
+}
+
+.bio-3d-island-badge {
+  position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  user-select: none;
+}
+
+.bio-3d-island-badge:hover {
+  transform: translateY(-8px);
+  filter: drop-shadow(0 15px 25px rgba(56, 189, 248, 0.4));
+}
+
+/* Ripple water glow under floating island */
+.island-water-ripple {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 35px;
+  background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.5) 0%, rgba(14, 165, 233, 0.1) 70%, transparent 100%);
+  border-radius: 50%;
+  animation: island-ripple-pulse 3s infinite ease-in-out;
+}
+
+@keyframes island-ripple-pulse {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  50% { transform: translateX(-50%) scale(1.2); opacity: 0.9; }
+}
+
+/* 10. 3D Railway Track & Image 5 Style Stone Pedestal Day Nodes */
+.railway-track-glow {
+  stroke-dasharray: 12 12;
+  animation: dash-pulse 2s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+}
+
+.day-badge-pedestal {
+  position: relative;
+  border-radius: 1.25rem 1.25rem 0.75rem 0.75rem;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.day-badge-pedestal:hover {
+  transform: scale(1.05);
+}
+
+.stone-pedestal-base {
+  background: linear-gradient(180deg, #475569 0%, #1e293b 100%);
+  border: 2px solid #64748b;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* 11. Strict Light Theme High-Contrast Overrides for Station Expedition & Quiz Modal (Strictly EXCLUDING dark Portal Video Banner Cards) */
+body.light-theme .station-card-panel:not(.portal-video-banner-card),
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.95) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .station-card-panel:not(.portal-video-banner-card) h1,
+body.light-theme .station-card-panel:not(.portal-video-banner-card) h2,
+body.light-theme .station-card-panel:not(.portal-video-banner-card) h3,
+body.light-theme .station-card-panel:not(.portal-video-banner-card) h4,
+body.light-theme .station-card-panel:not(.portal-video-banner-card) p,
+body.light-theme .station-card-panel:not(.portal-video-banner-card) span:not(.text-green-300):not(.text-yellow-300),
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) h1,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) h2,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) h3,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) h4,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) p,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) span:not(.text-green-300):not(.text-yellow-300) {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+body.light-theme .station-card-panel:not(.portal-video-banner-card) button.text-cyan-600,
+body.light-theme .station-card-panel:not(.portal-video-banner-card) button.text-cyan-500,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) button.text-cyan-600,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) button.text-cyan-500 {
+  color: #0284c7 !important;
+  font-weight: 800 !important;
+}
+
+body.light-theme .station-card-panel:not(.portal-video-banner-card) .bg-black\/40,
+body.light-theme .station-card-panel:not(.portal-video-banner-card) .bg-black\/10,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) .bg-black\/40,
+body.light-theme .card-clear-liquid-glass:not(.portal-video-banner-card) .bg-black\/10 {
+  background-color: rgba(241, 245, 249, 0.95) !important;
+  border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+/* STRICT OVERRIDE FOR PORTAL VIDEO BANNER CARD: Text MUST ALWAYS be pure white (#ffffff) on dark space video background */
+.portal-video-banner-card,
+.portal-video-banner-card h1,
+.portal-video-banner-card h2,
+.portal-video-banner-card h3,
+.portal-video-banner-card h4,
+.portal-video-banner-card p,
+.portal-video-banner-card span:not(.text-cyan-400),
+body.light-theme .portal-video-banner-card,
+body.light-theme .portal-video-banner-card h1,
+body.light-theme .portal-video-banner-card h2,
+body.light-theme .portal-video-banner-card h3,
+body.light-theme .portal-video-banner-card h4,
+body.light-theme .portal-video-banner-card p,
+body.light-theme .portal-video-banner-card span:not(.text-cyan-400) {
+  color: #ffffff !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95) !important;
+}
+
+body.light-theme .day-badge-pedestal.unlocked-node {
+  background: linear-gradient(180deg, #fbbf24 0%, #f59e0b 60%, #d97706 100%) !important;
+  border-color: #fef08a !important;
+}
+
+body.light-theme .day-badge-pedestal.locked-node {
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%) !important;
+  border-color: #94a3b8 !important;
+}
+
+body.light-theme .day-badge-pedestal .node-day-label {
+  color: #1e293b !important;
+}
+
+body.light-theme .day-badge-pedestal .node-day-num {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+body.light-theme .stone-pedestal-base {
+  background: linear-gradient(180deg, #cbd5e1 0%, #94a3b8 100%) !important;
+  border-color: #64748b !important;
+}
+
+body.light-theme .quiz-modal-container {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(14, 165, 233, 0.4) !important;
+  color: #0f172a !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.light-theme .quiz-modal-container h3,
+body.light-theme .quiz-modal-container h4,
+body.light-theme .quiz-modal-container span,
+body.light-theme .quiz-modal-container p {
+  color: #0f172a !important;
+}
+
+body.light-theme .quiz-option-btn {
+  background: rgba(241, 245, 249, 0.9) !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+body.light-theme .quiz-option-btn:hover {
+  background: #e0f2fe !important;
+  border-color: #38bdf8 !important;
+}
+
+/* Light Theme Grade Tabs High-Contrast (Lớp 6, 7, 8, 9, 10, 11, 12) */
+body.light-theme .grade-tab-btn-inactive {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: #cbd5e1 !important;
+  color: #1e293b !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .grade-tab-btn-inactive:hover {
+  background: #e0f2fe !important;
+  border-color: #0284c7 !important;
+  color: #0369a1 !important;
+}
+
+body.light-theme .page-subtitle-text {
+  color: #334155 !important;
+  font-weight: 700 !important;
+}
+
+body.light-theme .page-title-text {
+  color: #0f172a !important;
+}
+
+body.light-theme .header-coins-badge {
+  background: #fef3c7 !important;
+  border-color: #fcd34d !important;
+  color: #78350f !important;
+}
+
+body.light-theme .header-coins-badge span {
+  color: #78350f !important;
+  font-weight: 900 !important;
+}
+
+/* 12. CÁNH CỔNG DỊCH CHUYỂN NĂNG LƯỢNG XANH 3D (EPIC PLASMA ENERGY PORTAL RING - NO TEXT/ICON) */
+.epic-plasma-portal {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ffffff 0%, #38bdf8 30%, #0284c7 65%, #0369a1 90%, transparent 100%);
+  box-shadow: 
+    0 0 30px #38bdf8,
+    0 0 60px #0284c7,
+    0 0 90px rgba(56, 189, 248, 0.6),
+    inset 0 0 35px #ffffff;
+  animation: epic-portal-spin 4s linear infinite;
+  display: flex;
+  items-center: center;
+  justify-content: center;
+}
+
+.epic-plasma-portal::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 4px dashed #7dd3fc;
+  box-shadow: 0 0 20px #38bdf8;
+  animation: epic-ring-reverse 7s linear infinite;
+}
+
+.epic-plasma-portal::after {
+  content: '';
+  position: absolute;
+  inset: -28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.5) 0%, rgba(14, 165, 233, 0.1) 70%, transparent 100%);
+  animation: epic-pulse-flare 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes epic-portal-spin {
+  0% { transform: rotate(0deg) scale(1); filter: hue-rotate(0deg); }
+  50% { transform: rotate(180deg) scale(1.1); filter: hue-rotate(30deg); }
+  100% { transform: rotate(360deg) scale(1); filter: hue-rotate(0deg); }
+}
+
+@keyframes epic-ring-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes epic-pulse-flare {
+  0% { opacity: 0.6; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Hiệu ứng Phóng to Zoom Camera thẳng vào Cánh cổng */
+.teleport-zoom-portal {
+  animation: zoom-into-portal 1.2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  transform-origin: 50% 85%;
+}
+
+@keyframes zoom-into-portal {
+  0% { transform: scale(1); filter: brightness(1); opacity: 1; }
+  70% { transform: scale(3.5); filter: brightness(2.5) contrast(1.5); opacity: 0.9; }
+  100% { transform: scale(5); filter: brightness(4); opacity: 0; }
+}
+
+/* 13. ADMIN STATION PAGE HIGH-CONTRAST LIGHT & DARK THEME OVERRIDES */
+body.light-theme .admin-station-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(14, 165, 233, 0.3) !important;
+  color: #0f172a !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+body.light-theme .admin-station-card h1,
+body.light-theme .admin-station-card h2,
+body.light-theme .admin-station-card h3,
+body.light-theme .admin-station-card h4,
+body.light-theme .admin-station-card p:not(.text-emerald-400):not(.text-amber-400):not(.text-cyan-300),
+body.light-theme .admin-station-card label {
+  color: #0f172a !important;
+}
+
+body.light-theme .admin-station-input {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+/* Dark Theme explicit high contrast */
+body:not(.light-theme) .admin-station-card {
+  background: rgba(15, 23, 42, 0.95) !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  color: #f8fafc !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+body:not(.light-theme) .admin-station-card h1,
+body:not(.light-theme) .admin-station-card h2,
+body:not(.light-theme) .admin-station-card h3,
+body:not(.light-theme) .admin-station-card h4,
+body:not(.light-theme) .admin-station-card label {
+  color: #f8fafc !important;
+}
+
+body:not(.light-theme) .admin-station-input {
+  background: #020617 !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* 14. ANIMATE SHAKE RUNG NHẸ KHI NỐI SAI CẶP TỪ */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.45s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,12 +13,21 @@ import {
   Users,
   Sun,
   Moon,
+  Compass,
+  Mail,
+  Send,
+  Check,
+  Copy,
+  CheckCheck
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { sendAutoTeacherCodeEmail } from '../lib/email';
+import { useToast } from '../components/Toast';
 
 export default function AdminPage() {
   const navigate = useNavigate();
   const { user, theme, toggleTheme } = useAuth();
+  const { showToast } = useToast();
 
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -79,30 +88,62 @@ export default function AdminPage() {
     setRequestLoading(false);
   };
 
-  const approveTeacherRequest = async (requestId) => {
+  const approveTeacherRequest = async (requestItem) => {
+    const requestId = typeof requestItem === 'string' ? requestItem : requestItem?.id;
     if (!adminId || !requestId) return;
 
     setProcessingRequestId(requestId);
     setRequestError('');
-    try {
-      const approvedCode = Math.random().toString(36).substring(2, 10).toUpperCase();
-      const expiresAt = new Date();
-      expiresAt.setDate(expiresAt.getDate() + 30); // 30 days
 
+    try {
+      const approvedCode = 'TEACH' + Math.random().toString(36).substring(2, 7).toUpperCase();
+      const expiresAt = new Date();
+      expiresAt.setMinutes(expiresAt.getMinutes() + 60); // 60 phút hiệu lực
+
+      const expiresAtFormatted = expiresAt.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + expiresAt.toLocaleDateString('vi-VN');
+
+      // 1. Cập nhật trạng thái và mã xác thực vào cơ sở dữ liệu Supabase (Hạn 60 phút)
       const { error } = await supabase
         .from('teacher_requests')
         .update({
           status: 'approved',
           approved_code: approvedCode,
-          code_expires_at: expiresAt.toISOString()
+          code_expires_at: expiresAt.toISOString(),
+          decision_at: new Date().toISOString(),
+          decision_by: adminId
         })
         .eq('id', requestId);
 
       if (error) throw error;
 
+      // 2. TỰ ĐỘNG GỬI EMAIL CHẠY NGẦM ĐẾN HÒM THƯ GIÁO VIÊN TỪ supportbiolearn@gmail.com
+      const targetReq = typeof requestItem === 'object' ? requestItem : teacherRequests.find(r => r.id === requestId);
+      const targetEmail = targetReq?.email || '';
+      const targetName = targetReq?.username || '';
+
+      if (targetEmail) {
+        const mailResult = await sendAutoTeacherCodeEmail({
+          teacherEmail: targetEmail,
+          teacherName: targetName,
+          approvedCode: approvedCode,
+          expiresAtFormatted: expiresAtFormatted
+        });
+
+        if (mailResult.success) {
+          showToast(`✅ Đã duyệt mã [${approvedCode}] & gửi email thành công tới: ${targetEmail}!`, 'success', 4500);
+        } else {
+          const emailError = `Mã [${approvedCode}] đã được duyệt nhưng email chưa gửi được. ${mailResult.error}`;
+          setRequestError(emailError);
+          showToast(emailError, 'error', 8000);
+        }
+      } else {
+        showToast(`✅ Đã duyệt cấp mã [${approvedCode}] thành công!`, 'success', 4000);
+      }
+
       await fetchTeacherRequests();
     } catch (err) {
       setRequestError(err.message || 'Duyệt yêu cầu thất bại');
+      showToast(err.message || 'Duyệt yêu cầu thất bại', 'error');
     }
     setProcessingRequestId('');
   };
@@ -113,22 +154,54 @@ export default function AdminPage() {
     setProcessingRequestId(requestId);
     setRequestError('');
     try {
-      const res = await axios.post(
-        '/api/admin/reject-teacher-request',
-        { requestId },
-        {
-          headers: { 'x-admin-id': adminId },
-          params: { adminId },
-        }
-      );
+      const { error } = await supabase
+        .from('teacher_requests')
+        .update({
+          status: 'rejected',
+          approved_code: null,
+          code_expires_at: null,
+          decision_at: new Date().toISOString(),
+          decision_by: adminId
+        })
+        .eq('id', requestId);
 
-      if (!res?.data?.success) {
-        throw new Error(res?.data?.message || 'Không thể từ chối yêu cầu giáo viên');
-      }
+      if (error) throw error;
 
+      showToast('Đã từ chối yêu cầu mã giáo viên thành công', 'info');
       await fetchTeacherRequests();
     } catch (err) {
-      setRequestError(err?.response?.data?.message || err.message || 'Từ chối yêu cầu thất bại');
+      setRequestError(err.message || 'Từ chối yêu cầu thất bại');
+      showToast(err.message || 'Từ chối thất bại', 'error');
+    }
+    setProcessingRequestId('');
+  };
+
+  const handleResendAutoEmail = async (request) => {
+    if (!request?.email || !request?.approved_code) return;
+    setProcessingRequestId(request.id);
+    setRequestError('');
+    try {
+      const expiresAtFormatted = request.code_expires_at
+        ? formatDateTime(request.code_expires_at)
+        : undefined;
+      const mailResult = await sendAutoTeacherCodeEmail({
+        teacherEmail: request.email,
+        teacherName: request.username,
+        approvedCode: request.approved_code,
+        expiresAtFormatted
+      });
+
+      if (mailResult.success) {
+        showToast(`📬 Đã gửi lại email chứa mã [${request.approved_code}] tới ${request.email}!`, 'success', 4000);
+      } else {
+        const emailError = `Gửi lại email thất bại. ${mailResult.error}`;
+        setRequestError(emailError);
+        showToast(emailError, 'error', 8000);
+      }
+    } catch (err) {
+      const emailError = `Gửi lại email thất bại. ${err?.message || 'Lỗi không xác định'}`;
+      setRequestError(emailError);
+      showToast(emailError, 'error', 8000);
     }
     setProcessingRequestId('');
   };
@@ -208,37 +281,40 @@ export default function AdminPage() {
     );
   }
 
+  const isLight = theme === 'light';
+
   const pendingTeacherRequests = teacherRequests.filter((request) => request.status === 'pending');
   const activeApprovedRequests = teacherRequests.filter((request) => {
     if (request.status !== 'approved' || !request.code_expires_at) return false;
     return new Date(request.code_expires_at).getTime() > Date.now();
   });
+  const rejectedTeacherRequests = teacherRequests.filter((request) => request.status === 'rejected');
 
   return (
     <div className="min-h-screen">
-      <header className="bg-gray-800/50 backdrop-blur-lg sticky top-0 z-50 border-b border-white/10">
+      <header className={`backdrop-blur-lg sticky top-0 z-50 border-b ${isLight ? 'bg-white/80 border-slate-200' : 'bg-gray-800/50 border-white/10'}`}>
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => navigate('/login', { replace: true })}
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition ${isLight ? 'bg-slate-200 hover:bg-slate-300 text-slate-800' : 'bg-white/10 text-white hover:bg-white/20'}`}
               >
-                <ArrowLeft className="w-5 h-5 text-white" />
+                <ArrowLeft className="w-5 h-5" />
               </button>
               <div>
-                <h1 className="text-xl font-bold text-white">Admin Dashboard</h1>
-                <p className="text-gray-400 text-sm">Quản lý Sinh Học Vui</p>
+                <h1 className={`text-xl font-bold ${isLight ? 'text-slate-900' : 'text-white'}`}>Admin Dashboard</h1>
+                <p className={`text-sm ${isLight ? 'text-slate-600' : 'text-gray-400'}`}>Quản lý Sinh Học Vui</p>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
               <button
                 onClick={toggleTheme}
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 active:scale-95 transition cursor-pointer"
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition active:scale-95 cursor-pointer ${isLight ? 'bg-slate-200 hover:bg-slate-300 text-slate-800' : 'bg-white/10 text-white hover:bg-white/20'}`}
                 title={theme === 'light' ? 'Chuyển sang chế độ tối' : 'Chuyển sang chế độ sáng'}
               >
-                {theme === 'light' ? <Moon className="w-5 h-5 text-white" /> : <Sun className="w-5 h-5 text-yellow-400 animate-pulse" />}
+                {theme === 'light' ? <Moon className="w-5 h-5 text-indigo-700" /> : <Sun className="w-5 h-5 text-yellow-400 animate-pulse" />}
               </button>
 
               <button
@@ -246,9 +322,9 @@ export default function AdminPage() {
                   fetchAdminStats();
                   fetchTeacherRequests();
                 }}
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20"
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition ${isLight ? 'bg-slate-200 hover:bg-slate-300 text-slate-800' : 'bg-white/10 text-white hover:bg-white/20'}`}
               >
-                <RefreshCw className={`w-5 h-5 text-white ${loading ? 'animate-spin' : ''}`} />
+                <RefreshCw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} />
               </button>
             </div>
           </div>
@@ -257,53 +333,54 @@ export default function AdminPage() {
 
       <main className="max-w-6xl mx-auto px-4 py-6">
 
-        <div className="game-card mb-6">
+        <div className={`game-card mb-6 ${isLight ? '!bg-white/90 !border-slate-300 shadow-lg' : ''}`}>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-white">Duyệt yêu cầu mã giáo viên</h3>
+            <h3 className={`text-lg font-bold ${isLight ? 'text-slate-900' : 'text-white'}`}>Duyệt yêu cầu mã giáo viên</h3>
             <button
               onClick={fetchTeacherRequests}
               disabled={requestLoading}
-              className="px-3 py-2 bg-white/10 rounded-lg text-white text-sm hover:bg-white/20 disabled:opacity-60"
+              className={`px-3 py-2 rounded-xl text-sm font-semibold transition ${isLight ? 'bg-slate-200 hover:bg-slate-300 text-slate-800' : 'bg-white/10 text-white hover:bg-white/20'} disabled:opacity-60`}
             >
               {requestLoading ? 'Đang tải...' : 'Tải lại'}
             </button>
           </div>
 
           {requestError && (
-            <div className="mb-3 p-3 rounded-lg border border-red-400/40 bg-red-500/15 text-red-100 text-sm">
+            <div className="mb-3 p-3 rounded-xl border border-red-400/40 bg-red-500/15 text-red-100 text-sm">
               {requestError}
             </div>
           )}
 
           {pendingTeacherRequests.length === 0 && !requestLoading && (
-            <div className="p-3 rounded-lg bg-white/5 text-gray-300 text-sm">
+            <div className={`p-3.5 rounded-xl text-sm font-medium ${isLight ? 'bg-slate-100 text-slate-700 border border-slate-200' : 'bg-white/5 text-gray-300'}`}>
               Hiện chưa có yêu cầu giáo viên nào đang chờ duyệt.
             </div>
           )}
 
           <div className="space-y-3">
             {pendingTeacherRequests.map((request) => (
-              <div key={request.id} className="p-4 rounded-xl bg-white/5 border border-white/10">
+              <div key={request.id} className={`p-4 rounded-2xl border transition-all shadow-md ${isLight ? 'bg-white border-slate-300 text-slate-900' : 'bg-white/5 border-white/10 text-white'}`}>
                 <div className="flex flex-col md:flex-row md:items-center gap-3 md:justify-between">
                   <div>
-                    <p className="text-white font-semibold">{request.username}</p>
-                    <p className="text-gray-300 text-sm">{request.email}</p>
-                    <p className="text-gray-400 text-xs mt-1">Gửi lúc: {formatDateTime(request.created_at)}</p>
+                    <p className={`font-bold text-base ${isLight ? 'text-slate-900' : 'text-white'}`}>{request.username}</p>
+                    <p className={`text-sm font-bold font-mono ${isLight ? 'text-blue-700' : 'text-cyan-300'}`}>{request.email}</p>
+                    <p className={`text-xs mt-1 font-medium ${isLight ? 'text-slate-500' : 'text-gray-400'}`}>Gửi lúc: {formatDateTime(request.created_at)}</p>
                   </div>
 
                   <div className="flex gap-2">
                     <button
-                      onClick={() => approveTeacherRequest(request.id)}
+                      onClick={() => approveTeacherRequest(request)}
                       disabled={processingRequestId === request.id}
-                      className="px-3 py-2 rounded-lg bg-green-500 hover:bg-green-400 text-white text-sm disabled:opacity-60"
+                      className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold transition shadow-md active:scale-95 disabled:opacity-60 cursor-pointer flex items-center gap-1.5"
                     >
-                      {processingRequestId === request.id ? 'Đang xử lý...' : 'Duyệt cấp mã'}
+                      <Check className="w-4 h-4" />
+                      <span>{processingRequestId === request.id ? 'Đang duyệt & gửi mail...' : 'Duyệt & Tự động gửi Email'}</span>
                     </button>
 
                     <button
                       onClick={() => rejectTeacherRequest(request.id)}
                       disabled={processingRequestId === request.id}
-                      className="px-3 py-2 rounded-lg bg-red-500/80 hover:bg-red-500 text-white text-sm disabled:opacity-60"
+                      className="px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-sm font-semibold transition active:scale-95 disabled:opacity-60 cursor-pointer"
                     >
                       Từ chối
                     </button>
@@ -314,22 +391,80 @@ export default function AdminPage() {
           </div>
 
           {activeApprovedRequests.length > 0 && (
-            <div className="mt-5">
-              <h4 className="text-white font-medium mb-2">Mã đã cấp còn hiệu lực</h4>
-              <div className="space-y-2">
+            <div className="mt-6">
+              <h4 className={`font-bold text-base mb-3 ${isLight ? 'text-slate-900' : 'text-white'}`}>Mã đã cấp còn hiệu lực (Hạn 60 phút)</h4>
+              <div className="space-y-3">
                 {activeApprovedRequests.map((request) => (
-                  <div key={`approved-${request.id}`} className="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
-                    <p className="text-green-200 text-sm">
-                       <strong>{request.username}</strong> - {request.email}
-                    </p>
-                    <p className="text-white mt-1">
-                      Mã: <span className="font-bold tracking-wider">{request.approved_code}</span>
-                    </p>
-                    <p className="text-green-100/80 text-xs mt-1">Hết hạn lúc: {formatDateTime(request.code_expires_at)}</p>
+                  <div 
+                    key={`approved-${request.id}`} 
+                    className={`p-4 rounded-2xl border flex flex-col md:flex-row md:items-center justify-between gap-3 shadow-md ${isLight ? 'bg-slate-50 border-emerald-300 text-slate-900' : 'bg-emerald-950/40 border-emerald-500/30 text-emerald-100'}`}
+                  >
+                    <div>
+                      <p className="text-sm font-bold">
+                         <strong className={isLight ? 'text-slate-900' : 'text-emerald-200'}>{request.username}</strong> - <span className={`font-mono font-bold underline ${isLight ? 'text-blue-700' : 'text-cyan-300'}`}>{request.email}</span>
+                      </p>
+                      <div className="mt-2 flex items-center gap-2 flex-wrap">
+                        <span className={`font-semibold text-xs ${isLight ? 'text-slate-700' : 'text-gray-300'}`}>Mã duyệt:</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            navigator.clipboard.writeText(request.approved_code);
+                            showToast(`📋 Đã sao chép mã [${request.approved_code}]!`, 'info', 3000);
+                          }}
+                          className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border cursor-pointer active:scale-95 ${
+                            isLight 
+                              ? 'bg-slate-100 border-slate-300 text-slate-900 shadow-sm' 
+                              : 'bg-slate-800/80 border-slate-600/50 text-slate-100 shadow-md'
+                          }`}
+                          title="Bấm để sao chép mã xác thực"
+                        >
+                          <span className={`font-mono font-black tracking-widest text-sm ${isLight ? 'text-indigo-950' : 'text-cyan-300'}`}>
+                            {request.approved_code}
+                          </span>
+                          <div className={`w-5 h-5 rounded-md border flex items-center justify-center ${
+                            isLight 
+                              ? 'bg-indigo-100 border-indigo-200 text-indigo-700' 
+                              : 'bg-cyan-500/20 border-cyan-400/30 text-cyan-300'
+                          }`}>
+                            <Copy className="w-3.5 h-3.5" />
+                          </div>
+                        </button>
+                      </div>
+                      <p className={`text-xs mt-2 font-medium ${isLight ? 'text-slate-600' : 'text-green-200/80'}`}>Hết hạn lúc: {formatDateTime(request.code_expires_at)}</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 self-start md:self-center flex-wrap">
+                      <button
+                        onClick={() => handleResendAutoEmail(request)}
+                        disabled={processingRequestId === request.id}
+                        className={`px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 shadow-md cursor-pointer active:scale-95 disabled:opacity-50 ${isLight ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-cyan-500/20 border border-cyan-400/40 hover:bg-cyan-500/30 text-cyan-200'}`}
+                        title="Tự động gửi lại email chứa mã xác thực từ supportbiolearn@gmail.com"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        <span>{processingRequestId === request.id ? 'Đang gửi...' : 'Gửi lại Email'}</span>
+                      </button>
+
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
+          )}
+
+          {rejectedTeacherRequests.length > 0 && (
+            <details className="mt-6">
+              <summary className={`cursor-pointer font-bold ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                Lịch sử yêu cầu không được duyệt ({rejectedTeacherRequests.length})
+              </summary>
+              <div className="mt-3 grid gap-2">
+                {rejectedTeacherRequests.map((request) => (
+                  <div key={`rejected-${request.id}`} className={`rounded-xl border p-3 text-sm ${isLight ? 'bg-rose-50 border-rose-200 text-slate-700' : 'bg-rose-950/20 border-rose-500/20 text-slate-300'}`}>
+                    <strong>{request.username || 'Chưa đặt tên'}</strong> · {request.email}
+                    <span className="block text-xs opacity-70 mt-1">Từ chối lúc: {formatDateTime(request.decision_at || request.updated_at)}</span>
+                  </div>
+                ))}
+              </div>
+            </details>
           )}
         </div>
 
@@ -446,36 +581,44 @@ export default function AdminPage() {
           )}
         </div>
 
-        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-4">
           <button
             onClick={() => navigate('/admin/users')}
-            className="game-card text-center hover:bg-white/20 transition-colors"
+            className="game-card text-center hover:bg-white/20 transition-colors cursor-pointer"
           >
             <Users className="w-8 h-8 text-blue-400 mx-auto mb-2" />
             <span className="text-white text-sm">Quản lý users</span>
           </button>
           <button
+            onClick={() => navigate('/admin/stations')}
+            className="game-card text-center hover:bg-white/20 transition-colors border border-cyan-400/40 cursor-pointer"
+          >
+            <Compass className="w-8 h-8 text-cyan-400 mx-auto mb-2 animate-spin-slow" />
+            <span className="text-white text-sm font-bold">Quản lý Trạm</span>
+          </button>
+          <button
             onClick={goToLessonManagement}
-            className="game-card text-center hover:bg-white/20 transition-colors"
+            className="game-card text-center hover:bg-white/20 transition-colors cursor-pointer"
           >
             <BookOpen className="w-8 h-8 text-green-400 mx-auto mb-2" />
             <span className="text-white text-sm">Quản lý bài học</span>
           </button>
           <button
             onClick={() => navigate('/admin/reports')}
-            className="game-card text-center hover:bg-white/20 transition-colors"
+            className="game-card text-center hover:bg-white/20 transition-colors cursor-pointer"
           >
             <BarChart2 className="w-8 h-8 text-purple-400 mx-auto mb-2" />
             <span className="text-white text-sm">Báo cáo</span>
           </button>
           <button
             onClick={() => navigate('/admin/logs')}
-            className="game-card text-center hover:bg-white/20 transition-colors"
+            className="game-card text-center hover:bg-white/20 transition-colors cursor-pointer"
           >
             <Activity className="w-8 h-8 text-orange-400 mx-auto mb-2" />
             <span className="text-white text-sm">Hoạt động</span>
           </button>
         </div>
+
       </main>
     </div>
   );
