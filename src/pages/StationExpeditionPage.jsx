@@ -674,23 +674,16 @@ export default function StationExpeditionPage() {
 
     if (user?.id) {
       try {
-        await supabase
-          .from('station_progress')
-          .upsert({
-            user_id: user.id,
-            station_id: activeDayQuiz.stationId,
-            day_index: completedDayIndex,
-            stars: newMaxStars,
-            claimed_stars: newMaxStars,
-            updated_at: new Date().toISOString()
-          }, { onConflict: 'user_id,station_id,day_index' });
+        const { data: stationReward, error: stationRewardError } = await supabase.rpc('claim_station_reward', {
+          p_station_id: String(activeDayQuiz.stationId),
+          p_day_index: completedDayIndex,
+          p_stars: newMaxStars
+        });
+        if (stationRewardError) throw stationRewardError;
 
         await supabase.from('profiles').update({ station_progress: { days: updatedProgress } }).eq('id', user.id);
 
-        if (incCoins > 0 || incXp > 0) {
-          const currentCoins = userStats?.coins || 0;
-          const currentXp = userStats?.xp || 0;
-          await supabase.from('profiles').update({ coins: currentCoins + incCoins, xp: currentXp + incXp }).eq('id', user.id);
+        if (stationReward?.awarded) {
           refreshUserStats();
         }
       } catch (err) {
@@ -801,17 +794,19 @@ export default function StationExpeditionPage() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={() => {
-                setDemoMode(prev => !prev);
-                showToast(demoMode ? 'Tắt Chế độ Thử nghiệm' : '⚡ Bật Chế độ Thử nghiệm', 'success');
-              }}
-              className={`px-3 py-1.5 rounded-xl border text-xs font-extrabold transition flex items-center gap-1.5 cursor-pointer ${demoMode ? 'bg-amber-500/20 border-amber-400 text-amber-300' : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
-                }`}
-            >
-              <Zap className="w-3.5 h-3.5" />
-              <span>Demo Test</span>
-            </button>
+            {userStats?.is_test_account === true && (
+              <button
+                onClick={() => {
+                  setDemoMode(prev => !prev);
+                  showToast(demoMode ? 'Tắt Chế độ Thử nghiệm' : '⚡ Bật Chế độ Thử nghiệm', 'success');
+                }}
+                className={`px-3 py-1.5 rounded-xl border text-xs font-extrabold transition flex items-center gap-1.5 cursor-pointer ${demoMode ? 'bg-amber-500/20 border-amber-400 text-amber-300' : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
+                  }`}
+              >
+                <Zap className="w-3.5 h-3.5" />
+                <span>Demo Test</span>
+              </button>
+            )}
 
             <div className="header-coins-badge flex items-center gap-1.5 bg-yellow-500/10 px-3 py-1.5 rounded-xl border border-yellow-500/20">
               <Coins className="w-4 h-4 text-yellow-400" />
@@ -938,9 +933,6 @@ export default function StationExpeditionPage() {
           {/* HEADER TRẠM SANG TRỌNG THEO PHONG CÁCH LIQUID GLASS ĐỒNG BỘ HỆ THỐNG */}
           <div className="card-clear-liquid-glass station-card-panel bg-white/80 dark:bg-black/40 backdrop-blur-2xl p-6 rounded-3xl border border-white/60 dark:border-cyan-400/30 shadow-xl mb-3 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-              <button onClick={() => setViewMode('world')} className="inline-flex items-center gap-1.5 text-xs font-extrabold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 transition cursor-pointer mb-1.5">
-                <ArrowLeft className="w-4 h-4" /> Trở về Bản đồ Trạm
-              </button>
               <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white flex items-center gap-2 tracking-tight">
                 {selectedStation.name}
               </h2>
@@ -967,12 +959,12 @@ export default function StationExpeditionPage() {
             </div>
           </div>
 
-          {/* LOGO NỔI TỰ DO NÂNG CẤP SIÊU TO & ĐỔ BÓNG NEON 3D VŨ TRỤ */}
-          <div className="flex justify-center mt-1 -mb-6 relative z-20">
+          {/* PNG trong suốt được căn giữa và chỉ thu phần canvas rỗng trên/dưới. */}
+          <div className="relative z-20 mx-auto -mt-2 -mb-12 aspect-[1.75/1] w-full max-w-[320px] overflow-hidden md:-mb-16 md:max-w-[420px]">
             <img
-              src="https://res.cloudinary.com/de513yqvf/image/upload/v1787106519/IMG_7382_pkvobv.png"
+              src="/images/SVG/Elegant Liquid Glass Wordmark 'Trạm Sinh Học'.png?v=20260824"
               alt="Logo Trạm Sinh Học"
-              className="max-w-[340px] md:max-w-[460px] w-full h-auto object-contain drop-shadow-[0_15px_40px_rgba(168,85,247,0.95)] animate-in zoom-in-95 duration-300 pointer-events-none select-none"
+              className="pointer-events-none absolute inset-x-0 top-1/2 block h-auto w-full -translate-y-1/2 select-none object-contain drop-shadow-[0_12px_32px_rgba(168,85,247,0.45)]"
             />
           </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './MorePage.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, User, BookOpen,
@@ -887,7 +888,7 @@ const MorePage = () => {
           className="flex items-center gap-2 text-gray-400 hover:text-white mb-4"
         >
           <ArrowLeft className="w-5 h-5" />
-          <span>Quay lại</span>
+          <span>{selectedClass ? 'Tất cả lớp học' : 'Quay lại danh mục'}</span>
         </button>
 
         {isAdminEditMode && (
@@ -910,73 +911,53 @@ const MorePage = () => {
 
         {!selectedClass ? (
           <>
-            <h2 className="text-xl font-bold text-white mb-4">Chọn lớp học</h2>
-
-            <div className="mb-6">
-              <h3 className="text-gray-400 text-sm mb-3 uppercase tracking-wider">Trung học cơ sở</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {[6, 7, 8, 9].map((classNum) => {
-                  const meta = GRADE_METADATA[classNum];
-                  const GradeIcon = meta.icon;
-                  return (
-                    <button
-                      key={classNum}
-                      onClick={() => setSelectedClass(classNum)}
-                      className="group relative overflow-hidden p-5 rounded-[2rem] border border-white/10 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 hover:scale-[1.03] hover:bg-slate-900/60 hover:border-emerald-500/30 text-left flex flex-col justify-between min-h-[150px] shadow-lg hover:shadow-xl hover:shadow-emerald-500/5 cursor-pointer"
-                    >
-                      {/* Floating glass number tag */}
-                      <div className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full border border-white/25 bg-white/5 backdrop-blur-md group-hover:border-emerald-400 group-hover:bg-emerald-500/20 transition-all duration-300">
-                        <span className="text-white group-hover:text-emerald-300 text-xs font-black tracking-tight">{classNum}</span>
-                      </div>
-
-                      {/* Icon container */}
-                      <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 transition-all duration-300 text-gray-300 group-hover:text-emerald-400">
-                        <GradeIcon className="w-6 h-6 stroke-[1.8]" />
-                      </div>
-
-                      <div className="mt-4">
-                        <p className="text-white font-extrabold text-lg tracking-tight group-hover:text-emerald-400 transition-colors">Lớp {classNum}</p>
-                        <p className="text-gray-300 text-xs mt-0.5 line-clamp-1 group-hover:text-white transition-colors">{meta.label}</p>
-                        <p className="text-gray-500 text-[10px] mt-1 leading-snug line-clamp-1 group-hover:text-gray-400 transition-colors">{meta.desc}</p>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
+            <div className="lesson-intro">
+              <p className="lesson-eyebrow">THƯ VIỆN SINH HỌC</p>
+              <h2>Chọn lớp học</h2>
+              <p>Khám phá bài học, xem bài giảng và ôn tập theo từng chương.</p>
             </div>
-
-            <div>
-              <h3 className="text-gray-400 text-sm mb-3 uppercase tracking-wider">Trung học phổ thông</h3>
-              <div className="grid grid-cols-2 gap-4">
-                {[10, 11, 12].map((classNum) => {
-                  const meta = GRADE_METADATA[classNum];
-                  const GradeIcon = meta.icon;
-                  return (
-                    <button
-                      key={classNum}
-                      onClick={() => setSelectedClass(classNum)}
-                      className="group relative overflow-hidden p-5 rounded-[2rem] border border-white/10 bg-slate-900/40 backdrop-blur-xl transition-all duration-300 hover:scale-[1.03] hover:bg-slate-900/60 hover:border-emerald-500/30 text-left flex flex-col justify-between min-h-[150px] shadow-lg hover:shadow-xl hover:shadow-emerald-500/5 cursor-pointer"
-                    >
-                      {/* Floating glass number tag */}
-                      <div className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full border border-white/25 bg-white/5 backdrop-blur-md group-hover:border-emerald-400 group-hover:bg-emerald-500/20 transition-all duration-300">
-                        <span className="text-white group-hover:text-emerald-300 text-xs font-black tracking-tight">{classNum}</span>
-                      </div>
-
-                      {/* Icon container */}
-                      <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-emerald-500/30 group-hover:bg-emerald-500/10 transition-all duration-300 text-gray-300 group-hover:text-emerald-400">
-                        <GradeIcon className="w-6 h-6 stroke-[1.8]" />
-                      </div>
-
-                      <div className="mt-4">
-                        <p className="text-white font-extrabold text-lg tracking-tight group-hover:text-emerald-400 transition-colors">Lớp {classNum}</p>
-                        <p className="text-gray-300 text-xs mt-0.5 line-clamp-1 group-hover:text-white transition-colors">{meta.label}</p>
-                        <p className="text-gray-500 text-[10px] mt-1 leading-snug line-clamp-1 group-hover:text-gray-400 transition-colors">{meta.desc}</p>
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+            {[
+              { title: 'Trung học cơ sở', grades: [6, 7, 8, 9] },
+              { title: 'Trung học phổ thông', grades: [10, 11, 12] },
+            ].map(({ title, grades }) => (
+              <section className="lesson-grade-section" key={title} aria-label={title}>
+                <div className="lesson-section-heading">
+                  <h3>{title}</h3>
+                  <span>{grades.length} lớp học</span>
+                </div>
+                <div className="lesson-grade-grid">
+                  {grades.map((classNum) => {
+                    const meta = GRADE_METADATA[classNum];
+                    const GradeIcon = meta.icon;
+                    const data = lessonsData[classNum];
+                    const units = data.parts || data.chapters;
+                    const lessonCount = units.reduce((total, unit) => total + (unit.chapters
+                      ? unit.chapters.reduce((count, chapter) => count + chapter.lessons.length, 0)
+                      : unit.lessons.length), 0);
+                    return (
+                      <button
+                        type="button"
+                        key={classNum}
+                        onClick={() => setSelectedClass(classNum)}
+                        className="lesson-grade-card"
+                      >
+                        <span className="lesson-card-top">
+                          <span className="lesson-grade-icon"><GradeIcon size={25} strokeWidth={1.6} aria-hidden="true" /></span>
+                          <span className="lesson-grade-number" aria-hidden="true">{classNum}</span>
+                        </span>
+                        <span className="lesson-grade-title">Lớp {classNum}</span>
+                        <span className="lesson-grade-topic">{meta.label}</span>
+                        <span className="lesson-grade-description">{meta.desc}</span>
+                        <span className="lesson-card-footer">
+                          <span>{lessonCount} bài học</span>
+                          <span className="lesson-card-action">Khám phá <ChevronRight size={16} aria-hidden="true" /></span>
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
           </>
         ) : (
           <>
@@ -1481,7 +1462,8 @@ const MorePage = () => {
   };
 
   return (
-    <div className="min-h-screen relative bg-transparent p-4 pb-24">
+    <div className={`min-h-screen relative bg-transparent p-4 pb-24 ${activeSection === 'lessons' ? 'lessons-page' : ''}`}>
+      <div className={activeSection === 'lessons' ? 'lessons-layout' : undefined}>
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => {
@@ -1495,6 +1477,7 @@ const MorePage = () => {
             }
             navigate('/home');
           }}
+          aria-label="Về trang chính"
           className="w-10 h-10 flex items-center justify-center btn-back-liquid-glass"
         >
           <ArrowLeft className="w-5 h-5" />
@@ -1507,6 +1490,8 @@ const MorePage = () => {
 
       {activeSection === 'menu' && renderMenu()}
       {activeSection === 'lessons' && renderLessons()}
+
+      </div>
 
       {viewerLecture && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm p-2 sm:p-4">

@@ -98,8 +98,6 @@ function Chromosome3D({ position, rotation, color, isDouble = true, separating =
 
 // Spindle fibers
 function SpindleFibers({ phase }) {
-  if (phase !== 'metaphase' && phase !== 'anaphase') return null;
-  
   const points = useMemo(() => {
     const fibers = [];
     const count = 8;
@@ -124,6 +122,8 @@ function SpindleFibers({ phase }) {
     
     return fibers;
   }, []);
+
+  if (phase !== 'metaphase' && phase !== 'anaphase') return null;
 
   return (
     <group>

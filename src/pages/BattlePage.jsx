@@ -6,6 +6,7 @@ import {
   Bot, Users, CheckCircle, XCircle, Swords
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { getLevelFromXp } from '../utils/progression';
 
 // Sample questions - sẽ được load từ server theo lớp
 const sampleQuestions = {
@@ -84,7 +85,7 @@ const botAnswer = (difficulty, correctIndex) => {
 export default function BattlePage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { user } = useAuth();
+  const { user, updateStats } = useAuth();
   
   // Battle params
   const mode = searchParams.get('mode') || 'pve'; // pvp or pve
@@ -234,23 +235,23 @@ export default function BattlePage() {
       const xpGain = won ? 50 : 10;
       const coinsGain = won ? 50 : 5;
       
-      const { data: profile } = await supabase
+      const { data: profile, error: profileError } = await supabase
         .from('profiles')
-        .select('xp, total_score, weekly_score, coins')
+        .select('xp, coins')
         .eq('id', userId)
         .single();
+      if (profileError) throw profileError;
         
-      await supabase
+      const { error: saveError } = await supabase
         .from('profiles')
         .update({
           xp: (profile?.xp || 0) + xpGain,
-          total_score: (profile?.total_score || 0) + xpGain,
-          level: Math.max(profile?.level || 1, Math.floor(((profile?.total_score || 0) + xpGain) / 1000) + 1),
-          weekly_score: (profile?.weekly_score || 0) + xpGain,
+          level: getLevelFromXp((profile?.xp || 0) + xpGain),
           coins: (profile?.coins || 0) + coinsGain,
           last_active_at: new Date().toISOString()
         })
         .eq('id', userId);
+      if (saveError) throw saveError;
 
       if (updateStats) updateStats();
     } catch (err) {

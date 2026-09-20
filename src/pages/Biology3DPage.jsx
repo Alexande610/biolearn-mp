@@ -2,6 +2,7 @@
 // Tích hợp: GLB models (giải phẫu) + Mol* (phân tử/DNA/Virus) + Three.js (tế bào)
 import { useState, Suspense, lazy, useCallback, Component } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContentControls } from '../hooks/useContentControls';
 import { 
   ArrowLeft, Dna, Circle, Leaf, Microscope, Sun, Heart,
   ChevronRight, X, Maximize2, Minimize2, Info, BookOpen, Star,
@@ -55,7 +56,8 @@ class ErrorBoundary extends Component {
 }
 
 // Thông tin các mô phỏng 3D - ĐẦY ĐỦ với models mới
-const BIOLOGY_3D_MODELS = [
+// eslint-disable-next-line react-refresh/only-export-components
+export const BIOLOGY_3D_MODELS = [
   {
     id: 'human-body',
     name: 'Giải phẫu Cơ thể người',
@@ -190,15 +192,17 @@ function LoadingFallback() {
 }
 
 // Model Card component
-function ModelCard({ model, onSelect, index }) {
+function ModelCard({ model, onSelect, index, available }) {
   const Icon = model.icon;
   
   return (
     <button
-      onClick={() => onSelect(model)}
-      className="group relative card-clear-liquid-glass rounded-2xl p-4 text-left w-full overflow-hidden"
+      onClick={() => available && onSelect(model)}
+      disabled={!available}
+      className={`group relative card-clear-liquid-glass rounded-2xl p-4 text-left w-full overflow-hidden ${available ? '' : 'grayscale opacity-60 cursor-not-allowed'}`}
       style={{ animationDelay: `${index * 80}ms` }}
     >
+      {!available && <span className="absolute top-3 right-3 rounded-lg bg-red-500/80 px-2 py-1 text-[10px] font-bold text-white z-20">ĐANG BẢO TRÌ</span>}
       {/* Badge */}
       {model.badge && (
         <div className={`absolute -top-2 -right-2 ${model.badgeColor} text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg z-10`}>
@@ -411,6 +415,7 @@ export default function Biology3DPage() {
   const [selectedModel, setSelectedModel] = useState(null);
   const [filterGrade, setFilterGrade] = useState(null);
   const [filterType, setFilterType] = useState(null); // 'scientific', 'interactive', null
+  const { isEnabled } = useContentControls('biology_model');
 
   let filteredModels = BIOLOGY_3D_MODELS;
   
@@ -515,6 +520,7 @@ export default function Biology3DPage() {
               model={model}
               index={index}
               onSelect={setSelectedModel}
+              available={isEnabled(model.id)}
             />
           ))}
         </div>

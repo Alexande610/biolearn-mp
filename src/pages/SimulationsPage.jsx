@@ -2,6 +2,7 @@
 import { useState, Suspense, lazy, useEffect, useRef, Component } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { useContentControls } from '../hooks/useContentControls';
 import { 
   ArrowLeft, Play, Atom, Gamepad2,
   Brain, Droplets, TreePine, Users, Loader2, AlertTriangle,
@@ -67,7 +68,8 @@ class ErrorBoundary extends Component {
 }
 
 // Danh sách 16 game mô phỏng 3D - Lớp 6 đến 12
-const SIMULATION_GAMES = {
+// eslint-disable-next-line react-refresh/only-export-components
+export const SIMULATION_GAMES = {
   microorganism: {
     id: 'microorganism-3d', name: 'Vi sinh vật 3D', description: 'Khám phá vi khuẩn, virus, nấm men và các vi sinh vật',
     icon: Microscope, color: 'from-cyan-500 to-teal-600', grade: 6, duration: '8 phút', component: 'MicroorganismGame3D', isAvailable: true
@@ -160,7 +162,7 @@ function GameCard({ game, onPlay }) {
   
   return (
     <div 
-      className={`relative bg-gradient-to-br ${game.color} rounded-2xl overflow-hidden game-card-liquid-glass-colored transform hover:scale-[1.02] transition-all duration-300 cursor-pointer group`}
+      className={`relative bg-gradient-to-br ${game.color} rounded-2xl overflow-hidden game-card-liquid-glass-colored transform transition-all duration-300 group ${game.isAvailable ? 'hover:scale-[1.02] cursor-pointer' : 'grayscale opacity-60 cursor-not-allowed'}`}
       onClick={() => game.isAvailable && onPlay(game)}
     >
       <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all" />
@@ -189,7 +191,7 @@ function GameCard({ game, onPlay }) {
 
         <div className="mt-3 flex items-center justify-end">
           <button className="flex items-center gap-1 bg-white/20 hover:bg-white/30 px-3 py-1.5 rounded-lg text-white text-sm font-semibold transition-all">
-            <Play className="w-4 h-4" /> Chơi
+            {game.isAvailable ? <><Play className="w-4 h-4" /> Chơi</> : 'Đang bảo trì'}
           </button>
         </div>
       </div>
@@ -284,6 +286,7 @@ export default function SimulationsPage() {
   const navigate = useNavigate();
   const [selectedGrade, setSelectedGrade] = useState(null);
   const [currentGame, setCurrentGame] = useState(null);
+  const { isEnabled } = useContentControls('simulation_game');
 
   const handleGameComplete = async (gameId, score) => {
     // Try save to server
@@ -301,9 +304,9 @@ export default function SimulationsPage() {
 
   const grades = [6, 7, 8, 9, 10, 11, 12];
   
-  const filteredGames = Object.values(SIMULATION_GAMES).filter(game => 
-    selectedGrade === null || game.grade === selectedGrade
-  );
+  const filteredGames = Object.values(SIMULATION_GAMES)
+    .filter(game => selectedGrade === null || game.grade === selectedGrade)
+    .map(game => ({ ...game, isAvailable: game.isAvailable && isEnabled(game.id) }));
 
   if (currentGame) {
     return (

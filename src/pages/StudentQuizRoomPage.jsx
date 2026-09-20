@@ -1,10 +1,77 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CalendarClock, CheckCircle2, Clock, History, PlayCircle, Trophy, Users, XCircle } from 'lucide-react';
+import { ArrowLeft, CalendarClock, CheckCircle2, Clock, DoorClosed, History, PlayCircle, Trophy, Users, XCircle } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import { supabase } from '../lib/supabase';
+import { getAvatarUrl, handleAvatarError } from '../utils/avatar';
+import { reportSystemError } from '../lib/observability';
+import './StudentQuizRoomPage.css';
 
 const normalizeRoomCode = (value) => String(value || '').toUpperCase().replace(/\s+/g, '');
+const QUIZ_LOGO_URL = '/images/SVG/Gradient%20Liquid%20Glass%20Wordmark%20-%20Bio%20Quizz.svg';
+
+const createSeededRandom = (seedText) => {
+  let seed = 2166136261;
+  for (let index = 0; index < seedText.length; index += 1) {
+    seed ^= seedText.charCodeAt(index);
+    seed = Math.imul(seed, 16777619);
+  }
+  return () => {
+    seed += 0x6D2B79F5;
+    let value = seed;
+    value = Math.imul(value ^ value >>> 15, value | 1);
+    value ^= value + Math.imul(value ^ value >>> 7, value | 61);
+    return ((value ^ value >>> 14) >>> 0) / 4294967296;
+  };
+};
+
+const seededShuffle = (items, seedText) => {
+  const shuffled = [...items];
+  const random = createSeededRandom(seedText);
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const target = Math.floor(random() * (index + 1));
+    [shuffled[index], shuffled[target]] = [shuffled[target], shuffled[index]];
+  }
+  return shuffled;
+};
+
+const personalizeQuestionOptions = (question, seedText, enabled) => {
+  const optionEntries = (question.options || []).map((option, sourceOptionIndex) => ({ option, sourceOptionIndex }));
+  const orderedOptions = enabled ? seededShuffle(optionEntries, seedText) : optionEntries;
+  return {
+    ...question,
+    options: orderedOptions.map(entry => entry.option),
+    optionIndexMap: orderedOptions.map(entry => entry.sourceOptionIndex),
+  };
+};
+
+const buildPersonalizedAssignment = (questions, roomId, studentId, settings = {}) => {
+  const withSource = (questions || []).map((question, sourceQuestionIndex) => ({ ...question, sourceQuestionIndex }));
+  const orderedQuestions = settings.shuffleQuestions ? seededShuffle(withSource, `${roomId}:${studentId}:questions`) : withSource;
+  return orderedQuestions.map((question, displayIndex) => ({
+    ...personalizeQuestionOptions(question, `${roomId}:${studentId}:options:${question.sourceQuestionIndex}`, Boolean(settings.shuffleAnswers)),
+    questionIndex: displayIndex,
+    totalQuestions: orderedQuestions.length,
+  }));
+};
+
+const prepareQuizLogo = (event) => {
+  const svg = event.currentTarget.contentDocument?.documentElement;
+  if (!svg) return;
+
+  // Bản xuất từ Canva có một lớp caro giả trong suốt và canvas vuông rất lớn.
+  // Chỉ ẩn lớp nền đó khi hiển thị, giữ nguyên tệp SVG gốc và các hiệu ứng bên trong.
+  const backgroundLayer = Array.from(svg.children).find((child) =>
+    child.tagName.toLowerCase() === 'g'
+      && child.querySelector(':scope > image[width="2000"][height="2000"]')
+  );
+
+  if (backgroundLayer) backgroundLayer.style.display = 'none';
+  svg.setAttribute('viewBox', '23.25 444.75 1453.5 610.25');
+  svg.removeAttribute('width');
+  svg.removeAttribute('height');
+};
+
 const ANSWER_THEMES = [
   {
     symbol: '▲',
@@ -45,6 +112,7 @@ export default function StudentQuizRoomPage() {
 
   const socketRef = useRef(null);
   const timerRef = useRef(null);
+  const roomCloseTimerRef = useRef(null);
 
   const [roomCodeInput, setRoomCodeInput] = useState('');
   const [roomCode, setRoomCode] = useState('');
@@ -69,13 +137,16 @@ export default function StudentQuizRoomPage() {
   const [assignmentScore, setAssignmentScore] = useState(0);
   const [recentRooms, setRecentRooms] = useState([]);
   const [clockNow, setClockNow] = useState(0);
+  const [closedCountdown, setClosedCountdown] = useState(5);
+  const [closedMessage, setClosedMessage] = useState('Phòng đã được Giáo viên đóng.');
+  const [leaveIntent, setLeaveIntent] = useState(''); // lobby | home
 
   const studentId = useMemo(
     () => user?.uid || user?.firebaseUid || user?.id || user?._id || '',
     [user]
   );
   const studentName = user?.displayName || user?.username || 'Học sinh';
-  const studentAvatar = userStats?.avatar || user?.avatar || 'adventurer-1';
+  const studentAvatar = userStats?.avatar_url || userStats?.avatar || user?.avatar_url || user?.avatar || 'adventurer-1';
   const recentRoomsKey = studentId ? `biolearn_recent_quiz_rooms_${studentId}` : '';
 
   const clearTimer = () => {
@@ -115,23 +186,75 @@ export default function StudentQuizRoomPage() {
     }, 1000);
   };
 
-  const leaveRoom = () => {
+  const leaveRoom = async ({ navigateHome = false } = {}) => {
     clearTimer();
+    clearInterval(roomCloseTimerRef.current);
+    roomCloseTimerRef.current = null;
 
-    // Supabase Channel will disconnect on clearSocket
+    const activeChannel = socketRef.current;
+    if (activeChannel && studentId) {
+      await activeChannel.send({
+        type: 'broadcast', event: 'student_leave',
+        payload: { studentId, studentName }
+      }).catch(() => {});
+      await activeChannel.untrack().catch(() => {});
+    }
+    if (attemptId && phase !== 'ended') {
+      await supabase.from('quiz_attempts').update({ status: 'left' }).eq('id', attemptId).eq('student_id', studentId);
+    }
     clearSocket();
     setJoined(false);
     setPhase('join');
     setPlayers([]);
     setLeaderboard([]);
+    setRoomInfo(null);
+    setRoomCode('');
+    setAttemptId('');
+    setLeaveIntent('');
+    setClosedCountdown(5);
     resetQuestionState();
+    if (navigateHome) navigate('/home', { replace: true });
+  };
+
+  const showRoomClosed = (message = 'Phòng đã được Giáo viên đóng.') => {
+    clearTimer();
+    clearInterval(roomCloseTimerRef.current);
+    setClosedMessage(message);
+    setClosedCountdown(5);
+    setPhase('closed');
+    let remaining = 5;
+    roomCloseTimerRef.current = setInterval(() => {
+      remaining -= 1;
+      setClosedCountdown(remaining);
+      if (remaining <= 0) {
+        clearInterval(roomCloseTimerRef.current);
+        roomCloseTimerRef.current = null;
+        leaveRoom();
+      }
+    }, 1000);
   };
 
   useEffect(() => {
-    return () => {
-      leaveRoom();
+    if (!joined || !roomCode || ['closed', 'ended', 'join'].includes(phase)) return undefined;
+    const verifyRoomStatus = async () => {
+      const { data: latestRoom, error: statusError } = await supabase
+        .rpc('get_quiz_room_for_player', { p_room_code: roomCode });
+      if (!statusError && latestRoom && ['closed', 'finished'].includes(latestRoom.status)) {
+        showRoomClosed('Phòng đã được Giáo viên đóng. Bạn sẽ được đưa về phòng chờ.');
+      }
     };
+    const statusPoll = setInterval(verifyRoomStatus, 3000);
+    return () => clearInterval(statusPoll);
+    // Polling is a fallback for the rare case where a realtime close event is missed.
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [joined, roomCode, phase]);
+
+  useEffect(() => {
+    return () => {
+      clearTimer();
+      clearInterval(roomCloseTimerRef.current);
+      clearSocket();
+    };
   }, []);
 
   useEffect(() => {
@@ -168,7 +291,7 @@ export default function StudentQuizRoomPage() {
     localStorage.setItem(recentRoomsKey, JSON.stringify(next));
   };
 
-  const connectSocketAndJoin = (resolvedRoomCode) => {
+  const connectSocketAndJoin = (resolvedRoomCode, resolvedAttemptId, resolvedRoom) => {
     clearSocket();
     setJoiningRoom(true);
 
@@ -178,40 +301,39 @@ export default function StudentQuizRoomPage() {
 
     socketRef.current = channel;
 
-    channel.subscribe((status) => {
-      if (status === 'SUBSCRIBED') {
-        setJoiningRoom(false);
-        setJoined(true);
-        setPhase('waiting');
-        setError('');
-
-        channel.send({
-          type: 'broadcast',
-          event: 'student_join',
-          payload: {
-            studentId,
-            studentName,
-            studentAvatar,
-          }
-        });
-      }
-      if (status === 'CHANNEL_ERROR') {
-        setError('Không thể vào phòng quiz.');
-        setJoiningRoom(false);
-        setJoined(false);
-        clearSocket();
-      }
-    });
-
     channel
+      .on('presence', { event: 'sync' }, () => {
+        const onlineStudents = Object.values(channel.presenceState())
+          .flat()
+          .filter(meta => meta?.role === 'student' && meta?.studentId);
+        const uniqueStudents = [...new Map(onlineStudents.map(meta => [meta.studentId, meta])).values()];
+        setPlayers(uniqueStudents);
+      })
       .on('broadcast', { event: 'quiz_started' }, () => {
+        setRoomInfo(current => current ? { ...current, is_locked: true } : current);
         setPhase('waiting');
       })
       .on('broadcast', { event: 'student_list' }, ({ payload }) => {
         setPlayers(Array.isArray(payload?.students) ? payload.students : []);
       })
+      .on('broadcast', { event: 'student_leave' }, ({ payload }) => {
+        setPlayers(current => current.filter(player => player.studentId !== payload?.studentId));
+      })
+      .on('broadcast', { event: 'room_lock_changed' }, ({ payload }) => {
+        setRoomInfo(current => current ? { ...current, is_locked: Boolean(payload?.locked) } : current);
+      })
+      .on('broadcast', { event: 'join_rejected' }, ({ payload }) => {
+        if (payload?.studentId !== studentId) return;
+        setError(payload.message || 'Phòng đã khóa và không nhận thêm học viên.');
+        leaveRoom();
+      })
       .on('broadcast', { event: 'quiz_question' }, ({ payload }) => {
-        setQuestion(payload);
+        const personalizedQuestion = personalizeQuestionOptions(
+          payload,
+          `${resolvedRoom?.id}:${studentId}:live-options:${payload?.questionIndex}`,
+          Boolean(resolvedRoom?.settings?.shuffleAnswers)
+        );
+        setQuestion(personalizedQuestion);
         setPhase('question');
         setSelectedAnswer(null);
         setAnswerLocked(false);
@@ -231,6 +353,37 @@ export default function StudentQuizRoomPage() {
         clearTimer();
         setLeaderboard(Array.isArray(payload.leaderboard) ? payload.leaderboard : []);
         setPhase('ended');
+      })
+      .on('broadcast', { event: 'host_ready' }, () => {
+        channel.send({
+          type: 'broadcast',
+          event: 'student_join',
+          payload: { studentId, studentName, studentAvatar, attemptId: resolvedAttemptId }
+        });
+      })
+      .on('broadcast', { event: 'room_closed' }, ({ payload }) => {
+        showRoomClosed(payload?.message || 'Phòng đã được Giáo viên đóng.');
+      })
+      .subscribe(async (status) => {
+        if (status === 'SUBSCRIBED') {
+          const presencePayload = { role: 'student', studentId, studentName, studentAvatar, attemptId: resolvedAttemptId };
+          await channel.track(presencePayload);
+          setJoiningRoom(false);
+          setJoined(true);
+          setPhase('waiting');
+          setError('');
+          channel.send({
+            type: 'broadcast',
+            event: 'student_join',
+            payload: { studentId, studentName, studentAvatar, attemptId: resolvedAttemptId }
+          });
+        }
+        if (status === 'CHANNEL_ERROR') {
+          setError('Không thể vào phòng quiz.');
+          setJoiningRoom(false);
+          setJoined(false);
+          clearSocket();
+        }
       });
   };
 
@@ -238,21 +391,33 @@ export default function StudentQuizRoomPage() {
     if (!room || !studentId) return;
     setJoiningRoom(true);
     try {
+      const personalizedQuestions = buildPersonalizedAssignment(room.questions, room.id, studentId, room.settings || {});
+      const questionOrder = personalizedQuestions.map(item => item.sourceQuestionIndex);
+      const optionOrders = Object.fromEntries(personalizedQuestions.map(item => [item.sourceQuestionIndex, item.optionIndexMap]));
       const { data: attempt, error: attemptError } = await supabase.from('quiz_attempts').upsert({
         room_id: room.id,
         student_id: studentId,
         display_name: studentName,
         avatar_url: studentAvatar,
-        status: 'playing'
+        status: 'playing',
+        question_order: questionOrder,
+        option_orders: optionOrders
       }, { onConflict: 'room_id,student_id' }).select().single();
       if (attemptError) throw attemptError;
       setAttemptId(attempt.id);
-      const firstQuestion = { ...room.questions[0], questionIndex: 0, totalQuestions: room.questions.length, timeLimit: Number(room.question_time_seconds || 20) };
+      setRoomInfo(current => ({ ...(current || room), questions: personalizedQuestions }));
+      const firstQuestion = { ...personalizedQuestions[0], timeLimit: Number(room.question_time_seconds || 20) };
       setQuestion(firstQuestion);
       setPhase('question');
       setError('');
       startTimer(firstQuestion.timeLimit);
     } catch (startError) {
+      reportSystemError(startError, {
+        action: 'assignment_quiz_start_failed',
+        component: 'StudentQuizRoomPage',
+        operation: 'beginAssignmentRoom',
+        supabaseCode: startError.code,
+      });
       setError(startError.message || 'Không thể bắt đầu bài quiz.');
     } finally {
       setJoiningRoom(false);
@@ -283,8 +448,14 @@ export default function StudentQuizRoomPage() {
       }
 
       const roomType = room.room_type || 'live';
+      if (['closed', 'finished'].includes(room.status)) {
+        throw new Error('Phòng này đã đóng và không thể tham gia lại.');
+      }
       if (roomType === 'live' && room.status !== 'waiting') {
         throw new Error('Phòng quiz đang diễn ra. Hãy chờ phiên mới từ giáo viên.');
+      }
+      if (roomType === 'live' && room.is_locked) {
+        throw new Error('Phòng đã khóa và không nhận thêm học viên.');
       }
 
       if (roomType === 'assignment') {
@@ -293,7 +464,8 @@ export default function StudentQuizRoomPage() {
         if (room.closes_at && now > new Date(room.closes_at).getTime()) throw new Error('Bài quiz đã hết hạn.');
       }
 
-      setRoomInfo({ ...room, title: room.title, teacherName: room.teacher_name || 'Giáo viên' });
+      const resolvedRoom = { ...room, title: room.title, teacherName: room.teacher_name || 'Giáo viên' };
+      setRoomInfo(resolvedRoom);
       setRoomCode(normalizedCode);
       setRoomCodeInput(normalizedCode);
       rememberRoom(room, normalizedCode);
@@ -302,7 +474,7 @@ export default function StudentQuizRoomPage() {
         if (room.opens_at && Date.now() < new Date(room.opens_at).getTime()) {
           setPhase('scheduled');
         } else {
-          await beginAssignmentRoom(room);
+          await beginAssignmentRoom(resolvedRoom);
         }
       } else {
         const { data: attempt, error: attemptError } = await supabase.from('quiz_attempts').upsert({
@@ -314,9 +486,18 @@ export default function StudentQuizRoomPage() {
         }, { onConflict: 'room_id,student_id' }).select().single();
         if (attemptError) throw attemptError;
         setAttemptId(attempt.id);
-        connectSocketAndJoin(normalizedCode);
+        connectSocketAndJoin(normalizedCode, attempt.id, resolvedRoom);
       }
     } catch (err) {
+      if (err.code || Number(err.status) >= 500) {
+        reportSystemError(err, {
+          action: 'quiz_room_join_failed',
+          component: 'StudentQuizRoomPage',
+          operation: 'handleJoinRoom',
+          supabaseCode: err.code,
+          statusCode: err.status,
+        });
+      }
       setError(err.message || 'Không thể vào phòng quiz.');
     } finally {
       setCheckingRoom(false);
@@ -333,8 +514,8 @@ export default function StudentQuizRoomPage() {
       const responseMs = Math.max(0, (question.timeLimit - timer) * 1000);
       const { data: graded, error: gradeError } = await supabase.rpc('submit_assignment_answer', {
         p_attempt_id: attemptId,
-        p_question_index: question.questionIndex,
-        p_selected_option: index,
+        p_question_index: Number(question.sourceQuestionIndex ?? question.questionIndex),
+        p_selected_option: Number(question.optionIndexMap?.[index] ?? index),
         p_response_ms: responseMs
       });
       if (gradeError) {
@@ -348,7 +529,7 @@ export default function StudentQuizRoomPage() {
       // Giáo viên/chủ phòng mới là bên tính đúng-sai và điểm của phòng live.
       socketRef.current.send({
         type: 'broadcast', event: 'student_answer',
-        payload: { studentId, attemptId, answerIndex: index }
+        payload: { studentId, attemptId, answerIndex: Number(question.optionIndexMap?.[index] ?? index) }
       });
     }
   };
@@ -384,16 +565,16 @@ export default function StudentQuizRoomPage() {
   };
 
   return (
-    <div className="min-h-screen pb-8 relative overflow-hidden bg-transparent">
+    <div className="student-quiz-page min-h-screen pb-8 relative overflow-hidden bg-transparent">
       <div className="pointer-events-none absolute -top-36 -left-24 w-80 h-80 rounded-full bg-emerald-400/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-40 -right-20 w-96 h-96 rounded-full bg-cyan-400/10 blur-3xl" />
 
-      <header className="bg-black/40 backdrop-blur-xl sticky top-0 z-40 border-b border-white/5">
+      <header className="student-quiz-header bg-black/40 backdrop-blur-xl sticky top-0 z-40 border-b border-white/5">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
           <button
             onClick={() => {
-              leaveRoom();
-              navigate('/home', { replace: true });
+              if (joined) setLeaveIntent('home');
+              else navigate('/home', { replace: true });
             }}
             className="w-10 h-10 bg-white/10 border border-white/15 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
             aria-label="Quay lại"
@@ -401,8 +582,7 @@ export default function StudentQuizRoomPage() {
             <ArrowLeft className="w-5 h-5 text-white" />
           </button>
           <div>
-            <h1 className="text-white font-bold text-lg">Phòng Quiz Học Sinh</h1>
-            <p className="text-cyan-100/90 text-sm">Nhập mã phòng từ giáo viên</p>
+            <h1 className="text-white font-bold text-lg">Phòng Quiz</h1>
           </div>
         </div>
       </header>
@@ -410,8 +590,18 @@ export default function StudentQuizRoomPage() {
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-4 relative z-10">
         {!joined && (
           <section className="rounded-3xl border border-white/15 bg-white/10 backdrop-blur-xl p-5 sm:p-7 shadow-2xl shadow-black/20">
-            <h2 className="text-white text-2xl font-bold mb-2">Vào phòng quiz</h2>
-            <p className="text-emerald-100/90 text-sm mb-5">Nhập mã phòng do giáo viên cấp để tham gia.</p>
+            <div className="flex justify-center mb-3">
+              <object
+                data={QUIZ_LOGO_URL}
+                type="image/svg+xml"
+                aria-label="BioQuizz"
+                onLoad={prepareQuizLogo}
+                className="block w-full max-w-[250px] sm:max-w-[270px] aspect-[1453.5/610.25] border-0 pointer-events-none select-none"
+              >
+                <span className="sr-only">BioQuizz</span>
+              </object>
+            </div>
+            <p className="text-white/80 text-sm mb-5">Nhập mã phòng do giáo viên cấp để tham gia.</p>
 
             <div className="flex flex-col sm:flex-row gap-3">
               <input
@@ -437,9 +627,9 @@ export default function StudentQuizRoomPage() {
             )}
 
             <div className="mt-5 grid sm:grid-cols-3 gap-3 text-sm">
-              <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-emerald-100">1. Nhập mã phòng</div>
-              <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-emerald-100">2. Chờ giáo viên bắt đầu</div>
-              <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-emerald-100">3. Trả lời theo thời gian thực</div>
+              <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-white/80">1. Nhập mã phòng</div>
+              <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-white/80">2. Chờ giáo viên bắt đầu</div>
+              <div className="rounded-xl bg-white/10 border border-white/10 px-3 py-3 text-white/80">3. Trả lời theo thời gian thực</div>
             </div>
 
             {recentRooms.length > 0 && (
@@ -479,14 +669,14 @@ export default function StudentQuizRoomPage() {
 
         {joined && roomInfo && (
           <>
-            {roomInfo.room_type !== 'assignment' && <section className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-4 sm:p-5">
+            {roomInfo.room_type !== 'assignment' && <section className="student-room-summary rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-4 sm:p-5">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <h2 className="text-white font-bold text-lg">{roomInfo.title || 'Quiz Room'}</h2>
                   <p className="text-cyan-100 text-sm">Mã phòng: <span className="font-mono font-bold tracking-wider">{roomCode}</span> • GV: {roomInfo.teacherName || 'Giáo viên'}</p>
                 </div>
                 <button
-                  onClick={leaveRoom}
+                  onClick={() => setLeaveIntent('lobby')}
                   className="px-4 py-2 rounded-lg bg-white/10 border border-white/15 hover:bg-white/20 text-white text-sm transition-colors"
                 >
                   Rời phòng
@@ -494,7 +684,7 @@ export default function StudentQuizRoomPage() {
               </div>
             </section>}
 
-            <section className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-4 sm:p-5">
+            <section className="student-player-panel rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-4 sm:p-5">
               <div className="flex items-center gap-2 mb-3">
                 <Users className="w-5 h-5 text-cyan-300" />
                 <h3 className="text-white font-semibold">Người chơi trong phòng ({players.length})</h3>
@@ -503,18 +693,33 @@ export default function StudentQuizRoomPage() {
               {players.length === 0 ? (
                 <p className="text-gray-300 text-sm">Đang chờ cập nhật danh sách người chơi...</p>
               ) : (
-                <div className="flex flex-wrap gap-2">
+                <div className="quiz-player-grid">
                   {players.map((player) => (
-                    <div key={player.studentId} className="px-3 py-2 bg-cyan-400/15 border border-cyan-300/20 rounded-lg text-sm text-white">
-                      {player.studentName}
+                    <div key={player.studentId} className="quiz-player-card">
+                      <img src={getAvatarUrl(player.studentAvatar || player.avatar_url)} onError={handleAvatarError} alt="" />
+                      <span>{player.studentName}</span>
                     </div>
                   ))}
                 </div>
               )}
             </section>
 
+            {phase === 'closed' && (
+              <section className="rounded-[28px] border border-rose-300/40 bg-gradient-to-br from-rose-500/25 via-red-400/15 to-violet-500/20 backdrop-blur-2xl p-7 text-center shadow-2xl shadow-red-950/25">
+                <div className="mx-auto mb-4 w-16 h-16 rounded-2xl border border-white/50 bg-gradient-to-br from-rose-400 to-red-600 shadow-lg shadow-red-500/25 flex items-center justify-center">
+                  <DoorClosed className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-white font-extrabold text-2xl">Phòng hiện đã đóng</h3>
+                <p className="text-rose-50/90 mt-2">{closedMessage}</p>
+                <div className="mt-5 inline-flex flex-col items-center rounded-2xl border border-white/25 bg-black/20 px-6 py-4">
+                  <span className="text-white/75 text-xs uppercase tracking-[.16em]">Trở lại phòng chờ sau</span>
+                  <strong className="text-white text-3xl mt-1 tabular-nums">{closedCountdown}</strong>
+                </div>
+              </section>
+            )}
+
             {phase === 'waiting' && (
-              <section className="rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-6 text-center">
+              <section className="student-wait-panel rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-6 text-center">
                 <p className="text-white font-semibold text-lg">Đang chờ giáo viên bắt đầu quiz...</p>
                 <p className="text-gray-200/90 text-sm mt-2">Khi giáo viên bấm bắt đầu, câu hỏi sẽ hiển thị ngay tại đây.</p>
                 <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400/15 border border-yellow-300/30 text-yellow-100">
@@ -625,10 +830,7 @@ export default function StudentQuizRoomPage() {
                 </div>
 
                 <button
-                  onClick={() => {
-                    leaveRoom();
-                    navigate('/home', { replace: true });
-                  }}
+                  onClick={() => leaveRoom({ navigateHome: true })}
                   className="mt-5 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white font-semibold"
                 >
                   Về trang chủ
@@ -638,6 +840,21 @@ export default function StudentQuizRoomPage() {
           </>
         )}
       </main>
+      {leaveIntent && (
+        <div className="quiz-leave-backdrop" role="presentation">
+          <div className="quiz-leave-dialog" role="dialog" aria-modal="true" aria-labelledby="quiz-leave-title">
+            <div className="quiz-leave-icon"><DoorClosed /></div>
+            <div>
+              <h3 id="quiz-leave-title">Xác nhận rời phòng?</h3>
+              <p>Bạn sẽ được xóa khỏi danh sách người đang trực tuyến trong phòng. Lịch sử tham gia vẫn được giữ lại.</p>
+            </div>
+            <div className="quiz-leave-actions">
+              <button type="button" onClick={() => setLeaveIntent('')}>Ở lại phòng</button>
+              <button type="button" className="danger" onClick={() => leaveRoom({ navigateHome: leaveIntent === 'home' })}>Rời phòng</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

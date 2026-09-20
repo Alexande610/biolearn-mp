@@ -6,6 +6,7 @@ import {
   Trophy, BookOpen, Beaker, Crown, Zap, Target, Sparkles
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { useContentControls } from '../hooks/useContentControls';
 
 // Avatar map - sử dụng tên file thực tế từ folder Avatar
 const avatarMap = {
@@ -37,7 +38,8 @@ const avatarMap = {
 };
 
 // Dữ liệu chương theo lớp - CHI TIẾT HƠN với lessons riêng
-const classData = {
+// eslint-disable-next-line react-refresh/only-export-components
+export const classData = {
   "6": {
     "name": "Lớp 6",
     "chapters": [
@@ -532,8 +534,10 @@ const classData = {
 };
 
 // Constants cho cấu trúc level
-const LEVELS_PER_LESSON = 10; // 10 màn thường mỗi bài
-const PRACTICE_LEVELS_PER_CHAPTER = 2; // 2 màn thực hành cuối MỖI CHƯƠNG
+// eslint-disable-next-line react-refresh/only-export-components
+export const LEVELS_PER_LESSON = 10; // 10 màn thường mỗi bài
+// eslint-disable-next-line react-refresh/only-export-components
+export const PRACTICE_LEVELS_PER_CHAPTER = 2; // 2 màn thực hành cuối MỖI CHƯƠNG
 
 export default function MapPage() {
   const { classId } = useParams();
@@ -545,6 +549,7 @@ export default function MapPage() {
   const [loadingPosition, setLoadingPosition] = useState(true);
   const [currentLevelId, setCurrentLevelId] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { isEnabled: isMapLevelEnabled } = useContentControls('map_level');
 
   // Refresh stats on mount to ensure latest progress
   useEffect(() => {
@@ -813,7 +818,8 @@ export default function MapPage() {
 
   // Render một node level trên map
   const renderLevelNode = (chapterId, lessonId, levelIndex, globalIndex, isPractice = false) => {
-    const unlocked = isLevelUnlocked(chapterId, lessonId, levelIndex);
+    const contentId = `${normalizedClassId}:${chapterId}:${lessonId}:${levelIndex}`;
+    const unlocked = isLevelUnlocked(chapterId, lessonId, levelIndex) && isMapLevelEnabled(contentId);
     const completed = isLevelCompleted(chapterId, lessonId, levelIndex);
     const stars = getLevelStars(chapterId, lessonId, levelIndex);
     const isCurrent = isCurrentLevel(chapterId, lessonId, levelIndex);
@@ -935,17 +941,19 @@ export default function MapPage() {
   };
 
   const renderChapterReview = (chapter, isLeft, completed) => {
+    const reviewEnabled = isMapLevelEnabled(`${normalizedClassId}:${chapter.id}:review:0`);
     return (
       <div className={`flex items-center ${isLeft ? 'justify-start' : 'justify-end'} my-4`}>
         <button
           onClick={() => {
+            if (!reviewEnabled) return;
             setSelectedChapterForSkip(chapter);
             setShowSkipModal(true);
           }}
           className={`relative w-20 h-20 rounded-2xl 
             ${completed ? 'bg-gradient-to-br from-yellow-400 to-orange-500' : 'bg-gradient-to-br from-yellow-500 to-orange-600'} 
             flex flex-col items-center justify-center transition-all duration-300
-            hover:scale-110 hover:shadow-xl cursor-pointer ring-2 ring-yellow-300`}
+            ${reviewEnabled ? 'hover:scale-110 hover:shadow-xl cursor-pointer' : 'grayscale opacity-60 cursor-not-allowed'} ring-2 ring-yellow-300`}
         >
           <Crown className="w-8 h-8 text-white" />
           <span className="text-white text-xs font-bold mt-1">HỌC VƯỢT</span>

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { EyeOff, MessageCircle, Send, X, Dna } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 const normalizeText = (value) => {
   if (!value) return '';
@@ -35,15 +36,95 @@ const BIO_KEYWORDS = [
   'co the nguoi', 'suc khoe', 'benh', 'vac xin', 'khang the', 'mien dich'
 ];
 
-const AVAILABLE_MODELS = [
-  'gemini-1.5-flash',
-  'gemini-2.0-flash-exp',
-  'gemini-3-flash',
-  'gemini-2.5-flash-lite',
-  'gemini-3.1-flash-lite'
+const GREETINGS_LIST = [
+  'hi', 'hello', 'helo', 'chao', 'xin chao', 'alo', 'chao ban', 'ê', 'hey', 'hola', 'hi ban', 'chao bot', 'chao ai'
 ];
 
-const ChatboxAI = ({ user }) => {
+// TẦNG 0: SMART CACHING LAYER
+const getCachedAnswer = (query) => {
+  try {
+    const key = `bio_cache_${normalizeText(query).trim()}`;
+    return sessionStorage.getItem(key) || localStorage.getItem(key);
+  } catch (e) {
+    return null;
+  }
+};
+
+const setCachedAnswer = (query, answer) => {
+  try {
+    const key = `bio_cache_${normalizeText(query).trim()}`;
+    sessionStorage.setItem(key, answer);
+  } catch (e) {}
+};
+
+// COMPONENT ĐỊNH DẠNG VĂN BẢN (Loại bỏ các dấu sao *** và định dạng gạch đầu dòng chuẩn đẹp)
+const FormattedMessage = ({ text, isUser }) => {
+  if (!text) return null;
+  if (isUser) return <span>{text}</span>;
+
+  // Xử lý xuống dòng cho các đoạn gạch đầu dòng bị dính liền: ví dụ "* **Phần 1" -> "\n- **Phần 1"
+  const preparedText = text
+    .replace(/([^\n])\s*\*\s+\*\*/g, '$1\n- **')
+    .replace(/([^\n])\s*\*\s+([A-ZÀ-Ỹ])/g, '$1\n- $2');
+
+  const lines = preparedText.split('\n');
+
+  const renderInline = (str) => {
+    const parts = [];
+    let remaining = str;
+    let key = 0;
+
+    while (remaining.length > 0) {
+      const boldMatch = remaining.match(/\*\*(.*?)\*\*/);
+      if (boldMatch && boldMatch.index !== undefined) {
+        if (boldMatch.index > 0) {
+          parts.push(remaining.substring(0, boldMatch.index).replace(/\*{1,3}/g, ''));
+        }
+        parts.push(
+          <span key={key++} className="font-bold text-emerald-300">
+            {boldMatch[1].replace(/\*{1,3}/g, '')}
+          </span>
+        );
+        remaining = remaining.substring(boldMatch.index + boldMatch[0].length);
+      } else {
+        parts.push(remaining.replace(/\*{1,3}/g, ''));
+        break;
+      }
+    }
+    return parts;
+  };
+
+  return (
+    <div className="space-y-1.5 leading-relaxed text-sm">
+      {lines.map((line, idx) => {
+        const trimmed = line.trim();
+        if (!trimmed) return <div key={idx} className="h-1" />;
+
+        // Nhận diện gạch đầu dòng: -, *, •, hoặc 1., 2.
+        const bulletMatch = trimmed.match(/^([*\-•]|\d+\.)\s+(.*)/);
+        if (bulletMatch) {
+          const isNum = /^\d+\./.test(bulletMatch[1]);
+          return (
+            <div key={idx} className="flex items-start gap-2 pl-1 my-0.5">
+              <span className="text-emerald-400 font-bold select-none text-xs mt-0.5 shrink-0">
+                {isNum ? bulletMatch[1] : '•'}
+              </span>
+              <div className="flex-1">{renderInline(bulletMatch[2])}</div>
+            </div>
+          );
+        }
+
+        return (
+          <div key={idx} className="my-0.5">
+            {renderInline(line)}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const ChatboxAI = ({ user, onAchievementUnlocked }) => {
   const displayName = user?.displayName || user?.username || 'bạn';
   const userId = user?.uid || user?.firebaseUid || user?._id || user?.id || '';
 
@@ -168,19 +249,42 @@ const ChatboxAI = ({ user }) => {
     return intents.find((intent) => intent.keywords.some((keyword) => normalized.includes(keyword)));
   };
 
+  // TỐI ƯU HÓA LOGIC ĐỌC TÀI LIỆU SGK (SMART RAG CONTEXT WINDOW)
   const fetchKnowledge = async (text) => {
     try {
       const normalizedQuery = normalizeText(text);
+
+      // Nếu chỉ là câu chào hoặc quá ngắn, không cần tải SGK (tiết kiệm 100% token)
+      if (GREETINGS_LIST.includes(normalizedQuery) || normalizedQuery.length < 5) {
+        return '';
+      }
+
+      // Xác định khối lớp nếu người dùng có chỉ định rõ
       let detectedGrade = null;
       for (let i = 6; i <= 12; i++) {
-        if (normalizedQuery.includes(`lop ${i}`) || normalizedQuery.includes(`l${i}`)) {
+        if (
+          normalizedQuery.includes(`lop ${i}`) ||
+          normalizedQuery.includes(`l${i}`) ||
+          normalizedQuery.includes(`khtn ${i}`) ||
+          normalizedQuery.includes(`sinh ${i}`)
+        ) {
           detectedGrade = i;
           break;
         }
       }
 
-      const gradesToSearch = detectedGrade ? [detectedGrade] : [10, 11, 12, 6, 7, 8, 9];
-      let fullContext = '';
+      // Tìm từ khóa sinh học trong câu hỏi
+      const searchKeywords = BIO_KEYWORDS.filter((kw) => normalizedQuery.includes(normalizeText(kw)));
+
+      // Nếu không nói rõ lớp và cũng không có từ khóa sinh học cụ thể,
+      // để AI tự trả lời kiến thức chung súc tích, KHÔNG nhồi 16.000 ký tự mục lục
+      if (!detectedGrade && searchKeywords.length === 0) {
+        return '';
+      }
+
+      // Nếu có lớp rõ ràng thì chỉ tìm đúng lớp đó, tránh quét tràn lan
+      const gradesToSearch = detectedGrade ? [detectedGrade] : [10, 11, 12, 9, 8, 7, 6];
+      let matchedExcerpt = '';
 
       for (const grade of gradesToSearch) {
         const filePath = BIOLOGY_TOPICS[grade];
@@ -192,12 +296,7 @@ const ChatboxAI = ({ user }) => {
 
           const content = await response.text();
 
-          // Greedy: Always take the first 4000 chars as it usually contains the TOC/Mục lục
-          const tocContext = content.substring(0, 4000);
-          fullContext += `\n--- CẤU TRÚC SÁCH LỚP ${grade} ---\n${tocContext}\n`;
-
-          const searchKeywords = BIO_KEYWORDS.filter(kw => normalizedQuery.includes(normalizeText(kw)));
-
+          // Định vị đoạn văn chính xác chứa từ khóa liên quan
           if (searchKeywords.length > 0) {
             let bestIdx = -1;
             for (const kw of searchKeywords) {
@@ -209,17 +308,23 @@ const ChatboxAI = ({ user }) => {
             }
 
             if (bestIdx !== -1) {
-              const start = Math.max(4000, bestIdx - 3000); // Start after TOC
-              const end = Math.min(content.length, bestIdx + 5000);
-              fullContext += `\n--- CHI TIẾT LỚP ${grade} ---\n${content.substring(start, end)}\n`;
+              // Chỉ trích xuất đúng 1 đoạn văn ngắn (~1.200 ký tự), tiết kiệm 95% token
+              const start = Math.max(0, bestIdx - 400);
+              const end = Math.min(content.length, bestIdx + 1200);
+              matchedExcerpt = `[Trích đoạn SGK Lớp ${grade}]:\n${content.substring(start, end).trim()}`;
+              break; // Đã tìm thấy tài liệu phù hợp, dừng ngay không nạp thêm sách khác!
             }
+          } else if (detectedGrade) {
+            // Có chỉ định lớp nhưng không trùng từ khóa chính: lấy phần mở đầu ngắn (~800 ký tự)
+            matchedExcerpt = `[Nội dung tổng quan Lớp ${grade}]:\n${content.substring(0, 800).trim()}`;
+            break;
           }
-          if (fullContext.length > 15000) break;
         } catch (e) {
           console.warn(`Could not fetch textbook for grade ${grade}`, e);
         }
       }
-      return fullContext.trim();
+
+      return matchedExcerpt.trim();
     } catch (err) {
       console.error('Error in fetchKnowledge:', err);
       return '';
@@ -227,61 +332,48 @@ const ChatboxAI = ({ user }) => {
   };
 
   const fetchAiReply = async (text, context = '') => {
-    const systemPrompt = `Bạn là trợ lý AI chuyên gia Sinh học (Biology Tutor) cho nền tảng BioLearn. 
-Tên người dùng: ${displayName}. 
-PHẠM VI CÔNG VIỆC: Chỉ trả lời các nội dung liên quan đến SINH HỌC từ lớp 6 đến lớp 12.
-NGUỒN DỮ LIỆU: Sử dụng [NỘI DUNG SÁCH GIÁO KHOA] dưới đây để hỗ trợ trả lời. Nếu không thấy trong sách, hãy sử dụng kiến thức Sinh học chuẩn của bạn.
-LƯU Ý:
-1. Nếu hỏi vấn đề KHÔNG LIÊN QUAN ĐẾN SINH HỌC, lịch sự từ chối và giải thích mình là chuyên gia Sinh học.
-2. Trả lời thân thiện, giáo dục.
-
-[NỘI DUNG SÁCH GIÁO KHOA]:
-${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
-
-    const formattedMessages = [
-      { role: 'system', content: systemPrompt }
-    ];
-
-    // Build chat history of last 10 messages
-    messages.slice(-10).forEach(msg => {
-      formattedMessages.push({
-        role: msg.role === 'assistant' ? 'assistant' : 'user',
-        content: msg.text
-      });
-    });
-
-    // Append current user message
-    formattedMessages.push({
-      role: 'user',
-      content: text
-    });
+    // 1. Kiểm tra TẦNG 0 (Smart Cache) - nếu có sẵn trả về tức thì < 0.05s
+    const cached = getCachedAnswer(text);
+    if (cached) {
+      console.log('⚡ [Smart Cache] Trả lời tức thì từ bộ nhớ đệm:', text);
+      return cached;
+    }
 
     try {
-      console.log('Sending query to Pollinations AI via Proxy...');
-      const response = await fetch('/api/ai', {
+      console.log('🚀 Gửi yêu cầu tới BioLearn Multi-tier AI API (/api/chat)...');
+      const response = await fetch('/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messages: formattedMessages,
-          model: 'openai',
-          jsonMode: false
-        })
+          message: text,
+          context: context,
+          history: messages.slice(-6),
+          displayName: displayName,
+        }),
       });
 
-      if (!response.ok) {
-        throw new Error(`API Error: ${response.status}`);
+      if (response.ok) {
+        const data = await response.json();
+        if (data.reply) {
+          // Lưu vào Smart Cache để lần sau trả lời tức thì
+          setCachedAnswer(text, data.reply);
+          return data.reply;
+        }
       }
 
-      const data = await response.json();
-      if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-        return data.choices[0].message.content;
-      }
-      throw new Error('No content returned from AI');
+      throw new Error(`API Error: ${response.status}`);
     } catch (err) {
-      console.error('AI query failed:', err);
-      return 'Hiện tại tất cả các mô hình AI đều đang bận hoặc quá tải. Bạn hãy thử lại sau giây lát nhé, mình xin lỗi vì sự bất tiện này!';
+      console.warn('⚠️ Toàn bộ tầng AI online tạm thời bận, kích hoạt TẦNG 4 (Offline SGK Fallback)...', err);
+
+      // TẦNG 4: BẢO HIỂM AN TOÀN - TRÍCH DẪN SGK OFFLINE TỰ ĐỘNG
+      if (context && context.length > 30) {
+        const cleanContext = context.replace(/\[Trích đoạn SGK.*?\]:/g, '').trim().substring(0, 800);
+        return `📖 **Trích dẫn Sách Giáo Khoa:**\n\n${cleanContext}...\n\n*(Lưu ý: Do kết nối AI đang quá tải hoặc chập chờn, trợ lý BioLearn đã trích dẫn trực tiếp nội dung bài học từ Sách Giáo Khoa cho bạn nhé).*`;
+      }
+
+      return 'Hiện tại kết nối AI đang chập chờn hoặc quá tải. Bạn có thể mở mục **Bài học** hoặc **Mô phỏng 3D** trên thanh điều hướng để ôn tập nhé!';
     }
   };
 
@@ -298,12 +390,53 @@ ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
     addMessage(userMessage);
     setInput('');
 
+    // Secret achievements are validated and awarded by the database. The
+    // client never decides ownership and unaccented variants do not match.
+    try {
+      const { data: secretResult, error: secretError } = await supabase.rpc('unlock_chat_achievement', {
+        p_phrase: trimmed,
+      });
+
+      if (!secretError && secretResult?.matched) {
+        if (secretResult.awarded && onAchievementUnlocked) {
+          await onAchievementUnlocked();
+        }
+
+        const achievementName = secretResult.achievement_id === 'hoang-sa-sovereignty'
+          ? 'Hoàng Sa là của Việt Nam'
+          : 'Trường Sa là của Việt Nam';
+
+        addMessage({
+          id: `achievement-${Date.now()}`,
+          role: 'assistant',
+          text: secretResult.awarded
+            ? `🏅 Bạn đã mở khóa danh hiệu bí mật: **${achievementName}**!`
+            : `🏅 Bạn đã sở hữu danh hiệu **${achievementName}**.`,
+        });
+        return;
+      }
+    } catch (achievementError) {
+      console.warn('Không thể kiểm tra thành tựu bí mật:', achievementError);
+    }
+
+    // Xử lý các câu lệnh điều hướng nội bộ
     const intent = resolveIntent(trimmed);
     if (intent) {
       addMessage({
         id: `intent-${Date.now()}`,
         role: 'assistant',
         text: intent.reply,
+      });
+      return;
+    }
+
+    // Xử lý các câu chào hỏi xã giao (Phản hồi tức thì, không tốn token AI hay SGK)
+    const normalized = normalizeText(trimmed);
+    if (GREETINGS_LIST.includes(normalized)) {
+      addMessage({
+        id: `greet-${Date.now()}`,
+        role: 'assistant',
+        text: `Xin chào ${displayName}! Mình là trợ lý Sinh học BioLearn. Mình có thể hỗ trợ giải đáp bài học, hướng dẫn thực hành hay câu hỏi Sinh học nào cho bạn hôm nay?`,
       });
       return;
     }
@@ -449,11 +582,11 @@ ${context || 'Dựa vào kiến thức Sinh học phổ thông chuẩn.'}`;
                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${message.role === 'user'
+                  className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${message.role === 'user'
                     ? 'bg-emerald-500/90 text-white'
                     : 'bg-white/10 text-gray-100'}`}
                 >
-                  {message.text}
+                  <FormattedMessage text={message.text} isUser={message.role === 'user'} />
                 </div>
               </div>
             ))}

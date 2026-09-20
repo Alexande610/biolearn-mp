@@ -1,3 +1,4 @@
+import { getAvatarUrl as resolveAvatarUrl } from '../utils/avatar';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
@@ -10,35 +11,10 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useToast } from '../components/Toast';
+import { getOptimizedCloudinaryImage } from '../utils/cloudinary';
 
 // Avatar mapping - sử dụng tên file thực tế từ folder Avatar
-const avatarMap = {
-  'adventurer-1': '/images/Avatar/adventurer-1.png',
-  'adventurer-2': '/images/Avatar/adventurer-2.png',
-  'adventurer-3': '/images/Avatar/adventurer-3.png',
-  'adventurer-4': '/images/Avatar/adventurer-4.png',
-  'adventurer-5': '/images/Avatar/adventurer-5.png',
-  'avataaars-1': '/images/Avatar/avataaars-1.png',
-  'avataaars-2': '/images/Avatar/avataaars-2.png',
-  'avataaars-3': '/images/Avatar/avataaars-3.png',
-  'avataaars-4': '/images/Avatar/avataaars-4.png',
-  'avataaars-5': '/images/Avatar/avataaars-5.png',
-  'bigEars-1': '/images/Avatar/bigEars-1.png',
-  'bigEars-2': '/images/Avatar/bigEars-2.png',
-  'bigEars-3': '/images/Avatar/bigEars-3.png',
-  'bigEars-4': '/images/Avatar/bigEars-4.png',
-  'bigEars-5': '/images/Avatar/bigEars-5.png',
-  'bottts-1': '/images/Avatar/bottts-1.png',
-  'bottts-2': '/images/Avatar/bottts-2.png',
-  'bottts-3': '/images/Avatar/bottts-3.png',
-  'bottts-4': '/images/Avatar/bottts-4.png',
-  'bottts-5': '/images/Avatar/bottts-5.png',
-  'rings-1': '/images/Avatar/rings-1.png',
-  'rings-2': '/images/Avatar/rings-2.png',
-  'rings-3': '/images/Avatar/rings-3.png',
-  'rings-4': '/images/Avatar/rings-4.png',
-  'rings-5': '/images/Avatar/rings-5.png',
-};
+
 
 export default function HomePage() {
   const { user, userStats, logout, refreshUserStats, theme } = useAuth();
@@ -181,12 +157,7 @@ export default function HomePage() {
   };
 
   // Get avatar URL from ID
-  const getAvatarUrl = () => {
-    const avatar = user?.avatar_url || user?.avatar || userStats?.avatar_url;
-    if (!avatar) return avatarMap['adventurer-1'];
-    if (avatar.startsWith('http') || avatar.startsWith('/')) return avatar;
-    return avatarMap[avatar] || avatarMap['adventurer-1'];
-  };
+  const getAvatarUrl = () => resolveAvatarUrl(user?.avatar_url || user?.avatar || userStats?.avatar_url);
 
   // Danh sách lớp học THCS
   const classesThCS = [
@@ -210,25 +181,47 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Avatar & User Info */}
-            <Link to="/profile" className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full avatar-circle overflow-hidden bg-green-600">
-                <img 
-                  src={getAvatarUrl()} 
-                  alt="Avatar" 
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.src = '/images/Avatar/adventurer-1766999604259.png';
-                  }}
-                />
-              </div>
-              <div>
-                <p className="text-white font-semibold">{user?.displayName || user?.username || 'Học sinh'}</p>
-                <p className="text-green-300 text-sm">Level {userStats?.level}</p>
-              </div>
-            </Link>
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <Link to="/profile" className="flex items-center gap-2 sm:gap-3 min-w-0">
+                <div className="theme-avatar-frame w-12 h-12 rounded-full overflow-hidden border-2 shadow-sm shrink-0">
+                  <img
+                    src={getAvatarUrl()}
+                    alt="Avatar"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = '/images/Avatar/adventurer-1.png';
+                    }}
+                  />
+                </div>
+                <div className="hidden sm:block min-w-0">
+                  <p className="text-white font-semibold truncate max-w-28">{user?.displayName || user?.username || 'Học sinh'}</p>
+                  <p className="text-green-300 text-sm">Level {userStats?.level}</p>
+                </div>
+              </Link>
+
+              {userStats?.equippedAchievement && (
+                <Link
+                  to="/profile"
+                  state={{ tab: 'achievements' }}
+                  className="home-achievement-badge flex h-11 w-20 sm:w-28 md:w-32 items-center justify-start shrink-0"
+                  title={userStats.equippedAchievement.name}
+                  aria-label={`Danh hiệu đang trang bị: ${userStats.equippedAchievement.name}`}
+                >
+                  {userStats.equippedAchievement.image_url ? (
+                    <img
+                      src={getOptimizedCloudinaryImage(userStats.equippedAchievement.image_url, 256, { trim: true })}
+                      alt={userStats.equippedAchievement.name}
+                      className="block max-h-11 max-w-full object-contain object-left"
+                    />
+                  ) : (
+                    <Trophy className="w-7 h-7 text-amber-400" aria-hidden="true" />
+                  )}
+                </Link>
+              )}
+            </div>
 
             {/* Stats Bar (Đã xích nhẹ và bo gọn để có không gian cho hộp thư) */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
               {/* Energy */}
               <div className="flex items-center gap-1.5 bg-green-700/50 px-2.5 py-1.5 rounded-xl border border-white/5">
                 <Leaf className="w-4 h-4 text-green-300 leaf-energy" />
@@ -537,9 +530,9 @@ export default function HomePage() {
               <Leaf className="w-6 h-6" />
               <span className="text-xs mt-1">Trang chủ</span>
             </Link>
-            <Link to="/stations" className="flex flex-col items-center text-emerald-400 hover:text-emerald-300">
+            <Link to="/stations" className="flex flex-col items-center text-white/60 hover:text-green-300">
               <Compass className="w-6 h-6" />
-              <span className="text-xs mt-1">Trạm game</span>
+              <span className="text-xs mt-1">Trạm sinh học</span>
             </Link>
             <Link to="/missions" className="flex flex-col items-center text-white/60 hover:text-green-300">
               <Target className="w-6 h-6" />

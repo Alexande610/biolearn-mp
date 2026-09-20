@@ -8,6 +8,7 @@ import {
 import { supabase } from '../lib/supabase';
 import { useWeeklyCountdown, useDailyCountdown } from '../hooks/useCountdown';
 import BurningFlame from '../components/BurningFlame';
+import { getDailyMissionXp } from '../utils/progression';
 
 export default function MissionPage() {
   const navigate = useNavigate();
@@ -103,7 +104,8 @@ export default function MissionPage() {
           id: 1, 
           title: 'Hoàn thành 1 trò chơi', 
           description: 'Hoàn thành 1 trò chơi bất kỳ', 
-          reward: 50, 
+          reward: 50,
+          xpReward: getDailyMissionXp(1, userStats?.level),
           progress: serverMissions.mission1Progress || 0,
           target: 1,
           completed: serverMissions.mission1Completed || false, 
@@ -113,7 +115,8 @@ export default function MissionPage() {
           id: 2, 
           title: 'Hoàn thành 5 màn chơi', 
           description: 'Vượt qua 5 màn bất kỳ', 
-          reward: 100, 
+          reward: 100,
+          xpReward: getDailyMissionXp(2, userStats?.level),
           progress: serverMissions.mission2Progress || 0, 
           target: 5, 
           completed: serverMissions.mission2Completed || false, 
@@ -123,7 +126,8 @@ export default function MissionPage() {
           id: 3, 
           title: 'Học tập 20 phút', 
           description: 'Học tập liên tục 20 phút', 
-          reward: 150, 
+          reward: 150,
+          xpReward: getDailyMissionXp(3, userStats?.level),
           progress: Math.max(serverMissions.mission3Progress || 0, minutesActive),
           target: 20,
           completed: minutesActive >= 20 || serverMissions.mission3Completed || false, 
@@ -147,23 +151,13 @@ export default function MissionPage() {
 
   const claimDailyReward = async (missionId) => {
     try {
-      const userId = user?.id || user?.uid;
       const mission = dailyMissions.find(m => m.id === missionId);
       if (!mission || !mission.completed || mission.claimed) return;
 
-      const currentMissions = userStats?.daily_missions || {};
-      const newCoins = (userStats?.coins || 0) + mission.reward;
-
-      await supabase
-        .from('profiles')
-        .update({
-          coins: newCoins,
-          daily_missions: {
-            ...currentMissions,
-            [`mission${missionId}Claimed`]: true
-          }
-        })
-        .eq('id', userId);
+      const { error } = await supabase.rpc('claim_daily_mission_reward', {
+        p_mission_id: missionId
+      });
+      if (error) throw error;
 
       if (refreshUserStats) refreshUserStats();
       fetchMissions();
@@ -178,19 +172,10 @@ export default function MissionPage() {
       const milestone = weeklyMilestones.find(m => m.id === milestoneId);
       if (!milestone || milestone.claimed) return;
 
-      const currentMissions = userStats?.daily_missions || {};
-      const newCoins = (userStats?.coins || 0) + milestone.reward;
-
-      await supabase
-        .from('profiles')
-        .update({
-          coins: newCoins,
-          daily_missions: {
-            ...currentMissions,
-            [`claimed${milestone.daysRequired}Days`]: true
-          }
-        })
-        .eq('id', userId);
+      const { error } = await supabase.rpc('claim_streak_reward', {
+        p_days_required: milestone.daysRequired
+      });
+      if (error) throw error;
 
       if (refreshUserStats) refreshUserStats();
       fetchMissions();
@@ -349,12 +334,12 @@ export default function MissionPage() {
                   className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 rounded-xl text-white font-semibold flex items-center gap-2 animate-pulse"
                 >
                   <Gift className="w-5 h-5" />
-                  +{mission.reward}
+                  +{mission.reward} xu · +{mission.xpReward} EXP
                 </button>
               ) : (
-                <div className="flex items-center gap-1 bg-white/10 px-3 py-2 rounded-xl">
-                  <Coins className="w-4 h-4 text-yellow-400" />
-                  <span className="text-yellow-300 font-semibold">{mission.reward}</span>
+                <div className="flex flex-col items-end gap-0.5 bg-white/10 px-3 py-2 rounded-xl">
+                  <span className="flex items-center gap-1 text-yellow-300 font-semibold"><Coins className="w-4 h-4 text-yellow-400" />{mission.reward} xu</span>
+                  <span className="text-purple-300 text-xs font-semibold">+{mission.xpReward} EXP</span>
                 </div>
               )}
             </div>

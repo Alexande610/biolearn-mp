@@ -18,20 +18,25 @@ import {
   Send,
   Check,
   Copy,
-  CheckCheck
+  CheckCheck,
+  Boxes
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { sendAutoTeacherCodeEmail } from '../lib/email';
 import { useToast } from '../components/Toast';
+import { reportSystemError } from '../lib/observability';
 
 export default function AdminPage() {
   const navigate = useNavigate();
-  const { user, theme, toggleTheme } = useAuth();
+  const { user, theme, toggleTheme, onlinePresence } = useAuth();
   const { showToast } = useToast();
 
   const [stats, setStats] = useState(null);
+  const [statsError, setStatsError] = useState('');
   const [loading, setLoading] = useState(true);
-  const [activeUsers, setActiveUsers] = useState([]);
+  const onlineCountLabel = onlinePresence?.status === 'connected'
+    ? onlinePresence.count.toLocaleString('vi-VN')
+    : onlinePresence?.status === 'connecting' ? 'Đang kết nối…' : 'Mất kết nối';
 
   const [teacherRequests, setTeacherRequests] = useState([]);
   const [requestLoading, setRequestLoading] = useState(false);
@@ -40,7 +45,6 @@ export default function AdminPage() {
 
   const adminId = user?.id || user?._id || user?.uid;
   const isAdmin = user?.role === 'admin';
-  const ONLINE_WINDOW_MINUTES = 3;
 
   useEffect(() => {
     if (isAdmin && adminId) {
@@ -60,12 +64,6 @@ export default function AdminPage() {
 
   const goToLessonManagement = () => {
     navigate('/admin/lessons?adminEdit=1&section=lessons');
-  };
-
-  const getRoleLabel = (role) => {
-    if (role === 'admin') return 'Admin';
-    if (role === 'teacher') return 'Giáo viên';
-    return 'Học sinh';
   };
 
   const fetchTeacherRequests = async () => {
@@ -213,29 +211,22 @@ export default function AdminPage() {
     }
 
     setLoading(true);
+    setStatsError('');
     try {
       // 1. Total users
-      const { count: totalUsers } = await supabase
+      const { count: totalUsers, error: totalError } = await supabase
         .from('profiles')
         .select('*', { count: 'exact', head: true });
+      if (totalError) throw totalError;
 
       // 2. Active today
       const today = new Date();
       today.setHours(0,0,0,0);
-      const { count: activeToday } = await supabase
+      const { count: activeToday, error: activeError } = await supabase
         .from('profiles')
         .select('*', { count: 'exact', head: true })
         .gte('last_active_at', today.toISOString());
-
-      // 3. Active users (online window)
-      const onlineWindow = new Date();
-      onlineWindow.setMinutes(onlineWindow.getMinutes() - ONLINE_WINDOW_MINUTES);
-      const { data: onlineUsers } = await supabase
-        .from('profiles')
-        .select('*')
-        .gte('last_active_at', onlineWindow.toISOString())
-        .order('last_active_at', { ascending: false })
-        .limit(8);
+      if (activeError) throw activeError;
 
       setStats({
         totalUsers: totalUsers || 0,
@@ -245,21 +236,11 @@ export default function AdminPage() {
         averageScore: 0,
         newUsersThisWeek: 0,
       });
-
-      setActiveUsers(
-        (onlineUsers || []).map((item) => ({
-          id: item.id,
-          name: item.display_name || item.username || item.email || 'Người dùng',
-          role: item.role || 'student',
-          score: item.total_score || 0,
-          avatarUrl: item.avatar_url,
-          lastActive: item.last_active_at ? new Date(item.last_active_at).toLocaleString('vi-VN') : 'Không rõ',
-        }))
-      );
     } catch (err) {
       console.error(err);
       setStats(null);
-      setActiveUsers([]);
+      setStatsError('Không thể tải thống kê. Hãy thử tải lại.');
+      reportSystemError(err, { action: 'admin_stats_error', operation: 'load_stats', supabaseCode: err.code });
     }
     setLoading(false);
   };
@@ -332,6 +313,7 @@ export default function AdminPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
+        {statsError && <p role="alert" className="mb-4 rounded-xl border border-red-400 p-3 text-red-500">{statsError}</p>}
 
         <div className={`game-card mb-6 ${isLight ? '!bg-white/90 !border-slate-300 shadow-lg' : ''}`}>
           <div className="flex items-center justify-between mb-4">
@@ -487,8 +469,8 @@ export default function AdminPage() {
                 <Activity className="w-6 h-6 text-green-400" />
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Online hôm nay</p>
-                <p className="text-2xl font-bold text-white">{stats?.activeToday?.toLocaleString()}</p>
+                <p className="text-gray-400 text-sm">Đang online trực tiếp</p>
+                <p className="text-2xl font-bold text-white">{onlineCountLabel}</p>
               </div>
             </div>
           </div>
@@ -545,43 +527,17 @@ export default function AdminPage() {
         <div className="game-card mb-6">
           <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <Activity className="w-5 h-5 text-green-400" />
-            Người dùng đang hoạt động ({ONLINE_WINDOW_MINUTES} phút gần nhất)
+            Người dùng đang online trực tiếp
           </h3>
 
-          {activeUsers.length === 0 ? (
-            <div className="p-4 rounded-lg border border-white/10 bg-white/5 text-gray-300 text-sm">
-              Hiện chưa có người dùng online trong {ONLINE_WINDOW_MINUTES} phút gần đây.
-            </div>
-          ) : (
-            <div className="space-y-3">
-              {activeUsers.map((onlineUser) => (
-                <div key={onlineUser.id} className="flex items-center gap-4 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-colors">
-                  {onlineUser.avatarUrl ? (
-                    <img 
-                      src={onlineUser.avatarUrl} 
-                      alt={onlineUser.name} 
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
-                      <span className="text-white font-bold">{onlineUser.name.charAt(0).toUpperCase()}</span>
-                    </div>
-                  )}
-                  <div className="flex-1">
-                    <p className="text-white font-semibold">{onlineUser.name}</p>
-                    <p className="text-gray-400 text-sm">{onlineUser.score} điểm • {getRoleLabel(onlineUser.role)}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="w-2 h-2 bg-green-400 rounded-full inline-block mr-2 animate-pulse"></div>
-                    <span className="text-gray-400 text-sm">{onlineUser.lastActive}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="flex items-center gap-4 rounded-2xl border border-emerald-400/20 bg-emerald-500/10 p-5">
+            <span className="h-3 w-3 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-3xl font-black text-emerald-300">{onlineCountLabel}</span>
+            <span className="text-sm text-gray-300">người đang kết nối với hệ thống</span>
+          </div>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <button
             onClick={() => navigate('/admin/users')}
             className="game-card text-center hover:bg-white/20 transition-colors cursor-pointer"
@@ -595,6 +551,20 @@ export default function AdminPage() {
           >
             <Compass className="w-8 h-8 text-cyan-400 mx-auto mb-2 animate-spin-slow" />
             <span className="text-white text-sm font-bold">Quản lý Trạm</span>
+          </button>
+          <button
+            onClick={() => navigate('/admin/map')}
+            className="game-card text-center hover:bg-white/20 transition-colors border border-violet-400/40 cursor-pointer"
+          >
+            <Boxes className="w-8 h-8 text-violet-400 mx-auto mb-2" />
+            <span className="text-white text-sm font-bold">Quản lý Map</span>
+          </button>
+          <button
+            onClick={() => navigate('/admin/content')}
+            className="game-card text-center hover:bg-white/20 transition-colors border border-fuchsia-400/40 cursor-pointer"
+          >
+            <Boxes className="w-8 h-8 text-fuchsia-400 mx-auto mb-2" />
+            <span className="text-white text-sm font-bold">Quản lý nội dung 3D</span>
           </button>
           <button
             onClick={goToLessonManagement}

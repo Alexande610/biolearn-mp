@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import GalaxyBackground from './components/GalaxyBackground';
 import { ToastProvider } from './components/Toast';
 import { supabase } from './lib/supabase';
+import { recordFeatureUsage } from './lib/observability';
+import { useOnlinePresence } from './hooks/useOnlinePresence';
+import { getLevelFromXp } from './utils/progression';
 // Pages
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -26,12 +29,15 @@ import SimulationsPage from './pages/SimulationsPage';
 import Biology3DPage from './pages/Biology3DPage';
 import StationExpeditionPage from './pages/StationExpeditionPage';
 import AdminStationPage from './pages/AdminStationPage';
+import AdminContentPage from './pages/AdminContentPage';
+import AdminMapPage from './pages/AdminMapPage';
 import ChatboxAI from './components/ChatboxAI';
 
 import TeacherPage from './pages/TeacherPage';
 import StudentQuizRoomPage from './pages/StudentQuizRoomPage';
 import LandingPage from './pages/LandingPage';
-import { AuthContext } from './hooks/useAuth';
+import LandingResourcePage from './pages/LandingResourcePage';
+import { AuthContext, useAuth } from './hooks/useAuth';
 
 
 // API base URL
@@ -81,7 +87,7 @@ const helperComputeClassProgress = (classProgressData = {}) => {
     }
     const completed = classProg.completedLevels;
     const completedSet = new Set(completed);
-    
+
     const isFirstLevelDone = completed.includes('1_1_0') || completed.includes('1_review_0');
     if (!isFirstLevelDone) {
       classProgress[classNum] = 0;
@@ -215,11 +221,6 @@ const helperUpdateStaminaAndStreak = async (profile, userId) => {
   };
 };
 
-const normalizeLockNotice = (source = {}) => ({
-  reason: source.lockReason || source.reason || DEFAULT_LOCK_REASON,
-  lockedAt: source.lockedAt || null,
-});
-
 const getDefaultRouteForUser = (currentUser) => {
   if (!currentUser) return '/login';
   if (currentUser.role === 'admin') return '/admin';
@@ -229,9 +230,90 @@ const getDefaultRouteForUser = (currentUser) => {
 
 const ChatboxManager = ({ user }) => {
   const location = useLocation();
+  const { refreshUserStats } = useAuth();
   if (user && location.pathname === '/home') {
-    return <ChatboxAI user={user} />;
+    return <ChatboxAI user={user} onAchievementUnlocked={refreshUserStats} />;
   }
+  return null;
+};
+
+const helperGetAchievementState = async (userId) => {
+  const emptyState = { achievements: [], equippedAchievement: null };
+  if (!userId) return emptyState;
+
+  try {
+    const { error: syncError } = await supabase.rpc('sync_my_achievements');
+    if (syncError) throw syncError;
+
+    const [catalogResult, unlockedResult, preferenceResult] = await Promise.all([
+      supabase.from('achievement_catalog').select('*').eq('is_active', true).order('sort_order'),
+      supabase.from('user_achievements').select('achievement_id,unlocked_at,unlock_source').eq('user_id', userId),
+      supabase.from('user_achievement_preferences').select('achievement_id').eq('user_id', userId).maybeSingle()
+    ]);
+
+    if (catalogResult.error) throw catalogResult.error;
+    if (unlockedResult.error) throw unlockedResult.error;
+    if (preferenceResult.error) throw preferenceResult.error;
+
+    const unlockedById = new Map(
+      (unlockedResult.data || []).map(item => [item.achievement_id, item])
+    );
+    const achievements = (catalogResult.data || []).map(item => ({
+      ...item,
+      unlocked: unlockedById.has(item.id),
+      ...(unlockedById.get(item.id) || {})
+    }));
+    const equippedId = preferenceResult.data?.achievement_id;
+
+    return {
+      achievements,
+      equippedAchievement: achievements.find(item => item.id === equippedId && item.unlocked) || null
+    };
+  } catch (error) {
+    // Cho phép frontend chạy an toàn trong lúc migration chưa được áp dụng.
+    console.warn('Achievement system is not ready:', error.message);
+    return emptyState;
+  }
+};
+
+const helperGetCurrentWeeklyScore = async (fallbackScore = 0) => {
+  const { data, error } = await supabase.rpc('get_my_weekly_score');
+  if (error) {
+    // Giữ tương thích trong lúc database chưa được nâng cấp.
+    console.warn('Không thể tải điểm tuần theo kỳ:', error.message);
+    return Number(fallbackScore) || 0;
+  }
+  return Number(data) || 0;
+};
+
+const BackgroundManager = () => <GalaxyBackground />;
+
+const getFeatureForRoute = (pathname = '') => {
+  if (pathname.startsWith('/admin')) return 'admin';
+  if (pathname.startsWith('/teacher') || pathname.startsWith('/quiz-room')) return 'quiz';
+  if (pathname.startsWith('/biology3d') || pathname.startsWith('/simulations')) return 'biology_3d';
+  if (pathname.startsWith('/battle') || pathname.startsWith('/leaderboard')) return 'pvp';
+  if (pathname.startsWith('/missions')) return 'missions';
+  if (pathname.startsWith('/minigame') || pathname.startsWith('/boss')) return 'mini_game';
+  if (pathname.startsWith('/profile')) return 'profile';
+  if (
+    pathname.startsWith('/home')
+    || pathname.startsWith('/class-select')
+    || pathname.startsWith('/map')
+    || pathname.startsWith('/play')
+    || pathname.startsWith('/stations')
+  ) return 'learning_map';
+  return 'other';
+};
+
+const ObservabilityManager = ({ user }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!user?.id) return;
+    recordFeatureUsage(getFeatureForRoute(location.pathname));
+  }, [location.pathname, user?.id]);
+
   return null;
 };
 
@@ -246,6 +328,8 @@ function App() {
   useEffect(() => {
     prevUserRef.current = user;
   }, [user]);
+
+  const onlinePresence = useOnlinePresence(user?.id || user?.uid);
   const bgMusicRef = useRef(null);
   const bgMusicStartedRef = useRef(false);
 
@@ -405,6 +489,8 @@ function App() {
         const currentStamina = updatedStats.stamina;
         const currentStreak = updatedStats.login_streak;
         const maxStamina = profile.max_stamina ?? 20;
+        const currentWeeklyScore = await helperGetCurrentWeeklyScore(profile?.weekly_score);
+        const achievementState = await helperGetAchievementState(sessionUser.id);
 
         if (mounted) {
           const userRole = (profile?.role && profile.role !== 'student')
@@ -432,11 +518,11 @@ function App() {
             avatar_url: profile?.avatar_url || sessionUser.user_metadata?.avatar_url || 'adventurer-1',
             coins: profile?.coins || 0,
             xp: profile?.xp || 0,
-            level: Math.max(profile?.level || 1, Math.floor((profile?.total_score || 0) / 1000) + 1),
+            level: getLevelFromXp(profile?.xp),
             totalScore: profile?.total_score || 0,
             total_score: profile?.total_score || 0,
-            weeklyScore: profile?.weekly_score || 0,
-            weekly_score: profile?.weekly_score || 0,
+            weeklyScore: currentWeeklyScore,
+            weekly_score: currentWeeklyScore,
             loginStreak: currentStreak,
             login_streak: currentStreak,
             highestStreak: helperGetHighestStreak(sessionUser.id, currentStreak, profile?.highest_streak || 0),
@@ -449,7 +535,10 @@ function App() {
             daily_missions: profile?.daily_missions || {},
             inventory: profile?.inventory || [],
             class_progress: profile?.class_progress || {},
-            classProgress: helperComputeClassProgress(profile?.class_progress || {})
+            classProgress: helperComputeClassProgress(profile?.class_progress || {}),
+            is_test_account: profile?.is_test_account === true,
+            achievements: achievementState.achievements,
+            equippedAchievement: achievementState.equippedAchievement
           });
 
           setUser(mergedUser);
@@ -484,7 +573,7 @@ function App() {
   // Google Login bằng Supabase
   const loginWithGoogle = async () => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
           redirectTo: window.location.origin
@@ -547,17 +636,19 @@ function App() {
           const currentStamina = updatedStats.stamina;
           const currentStreak = updatedStats.login_streak;
           const maxStamina = data.max_stamina ?? 20;
+          const currentWeeklyScore = await helperGetCurrentWeeklyScore(data.weekly_score);
+          const achievementState = await helperGetAchievementState(user.id);
 
           setUserStats({
             display_name: data.display_name || user.email,
             avatar_url: data.avatar_url || 'adventurer-1',
             coins: data.coins || 0,
             xp: data.xp || 0,
-            level: Math.max(data?.level || 1, Math.floor((data?.total_score || 0) / 1000) + 1),
+            level: getLevelFromXp(data?.xp),
             totalScore: data.total_score || 0,
             total_score: data.total_score || 0,
-            weeklyScore: data.weekly_score || 0,
-            weekly_score: data.weekly_score || 0,
+            weeklyScore: currentWeeklyScore,
+            weekly_score: currentWeeklyScore,
             loginStreak: currentStreak,
             login_streak: currentStreak,
             highestStreak: helperGetHighestStreak(user.id, currentStreak, data.highest_streak || 0),
@@ -571,7 +662,10 @@ function App() {
             inventory: data.inventory || [],
             wins: data.wins || 0,
             class_progress: data.class_progress || {},
-            classProgress: helperComputeClassProgress(data.class_progress || {})
+            classProgress: helperComputeClassProgress(data.class_progress || {}),
+            is_test_account: data.is_test_account === true,
+            achievements: achievementState.achievements,
+            equippedAchievement: achievementState.equippedAchievement
           });
 
           // Chỉ cập nhật nếu có thay đổi thực sự để tránh nhấp nháy UI (flashing)
@@ -607,6 +701,7 @@ function App() {
 
   const authValue = {
     user,
+    onlinePresence,
     userStats,
     loading,
     loginWithGoogle,
@@ -656,16 +751,13 @@ function App() {
     );
   }
 
-  const BackgroundManager = () => {
-    return <GalaxyBackground />;
-  };
-
   return (
     <ToastProvider>
       <AuthContext.Provider value={authValue}>
         <Router>
           <div className="min-h-screen relative">
             <BackgroundManager />
+            <ObservabilityManager user={user} />
             {user && lockNotice ? (
               <div className="min-h-screen flex items-center justify-center px-4">
                 <div className="w-full max-w-2xl rounded-2xl border border-red-400/40 bg-red-900/70 backdrop-blur-md p-6 md:p-8 text-center">
@@ -677,7 +769,7 @@ function App() {
                     <p className="text-red-100 text-sm"><span className="font-semibold text-red-200">Thời gian khóa:</span> {formatDateTime(lockNotice.lockedAt)}</p>
                     <div className="pt-2 border-t border-white/10 mt-2">
                       <p className="text-red-200 text-xs leading-relaxed font-semibold">
-                        ⚠️ Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ số tổng đài hỗ trợ: <span className="text-yellow-300 font-bold underline">0838667369</span> hoặc gửi email đến <span className="text-yellow-300 font-bold underline">support@biolearn.vn</span> để được hỗ trợ mở khóa.
+                        ⚠️ Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ số tổng đài hỗ trợ: <span className="text-yellow-300 font-bold underline">(+84) 83 8667 369</span> hoặc gửi email đến <span className="text-yellow-300 font-bold underline">support@biolearn.com</span> để được hỗ trợ mở khóa.
                       </p>
                     </div>
                   </div>
@@ -765,6 +857,14 @@ function App() {
                     element={renderAdminOnly(<AdminStationPage />)}
                   />
                   <Route
+                    path="/admin/content"
+                    element={renderAdminOnly(<AdminContentPage />)}
+                  />
+                  <Route
+                    path="/admin/map"
+                    element={renderAdminOnly(<AdminMapPage />)}
+                  />
+                  <Route
                     path="/admin/lessons"
                     element={renderAdminOnly(<MorePage />)}
                   />
@@ -804,6 +904,9 @@ function App() {
 
                   {/* Default redirect */}
                   <Route path="/" element={<LandingPage />} />
+                  <Route path="/guide" element={<LandingResourcePage />} />
+                  <Route path="/faq" element={<LandingResourcePage />} />
+                  <Route path="/privacy" element={<LandingResourcePage />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
                 <ChatboxManager user={user} />

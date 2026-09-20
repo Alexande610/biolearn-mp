@@ -82,7 +82,7 @@ const getBossQuestions = (classId, chapterId, lessonId) => {
 export default function BossBattlePage() {
   const { classId, chapterId, lessonId } = useParams();
   const navigate = useNavigate();
-  const { user, updateStats } = useAuth();
+  const { user, userStats, updateStats } = useAuth();
   const canvasRef = useRef(null);
   const gameLoopRef = useRef(null);
   const playerRef = useRef({ x: 50, y: 400, vy: 0, isJumping: false });
@@ -391,18 +391,17 @@ export default function BossBattlePage() {
       const key = `${chapterId}_${lessonId}_boss`;
       const newCompletedLevels = Array.from(new Set([...currentClassProgress.completedLevels, key]));
       
-      const newCoins = (userStats?.coins || 0) + coinsReward;
-      const newXp = (userStats?.xp || 0) + pointsReward;
-      const newBossesDefeated = (userStats?.bosses_defeated || 0) + 1;
+      const rewardCode = hearts === 3 ? 'boss_3' : hearts === 2 ? 'boss_2' : 'boss_1';
+      const { data: rewardData, error: rewardError } = await supabase.rpc('claim_map_reward', {
+        p_event_key: `${classId}:${chapterId}:${lessonId}:boss`,
+        p_class_id: Number(classId),
+        p_reward_code: rewardCode
+      });
+      if (rewardError) throw rewardError;
 
-      await supabase
+      const { error: progressError } = await supabase
         .from('profiles')
         .update({
-          coins: newCoins,
-          xp: newXp,
-          total_score: newXp,
-          level: Math.max(userStats?.level || 1, Math.floor(newXp / 1000) + 1),
-          bosses_defeated: newBossesDefeated,
           class_progress: {
             ...userStats?.class_progress,
             [classId]: {
@@ -412,6 +411,8 @@ export default function BossBattlePage() {
           }
         })
         .eq('id', userId);
+      if (progressError) throw progressError;
+      if (!rewardData?.awarded) console.log('Boss reward was already claimed.');
 
       if (updateStats) updateStats();
     } catch (err) {

@@ -6,9 +6,13 @@ import {
   GraduationCap, LayoutDashboard, PlusCircle, Radio, CheckCircle2,
   Clock, BookOpen, Users, FileText, Trophy, CircleAlert,
   Upload, Eye, CalendarDays, Timer, Archive, UserRoundPen, Save, BarChart3, Medal,
-  LogOut, ClipboardPaste, FileUp, WandSparkles, Rocket, Smartphone, Play, UserRound
+  LogOut, ClipboardPaste, FileUp, WandSparkles, Rocket, Play,
+  Copy, Trash2, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, History,
+  DoorClosed, RotateCcw, ListChecks, Search, LockKeyhole, UnlockKeyhole, Download
 } from 'lucide-react';
 import './TeacherPage.css';
+import { getAvatarUrl, handleAvatarError } from '../utils/avatar';
+import { reportSystemError } from '../lib/observability';
 
 const ROOM_CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
@@ -37,6 +41,107 @@ function formatCountdown(milliseconds) {
 
 function GlassIcon({ children, tone = 'cyan', compact = false }) {
   return <span className={`liquid-icon liquid-icon-${tone}${compact ? ' compact' : ''}`}>{children}</span>;
+}
+
+const toLocalDateValue = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
+const toLocalTimeValue = (date) => `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
+
+const parseLocalDate = (value) => value ? new Date(`${value}T00:00:00`) : null;
+
+function LiquidDatePicker({ value, onChange, label, minDate }) {
+  const selectedDate = parseLocalDate(value);
+  const [open, setOpen] = useState(false);
+  const [cursor, setCursor] = useState(() => selectedDate || new Date());
+  const year = cursor.getFullYear();
+  const month = cursor.getMonth();
+  const firstWeekday = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const minimum = minDate ? parseLocalDate(minDate) : null;
+  const todayValue = toLocalDateValue(new Date());
+
+  const chooseDay = (day) => {
+    onChange(toLocalDateValue(new Date(year, month, day)));
+    setOpen(false);
+  };
+
+  return (
+    <div className="liquid-picker">
+      <button type="button" className={`liquid-picker-trigger ${value ? 'has-value' : ''}`} onClick={() => {
+        if (!open) setCursor(selectedDate || new Date());
+        setOpen(current => !current);
+      }}>
+        <CalendarDays size={17} />
+        <span>{value ? selectedDate.toLocaleDateString('vi-VN') : label}</span>
+      </button>
+      {open && (
+        <div className="liquid-calendar-popover">
+          <div className="liquid-calendar-heading">
+            <button type="button" onClick={() => setCursor(new Date(year, month - 1, 1))} aria-label="Tháng trước"><ChevronLeft size={18} /></button>
+            <strong>Tháng {month + 1}, {year}</strong>
+            <button type="button" onClick={() => setCursor(new Date(year, month + 1, 1))} aria-label="Tháng sau"><ChevronRight size={18} /></button>
+          </div>
+          <div className="liquid-calendar-weekdays">{['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'].map(day => <span key={day}>{day}</span>)}</div>
+          <div className="liquid-calendar-days">
+            {Array.from({ length: firstWeekday }).map((_, index) => <i key={`blank-${index}`} />)}
+            {Array.from({ length: daysInMonth }, (_, index) => index + 1).map(day => {
+              const date = new Date(year, month, day);
+              const dateValue = toLocalDateValue(date);
+              const disabled = minimum && date < minimum;
+              return (
+                <button
+                  type="button"
+                  key={day}
+                  disabled={disabled}
+                  className={`${dateValue === value ? 'selected' : ''} ${dateValue === todayValue ? 'today' : ''}`}
+                  onClick={() => chooseDay(day)}
+                >{day}</button>
+              );
+            })}
+          </div>
+          <button type="button" className="liquid-today-button" onClick={() => { onChange(todayValue); setCursor(new Date()); setOpen(false); }}>Hôm nay</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function LiquidTimePicker({ value, onChange, label }) {
+  const [open, setOpen] = useState(false);
+  const [draftHour, setDraftHour] = useState(value?.split(':')[0] || '08');
+  const [draftMinute, setDraftMinute] = useState(value?.split(':')[1] || '00');
+
+  return (
+    <div className="liquid-picker">
+      <button type="button" className={`liquid-picker-trigger ${value ? 'has-value' : ''}`} onClick={() => {
+        if (!open && value) {
+          const [hour, minute] = value.split(':');
+          setDraftHour(hour);
+          setDraftMinute(minute);
+        }
+        setOpen(current => !current);
+      }}>
+        <Clock size={17} />
+        <span>{value || label}</span>
+      </button>
+      {open && (
+        <div className="liquid-time-popover">
+          <div className="liquid-time-title"><Clock size={17} /><strong>Chọn giờ</strong></div>
+          <div className="liquid-time-columns">
+            <div><span>Giờ</span><div className="time-option-list">{Array.from({ length: 24 }, (_, index) => String(index).padStart(2, '0')).map(hour => <button type="button" key={hour} className={draftHour === hour ? 'selected' : ''} onClick={() => setDraftHour(hour)}>{hour}</button>)}</div></div>
+            <b>:</b>
+            <div><span>Phút</span><div className="time-option-list minute-list">{Array.from({ length: 60 }, (_, index) => String(index).padStart(2, '0')).map(minute => <button type="button" key={minute} className={draftMinute === minute ? 'selected' : ''} onClick={() => setDraftMinute(minute)}>{minute}</button>)}</div></div>
+          </div>
+          <button type="button" className="liquid-time-confirm" onClick={() => { onChange(`${draftHour}:${draftMinute}`); setOpen(false); }}>Xác nhận {draftHour}:{draftMinute}</button>
+        </div>
+      )}
+    </div>
+  );
 }
 
 // 🧠 HÀM PHÂN TÍCH ĐỀ THI TRẮC NGHIỆM THÔNG MINH ĐA ĐỊNH DẠNG (UNIVERSAL QUIZ PARSER V2)
@@ -69,10 +174,10 @@ function parseUniversalQuizText(rawText) {
     if (!line) continue;
 
     // Loại bỏ các ký tự bullet điểm đầu dòng như •, -, *, +, ~
-    const cleanLine = line.replace(/^[•\-\*+\u2022]\s*/, '').trim();
+    const cleanLine = line.replace(/^[•*+\u2022-]\s*/, '').trim();
 
     // Check bắt đầu Câu hỏi: "Câu 1:", "Câu 1.", "Câu 1", "Question 1:", "Q1:"
-    const qMatch = cleanLine.match(/^(?:câu|câu hỏi|question|q)\s*(\d+)\s*[:.\-\)]?/i);
+    const qMatch = cleanLine.match(/^(?:câu|câu hỏi|question|q)\s*(\d+)\s*[:.)-]?/i);
     if (qMatch) {
       if (currentQ && currentQ.question && currentQ.options.filter(Boolean).length >= 2) {
         const fq = finalizeQ(currentQ);
@@ -80,7 +185,7 @@ function parseUniversalQuizText(rawText) {
       }
 
       inExplanation = false;
-      const qText = cleanLine.replace(/^(?:câu|câu hỏi|question|q)\s*\d+\s*[:.\-\)]?\s*/i, '').trim();
+      const qText = cleanLine.replace(/^(?:câu|câu hỏi|question|q)\s*\d+\s*[:.)-]?\s*/i, '').trim();
       currentQ = {
         question: qText,
         options: [],
@@ -91,7 +196,7 @@ function parseUniversalQuizText(rawText) {
     }
 
     // Check dòng chứa đáp án đúng (Kể cả nằm dưới Lời giải)
-    const ansMatch = cleanLine.match(/(?:đáp án đúng là|đáp án đúng|đáp án|answer|key|đ\/a|chọn|đáp án là)\s*[:.\-]?\s*([a-d])/i);
+    const ansMatch = cleanLine.match(/(?:đáp án đúng là|đáp án đúng|đáp án|answer|key|đ\/a|chọn|đáp án là)\s*[:.-]?\s*([a-d])/i);
     if (ansMatch && currentQ) {
       const ansChar = ansMatch[1].toUpperCase();
       currentQ.correctAnswer = ansChar.charCodeAt(0) - 65;
@@ -99,7 +204,7 @@ function parseUniversalQuizText(rawText) {
     }
 
     // Check tiêu đề Lời giải / Giải thích
-    if (/^(?:lời giải|giải thích|hướng dẫn giải|hướng dẫn)\s*[:.\-]?/i.test(cleanLine)) {
+    if (/^(?:lời giải|giải thích|hướng dẫn giải|hướng dẫn)\s*[:.-]?/i.test(cleanLine)) {
       inExplanation = true;
       continue;
     }
@@ -110,7 +215,7 @@ function parseUniversalQuizText(rawText) {
     }
 
     // Check dòng Lựa chọn đáp án A, B, C, D (Kể cả có bullet • A.)
-    const optMatch = cleanLine.match(/^[*]?\s*([a-d])\s*[:.\-\)]\s*(.+)$/i);
+    const optMatch = cleanLine.match(/^[*]?\s*([a-d])\s*[:.)-]\s*(.+)$/i);
     if (optMatch && currentQ) {
       const optChar = optMatch[1].toUpperCase();
       const optText = optMatch[2].trim();
@@ -218,7 +323,7 @@ export default function TeacherPage({ user }) {
   const { logout } = useAuth();
   const channelRef = useRef(null);
 
-  const [view, setView] = useState('dashboard'); // 'dashboard' | 'create-room' | 'room-live'
+  const [view, setView] = useState('dashboard'); // dashboard | create-room | room-live | history
   const [myRooms, setMyRooms] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -228,6 +333,11 @@ export default function TeacherPage({ user }) {
   const [pasteText, setPasteText] = useState('');
   const [roomTitle, setRoomTitle] = useState('');
   const [questions, setQuestions] = useState([]);
+  const [selectedQuestionIndexes, setSelectedQuestionIndexes] = useState([]);
+  const [questionFontSize, setQuestionFontSize] = useState(15);
+  const [questionFontFamily, setQuestionFontFamily] = useState('Inter');
+  const [shuffleQuiz, setShuffleQuiz] = useState(false);
+  const [reopenSourceRoom, setReopenSourceRoom] = useState(null);
   const [uploadStatus, setUploadStatus] = useState('');
   const [roomType, setRoomType] = useState('live');
   const [questionTime, setQuestionTime] = useState(20);
@@ -247,21 +357,33 @@ export default function TeacherPage({ user }) {
   const [nextCountdown, setNextCountdown] = useState(5);
   const [profileName, setProfileName] = useState(user?.displayName || user?.display_name || '');
   const [editingName, setEditingName] = useState(false);
+  const [copiedRoomCode, setCopiedRoomCode] = useState('');
+  const [pendingCloseRoom, setPendingCloseRoom] = useState(null);
+  const [closingRoomId, setClosingRoomId] = useState('');
+  const [historyRoom, setHistoryRoom] = useState(null);
+  const [historyDetails, setHistoryDetails] = useState(null);
+  const [historyLoading, setHistoryLoading] = useState(false);
+  const [historySearch, setHistorySearch] = useState('');
+  const [historyPanelMode, setHistoryPanelMode] = useState('details');
   const timerRef = useRef(null);
   const currentQRef = useRef(null);
   const answersRef = useRef(new Map());
   const questionStartedAtRef = useRef(0);
   const nextTimerRef = useRef(null);
+  const restoredRoomRef = useRef('');
+  const activeRoomRef = useRef(null);
 
   useEffect(() => {
     if (!user || (user.role !== 'teacher' && user.role !== 'admin')) {
       navigate('/login');
     }
-  }, [user]);
+  }, [user, navigate]);
 
   useEffect(() => {
     if (user?.id) fetchMyRooms();
-  }, [user]);
+    // Fetch lại khi đổi tài khoản; các lần làm mới tiếp theo được gọi sau thao tác CRUD.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
 
   useEffect(() => {
     const updateClock = () => setClockNow(Date.now());
@@ -269,6 +391,10 @@ export default function TeacherPage({ user }) {
     const clock = setInterval(updateClock, 1000);
     return () => clearInterval(clock);
   }, []);
+
+  useEffect(() => {
+    activeRoomRef.current = activeRoom;
+  }, [activeRoom]);
 
   useEffect(() => () => {
     clearInterval(timerRef.current);
@@ -286,20 +412,85 @@ export default function TeacherPage({ user }) {
         .from('quiz_rooms')
         .select('*')
         .eq('teacher_id', user.id)
-        .is('archived_at', null)
         .order('created_at', { ascending: false });
 
       if (error) throw error;
 
-      const formattedRooms = (data || []).map(r => ({
+      let roomRows = data || [];
+      const expiredAt = new Date().toISOString();
+      const expiredAssignmentIds = roomRows
+        .filter(room => room.room_type === 'assignment' && ['waiting', 'playing'].includes(room.status) && room.closes_at && new Date(room.closes_at).getTime() <= Date.now())
+        .map(room => room.id);
+      if (expiredAssignmentIds.length > 0) {
+        const { error: expireError } = await supabase.from('quiz_rooms').update({
+          status: 'closed', closed_at: expiredAt, ended_at: expiredAt,
+          close_reason: 'expired', live_state: { phase: 'closed', reason: 'expired', closed_at: expiredAt }
+        }).in('id', expiredAssignmentIds).eq('teacher_id', user.id);
+        if (!expireError) {
+          const expiredIds = new Set(expiredAssignmentIds);
+          roomRows = roomRows.map(room => expiredIds.has(room.id)
+            ? { ...room, status: 'closed', closed_at: expiredAt, ended_at: expiredAt, close_reason: 'expired' }
+            : room);
+        }
+      }
+
+      const roomIds = roomRows.map(room => room.id);
+      let attemptCounts = new Map();
+      if (roomIds.length > 0) {
+        const { data: attemptRows, error: attemptsCountError } = await supabase
+          .from('quiz_attempts')
+          .select('room_id')
+          .in('room_id', roomIds);
+        if (!attemptsCountError) {
+          attemptCounts = (attemptRows || []).reduce((counts, attempt) => {
+            counts.set(attempt.room_id, (counts.get(attempt.room_id) || 0) + 1);
+            return counts;
+          }, new Map());
+        }
+      }
+
+      const formattedRooms = roomRows.map(r => ({
         ...r,
         roomCode: r.room_code,
         questionCount: r.questions ? r.questions.length : 0,
-        studentCount: r.participants ? r.participants.length : 0
+        studentCount: attemptCounts.get(r.id) || (r.participants ? r.participants.length : 0)
       }));
       setMyRooms(formattedRooms);
+
+      const resumableRoom = formattedRooms.find(room =>
+        room.room_type === 'live'
+        && !room.archived_at
+        && ['waiting', 'playing'].includes(room.status)
+      );
+
+      if (resumableRoom && (restoredRoomRef.current !== resumableRoom.id || !channelRef.current)) {
+        const { data: attempts } = await supabase
+          .from('quiz_attempts')
+          .select('id, student_id, display_name, avatar_url, score, correct_count, status')
+          .eq('room_id', resumableRoom.id)
+          .order('started_at', { ascending: true });
+        const restoredStudents = (attempts || []).map(attempt => ({
+          studentId: attempt.student_id,
+          attemptId: attempt.id,
+          studentName: attempt.display_name,
+          studentAvatar: attempt.avatar_url,
+          score: Number(attempt.score || 0),
+          correctCount: Number(attempt.correct_count || 0),
+        }));
+        restoredRoomRef.current = resumableRoom.id;
+        activeRoomRef.current = resumableRoom;
+        setActiveRoom(resumableRoom);
+        openRoomSocket(resumableRoom, restoredStudents);
+        await restoreLiveRoomSession(resumableRoom, restoredStudents);
+      }
     } catch (e) {
       console.warn("Could not fetch quiz rooms from DB:", e.message);
+      reportSystemError(e, {
+        action: 'teacher_rooms_load_failed',
+        component: 'TeacherPage',
+        operation: 'fetchMyRooms',
+        supabaseCode: e.code,
+      });
       setMyRooms([]);
     }
   }
@@ -322,6 +513,7 @@ export default function TeacherPage({ user }) {
 
           if (parsed.length > 0) {
             setQuestions(parsed);
+            setSelectedQuestionIndexes([]);
             setUploadStatus(`Đã phân tích thành công ${parsed.length} câu hỏi từ file Word (.docx)`);
           } else {
             const fallbackReader = new FileReader();
@@ -330,6 +522,7 @@ export default function TeacherPage({ user }) {
               const fallbackParsed = parseUniversalQuizText(rawTxt);
               if (fallbackParsed.length > 0) {
                 setQuestions(fallbackParsed);
+                setSelectedQuestionIndexes([]);
                 setUploadStatus(`Đã nhận diện ${fallbackParsed.length} câu hỏi`);
               } else {
                 setUploadStatus('Chưa nhận diện được câu hỏi trong file Word. Hãy mở file Word, sao chép nội dung và dán vào tab Dán văn bản.');
@@ -350,6 +543,7 @@ export default function TeacherPage({ user }) {
           const parsed = parseUniversalQuizText(text);
           if (parsed.length > 0) {
             setQuestions(parsed);
+            setSelectedQuestionIndexes([]);
             setUploadStatus(`Đã nhận diện thành công ${parsed.length} câu hỏi trắc nghiệm`);
           } else {
             setUploadStatus('Chưa nhận diện được câu hỏi. Hãy chuyển sang tab Dán văn bản và thử lại.');
@@ -367,15 +561,18 @@ export default function TeacherPage({ user }) {
     setPasteText(txt);
     if (!txt.trim()) {
       setQuestions([]);
+      setSelectedQuestionIndexes([]);
       setUploadStatus('');
       return;
     }
     const parsed = parseUniversalQuizText(txt);
     if (parsed.length > 0) {
       setQuestions(parsed);
+      setSelectedQuestionIndexes([]);
       setUploadStatus(`Đã nhận diện thành công ${parsed.length} câu hỏi trắc nghiệm từ văn bản dán.`);
     } else {
       setQuestions([]);
+      setSelectedQuestionIndexes([]);
       setUploadStatus('⚠️ Chưa nhận diện được cấu trúc câu hỏi. Bạn hãy đảm bảo có cấu trúc dạng: "Câu 1: ... • A. ... • B. ... Lời giải: Đáp án đúng là: A"');
     }
   };
@@ -390,8 +587,8 @@ export default function TeacherPage({ user }) {
   // Tạo phòng
   const handleCreateRoom = async () => {
     if (questions.length === 0) { setError('Cần ít nhất 1 câu hỏi được nhận diện'); return; }
-    const activeLiveCount = myRooms.filter(r => r.room_type === 'live' && ['waiting', 'playing'].includes(r.status)).length;
-    const activeAssignmentCount = myRooms.filter(r => r.room_type === 'assignment').length;
+    const activeLiveCount = myRooms.filter(r => r.room_type === 'live' && !r.archived_at && ['waiting', 'playing'].includes(r.status)).length;
+    const activeAssignmentCount = myRooms.filter(r => r.room_type === 'assignment' && !r.archived_at && ['waiting', 'playing'].includes(r.status)).length;
     if (roomType === 'live' && activeLiveCount >= 1) {
       setError('Bạn chỉ được mở 1 phòng trực tuyến. Hãy kết thúc hoặc lưu trữ phòng hiện tại trước.'); return;
     }
@@ -420,7 +617,8 @@ export default function TeacherPage({ user }) {
     }
     setLoading(true); setError('');
     try {
-      const code = createRoomCode();
+      const code = reopenSourceRoom?.roomCode || createRoomCode();
+      const inheritedSeriesId = reopenSourceRoom?.room_series_id || reopenSourceRoom?.id || null;
 
       const { data, error } = await supabase.from('quiz_rooms').insert([{
         room_code: code,
@@ -433,21 +631,40 @@ export default function TeacherPage({ user }) {
         question_time_seconds: Number(questionTime),
         intermission_seconds: 5,
         questions: questions,
-        settings: { timePerQuestion: Number(questionTime), intermissionSeconds: 5 }
+        settings: {
+          timePerQuestion: Number(questionTime), intermissionSeconds: 5,
+          editorFontSize: questionFontSize, editorFontFamily: questionFontFamily,
+          shuffleQuestions: roomType === 'assignment' && shuffleQuiz,
+          shuffleAnswers: shuffleQuiz
+        },
+        is_locked: false,
+        live_state: roomType === 'live' ? { phase: 'waiting', question_index: 0 } : {},
+        reopened_from_id: reopenSourceRoom?.id || null,
+        room_series_id: inheritedSeriesId,
+        revision: reopenSourceRoom ? Number(reopenSourceRoom.revision || 1) + 1 : 1
       }]).select().single();
 
       if (error) throw error;
 
       const roomData = { ...data, roomCode: data.room_code };
       if (roomType === 'live') {
+        restoredRoomRef.current = roomData.id;
+        activeRoomRef.current = roomData;
         openRoomSocket(roomData);
         setActiveRoom(roomData);
         setView('room-live');
       } else {
         setView('dashboard');
       }
+      setReopenSourceRoom(null);
       fetchMyRooms();
     } catch (e) {
+      reportSystemError(e, {
+        action: 'teacher_room_create_failed',
+        component: 'TeacherPage',
+        operation: 'createRoom',
+        supabaseCode: e.code,
+      });
       setError(e.message || 'Không thể tạo phòng. Hãy kiểm tra migration Supabase.');
     } finally {
       setLoading(false);
@@ -455,10 +672,10 @@ export default function TeacherPage({ user }) {
   };
 
   // Realtime Socket
-  const openRoomSocket = (room) => {
+  function openRoomSocket(room, initialStudents = []) {
     if (channelRef.current) supabase.removeChannel(channelRef.current);
 
-    let currentStudents = [];
+    let currentStudents = [...initialStudents];
     const channel = supabase.channel(`room:${room.roomCode}`, {
       config: { presence: { key: user.id } }
     });
@@ -466,6 +683,7 @@ export default function TeacherPage({ user }) {
     channelRef.current = channel;
 
     const broadcastStudentList = () => {
+      channel.currentStudents = currentStudents;
       channel.send({
         type: 'broadcast',
         event: 'student_list',
@@ -473,11 +691,46 @@ export default function TeacherPage({ user }) {
       });
     };
 
+    const syncPresenceStudents = () => {
+      const presenceStudents = Object.values(channel.presenceState())
+        .flat()
+        .filter(meta => meta?.role === 'student' && meta?.studentId);
+      const onlineById = new Map();
+      presenceStudents.forEach(meta => {
+        const saved = currentStudents.find(student => student.studentId === meta.studentId) || {};
+        onlineById.set(meta.studentId, { ...saved, ...meta });
+      });
+      currentStudents = [...onlineById.values()];
+      setStudents(currentStudents);
+      broadcastStudentList();
+    };
+
     channel
+      .on('presence', { event: 'sync' }, syncPresenceStudents)
+      .on('presence', { event: 'leave' }, syncPresenceStudents)
       .on('broadcast', { event: 'student_join' }, ({ payload }) => {
-        if (!currentStudents.some((student) => student.studentId === payload.studentId)) {
-          currentStudents.push({ ...payload, score: 0 });
+        const currentRoom = activeRoomRef.current || room;
+        if (currentRoom.is_locked || currentRoom.status === 'playing') {
+          currentStudents = currentStudents.filter(student => student.studentId !== payload.studentId);
+          channel.send({
+            type: 'broadcast', event: 'join_rejected',
+            payload: { studentId: payload.studentId, message: 'Phòng đã khóa và không nhận thêm học viên.' }
+          });
+          setStudents([...currentStudents]);
+          broadcastStudentList();
+          return;
         }
+        const existingStudent = currentStudents.find((student) => student.studentId === payload.studentId);
+        if (!existingStudent) {
+          currentStudents.push({ ...payload, score: 0 });
+        } else {
+          Object.assign(existingStudent, payload);
+        }
+        setStudents([...currentStudents]);
+        broadcastStudentList();
+      })
+      .on('broadcast', { event: 'student_leave' }, ({ payload }) => {
+        currentStudents = currentStudents.filter(student => student.studentId !== payload?.studentId);
         setStudents([...currentStudents]);
         broadcastStudentList();
       })
@@ -511,17 +764,99 @@ export default function TeacherPage({ user }) {
         setStudents([...currentStudents]);
         broadcastStudentList();
       })
-      .subscribe();
+      .subscribe(async (status) => {
+        if (status === 'SUBSCRIBED') {
+          await channel.track({ role: 'teacher', teacherId: user.id, roomId: room.id });
+          channel.send({ type: 'broadcast', event: 'host_ready', payload: { roomId: room.id } });
+          broadcastStudentList();
+        }
+      });
 
     channel.currentStudents = currentStudents;
-  };
+  }
+
+  async function restoreLiveRoomSession(room, restoredStudents = []) {
+    if (room.status === 'waiting') {
+      setQuizState('waiting');
+      setStudents(restoredStudents);
+      return;
+    }
+
+    const state = room.live_state || {};
+    const questionIndex = Number(state.question_index ?? room.current_question_index ?? 0);
+    const qData = room.questions?.[questionIndex];
+    if (!qData) {
+      setQuizState('waiting');
+      return;
+    }
+
+    const questionPayload = {
+      ...qData,
+      questionIndex,
+      totalQuestions: room.questions.length,
+      timeLimit: Number(room.question_time_seconds || room.settings?.timePerQuestion || 20),
+    };
+    setCurrentQ(questionPayload);
+    currentQRef.current = questionPayload;
+    setStudents(restoredStudents);
+
+    const { data: savedAnswers } = await supabase
+      .from('quiz_answers')
+      .select('student_id, selected_option, is_correct, response_ms, points')
+      .eq('room_id', room.id)
+      .eq('question_index', questionIndex);
+    const namesById = new Map(restoredStudents.map(student => [student.studentId, student.studentName]));
+    answersRef.current = new Map((savedAnswers || []).map(answer => [answer.student_id, {
+      studentId: answer.student_id,
+      answerIndex: answer.selected_option,
+      isCorrect: answer.is_correct,
+      responseMs: answer.response_ms,
+      points: answer.points,
+      studentName: namesById.get(answer.student_id) || 'Học sinh',
+    }]));
+
+    if (state.phase === 'result') {
+      setAnswerDistribution(Array.isArray(state.distribution) ? state.distribution : [0, 0, 0, 0]);
+      setLeaderboard(Array.isArray(state.leaderboard) ? state.leaderboard : []);
+      setFastestCorrect(state.fastest_correct || null);
+      setNextCountdown(0);
+      setQuizState('result');
+      return;
+    }
+
+    const startedAt = state.question_started_at ? new Date(state.question_started_at).getTime() : Date.now();
+    const endsAt = state.question_ends_at ? new Date(state.question_ends_at).getTime() : startedAt + questionPayload.timeLimit * 1000;
+    questionStartedAtRef.current = startedAt;
+    const remaining = Math.max(0, Math.ceil((endsAt - Date.now()) / 1000));
+    setQuizState('question');
+    if (remaining > 0) startTeacherQuestionTimer(remaining);
+    else setTimeout(() => showResult(), 0);
+  }
+
+  function startTeacherQuestionTimer(seconds) {
+    clearInterval(timerRef.current);
+    setTimer(seconds);
+    timerRef.current = setInterval(() => {
+      setTimer(value => {
+        if (value <= 1) {
+          clearInterval(timerRef.current);
+          setTimeout(() => showResult(), 0);
+          return 0;
+        }
+        return value - 1;
+      });
+    }, 1000);
+  }
 
   const handleStartQuiz = async () => {
-    if (!channelRef.current || !activeRoom) return;
+    const room = activeRoomRef.current || activeRoom;
+    if (!channelRef.current || !room) return;
 
     const { error: startError } = await supabase.from('quiz_rooms').update({
-      status: 'playing', current_question_index: 0, started_at: new Date().toISOString()
-    }).eq('id', activeRoom.id);
+      status: 'playing', current_question_index: 0, started_at: new Date().toISOString(),
+      is_locked: true,
+      live_state: { phase: 'starting', question_index: 0 }
+    }).eq('id', room.id);
     if (startError) { setError(startError.message); return; }
 
     channelRef.current.send({
@@ -531,13 +866,36 @@ export default function TeacherPage({ user }) {
     });
 
     setQuizState('playing');
+    activeRoomRef.current = { ...room, status: 'playing', is_locked: true, current_question_index: 0 };
+    setActiveRoom(room => room ? { ...room, status: 'playing', is_locked: true, current_question_index: 0 } : room);
+    channelRef.current.send({ type: 'broadcast', event: 'room_lock_changed', payload: { locked: true } });
     setTimeout(() => {
       playQuestion(0);
     }, 2000);
   };
 
+  const handleToggleRoomLock = async () => {
+    const room = activeRoomRef.current || activeRoom;
+    if (!room || room.status === 'playing') return;
+    const nextLocked = !room.is_locked;
+    const { error: lockError } = await supabase.from('quiz_rooms')
+      .update({ is_locked: nextLocked })
+      .eq('id', room.id)
+      .eq('teacher_id', user.id);
+    if (lockError) {
+      setError(`${lockError.message}. Hãy chạy migration khóa phòng mới trong Supabase.`);
+      return;
+    }
+    const updatedRoom = { ...room, is_locked: nextLocked };
+    activeRoomRef.current = updatedRoom;
+    setActiveRoom(updatedRoom);
+    channelRef.current?.send({ type: 'broadcast', event: 'room_lock_changed', payload: { locked: nextLocked } });
+  };
+
   const playQuestion = (qIndex) => {
-    const qData = activeRoom.questions[qIndex];
+    const room = activeRoomRef.current || activeRoom;
+    if (!room) return;
+    const qData = room.questions[qIndex];
     if (!qData) {
       handleEndQuiz();
       return;
@@ -546,8 +904,8 @@ export default function TeacherPage({ user }) {
     const questionPayload = {
       ...qData,
       questionIndex: qIndex,
-      totalQuestions: activeRoom.questions.length,
-      timeLimit: Number(activeRoom.question_time_seconds || activeRoom.settings?.timePerQuestion || 20)
+      totalQuestions: room.questions.length,
+      timeLimit: Number(room.question_time_seconds || room.settings?.timePerQuestion || 20)
     };
 
     setCurrentQ(questionPayload);
@@ -563,21 +921,25 @@ export default function TeacherPage({ user }) {
       event: 'quiz_question',
       payload: safeQuestionPayload
     });
+    const questionStartedAt = new Date(questionStartedAtRef.current).toISOString();
+    const questionEndsAt = new Date(questionStartedAtRef.current + questionPayload.timeLimit * 1000).toISOString();
+    supabase.from('quiz_rooms').update({
+      current_question_index: qIndex,
+      live_state: {
+        phase: 'question',
+        question_index: qIndex,
+        question_started_at: questionStartedAt,
+        question_ends_at: questionEndsAt,
+      }
+    }).eq('id', room.id).then(({ error: stateError }) => {
+      if (stateError) console.warn('Không thể lưu trạng thái câu hỏi:', stateError.message);
+    });
 
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setTimer(t => {
-        if (t <= 1) {
-          clearInterval(timerRef.current);
-          showResult();
-          return 0;
-        }
-        return t - 1;
-      });
-    }, 1000);
+    startTeacherQuestionTimer(questionPayload.timeLimit);
   };
 
   const showResult = async () => {
+    const room = activeRoomRef.current || activeRoom;
     const q = currentQRef.current;
     const answers = [...answersRef.current.values()];
     const distribution = [0, 0, 0, 0];
@@ -591,6 +953,22 @@ export default function TeacherPage({ user }) {
     setFastestCorrect(fastest);
     setNextCountdown(5);
     setQuizState('result');
+
+    if (room?.id) {
+      supabase.from('quiz_rooms').update({
+        participants: lb,
+        live_state: {
+          phase: 'result',
+          question_index: q?.questionIndex ?? room.current_question_index ?? 0,
+          distribution,
+          leaderboard: lb,
+          fastest_correct: fastest,
+          result_at: new Date().toISOString(),
+        }
+      }).eq('id', room.id).then(({ error: stateError }) => {
+        if (stateError) console.warn('Không thể lưu kết quả câu hỏi:', stateError.message);
+      });
+    }
 
     if (channelRef.current) {
       channelRef.current.send({
@@ -612,16 +990,19 @@ export default function TeacherPage({ user }) {
   };
 
   const handleNextQuestion = async () => {
+    const room = activeRoomRef.current || activeRoom;
     const activeQuestion = currentQRef.current;
-    if (!activeRoom || !activeQuestion) return;
+    if (!room || !activeQuestion) return;
     clearInterval(nextTimerRef.current);
     const nextIdx = activeQuestion.questionIndex + 1;
-    const { error: nextError } = await supabase.from('quiz_rooms').update({ current_question_index: nextIdx }).eq('id', activeRoom.id);
+    const { error: nextError } = await supabase.from('quiz_rooms').update({ current_question_index: nextIdx }).eq('id', room.id);
     if (nextError) { setError(nextError.message); return; }
     playQuestion(nextIdx);
   };
 
   const handleEndQuiz = async () => {
+    const room = activeRoomRef.current || activeRoom;
+    if (!room) return;
     const finalLb = [...(channelRef.current?.currentStudents || [])]
       .sort((a, b) => b.score - a.score)
       .map((student, index) => ({ ...student, rank: index + 1 }));
@@ -629,15 +1010,30 @@ export default function TeacherPage({ user }) {
       await supabase
         .from('quiz_rooms')
         .update({
-          status: 'finished',
+          status: 'closed',
           ended_at: new Date().toISOString(),
-          participants: finalLb
+          closed_at: new Date().toISOString(),
+          close_reason: 'completed',
+          participants: finalLb,
+          live_state: { phase: 'ended', leaderboard: finalLb, ended_at: new Date().toISOString() }
         })
-        .eq('id', activeRoom.id);
+        .eq('id', room.id);
+      await supabase.from('quiz_attempts')
+        .update({ status: 'completed', completed_at: new Date().toISOString() })
+        .eq('room_id', room.id)
+        .neq('status', 'left');
     } catch (err) {
       console.error('Error updating quiz participants in DB:', err);
+      reportSystemError(err, {
+        action: 'teacher_quiz_finalize_failed',
+        component: 'TeacherPage',
+        operation: 'handleEndQuiz',
+        supabaseCode: err.code,
+      });
     }
     setQuizState('ended');
+    activeRoomRef.current = { ...room, status: 'closed' };
+    setActiveRoom(currentRoom => currentRoom ? { ...currentRoom, status: 'closed' } : activeRoomRef.current);
     if (channelRef.current) {
       channelRef.current.send({
         type: 'broadcast',
@@ -645,6 +1041,7 @@ export default function TeacherPage({ user }) {
         payload: { leaderboard: finalLb }
       });
     }
+    fetchMyRooms();
   };
 
   const handleArchiveRoom = async (roomId) => {
@@ -652,6 +1049,258 @@ export default function TeacherPage({ user }) {
       .update({ archived_at: new Date().toISOString() }).eq('id', roomId).eq('teacher_id', user.id);
     if (archiveError) setError(archiveError.message);
     else fetchMyRooms();
+  };
+
+  const handleCopyRoomCode = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedRoomCode(code);
+      setTimeout(() => setCopiedRoomCode(current => current === code ? '' : current), 1800);
+    } catch {
+      setError(`Không thể sao chép tự động. Mã phòng là ${code}.`);
+    }
+  };
+
+  const requestCloseRoom = async (room) => {
+    const currentActiveRoom = activeRoomRef.current || activeRoom;
+    const isCurrentLiveRoom = currentActiveRoom?.id === room.id;
+    let participantCount = isCurrentLiveRoom ? students.length : 0;
+    if (!isCurrentLiveRoom) {
+      const { count } = await supabase.from('quiz_attempts')
+        .select('id', { count: 'exact', head: true })
+        .eq('room_id', room.id)
+        .in('status', ['joined', 'playing']);
+      participantCount = Number(count || 0);
+    }
+    setPendingCloseRoom({ ...room, studentCount: participantCount });
+  };
+
+  const broadcastRoomClosed = async (room, payload) => {
+    const currentActiveRoom = activeRoomRef.current || activeRoom;
+    if (channelRef.current && currentActiveRoom?.id === room.id) {
+      await channelRef.current.send({ type: 'broadcast', event: 'room_closed', payload });
+      return;
+    }
+    const closeChannel = supabase.channel(`room:${room.roomCode || room.room_code}`);
+    await new Promise((resolve) => {
+      const fallback = setTimeout(() => {
+        supabase.removeChannel(closeChannel);
+        resolve();
+      }, 2500);
+      closeChannel.subscribe(async status => {
+        if (status !== 'SUBSCRIBED') return;
+        await closeChannel.send({ type: 'broadcast', event: 'room_closed', payload });
+        clearTimeout(fallback);
+        await supabase.removeChannel(closeChannel);
+        resolve();
+      });
+    });
+  };
+
+  const confirmCloseRoom = async () => {
+    if (!pendingCloseRoom) return;
+    const room = pendingCloseRoom;
+    const currentActiveRoom = activeRoomRef.current || activeRoom;
+    setClosingRoomId(room.id);
+    setError('');
+    const closedAt = new Date().toISOString();
+    const participantSnapshot = currentActiveRoom?.id === room.id ? students : (room.participants || []);
+    const { error: closeError } = await supabase.from('quiz_rooms').update({
+      status: 'closed',
+      closed_at: closedAt,
+      ended_at: closedAt,
+      close_reason: 'teacher_closed',
+      participants: participantSnapshot,
+      live_state: { phase: 'closed', closed_at: closedAt, reason: 'teacher_closed' },
+    }).eq('id', room.id).eq('teacher_id', user.id);
+    setClosingRoomId('');
+    if (closeError) {
+      setError(`${closeError.message}. Hãy chạy migration vòng đời phòng mới trong Supabase.`);
+      return;
+    }
+    await broadcastRoomClosed(room, { message: 'Giáo viên đã đóng phòng.', redirectIn: 5 });
+    setPendingCloseRoom(null);
+    if (currentActiveRoom?.id === room.id) {
+      clearInterval(timerRef.current);
+      clearInterval(nextTimerRef.current);
+      if (channelRef.current) {
+        const closedChannel = channelRef.current;
+        channelRef.current = null;
+        // Capture the closed room, never read a ref that may point at a new room.
+        supabase.removeChannel(closedChannel).catch(error => reportSystemError(error, {
+          action: 'quiz_channel_cleanup_error', operation: 'close_room', severity: 'warning',
+        }));
+      }
+      setActiveRoom(null);
+      activeRoomRef.current = null;
+      restoredRoomRef.current = '';
+      setStudents([]);
+      setQuizState('waiting');
+      setView('dashboard');
+    }
+    await fetchMyRooms();
+  };
+
+  const handleOpenLiveRoom = async (room) => {
+    const { data: attempts } = await supabase
+      .from('quiz_attempts')
+      .select('id, student_id, display_name, avatar_url, score, correct_count, status')
+      .eq('room_id', room.id)
+      .order('started_at', { ascending: true });
+    const restoredStudents = (attempts || []).map(attempt => ({
+      studentId: attempt.student_id,
+      attemptId: attempt.id,
+      studentName: attempt.display_name,
+      studentAvatar: attempt.avatar_url,
+      score: Number(attempt.score || 0),
+      correctCount: Number(attempt.correct_count || 0),
+    }));
+    restoredRoomRef.current = room.id;
+    activeRoomRef.current = room;
+    setActiveRoom(room);
+    openRoomSocket(room, restoredStudents);
+    await restoreLiveRoomSession(room, restoredStudents);
+    setView('room-live');
+  };
+
+  const handleOpenHistoryDetails = async (room, mode = 'details') => {
+    setHistoryPanelMode(mode);
+    setHistoryRoom(room);
+    setHistoryDetails(null);
+    setHistoryLoading(true);
+    const [{ data: attempts, error: attemptsError }, { data: answers, error: answersError }] = await Promise.all([
+      supabase.from('quiz_attempts').select('id, student_id, display_name, avatar_url, status, score, correct_count, started_at, completed_at').eq('room_id', room.id).order('score', { ascending: false }),
+      supabase.from('quiz_answers').select('id, student_id, question_index, selected_option, is_correct, response_ms, points, answered_at').eq('room_id', room.id).order('answered_at', { ascending: true }),
+    ]);
+    if (attemptsError || answersError) setError(attemptsError?.message || answersError?.message);
+    setHistoryDetails({ attempts: attempts || [], answers: answers || [] });
+    setHistoryLoading(false);
+  };
+
+  const handleReopenRoom = (room) => {
+    const existingActiveRevision = myRooms.find(candidate => candidate.id !== room.id && candidate.roomCode === room.roomCode && ['waiting', 'playing'].includes(candidate.status));
+    if (existingActiveRevision) {
+      setError(`Mã #${room.roomCode} đã có một phiên đang hoạt động. Hãy đóng phiên đó trước khi mở lại lần nữa.`);
+      setView('dashboard');
+      return;
+    }
+    const clonedQuestions = JSON.parse(JSON.stringify(room.questions || []));
+    setReopenSourceRoom(room);
+    setRoomTitle(room.title || 'Phòng thi đấu Sinh Học');
+    setRoomType(room.room_type || 'live');
+    setQuestionTime(Number(room.question_time_seconds || room.settings?.timePerQuestion || 20));
+    setQuestionFontSize(Number(room.settings?.editorFontSize || 15));
+    setQuestionFontFamily(room.settings?.editorFontFamily || 'Inter');
+    setShuffleQuiz(Boolean(room.settings?.shuffleQuestions || room.settings?.shuffleAnswers));
+    setQuestions(clonedQuestions);
+    setSelectedQuestionIndexes([]);
+    setPasteText('');
+    setUploadStatus(`Đã nạp ${clonedQuestions.length} câu từ phòng #${room.roomCode}. Bạn có thể sửa trước khi tạo phiên mới.`);
+
+    if (room.room_type === 'assignment') {
+      const oldOpen = room.opens_at ? new Date(room.opens_at) : null;
+      const oldClose = room.closes_at ? new Date(room.closes_at) : null;
+      const oldWindow = oldOpen && oldClose ? oldClose.getTime() - oldOpen.getTime() : 60 * 60 * 1000;
+      const safeWindow = Math.min(7 * 24 * 60 * 60 * 1000, Math.max(15 * 60 * 1000, oldWindow));
+      const nextOpen = oldOpen && oldOpen.getTime() > Date.now() ? oldOpen : new Date(Date.now() + 15 * 60 * 1000);
+      nextOpen.setSeconds(0, 0);
+      const nextClose = oldClose && oldClose.getTime() > nextOpen.getTime() ? oldClose : new Date(nextOpen.getTime() + safeWindow);
+      setOpenDate(toLocalDateValue(nextOpen));
+      setOpenTime(toLocalTimeValue(nextOpen));
+      setCloseDate(toLocalDateValue(nextClose));
+      setCloseTime(toLocalTimeValue(nextClose));
+    } else {
+      setOpenDate(''); setOpenTime(''); setCloseDate(''); setCloseTime('');
+    }
+
+    setError('');
+    setHistoryRoom(null);
+    setHistoryDetails(null);
+    setView('create-room');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleClearQuestions = () => {
+    setQuestions([]);
+    setSelectedQuestionIndexes([]);
+    setPasteText('');
+    setUploadStatus('Đã xóa toàn bộ đề đã nạp.');
+  };
+
+  const toggleQuestionSelection = (index) => {
+    setSelectedQuestionIndexes(current => current.includes(index) ? current.filter(item => item !== index) : [...current, index]);
+  };
+
+  const handleDeleteSelectedQuestions = () => {
+    if (selectedQuestionIndexes.length === 0) return;
+    const selected = new Set(selectedQuestionIndexes);
+    setQuestions(current => current.filter((_, index) => !selected.has(index)));
+    setSelectedQuestionIndexes([]);
+    setUploadStatus(`Đã xóa ${selected.size} câu hỏi được chọn.`);
+  };
+
+  const updateQuestionText = (questionIndex, value) => {
+    setQuestions(current => current.map((question, index) => index === questionIndex ? { ...question, question: value } : question));
+  };
+
+  const updateQuestionOption = (questionIndex, optionIndex, value) => {
+    setQuestions(current => current.map((question, index) => index === questionIndex
+      ? { ...question, options: question.options.map((option, currentOption) => currentOption === optionIndex ? value : option) }
+      : question));
+  };
+
+  const moveQuestionOption = (questionIndex, optionIndex, direction) => {
+    const targetIndex = optionIndex + direction;
+    if (targetIndex < 0 || targetIndex > 3) return;
+    setQuestions(current => current.map((question, index) => {
+      if (index !== questionIndex) return question;
+      const options = [...question.options];
+      [options[optionIndex], options[targetIndex]] = [options[targetIndex], options[optionIndex]];
+      let correctAnswer = question.correctAnswer;
+      if (correctAnswer === optionIndex) correctAnswer = targetIndex;
+      else if (correctAnswer === targetIndex) correctAnswer = optionIndex;
+      return { ...question, options, correctAnswer };
+    }));
+  };
+
+  const handleExportRoomExcel = (targetRoom = historyRoom, attempts = historyDetails?.attempts) => {
+    const room = targetRoom || historyRoom;
+    const attemptList = attempts || historyDetails?.attempts || [];
+    if (!room) return;
+    if (!attemptList || attemptList.length === 0) {
+      setError('Chưa có dữ liệu học sinh nộp bài hoặc tham gia phòng này để xuất file Excel.');
+      return;
+    }
+
+    let csvContent = '\uFEFF';
+    csvContent += `BÁO CÁO KẾT QUẢ PHÒNG THI QUIZ SINH HỌC - BIOLEARN\n`;
+    csvContent += `Mã phòng,${room.roomCode || room.room_code || ''}\n`;
+    csvContent += `Tên phòng,${(room.title || '').replace(/,/g, ' ')}\n`;
+    csvContent += `Hình thức,${room.room_type === 'assignment' ? 'Quiz theo lịch' : 'Phòng trực tuyến'}\n`;
+    csvContent += `Thời gian tạo,${new Date(room.created_at).toLocaleString('vi-VN')}\n`;
+    csvContent += `Tổng số học sinh,${attemptList.length}\n\n`;
+
+    csvContent += `STT,Họ và tên học sinh,Điểm số,Số câu đúng,Trạng thái,Thời gian nộp bài\n`;
+
+    attemptList.forEach((attempt, index) => {
+      const name = `"${(attempt.display_name || 'Học sinh').replace(/"/g, '""')}"`;
+      const score = attempt.score || 0;
+      const correct = attempt.correct_count || 0;
+      const status = attempt.status === 'completed' ? 'Đã hoàn thành' : 'Đang làm / Đã thoát';
+      const timeStr = attempt.completed_at ? new Date(attempt.completed_at).toLocaleString('vi-VN') : (attempt.started_at ? new Date(attempt.started_at).toLocaleString('vi-VN') : 'N/A');
+
+      csvContent += `${index + 1},${name},${score},${correct},${status},${timeStr}\n`;
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `KetQua_Quiz_${room.roomCode || 'BioLearn'}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const handleSaveProfileName = async () => {
@@ -668,8 +1317,87 @@ export default function TeacherPage({ user }) {
   };
 
   const scheduledOpenMoment = openDate && openTime ? new Date(`${openDate}T${openTime}`).getTime() : 0;
+  const todayDateValue = toLocalDateValue(new Date());
 
   const medalColors = ['#FFD700', '#C0C0C0', '#CD7F32'];
+
+  const visibleRooms = myRooms.filter(room => !room.archived_at);
+  const activeLiveRooms = visibleRooms.filter(room => room.room_type === 'live' && ['waiting', 'playing'].includes(room.status));
+  const activeAssignmentRooms = visibleRooms.filter(room => room.room_type === 'assignment' && ['waiting', 'playing'].includes(room.status));
+  const closedRooms = visibleRooms.filter(room => ['closed', 'finished'].includes(room.status));
+  const filteredHistoryRooms = myRooms.filter(room => {
+    const search = historySearch.trim().toLowerCase();
+    return !search || room.title?.toLowerCase().includes(search) || room.roomCode?.toLowerCase().includes(search);
+  });
+  const historyAttempts = historyDetails?.attempts || [];
+  const historyAnswers = historyDetails?.answers || [];
+  const historyMaxScore = Math.max(1, Number(historyRoom?.questionCount || historyRoom?.questions?.length || 1) * 1000);
+  const historyScoreBands = [
+    { label: '0–49%', min: 0, max: 50, count: 0 },
+    { label: '50–69%', min: 50, max: 70, count: 0 },
+    { label: '70–84%', min: 70, max: 85, count: 0 },
+    { label: '85–100%', min: 85, max: 101, count: 0 },
+  ];
+  historyAttempts.forEach(attempt => {
+    const percent = Math.max(0, Math.min(100, Number(attempt.score || 0) / historyMaxScore * 100));
+    const band = historyScoreBands.find(item => percent >= item.min && percent < item.max);
+    if (band) band.count += 1;
+  });
+  const historyQuestionStats = (historyRoom?.questions || []).map((question, questionIndex) => {
+    const answers = historyAnswers.filter(answer => Number(answer.question_index) === questionIndex);
+    const correct = answers.filter(answer => answer.is_correct).length;
+    const optionCounts = [0, 0, 0, 0];
+    answers.forEach(answer => {
+      const selected = Number(answer.selected_option);
+      if (selected >= 0 && selected < 4) optionCounts[selected] += 1;
+    });
+    return { question, questionIndex, total: answers.length, correct, incorrect: answers.length - correct, optionCounts };
+  });
+  const historyCorrectCount = historyAnswers.filter(answer => answer.is_correct).length;
+  const historyCorrectRate = historyAnswers.length ? Math.round(historyCorrectCount / historyAnswers.length * 100) : 0;
+
+  const getRoomStatusText = (status) => {
+    if (status === 'waiting') return 'Đang chờ';
+    if (status === 'playing') return 'Phòng trực tuyến';
+    if (status === 'closed' || status === 'finished') return 'Đã đóng';
+    return status;
+  };
+
+  const renderRoomCard = (room) => (
+    <div className="room-card" key={room.id || room.roomCode}>
+      <div className="room-code-with-copy">
+        <span className="room-code">#{room.roomCode}</span>
+        <button type="button" className="liquid-copy-button" onClick={() => handleCopyRoomCode(room.roomCode)} title="Sao chép mã phòng" aria-label={`Sao chép mã ${room.roomCode}`}>
+          {copiedRoomCode === room.roomCode ? <CheckCircle2 size={15} /> : <Copy size={15} />}
+        </button>
+      </div>
+      <div className="room-info">
+        <b>{room.title}</b>
+        <small>{room.room_type === 'assignment' ? 'Theo lịch' : 'Trực tuyến'} · {room.questionCount} câu hỏi · {room.studentCount} học sinh</small>
+        {room.room_type === 'assignment' && room.opens_at && new Date(room.opens_at).getTime() > clockNow && (
+          <small className="room-opening-countdown">Mở sau {formatCountdown(new Date(room.opens_at).getTime() - clockNow)}</small>
+        )}
+        {(room.closed_at || room.ended_at) && <small className="room-closed-at">Đóng lúc {new Date(room.closed_at || room.ended_at).toLocaleString('vi-VN')}</small>}
+      </div>
+      <div className={`room-status ${room.status}`}>{getRoomStatusText(room.status)}</div>
+      <div className="room-actions">
+        {room.room_type === 'live' && ['waiting', 'playing'].includes(room.status) && (
+          <button type="button" className="room-action primary" onClick={() => handleOpenLiveRoom(room)}><Radio size={15} /> Mở phòng</button>
+        )}
+        {['waiting', 'playing'].includes(room.status) && (
+          <button type="button" className="room-action danger" onClick={() => requestCloseRoom(room)}><DoorClosed size={15} /> Đóng phòng</button>
+        )}
+        {['closed', 'finished'].includes(room.status) && (
+          <>
+            <button type="button" className="room-action" onClick={() => { setView('history'); handleOpenHistoryDetails(room, 'details'); }}><Eye size={15} /> Chi tiết</button>
+            <button type="button" className="room-action chart" onClick={() => { setView('history'); handleOpenHistoryDetails(room, 'chart'); }}><BarChart3 size={15} /> Biểu đồ</button>
+            <button type="button" className="room-action reopen" disabled={myRooms.some(candidate => candidate.id !== room.id && candidate.roomCode === room.roomCode && ['waiting', 'playing'].includes(candidate.status))} onClick={() => handleReopenRoom(room)}><RotateCcw size={15} /> {myRooms.some(candidate => candidate.id !== room.id && candidate.roomCode === room.roomCode && ['waiting', 'playing'].includes(candidate.status)) ? 'Đã mở lại' : 'Mở lại'}</button>
+          </>
+        )}
+        <button type="button" className="room-archive" onClick={() => handleArchiveRoom(room.id)} title="Ẩn phòng khỏi màn hình, vẫn giữ toàn bộ dữ liệu"><Archive size={15} /> Ẩn</button>
+      </div>
+    </div>
+  );
 
   if (!user) return null;
 
@@ -703,10 +1431,19 @@ export default function TeacherPage({ user }) {
             <GlassIcon tone="mint" compact><PlusCircle /></GlassIcon>
             <span>Tạo phòng Quiz</span>
           </button>
-          {activeRoom && (
+          <button className={view === 'history' ? 'active' : ''} onClick={() => {
+            setHistoryRoom(null);
+            setHistoryDetails(null);
+            setHistoryPanelMode('details');
+            setView('history');
+          }}>
+            <GlassIcon tone="violet" compact><History /></GlassIcon>
+            <span>Lịch sử phòng</span>
+          </button>
+          {activeRoom && ['waiting', 'playing'].includes(activeRoom.status) && (
             <button className={view === 'room-live' ? 'active' : ''} onClick={() => setView('room-live')}>
               <Radio className="w-4 h-4 inline-block mr-2 text-red-400 animate-pulse" />
-              <span>Phòng đang mở</span>
+              <span>Phòng trực tuyến</span>
             </button>
           )}
         </nav>
@@ -739,48 +1476,116 @@ export default function TeacherPage({ user }) {
               <div className="stat-card">
                 <GlassIcon tone="mint"><Radio /></GlassIcon>
                 <div>
-                  <b>{myRooms.filter(r => r.status === 'playing').length}</b>
-                  <small>Đang chạy live</small>
+                  <b>{activeLiveRooms.length}</b>
+                  <small>Phòng trực tuyến</small>
                 </div>
               </div>
               <div className="stat-card">
                 <GlassIcon tone="violet"><CheckCircle2 /></GlassIcon>
                 <div>
-                  <b>{myRooms.filter(r => r.status === 'finished').length}</b>
-                  <small>Đã kết thúc</small>
+                  <b>{myRooms.filter(r => ['closed', 'finished'].includes(r.status)).length}</b>
+                  <small>Phòng đã đóng</small>
                 </div>
               </div>
             </div>
 
             <h3 className="flex items-center gap-2">
-              <FileText className="w-5 h-5 text-amber-400" />
-              <span>Danh Sách Phòng Quiz Gần Đây</span>
+              <Radio className="w-5 h-5 text-emerald-400" />
+              <span>Phòng trực tuyến</span>
             </h3>
-
-            {myRooms.length === 0 ? (
+            {activeLiveRooms.length === 0 ? (
               <div className="empty-state">
-                Chưa có phòng thi nào. <button onClick={() => setView('create-room')}>Tạo ngay phòng Quiz mới →</button>
+                Chưa có phòng trực tuyến đang mở. <button onClick={() => setView('create-room')}>Tạo phòng mới →</button>
               </div>
             ) : (
-              <div className="rooms-list">
-                {myRooms.map(room => (
-                  <div className="room-card" key={room.roomCode}>
-                    <div className="room-code">#{room.roomCode}</div>
-                    <div className="room-info">
-                      <b>{room.title}</b>
-                      <small>{room.room_type === 'assignment' ? 'Theo lịch' : 'Trực tuyến'} · {room.questionCount} câu hỏi · {room.studentCount} học sinh</small>
-                      {room.room_type === 'assignment' && room.opens_at && new Date(room.opens_at).getTime() > clockNow && (
-                        <small className="room-opening-countdown">Mở sau {formatCountdown(new Date(room.opens_at).getTime() - clockNow)}</small>
-                      )}
+              <div className="rooms-list">{activeLiveRooms.map(renderRoomCard)}</div>
+            )}
+
+            {activeAssignmentRooms.length > 0 && <>
+              <h3 className="flex items-center gap-2"><CalendarDays className="w-5 h-5 text-cyan-400" /><span>Quiz theo lịch đang mở</span></h3>
+              <div className="rooms-list">{activeAssignmentRooms.map(renderRoomCard)}</div>
+            </>}
+
+            <h3 className="flex items-center gap-2"><DoorClosed className="w-5 h-5 text-violet-400" /><span>Phòng đã đóng</span></h3>
+            {closedRooms.length === 0 ? <div className="empty-state compact">Chưa có phòng nào đã đóng.</div> : <div className="rooms-list">{closedRooms.map(renderRoomCard)}</div>}
+          </div>
+        )}
+
+        {/* HISTORY */}
+        {view === 'history' && (
+          <div className="teacher-history">
+            <div className="history-heading">
+              <div><h2><History size={24} /> Lịch sử phòng Quiz</h2><p>Toàn bộ phòng vẫn được lưu tại database, kể cả những phòng đã ẩn.</p></div>
+              <label className="history-search"><Search size={17} /><input value={historySearch} onChange={event => setHistorySearch(event.target.value)} placeholder="Tìm tên hoặc mã phòng" /></label>
+            </div>
+            <div className={`history-layout ${historyRoom ? 'has-details' : 'list-only'}`}>
+              <div className="history-list">
+                {filteredHistoryRooms.length === 0 ? <div className="empty-state">Không tìm thấy phòng phù hợp.</div> : filteredHistoryRooms.map(room => (
+                  <div key={room.id} className={`history-room-row ${historyRoom?.id === room.id ? 'active' : ''}`}>
+                    <button type="button" className="history-room-main" onClick={() => handleOpenHistoryDetails(room, 'details')}>
+                      <div><strong>{room.title}</strong><span>#{room.roomCode} · {room.room_type === 'assignment' ? 'Theo lịch' : 'Trực tuyến'}{Number(room.revision || 1) > 1 ? ` · Phiên ${room.revision}` : ''}</span></div>
+                      <div><time>{new Date(room.created_at).toLocaleString('vi-VN')}</time><span className={`history-status ${room.status}`}>{getRoomStatusText(room.status)}</span></div>
+                    </button>
+                    <div className="history-row-actions">
+                      <button type="button" onClick={() => handleOpenHistoryDetails(room, 'details')} title="Xem chi tiết"><Eye size={15} /><span>Chi tiết</span></button>
+                      <button type="button" onClick={() => handleOpenHistoryDetails(room, 'chart')} title="Xem biểu đồ"><BarChart3 size={15} /><span>Biểu đồ</span></button>
+                      <button type="button" onClick={async () => { await handleOpenHistoryDetails(room, 'details'); handleExportRoomExcel(room); }} title="Xuất file Excel CSV"><Download size={15} /><span>Xuất Excel</span></button>
+                      {['closed', 'finished'].includes(room.status) && <button type="button" onClick={() => handleReopenRoom(room)} title="Mở lại phòng"><RotateCcw size={15} /><span>Mở lại</span></button>}
                     </div>
-                    <div className={`room-status ${room.status}`}>
-                      {room.status === 'waiting' ? 'Đang chờ' : room.status === 'playing' ? 'Live' : 'Hoàn thành'}
-                    </div>
-                    <button className="room-archive" onClick={() => handleArchiveRoom(room.id)} title="Ẩn phòng khỏi màn hình, vẫn giữ toàn bộ dữ liệu"><Archive size={16} /> Lưu trữ</button>
                   </div>
                 ))}
               </div>
-            )}
+              {historyRoom && <aside className="history-details">
+                {historyLoading ? <div className="history-placeholder">Đang tải dữ liệu phòng...</div> : (
+                  <>
+                    <div className="history-detail-title"><div><span>#{historyRoom.roomCode}{Number(historyRoom.revision || 1) > 1 ? ` · PHIÊN ${historyRoom.revision}` : ''}</span><h3>{historyRoom.title}</h3></div><button type="button" onClick={() => { setHistoryRoom(null); setHistoryDetails(null); }}>×</button></div>
+                    <div className="history-panel-tabs">
+                      <button type="button" className={historyPanelMode === 'details' ? 'active' : ''} onClick={() => setHistoryPanelMode('details')}><ListChecks size={16} /> Chi tiết</button>
+                      <button type="button" className={historyPanelMode === 'chart' ? 'active' : ''} onClick={() => setHistoryPanelMode('chart')}><BarChart3 size={16} /> Biểu đồ</button>
+                      <button type="button" className="excel-export-tab text-emerald-400 font-semibold" onClick={() => handleExportRoomExcel(historyRoom, historyDetails?.attempts)} title="Xuất toàn bộ điểm số học sinh ra tệp Excel CSV"><Download size={16} /> Xuất Excel (.csv)</button>
+                      {['closed', 'finished'].includes(historyRoom.status) && <button type="button" className="reopen-tab" onClick={() => handleReopenRoom(historyRoom)}><RotateCcw size={16} /> Mở lại</button>}
+                    </div>
+                    <div className="history-metrics">
+                      <div><b>{historyRoom.questionCount}</b><span>Câu hỏi</span></div>
+                      <div><b>{historyDetails?.attempts.length || 0}</b><span>Học viên</span></div>
+                      <div><b>{historyDetails?.answers.length || 0}</b><span>Lượt trả lời</span></div>
+                    </div>
+                    {historyPanelMode === 'details' ? <div className="history-panel-content">
+                      <div className="history-meta"><p><b>Loại:</b> {historyRoom.room_type === 'assignment' ? 'Quiz theo lịch' : 'Phòng trực tuyến'}</p><p><b>Tạo lúc:</b> {new Date(historyRoom.created_at).toLocaleString('vi-VN')}</p><p><b>Trạng thái:</b> {getRoomStatusText(historyRoom.status)}</p></div>
+                      <h4>Học viên đã tham gia</h4>
+                      <div className="history-participants">{historyAttempts.length ? historyAttempts.map(attempt => <div key={attempt.id}><span>{attempt.display_name}</span><b>{attempt.score} điểm · {attempt.correct_count} đúng</b></div>) : <p>Chưa có học viên tham gia.</p>}</div>
+                      <h4>Câu hỏi và đáp án</h4>
+                      <div className="history-questions">{historyQuestionStats.map(({ question, questionIndex, total, correct, optionCounts }) => (
+                        <article key={questionIndex} className="history-question-card">
+                          <h5><span>Câu {questionIndex + 1}</span>{question.question}</h5>
+                          <div className="history-answer-options">{(question.options || []).map((option, optionIndex) => (
+                            <div key={optionIndex} className={Number(question.correctAnswer) === optionIndex ? 'correct' : ''}>
+                              <b>{String.fromCharCode(65 + optionIndex)}</b><span>{option}</span><small>{optionCounts[optionIndex] || 0} lượt chọn{Number(question.correctAnswer) === optionIndex ? ' · Đáp án đúng' : ''}</small>
+                            </div>
+                          ))}</div>
+                          <footer>{total ? `${correct}/${total} lượt trả lời đúng (${Math.round(correct / total * 100)}%)` : 'Chưa có học viên trả lời câu này'}</footer>
+                        </article>
+                      ))}</div>
+                    </div> : <div className="history-chart-panel">
+                      <div className="history-chart-summary">
+                        <div className="correct-rate-ring" style={{ '--correct-rate': `${historyCorrectRate * 3.6}deg` }}><strong>{historyCorrectRate}%</strong><span>Tỷ lệ đúng</span></div>
+                        <div><h4>Tổng quan kiến thức</h4><p>{historyCorrectCount} câu trả lời đúng trên {historyAnswers.length} lượt trả lời.</p><p>{historyCorrectRate >= 80 ? 'Lớp đang nắm kiến thức tốt.' : historyCorrectRate >= 60 ? 'Lớp đã hiểu phần lớn nội dung nhưng còn điểm cần củng cố.' : 'Kiến thức còn yếu, Giáo viên nên ôn lại các câu có tỷ lệ đúng thấp.'}</p></div>
+                      </div>
+                      <h4>Phân bố kết quả học viên</h4>
+                      <div className="score-distribution">{historyScoreBands.map(band => {
+                        const maxBand = Math.max(1, ...historyScoreBands.map(item => item.count));
+                        return <div key={band.label}><span>{band.label}</span><i><b style={{ width: `${band.count / maxBand * 100}%` }} /></i><strong>{band.count}</strong></div>;
+                      })}</div>
+                      <h4>Tỷ lệ đúng/sai từng câu</h4>
+                      <div className="question-performance-chart">{historyQuestionStats.map(stat => {
+                        const correctPercent = stat.total ? Math.round(stat.correct / stat.total * 100) : 0;
+                        return <div key={stat.questionIndex} className={correctPercent < 50 && stat.total ? 'weak' : ''}><header><span>Câu {stat.questionIndex + 1}</span><strong>{correctPercent}% đúng</strong></header><p>{stat.question.question}</p><div className="performance-bar"><i style={{ width: `${correctPercent}%` }} /><b style={{ width: `${100 - correctPercent}%` }} /></div><small>{stat.correct} đúng · {stat.incorrect} sai · {stat.total} lượt trả lời</small></div>;
+                      })}</div>
+                    </div>}
+                  </>
+                )}
+              </aside>}
+            </div>
           </div>
         )}
 
@@ -789,10 +1594,16 @@ export default function TeacherPage({ user }) {
           <div className="create-room">
             <h2 className="flex items-center gap-2">
               <PlusCircle className="w-6 h-6 text-emerald-400" />
-              <span>Tạo Phòng Quiz Trắc Nghiệm Mới</span>
+              <span>{reopenSourceRoom ? `Mở Lại Phòng Quiz #${reopenSourceRoom.roomCode}` : 'Tạo Phòng Quiz Trắc Nghiệm Mới'}</span>
             </h2>
 
             {error && <div className="teacher-error"><CircleAlert size={18} /> {error}</div>}
+
+            {reopenSourceRoom && <div className="reopen-room-banner">
+              <GlassIcon tone="violet"><RotateCcw /></GlassIcon>
+              <div><strong>Đang chuẩn bị mở lại #{reopenSourceRoom.roomCode}</strong><span>Hệ thống sẽ tạo một ID phiên mới, giữ nguyên mã phòng và bảo toàn toàn bộ lịch sử của phiên cũ.</span></div>
+              <button type="button" onClick={() => setReopenSourceRoom(null)}>Hủy mở lại</button>
+            </div>}
 
             <div className="form-section">
               <label>Tên phòng Quiz trắc nghiệm</label>
@@ -805,12 +1616,12 @@ export default function TeacherPage({ user }) {
             </div>
 
             <div className="room-mode-grid">
-              <button className={roomType === 'live' ? 'mode-card active live-mode' : 'mode-card live-mode'} onClick={() => setRoomType('live')}>
+              <button disabled={Boolean(reopenSourceRoom)} className={roomType === 'live' ? 'mode-card active live-mode' : 'mode-card live-mode'} onClick={() => setRoomType('live')}>
                 <GlassIcon tone="cyan"><Radio /></GlassIcon>
                 <span><b>Trực tuyến có Giáo viên</b><small>Sảnh chờ, từng câu theo giờ, biểu đồ và xếp hạng trực tiếp</small></span>
                 <i className="mode-check"><CheckCircle2 /></i>
               </button>
-              <button className={roomType === 'assignment' ? 'mode-card active schedule-mode' : 'mode-card schedule-mode'} onClick={() => setRoomType('assignment')}>
+              <button disabled={Boolean(reopenSourceRoom)} className={roomType === 'assignment' ? 'mode-card active schedule-mode' : 'mode-card schedule-mode'} onClick={() => setRoomType('assignment')}>
                 <GlassIcon tone="violet"><CalendarDays /></GlassIcon>
                 <span><b>Quiz theo lịch</b><small>Học sinh tự làm trong khung giờ, tối đa 7 ngày</small></span>
                 <i className="mode-check"><CheckCircle2 /></i>
@@ -827,15 +1638,15 @@ export default function TeacherPage({ user }) {
                 <div className="glass-field date-time-field">
                   <div className="field-heading"><GlassIcon tone="cyan" compact><CalendarDays /></GlassIcon><span>Mở từ</span></div>
                   <div className="date-time-pair">
-                    <label>Ngày<input type="date" value={openDate} onChange={e => setOpenDate(e.target.value)} onClick={e => e.currentTarget.showPicker?.()} /></label>
-                    <label>Giờ<input type="time" value={openTime} onChange={e => setOpenTime(e.target.value)} onClick={e => e.currentTarget.showPicker?.()} /></label>
+                    <label>Ngày<LiquidDatePicker value={openDate} onChange={setOpenDate} label="Chọn ngày mở" minDate={todayDateValue} /></label>
+                    <label>Giờ<LiquidTimePicker value={openTime} onChange={setOpenTime} label="Chọn giờ" /></label>
                   </div>
                 </div>
                 <div className="glass-field date-time-field">
                   <div className="field-heading"><GlassIcon tone="violet" compact><CalendarDays /></GlassIcon><span>Đóng lúc</span></div>
                   <div className="date-time-pair">
-                    <label>Ngày<input type="date" value={closeDate} onChange={e => setCloseDate(e.target.value)} onClick={e => e.currentTarget.showPicker?.()} /></label>
-                    <label>Giờ<input type="time" value={closeTime} onChange={e => setCloseTime(e.target.value)} onClick={e => e.currentTarget.showPicker?.()} /></label>
+                    <label>Ngày<LiquidDatePicker value={closeDate} onChange={setCloseDate} label="Chọn ngày đóng" minDate={openDate || todayDateValue} /></label>
+                    <label>Giờ<LiquidTimePicker value={closeTime} onChange={setCloseTime} label="Chọn giờ" /></label>
                   </div>
                 </div>
               </>}
@@ -860,24 +1671,25 @@ export default function TeacherPage({ user }) {
                   <button
                     type="button"
                     onClick={() => setInputMode('paste')}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${inputMode === 'paste' ? 'bg-cyan-500 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'}`}
+                    className={`upload-mode-button ${inputMode === 'paste' ? 'active' : ''}`}
                   >
                     <ClipboardPaste size={15} /> Dán Văn Bản (Ctrl+V)
                   </button>
                   <button
                     type="button"
                     onClick={() => setInputMode('file')}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${inputMode === 'file' ? 'bg-cyan-500 text-white shadow-md' : 'bg-white/10 text-slate-300 hover:bg-white/20'}`}
+                    className={`upload-mode-button ${inputMode === 'file' ? 'active' : ''}`}
                   >
                     <FileUp size={15} /> Upload File (.txt, .docx)
                   </button>
                   <button
                     type="button"
                     onClick={handleLoadSampleQuiz}
-                    className="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-300 text-xs font-bold transition flex items-center gap-1 cursor-pointer"
+                    className="sample-quiz-button"
                   >
                     <WandSparkles size={15} /> Nạp Đề Mẫu Chuẩn
                   </button>
+                  {questions.length > 0 && <button type="button" onClick={handleClearQuestions} className="clear-quiz-button"><RotateCcw size={15} /> Xóa đề đã nạp</button>}
                 </div>
               </div>
 
@@ -931,24 +1743,46 @@ D. Lưới nội chất
                   <span className="text-xs bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full font-bold">✓ Đủ điều kiện tạo phòng</span>
                 </h3>
 
-                {questions.slice(0, 5).map((q, i) => (
-                  <div className="q-preview" key={i}>
-                    <b>{i + 1}. {q.question}</b>
-                    <div className="q-options">
-                      {q.options.map((opt, j) => (
-                        <span key={j} className={j === q.correctAnswer ? 'correct' : ''}>
-                          {String.fromCharCode(65 + j)}. {opt} {j === q.correctAnswer && '✓ (Đáp án đúng)'}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-                {questions.length > 5 && <p className="q-more">... và còn {questions.length - 5} câu hỏi nữa</p>}
+                <div className="question-editor-toolbar">
+                  <label className="select-all-questions"><input type="checkbox" checked={selectedQuestionIndexes.length === questions.length && questions.length > 0} onChange={event => setSelectedQuestionIndexes(event.target.checked ? questions.map((_, index) => index) : [])} /> Chọn tất cả</label>
+                  <label>Font chữ<select value={questionFontFamily} onChange={event => setQuestionFontFamily(event.target.value)}><option value="Inter">Inter</option><option value="Arial">Arial</option><option value="Georgia">Georgia</option><option value="Tahoma">Tahoma</option><option value="Times New Roman">Times New Roman</option></select></label>
+                  <label>Cỡ chữ<select value={questionFontSize} onChange={event => setQuestionFontSize(Number(event.target.value))}>{[13, 14, 15, 16, 18, 20].map(size => <option key={size} value={size}>{size}px</option>)}</select></label>
+                  <button type="button" className="delete-selected-button" disabled={selectedQuestionIndexes.length === 0} onClick={handleDeleteSelectedQuestions}><Trash2 size={15} /> Xóa câu đã chọn ({selectedQuestionIndexes.length})</button>
+                </div>
+                <label className="shuffle-quiz-toggle">
+                  <input type="checkbox" checked={shuffleQuiz} onChange={event => setShuffleQuiz(event.target.checked)} />
+                  <span><b>Tự động trộn câu hỏi và đáp án theo từng học viên</b><small>Quiz theo lịch: mỗi học viên nhận thứ tự câu và đáp án riêng. Phòng trực tuyến: đáp án được đảo riêng, thứ tự câu vẫn đồng bộ với Giáo viên.</small></span>
+                </label>
+
+                <div className="question-editor-list">
+                  {questions.map((q, i) => (
+                    <article className={`q-preview editable-question ${selectedQuestionIndexes.includes(i) ? 'selected' : ''}`} key={i}>
+                      <div className="question-editor-heading">
+                        <label className="question-checkbox"><input type="checkbox" checked={selectedQuestionIndexes.includes(i)} onChange={() => toggleQuestionSelection(i)} /><span>Câu {i + 1}</span></label>
+                        <button type="button" onClick={() => { setQuestions(current => current.filter((_, index) => index !== i)); setSelectedQuestionIndexes([]); }} title="Xóa câu này"><Trash2 size={15} /> Xóa câu</button>
+                      </div>
+                      <textarea value={q.question} onChange={event => updateQuestionText(i, event.target.value)} className="question-text-editor" style={{ fontFamily: questionFontFamily, fontSize: `${questionFontSize}px` }} rows={2} />
+                      <div className="option-editor-list">
+                        {q.options.map((opt, j) => (
+                          <div key={j} className={`option-editor-row ${j === q.correctAnswer ? 'correct' : ''}`}>
+                            <button type="button" className="correct-answer-toggle" onClick={() => setQuestions(current => current.map((question, index) => index === i ? { ...question, correctAnswer: j } : question))} title="Đặt làm đáp án đúng">{String.fromCharCode(65 + j)}</button>
+                            <input value={opt} onChange={event => updateQuestionOption(i, j, event.target.value)} style={{ fontFamily: questionFontFamily, fontSize: `${Math.max(12, questionFontSize - 1)}px` }} />
+                            <div className="option-order-buttons">
+                              <button type="button" disabled={j === 0} onClick={() => moveQuestionOption(i, j, -1)} aria-label={`Đưa đáp án ${String.fromCharCode(65 + j)} lên`}><ChevronUp size={15} /></button>
+                              <button type="button" disabled={j === q.options.length - 1} onClick={() => moveQuestionOption(i, j, 1)} aria-label={`Đưa đáp án ${String.fromCharCode(65 + j)} xuống`}><ChevronDown size={15} /></button>
+                            </div>
+                            {j === q.correctAnswer && <span className="correct-answer-label">Đáp án đúng</span>}
+                          </div>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
             )}
 
             <button className="btn-create-room" onClick={handleCreateRoom} disabled={loading || questions.length === 0}>
-              {loading ? <><span className="button-spinner" />Đang tạo phòng...</> : <><Rocket size={20} />Tạo Phòng Quiz ({questions.length} câu hỏi)</>}
+              {loading ? <><span className="button-spinner" />Đang tạo phòng...</> : <><Rocket size={20} />{reopenSourceRoom ? 'Mở Lại' : 'Tạo'} Phòng Quiz ({questions.length} câu hỏi)</>}
             </button>
           </div>
         )}
@@ -962,10 +1796,14 @@ D. Lưới nội chất
                   <Radio className="w-6 h-6 text-red-500 animate-pulse" />
                   <span>{activeRoom.title}</span>
                 </h2>
-                <div className="room-code-display">Mã kết nối phòng: <strong>{activeRoom.roomCode}</strong></div>
+                <div className="room-code-display">Mã kết nối phòng: <strong>{activeRoom.roomCode}</strong><button type="button" className="liquid-copy-button large" onClick={() => handleCopyRoomCode(activeRoom.roomCode)} title="Sao chép mã phòng">{copiedRoomCode === activeRoom.roomCode ? <CheckCircle2 size={17} /> : <Copy size={17} />}</button></div>
               </div>
-              <div className="room-qr">
-                <div className="qr-placeholder"><Smartphone size={18} /> Mã cho học sinh: <b>{activeRoom.roomCode}</b></div>
+              <div className="live-room-header-actions">
+                <button type="button" className={`lock-live-room-button ${activeRoom.is_locked ? 'locked' : ''}`} onClick={handleToggleRoomLock} disabled={activeRoom.status === 'playing'} title={activeRoom.status === 'playing' ? 'Phòng tự động khóa khi đã bắt đầu' : ''}>
+                  {activeRoom.is_locked ? <LockKeyhole size={17} /> : <UnlockKeyhole size={17} />}
+                  {activeRoom.is_locked ? 'Đã khóa' : 'Khóa phòng'}
+                </button>
+                <button type="button" className="close-live-room-button" onClick={() => requestCloseRoom(activeRoom)}><DoorClosed size={17} /> Đóng phòng</button>
               </div>
             </div>
 
@@ -978,7 +1816,7 @@ D. Lưới nội chất
               <div className="student-chips">
                 {students.map(s => (
                   <div className="student-chip" key={s.studentId}>
-                    <GlassIcon tone="cyan" compact><UserRound /></GlassIcon>
+                    <img src={getAvatarUrl(s.studentAvatar || s.avatar_url)} onError={handleAvatarError} alt="" className="student-chip-avatar" />
                     <span>{s.studentName}</span>
                   </div>
                 ))}
@@ -989,7 +1827,7 @@ D. Lưới nội chất
             {/* Room Controls */}
             {quizState === 'waiting' && (
               <button className="btn-start-quiz" onClick={handleStartQuiz} disabled={students.length === 0}>
-                <Play size={20} /> Bắt Đầu Thi Đấu Quiz {students.length > 0 ? `(${students.length} học sinh)` : '(Đang chờ học sinh)'}
+                <Play size={20} /> <span>Bắt đầu</span>
               </button>
             )}
 
@@ -1049,7 +1887,7 @@ D. Lưới nội chất
                     </div>
                   ))}
                 </div>
-                <button className="btn-new-room" onClick={() => { setView('create-room'); setActiveRoom(null); setQuizState('waiting'); }}>
+                <button className="btn-new-room" onClick={() => { setView('create-room'); activeRoomRef.current = null; setActiveRoom(null); setQuizState('waiting'); }}>
                   <PlusCircle size={18} /> Tạo Phòng Mới
                 </button>
               </div>
@@ -1057,6 +1895,23 @@ D. Lưới nội chất
           </div>
         )}
       </main>
+
+      {pendingCloseRoom && (
+        <div className="teacher-modal-backdrop" role="presentation" onMouseDown={event => { if (event.target === event.currentTarget && !closingRoomId) setPendingCloseRoom(null); }}>
+          <div className="teacher-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="close-room-title">
+            <GlassIcon tone="rose"><DoorClosed /></GlassIcon>
+            <div>
+              <h3 id="close-room-title">Bạn có muốn đóng phòng này?</h3>
+              <p><strong>{pendingCloseRoom.title}</strong> · #{pendingCloseRoom.roomCode}</p>
+              {pendingCloseRoom.studentCount > 0 ? <div className="close-room-warning"><CircleAlert size={18} /> Hiện có {pendingCloseRoom.studentCount} học viên trong phòng. Các em sẽ được thông báo và tự động trở lại phòng chờ sau 5 giây.</div> : <div className="close-room-note">Phòng hiện chưa có học viên. Sau khi đóng, mã phòng sẽ không thể dùng để tham gia nữa.</div>}
+            </div>
+            <div className="teacher-modal-actions">
+              <button type="button" onClick={() => setPendingCloseRoom(null)} disabled={Boolean(closingRoomId)}>Giữ phòng mở</button>
+              <button type="button" className="danger" onClick={confirmCloseRoom} disabled={Boolean(closingRoomId)}>{closingRoomId ? 'Đang đóng...' : 'Đóng phòng'}</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

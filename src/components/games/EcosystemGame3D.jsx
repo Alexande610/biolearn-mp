@@ -475,19 +475,20 @@ const EnergyFlowArrow3D = memo(function EnergyFlowArrow3D({ start, end }) {
     return { start: pStart, end: pEnd };
   }, [start, end]);
 
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.material.dashOffset = -state.clock.elapsedTime * 2.0;
-    }
-  });
-
   const direction = new THREE.Vector3().subVectors(points.end, points.start);
   const length = direction.length();
   const midPoint = new THREE.Vector3().addVectors(points.start, points.end).multiplyScalar(0.5);
 
+  useFrame((state) => {
+    if (ref.current) {
+      // A moving energy particle uses a mesh position, not a material on Object3D.
+      ref.current.position.lerpVectors(points.start, points.end, (state.clock.elapsedTime * 0.8) % 1).sub(midPoint);
+    }
+  });
+
   return (
     <group position={midPoint}>
-      <object3D ref={ref} onUpdate={(self) => self.lookAt(points.end)}>
+      <object3D quaternion={new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize())}>
         <mesh>
           <cylinderGeometry args={[0.02, 0.02, length, 6]} />
           <meshBasicMaterial color="#facc15" transparent opacity={0.8} />
@@ -497,6 +498,10 @@ const EnergyFlowArrow3D = memo(function EnergyFlowArrow3D({ start, end }) {
           <meshBasicMaterial color="#eab308" />
         </mesh>
       </object3D>
+      <mesh ref={ref} position={points.start.clone().sub(midPoint)}>
+        <sphereGeometry args={[0.06, 8, 8]} />
+        <meshBasicMaterial color="#ffffff" />
+      </mesh>
     </group>
   );
 });

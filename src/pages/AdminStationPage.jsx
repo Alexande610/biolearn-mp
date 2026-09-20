@@ -4,9 +4,11 @@ import { useAuth } from '../hooks/useAuth';
 import { useToast } from '../components/Toast';
 import { 
   ArrowLeft, Plus, Trash2, Edit3, Save, CheckCircle2, 
-  HelpCircle, Layers, Settings, Gamepad2, AlertCircle, RefreshCw, X, Lightbulb, FileText, Sun, Moon
+  HelpCircle, Layers, Settings, Gamepad2, AlertCircle, RefreshCw, X, Lightbulb, FileText, Sun, Moon,
+  ArrowUp, ArrowDown
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { reportSystemError } from '../lib/observability';
 
 const GAME_TYPES = [
   { id: 'quiz', name: 'Trắc Nghiệm (Quiz)' },
@@ -16,9 +18,15 @@ const GAME_TYPES = [
   { id: 'dragdrop', name: 'Kéo Thả Hoàn Thành Câu' }
 ];
 
+const STATION_OPTIONS = [
+  { id: 'g6_st1', name: 'Trạm 1: Kính Hiển Vi & Đơn Vị Tế Bào', startDay: 1, endDay: 10 },
+  { id: 'g6_st2', name: 'Trạm 2: Tế Bào & Tổ Chức Cơ Thể', startDay: 11, endDay: 20 },
+  { id: 'g6_st3', name: 'Trạm 3: Đa Dạng Sinh Học & Vương Quốc', startDay: 21, endDay: 30 },
+];
+
 export default function AdminStationPage() {
   const navigate = useNavigate();
-  const { user, theme, toggleTheme } = useAuth();
+  const { theme, toggleTheme } = useAuth();
   const { showToast } = useToast();
 
   const [selectedGrade, setSelectedGrade] = useState(6);
@@ -34,44 +42,14 @@ export default function AdminStationPage() {
 
   // Modal State Chỉnh Sửa Chi Tiết Mini-Game
   const [editingGame, setEditingGame] = useState(null);
-
-  // 1. TẢI CÂU HỎI THỰC TẾ TỪ SUPABASE DATABASE
-  const fetchQuestionsFromSupabase = async () => {
-    setLoadingDB(true);
-    try {
-      const { data, error } = await supabase
-        .from('station_questions')
-        .select('*')
-        .eq('grade', selectedGrade)
-        .eq('station_id', selectedStationId)
-        .eq('day_index', selectedDay)
-        .order('game_index', { ascending: true });
-
-      if (!error && data && data.length > 0) {
-        const loadedGames = data.map(item => ({
-          id: item.id || Date.now(),
-          type: item.game_type,
-          title: item.title,
-          data: item.content
-        }));
-        setGamesList(loadedGames);
-      } else {
-        // Tải dữ liệu mặc định ban đầu nếu bảng trống
-        setGamesList(getDefaultDemoGames(selectedGrade, selectedDay));
-      }
-    } catch (err) {
-      console.error("Lỗi fetch station_questions:", err);
-      setGamesList(getDefaultDemoGames(selectedGrade, selectedDay));
-    }
-    setLoadingDB(false);
-  };
-
-  useEffect(() => {
-    fetchQuestionsFromSupabase();
-  }, [selectedGrade, selectedStationId, selectedDay]);
+  const selectedStation = STATION_OPTIONS.find(station => station.id === selectedStationId) || STATION_OPTIONS[0];
+  const stationDays = Array.from(
+    { length: selectedStation.endDay - selectedStation.startDay + 1 },
+    (_, index) => selectedStation.startDay + index
+  );
 
   // 2. DỮ LIỆU DEMO MẶC ĐỊNH
-  const getDefaultDemoGames = (grade, day) => [
+  function getDefaultDemoGames(grade, day) { return [
     {
       id: 1,
       type: 'quiz',
@@ -136,7 +114,48 @@ export default function AdminStationPage() {
         explanation: 'Đáp án đúng là Oxy. Cây xanh nhả khí Oxy trong quá trình quang hợp.'
       }
     }
-  ];
+  ]; }
+
+  // 1. TẢI CÂU HỎI THỰC TẾ TỪ SUPABASE DATABASE
+  const fetchQuestionsFromSupabase = async () => {
+    setLoadingDB(true);
+    try {
+      const { data, error } = await supabase
+        .from('station_questions')
+        .select('*')
+        .eq('grade', selectedGrade)
+        .eq('station_id', selectedStationId)
+        .eq('day_index', selectedDay)
+        .order('game_index', { ascending: true });
+
+      if (!error && data && data.length > 0) {
+        setGamesList(data.map(item => ({
+          id: item.id || Date.now(),
+          type: item.game_type,
+          title: item.title,
+          data: item.content
+        })));
+      } else {
+        setGamesList(getDefaultDemoGames(selectedGrade, selectedDay));
+      }
+    } catch (err) {
+      console.error('Lỗi fetch station_questions:', err);
+      reportSystemError(err, {
+        action: 'station_questions_load_failed',
+        component: 'AdminStationPage',
+        operation: 'fetchQuestionsFromSupabase',
+        supabaseCode: err.code,
+      });
+      setGamesList(getDefaultDemoGames(selectedGrade, selectedDay));
+    }
+    setLoadingDB(false);
+  };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchQuestionsFromSupabase();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedGrade, selectedStationId, selectedDay]);
 
   // NÚT THÊM TRÒ CHƠI LUÔN LUÔN HIỂN THỊ (CÓ SELECT CHỌN LOẠI GAME)
   const handleAddGame = () => {
@@ -172,6 +191,17 @@ export default function AdminStationPage() {
   const handleDeleteGame = (id) => {
     setGamesList(prev => prev.filter(g => g.id !== id));
     showToast('Đã xóa trò chơi khỏi danh sách chỉnh sửa!', 'info');
+  };
+
+  const handleMoveGame = (index, direction) => {
+    const targetIndex = index + direction;
+    if (targetIndex < 0 || targetIndex >= gamesList.length) return;
+    setGamesList(current => {
+      const reordered = [...current];
+      [reordered[index], reordered[targetIndex]] = [reordered[targetIndex], reordered[index]];
+      return reordered;
+    });
+    showToast('Đã chuyển trò chơi ' + (direction < 0 ? 'lên trên' : 'xuống dưới') + '. Hãy bấm Lưu Cấu Hình Database để áp dụng.', 'info');
   };
 
   // 3. LƯU CẤU HÌNH THỰC TẾ 100% VÀO SUPABASE DATABASE (BẢNG STATION_QUESTIONS)
@@ -210,7 +240,13 @@ export default function AdminStationPage() {
       showToast('🚀 Đã lưu 100% cấu hình câu hỏi vào Supabase Database thành công!', 'success');
     } catch (err) {
       console.error("Lỗi lưu Supabase station_questions:", err);
-      showToast('🚀 Đã cập nhật cấu hình trò chơi lên hệ thống!', 'success');
+      reportSystemError(err, {
+        action: 'station_questions_save_failed',
+        component: 'AdminStationPage',
+        operation: 'saveToDatabase',
+        supabaseCode: err.code,
+      });
+      showToast('Không thể lưu cấu hình trò chơi: ' + (err.message || 'Lỗi database chưa xác định.'), 'error');
     }
     setSavingDB(false);
   };
@@ -279,23 +315,25 @@ export default function AdminStationPage() {
             <label className="text-xs font-bold text-slate-400 block mb-2">Chọn Trạm Sinh Học:</label>
             <select
               value={selectedStationId}
-              onChange={(e) => setSelectedStationId(e.target.value)}
+              onChange={(e) => {
+                const nextStation = STATION_OPTIONS.find(station => station.id === e.target.value) || STATION_OPTIONS[0];
+                setSelectedStationId(nextStation.id);
+                setSelectedDay(nextStation.startDay);
+              }}
               className="admin-station-input w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white focus:outline-none"
             >
-              <option value="g6_st1">Trạm 1: Kính Hiển Vi & Đơn Vị Tế Bào</option>
-              <option value="g6_st2">Trạm 2: Tế Bào & Tổ Chức Cơ Thể</option>
-              <option value="g6_st3">Trạm 3: Đa Dạng Sinh Học & Vương Quốc</option>
+              {STATION_OPTIONS.map(station => <option key={station.id} value={station.id}>{station.name}</option>)}
             </select>
           </div>
 
           <div className="admin-station-card p-4 rounded-2xl border border-white/10">
-            <label className="text-xs font-bold text-slate-400 block mb-2">Chọn Ải Ngày (1-10):</label>
+            <label className="text-xs font-bold text-slate-400 block mb-2">Chọn Ải Ngày ({selectedStation.startDay}-{selectedStation.endDay}):</label>
             <select
               value={selectedDay}
               onChange={(e) => setSelectedDay(Number(e.target.value))}
               className="admin-station-input w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white focus:outline-none"
             >
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(d => (
+              {stationDays.map(d => (
                 <option key={d} value={d}>Ải Ngày {d}</option>
               ))}
             </select>
@@ -306,6 +344,7 @@ export default function AdminStationPage() {
         <div className="admin-station-card p-5 rounded-3xl border border-white/10 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <h2 className="text-base font-black flex items-center gap-2">
             <Gamepad2 className="w-5 h-5 text-cyan-400" /> Danh Sách Trò Chơi Trong Ải Ngày {selectedDay} ({gamesList.length} trò chơi)
+            {loadingDB && <RefreshCw className="w-4 h-4 animate-spin text-cyan-400" aria-label="Đang tải dữ liệu" />}
           </h2>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -352,6 +391,26 @@ export default function AdminStationPage() {
                 </div>
 
                 <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1" aria-label="Sắp xếp trò chơi">
+                    <button
+                      type="button"
+                      onClick={() => handleMoveGame(idx, -1)}
+                      disabled={idx === 0}
+                      className="station-order-button p-2 rounded-xl bg-violet-500/15 hover:bg-violet-500/25 border border-violet-400/30 text-violet-300 transition cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                      title="Di chuyển trò chơi lên trên"
+                    >
+                      <ArrowUp className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleMoveGame(idx, 1)}
+                      disabled={idx === gamesList.length - 1}
+                      className="station-order-button p-2 rounded-xl bg-violet-500/15 hover:bg-violet-500/25 border border-violet-400/30 text-violet-300 transition cursor-pointer disabled:opacity-30 disabled:cursor-not-allowed"
+                      title="Di chuyển trò chơi xuống dưới"
+                    >
+                      <ArrowDown className="w-4 h-4" />
+                    </button>
+                  </div>
                   {/* NÚT CHỈNH SỬA CHI TIẾT */}
                   <button
                     onClick={() => setEditingGame({ ...game })}

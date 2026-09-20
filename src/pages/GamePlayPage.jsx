@@ -6,6 +6,7 @@ import {
   CheckCircle, XCircle, Trophy, Zap, Shuffle, Edit3
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { getMapStageIdentity, MAP_STAGE_TYPES } from '../utils/mapStages';
 
 // Mapping classId sang file tài liệu tương ứng trong /document/
 const documentMap = {
@@ -882,6 +883,7 @@ export default function GamePlayPage() {
   const [gameWon, setGameWon] = useState(false);
   const [finalScore, setFinalScore] = useState(0);
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false); // Theo dõi có sai câu nào không
+  const [rewardResult, setRewardResult] = useState(null);
 
   // Fetch lesson data from Supabase
   useEffect(() => {
@@ -889,21 +891,52 @@ export default function GamePlayPage() {
       setLoading(true);
       setError(null);
       try {
-        const targetLevel = (requestedType === 'skip-challenge' || level === 'challenge') ? 9 : parseInt(level);
+        const stage = getMapStageIdentity({ classId, chapterId, lessonId, level, requestedType });
+        const targetLevel = stage.level;
+        const contentId = stage.controlId;
+        const { data: control, error: controlError } = await supabase
+          .from('content_controls')
+          .select('is_enabled,maintenance_message')
+          .eq('content_type', 'map_level')
+          .eq('item_id', contentId)
+          .maybeSingle();
+        if (controlError && !['42P01', 'PGRST205'].includes(controlError.code)) throw controlError;
+        if (control?.is_enabled === false) {
+          setLoading(false);
+          setError(control.maintenance_message || 'Ải này đang được bảo trì. Vui lòng quay lại sau.');
+          return;
+        }
         
-        console.log(`Đang tải bài học: Lớp ${classId}, Chương ${chapterId}, Bài ${lessonId}, Level ${targetLevel}`);
-        const { data, error } = await supabase
-        .from('lesson_questions')
-        .select('*')
-        .eq('class_id', classId)
-        .eq('chapter_id', chapterId)
-        .eq('lesson_id', lessonId)
-        .eq('level', targetLevel)
-        .single();
+        console.log(`Đang tải màn: Lớp ${classId}, Chương ${chapterId}, Loại ${stage.stageType}, Bài ${stage.lessonId}, Level ${targetLevel}`);
+        let stageResult = await supabase
+          .from('lesson_questions')
+          .select('*')
+          .eq('class_id', stage.classId)
+          .eq('chapter_id', stage.chapterId)
+          .eq('stage_type', stage.stageType)
+          .eq('lesson_id', stage.lessonId)
+          .eq('level', stage.level)
+          .maybeSingle();
+
+        // Compatibility while the migration is being deployed. Old lesson/practice rows
+        // are still readable; old skip challenges used level 9 of the first lesson.
+        if (stageResult.error?.code === '42703' || (!stageResult.data && stage.stageType === MAP_STAGE_TYPES.SKIP_CHALLENGE)) {
+          const legacyLessonId = stage.stageType === MAP_STAGE_TYPES.SKIP_CHALLENGE ? Number(lessonId) : stage.lessonId;
+          const legacyLevel = stage.stageType === MAP_STAGE_TYPES.SKIP_CHALLENGE ? 9 : stage.level;
+          stageResult = await supabase
+            .from('lesson_questions')
+            .select('*')
+            .eq('class_id', stage.classId)
+            .eq('chapter_id', stage.chapterId)
+            .eq('lesson_id', legacyLessonId)
+            .eq('level', legacyLevel)
+            .maybeSingle();
+        }
+        const { data, error } = stageResult;
 
       if (error || !data) {
         // FALLBACK: Nếu là màn thực hành (lessonId=99), thử load từ document
-        if (lessonId === '99' || lessonId === 99) {
+        if (stage.stageType === MAP_STAGE_TYPES.PRACTICE) {
           const fallbackData = await fetchFallbackPracticalQuestions(classId, chapterId);
           if (fallbackData) {
             setLessonData(fallbackData);
@@ -1066,8 +1099,6 @@ export default function GamePlayPage() {
         const isSkipChallenge = requestedType === 'skip-challenge';
         const currentClassProgress = userStats?.class_progress?.[classId] || { completedLevels: [], levelStars: {} };
         
-        let newXp = (userStats?.xp || 0);
-        let newCoins = (userStats?.coins || 0);
         let finalCompletedLevels = [...currentClassProgress.completedLevels];
 
         if (isSkipChallenge) {
@@ -1076,8 +1107,6 @@ export default function GamePlayPage() {
           
           if (!isAlreadyCompleted) {
             // Thưởng lớn cho học vượt lần đầu
-            newXp += 500;
-            newCoins += 500;
             // Đánh dấu toàn bộ chương đã xong mốc review
             finalCompletedLevels.push(`${chapterId}_review_0`);
           } else {
@@ -1085,8 +1114,6 @@ export default function GamePlayPage() {
           }
         } else {
           // Thưởng bình thường - Lưu ý: level là index 0-9
-          newXp += 30;
-          newCoins += 30;
           const key = `${chapterId}_${lessonId}_${level}`;
           if (!finalCompletedLevels.includes(key)) {
             finalCompletedLevels.push(key);
@@ -1094,18 +1121,21 @@ export default function GamePlayPage() {
         }
 
         // Update via Backend RPC
-        const { data: updateData, error: updateError } = await supabase.rpc('reward_user', {
-          p_user_id: userId,
-          p_xp_gain: isSkipChallenge ? 500 : 30,
-          p_coin_gain: isSkipChallenge ? 500 : 30,
-          p_reward_type: 'map',
-          p_class_id: String(classId)
+        const eventKey = isSkipChallenge
+          ? `${classId}:${chapterId}:skip`
+          : `${classId}:${chapterId}:${lessonId}:${level}`;
+        const { data: updateData, error: updateError } = await supabase.rpc('claim_map_reward', {
+          p_event_key: eventKey,
+          p_class_id: Number(classId),
+          p_reward_code: isSkipChallenge ? 'skip' : 'normal'
         });
 
         if (updateError) {
           console.error('RPC Error:', updateError);
+          throw updateError;
         } else {
-          console.log('Reward Success. Updated Daily Missions:', updateData);
+          setRewardResult(updateData);
+          console.log('Map reward result:', updateData);
         }
 
         // Cập nhật class_progress (RPC không lo phần này)
@@ -1122,8 +1152,6 @@ export default function GamePlayPage() {
           })
           .eq('id', userId);
 
-        if (updateError) throw updateError;
-        
         // Refresh local state
         if (updateStats) await updateStats();
       } catch (err) { 
@@ -1137,6 +1165,7 @@ export default function GamePlayPage() {
     setGameWon(false);
     setFinalScore(0);
     setHasWrongAnswer(false);
+    setRewardResult(null);
     // Re-fetch to get new random questions
     window.location.reload();
   };
@@ -1280,9 +1309,9 @@ export default function GamePlayPage() {
               </div>
             ) : (
               <div className="bg-white/10 rounded-xl p-4 mb-6 space-y-2">
-                {requestedType === 'skip-challenge' && userStats?.class_progress?.[classId]?.completedLevels?.includes(`${chapterId}_review_0`) ? (
+                {rewardResult?.awarded === false || (requestedType === 'skip-challenge' && userStats?.class_progress?.[classId]?.completedLevels?.includes(`${chapterId}_review_0`)) ? (
                   <div className="text-green-400 font-medium py-2">
-                    ✨ Chế độ luyện tập: Bạn đã hoàn thành thử thách này trước đó!
+                    ✨ Bạn đã nhận phần thưởng của ải này trước đó.
                   </div>
                 ) : (
                   <>

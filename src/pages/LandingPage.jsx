@@ -1,64 +1,60 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { getAvatarUrl as resolveAvatarUrl } from '../utils/avatar';
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   Home, Info, Phone, LogIn, ChevronRight,
   GraduationCap, Users, Mail, MapPin,
-  Trophy, BookOpen, Star, Sparkles, User, LogOut, ChevronDown, UserCircle, Gamepad2
+  Trophy, BookOpen, Star, Sparkles, User, LogOut, ChevronDown, UserCircle, Gamepad2,
+  Compass, Moon, Sun, Heart, Clock, MessageCircle, Headphones
 } from 'lucide-react';
 import { useAuth } from '../hooks/useAuth';
 import GalaxyBackground from '../components/GalaxyBackground';
 
 // --- Components ---
 
+const FacebookIcon = ({ className = '' }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.5-1 1-1h2V2.1A26 26 0 0 0 14.1 2C11.2 2 9 3.8 9 7.2v1.3H6V13h3v9h4.5v-9h3.1l.5-4.5H14Z" /></svg>
+);
+
+const YouTubeIcon = ({ className = '' }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z" /></svg>
+);
+
 // --- Components ---
 
-const LandingHeader = () => {
-  const { user, userStats, logout } = useAuth();
+export const LandingHeader = () => {
+  const { user, userStats, logout, theme, toggleTheme } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // Avatar mapping - copied from HomePage for consistency
-  const avatarMap = {
-    'adventurer-1': '/images/Avatar/adventurer-1.png',
-    'adventurer-2': '/images/Avatar/adventurer-2.png',
-    'adventurer-3': '/images/Avatar/adventurer-3.png',
-    'adventurer-4': '/images/Avatar/adventurer-4.png',
-    'adventurer-5': '/images/Avatar/adventurer-5.png',
-    'avataaars-1': '/images/Avatar/avataaars-1.png',
-    'avataaars-2': '/images/Avatar/avataaars-2.png',
-    'avataaars-3': '/images/Avatar/avataaars-3.png',
-    'avataaars-4': '/images/Avatar/avataaars-4.png',
-    'avataaars-5': '/images/Avatar/avataaars-5.png',
-    'bigEars-1': '/images/Avatar/bigEars-1.png',
-    'bigEars-2': '/images/Avatar/bigEars-2.png',
-    'bigEars-3': '/images/Avatar/bigEars-3.png',
-    'bigEars-4': '/images/Avatar/bigEars-4.png',
-    'bigEars-5': '/images/Avatar/bigEars-5.png',
-    'bottts-1': '/images/Avatar/bottts-1.png',
-    'bottts-2': '/images/Avatar/bottts-2.png',
-    'bottts-3': '/images/Avatar/bottts-3.png',
-    'bottts-4': '/images/Avatar/bottts-4.png',
-    'bottts-5': '/images/Avatar/bottts-5.png',
-    'rings-1': '/images/Avatar/rings-1.png',
-    'rings-2': '/images/Avatar/rings-2.png',
-    'rings-3': '/images/Avatar/rings-3.png',
-    'rings-4': '/images/Avatar/rings-4.png',
-    'rings-5': '/images/Avatar/rings-5.png',
-    'rings-6': '/images/Avatar/rings-6.png',
-  };
 
-  const getAvatarUrl = () => {
-    const avatar = user?.avatar_url || user?.avatar || userStats?.avatar_url;
-    if (!avatar) return avatarMap['adventurer-1'];
-    if (avatar.startsWith('http') || avatar.startsWith('/')) return avatar;
-    return avatarMap[avatar] || avatarMap['adventurer-1'];
-  };
+
+  const getAvatarUrl = () => resolveAvatarUrl(user?.avatar_url || user?.avatar || userStats?.avatar_url);
 
   const handleLogout = async () => {
     await logout();
     setIsDropdownOpen(false);
     navigate('/');
   };
+
+  const openProtectedPage = (path) => {
+    navigate(user ? path : '/login');
+  };
+
+  const navItems = [
+    { label: 'Trang chủ', icon: Home, action: () => {
+      if (user) navigate('/home');
+      else if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' });
+      else navigate('/');
+    } },
+    { label: 'Trạm sinh học', icon: Compass, action: () => openProtectedPage('/stations') },
+    { label: 'Xếp hạng', icon: Trophy, action: () => openProtectedPage('/leaderboard') },
+    { label: 'Bài học', icon: BookOpen, action: () => openProtectedPage('/more') },
+    { label: 'Giới thiệu', icon: Info, action: () => navigate('/#intro') },
+    { label: 'Liên hệ', icon: Phone, action: () => navigate('/#contact') }
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] bg-black/40 backdrop-blur-xl">
@@ -75,27 +71,16 @@ const LandingHeader = () => {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            className="text-white/90 hover-text-gradient font-medium transition-all flex items-center gap-2 cursor-pointer group"
-          >
-            <Home className="w-5 h-5 group-hover:text-purple-400 transition-colors" /> Trang chủ
-          </a>
-          <a href="#intro" className="text-white/90 hover-text-gradient font-medium transition-all flex items-center gap-2 group">
-            <Info className="w-5 h-5 group-hover:text-purple-400 transition-colors" /> Giới thiệu
-          </a>
-          <a href="#contact" className="text-white/90 hover-text-gradient font-medium transition-all flex items-center gap-2 group">
-            <Phone className="w-5 h-5 group-hover:text-purple-400 transition-colors" /> Liên hệ
-          </a>
+        <nav className="hidden lg:flex items-center gap-5">
+          {navItems.map(item => {
+            const Icon = item.icon;
+            return <a key={item.label} href="#" onClick={event => { event.preventDefault(); item.action(); }} className="landing-nav-link hover-text-gradient"><Icon className="w-4 h-4" />{item.label}</a>;
+          })}
         </nav>
 
         {/* Auth Section */}
         <div className="relative">
+          <div className="flex items-center gap-2">
           {user ? (
             <div className="flex items-center gap-4">
               <button
@@ -139,6 +124,14 @@ const LandingHeader = () => {
                     </Link>
 
                     <button
+                      onClick={toggleTheme}
+                      className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all group"
+                    >
+                      {theme === 'light' ? <Moon className="w-5 h-5 text-indigo-400 group-hover:scale-110 transition-transform" /> : <Sun className="w-5 h-5 text-amber-400 group-hover:scale-110 transition-transform" />}
+                      <span className="font-semibold">{theme === 'light' ? 'Chuyển sang nền tối' : 'Chuyển sang nền sáng'}</span>
+                    </button>
+
+                    <button
                       onClick={handleLogout}
                       className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-red-500/80 transition-all group mt-1"
                     >
@@ -158,6 +151,7 @@ const LandingHeader = () => {
               Đăng nhập
             </Link>
           )}
+          </div>
         </div>
       </div>
     </header>
@@ -444,81 +438,129 @@ const LandingMission = () => {
   );
 };
 
-const LandingFooter = () => {
+const CONTACT_ADDRESS = '3F Nguyễn Hữu Thọ, Tân Hưng, Hồ Chí Minh, Việt Nam';
+const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/pc1dZgD3VhodyG778';
+
+const LandingContact = () => (
+  <section id="contact" className="landing-contact-section px-6 sm:px-10 relative scroll-mt-[90px]">
+    <div className="max-w-7xl mx-auto relative z-10">
+      <div className="text-center mb-8">
+        <h2 className="text-4xl sm:text-5xl font-black text-white">Liên hệ với chúng tôi</h2>
+        <p className="text-base text-white/50 mt-3">BioLearn luôn sẵn sàng hỗ trợ quá trình học tập và giảng dạy của bạn.</p>
+      </div>
+      <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
+        <div className="grid gap-4">
+          <a href="mailto:supportbiolearn@gmail.com" className="contact-liquid-card group">
+            <span className="contact-icon"><Mail className="w-6 h-6" /></span><span><strong>Email hỗ trợ</strong><small>supportbiolearn@gmail.com</small></span>
+          </a>
+          <a href="tel:+84838667369" className="contact-liquid-card group">
+            <span className="contact-icon"><Phone className="w-6 h-6" /></span><span><strong>Điện thoại</strong><small>(+84) 83 8667 369</small></span>
+          </a>
+          <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="contact-liquid-card group">
+            <span className="contact-icon"><MapPin className="w-6 h-6" /></span><span className="flex-1"><strong>Địa chỉ</strong><small>{CONTACT_ADDRESS}</small></span>
+          </a>
+        </div>
+        <div className="support-liquid-card">
+          <div className="relative z-10">
+            <span className="support-main-icon"><Headphones className="w-8 h-8" /></span>
+            <h3 className="text-2xl font-black text-white mt-4">Trung tâm hỗ trợ BioLearn</h3>
+            <p className="text-white/55 mt-2 max-w-xl">Gửi câu hỏi về tài khoản, tiến trình học tập hoặc các chức năng trên hệ thống. Đội ngũ BioLearn sẽ tiếp nhận và phản hồi sớm nhất.</p>
+            <div className="support-highlights">
+              <span><Clock className="w-5 h-5" /><span><strong>Thời gian phản hồi</strong><small>Trong vòng 24 giờ</small></span></span>
+              <span><MessageCircle className="w-5 h-5" /><span><strong>Kênh hỗ trợ</strong><small>Email và điện thoại</small></span></span>
+            </div>
+            <a href="mailto:supportbiolearn@gmail.com" className="support-action">Gửi yêu cầu hỗ trợ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+export const LandingFooter = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user } = useAuth();
   return (
-    <footer id="contact" className="relative pt-20">
+    <footer className="relative pt-8">
       {/* Footer Content - Made transparent to show galaxy */}
-      <div className="w-full px-6 sm:px-16 py-20 bg-white/5 backdrop-blur-3xl">
+      <div className="w-full px-6 sm:px-12 py-10 bg-white/5 backdrop-blur-3xl">
         <div className="max-w-[1600px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
             {/* Logo & Slogan - Fixed alignment */}
-            <div className="space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="space-y-5 flex flex-col items-center lg:items-start text-center lg:text-left">
               <div className="flex items-center gap-4">
-                <img src="/images/Logo.png" alt="Logo" className="h-16 w-auto" />
-                <span className="text-2xl font-black text-gradient-moving tracking-widest uppercase">BIOLEARN</span>
+                <img src="/images/Logo.png" alt="Logo" className="h-12 w-auto" />
+                <span className="text-xl font-black text-gradient-moving tracking-widest uppercase">BIOLEARN</span>
               </div>
-              <p className="text-white/30 leading-relaxed font-medium text-lg max-w-sm">
+              <p className="text-white/40 leading-relaxed font-medium text-base max-w-sm">
                 Kiến tạo tương lai Sinh học Việt Nam thông qua công nghệ và sự sáng tạo.
                 Cùng nhau học tập, cùng nhau khám phá.
               </p>
+              <div className="flex items-center gap-3">
+                <a href="https://www.facebook.com/niieinstitute2009" target="_blank" rel="noopener noreferrer" className="social-liquid-button social-facebook" aria-label="Facebook của BioLearn"><FacebookIcon className="w-6 h-6" /></a>
+                <a href="https://www.youtube.com/@LearnBio-2026" target="_blank" rel="noopener noreferrer" className="social-liquid-button social-youtube" aria-label="YouTube của BioLearn"><YouTubeIcon className="w-6 h-6" /></a>
+              </div>
             </div>
 
             {/* Quick Links */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <h4 className="text-white font-black text-2xl mb-10 uppercase tracking-widest text-gradient-moving">Liên kết</h4>
-              <ul className="space-y-6">
+              <h4 className="text-white font-black text-lg mb-5 uppercase tracking-widest text-gradient-moving">Liên kết</h4>
+              <ul className="space-y-3">
                 <li>
                   <a
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      user ? navigate('/home') : window.scrollTo({ top: 0, behavior: 'smooth' });
+                      if (user) navigate('/home');
+                      else if (location.pathname === '/') window.scrollTo({ top: 0, behavior: 'smooth' });
+                      else navigate('/');
                     }}
-                    className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl cursor-pointer block"
+                    className="text-white/40 hover:text-purple-400 transition-all font-bold text-base cursor-pointer block"
                   >
                     Trang chủ
                   </a>
                 </li>
-                <li><a href="#intro" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Giới thiệu</a></li>
-                <li><Link to="/leaderboard" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Xếp hạng</Link></li>
-                <li><Link to="/login" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Tham gia ngay</Link></li>
+                <li><Link to="/#intro" className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Giới thiệu</Link></li>
+                <li><Link to={user ? '/stations' : '/login'} className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Trạm sinh học</Link></li>
+                <li><Link to={user ? '/leaderboard' : '/login'} className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Xếp hạng</Link></li>
+                <li><Link to={user ? '/more' : '/login'} className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Bài học</Link></li>
+                <li><Link to={user ? '/battle' : '/login'} className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Đấu trường</Link></li>
               </ul>
             </div>
 
             {/* Resources */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <h4 className="text-white font-black text-2xl mb-10 uppercase tracking-widest text-gradient-moving">Tài liệu</h4>
-              <ul className="space-y-6">
-                <li><a href="#" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Hướng dẫn sử dụng</a></li>
-                <li><a href="#" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Câu hỏi thường gặp</a></li>
-                <li><a href="#" className="text-white/40 hover:text-purple-400 transition-all font-bold text-xl">Chính sách bảo mật</a></li>
+              <h4 className="text-white font-black text-lg mb-5 uppercase tracking-widest text-gradient-moving">Hỗ trợ</h4>
+              <ul className="space-y-3">
+                <li><Link to="/guide" className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Hướng dẫn sử dụng</Link></li>
+                <li><Link to="/faq" className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Câu hỏi thường gặp</Link></li>
+                <li><Link to="/privacy" className="text-white/40 hover:text-purple-400 transition-all font-bold text-base">Chính sách bảo mật</Link></li>
               </ul>
             </div>
 
             {/* Contact Info */}
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <h4 className="text-white font-black text-2xl mb-10 uppercase tracking-widest text-gradient-moving">Liên hệ</h4>
-              <ul className="space-y-8">
+              <h4 className="text-white font-black text-lg mb-5 uppercase tracking-widest text-gradient-moving">Liên hệ</h4>
+              <ul className="space-y-4">
                 <li className="flex items-center gap-5 group justify-center lg:justify-start">
                   <Mail className="w-7 h-7 text-purple-500 shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="text-white/40 font-bold text-lg">supportbiolearn@gmail.com</span>
+                  <span className="text-white/40 font-bold text-base">supportbiolearn@gmail.com</span>
                 </li>
                 <li className="flex items-center gap-5 group justify-center lg:justify-start">
                   <Phone className="w-7 h-7 text-purple-500 shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="text-white/40 font-bold text-lg">0838667369</span>
+                  <span className="text-white/40 font-bold text-base">(+84) 83 8667 369</span>
                 </li>
                 <li className="flex items-start gap-5 group justify-center lg:justify-start text-left">
                   <MapPin className="w-7 h-7 text-purple-500 shrink-0 group-hover:scale-110 transition-transform mt-1" />
-                  <span className="text-white/40 font-bold text-lg leading-snug">3F Nguyễn Hữu Thọ, Tân Hưng, <br /> Hồ Chí Minh, Vietnam</span>
+                  <span className="text-white/40 font-bold text-base leading-snug">3F Nguyễn Hữu Thọ, Tân Hưng, <br /> Hồ Chí Minh, Việt Nam</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="border-t border-white/5 mt-24 pt-12 text-center text-white/10 text-sm font-black uppercase tracking-[0.3em]">
-            © 2026 BioLearn Platform. All rights reserved. Made with ❤️ in Vietnam.
+          <div className="landing-copyright border-t mt-8 pt-6 text-center text-xs font-black uppercase tracking-[0.18em] flex flex-wrap items-center justify-center gap-2">
+            <span>@2026 BIOLEARN. HOANG SA TRUONG SA LA CUA VIET NAM</span><Heart className="w-4 h-4 fill-rose-500 text-rose-500" aria-label="Trái tim" /><span>. ALL RIGHT RESERVED.</span>
           </div>
         </div>
       </div>
@@ -527,6 +569,20 @@ const LandingFooter = () => {
 };
 
 export default function LandingPage() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const targetId = location.hash.replace('#', '');
+    const frame = window.requestAnimationFrame(() => {
+      if (targetId) {
+        document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.hash]);
+
   return (
     <div className="landing-page min-h-screen overflow-x-hidden selection:bg-purple-500/30 selection:text-white relative">
       <GalaxyBackground />
@@ -536,6 +592,7 @@ export default function LandingPage() {
         <LandingMission />
         <LandingRoadmap />
         <LandingSimulation />
+        <LandingContact />
         <LandingFooter />
       </main>
     </div>

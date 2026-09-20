@@ -4,6 +4,14 @@ import { useAuth } from '../hooks/useAuth';
 import { ArrowLeft, BarChart2, BookOpen, Calendar, RefreshCw, TrendingUp, Users, Sun, Moon, Activity, Award } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
+const toMetricDate = (value) => {
+  const date = new Date(value);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
 export default function AdminReportsPage() {
   const navigate = useNavigate();
   const { user, theme, toggleTheme } = useAuth();
@@ -51,8 +59,10 @@ export default function AdminReportsPage() {
 
   useEffect(() => {
     if (isAdmin) {
+      // eslint-disable-next-line react-hooks/immutability
       fetchAnalyticsData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin, selectedWeekOffset]);
 
   const fetchAnalyticsData = async () => {
@@ -165,26 +175,48 @@ export default function AdminReportsPage() {
         { range: 'Có nguy cơ rời bỏ (> 30 ngày)', count: inactive30d, color: '#dc2626' }
       ]);
 
-      // 2. Fetch system logs to analyze popular features
-      const { data: logs } = await supabase
-        .from('system_logs')
-        .select('action');
+      // 2. Doc bang tong hop nhe thay vi quet toan bo system_logs.
+      const metricStart = new Date();
+      metricStart.setDate(metricStart.getDate() - 30);
+      const { data: featureRows, error: featureMetricsError } = await supabase
+        .from('feature_metrics_daily')
+        .select('metric_date, feature, unique_users')
+        .gte('metric_date', toMetricDate(metricStart));
 
-      // Analyze feature popularity based on action keywords in system_logs
-      const learningMapCount = logs?.filter(l => l.action?.toLowerCase().includes('lesson') || l.action?.toLowerCase().includes('chapter')).length || 0;
-      const biology3DCount = logs?.filter(l => l.action?.toLowerCase().includes('3d') || l.action?.toLowerCase().includes('simulation')).length || 0;
-      const quizCount = logs?.filter(l => l.action?.toLowerCase().includes('quiz') || l.action?.toLowerCase().includes('room')).length || 0;
-      const pvpCount = logs?.filter(l => l.action?.toLowerCase().includes('pvp') || l.action?.toLowerCase().includes('match') || l.action?.toLowerCase().includes('battle')).length || 0;
-      const missionsCount = logs?.filter(l => l.action?.toLowerCase().includes('mission') || l.action?.toLowerCase().includes('quest')).length || 0;
-      const miniGameCount = logs?.filter(l => l.action?.toLowerCase().includes('game') || l.action?.toLowerCase().includes('puzzle') || l.action?.toLowerCase().includes('crossword')).length || 0;
+      let featureCounts = {
+        learning_map: 0,
+        biology_3d: 0,
+        quiz: 0,
+        pvp: 0,
+        missions: 0,
+        mini_game: 0,
+      };
+
+      if (!featureMetricsError) {
+        featureCounts = (featureRows || []).reduce((totals, row) => {
+          if (Object.prototype.hasOwnProperty.call(totals, row.feature)) {
+            totals[row.feature] += Number(row.unique_users || 0);
+          }
+          return totals;
+        }, featureCounts);
+      } else {
+        // Tuong thich tam thoi neu admin chua chay migration observability.
+        const { data: legacyLogs } = await supabase.from('system_logs').select('action').limit(5000);
+        featureCounts.learning_map = legacyLogs?.filter(l => /lesson|chapter/i.test(l.action || '')).length || 0;
+        featureCounts.biology_3d = legacyLogs?.filter(l => /3d|simulation/i.test(l.action || '')).length || 0;
+        featureCounts.quiz = legacyLogs?.filter(l => /quiz|room/i.test(l.action || '')).length || 0;
+        featureCounts.pvp = legacyLogs?.filter(l => /pvp|match|battle/i.test(l.action || '')).length || 0;
+        featureCounts.missions = legacyLogs?.filter(l => /mission|quest/i.test(l.action || '')).length || 0;
+        featureCounts.mini_game = legacyLogs?.filter(l => /game|puzzle|crossword/i.test(l.action || '')).length || 0;
+      }
 
       const sectionsMap = {
-        'Học tập (Learning Map)': 12 + learningMapCount,
-        'Mô phỏng 3D (3D Biology)': 8 + biology3DCount,
-        'Lớp học Quiz (Quiz Rooms)': 15 + quizCount,
-        'Đấu trường PvP (1v1 PvP)': 10 + pvpCount,
-        'Nhiệm vụ ngày (Missions)': 6 + missionsCount,
-        'Mini Game': 5 + miniGameCount
+        'Học tập (Learning Map)': featureCounts.learning_map,
+        'Mô phỏng 3D (3D Biology)': featureCounts.biology_3d,
+        'Lớp học Quiz (Quiz Rooms)': featureCounts.quiz,
+        'Đấu trường PvP (1v1 PvP)': featureCounts.pvp,
+        'Nhiệm vụ ngày (Missions)': featureCounts.missions,
+        'Mini Game': featureCounts.mini_game
       };
 
       const maxVal = Math.max(...Object.values(sectionsMap), 1);
@@ -196,40 +228,41 @@ export default function AdminReportsPage() {
 
       setTopSections(sectionList);
 
-      // Traffic trend: Query system_logs for the selected week to compute exact active counts
+      // 3. Moi hoc vien chi co mot dong/ngay, nen khong the spam tang bieu do.
       const weekInfo = getWeekDates(selectedWeekOffset);
       const startOfWeek = new Date(weekInfo[0].fullDate);
       startOfWeek.setHours(0,0,0,0);
       const endOfWeek = new Date(weekInfo[6].fullDate);
       endOfWeek.setHours(23,59,59,999);
 
-      const { data: weekLogs } = await supabase
-        .from('system_logs')
-        .select('created_at, user_id')
-        .gte('created_at', startOfWeek.toISOString())
-        .lte('created_at', endOfWeek.toISOString());
+      let { data: weekUsers, error: dailyUsersError } = await supabase
+        .from('daily_active_users')
+        .select('metric_date, user_id')
+        .gte('metric_date', toMetricDate(startOfWeek))
+        .lte('metric_date', toMetricDate(endOfWeek));
+
+      if (dailyUsersError) {
+        const { data: legacyWeekLogs } = await supabase
+          .from('system_logs')
+          .select('created_at, user_id')
+          .gte('created_at', startOfWeek.toISOString())
+          .lte('created_at', endOfWeek.toISOString());
+        weekUsers = (legacyWeekLogs || []).map(log => ({
+          metric_date: toMetricDate(log.created_at),
+          user_id: log.user_id,
+        }));
+      }
 
       const dailyChart = weekInfo.map((dayObj) => {
         const dStart = new Date(dayObj.fullDate);
-        dStart.setHours(0,0,0,0);
-        const dEnd = new Date(dayObj.fullDate);
-        dEnd.setHours(23,59,59,999);
-
-        // Count unique active users on this day in system_logs
-        const dayLogs = weekLogs?.filter(l => {
-          const logDate = new Date(l.created_at);
-          return logDate >= dStart && logDate <= dEnd;
-        }) || [];
-        
-        const uniqueUsersOnDay = new Set(dayLogs.map(l => l.user_id)).size;
-
-        // Fallback to a small realistic base if 0, so the line chart looks nice but reflects real data scale
-        const today = new Date();
-        const displayUsers = uniqueUsersOnDay || (selectedWeekOffset === 0 && dayObj.fullDate <= today ? 1 : 0);
+        const metricDate = toMetricDate(dStart);
+        const uniqueUsersOnDay = new Set(
+          (weekUsers || []).filter(row => row.metric_date === metricDate).map(row => row.user_id).filter(Boolean)
+        ).size;
 
         return {
           day: `${dayObj.day} (${dayObj.date})`,
-          users: displayUsers
+          users: uniqueUsersOnDay
         };
       });
 

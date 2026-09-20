@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import {
   ArrowLeft, User, Star, Coins, Trophy, Leaf, Flame,
@@ -8,6 +8,9 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useToast } from '../components/Toast';
+import { getXpProgress } from '../utils/progression';
+import { getOptimizedCloudinaryImage } from '../utils/cloudinary';
+import ProfileHistoryTab from '../components/ProfileHistoryTab';
 
 // Available avatars từ folder /images/Avatar/ - sử dụng tên file đơn giản
 // Nhóm theo style để dễ quản lý
@@ -51,14 +54,22 @@ const getAvatarById = (avatarId) => {
 
 export default function ProfilePage() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, userStats, updateStats, refreshUserStats, bgVolume, sfxVolume, bgMuted, sfxMuted, setBgVolume, setSfxVolume, toggleBgMute, toggleSfxMute, theme, toggleTheme } = useAuth();
+  const xpProgress = getXpProgress(userStats?.xp);
   const { showToast } = useToast();
-  const [activeTab, setActiveTab] = useState('stats');
+  const [activeTab, setActiveTab] = useState(
+    ['achievements', 'history'].includes(location.state?.tab) ? location.state.tab : 'stats'
+  );
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [unlockedAvatars, setUnlockedAvatars] = useState(['adventurer-1', 'adventurer-2', 'adventurer-3', 'adventurer-4', 'adventurer-5']);
   const [currentAvatar, setCurrentAvatar] = useState(null); // Bắt đầu với null để đợi load từ server
   const [showUnlockModal, setShowUnlockModal] = useState(false);
   const [avatarToUnlock, setAvatarToUnlock] = useState(null);
+  const [equippingAchievementId, setEquippingAchievementId] = useState(null);
+  const tabStripRef = useRef(null);
+  const tabDragRef = useRef(null);
+  const suppressTabClickRef = useRef(false);
 
   // Chỉnh sửa tên
   const [isEditingName, setIsEditingName] = useState(false);
@@ -211,6 +222,27 @@ export default function ProfilePage() {
     }
   };
 
+  const equipAchievement = async (achievement) => {
+    if (!achievement?.unlocked || equippingAchievementId) return;
+
+    try {
+      setEquippingAchievementId(achievement.id);
+      const isEquipped = userStats?.equippedAchievement?.id === achievement.id;
+      const { error } = await supabase.rpc('equip_my_achievement', {
+        p_achievement_id: isEquipped ? null : achievement.id
+      });
+      if (error) throw error;
+
+      if (refreshUserStats) await refreshUserStats();
+      showToast(isEquipped ? 'Đã gỡ danh hiệu đang dùng.' : `Đã trang bị ${achievement.name}!`, 'success');
+    } catch (error) {
+      console.error('Error equipping achievement:', error);
+      showToast('Không thể thay đổi danh hiệu. Vui lòng thử lại.', 'error');
+    } finally {
+      setEquippingAchievementId(null);
+    }
+  };
+
   // Lưu tên mới - SỬA LỖI ĐỔI TÊN
   const saveDisplayName = async () => {
     const nameToSave = editName.trim();
@@ -281,6 +313,71 @@ export default function ProfilePage() {
     { label: 'Chuỗi ngày', value: userStats?.login_streak || 0, icon: Flame, color: 'text-orange-500' },
   ];
 
+  const profileTabs = [
+    { id: 'stats', label: 'Thống kê' },
+    { id: 'avatars', label: 'Avatar' },
+    { id: 'achievements', label: 'Thành tựu' },
+    { id: 'history', label: 'Lịch sử' }
+  ];
+
+  const selectProfileTab = (tabId, event) => {
+    if (suppressTabClickRef.current) {
+      suppressTabClickRef.current = false;
+      return;
+    }
+    setActiveTab(tabId);
+    event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  };
+
+  const handleTabKeyDown = (event, index) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    let nextIndex = index;
+    if (event.key === 'ArrowLeft') nextIndex = (index - 1 + profileTabs.length) % profileTabs.length;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % profileTabs.length;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = profileTabs.length - 1;
+    const nextTab = profileTabs[nextIndex];
+    const nextButton = tabStripRef.current?.querySelectorAll('[role="tab"]')[nextIndex];
+    setActiveTab(nextTab.id);
+    nextButton?.focus();
+    nextButton?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  };
+
+  const handleTabPointerDown = (event) => {
+    if (event.pointerType !== 'mouse' || !tabStripRef.current) return;
+    tabDragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      scrollLeft: tabStripRef.current.scrollLeft,
+      moved: false,
+      captured: false
+    };
+  };
+
+  const handleTabPointerMove = (event) => {
+    const drag = tabDragRef.current;
+    if (!drag || !tabStripRef.current) return;
+    const distance = event.clientX - drag.startX;
+    if (Math.abs(distance) > 5 && !drag.moved) {
+      drag.moved = true;
+      drag.captured = true;
+      tabStripRef.current.setPointerCapture(event.pointerId);
+      tabStripRef.current.classList.add('is-dragging');
+    }
+    if (!drag.moved) return;
+    tabStripRef.current.scrollLeft = drag.scrollLeft - distance;
+  };
+
+  const finishTabDrag = (event) => {
+    const drag = tabDragRef.current;
+    if (!drag || !tabStripRef.current) return;
+    suppressTabClickRef.current = drag.moved;
+    if (drag.captured && tabStripRef.current.hasPointerCapture(event.pointerId)) tabStripRef.current.releasePointerCapture(event.pointerId);
+    tabStripRef.current.classList.remove('is-dragging');
+    tabDragRef.current = null;
+  };
+
   return (
     <div className="min-h-screen relative bg-transparent">
       {/* Hidden File Input */}
@@ -340,7 +437,7 @@ export default function ProfilePage() {
         <div className="game-card text-center mb-6">
           {/* Avatar - Sử dụng hình ảnh thay vì emoji */}
           <div className="relative inline-block">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4 avatar-circle overflow-hidden border-4 border-white/20">
+            <div className="theme-avatar-frame w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden border-4 shadow-sm">
               {uploading ? (
                 <div className="animate-spin w-8 h-8 border-4 border-white border-t-transparent rounded-full" />
               ) : (
@@ -416,42 +513,59 @@ export default function ProfilePage() {
             <Star className="w-5 h-5 text-yellow-400" />
             <span className="text-white font-semibold">Level {userStats?.level}</span>
           </div>
+          <div className="max-w-md mx-auto mt-4" aria-label="Tiến độ kinh nghiệm">
+            <div className="flex items-center justify-between text-xs mb-1.5">
+              <span className="font-semibold text-purple-200">EXP</span>
+              <span className="text-white/80">
+                {xpProgress.isMaxLevel
+                  ? `${xpProgress.currentThreshold.toLocaleString('vi-VN')} EXP · Tối đa`
+                  : `${xpProgress.currentXp.toLocaleString('vi-VN')} / ${xpProgress.nextThreshold.toLocaleString('vi-VN')} EXP`}
+              </span>
+            </div>
+            <div className="h-3 rounded-full overflow-hidden bg-black/20 border border-white/10">
+              <div
+                className="h-full bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300 transition-all duration-500"
+                style={{ width: `${xpProgress.percent}%` }}
+              />
+            </div>
+          </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-2 mb-6">
-          <button
-            onClick={() => setActiveTab('stats')}
-            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${activeTab === 'stats'
-                ? 'bg-blue-500 text-white'
-                : 'bg-white/10 text-gray-300 hover:bg-white/20'
-              }`}
+        <div className="profile-tabs-viewport mb-6">
+          <div
+            ref={tabStripRef}
+            className="profile-tabs-strip hide-scrollbar"
+            onPointerDown={handleTabPointerDown}
+            onPointerMove={handleTabPointerMove}
+            onPointerUp={finishTabDrag}
+            onPointerCancel={finishTabDrag}
+            role="tablist"
+            aria-label="Nội dung hồ sơ"
           >
-            Thống kê
-          </button>
-          <button
-            onClick={() => setActiveTab('avatars')}
-            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${activeTab === 'avatars'
-                ? 'bg-blue-500 text-white'
-                : 'bg-white/10 text-gray-300 hover:bg-white/20'
-              }`}
-          >
-            Avatar
-          </button>
-          <button
-            onClick={() => setActiveTab('achievements')}
-            className={`flex-1 py-3 rounded-xl font-semibold transition-all ${activeTab === 'achievements'
-                ? 'bg-blue-500 text-white'
-                : 'bg-white/10 text-gray-300 hover:bg-white/20'
-              }`}
-          >
-            Thành tựu
-          </button>
+            {profileTabs.map((tab, index) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
+                  onClick={(event) => selectProfileTab(tab.id, event)}
+                  onKeyDown={(event) => handleTabKeyDown(event, index)}
+                  tabIndex={activeTab === tab.id ? 0 : -1}
+                  className={`profile-tab-button ${activeTab === tab.id ? 'is-active' : ''}`}
+                >
+                  {Icon && <Icon className="w-4 h-4" />}{tab.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Stats Tab */}
         {activeTab === 'stats' && (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="profile-tab-panel grid grid-cols-2 gap-4">
             {stats.map((stat, index) => {
               const isStreak = stat.label === 'Chuỗi ngày';
               return (
@@ -577,7 +691,7 @@ export default function ProfilePage() {
 
         {/* Avatars Tab - Sử dụng ảnh từ folder */}
         {activeTab === 'avatars' && (
-          <div>
+          <div className="profile-tab-panel">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-white font-semibold">Chọn Avatar</h3>
               <div className="flex items-center gap-1 bg-yellow-500/30 px-3 py-1 rounded-lg">
@@ -634,12 +748,80 @@ export default function ProfilePage() {
 
         {/* Achievements Tab */}
         {activeTab === 'achievements' && (
-          <div className="space-y-4">
-            <div className="text-center text-gray-400 py-8">
-              <Trophy className="w-16 h-16 mx-auto mb-4 text-gray-600" />
-              <p>Thành tựu sẽ sớm có mặt!</p>
-              <p className="text-sm">Tiếp tục học tập để mở khóa</p>
+          <div className="profile-tab-panel space-y-5">
+            <div>
+              <h3 className="text-white font-semibold">Bộ sưu tập thành tựu</h3>
+              <p className="text-gray-400 text-sm mt-1">Chọn một danh hiệu đã mở để hiển thị cạnh avatar.</p>
             </div>
+
+            {(userStats?.achievements || []).length === 0 ? (
+              <div className="game-card text-center text-gray-400 py-10">
+                <Trophy className="w-14 h-14 mx-auto mb-3 text-gray-500" />
+                <p>Chưa tải được danh mục thành tựu.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                {userStats.achievements.map((achievement) => {
+                  const isEquipped = userStats?.equippedAchievement?.id === achievement.id;
+                  const isBusy = equippingAchievementId === achievement.id;
+                  const imageUrl = getOptimizedCloudinaryImage(achievement.image_url, 512);
+
+                  return (
+                    <button
+                      key={achievement.id}
+                      type="button"
+                      onClick={() => equipAchievement(achievement)}
+                      disabled={!achievement.unlocked || Boolean(equippingAchievementId)}
+                      className={`achievement-card relative min-h-52 rounded-2xl p-3 border text-left transition-all ${
+                        isEquipped
+                          ? 'achievement-card-equipped border-amber-400 ring-2 ring-amber-400/50'
+                          : achievement.unlocked
+                            ? 'border-white/20 bg-white/10 hover:bg-white/20 hover:-translate-y-1'
+                            : 'border-white/10 bg-white/5'
+                      }`}
+                      aria-label={`${achievement.name}. ${achievement.unlocked ? 'Đã mở khóa' : 'Chưa mở khóa'}`}
+                    >
+                      <div className="relative aspect-square rounded-xl overflow-hidden bg-black/10 flex items-center justify-center">
+                        {imageUrl ? (
+                          <img
+                            src={imageUrl}
+                            alt={achievement.name}
+                            loading="lazy"
+                            className={`w-full h-full object-contain transition-all ${achievement.unlocked ? '' : 'opacity-60 saturate-[0.7]'}`}
+                          />
+                        ) : (
+                          <Trophy className={`w-14 h-14 ${achievement.unlocked ? 'text-amber-400' : 'text-gray-500 opacity-40'}`} />
+                        )}
+
+                        {!achievement.unlocked && (
+                          <div className="achievement-lock-overlay absolute inset-0 flex items-center justify-center bg-slate-900/10">
+                            <span className="achievement-lock-icon w-10 h-10 rounded-full bg-slate-900/45 border border-white/30 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                              <Lock className="w-5 h-5 text-white/90" />
+                            </span>
+                          </div>
+                        )}
+
+                        {isEquipped && (
+                          <span className="achievement-equipped-check absolute top-2 right-2 w-7 h-7 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center shadow-lg">
+                            <Check className="w-4 h-4" />
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="achievement-name text-white text-sm font-bold mt-3 leading-tight">{achievement.name}</p>
+                      <p className="achievement-description text-gray-400 text-xs mt-1 leading-snug">{achievement.description}</p>
+                      {isBusy && <p className="text-amber-400 text-xs mt-2">Đang cập nhật...</p>}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )}
+
+        {activeTab === 'history' && (
+          <div className="profile-tab-panel">
+            <ProfileHistoryTab userId={user?.id || user?.uid} />
           </div>
         )}
       </main>

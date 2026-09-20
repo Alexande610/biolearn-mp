@@ -1,3 +1,4 @@
+import { getAvatarUrl as resolveAvatarUrl } from '../utils/avatar';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
@@ -40,38 +41,7 @@ const parseCompactNumber = (val) => {
 };
 
 // Helper for avatar URL mapping
-const getAvatarUrl = (avatar) => {
-  const avatarMap = {
-    'adventurer-1': '/images/Avatar/adventurer-1.png',
-    'adventurer-2': '/images/Avatar/adventurer-2.png',
-    'adventurer-3': '/images/Avatar/adventurer-3.png',
-    'adventurer-4': '/images/Avatar/adventurer-4.png',
-    'adventurer-5': '/images/Avatar/adventurer-5.png',
-    'avataaars-1': '/images/Avatar/avataaars-1.png',
-    'avataaars-2': '/images/Avatar/avataaars-2.png',
-    'avataaars-3': '/images/Avatar/avataaars-3.png',
-    'avataaars-4': '/images/Avatar/avataaars-4.png',
-    'avataaars-5': '/images/Avatar/avataaars-5.png',
-    'bigEars-1': '/images/Avatar/bigEars-1.png',
-    'bigEars-2': '/images/Avatar/bigEars-2.png',
-    'bigEars-3': '/images/Avatar/bigEars-3.png',
-    'bigEars-4': '/images/Avatar/bigEars-4.png',
-    'bigEars-5': '/images/Avatar/bigEars-5.png',
-    'bottts-1': '/images/Avatar/bottts-1.png',
-    'bottts-2': '/images/Avatar/bottts-2.png',
-    'bottts-3': '/images/Avatar/bottts-3.png',
-    'bottts-4': '/images/Avatar/bottts-4.png',
-    'bottts-5': '/images/Avatar/bottts-5.png',
-    'rings-1': '/images/Avatar/rings-1.png',
-    'rings-2': '/images/Avatar/rings-2.png',
-    'rings-3': '/images/Avatar/rings-3.png',
-    'rings-4': '/images/Avatar/rings-4.png',
-    'rings-5': '/images/Avatar/rings-5.png',
-  };
-  if (!avatar) return avatarMap['adventurer-1'];
-  if (avatar.startsWith('http') || avatar.startsWith('/')) return avatar;
-  return avatarMap[avatar] || avatarMap['adventurer-1'];
-};
+const getAvatarUrl = (avatar) => resolveAvatarUrl(avatar);
 
 export default function AdminUsersPage() {
   const navigate = useNavigate();
@@ -114,7 +84,9 @@ export default function AdminUsersPage() {
 
   useEffect(() => {
     if (!isAdmin || !adminId) return;
+    // eslint-disable-next-line react-hooks/immutability
     fetchUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin, adminId, usersPage, usersRoleFilter, usersSearchTerm]);
 
   const formatDateTime = (value) => {
@@ -246,7 +218,7 @@ export default function AdminUsersPage() {
       if (pvpErr) console.error('Error fetching PvP details:', pvpErr);
       setUserPvPMatches(pvpData || []);
 
-      // 2. Fetch system logs
+      // 2. Chi lay loi/bat thuong gan day cua tai khoan, khong phai lich su click.
       const { data: logsData } = await supabase
         .from('system_logs')
         .select('*')
@@ -278,24 +250,26 @@ export default function AdminUsersPage() {
     const levelInt = parseInt(editLevel, 10);
     const coinsInt = parseCompactNumber(editCoin);
 
-    if (isNaN(levelInt) || levelInt < 1 || levelInt > 9999) {
-      showToast("Cấp độ không hợp lệ (tối đa 9999)!", "warning");
+    if (isNaN(levelInt) || levelInt < 1 || levelInt > 30) {
+      showToast("Cấp độ phải nằm trong khoảng từ 1 đến 30!", "warning");
+      return;
+    }
+    if (!Number.isFinite(coinsInt) || coinsInt < 0) {
+      showToast("Số xu phải là số không âm!", "warning");
       return;
     }
 
     setSavingResources(true);
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({
-          level: levelInt,
-          coins: coinsInt
-        })
-        .eq('id', userId);
+      const { data, error } = await supabase.rpc('admin_update_user_resources', {
+        p_user_id: userId,
+        p_level: levelInt,
+        p_coins: coinsInt
+      });
 
       if (error) throw error;
 
-      setSelectedUserDetail(prev => prev ? { ...prev, level: levelInt, coins: coinsInt } : null);
+      setSelectedUserDetail(prev => prev ? { ...prev, level: levelInt, xp: data?.xp ?? prev.xp, coins: coinsInt } : null);
       fetchUsers();
       showToast("Đã cập nhật cấp độ và xu thành công!", "success");
     } catch (err) {
@@ -647,7 +621,7 @@ export default function AdminUsersPage() {
                       <input 
                         type="number"
                         min="1"
-                        max="9999"
+                        max="30"
                         value={editLevel}
                         onChange={(e) => setEditLevel(e.target.value)}
                         className="w-full px-3 py-2 text-xs bg-black/40 border border-white/10 rounded-xl text-white outline-none focus:ring-1 focus:ring-emerald-400"
@@ -855,21 +829,24 @@ export default function AdminUsersPage() {
 
                 {/* Activity logs */}
                 <div className="p-4 rounded-3xl border border-white/5 bg-white/5 space-y-3">
-                  <h5 className="text-white font-black text-[10px] uppercase tracking-widest text-blue-400">Hoạt động gần đây</h5>
+                  <h5 className="text-white font-black text-[10px] uppercase tracking-widest text-blue-400">Lỗi/bất thường gần đây</h5>
                   {extraLoading ? (
                     <p className="text-gray-400 text-xs">Đang tải...</p>
                   ) : (
                     <div className="space-y-2 max-h-48 overflow-y-auto pr-1">
                       {userSystemLogs.length === 0 ? (
-                        <p className="text-gray-500 italic text-[11px]">Chưa có hoạt động nào</p>
+                        <p className="text-gray-500 italic text-[11px]">Chưa ghi nhận lỗi hoặc bất thường</p>
                       ) : (
                         userSystemLogs.map((log) => (
                           <div key={log.id} className="p-2.5 rounded-xl bg-black/10 border border-white/5 text-[11px]">
                             <div className="flex justify-between text-gray-400 mb-1">
-                              <span className="font-bold text-gray-300 text-[10px]">{log.action}</span>
-                              <span>{new Date(log.created_at).toLocaleTimeString('vi-VN')}</span>
+                              <span className="font-bold text-gray-300 text-[10px]">
+                                {log.action} · {log.severity || 'error'}
+                                {Number(log.occurrence_count || 1) > 1 ? ` · ${log.occurrence_count} lần` : ''}
+                              </span>
+                              <span>{new Date(log.last_seen_at || log.created_at).toLocaleTimeString('vi-VN')}</span>
                             </div>
-                            <p className="text-gray-300 truncate">{JSON.stringify(log.details)}</p>
+                            <p className="text-gray-300 truncate">{log.message || JSON.stringify(log.details)}</p>
                           </div>
                         ))
                       )}
