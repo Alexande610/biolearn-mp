@@ -1,0 +1,1113 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g6-st3-2026.1",
+  "grade": 6,
+  "stationId": "g6_st3",
+  "title": "Lớp 6 - Trạm 3: Đa dạng thế giới sống",
+  "status": "draft",
+  "notes": "Nội dung được đối chiếu trực tiếp với Chương VII của SGK KHTN 6 Kết nối tri thức; TXT OCR chỉ dùng để tìm kiếm.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nêu được sự cần thiết của phân loại và nhận biết các bậc phân loại cơ bản.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 1. Hệ thống phân loại sinh vật",
+          "pages": "106-109"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đơn vị phân loại cơ sở của thế giới sống là gì?",
+            "options": [
+              "Loài",
+              "Giới",
+              "Ngành",
+              "Lớp"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là bậc phân loại nhỏ và cơ bản nhất.",
+            "explanation": "Loài là đơn vị phân loại cơ sở của thế giới sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Giới Khởi sinh",
+                "right": "Vi khuẩn"
+              },
+              {
+                "left": "Giới Nấm",
+                "right": "Nấm men và nấm mũ"
+              },
+              {
+                "left": "Giới Động vật",
+                "right": "Các loài động vật"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Giới Khởi sinh: Vi khuẩn; Giới Nấm: Nấm men và nấm mũ; Giới Động vật: Các loài động vật."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Việc sắp xếp sinh vật vào các nhóm dựa trên đặc điểm chung gọi là [blank] sinh vật.",
+            "correctAnswer": "phân loại",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “phân loại”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bậc phân loại lớn hơn họ",
+              "Bậc phân loại nhỏ hơn họ"
+            ],
+            "items": [
+              {
+                "name": "Giới",
+                "catIndex": 0
+              },
+              {
+                "name": "Ngành",
+                "catIndex": 0
+              },
+              {
+                "name": "Lớp",
+                "catIndex": 0
+              },
+              {
+                "name": "Chi",
+                "catIndex": 1
+              },
+              {
+                "name": "Loài",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Giới thuộc nhóm Bậc phân loại lớn hơn họ; Ngành thuộc nhóm Bậc phân loại lớn hơn họ; Lớp thuộc nhóm Bậc phân loại lớn hơn họ; Chi thuộc nhóm Bậc phân loại nhỏ hơn họ; Loài thuộc nhóm Bậc phân loại nhỏ hơn họ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các bậc phân loại từ nhỏ đến lớn bắt đầu bằng [blank].",
+            "bankWords": [
+              "loài",
+              "giới",
+              "ngành"
+            ],
+            "correctWord": "loài",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “loài”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Sử dụng được khoá lưỡng phân đơn giản để nhận biết sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 2. Khoá lưỡng phân",
+          "pages": "110-111"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mỗi bước trong khoá lưỡng phân thường đưa ra bao nhiêu lựa chọn đối lập?",
+            "options": [
+              "Hai",
+              "Một",
+              "Ba",
+              "Bốn"
+            ],
+            "answerIndex": 0,
+            "hint": "“Lưỡng” có nghĩa là hai.",
+            "explanation": "Mỗi bước của khoá lưỡng phân gồm hai đặc điểm đối lập để lựa chọn."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Có cánh",
+                "right": "Đi theo nhánh có cánh"
+              },
+              {
+                "left": "Không có cánh",
+                "right": "Đi theo nhánh không cánh"
+              },
+              {
+                "left": "Đặc điểm đối lập",
+                "right": "Tách đối tượng thành hai nhóm"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Có cánh: Đi theo nhánh có cánh; Không có cánh: Đi theo nhánh không cánh; Đặc điểm đối lập: Tách đối tượng thành hai nhóm."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khoá lưỡng phân gồm các cặp đặc điểm [blank] nhau.",
+            "correctAnswer": "đối lập",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “đối lập”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đặc điểm phù hợp làm cặp phân đôi",
+              "Đặc điểm không tạo cặp phân đôi rõ"
+            ],
+            "items": [
+              {
+                "name": "Có xương sống / không xương sống",
+                "catIndex": 0
+              },
+              {
+                "name": "Có cánh / không có cánh",
+                "catIndex": 0
+              },
+              {
+                "name": "Sống dưới nước / không sống dưới nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Đẹp / không đẹp",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Có xương sống / không xương sống thuộc nhóm Đặc điểm phù hợp làm cặp phân đôi; Có cánh / không có cánh thuộc nhóm Đặc điểm phù hợp làm cặp phân đôi; Sống dưới nước / không sống dưới nước thuộc nhóm Đặc điểm phù hợp làm cặp phân đôi; Đẹp / không đẹp thuộc nhóm Đặc điểm không tạo cặp phân đôi rõ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sau mỗi lựa chọn, khoá lưỡng phân dẫn tới một [blank] tiếp theo hoặc tên sinh vật.",
+            "bankWords": [
+              "nhánh",
+              "phép đo",
+              "nhiệt độ"
+            ],
+            "correctWord": "nhánh",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “nhánh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Mô tả được đặc điểm chính, vai trò có ích và tác hại của vi khuẩn.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 3-4. Vi khuẩn và thực hành quan sát vi khuẩn",
+          "pages": "112-117"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vi khuẩn có đặc điểm nào sau đây?",
+            "options": [
+              "Cơ thể đơn bào, cấu tạo nhân sơ",
+              "Cơ thể luôn đa bào",
+              "Có nhân hoàn chỉnh",
+              "Chỉ sống trong cơ thể người"
+            ],
+            "answerIndex": 0,
+            "hint": "Vi khuẩn thuộc giới Khởi sinh.",
+            "explanation": "Vi khuẩn là cơ thể đơn bào có cấu tạo nhân sơ và sống ở nhiều môi trường."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Vi khuẩn lactic",
+                "right": "Tham gia làm sữa chua"
+              },
+              {
+                "left": "Vi khuẩn cố định đạm",
+                "right": "Góp phần cung cấp đạm cho cây"
+              },
+              {
+                "left": "Vi khuẩn gây bệnh",
+                "right": "Có thể làm người hoặc sinh vật mắc bệnh"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Vi khuẩn lactic: Tham gia làm sữa chua; Vi khuẩn cố định đạm: Góp phần cung cấp đạm cho cây; Vi khuẩn gây bệnh: Có thể làm người hoặc sinh vật mắc bệnh."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vi khuẩn chưa có [blank] hoàn chỉnh.",
+            "correctAnswer": "nhân",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “nhân”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vai trò có ích của vi khuẩn",
+              "Tác hại của vi khuẩn"
+            ],
+            "items": [
+              {
+                "name": "Làm sữa chua",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân huỷ xác sinh vật",
+                "catIndex": 0
+              },
+              {
+                "name": "Gây sâu răng",
+                "catIndex": 1
+              },
+              {
+                "name": "Làm hỏng thức ăn",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Làm sữa chua thuộc nhóm Vai trò có ích của vi khuẩn; Phân huỷ xác sinh vật thuộc nhóm Vai trò có ích của vi khuẩn; Gây sâu răng thuộc nhóm Tác hại của vi khuẩn; Làm hỏng thức ăn thuộc nhóm Tác hại của vi khuẩn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Quan sát hình thái vi khuẩn trong sữa chua thường cần dùng [blank].",
+            "bankWords": [
+              "kính hiển vi",
+              "thước cuộn",
+              "kính thiên văn"
+            ],
+            "correctWord": "kính hiển vi",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “kính hiển vi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Mô tả được cấu tạo đơn giản, cách nhân lên và một số tác hại của virus.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 5. Virus",
+          "pages": "118-121"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Virus chỉ có thể nhân lên khi nào?",
+            "options": [
+              "Khi ở trong tế bào vật chủ",
+              "Khi ở ngoài không khí",
+              "Khi nằm trên đá",
+              "Khi được chiếu sáng"
+            ],
+            "answerIndex": 0,
+            "hint": "Virus phụ thuộc vào tế bào sống.",
+            "explanation": "Virus chỉ nhân lên được trong tế bào vật chủ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Vật chất di truyền",
+                "right": "Mang thông tin di truyền"
+              },
+              {
+                "left": "Vỏ protein",
+                "right": "Bao bọc vật chất di truyền"
+              },
+              {
+                "left": "Tế bào vật chủ",
+                "right": "Nơi virus nhân lên"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Vật chất di truyền: Mang thông tin di truyền; Vỏ protein: Bao bọc vật chất di truyền; Tế bào vật chủ: Nơi virus nhân lên."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Virus có cấu tạo rất đơn giản và không có cấu tạo [blank].",
+            "correctAnswer": "tế bào",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “tế bào”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bệnh có thể do virus gây ra",
+              "Không phải bệnh do virus gây ra"
+            ],
+            "items": [
+              {
+                "name": "Cúm",
+                "catIndex": 0
+              },
+              {
+                "name": "Sởi",
+                "catIndex": 0
+              },
+              {
+                "name": "Bệnh khảm thuốc lá",
+                "catIndex": 0
+              },
+              {
+                "name": "Sâu răng do vi khuẩn",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Cúm thuộc nhóm Bệnh có thể do virus gây ra; Sởi thuộc nhóm Bệnh có thể do virus gây ra; Bệnh khảm thuốc lá thuộc nhóm Bệnh có thể do virus gây ra; Sâu răng do vi khuẩn thuộc nhóm Không phải bệnh do virus gây ra."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Virus kí sinh bắt buộc bên trong [blank] vật chủ.",
+            "bankWords": [
+              "tế bào",
+              "hòn đá",
+              "giọt nước cất"
+            ],
+            "correctWord": "tế bào",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “tế bào”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Nhận biết được đặc điểm và một số đại diện của nguyên sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 6-7. Nguyên sinh vật và thực hành quan sát",
+          "pages": "122-127"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Phần lớn nguyên sinh vật có đặc điểm nào?",
+            "options": [
+              "Cơ thể đơn bào, nhân thực",
+              "Cơ thể đa bào có hệ cơ quan",
+              "Không có cấu tạo tế bào",
+              "Đều nhìn thấy rõ bằng mắt thường"
+            ],
+            "answerIndex": 0,
+            "hint": "Chúng thường sống ở nước hoặc nơi ẩm.",
+            "explanation": "Phần lớn nguyên sinh vật là cơ thể đơn bào nhân thực có kích thước hiển vi."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trùng biến hình",
+                "right": "Di chuyển bằng chân giả"
+              },
+              {
+                "left": "Trùng roi",
+                "right": "Di chuyển bằng roi"
+              },
+              {
+                "left": "Trùng giày",
+                "right": "Di chuyển bằng lông bơi"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Trùng biến hình: Di chuyển bằng chân giả; Trùng roi: Di chuyển bằng roi; Trùng giày: Di chuyển bằng lông bơi."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nguyên sinh vật thường sống trong môi trường nước hoặc nơi [blank].",
+            "correctAnswer": "ẩm",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “ẩm”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nguyên sinh vật có khả năng quang hợp",
+              "Nguyên sinh vật không quang hợp"
+            ],
+            "items": [
+              {
+                "name": "Trùng roi xanh",
+                "catIndex": 0
+              },
+              {
+                "name": "Tảo lục đơn bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Trùng biến hình",
+                "catIndex": 1
+              },
+              {
+                "name": "Trùng giày",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Trùng roi xanh thuộc nhóm Nguyên sinh vật có khả năng quang hợp; Tảo lục đơn bào thuộc nhóm Nguyên sinh vật có khả năng quang hợp; Trùng biến hình thuộc nhóm Nguyên sinh vật không quang hợp; Trùng giày thuộc nhóm Nguyên sinh vật không quang hợp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Để quan sát nguyên sinh vật trong nước ao cần dùng [blank].",
+            "bankWords": [
+              "kính hiển vi",
+              "cân",
+              "nhiệt kế"
+            ],
+            "correctWord": "kính hiển vi",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “kính hiển vi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nhận biết được đặc điểm, sự đa dạng, vai trò và tác hại của nấm.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 8-10. Nấm, thực hành và ôn tập",
+          "pages": "128-137"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nấm lấy chất dinh dưỡng chủ yếu bằng cách nào?",
+            "options": [
+              "Hấp thụ chất hữu cơ từ môi trường",
+              "Tự quang hợp như cây xanh",
+              "Nuốt thức ăn bằng miệng",
+              "Chỉ uống nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Nấm không có diệp lục để quang hợp.",
+            "explanation": "Nấm sống dị dưỡng và hấp thụ chất hữu cơ từ môi trường."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nấm men",
+                "right": "Có thể dùng làm bánh và lên men"
+              },
+              {
+                "left": "Nấm mốc",
+                "right": "Thường tạo lớp mốc trên thức ăn"
+              },
+              {
+                "left": "Nấm ăn",
+                "right": "Được sử dụng làm thực phẩm"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Nấm men: Có thể dùng làm bánh và lên men; Nấm mốc: Thường tạo lớp mốc trên thức ăn; Nấm ăn: Được sử dụng làm thực phẩm."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nấm không có [blank] nên không tự quang hợp.",
+            "correctAnswer": "diệp lục",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “diệp lục”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vai trò có ích của nấm",
+              "Tác hại của nấm"
+            ],
+            "items": [
+              {
+                "name": "Làm thực phẩm",
+                "catIndex": 0
+              },
+              {
+                "name": "Lên men",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân huỷ chất hữu cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Gây mốc thức ăn",
+                "catIndex": 1
+              },
+              {
+                "name": "Gây bệnh ngoài da",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Làm thực phẩm thuộc nhóm Vai trò có ích của nấm; Lên men thuộc nhóm Vai trò có ích của nấm; Phân huỷ chất hữu cơ thuộc nhóm Vai trò có ích của nấm; Gây mốc thức ăn thuộc nhóm Tác hại của nấm; Gây bệnh ngoài da thuộc nhóm Tác hại của nấm."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nhiều loài nấm sinh sản bằng [blank].",
+            "bankWords": [
+              "bào tử",
+              "hạt",
+              "trứng"
+            ],
+            "correctWord": "bào tử",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “bào tử”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Phân biệt được các nhóm thực vật chính dựa trên đặc điểm sinh sản và cấu tạo.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 11-12. Thực vật và thực hành phân biệt nhóm thực vật",
+          "pages": "138-147"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhóm thực vật nào có hoa và quả?",
+            "options": [
+              "Thực vật hạt kín",
+              "Rêu",
+              "Dương xỉ",
+              "Thực vật hạt trần"
+            ],
+            "answerIndex": 0,
+            "hint": "Hạt của nhóm này nằm trong quả.",
+            "explanation": "Thực vật hạt kín có hoa, tạo quả và hạt nằm trong quả."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Rêu",
+                "right": "Chưa có mạch dẫn"
+              },
+              {
+                "left": "Dương xỉ",
+                "right": "Sinh sản bằng bào tử, có mạch dẫn"
+              },
+              {
+                "left": "Hạt trần",
+                "right": "Có hạt nhưng không có quả"
+              },
+              {
+                "left": "Hạt kín",
+                "right": "Có hoa và quả"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Rêu: Chưa có mạch dẫn; Dương xỉ: Sinh sản bằng bào tử, có mạch dẫn; Hạt trần: Có hạt nhưng không có quả; Hạt kín: Có hoa và quả."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cây thông thuộc nhóm thực vật hạt [blank].",
+            "correctAnswer": "trần",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “trần”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Sinh sản bằng bào tử",
+              "Sinh sản bằng hạt"
+            ],
+            "items": [
+              {
+                "name": "Rêu",
+                "catIndex": 0
+              },
+              {
+                "name": "Dương xỉ",
+                "catIndex": 0
+              },
+              {
+                "name": "Cây thông",
+                "catIndex": 1
+              },
+              {
+                "name": "Cây lúa",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Rêu thuộc nhóm Sinh sản bằng bào tử; Dương xỉ thuộc nhóm Sinh sản bằng bào tử; Cây thông thuộc nhóm Sinh sản bằng hạt; Cây lúa thuộc nhóm Sinh sản bằng hạt."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ở thực vật hạt kín, hạt được bảo vệ trong [blank].",
+            "bankWords": [
+              "quả",
+              "rễ",
+              "thân"
+            ],
+            "correctWord": "quả",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “quả”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Phân biệt được động vật không xương sống và động vật có xương sống.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 13-14. Động vật và thực hành nhận biết nhóm động vật",
+          "pages": "148-157"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đặc điểm dùng để chia động vật thành hai nhóm lớn là gì?",
+            "options": [
+              "Có hay không có cột sống",
+              "Màu sắc cơ thể",
+              "Kích thước cơ thể",
+              "Nơi kiếm ăn"
+            ],
+            "answerIndex": 0,
+            "hint": "Tên hai nhóm là có xương sống và không xương sống.",
+            "explanation": "Sự có mặt của cột sống là căn cứ chia động vật thành hai nhóm lớn."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cá",
+                "right": "Sống dưới nước, thở bằng mang"
+              },
+              {
+                "left": "Chim",
+                "right": "Có lông vũ"
+              },
+              {
+                "left": "Giun đất",
+                "right": "Cơ thể dài và phân đốt"
+              },
+              {
+                "left": "Bướm",
+                "right": "Cơ thể có ba phần và ba đôi chân"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Cá: Sống dưới nước, thở bằng mang; Chim: Có lông vũ; Giun đất: Cơ thể dài và phân đốt; Bướm: Cơ thể có ba phần và ba đôi chân."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Thú là nhóm động vật có [blank] sống.",
+            "correctAnswer": "xương",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “xương”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Động vật không xương sống",
+              "Động vật có xương sống"
+            ],
+            "items": [
+              {
+                "name": "Sứa",
+                "catIndex": 0
+              },
+              {
+                "name": "Ốc sên",
+                "catIndex": 0
+              },
+              {
+                "name": "Tôm",
+                "catIndex": 0
+              },
+              {
+                "name": "Ếch",
+                "catIndex": 1
+              },
+              {
+                "name": "Chim",
+                "catIndex": 1
+              },
+              {
+                "name": "Mèo",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Sứa thuộc nhóm Động vật không xương sống; Ốc sên thuộc nhóm Động vật không xương sống; Tôm thuộc nhóm Động vật không xương sống; Ếch thuộc nhóm Động vật có xương sống; Chim thuộc nhóm Động vật có xương sống; Mèo thuộc nhóm Động vật có xương sống."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Côn trùng thuộc nhóm động vật [blank] xương sống.",
+            "bankWords": [
+              "không",
+              "có",
+              "nhiều"
+            ],
+            "correctWord": "không",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “không”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Nêu được ý nghĩa của đa dạng sinh học và một số biện pháp bảo vệ.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 15. Đa dạng sinh học",
+          "pages": "158-161"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Việc nào góp phần bảo vệ đa dạng sinh học?",
+            "options": [
+              "Bảo vệ môi trường sống của sinh vật",
+              "Săn bắt động vật quý hiếm",
+              "Phá rừng tự nhiên",
+              "Thả chất thải chưa xử lí"
+            ],
+            "answerIndex": 0,
+            "hint": "Sinh vật cần nơi sống phù hợp để tồn tại.",
+            "explanation": "Bảo vệ môi trường sống là biện pháp quan trọng để duy trì đa dạng sinh học."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Rừng",
+                "right": "Nơi sống của nhiều loài"
+              },
+              {
+                "left": "Đa dạng sinh học",
+                "right": "Cung cấp nguồn thực phẩm và dược liệu"
+              },
+              {
+                "left": "Khu bảo tồn",
+                "right": "Góp phần bảo vệ loài và sinh cảnh"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Rừng: Nơi sống của nhiều loài; Đa dạng sinh học: Cung cấp nguồn thực phẩm và dược liệu; Khu bảo tồn: Góp phần bảo vệ loài và sinh cảnh."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự phong phú về số lượng loài và môi trường sống tạo nên tính đa dạng [blank].",
+            "correctAnswer": "sinh học",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “sinh học”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hành động bảo vệ đa dạng sinh học",
+              "Hành động làm suy giảm đa dạng sinh học"
+            ],
+            "items": [
+              {
+                "name": "Trồng và bảo vệ rừng",
+                "catIndex": 0
+              },
+              {
+                "name": "Thành lập khu bảo tồn",
+                "catIndex": 0
+              },
+              {
+                "name": "Khai thác hợp lí",
+                "catIndex": 0
+              },
+              {
+                "name": "Săn bắt trái phép",
+                "catIndex": 1
+              },
+              {
+                "name": "Phá huỷ sinh cảnh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Trồng và bảo vệ rừng thuộc nhóm Hành động bảo vệ đa dạng sinh học; Thành lập khu bảo tồn thuộc nhóm Hành động bảo vệ đa dạng sinh học; Khai thác hợp lí thuộc nhóm Hành động bảo vệ đa dạng sinh học; Săn bắt trái phép thuộc nhóm Hành động làm suy giảm đa dạng sinh học; Phá huỷ sinh cảnh thuộc nhóm Hành động làm suy giảm đa dạng sinh học."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Không săn bắt động vật quý hiếm góp phần bảo vệ đa dạng [blank].",
+            "bankWords": [
+              "sinh học",
+              "khoáng vật",
+              "nhiệt độ"
+            ],
+            "correctWord": "sinh học",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “sinh học”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Vận dụng quy trình quan sát để tìm hiểu và ghi chép sinh vật ngoài thiên nhiên.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 16-17. Tìm hiểu sinh vật ngoài thiên nhiên và ôn tập",
+          "pages": "162-169"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi tìm hiểu sinh vật ngoài thiên nhiên, hành động nào phù hợp?",
+            "options": [
+              "Quan sát, ghi chép và hạn chế làm ảnh hưởng sinh vật",
+              "Bẻ cây để mang về",
+              "Bắt mọi động vật nhìn thấy",
+              "Phá tổ để quan sát rõ hơn"
+            ],
+            "answerIndex": 0,
+            "hint": "Quan sát khoa học cần đi cùng bảo vệ sinh vật.",
+            "explanation": "Cần quan sát và ghi chép đầy đủ nhưng không làm tổn hại sinh vật hoặc môi trường sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sổ ghi chép",
+                "right": "Ghi đặc điểm và nơi gặp sinh vật"
+              },
+              {
+                "left": "Máy ảnh",
+                "right": "Lưu lại hình ảnh quan sát"
+              },
+              {
+                "left": "Kính lúp",
+                "right": "Quan sát chi tiết nhỏ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Sổ ghi chép: Ghi đặc điểm và nơi gặp sinh vật; Máy ảnh: Lưu lại hình ảnh quan sát; Kính lúp: Quan sát chi tiết nhỏ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khi khảo sát ngoài thiên nhiên cần tuân thủ quy định về [blank].",
+            "correctAnswer": "an toàn",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “an toàn”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nên thực hiện khi khảo sát",
+              "Không nên thực hiện khi khảo sát"
+            ],
+            "items": [
+              {
+                "name": "Đi theo nhóm",
+                "catIndex": 0
+              },
+              {
+                "name": "Ghi chép kết quả",
+                "catIndex": 0
+              },
+              {
+                "name": "Giữ vệ sinh môi trường",
+                "catIndex": 0
+              },
+              {
+                "name": "Chạm vào sinh vật lạ",
+                "catIndex": 1
+              },
+              {
+                "name": "Thu mẫu tuỳ tiện",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Đi theo nhóm thuộc nhóm Nên thực hiện khi khảo sát; Ghi chép kết quả thuộc nhóm Nên thực hiện khi khảo sát; Giữ vệ sinh môi trường thuộc nhóm Nên thực hiện khi khảo sát; Chạm vào sinh vật lạ thuộc nhóm Không nên thực hiện khi khảo sát; Thu mẫu tuỳ tiện thuộc nhóm Không nên thực hiện khi khảo sát."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sau khi quan sát cần sắp xếp dữ liệu và viết [blank].",
+            "bankWords": [
+              "báo cáo",
+              "đáp án trước",
+              "quảng cáo"
+            ],
+            "correctWord": "báo cáo",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “báo cáo”."
+          }
+        }
+      ]
+    }
+  ]
+}

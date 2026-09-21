@@ -14,8 +14,8 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 5. Sử dụng kính hiển vi quang học",
-          "pages": "17-19"
+          "lesson": "Bài 4. Sử dụng kính hiển vi quang học",
+          "pages": "17-18"
         }
       ],
       "games": [
@@ -121,8 +121,8 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 18. Tế bào - Đơn vị cơ bản của sự sống",
-          "pages": "75-78"
+          "lesson": "Bài 1. Tế bào - Đơn vị cơ bản của sự sống",
+          "pages": "76-78"
         }
       ],
       "games": [
@@ -148,20 +148,20 @@
           "data": {
             "pairs": [
               {
+                "left": "Tế bào da người",
+                "right": "Dẹt và xếp sát nhau"
+              },
+              {
                 "left": "Tế bào thần kinh",
-                "right": "Có phần kéo dài để truyền tín hiệu"
+                "right": "Có phần kéo dài"
               },
               {
-                "left": "Tế bào hồng cầu",
-                "right": "Có dạng đĩa lõm hai mặt"
-              },
-              {
-                "left": "Tế bào trứng",
-                "right": "Có dạng gần hình cầu"
+                "left": "Tế bào thịt lá",
+                "right": "Có dạng gần hình hộp"
               }
             ],
             "hint": "Dựa vào kiến thức của ải 2.",
-            "explanation": "Tế bào thần kinh: Có phần kéo dài để truyền tín hiệu; Tế bào hồng cầu: Có dạng đĩa lõm hai mặt; Tế bào trứng: Có dạng gần hình cầu."
+            "explanation": "Tế bào da người: Dẹt và xếp sát nhau; Tế bào thần kinh: Có phần kéo dài; Tế bào thịt lá: Có dạng gần hình hộp."
           }
         },
         {
@@ -184,6 +184,10 @@
             ],
             "items": [
               {
+                "name": "Tế bào trứng đà điểu",
+                "catIndex": 0
+              },
+              {
                 "name": "Tế bào trứng cá",
                 "catIndex": 0
               },
@@ -194,14 +198,10 @@
               {
                 "name": "Tế bào biểu bì hành",
                 "catIndex": 1
-              },
-              {
-                "name": "Tế bào sợi gai",
-                "catIndex": 0
               }
             ],
             "hint": "Dựa vào kiến thức của ải 2.",
-            "explanation": "Tế bào trứng cá thuộc nhóm Có thể quan sát bằng mắt thường; Tế bào vi khuẩn thuộc nhóm Cần dụng cụ phóng đại; Tế bào biểu bì hành thuộc nhóm Cần dụng cụ phóng đại; Tế bào sợi gai thuộc nhóm Có thể quan sát bằng mắt thường."
+            "explanation": "Tế bào trứng đà điểu thuộc nhóm Có thể quan sát bằng mắt thường; Tế bào trứng cá thuộc nhóm Có thể quan sát bằng mắt thường; Tế bào vi khuẩn thuộc nhóm Cần dụng cụ phóng đại; Tế bào biểu bì hành thuộc nhóm Cần dụng cụ phóng đại."
           }
         },
         {
@@ -228,7 +228,7 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 19. Cấu tạo và chức năng các thành phần của tế bào",
+          "lesson": "Bài 2. Cấu tạo và chức năng các thành phần của tế bào",
           "pages": "79-81"
         }
       ],
@@ -335,8 +335,8 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 19. Cấu tạo và chức năng các thành phần của tế bào",
-          "pages": "80-82"
+          "lesson": "Bài 2. Cấu tạo và chức năng các thành phần của tế bào",
+          "pages": "79-82"
         }
       ],
       "games": [
@@ -442,8 +442,8 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 19. Cấu tạo và chức năng các thành phần của tế bào",
-          "pages": "81-82"
+          "lesson": "Bài 2. Cấu tạo và chức năng các thành phần của tế bào",
+          "pages": "80-82"
         }
       ],
       "games": [
@@ -500,7 +500,7 @@
           "title": "Phân loại đúng nhóm",
           "data": {
             "categories": [
-              "Đặc trưng ở tế bào thực vật",
+              "Có ở tế bào thực vật nhưng không có ở tế bào động vật",
               "Có ở cả tế bào thực vật và động vật"
             ],
             "items": [
@@ -526,7 +526,7 @@
               }
             ],
             "hint": "Dựa vào kiến thức của ải 5.",
-            "explanation": "Lục lạp thuộc nhóm Đặc trưng ở tế bào thực vật; Thành tế bào thuộc nhóm Đặc trưng ở tế bào thực vật; Màng tế bào thuộc nhóm Có ở cả tế bào thực vật và động vật; Tế bào chất thuộc nhóm Có ở cả tế bào thực vật và động vật; Nhân thuộc nhóm Có ở cả tế bào thực vật và động vật."
+            "explanation": "Lục lạp thuộc nhóm Có ở tế bào thực vật nhưng không có ở tế bào động vật; Thành tế bào thuộc nhóm Có ở tế bào thực vật nhưng không có ở tế bào động vật; Màng tế bào thuộc nhóm Có ở cả tế bào thực vật và động vật; Tế bào chất thuộc nhóm Có ở cả tế bào thực vật và động vật; Nhân thuộc nhóm Có ở cả tế bào thực vật và động vật."
           }
         },
         {
@@ -553,7 +553,7 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 20. Sự lớn lên và sinh sản của tế bào",
+          "lesson": "Bài 3. Sự lớn lên và sinh sản của tế bào",
           "pages": "83-84"
         }
       ],
@@ -660,7 +660,7 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 20. Sự lớn lên và sinh sản của tế bào",
+          "lesson": "Bài 3. Sự lớn lên và sinh sản của tế bào",
           "pages": "84-85"
         }
       ],
@@ -767,7 +767,7 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 21. Thực hành: Quan sát và phân biệt một số loại tế bào",
+          "lesson": "Bài 4. Thực hành: Quan sát và phân biệt một số loại tế bào",
           "pages": "86-87"
         }
       ],
@@ -874,7 +874,7 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 18-19. Tế bào và cấu tạo tế bào",
+          "lesson": "Bài 1-2. Tế bào và cấu tạo tế bào",
           "pages": "76-82"
         }
       ],
@@ -981,8 +981,8 @@
         {
           "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
           "publisher": "Nhà xuất bản Giáo dục Việt Nam",
-          "lesson": "Bài 18-21. Tế bào",
-          "pages": "75-88"
+          "lesson": "Bài 1-4. Tế bào",
+          "pages": "76-87"
         }
       ],
       "games": [
@@ -1044,7 +1044,7 @@
             ],
             "items": [
               {
-                "name": "Có thành tế bào",
+                "name": "Có không bào lớn ở tế bào trưởng thành",
                 "catIndex": 0
               },
               {
@@ -1061,7 +1061,7 @@
               }
             ],
             "hint": "Dựa vào kiến thức của ải 10.",
-            "explanation": "Có thành tế bào thuộc nhóm Đúng với tế bào thực vật; Có thể có lục lạp thuộc nhóm Đúng với tế bào thực vật; Thuộc kiểu tế bào nhân sơ thuộc nhóm Đúng với tế bào vi khuẩn; Chưa có nhân hoàn chỉnh thuộc nhóm Đúng với tế bào vi khuẩn."
+            "explanation": "Có không bào lớn ở tế bào trưởng thành thuộc nhóm Đúng với tế bào thực vật; Có thể có lục lạp thuộc nhóm Đúng với tế bào thực vật; Thuộc kiểu tế bào nhân sơ thuộc nhóm Đúng với tế bào vi khuẩn; Chưa có nhân hoàn chỉnh thuộc nhóm Đúng với tế bào vi khuẩn."
           }
         },
         {

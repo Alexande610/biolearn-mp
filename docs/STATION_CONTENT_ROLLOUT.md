@@ -16,8 +16,9 @@
 
 | Khối | Trạm | Trạng thái |
 |---|---|---|
-| 6 | `g6_st1` Kính hiển vi và tế bào | Thí điểm đã soạn đủ 10 ải/50 trò, đang ở `draft` |
-| 6 | `g6_st2`, `g6_st3` | Chờ biên soạn và duyệt |
+| 6 | `g6_st1` Kính hiển vi và tế bào | Đã soạn đủ 10 ải/50 trò, đang ở `draft`; cần nhập lại bản đã hiệu chỉnh nguồn trước khi duyệt |
+| 6 | `g6_st2` Từ tế bào đến cơ thể | Đã soạn đủ 10 ải/50 trò, đang chờ nhập `draft` và duyệt |
+| 6 | `g6_st3` Đa dạng thế giới sống | Đã soạn đủ 10 ải/50 trò, đang chờ nhập `draft` và duyệt |
 | 7–12 | 18 trạm hoạt động | Chờ biên soạn và duyệt |
 | 6–12 | Bảy trạm thứ tư | Giữ khóa, không tạo bản phát hành |
 

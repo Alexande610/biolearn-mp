@@ -10,6 +10,8 @@ const student = '00000000-0000-4000-8000-000000000002';
 const migration = (await fs.readFile('supabase_station_content_v2.sql', 'utf8'))
   .replace('create extension if not exists pgcrypto;', '');
 const pilotRelease = await fs.readFile('generated/station-releases/g6-st1-2026.1.sql', 'utf8');
+const station2Release = await fs.readFile('generated/station-releases/g6-st2-2026.1.sql', 'utf8');
+const station3Release = await fs.readFile('generated/station-releases/g6-st3-2026.1.sql', 'utf8');
 const cutover = await fs.readFile('supabase_station_content_v2_cutover.sql', 'utf8');
 
 test('generated SQL uses a portable PL/pgSQL declaration block', () => {
@@ -176,6 +178,36 @@ test('generated pilot can be imported from Supabase SQL Editor without a JWT', a
     assert.equal(release.created_by, admin);
     assert.equal(Number((await db.query(
       "select count(*) from station_content_items i join station_content_releases r on r.id=i.release_id where r.version='g6-st1-2026.1'",
+    )).rows[0].count), 50);
+  } finally { await db.close(); }
+});
+
+test('grade 6 station 2 imports 50 draft items from SQL Editor', async () => {
+  const db = await setup();
+  try {
+    await db.exec(station2Release);
+    const release = (await db.query(
+      "select id, status, created_by from station_content_releases where version='g6-st2-2026.1'",
+    )).rows[0];
+    assert.equal(release.status, 'draft');
+    assert.equal(release.created_by, admin);
+    assert.equal(Number((await db.query(
+      'select count(*) from station_content_items where release_id=$1', [release.id],
+    )).rows[0].count), 50);
+  } finally { await db.close(); }
+});
+
+test('grade 6 station 3 imports 50 draft items from SQL Editor', async () => {
+  const db = await setup();
+  try {
+    await db.exec(station3Release);
+    const release = (await db.query(
+      "select id, status, created_by from station_content_releases where version='g6-st3-2026.1'",
+    )).rows[0];
+    assert.equal(release.status, 'draft');
+    assert.equal(release.created_by, admin);
+    assert.equal(Number((await db.query(
+      'select count(*) from station_content_items where release_id=$1', [release.id],
     )).rows[0].count), 50);
   } finally { await db.close(); }
 });
