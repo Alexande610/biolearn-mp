@@ -28,15 +28,14 @@ const STATION_SOUNDS = {
   cells: '/music/magic sparkle.mp3',
 };
 
-// Models GLB — targetSize (world units) sẽ tự động scale bằng bounding box
-// Models GLB (Cloudinary + Local Fallback)
+// Models GLB trên Cloudinary — targetSize sẽ tự động scale bằng bounding box.
 const ORGAN_MODELS = {
-  lungs: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611646/lung.glb', fallbackUrl: '/models/organs/lung.glb', targetSize: 3, anim: 'breathe' },
-  left_heart: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611645/heart.glb', fallbackUrl: '/models/organs/heart.glb', targetSize: 2.5, anim: 'beat' },
-  aorta: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611640/arota.glb', fallbackUrl: '/models/organs/arota.glb', targetSize: 2.5, anim: 'pulse' },
-  arteries: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611641/artery.glb', fallbackUrl: '/models/organs/artery.glb', targetSize: 3, anim: 'pulse' },
-  capillaries: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611643/capillary_network.glb', fallbackUrl: '/models/organs/capillary_network.glb', targetSize: 3, anim: 'pulse' },
-  cells: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611642/body%20cell.glb', fallbackUrl: '/models/organs/body cell.glb', targetSize: 2.5, anim: 'pulse' },
+  lungs: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611646/lung.glb', targetSize: 3, anim: 'breathe' },
+  left_heart: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611645/heart.glb', targetSize: 2.5, anim: 'beat' },
+  aorta: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611640/arota.glb', targetSize: 2.5, anim: 'pulse' },
+  arteries: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611641/artery.glb', targetSize: 3, anim: 'pulse' },
+  capillaries: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611643/capillary_network.glb', targetSize: 3, anim: 'pulse' },
+  cells: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611642/body%20cell.glb', targetSize: 2.5, anim: 'pulse' },
 };
 
 // =============== 3D ORGAN (GLB — Auto Center & Auto Scale) ===============
@@ -46,7 +45,6 @@ function OrganGLB({ modelKey, position, isActive, isVisited, stationColor }) {
   // Simplest usage to avoid hook errors in React 19
   const { scene } = useGLTF(config.url);
   const groupRef = useRef();
-  const baseScaleRef = useRef(1);
 
   const { clonedScene, autoScale, centerOffset } = useMemo(() => {
     const clone = scene.clone(true);
@@ -77,7 +75,6 @@ function OrganGLB({ modelKey, position, isActive, isVisited, stationColor }) {
     const s = maxDim > 0 ? config.targetSize / maxDim : 1;
     const center = new THREE.Vector3();
     meshBox.getCenter(center);
-    baseScaleRef.current = s;
     return { clonedScene: clone, autoScale: s, centerOffset: center };
   }, [scene, config.targetSize]);
 
@@ -101,7 +98,7 @@ function OrganGLB({ modelKey, position, isActive, isVisited, stationColor }) {
   useFrame((state) => {
     if (!groupRef.current) return;
     const t = state.clock.elapsedTime;
-    const base = baseScaleRef.current;
+    const base = autoScale;
     if (config.anim === 'breathe') {
       groupRef.current.scale.setScalar(base * (1 + Math.sin(t * 0.8) * 0.06));
     } else if (config.anim === 'beat') {
@@ -463,13 +460,14 @@ export default function OxygenJourneyGame3D({ onComplete }) {
     const savedSfxVol = localStorage.getItem('sfxVolume');
     const sfxVol = savedSfxMuted ? 0 : (savedSfxVol !== null ? Number(savedSfxVol) / 100 : 0.5);
 
+    const sounds = soundsRef.current;
     Object.entries(STATION_SOUNDS).forEach(([key, url]) => {
       const audio = new Audio(url);
       audio.volume = sfxVol;
-      soundsRef.current[key] = audio;
+      sounds[key] = audio;
     });
     return () => {
-      Object.values(soundsRef.current).forEach(a => { a.pause(); a.src = ''; });
+      Object.values(sounds).forEach(a => { a.pause(); a.src = ''; });
     };
   }, []);
 

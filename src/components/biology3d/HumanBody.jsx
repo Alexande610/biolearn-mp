@@ -4,14 +4,12 @@ import { Canvas, useThree } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, ContactShadows, Html } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Danh sách mô hình GLB giải phẫu
-// Danh sách mô hình GLB giải phẫu (Cloudinary + Local Fallback)
+// Danh sách mô hình GLB giải phẫu trên Cloudinary.
 const ANATOMY_MODELS = {
   airways: {
     name: 'Giải phẫu Đường hô hấp',
     description: 'Cấu trúc chi tiết đường dẫn khí: mũi, hầu, thanh quản, khí quản, phế quản và phổi.',
     path: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607142/anatomy_of_the_airways.glb',
-    localPath: '/models/anatomy_of_the_airways.glb',
     color: '#3b82f6',
     icon: '🫁',
     category: 'Hệ hô hấp',
@@ -27,7 +25,6 @@ const ANATOMY_MODELS = {
     name: 'Giải phẫu Ổ bụng',
     description: 'Giải phẫu chi tiết ổ bụng: dạ dày, ruột non, ruột già, gan, túi mật, tuyến tụy, lách và thận.',
     path: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607140/abdomen_anatomy.glb',
-    localPath: '/models/abdomen_anatomy.glb',
     color: '#e879f9',
     icon: '🫀',
     category: 'Hệ tiêu hóa',
@@ -56,7 +53,6 @@ function AutoFitModel({ children }) {
       if (!groupRef.current) return;
       const box = new THREE.Box3().setFromObject(groupRef.current);
       const size = box.getSize(new THREE.Vector3());
-      const center = box.getCenter(new THREE.Vector3());
       
       if (size.length() === 0) return;
 
@@ -84,12 +80,10 @@ function AutoFitModel({ children }) {
 }
 
 // GLB Model Loader Component  
-function AnatomyGLBModel({ modelPath, fallbackPath }) {
+function AnatomyGLBModel({ modelPath }) {
   const groupRef = useRef();
   
-  // useGLTF - trying Cloudinary (primary)
-  // We'll use local as fallback ONLY if Cloudinary fails, but handling it via ErrorBoundary
-  // is cleaner for Suspenseful hooks. For now, let's just use the path.
+  // Mô hình đã được đối chiếu kích thước với bản nguồn trước khi bỏ bản local.
   const { scene } = useGLTF(modelPath);
   
   const clonedScene = useMemo(() => {
@@ -151,10 +145,7 @@ function AnatomyScene({ modelKey }) {
           </div>
         </Html>
       }>
-        <AnatomyGLBModel 
-          modelPath={model.path}
-          fallbackPath={model.localPath}
-        />
+        <AnatomyGLBModel modelPath={model.path} />
       </Suspense>
 
       {/* Shadow */}

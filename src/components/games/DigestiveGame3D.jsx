@@ -38,14 +38,13 @@ const ORGAN_SOUNDS = {
   large_intestine: '/music/whoosh.mp3',
 };
 
-// GLB models cho mỗi cơ quan (trừ esophagus → tube geometry)
-// GLB models cho mỗi cơ quan (trừ esophagus → tube geometry) (Cloudinary + Local Fallback)
+// GLB models trên Cloudinary cho mỗi cơ quan (trừ esophagus → tube geometry)
 const ORGAN_MODELS = {
-  mouth: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611628/mouth.glb', fallbackUrl: '/models/digestive/mouth.glb', targetSize: 3 },
-  stomach: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611630/stomatch.glb', fallbackUrl: '/models/digestive/stomatch.glb', targetSize: 3 },
-  small_intestine: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611630/Small%20Intestine.glb', fallbackUrl: '/models/digestive/Small Intestine.glb', targetSize: 3 },
-  liver: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607164/liver.glb', fallbackUrl: '/models/digestive/liver.glb', targetSize: 3 },
-  large_intestine: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607163/large_intestine1.glb', fallbackUrl: '/models/digestive/large_intestine1.glb', targetSize: 3 },
+  mouth: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611628/mouth.glb', targetSize: 3 },
+  stomach: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611630/stomatch.glb', targetSize: 3 },
+  small_intestine: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611630/Small%20Intestine.glb', targetSize: 3 },
+  liver: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607164/liver.glb', targetSize: 3 },
+  large_intestine: { url: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607163/large_intestine1.glb', targetSize: 3 },
 };
 
 const QUIZ = [
@@ -64,7 +63,6 @@ function OrganGLB({ modelKey, position, isActive, isVisited, organColor }) {
   const config = ORGAN_MODELS[modelKey];
   const { scene } = useGLTF(config.url);
   const groupRef = useRef();
-  const baseScaleRef = useRef(1);
 
   const { clonedScene, autoScale, centerOffset } = useMemo(() => {
     const clone = scene.clone(true);
@@ -94,7 +92,6 @@ function OrganGLB({ modelKey, position, isActive, isVisited, organColor }) {
     const s = maxDim > 0 ? config.targetSize / maxDim : 1;
     const center = new THREE.Vector3();
     meshBox.getCenter(center);
-    baseScaleRef.current = s;
     return { clonedScene: clone, autoScale: s, centerOffset: center };
   }, [scene, config.targetSize]);
 
@@ -117,7 +114,7 @@ function OrganGLB({ modelKey, position, isActive, isVisited, organColor }) {
 
   useFrame((state) => {
     if (!groupRef.current) return;
-    const base = baseScaleRef.current;
+    const base = autoScale;
     groupRef.current.scale.setScalar(base * (1 + Math.sin(state.clock.elapsedTime * 2) * 0.04));
   });
 
@@ -402,13 +399,14 @@ export default function DigestiveGame3D({ onComplete }) {
     const savedSfxVol = localStorage.getItem('sfxVolume');
     const sfxVol = savedSfxMuted ? 0 : (savedSfxVol !== null ? Number(savedSfxVol) / 100 : 0.5);
 
+    const sounds = soundsRef.current;
     Object.entries(ORGAN_SOUNDS).forEach(([key, url]) => {
       const audio = new Audio(url);
       audio.volume = sfxVol;
-      soundsRef.current[key] = audio;
+      sounds[key] = audio;
     });
     return () => {
-      Object.values(soundsRef.current).forEach(a => { a.pause(); a.src = ''; });
+      Object.values(sounds).forEach(a => { a.pause(); a.src = ''; });
     };
   }, []);
 

@@ -10,37 +10,37 @@ import { Trophy, ArrowRight, ArrowLeft, RotateCcw, Volume2, Sparkles, ChevronLef
 // =========== DATA ===========
 
 const ANIMALS = [
-  // Có xương sống (5) - manualScale tính từ 1.8/maxDim thực tế (Cloudinary + Local Fallback)
+  // Có xương sống (5) - manualScale tính từ 1.8/maxDim thực tế.
   { id: 'bird',  name: 'Chim',    phylum: 'Dây sống', hasSpine: true,  color: '#60a5fa',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607143/bird_grey.glb', fallbackModel: '/models/animals/bird_grey.glb', sound: '/music/bird.mp3', manualScale: 1800,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607143/bird_grey.glb', sound: '/music/bird.mp3', manualScale: 1800,
     facts: ['Động vật có xương sống', 'Máu nóng, đẻ trứng', 'Lông vũ, bay bằng cánh', 'Tim 4 ngăn, hô hấp bằng phổi'] },
   { id: 'cat',   name: 'Mèo',     phylum: 'Dây sống', hasSpine: true,  color: '#f97316',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607148/cat.glb', fallbackModel: '/models/animals/cat.glb', sound: '/music/meow.mp3', manualScale: 0.055,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607148/cat.glb', sound: '/music/meow.mp3', manualScale: 0.055,
     facts: ['Thú (Mammalia)', 'Máu nóng, đẻ con, nuôi bằng sữa', 'Bộ xương trong (xương sống)', 'Thính giác và khứu giác phát triển'] },
   { id: 'dog',   name: 'Chó',     phylum: 'Dây sống', hasSpine: true,  color: '#eab308',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611622/dog.glb', fallbackModel: '/models/animals/dog.glb', sound: '/music/dog.mp3', manualScale: 1.93,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611622/dog.glb', sound: '/music/dog.mp3', manualScale: 1.93,
     facts: ['Thú (Mammalia)', 'Máu nóng, 4 chân', 'Bộ xương trong hoàn chỉnh', 'Trung thành, thuần hóa sớm nhất'] },
   { id: 'frog',  name: 'Ếch',     phylum: 'Dây sống', hasSpine: true,  color: '#22c55e',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607151/frog.glb', fallbackModel: '/models/animals/frog.glb', sound: '/music/frog.mp3', manualScale: 1.4,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607151/frog.glb', sound: '/music/frog.mp3', manualScale: 1.4,
     facts: ['Lưỡng cư (Amphibia)', 'Sống 2 môi trường: nước + cạn', 'Biến thái: nòng nọc → ếch', 'Tim 3 ngăn, hô hấp phổi + da'] },
   { id: 'fish',  name: 'Cá',      phylum: 'Dây sống', hasSpine: true,  color: '#38bdf8',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607152/small_fish.glb', fallbackModel: '/models/animals/small_fish.glb', sound: '/music/fish.mp3', manualScale: 6.8,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607152/small_fish.glb', sound: '/music/fish.mp3', manualScale: 6.8,
     facts: ['Cá xương (Osteichthyes)', 'Hô hấp bằng mang', 'Bơi bằng vây, máu lạnh', 'Tim 2 ngăn, tuần hoàn đơn'] },
   // Không xương sống (5)
   { id: 'crab',      name: 'Cua',       phylum: 'Chân khớp', hasSpine: false, color: '#3b82f6',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611619/blue_crab.glb', fallbackModel: '/models/animals/blue_crab.glb', sound: '/music/crab.mp3', manualScale: 0.9,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611619/blue_crab.glb', sound: '/music/crab.mp3', manualScale: 0.9,
     facts: ['Giáp xác (Crustacea)', 'Bộ xương ngoài chitin', '10 chân, 2 càng', 'Hô hấp bằng mang'] },
   { id: 'jellyfish', name: 'Sứa',       phylum: 'Ruột khoang', hasSpine: false, color: '#a78bfa',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607146/blue_jellyfish.glb', fallbackModel: '/models/animals/blue_jellyfish.glb', sound: '/music/jellyfish.mp3', manualScale: 0.8,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607146/blue_jellyfish.glb', sound: '/music/jellyfish.mp3', manualScale: 0.8,
     facts: ['Ruột khoang (Cnidaria)', 'Đối xứng tỏa tròn', 'Có tế bào gai (cnidocyte)', 'Cơ thể 95% là nước'] },
   { id: 'butterfly', name: 'Bướm',      phylum: 'Chân khớp', hasSpine: false, color: '#f472b6',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607147/butterfly.glb', fallbackModel: '/models/animals/butterfly.glb', sound: '/music/butterfly.mp3', manualScale: 0.014,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776607147/butterfly.glb', sound: '/music/butterfly.mp3', manualScale: 0.014,
     facts: ['Côn trùng (Insecta)', '6 chân, 2 cánh có vẩy', 'Biến thái hoàn toàn', 'Trứng → Sâu → Nhộng → Bướm'] },
   { id: 'snail',     name: 'Ốc sên',    phylum: 'Thân mềm', hasSpine: false, color: '#34d399',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611624/snail.glb', fallbackModel: '/models/animals/snail.glb', sound: '/music/snail.mp3', manualScale: 1.9,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611624/snail.glb', sound: '/music/snail.mp3', manualScale: 1.9,
     facts: ['Thân mềm (Mollusca)', 'Vỏ xoắn CaCO₃', 'Chân cơ, di chuyển chậm', 'Tiết nhầy bảo vệ cơ thể'] },
   { id: 'sponge',    name: 'Bọt biển',   phylum: 'Thân lỗ', hasSpine: false, color: '#fbbf24',
-    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611626/yellow_tube_sea_sponge.glb', fallbackModel: '/models/animals/yellow_tube_sea_sponge.glb', sound: '/music/Sponge.mp3', manualScale: 0.01,
+    model: 'https://res.cloudinary.com/de513yqvf/raw/upload/v1776611626/yellow_tube_sea_sponge.glb', sound: '/music/Sponge.mp3', manualScale: 0.01,
     facts: ['Thân lỗ (Porifera)', 'Động vật đa bào đơn giản nhất', 'Sống cố định, lọc thức ăn', 'Không có mô/cơ quan thật sự'] },
 ];
 
@@ -241,11 +241,6 @@ export default function InvertebrateGame3D({ onComplete }) {
     setPlayingSound(null);
   };
 
-  // Auto-select con đầu tiên khi vào explore
-  useEffect(() => {
-    if (phase === 'explore' && !selected) handleExplore(ANIMALS[0].id);
-  }, [phase, selected, handleExplore]);
-
   // ========= INTRO =========
   if (phase === 'intro') return (
     <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-blue-900/20 to-slate-900 flex items-center justify-center p-4">
@@ -261,7 +256,7 @@ export default function InvertebrateGame3D({ onComplete }) {
             </span>
           ))}
         </div>
-        <button onClick={() => setPhase('explore')} className="w-full py-3 bg-gradient-to-r from-blue-500 to-cyan-600 text-white font-bold rounded-xl hover:opacity-90 transition">
+        <button onClick={() => { handleExplore(ANIMALS[0].id); setPhase('explore'); }} className="w-full py-3 bg-gradient-to-r from-blue-500 to-cyan-600 text-white font-bold rounded-xl hover:opacity-90 transition">
           Bắt đầu <ArrowRight className="w-5 h-5 inline ml-2" />
         </button>
       </div>
@@ -386,7 +381,7 @@ export default function InvertebrateGame3D({ onComplete }) {
 
       {/* Indicator dots */}
       <div className="absolute top-28 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-        {ANIMALS.map((a, i) => (
+        {ANIMALS.map((a) => (
           <button
             key={a.id}
             onClick={() => handleExplore(a.id)}

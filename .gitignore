@@ -31,3 +31,6 @@ temp_brain/
 
 # Large PDF files
 *.pdf
+
+# 3D models are served from Cloudinary; keep local upload sources out of deploys.
+public/models/

@@ -5,7 +5,8 @@ import FormData from 'form-data';
 
 const CLOUD_NAME = 'de513yqvf';
 const UPLOAD_PRESET = 'sinh_hoc_assets';
-const MODELS_DIR = path.resolve('../public/models');
+const sourceDirectory = process.argv[2];
+const MODELS_DIR = sourceDirectory ? path.resolve(sourceDirectory) : null;
 const OUTPUT_FILE = path.resolve('./cloudinary_models_map.json');
 
 async function uploadFile(filePath, fileName) {
@@ -72,6 +73,11 @@ async function findGlobFiles(dir, fileList = []) {
 
 async function start() {
   console.log('--- Bắt đầu quét thư mục models ---');
+  if (!MODELS_DIR) {
+      console.error('Cách dùng: node upload_models.js <đường-dẫn-thư-mục-models>');
+      process.exitCode = 1;
+      return;
+  }
   if (!fs.existsSync(MODELS_DIR)) {
       console.log('Không tìm thấy thư mục: ' + MODELS_DIR);
       return;
