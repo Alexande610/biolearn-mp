@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { reportSystemError } from '../lib/observability';
+import { ACTIVE_STATIONS } from '../data/stationCatalog';
+import { validatePublishedStage } from '../utils/stationContent';
 
 const GAME_TYPES = [
   { id: 'quiz', name: 'Trắc Nghiệm (Quiz)' },
@@ -16,12 +18,6 @@ const GAME_TYPES = [
   { id: 'fill', name: 'Điền Từ Còn Thiếu' },
   { id: 'category', name: 'Phân Loại Nhóm' },
   { id: 'dragdrop', name: 'Kéo Thả Hoàn Thành Câu' }
-];
-
-const STATION_OPTIONS = [
-  { id: 'g6_st1', name: 'Trạm 1: Kính Hiển Vi & Đơn Vị Tế Bào', startDay: 1, endDay: 10 },
-  { id: 'g6_st2', name: 'Trạm 2: Tế Bào & Tổ Chức Cơ Thể', startDay: 11, endDay: 20 },
-  { id: 'g6_st3', name: 'Trạm 3: Đa Dạng Sinh Học & Vương Quốc', startDay: 21, endDay: 30 },
 ];
 
 export default function AdminStationPage() {
@@ -42,11 +38,13 @@ export default function AdminStationPage() {
 
   // Modal State Chỉnh Sửa Chi Tiết Mini-Game
   const [editingGame, setEditingGame] = useState(null);
-  const selectedStation = STATION_OPTIONS.find(station => station.id === selectedStationId) || STATION_OPTIONS[0];
+  const stationOptions = ACTIVE_STATIONS[selectedGrade] || ACTIVE_STATIONS[6];
+  const selectedStation = stationOptions.find(station => station.id === selectedStationId) || stationOptions[0];
   const stationDays = Array.from(
-    { length: selectedStation.endDay - selectedStation.startDay + 1 },
-    (_, index) => selectedStation.startDay + index
+    { length: selectedStation.daysCount },
+    (_, index) => index + 1
   );
+  const selectedDayDisplay = selectedStation.startDay + selectedDay - 1;
 
   // 2. DỮ LIỆU DEMO MẶC ĐỊNH
   function getDefaultDemoGames(grade, day) { return [
@@ -136,7 +134,7 @@ export default function AdminStationPage() {
           data: item.content
         })));
       } else {
-        setGamesList(getDefaultDemoGames(selectedGrade, selectedDay));
+        setGamesList(getDefaultDemoGames(selectedGrade, selectedDayDisplay));
       }
     } catch (err) {
       console.error('Lỗi fetch station_questions:', err);
@@ -146,7 +144,7 @@ export default function AdminStationPage() {
         operation: 'fetchQuestionsFromSupabase',
         supabaseCode: err.code,
       });
-      setGamesList(getDefaultDemoGames(selectedGrade, selectedDay));
+      setGamesList(getDefaultDemoGames(selectedGrade, selectedDayDisplay));
     }
     setLoadingDB(false);
   };
@@ -161,6 +159,10 @@ export default function AdminStationPage() {
   const handleAddGame = () => {
     if (gamesList.length >= 5) {
       showToast('🚫 CẢNH BÁO TRÒ CHƠI TỐI ĐA TRONG ẢI ĐẠT MỨC 5 TRÒ CHƠI KHÔNG THỂ THÊM!', 'error');
+      return;
+    }
+    if (gamesList.some((game) => game.type === selectedGameTypeToAdd)) {
+      showToast('Mỗi ải chỉ được có một trò chơi cho mỗi loại.', 'error');
       return;
     }
     
@@ -208,6 +210,18 @@ export default function AdminStationPage() {
   const handleSaveToDatabase = async () => {
     setSavingDB(true);
     try {
+      const validationErrors = validatePublishedStage({
+        grade: selectedGrade,
+        stationId: selectedStationId,
+        dayIndex: selectedDay,
+        games: gamesList,
+      });
+      if (validationErrors.length > 0) {
+        showToast(`Không thể lưu: ${validationErrors[0]}`, 'error');
+        setSavingDB(false);
+        return;
+      }
+
       // 1. Xóa tất cả câu hỏi có game_index vượt quá số lượng game hiện tại (nếu Admin đã bấm xóa)
       await supabase
         .from('station_questions')
@@ -302,7 +316,13 @@ export default function AdminStationPage() {
             <label className="text-xs font-bold text-slate-400 block mb-2">Chọn Khối Lớp:</label>
             <select
               value={selectedGrade}
-              onChange={(e) => setSelectedGrade(Number(e.target.value))}
+              onChange={(e) => {
+                const nextGrade = Number(e.target.value);
+                const firstStation = (ACTIVE_STATIONS[nextGrade] || ACTIVE_STATIONS[6])[0];
+                setSelectedGrade(nextGrade);
+                setSelectedStationId(firstStation.id);
+                setSelectedDay(1);
+              }}
               className="admin-station-input w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white focus:outline-none"
             >
               {[6, 7, 8, 9, 10, 11, 12].map(g => (
@@ -316,25 +336,25 @@ export default function AdminStationPage() {
             <select
               value={selectedStationId}
               onChange={(e) => {
-                const nextStation = STATION_OPTIONS.find(station => station.id === e.target.value) || STATION_OPTIONS[0];
+                const nextStation = stationOptions.find(station => station.id === e.target.value) || stationOptions[0];
                 setSelectedStationId(nextStation.id);
-                setSelectedDay(nextStation.startDay);
+                setSelectedDay(1);
               }}
               className="admin-station-input w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white focus:outline-none"
             >
-              {STATION_OPTIONS.map(station => <option key={station.id} value={station.id}>{station.name}</option>)}
+              {stationOptions.map(station => <option key={station.id} value={station.id}>{station.name}</option>)}
             </select>
           </div>
 
           <div className="admin-station-card p-4 rounded-2xl border border-white/10">
-            <label className="text-xs font-bold text-slate-400 block mb-2">Chọn Ải Ngày ({selectedStation.startDay}-{selectedStation.endDay}):</label>
+            <label className="text-xs font-bold text-slate-400 block mb-2">Chọn Ải Ngày ({selectedStation.startDay}-{selectedStation.startDay + selectedStation.daysCount - 1}):</label>
             <select
               value={selectedDay}
               onChange={(e) => setSelectedDay(Number(e.target.value))}
               className="admin-station-input w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white focus:outline-none"
             >
               {stationDays.map(d => (
-                <option key={d} value={d}>Ải Ngày {d}</option>
+                <option key={d} value={d}>Ải Ngày {selectedStation.startDay + d - 1}</option>
               ))}
             </select>
           </div>
@@ -343,7 +363,7 @@ export default function AdminStationPage() {
         {/* CỤM NÚT "THÊM TRÒ CHƠI" LUÔN LUÔN HIỂN THỊ KÈM DROPDOWN CHỌN LOẠI GAME MONG MUỐN */}
         <div className="admin-station-card p-5 rounded-3xl border border-white/10 mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <h2 className="text-base font-black flex items-center gap-2">
-            <Gamepad2 className="w-5 h-5 text-cyan-400" /> Danh Sách Trò Chơi Trong Ải Ngày {selectedDay} ({gamesList.length} trò chơi)
+            <Gamepad2 className="w-5 h-5 text-cyan-400" /> Danh Sách Trò Chơi Trong Ải Ngày {selectedDayDisplay} ({gamesList.length} trò chơi)
             {loadingDB && <RefreshCw className="w-4 h-4 animate-spin text-cyan-400" aria-label="Đang tải dữ liệu" />}
           </h2>
 

@@ -7,6 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "test": "node --test tests/*.test.mjs",
+    "validate:stations": "node scripts/validate-station-content.js",
+    "build:station-release": "node scripts/build-station-release-sql.js",
     "preview": "vite preview"
   },
   "dependencies": {

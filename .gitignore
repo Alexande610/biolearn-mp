@@ -24,6 +24,7 @@ dist-ssr
 *.sw?
 .env
 .env.*
+!.env.example
 
 # Temp brain folder
 temp_brain/

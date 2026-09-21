@@ -1,0 +1,1085 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g6-st1-2026.1",
+  "grade": 6,
+  "stationId": "g6_st1",
+  "title": "Lớp 6 - Trạm 1: Kính hiển vi và tế bào",
+  "status": "draft",
+  "notes": "Bản thí điểm. Nội dung được đối chiếu theo SGK KHTN 6 Kết nối tri thức; TXT OCR chỉ dùng để tìm kiếm, không dùng làm nguồn xác nhận cuối.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nhận biết bộ phận chính và thực hiện đúng trình tự sử dụng kính hiển vi quang học.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 5. Sử dụng kính hiển vi quang học",
+          "pages": "17-19"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi bắt đầu quan sát, nên chọn vật kính nào?",
+            "options": [
+              "Vật kính có độ phóng đại nhỏ nhất",
+              "Vật kính có độ phóng đại lớn nhất",
+              "Vật kính bất kì",
+              "Không cần vật kính"
+            ],
+            "answerIndex": 0,
+            "hint": "Bắt đầu với trường quan sát rộng.",
+            "explanation": "Vật kính nhỏ giúp tìm mẫu dễ hơn trước khi tăng độ phóng đại."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thị kính",
+                "right": "Nơi đặt mắt để quan sát"
+              },
+              {
+                "left": "Vật kính",
+                "right": "Phóng đại ảnh của vật"
+              },
+              {
+                "left": "Ốc điều chỉnh",
+                "right": "Điều chỉnh khoảng cách để ảnh rõ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Thị kính: Nơi đặt mắt để quan sát; Vật kính: Phóng đại ảnh của vật; Ốc điều chỉnh: Điều chỉnh khoảng cách để ảnh rõ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Kính hiển vi quang học giúp quan sát những vật có kích thước [blank] mà mắt thường khó thấy.",
+            "correctAnswer": "nhỏ bé",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “nhỏ bé”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bộ phận quang học",
+              "Bộ phận cơ học"
+            ],
+            "items": [
+              {
+                "name": "Thị kính",
+                "catIndex": 0
+              },
+              {
+                "name": "Vật kính",
+                "catIndex": 0
+              },
+              {
+                "name": "Bàn kính",
+                "catIndex": 1
+              },
+              {
+                "name": "Ốc điều chỉnh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Thị kính thuộc nhóm Bộ phận quang học; Vật kính thuộc nhóm Bộ phận quang học; Bàn kính thuộc nhóm Bộ phận cơ học; Ốc điều chỉnh thuộc nhóm Bộ phận cơ học."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sau khi đặt tiêu bản, cần điều chỉnh [blank] để ảnh quan sát rõ nét.",
+            "bankWords": [
+              "ốc điều chỉnh",
+              "chân kính",
+              "kẹp tiêu bản"
+            ],
+            "correctWord": "ốc điều chỉnh",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “ốc điều chỉnh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Nêu được khái niệm tế bào và nhận biết sự đa dạng về hình dạng, kích thước của tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 18. Tế bào - Đơn vị cơ bản của sự sống",
+          "pages": "75-78"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đơn vị cấu trúc và chức năng cơ bản của cơ thể sống là gì?",
+            "options": [
+              "Tế bào",
+              "Mô",
+              "Cơ quan",
+              "Hệ cơ quan"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là đơn vị nhỏ nhất có thể thực hiện các hoạt động sống.",
+            "explanation": "Tế bào là đơn vị cấu trúc và chức năng cơ bản của cơ thể sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tế bào thần kinh",
+                "right": "Có phần kéo dài để truyền tín hiệu"
+              },
+              {
+                "left": "Tế bào hồng cầu",
+                "right": "Có dạng đĩa lõm hai mặt"
+              },
+              {
+                "left": "Tế bào trứng",
+                "right": "Có dạng gần hình cầu"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Tế bào thần kinh: Có phần kéo dài để truyền tín hiệu; Tế bào hồng cầu: Có dạng đĩa lõm hai mặt; Tế bào trứng: Có dạng gần hình cầu."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các tế bào khác nhau có hình dạng và kích thước [blank].",
+            "correctAnswer": "khác nhau",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “khác nhau”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể quan sát bằng mắt thường",
+              "Cần dụng cụ phóng đại"
+            ],
+            "items": [
+              {
+                "name": "Tế bào trứng cá",
+                "catIndex": 0
+              },
+              {
+                "name": "Tế bào vi khuẩn",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào biểu bì hành",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào sợi gai",
+                "catIndex": 0
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Tế bào trứng cá thuộc nhóm Có thể quan sát bằng mắt thường; Tế bào vi khuẩn thuộc nhóm Cần dụng cụ phóng đại; Tế bào biểu bì hành thuộc nhóm Cần dụng cụ phóng đại; Tế bào sợi gai thuộc nhóm Có thể quan sát bằng mắt thường."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hầu hết tế bào có kích thước rất nhỏ và được quan sát bằng [blank].",
+            "bankWords": [
+              "kính hiển vi",
+              "nhiệt kế",
+              "ống đong"
+            ],
+            "correctWord": "kính hiển vi",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “kính hiển vi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Mô tả được ba thành phần chính của tế bào và chức năng khái quát của chúng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 19. Cấu tạo và chức năng các thành phần của tế bào",
+          "pages": "79-81"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thành phần nào kiểm soát các chất đi vào và đi ra khỏi tế bào?",
+            "options": [
+              "Màng tế bào",
+              "Tế bào chất",
+              "Nhân",
+              "Lục lạp"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là lớp bao quanh tế bào.",
+            "explanation": "Màng tế bào bao bọc và kiểm soát sự trao đổi chất của tế bào."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Màng tế bào",
+                "right": "Bao bọc và kiểm soát trao đổi chất"
+              },
+              {
+                "left": "Tế bào chất",
+                "right": "Nơi diễn ra phần lớn hoạt động sống"
+              },
+              {
+                "left": "Nhân hoặc vùng nhân",
+                "right": "Chứa vật chất di truyền"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Màng tế bào: Bao bọc và kiểm soát trao đổi chất; Tế bào chất: Nơi diễn ra phần lớn hoạt động sống; Nhân hoặc vùng nhân: Chứa vật chất di truyền."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phần lớn hoạt động sống của tế bào diễn ra trong [blank].",
+            "correctAnswer": "tế bào chất",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “tế bào chất”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có ở mọi tế bào",
+              "Chỉ có ở một số loại tế bào"
+            ],
+            "items": [
+              {
+                "name": "Màng tế bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Tế bào chất",
+                "catIndex": 0
+              },
+              {
+                "name": "Vật chất di truyền",
+                "catIndex": 0
+              },
+              {
+                "name": "Lục lạp",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Màng tế bào thuộc nhóm Có ở mọi tế bào; Tế bào chất thuộc nhóm Có ở mọi tế bào; Vật chất di truyền thuộc nhóm Có ở mọi tế bào; Lục lạp thuộc nhóm Chỉ có ở một số loại tế bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thông tin di truyền của tế bào nằm trong nhân hoặc [blank].",
+            "bankWords": [
+              "vùng nhân",
+              "thành tế bào",
+              "không bào"
+            ],
+            "correctWord": "vùng nhân",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “vùng nhân”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Phân biệt tế bào nhân sơ và tế bào nhân thực dựa vào cấu tạo nhân.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 19. Cấu tạo và chức năng các thành phần của tế bào",
+          "pages": "80-82"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đặc điểm nổi bật của tế bào nhân sơ là gì?",
+            "options": [
+              "Chưa có nhân hoàn chỉnh",
+              "Có lục lạp",
+              "Có không bào lớn",
+              "Luôn có nhiều nhân"
+            ],
+            "answerIndex": 0,
+            "hint": "Vật chất di truyền chưa được màng nhân bao bọc.",
+            "explanation": "Tế bào nhân sơ chưa có nhân hoàn chỉnh; vật chất di truyền nằm ở vùng nhân."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tế bào vi khuẩn",
+                "right": "Nhân sơ, chưa có nhân hoàn chỉnh"
+              },
+              {
+                "left": "Tế bào động vật",
+                "right": "Nhân thực, không có thành tế bào"
+              },
+              {
+                "left": "Tế bào thực vật",
+                "right": "Nhân thực, có thành tế bào"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Tế bào vi khuẩn: Nhân sơ, chưa có nhân hoàn chỉnh; Tế bào động vật: Nhân thực, không có thành tế bào; Tế bào thực vật: Nhân thực, có thành tế bào."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào có nhân được màng nhân bao bọc gọi là tế bào [blank].",
+            "correctAnswer": "nhân thực",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “nhân thực”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nhân sơ",
+              "Nhân thực"
+            ],
+            "items": [
+              {
+                "name": "Vi khuẩn lactic",
+                "catIndex": 0
+              },
+              {
+                "name": "Vi khuẩn E. coli",
+                "catIndex": 0
+              },
+              {
+                "name": "Tế bào nấm men",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào lá cây",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Vi khuẩn lactic thuộc nhóm Nhân sơ; Vi khuẩn E. coli thuộc nhóm Nhân sơ; Tế bào nấm men thuộc nhóm Nhân thực; Tế bào lá cây thuộc nhóm Nhân thực."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ở tế bào nhân sơ, vật chất di truyền tập trung tại [blank].",
+            "bankWords": [
+              "vùng nhân",
+              "lục lạp",
+              "không bào"
+            ],
+            "correctWord": "vùng nhân",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “vùng nhân”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "So sánh được các thành phần đặc trưng của tế bào thực vật và tế bào động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 19. Cấu tạo và chức năng các thành phần của tế bào",
+          "pages": "81-82"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Bào quan nào giúp tế bào thực vật thực hiện quang hợp?",
+            "options": [
+              "Lục lạp",
+              "Nhân",
+              "Không bào",
+              "Màng tế bào"
+            ],
+            "answerIndex": 0,
+            "hint": "Bào quan này chứa diệp lục.",
+            "explanation": "Lục lạp chứa diệp lục và là nơi diễn ra quang hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thành tế bào",
+                "right": "Giữ hình dạng và bảo vệ tế bào thực vật"
+              },
+              {
+                "left": "Lục lạp",
+                "right": "Thực hiện quang hợp"
+              },
+              {
+                "left": "Không bào",
+                "right": "Chứa dịch tế bào"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Thành tế bào: Giữ hình dạng và bảo vệ tế bào thực vật; Lục lạp: Thực hiện quang hợp; Không bào: Chứa dịch tế bào."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào thực vật có [blank] ở phía ngoài màng tế bào.",
+            "correctAnswer": "thành tế bào",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “thành tế bào”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đặc trưng ở tế bào thực vật",
+              "Có ở cả tế bào thực vật và động vật"
+            ],
+            "items": [
+              {
+                "name": "Lục lạp",
+                "catIndex": 0
+              },
+              {
+                "name": "Thành tế bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Màng tế bào",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào chất",
+                "catIndex": 1
+              },
+              {
+                "name": "Nhân",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Lục lạp thuộc nhóm Đặc trưng ở tế bào thực vật; Thành tế bào thuộc nhóm Đặc trưng ở tế bào thực vật; Màng tế bào thuộc nhóm Có ở cả tế bào thực vật và động vật; Tế bào chất thuộc nhóm Có ở cả tế bào thực vật và động vật; Nhân thuộc nhóm Có ở cả tế bào thực vật và động vật."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sắc tố diệp lục tập trung trong [blank] của tế bào thực vật.",
+            "bankWords": [
+              "lục lạp",
+              "nhân",
+              "màng tế bào"
+            ],
+            "correctWord": "lục lạp",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “lục lạp”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Giải thích được tế bào lớn lên nhờ tăng kích thước và tổng hợp thêm chất tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 20. Sự lớn lên và sinh sản của tế bào",
+          "pages": "83-84"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong quá trình lớn lên, tế bào thay đổi chủ yếu như thế nào?",
+            "options": [
+              "Tăng kích thước và khối lượng",
+              "Mất toàn bộ tế bào chất",
+              "Luôn đổi thành loại tế bào khác",
+              "Không trao đổi chất"
+            ],
+            "answerIndex": 0,
+            "hint": "Tế bào thu nhận và tổng hợp vật chất.",
+            "explanation": "Tế bào lớn lên nhờ tăng kích thước và khối lượng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tế bào non",
+                "right": "Kích thước còn nhỏ"
+              },
+              {
+                "left": "Tế bào trưởng thành",
+                "right": "Đạt kích thước nhất định"
+              },
+              {
+                "left": "Trao đổi chất",
+                "right": "Cung cấp vật chất cho tế bào lớn lên"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Tế bào non: Kích thước còn nhỏ; Tế bào trưởng thành: Đạt kích thước nhất định; Trao đổi chất: Cung cấp vật chất cho tế bào lớn lên."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào non lớn dần thành tế bào [blank].",
+            "correctAnswer": "trưởng thành",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “trưởng thành”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biểu hiện của tế bào lớn lên",
+              "Không phải biểu hiện của tế bào lớn lên"
+            ],
+            "items": [
+              {
+                "name": "Tăng kích thước",
+                "catIndex": 0
+              },
+              {
+                "name": "Tăng khối lượng",
+                "catIndex": 0
+              },
+              {
+                "name": "Tổng hợp thêm chất",
+                "catIndex": 0
+              },
+              {
+                "name": "Mất vật chất di truyền",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Tăng kích thước thuộc nhóm Biểu hiện của tế bào lớn lên; Tăng khối lượng thuộc nhóm Biểu hiện của tế bào lớn lên; Tổng hợp thêm chất thuộc nhóm Biểu hiện của tế bào lớn lên; Mất vật chất di truyền thuộc nhóm Không phải biểu hiện của tế bào lớn lên."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tế bào lớn lên đến một kích thước nhất định rồi có thể tiến hành [blank].",
+            "bankWords": [
+              "phân chia",
+              "bay hơi",
+              "nảy mầm"
+            ],
+            "correctWord": "phân chia",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “phân chia”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Mô tả được kết quả của sự phân chia tế bào và liên hệ với sự lớn lên của cơ thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 20. Sự lớn lên và sinh sản của tế bào",
+          "pages": "84-85"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Một tế bào phân chia một lần thường tạo ra bao nhiêu tế bào con?",
+            "options": [
+              "Hai",
+              "Một",
+              "Ba",
+              "Bốn"
+            ],
+            "answerIndex": 0,
+            "hint": "Số tế bào tăng gấp đôi.",
+            "explanation": "Một tế bào mẹ phân chia tạo thành hai tế bào con."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "1 lần phân chia",
+                "right": "2 tế bào con"
+              },
+              {
+                "left": "2 lần phân chia liên tiếp",
+                "right": "4 tế bào con"
+              },
+              {
+                "left": "3 lần phân chia liên tiếp",
+                "right": "8 tế bào con"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "1 lần phân chia: 2 tế bào con; 2 lần phân chia liên tiếp: 4 tế bào con; 3 lần phân chia liên tiếp: 8 tế bào con."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự lớn lên và phân chia của tế bào là cơ sở cho sự [blank] của cơ thể.",
+            "correctAnswer": "lớn lên",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “lớn lên”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vai trò của phân chia tế bào",
+              "Không phải vai trò của phân chia tế bào"
+            ],
+            "items": [
+              {
+                "name": "Tăng số lượng tế bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Thay thế tế bào già",
+                "catIndex": 0
+              },
+              {
+                "name": "Làm lành vết thương",
+                "catIndex": 0
+              },
+              {
+                "name": "Làm mọi tế bào mất nhân",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Tăng số lượng tế bào thuộc nhóm Vai trò của phân chia tế bào; Thay thế tế bào già thuộc nhóm Vai trò của phân chia tế bào; Làm lành vết thương thuộc nhóm Vai trò của phân chia tế bào; Làm mọi tế bào mất nhân thuộc nhóm Không phải vai trò của phân chia tế bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các tế bào mới sinh ra tiếp tục lớn lên và [blank].",
+            "bankWords": [
+              "phân chia",
+              "biến mất",
+              "ngừng trao đổi chất"
+            ],
+            "correctWord": "phân chia",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “phân chia”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Chuẩn bị được tiêu bản đơn giản và nhận biết tế bào biểu bì hành dưới kính hiển vi.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 21. Thực hành: Quan sát và phân biệt một số loại tế bào",
+          "pages": "86-87"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mẫu biểu bì hành dùng để quan sát nên được lấy như thế nào?",
+            "options": [
+              "Một lớp thật mỏng",
+              "Một miếng củ thật dày",
+              "Cả củ hành",
+              "Phần rễ còn đất"
+            ],
+            "answerIndex": 0,
+            "hint": "Ánh sáng cần đi qua mẫu.",
+            "explanation": "Lớp biểu bì mỏng giúp ánh sáng truyền qua và các tế bào không chồng lấp quá nhiều."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Lam kính",
+                "right": "Đặt mẫu quan sát"
+              },
+              {
+                "left": "Lamen",
+                "right": "Đậy lên mẫu"
+              },
+              {
+                "left": "Ống nhỏ giọt",
+                "right": "Nhỏ nước hoặc dung dịch lên mẫu"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Lam kính: Đặt mẫu quan sát; Lamen: Đậy lên mẫu; Ống nhỏ giọt: Nhỏ nước hoặc dung dịch lên mẫu."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khi đậy lamen cần thao tác nhẹ để hạn chế tạo [blank] khí.",
+            "correctAnswer": "bọt",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “bọt”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Dụng cụ làm tiêu bản",
+              "Thiết bị quan sát"
+            ],
+            "items": [
+              {
+                "name": "Lam kính",
+                "catIndex": 0
+              },
+              {
+                "name": "Lamen",
+                "catIndex": 0
+              },
+              {
+                "name": "Ống nhỏ giọt",
+                "catIndex": 0
+              },
+              {
+                "name": "Kính hiển vi",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Lam kính thuộc nhóm Dụng cụ làm tiêu bản; Lamen thuộc nhóm Dụng cụ làm tiêu bản; Ống nhỏ giọt thuộc nhóm Dụng cụ làm tiêu bản; Kính hiển vi thuộc nhóm Thiết bị quan sát."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tiêu bản biểu bì hành cần được đặt trên [blank] trước khi đậy lamen.",
+            "bankWords": [
+              "lam kính",
+              "thị kính",
+              "vật kính"
+            ],
+            "correctWord": "lam kính",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “lam kính”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Vận dụng mối liên hệ giữa cấu tạo và chức năng để nhận dạng một số tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 18-19. Tế bào và cấu tạo tế bào",
+          "pages": "76-82"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tế bào thần kinh có phần kéo dài chủ yếu để làm gì?",
+            "options": [
+              "Truyền tín hiệu",
+              "Quang hợp",
+              "Tạo thành tế bào vi khuẩn",
+              "Chứa dịch tế bào"
+            ],
+            "answerIndex": 0,
+            "hint": "Hình dạng phù hợp với việc liên lạc trong cơ thể.",
+            "explanation": "Các phần kéo dài giúp tế bào thần kinh tiếp nhận và truyền tín hiệu."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tế bào lông hút",
+                "right": "Hấp thụ nước và muối khoáng"
+              },
+              {
+                "left": "Tế bào cơ",
+                "right": "Co dãn tạo vận động"
+              },
+              {
+                "left": "Tế bào thần kinh",
+                "right": "Tiếp nhận và truyền tín hiệu"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tế bào lông hút: Hấp thụ nước và muối khoáng; Tế bào cơ: Co dãn tạo vận động; Tế bào thần kinh: Tiếp nhận và truyền tín hiệu."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hình dạng của tế bào thường phù hợp với [blank] mà tế bào đảm nhiệm.",
+            "correctAnswer": "chức năng",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “chức năng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tế bào thực vật",
+              "Tế bào động vật"
+            ],
+            "items": [
+              {
+                "name": "Tế bào lông hút",
+                "catIndex": 0
+              },
+              {
+                "name": "Tế bào thịt lá",
+                "catIndex": 0
+              },
+              {
+                "name": "Tế bào cơ",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào thần kinh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tế bào lông hút thuộc nhóm Tế bào thực vật; Tế bào thịt lá thuộc nhóm Tế bào thực vật; Tế bào cơ thuộc nhóm Tế bào động vật; Tế bào thần kinh thuộc nhóm Tế bào động vật."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tế bào lông hút có phần kéo dài giúp tăng diện tích [blank] nước và muối khoáng.",
+            "bankWords": [
+              "hấp thụ",
+              "quang hợp",
+              "phân chia"
+            ],
+            "correctWord": "hấp thụ",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “hấp thụ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Hệ thống hoá kiến thức về kính hiển vi, cấu tạo, sự lớn lên và phân chia của tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 18-21. Tế bào",
+          "pages": "75-88"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhận định nào đúng về tế bào?",
+            "options": [
+              "Tế bào là đơn vị cơ bản của cơ thể sống",
+              "Mọi tế bào đều nhìn thấy bằng mắt thường",
+              "Mọi tế bào đều có lục lạp",
+              "Tế bào không thể lớn lên"
+            ],
+            "answerIndex": 0,
+            "hint": "Chọn nhận định áp dụng rộng rãi cho cơ thể sống.",
+            "explanation": "Tế bào là đơn vị cấu trúc và chức năng cơ bản của cơ thể sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối cấu trúc với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Kính hiển vi",
+                "right": "Quan sát tế bào rất nhỏ"
+              },
+              {
+                "left": "Màng tế bào",
+                "right": "Kiểm soát trao đổi chất"
+              },
+              {
+                "left": "Phân chia tế bào",
+                "right": "Làm tăng số lượng tế bào"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Kính hiển vi: Quan sát tế bào rất nhỏ; Màng tế bào: Kiểm soát trao đổi chất; Phân chia tế bào: Làm tăng số lượng tế bào."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào thực vật và tế bào động vật đều có màng tế bào, tế bào chất và [blank].",
+            "correctAnswer": "nhân",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “nhân”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đúng với tế bào thực vật",
+              "Đúng với tế bào vi khuẩn"
+            ],
+            "items": [
+              {
+                "name": "Có thành tế bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Có thể có lục lạp",
+                "catIndex": 0
+              },
+              {
+                "name": "Thuộc kiểu tế bào nhân sơ",
+                "catIndex": 1
+              },
+              {
+                "name": "Chưa có nhân hoàn chỉnh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Có thành tế bào thuộc nhóm Đúng với tế bào thực vật; Có thể có lục lạp thuộc nhóm Đúng với tế bào thực vật; Thuộc kiểu tế bào nhân sơ thuộc nhóm Đúng với tế bào vi khuẩn; Chưa có nhân hoàn chỉnh thuộc nhóm Đúng với tế bào vi khuẩn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự lớn lên và [blank] của tế bào giúp cơ thể sinh trưởng.",
+            "bankWords": [
+              "phân chia",
+              "bay hơi",
+              "hoà tan"
+            ],
+            "correctWord": "phân chia",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “phân chia”."
+          }
+        }
+      ]
+    }
+  ]
+}

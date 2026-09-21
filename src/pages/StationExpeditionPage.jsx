@@ -9,6 +9,8 @@ import {
   Dna, HeartPulse, Leaf, Atom, TreePine, FlaskConical, Lightbulb, FileText, AlertCircle
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { STATION_CATALOG } from '../data/stationCatalog';
+import { shuffleArray } from '../utils/stationContent';
 
 // 🎨 SVG GRAPHIC RƯƠNG BÁU 3D ĐÓNG NẮP CHÂN THỰC
 const ClosedTreasureChestSVG = () => (
@@ -67,51 +69,25 @@ const TeleportPortalSVG = ({ onClick }) => (
   </div>
 );
 
-// 🏝️ DANH MỤC TRẠM SINH HỌC
-const GRADE_STATIONS = {
-  6: [
-    { id: 'g6_st1', name: 'Trạm 1: Kính Hiển Vi & Đơn Vị Tế Bào', subtitle: 'Mở đầu KHTN, an toàn phòng thực hành & cấu trúc tế bào', daysCount: 10, startDay: 1, IconComp: Microscope },
-    { id: 'g6_st2', name: 'Trạm 2: Tế Bào & Tổ Chức Cơ Thể', subtitle: 'Từ tế bào đến cơ thể, mô & các hệ cơ quan', daysCount: 10, startDay: 11, IconComp: Sprout },
-    { id: 'g6_st3', name: 'Trạm 3: Đa Dạng Sinh Học & Vương Quốc', subtitle: 'Phân loại thế giới sống, Virus, Vi khuẩn, Thực vật & Động vật', daysCount: 10, startDay: 21, IconComp: TreePine },
-    { id: 'g6_future', isFuture: true, name: 'Trạm Khai Phá - Sắp Ra Mắt', subtitle: 'Vùng biển tri thức nâng cao đang được xây dựng...', daysCount: 10, startDay: 31, IconComp: Hourglass }
-  ],
-  7: [
-    { id: 'g7_st1', name: 'Trạm 1: Quang Hợp & Trao Đổi Chất', subtitle: 'Trao đổi chất & chuyển hóa năng lượng ở cây xanh', daysCount: 10, startDay: 1, IconComp: Leaf },
-    { id: 'g7_st2', name: 'Trạm 2: Hô Hấp Tế Bào & Chuyển Hóa', subtitle: 'Hô hấp tế bào, phân giải ATP & trao đổi khí', daysCount: 10, startDay: 11, IconComp: Atom },
-    { id: 'g7_st3', name: 'Trạm 3: Cảm Ứng & Tập Tính Sinh Vật', subtitle: 'Cảm ứng ở thực vật & tập tính sống động vật', daysCount: 10, startDay: 21, IconComp: HeartPulse },
-    { id: 'g7_future', isFuture: true, name: 'Trạm Khai Phá - Sắp Ra Mắt', subtitle: 'Vùng biển tri thức nâng cao đang được xây dựng...', daysCount: 10, startDay: 31, IconComp: Hourglass }
-  ],
-  8: [
-    { id: 'g8_st1', name: 'Trạm 1: Mã Gen ADN & Phân Tử', subtitle: 'Phân tử DNA, RNA, gen & tái bản di truyền', daysCount: 10, startDay: 1, IconComp: Dna },
-    { id: 'g8_st2', name: 'Trạm 2: Nhiễm Sắc Thể & Phân Bào', subtitle: 'Cấu trúc nhiễm sắc thể, nguyên phân & giảm phân', daysCount: 10, startDay: 11, IconComp: Microscope },
-    { id: 'g8_st3', name: 'Trạm 3: Giải Phẫu & Cơ Thể Người', subtitle: 'Hệ vận động, tuần hoàn, hô hấp & tiêu hóa', daysCount: 10, startDay: 21, IconComp: HeartPulse },
-    { id: 'g8_future', isFuture: true, name: 'Trạm Khai Phá - Sắp Ra Mắt', subtitle: 'Vùng biển tri thức nâng cao đang được xây dựng...', daysCount: 10, startDay: 31, IconComp: Hourglass }
-  ],
-  9: [
-    { id: 'g9_st1', name: 'Trạm 1: Bằng Chứng Tiến Hóa', subtitle: 'Hóa thạch, cơ quan thoái hóa & học thuyết Darwin', daysCount: 10, startDay: 1, IconComp: TreePine },
-    { id: 'g9_st2', name: 'Trạm 2: Hệ Sinh Thái & Chuỗi Thức Ăn', subtitle: 'Quần thể, quần xã, chuỗi thức ăn & lưới thức ăn', daysCount: 10, startDay: 11, IconComp: Leaf },
-    { id: 'g9_st3', name: 'Trạm 3: Sinh Thái Học & Bảo Tồn', subtitle: 'Môi trường sống, ô nhiễm & bảo tồn đa dạng', daysCount: 10, startDay: 21, IconComp: Sprout },
-    { id: 'g9_future', isFuture: true, name: 'Trạm Khai Phá - Sắp Ra Mắt', subtitle: 'Vùng biển tri thức nâng cao đang được xây dựng...', daysCount: 10, startDay: 31, IconComp: Hourglass }
-  ],
-  10: [
-    { id: 'g10_st1', name: 'Trạm 1: Hóa Học Tế Bào & Nước', subtitle: 'Phân tử sinh học, nước & các nguyên tố', daysCount: 10, startDay: 1, IconComp: FlaskConical },
-    { id: 'g10_st2', name: 'Trạm 2: Trao Đổi Chất Màng Tế Bào', subtitle: 'Vận chuyển qua màng, co nguyên sinh & truyền tin', daysCount: 10, startDay: 11, IconComp: Atom },
-    { id: 'g10_st3', name: 'Trạm 3: Chu Kỳ Tế Bào & Phân Bào', subtitle: 'Chuyển hóa năng lượng, nguyên phân & giảm phân', daysCount: 10, startDay: 21, IconComp: Dna },
-    { id: 'g10_future', isFuture: true, name: 'Trạm Khai Phá - Sắp Ra Mắt', subtitle: 'Vùng biển tri thức nâng cao đang được xây dựng...', daysCount: 10, startDay: 31, IconComp: Hourglass }
-  ],
-  11: [
-    { id: 'g11_st1', name: 'Trạm 1: Quang Hợp & Dinh Dưỡng Thực Vật', subtitle: 'Hấp thụ nước, khoáng, quang hợp & hô hấp cây', daysCount: 10, startDay: 1, IconComp: Leaf },
-    { id: 'g11_st2', name: 'Trạm 2: Hô Hấp & Tuần Hoàn Động Vật', subtitle: 'Dinh dưỡng, hô hấp & hệ tuần hoàn động vật', daysCount: 10, startDay: 11, IconComp: HeartPulse },
-    { id: 'g11_st3', name: 'Trạm 3: Cảm Ứng & Sinh Trưởng Sinh Vật', subtitle: 'Cảm ứng, tập tính & sinh trưởng động thực vật', daysCount: 10, startDay: 21, IconComp: Sprout },
-    { id: 'g11_future', isFuture: true, name: 'Trạm Khai Phá - Sắp Ra Mắt', subtitle: 'Vùng biển tri thức nâng cao đang được xây dựng...', daysCount: 10, startDay: 31, IconComp: Hourglass }
-  ],
-  12: [
-    { id: 'g12_st1', name: 'Trạm 1: Di Truyền Phân Tử & Tái Bản ADN', subtitle: 'Cơ chế di truyền phân tử, phiên mã & dịch mã', daysCount: 10, startDay: 1, IconComp: Dna },
-    { id: 'g12_st2', name: 'Trạm 2: Quy Luật Mendel & NST', subtitle: 'Di truyền nhiễm sắc thể, Mendel & hoán vị gen', daysCount: 10, startDay: 11, IconComp: Microscope },
-    { id: 'g12_st3', name: 'Trạm 3: Di Truyền Quần Thể & Đột Biến', subtitle: 'Cấu trúc gen quần thể & các dạng đột biến', daysCount: 10, startDay: 21, IconComp: Atom },
-    { id: 'g12_future', isFuture: true, name: 'Trạm Khai Phá - Sắp Ra Mắt', subtitle: 'Vùng biển tri thức nâng cao đang được xây dựng...', daysCount: 10, startDay: 31, IconComp: Hourglass }
-  ]
+const STATION_ICONS = {
+  microscope: Microscope,
+  sprout: Sprout,
+  dna: Dna,
+  heart: HeartPulse,
+  leaf: Leaf,
+  atom: Atom,
+  tree: TreePine,
+  flask: FlaskConical,
+  hourglass: Hourglass,
 };
+
+// Danh mục nội dung dùng chung với trang quản trị; icon chỉ được gắn tại lớp giao diện.
+const GRADE_STATIONS = Object.fromEntries(
+  Object.entries(STATION_CATALOG).map(([grade, stations]) => [
+    grade,
+    stations.map((station) => ({ ...station, IconComp: STATION_ICONS[station.icon] || Microscope })),
+  ]),
+);
 
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 1200;
@@ -200,16 +176,6 @@ const getDefaultFallbackGames = (grade, dayDisplayNum) => [
   }
 ];
 
-// Helper Đảo Vị Trí Ngẫu Nhiên (Fisher-Yates Shuffle)
-const shuffleArray = (arr) => {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-};
-
 export default function StationExpeditionPage() {
   const navigate = useNavigate();
   const { user, userStats, refreshUserStats } = useAuth();
@@ -228,6 +194,8 @@ export default function StationExpeditionPage() {
   const [activeDayQuiz, setActiveDayQuiz] = useState(null);
   const [currentGames, setCurrentGames] = useState([]);
   const [gameStep, setGameStep] = useState(0);
+  const [serverAttemptId, setServerAttemptId] = useState(null);
+  const [serverCompletion, setServerCompletion] = useState(null);
 
   // General Attempt States
   const [attemptCount, setAttemptCount] = useState(0); // 0: chưa nộp, 1: nộp lần 1, 2: nộp lần 2/hoàn thành
@@ -390,19 +358,45 @@ export default function StationExpeditionPage() {
     }
 
     let games = [];
+    let attemptId = null;
     try {
-      const { data, error } = await supabase
-        .from('station_questions')
-        .select('*')
-        .eq('grade', selectedGrade)
-        .eq('station_id', selectedStation.id)
-        .eq('day_index', dayIndex)
-        .order('game_index', { ascending: true });
+      if (user?.id) {
+        const { data: secureAttempt, error: secureError } = await supabase.rpc('start_station_attempt', {
+          p_grade: selectedGrade,
+          p_station_id: selectedStation.id,
+          p_day_index: dayIndex,
+        });
+        if (!secureError && secureAttempt?.games?.length === 5) {
+          attemptId = secureAttempt.attempt_id;
+          games = secureAttempt.games.map((item) => {
+            const content = item.content || {};
+            if (item.type === 'match') {
+              return { ...item, ...content, pairs: (content.leftItems || []).map((left) => ({ left })), matchRightItems: content.rightItems || [] };
+            }
+            if (item.type === 'category') {
+              return { ...item, ...content, items: (content.items || []).map((name) => ({ name })) };
+            }
+            return { ...item, ...content };
+          });
+        } else if (secureError && !['PGRST202', '42883'].includes(secureError.code)) {
+          console.info('Nội dung V2 chưa sẵn sàng, sử dụng dữ liệu tương thích:', secureError.message);
+        }
+      }
 
-      if (!error && data && data.length > 0) {
-        games = data.map(item => {
+      if (games.length === 0) {
+        const { data, error } = await supabase
+          .from('station_questions')
+          .select('*')
+          .eq('grade', selectedGrade)
+          .eq('station_id', selectedStation.id)
+          .eq('day_index', dayIndex)
+          .order('game_index', { ascending: true });
+
+        if (!error && data && data.length > 0) games = data.map(item => {
           const content = item.content || {};
           return {
+            id: item.id,
+            gameIndex: item.game_index,
             type: item.game_type,
             title: item.title || content.title || '',
             question: content.question || content.text || '',
@@ -429,16 +423,19 @@ export default function StationExpeditionPage() {
       games = getDefaultFallbackGames(selectedGrade, selectedStation.startDay + dayIndex - 1);
     }
 
-    // ĐẢM BẢO TỐI ĐA CHỈ LẤY 5 GAME CHO HỌC SINH
-    games = games.slice(0, 5);
+    // Giới hạn năm trò rồi đảo thứ tự đúng một lần khi bắt đầu ải.
+    // Mọi phần hiển thị và chấm điểm bên dưới đều dựa trên type, không dựa vào vị trí.
+    if (!attemptId) games = shuffleArray(games.slice(0, 5));
 
     setCurrentGames(games);
+    setServerAttemptId(attemptId);
+    setServerCompletion(null);
     setActiveDayQuiz({ stationId: selectedStation.id, dayIndex, dayDisplayNum: selectedStation.startDay + dayIndex - 1 });
 
     // Reset Game Engine State
     setGameStep(0);
     resetCurrentStepState(games[0]);
-    setGameScores([0, 0, 0, 0, 0]);
+    setGameScores(games.map(() => 0));
   };
 
   const resetCurrentStepState = (gameObj) => {
@@ -463,7 +460,7 @@ export default function StationExpeditionPage() {
 
     // 🎯 ĐẢO VỊ TRÍ NỐI TỪ CỘT PHẢI NGẪU NHIÊN CHO HỌC SINH
     if (gameObj.type === 'match' && gameObj.pairs) {
-      const rightList = gameObj.pairs.map(p => p.right);
+      const rightList = gameObj.matchRightItems || gameObj.pairs.map(p => p.right);
       setShuffledMatchRight(shuffleArray(rightList));
     }
 
@@ -482,8 +479,80 @@ export default function StationExpeditionPage() {
   };
 
   // 🎯 XỬ LÝ NỘP CÂU TRẢ LỜI CHO CÁC GAME (VỚI LOGIC 2 LẦN THỬ CHUẨN XÁC)
-  const handleSubmitCurrentGame = () => {
+  const getServerAnswer = (game) => {
+    if (game.type === 'quiz') return { value: selectedQuizOptText };
+    if (game.type === 'fill') return { value: fillInputText };
+    if (game.type === 'dragdrop') return { value: dragWordChoice };
+    if (game.type === 'match') return {
+      value: game.pairs.map((pair) => {
+        const selected = matchedPairs.find((item) => item.leftText === pair.left);
+        return { left: pair.left, right: selected?.rightText || '' };
+      }),
+    };
+    return {
+      value: game.items.map((item) => ({
+        name: item.name,
+        catIndex: categoryBoards[1].some((placed) => placed.name === item.name) ? 1 : 0,
+      })),
+    };
+  };
+
+  const applyServerReveal = (game, result) => {
+    const answer = result.answer_reveal;
+    return {
+      ...game,
+      explanation: result.explanation || game.explanation,
+      ...(game.type === 'quiz' ? { answerIndex: game.options.findIndex((option) => option === answer) } : {}),
+      ...(game.type === 'fill' ? { correctAnswer: answer } : {}),
+      ...(game.type === 'dragdrop' ? { correctWord: answer } : {}),
+      ...(game.type === 'match' ? { pairs: Array.isArray(answer) ? answer : game.pairs } : {}),
+      ...(game.type === 'category' ? { items: Array.isArray(answer) ? answer : game.items } : {}),
+    };
+  };
+
+  const handleSubmitCurrentGame = async () => {
     const currentGame = currentGames[gameStep];
+
+    if (serverAttemptId) {
+      const { data: result, error } = await supabase.rpc('submit_station_answer', {
+        p_attempt_id: serverAttemptId,
+        p_item_id: currentGame.id,
+        p_answer: getServerAnswer(currentGame),
+      });
+      if (error) {
+        console.error('Lỗi chấm trò chơi trên máy chủ:', error);
+        showToast('Chưa thể chấm câu trả lời. Vui lòng thử lại.', 'error');
+        return;
+      }
+      if (result.resolved) {
+        setAttemptCount(result.attempt_no);
+        setAttempt2Finished(true);
+        setShowHintModal(false);
+        setGameScores((previous) => {
+          const next = [...previous];
+          next[gameStep] = result.correct ? 1 : 0;
+          return next;
+        });
+        setCurrentGames((previous) => previous.map((game, index) => (
+          index === gameStep ? applyServerReveal(game, result) : game
+        )));
+        if (result.stage_complete) setServerCompletion(result);
+      } else {
+        setAttemptCount(result.attempt_no);
+        setAttempt1Wrong(true);
+        setShowHintModal(true);
+        if (currentGame.type === 'match') {
+          setMatchedPairs([]);
+          setSelectedLeftMatch(null);
+        }
+        if (currentGame.type === 'category') {
+          setCategoryBoards([[], []]);
+          setUnassignedItems(shuffleArray(currentGame.items));
+          setSelectedUnassignedItem(null);
+        }
+      }
+      return;
+    }
 
     // GAME 1: QUIZ TRẮC NGHIỆM
     if (currentGame.type === 'quiz') {
@@ -641,11 +710,14 @@ export default function StationExpeditionPage() {
 
     const totalCorrectSteps = gameScores.reduce((a, b) => a + b, 0);
 
-    let earnedStars = 0;
-    if (totalCorrectSteps === 5) earnedStars = 3;
-    else if (totalCorrectSteps === 4) earnedStars = 2;
-    else if (totalCorrectSteps === 3) earnedStars = 1;
-    else earnedStars = 0;
+    const totalGames = currentGames.length;
+    const correctRatio = totalGames > 0 ? totalCorrectSteps / totalGames : 0;
+    let earnedStars = serverCompletion?.stars ?? 0;
+    if (!serverAttemptId) {
+      if (correctRatio === 1) earnedStars = 3;
+      else if (correctRatio >= 0.8) earnedStars = 2;
+      else if (correctRatio >= 0.6) earnedStars = 1;
+    }
 
     const key = `${activeDayQuiz.stationId}_${completedDayIndex}`;
     const oldProg = stationProgress[key] || { stars: 0, claimedStars: 0 };
@@ -663,8 +735,12 @@ export default function StationExpeditionPage() {
     const newTotalRewards = getRewardForStars(newMaxStars);
     const claimedRewards = getRewardForStars(oldProg.claimedStars || 0);
 
-    const incCoins = Math.max(0, newTotalRewards.coins - claimedRewards.coins);
-    const incXp = Math.max(0, newTotalRewards.xp - claimedRewards.xp);
+    const incCoins = serverAttemptId
+      ? Number(serverCompletion?.reward?.coins || 0)
+      : Math.max(0, newTotalRewards.coins - claimedRewards.coins);
+    const incXp = serverAttemptId
+      ? Number(serverCompletion?.reward?.xp || 0)
+      : Math.max(0, newTotalRewards.xp - claimedRewards.xp);
 
     const updatedProgress = {
       ...stationProgress,
@@ -672,7 +748,7 @@ export default function StationExpeditionPage() {
     };
     setStationProgress(updatedProgress);
 
-    if (user?.id) {
+    if (user?.id && !serverAttemptId) {
       try {
         const { data: stationReward, error: stationRewardError } = await supabase.rpc('claim_station_reward', {
           p_station_id: String(activeDayQuiz.stationId),
@@ -691,7 +767,10 @@ export default function StationExpeditionPage() {
       }
     }
 
+    if (user?.id && serverAttemptId && serverCompletion?.reward?.awarded) refreshUserStats();
     setActiveDayQuiz(null);
+    setServerAttemptId(null);
+    setServerCompletion(null);
 
     if (earnedStars > 0) {
       setJustCompletedDayNode(completedDayIndex);
@@ -1137,8 +1216,8 @@ export default function StationExpeditionPage() {
               ))}
             </div>
 
-            {/* DẠNG 1: QUIZ TRẮC NGHIỆM (ĐÁO ĐÁP ÁN NGẪU NHIÊN CHO HỌC SINH) */}
-            {gameStep === 0 && (
+            {/* QUIZ TRẮC NGHIỆM */}
+            {currentGame.type === 'quiz' && (
               <div>
                 <h4 className="text-base font-bold mb-6">{currentGame.question}</h4>
                 <div className="space-y-3 mb-6">
@@ -1176,8 +1255,8 @@ export default function StationExpeditionPage() {
               </div>
             )}
 
-            {/* DẠNG 2: NỐI CHỮ (WORD MATCHING - ĐẢO CỘT PHẢI & RUNG ĐỎ 600MS TỰ MẤT) */}
-            {gameStep === 1 && (
+            {/* NỐI CHỮ */}
+            {currentGame.type === 'match' && (
               <div>
                 <p className="text-xs text-slate-300 mb-4">{currentGame.instruction || 'Hãy chọn 1 ô bên trái và nối với khái niệm đúng bên phải:'}</p>
                 <div className="grid grid-cols-2 gap-4 mb-6">
@@ -1222,7 +1301,7 @@ export default function StationExpeditionPage() {
                           onClick={() => {
                             if (selectedLeftMatch !== null) {
                               const targetLeftObj = currentGame.pairs[selectedLeftMatch];
-                              const isRightMatch = targetLeftObj.right === rightText;
+                              const isRightMatch = Boolean(serverAttemptId) || targetLeftObj.right === rightText;
 
                               if (isRightMatch) {
                                 // 🎯 NỐI ĐÚNG: VIỀN XANH + MỜ KHÔNG CHO CHỌN LẠI
@@ -1254,8 +1333,8 @@ export default function StationExpeditionPage() {
               </div>
             )}
 
-            {/* DẠNG 3: ĐIỀN TỪ CÒN THIẾU */}
-            {gameStep === 2 && (
+            {/* ĐIỀN TỪ CÒN THIẾU */}
+            {currentGame.type === 'fill' && (
               <div>
                 <p className="text-xs text-slate-300 mb-4">{currentGame.instruction || 'Gõ từ thích hợp vào ô trống bên dưới:'}</p>
                 <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 mb-6 text-sm font-medium">
@@ -1279,8 +1358,8 @@ export default function StationExpeditionPage() {
               </div>
             )}
 
-            {/* DẠNG 4: PHÂN LOẠI NHÓM (CÁC TỪ MẶC ĐỊNH NẰM Ở KHO BÊN DƯỚI) */}
-            {gameStep === 3 && (
+            {/* PHÂN LOẠI NHÓM */}
+            {currentGame.type === 'category' && (
               <div>
                 <p className="text-xs text-slate-300 mb-4">{currentGame.instruction || 'Bấm chọn từ kho bên dưới rồi xếp vào một trong hai bảng nhóm:'}</p>
 
@@ -1363,8 +1442,8 @@ export default function StationExpeditionPage() {
               </div>
             )}
 
-            {/* DẠNG 5: HOÀN THÀNH CÂU (ĐẢO KHO TỪ NGẪU NHIÊN) */}
-            {gameStep === 4 && (
+            {/* HOÀN THÀNH CÂU */}
+            {currentGame.type === 'dragdrop' && (
               <div>
                 <p className="text-xs text-slate-300 mb-4">{currentGame.instruction || 'Chọn từ chính xác từ kho từ để hoàn thành câu:'}</p>
                 <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 mb-6 text-sm font-bold leading-relaxed">
