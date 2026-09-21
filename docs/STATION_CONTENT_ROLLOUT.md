@@ -39,6 +39,7 @@
 - Học sinh không có quyền đọc bảng chứa đáp án hoặc ghi trực tiếp kết quả.
 - Một bản đã phát hành hoặc lưu trữ không thể sửa nội dung; muốn sửa phải tạo version mới.
 - Cutover không thể chạy sớm vì có kiểm tra đủ 21 bản phát hành, mỗi bản 50 mục.
+- Khi chạy bản nháp trong Supabase SQL Editor, `auth.uid()` không có JWT. SQL nhập liệu sẽ chọn một hồ sơ có vai trò `admin` làm chủ sở hữu và tự dừng nếu chưa có hồ sơ admin; cột `created_by` không được nới lỏng thành nullable.
 
 ## Nguồn chuẩn
 

@@ -12,6 +12,12 @@ const migration = (await fs.readFile('supabase_station_content_v2.sql', 'utf8'))
 const pilotRelease = await fs.readFile('generated/station-releases/g6-st1-2026.1.sql', 'utf8');
 const cutover = await fs.readFile('supabase_station_content_v2_cutover.sql', 'utf8');
 
+test('generated SQL uses a portable PL/pgSQL declaration block', () => {
+  assert.match(pilotRelease, /do \$station_release\$\r?\ndeclare\r?\n\s+v_release_id uuid;/);
+  assert.doesNotMatch(pilotRelease, /declare v_/);
+  assert.doesNotMatch(pilotRelease, /\bor not exists\s*\(/i);
+});
+
 async function setup() {
   const db = new PGlite();
   await db.exec(`
@@ -155,6 +161,35 @@ test('generated pilot imports 50 draft items and published content is immutable'
       /published_release_content_is_immutable/,
     );
     await assert.rejects(db.exec(pilotRelease), /release_version_is_immutable/);
+  } finally { await db.close(); }
+});
+
+test('generated pilot can be imported from Supabase SQL Editor without a JWT', async () => {
+  const db = await setup();
+  try {
+    assert.equal((await db.query('select auth.uid() as id')).rows[0].id, null);
+    await db.exec(pilotRelease);
+    const release = (await db.query(
+      "select status, created_by from station_content_releases where version='g6-st1-2026.1'",
+    )).rows[0];
+    assert.equal(release.status, 'draft');
+    assert.equal(release.created_by, admin);
+    assert.equal(Number((await db.query(
+      "select count(*) from station_content_items i join station_content_releases r on r.id=i.release_id where r.version='g6-st1-2026.1'",
+    )).rows[0].count), 50);
+  } finally { await db.close(); }
+});
+
+test('SQL Editor import stops cleanly when no admin profile exists', async () => {
+  const db = await setup();
+  try {
+    await db.query('delete from profiles where id=$1', [admin]);
+    await assert.rejects(db.exec(pilotRelease), /station_release_import_requires_admin_profile/);
+    await db.exec('rollback');
+    assert.equal(Number((await db.query(
+      "select count(*) from station_content_releases where version='g6-st1-2026.1'",
+    )).rows[0].count), 0);
+    assert.equal(Number((await db.query('select count(*) from station_content_items')).rows[0].count), 0);
   } finally { await db.close(); }
 });
 

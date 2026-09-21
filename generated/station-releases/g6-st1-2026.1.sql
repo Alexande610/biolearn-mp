@@ -1,11 +1,24 @@
 -- Generated from reviewed JSON. Apply only after supabase_station_content_v2.sql.
 begin;
 do $station_release$
-declare v_release_id uuid;
-declare v_release_status text;
+declare
+  v_release_id uuid;
+  v_release_status text;
+  v_created_by uuid;
+  v_is_admin boolean;
+  v_item_count integer;
+  v_invalid_day_count integer;
 begin
-  insert into public.station_content_releases(version, grade, station_id, title, status, notes)
-  values('g6-st1-2026.1', 6, 'g6_st1', 'Lớp 6 - Trạm 1: Kính hiển vi và tế bào', 'draft', 'Bản thí điểm. Nội dung được đối chiếu theo SGK KHTN 6 Kết nối tri thức; TXT OCR chỉ dùng để tìm kiếm, không dùng làm nguồn xác nhận cuối.')
+  v_created_by := auth.uid();
+  if v_created_by is null then
+    select p.id into v_created_by from public.profiles p where p.role = 'admin' order by p.id limit 1;
+  end if;
+  select exists(select 1 from public.profiles p where p.id = v_created_by and p.role = 'admin') into v_is_admin;
+  if v_created_by is null or not coalesce(v_is_admin, false) then
+    raise exception 'station_release_import_requires_admin_profile';
+  end if;
+  insert into public.station_content_releases(version, grade, station_id, title, status, notes, created_by)
+  values('g6-st1-2026.1', 6, 'g6_st1', 'Lớp 6 - Trạm 1: Kính hiển vi và tế bào', 'draft', 'Bản thí điểm. Nội dung được đối chiếu theo SGK KHTN 6 Kết nối tri thức; TXT OCR chỉ dùng để tìm kiếm, không dùng làm nguồn xác nhận cuối.', v_created_by)
   on conflict (version) do update set
     title = case when station_content_releases.status = 'draft' then excluded.title else station_content_releases.title end,
     notes = case when station_content_releases.status = 'draft' then excluded.notes else station_content_releases.notes end,
@@ -114,6 +127,20 @@ begin
   values(v_release_id, 6, 'g6_st1', 10, 4, 'category', 'Phân loại đúng nhóm', 'Hệ thống hoá kiến thức về kính hiển vi, cấu tạo, sự lớn lên và phân chia của tế bào.', '{"categories":["Đúng với tế bào thực vật","Đúng với tế bào vi khuẩn"],"items":["Có thành tế bào","Có thể có lục lạp","Thuộc kiểu tế bào nhân sơ","Chưa có nhân hoàn chỉnh"],"hint":"Dựa vào kiến thức của ải 10."}'::jsonb, '{"value":[{"name":"Có thành tế bào","catIndex":0},{"name":"Có thể có lục lạp","catIndex":0},{"name":"Thuộc kiểu tế bào nhân sơ","catIndex":1},{"name":"Chưa có nhân hoàn chỉnh","catIndex":1}],"explanation":"Có thành tế bào thuộc nhóm Đúng với tế bào thực vật; Có thể có lục lạp thuộc nhóm Đúng với tế bào thực vật; Thuộc kiểu tế bào nhân sơ thuộc nhóm Đúng với tế bào vi khuẩn; Chưa có nhân hoàn chỉnh thuộc nhóm Đúng với tế bào vi khuẩn."}'::jsonb, '[{"source":"SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống","publisher":"Nhà xuất bản Giáo dục Việt Nam","lesson":"Bài 18-21. Tế bào","pages":"75-88"}]'::jsonb);
   insert into public.station_content_items(release_id, grade, station_id, day_index, game_index, game_type, title, learning_objective, public_content, answer_key, source_refs)
   values(v_release_id, 6, 'g6_st1', 10, 5, 'dragdrop', 'Kéo từ hoàn thành câu', 'Hệ thống hoá kiến thức về kính hiển vi, cấu tạo, sự lớn lên và phân chia của tế bào.', '{"textWithBlanks":"Sự lớn lên và [blank] của tế bào giúp cơ thể sinh trưởng.","bankWords":["phân chia","bay hơi","hoà tan"],"hint":"Dựa vào kiến thức của ải 10."}'::jsonb, '{"value":"phân chia","explanation":"Từ đúng là “phân chia”."}'::jsonb, '[{"source":"SGK Khoa học tự nhiên 6 - Kết nối tri thức với cuộc sống","publisher":"Nhà xuất bản Giáo dục Việt Nam","lesson":"Bài 18-21. Tế bào","pages":"75-88"}]'::jsonb);
+  select count(*) into v_item_count from public.station_content_items where release_id = v_release_id;
+  if v_item_count <> 50 then
+    raise exception 'station_release_import_requires_50_items';
+  end if;
+  select count(*) into v_invalid_day_count from (
+    select day_index
+    from public.station_content_items
+    where release_id = v_release_id
+    group by day_index
+    having count(*) <> 5 or count(distinct game_type) <> 5
+  ) invalid_days;
+  if v_invalid_day_count <> 0 then
+    raise exception 'station_release_import_requires_five_unique_games_per_day';
+  end if;
 end;
 $station_release$;
 commit;
