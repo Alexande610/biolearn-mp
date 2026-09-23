@@ -41,6 +41,27 @@
 
 ## Trình tự an toàn
 
+### Quản trị V2 trên giao diện
+
+Sau migration nền và các SQL nhập bản nháp, chạy thêm một lần
+`supabase_station_content_v2_admin_edit.sql`. Migration này tạo RPC để admin đã
+đăng nhập sửa từng trò chơi của release `draft`/`review` theo giao dịch. Lần sửa
+đầu chuyển release sang `review`, khiến SQL nhập bản nháp cũ không thể ghi đè
+nội dung đã sửa trên giao diện. Trang admin đọc V2 theo phiên bản, lưu trực tiếp
+vào `station_content_items`, và có nút tải JSON từ dữ liệu Supabase để lưu bản
+sao nguồn đã duyệt. Không cần sửa JSON rồi tạo lại SQL cho mỗi lần chỉnh sửa.
+
+Sau khi duyệt đủ 10 ải, admin dùng nút `Phát hành V2`. RPC hiện có kiểm tra đủ
+năm trò khác loại mỗi ải và cập nhật `station_content_publications`. Học sinh
+đăng nhập sẽ đi qua `start_station_attempt` và `submit_station_answer` để nhận
+nội dung/chấm điểm V2. Nếu V2 lỗi sau phát hành, trang học sinh báo lỗi thay vì
+âm thầm hiển thị câu hỏi cũ hoặc câu hỏi mẫu. Bản đã `published` không thể sửa
+trực tiếp; cần tạo phiên bản mới.
+
+`station_questions` chỉ phục vụ trạm chưa được phát hành V2 và chế độ quản trị
+bảng cũ. Không chạy `supabase_station_content_v2_cutover.sql` trước khi 21 trạm
+đều được duyệt, phát hành và kiểm tra trên ứng dụng đã triển khai.
+
 1. Chạy `npm test`, `npm run validate:stations`, lint riêng tệp thay đổi và `npm run build`.
 2. Chạy `supabase_station_content_v2.sql`. Migration này chỉ thêm bảng/hàm/chính sách, không xóa bảng `station_questions` và không đổi tiến trình cũ.
 3. Tạo SQL nháp từ JSON bằng `npm run build:station-release -- <file.json> <output.sql>`.

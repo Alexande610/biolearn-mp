@@ -1,6 +1,6 @@
 import { validatePublishedStage } from './stationContent.js';
 
-const publicAndAnswer = (game) => {
+export const publicAndAnswer = (game) => {
   const { hint, explanation } = game.data;
   if (game.type === 'quiz') return {
     publicContent: { question: game.data.question, options: game.data.options, hint },

@@ -378,8 +378,11 @@ export default function StationExpeditionPage() {
             }
             return { ...item, ...content };
           });
-        } else if (secureError && !['PGRST202', '42883'].includes(secureError.code)) {
-          console.info('Nội dung V2 chưa sẵn sàng, sử dụng dữ liệu tương thích:', secureError.message);
+        } else if (secureError && !['PGRST202', '42883'].includes(secureError.code)
+          && !secureError.message?.includes('station_content_not_published')) {
+          throw secureError;
+        } else if (!secureError) {
+          throw new Error('Dữ liệu V2 của ải chưa đủ năm trò chơi.');
         }
       }
 
@@ -417,9 +420,15 @@ export default function StationExpeditionPage() {
       }
     } catch (err) {
       console.error("Lỗi fetch questions:", err);
+      showToast(`Không thể mở ải: ${err.message || 'Lỗi tải dữ liệu'}`, 'error');
+      return;
     }
 
     if (!games || games.length === 0) {
+      if (user?.id) {
+        showToast('Ải này chưa có dữ liệu đã phát hành. Vui lòng báo quản trị viên.', 'error');
+        return;
+      }
       games = getDefaultFallbackGames(selectedGrade, selectedStation.startDay + dayIndex - 1);
     }
 

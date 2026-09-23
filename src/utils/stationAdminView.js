@@ -22,5 +22,46 @@ export function toAdminStationGame(item) {
     data,
     learningObjective: item.learning_objective,
     sourceRefs: item.source_refs || [],
+    updatedAt: item.updated_at,
   };
 }
+
+export function toAdminStationUpdate(game) {
+  const separated = publicAndAnswer(game);
+  return {
+    title: game.title,
+    public_content: separated.publicContent,
+    answer_key: separated.answerKey,
+    learning_objective: game.learningObjective,
+    source_refs: game.sourceRefs,
+  };
+}
+
+export function toAdminStationDocument(release, items) {
+  if (items.length !== 50) throw new Error('Bản phát hành chưa có đủ 50 trò chơi.');
+  const stages = Array.from({ length: 10 }, (_, index) => {
+    const dayItems = items.filter(item => item.day_index === index + 1)
+      .sort((a, b) => a.game_index - b.game_index);
+    if (dayItems.length !== 5) throw new Error(`Ải ${index + 1} chưa đủ năm trò chơi.`);
+    return {
+      dayIndex: index + 1,
+      learningObjective: dayItems[0].learning_objective,
+      sourceRefs: dayItems[0].source_refs,
+      games: dayItems.map(item => {
+        const game = toAdminStationGame(item);
+        return { type: game.type, title: game.title, data: game.data };
+      }),
+    };
+  });
+  return {
+    schemaVersion: 1,
+    releaseVersion: release.version,
+    grade: release.grade,
+    stationId: release.station_id,
+    title: release.title,
+    status: release.status,
+    notes: release.notes,
+    stages,
+  };
+}
+import { publicAndAnswer } from './stationRelease.js';

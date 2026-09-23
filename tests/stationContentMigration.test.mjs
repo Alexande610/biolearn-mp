@@ -17,11 +17,35 @@ const grade7Station2Release = await fs.readFile('generated/station-releases/g7-s
 const grade7Station3Release = await fs.readFile('generated/station-releases/g7-st3-2026.1.sql', 'utf8');
 const grade8Releases = await Promise.all([1, 2, 3].map((station) => fs.readFile(`generated/station-releases/g8-st${station}-2026.1.sql`, 'utf8')));
 const cutover = await fs.readFile('supabase_station_content_v2_cutover.sql', 'utf8');
+const adminEditMigration = await fs.readFile('supabase_station_content_v2_admin_edit.sql', 'utf8');
 
 test('generated SQL uses a portable PL/pgSQL declaration block', () => {
   assert.match(pilotRelease, /do \$station_release\$\r?\ndeclare\r?\n\s+v_release_id uuid;/);
   assert.doesNotMatch(pilotRelease, /declare v_/);
   assert.doesNotMatch(pilotRelease, /\bor not exists\s*\(/i);
+});
+
+test('admin can edit a V2 draft item, which moves to review and blocks reimport', async () => {
+  const db = await setup();
+  try {
+    await db.exec(pilotRelease);
+    await db.exec(adminEditMigration);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${admin}', false);`);
+    const release = (await db.query("select id from station_content_releases where version = 'g6-st1-2026.1'")).rows[0];
+    const item = (await db.query('select id, updated_at, title, learning_objective, public_content, answer_key, source_refs from station_content_items where release_id = $1 and day_index = 1 and game_index = 1', [release.id])).rows[0];
+    const content = { title: 'Câu hỏi đã sửa', learning_objective: item.learning_objective,
+      public_content: item.public_content, answer_key: item.answer_key, source_refs: item.source_refs };
+    await db.query('select admin_update_station_content_item($1,$2,$3,$4::jsonb)',
+      [release.id, item.id, item.updated_at, JSON.stringify(content)]);
+    const result = (await db.query('select status from station_content_releases where id = $1', [release.id])).rows[0];
+    assert.equal(result.status, 'review');
+    assert.equal((await db.query('select title from station_content_items where id = $1', [item.id])).rows[0].title, 'Câu hỏi đã sửa');
+    await assert.rejects(db.exec(pilotRelease), /release_version_is_immutable/);
+    await db.exec('rollback;');
+    await db.exec(`select set_config('request.jwt.claim.sub', '${student}', false);`);
+    await assert.rejects(db.query('select admin_update_station_content_item($1,$2,$3,$4::jsonb)',
+      [release.id, item.id, item.updated_at, JSON.stringify(content)]), /admin_required/);
+  } finally { await db.close(); }
 });
 
 async function setup() {

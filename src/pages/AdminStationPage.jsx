@@ -10,8 +10,8 @@ import {
 import { supabase } from '../lib/supabase';
 import { reportSystemError } from '../lib/observability';
 import { ACTIVE_STATIONS } from '../data/stationCatalog';
-import { validatePublishedStage } from '../utils/stationContent';
-import { stationReleaseVersion, toAdminStationGame } from '../utils/stationAdminView';
+import { validatePublishedStage, validateStationGame } from '../utils/stationContent';
+import { stationReleaseVersion, toAdminStationGame, toAdminStationUpdate, toAdminStationDocument } from '../utils/stationAdminView';
 
 const GAME_TYPES = [
   { id: 'quiz', name: 'Trắc Nghiệm (Quiz)' },
@@ -33,6 +33,7 @@ export default function AdminStationPage() {
 
   const [loadingDB, setLoadingDB] = useState(false);
   const [savingDB, setSavingDB] = useState(false);
+  const [publishing, setPublishing] = useState(false);
   const [dataMode, setDataMode] = useState('v2');
   const [release, setRelease] = useState(null);
   const [loadError, setLoadError] = useState('');
@@ -63,7 +64,7 @@ export default function AdminStationPage() {
         const version = stationReleaseVersion(selectedGrade, selectedStationId);
         const { data: releaseRow, error: releaseError } = await supabase
           .from('station_content_releases')
-          .select('id, version, title, status, notes')
+          .select('id, version, grade, station_id, title, status, notes')
           .eq('version', version)
           .eq('grade', selectedGrade)
           .eq('station_id', selectedStationId)
@@ -71,7 +72,7 @@ export default function AdminStationPage() {
         if (releaseError) throw releaseError;
         const { data: items, error: itemsError } = await supabase
           .from('station_content_items')
-          .select('id, game_index, game_type, title, learning_objective, public_content, answer_key, source_refs')
+          .select('id, game_index, game_type, title, learning_objective, public_content, answer_key, source_refs, updated_at')
           .eq('release_id', releaseRow.id)
           .eq('day_index', selectedDay)
           .order('game_index', { ascending: true });
@@ -172,7 +173,7 @@ export default function AdminStationPage() {
       [reordered[index], reordered[targetIndex]] = [reordered[targetIndex], reordered[index]];
       return reordered;
     });
-    showToast('Đã chuyển trò chơi ' + (direction < 0 ? 'lên trên' : 'xuống dưới') + '. Hãy bấm Lưu Cấu Hình Database để áp dụng.', 'info');
+    showToast('Đã chuyển trò chơi ' + (direction < 0 ? 'lên trên' : 'xuống dưới') + '. Hãy bấm Lưu Bảng Cũ để áp dụng.', 'info');
   };
 
   // 3. LƯU CẤU HÌNH THỰC TẾ 100% VÀO SUPABASE DATABASE (BẢNG STATION_QUESTIONS)
@@ -235,10 +236,67 @@ export default function AdminStationPage() {
   };
 
   // Cập nhật sau khi sửa trong Modal
-  const handleSaveEditedGame = (updatedGame) => {
+  const handleSaveEditedGame = async (updatedGame) => {
+    if (dataMode === 'v2') {
+      const errors = validateStationGame(updatedGame);
+      if (errors.length) { showToast(errors[0], 'error'); return; }
+      if (!release || !['draft', 'review'].includes(release.status)) {
+        showToast('Bản đã phát hành không thể sửa trực tiếp.', 'error');
+        return;
+      }
+      setSavingDB(true);
+      try {
+        const { error } = await supabase.rpc('admin_update_station_content_item', {
+          p_release_id: release.id,
+          p_item_id: updatedGame.id,
+          p_expected_updated_at: updatedGame.updatedAt,
+          p_content: toAdminStationUpdate(updatedGame),
+        });
+        if (error) throw error;
+        setEditingGame(null);
+        showToast('Đã lưu nội dung V2. Bản chuyển sang trạng thái chờ duyệt.', 'success');
+        await fetchQuestionsFromSupabase();
+      } catch (err) {
+        showToast(`Không lưu được V2: ${err.message}`, 'error');
+      } finally { setSavingDB(false); }
+      return;
+    }
     setGamesList(prev => prev.map(g => g.id === updatedGame.id ? updatedGame : g));
     setEditingGame(null);
     showToast('Đã cập nhật chi tiết trò chơi!', 'success');
+  };
+
+  const handlePublishRelease = async () => {
+    if (!release || !['draft', 'review'].includes(release.status) || loadingDB || savingDB) return;
+    if (!window.confirm(`Phát hành ${release.version} cho học sinh? Hãy chắc chắn đã duyệt đủ 10 ải và 50 trò chơi.`)) return;
+    setPublishing(true);
+    try {
+      const { error } = await supabase.rpc('admin_publish_station_release', { p_release_id: release.id });
+      if (error) throw error;
+      showToast(`Đã phát hành ${release.version}. Học sinh đăng nhập sẽ dùng nội dung V2.`, 'success');
+      await fetchQuestionsFromSupabase();
+    } catch (err) {
+      showToast(`Không thể phát hành: ${err.message}`, 'error');
+    } finally { setPublishing(false); }
+  };
+
+  const handleDownloadV2 = async () => {
+    if (!release) return;
+    try {
+      const { data, error } = await supabase.from('station_content_items')
+        .select('day_index, game_index, game_type, title, learning_objective, public_content, answer_key, source_refs')
+        .eq('release_id', release.id);
+      if (error) throw error;
+      const document = toAdminStationDocument(release, data || []);
+      const url = URL.createObjectURL(new Blob([JSON.stringify(document, null, 2)], { type: 'application/json' }));
+      const anchor = window.document.createElement('a');
+      anchor.href = url;
+      anchor.download = `${release.version}.json`;
+      anchor.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      showToast(`Không tải được bản sao JSON: ${err.message}`, 'error');
+    }
   };
 
   return (
@@ -255,11 +313,21 @@ export default function AdminStationPage() {
               <h1 className="text-xl md:text-2xl font-black flex items-center gap-2">
                 <Settings className="w-6 h-6 text-cyan-400" /> Quản Lý Trạm Sinh Học (Admin)
               </h1>
-              <p className="text-xs text-slate-400 font-medium">Kiểm tra nội dung V2 theo từng ải; bản nháp chỉ để xem tại đây.</p>
+              <p className="text-xs text-slate-400 font-medium">Chỉnh sửa bản nháp V2, duyệt đủ 10 ải rồi phát hành cho học sinh.</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
+            {dataMode === 'v2' && release && <button type="button" onClick={handleDownloadV2}
+              className="px-3 py-3 rounded-2xl border border-cyan-400/50 text-cyan-200 text-xs font-bold">
+              Tải bản sao JSON
+            </button>}
+            {dataMode === 'v2' && release && ['draft', 'review'].includes(release.status) && <button
+              type="button" onClick={handlePublishRelease}
+              disabled={publishing || loadingDB || savingDB || Boolean(loadError)}
+              className="px-4 py-3 rounded-2xl bg-amber-500 text-black font-extrabold text-xs disabled:opacity-50">
+              {publishing ? 'Đang phát hành...' : 'Phát hành V2'}
+            </button>}
             <button
               onClick={toggleTheme}
               className="w-10 h-10 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center transition active:scale-95 cursor-pointer"
@@ -288,7 +356,7 @@ export default function AdminStationPage() {
             </button>
           </div>
           {dataMode === 'v2' && <p className="mt-2 text-amber-200">
-            {release ? `${release.version} · ${release.status} · Chỉ xem; nội dung trên trang này không được lưu vào V2.` : 'Đang tải bản phát hành V2 của trạm.'}
+            {release ? `${release.version} · ${release.status} · ${release.status === 'published' ? 'Đang dùng cho học sinh; muốn sửa cần phiên bản mới.' : 'Có thể sửa từng trò chơi và lưu trực tiếp vào V2.'}` : 'Đang tải bản phát hành V2 của trạm.'}
           </p>}
           {dataMode === 'legacy' && <p className="mt-2 text-amber-200">Chế độ bảng cũ. Mọi thao tác lưu ở đây không sửa bản nháp V2.</p>}
           {loadError && <p className="mt-2 text-rose-300" role="alert">{loadError}</p>}
@@ -394,8 +462,8 @@ export default function AdminStationPage() {
                   </div>
                 </div>
 
-                {dataMode === 'legacy' && <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1" aria-label="Sắp xếp trò chơi">
+                <div className="flex items-center gap-2">
+                  {dataMode === 'legacy' && <div className="flex items-center gap-1" aria-label="Sắp xếp trò chơi">
                     <button
                       type="button"
                       onClick={() => handleMoveGame(idx, -1)}
@@ -414,22 +482,22 @@ export default function AdminStationPage() {
                     >
                       <ArrowDown className="w-4 h-4" />
                     </button>
-                  </div>
+                  </div>}
                   {/* NÚT CHỈNH SỬA CHI TIẾT */}
-                  <button
-                    onClick={() => setEditingGame({ ...game })}
+                  {(dataMode === 'legacy' || ['draft', 'review'].includes(release?.status)) && <button
+                    onClick={() => setEditingGame(structuredClone(game))}
                     className="px-3 py-1.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/40 text-cyan-300 font-extrabold text-xs flex items-center gap-1.5 transition cursor-pointer"
                   >
                     <Edit3 className="w-3.5 h-3.5" /> Chỉnh Sửa Chi Tiết
-                  </button>
-                  <button
+                  </button>}
+                  {dataMode === 'legacy' && <button
                     onClick={() => handleDeleteGame(game.id)}
                     className="p-2 text-rose-400 hover:bg-rose-500/10 rounded-xl transition cursor-pointer"
                     title="Xóa trò chơi"
                   >
                     <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>}
+                  </button>}
+                </div>
               </div>
 
               {/* TÓM TẮT NỘI DUNG VỚI HINT & EXPLANATION */}
@@ -488,7 +556,7 @@ export default function AdminStationPage() {
       </div>
 
       {/* ✏️ MODAL CHỈNH SỬA CHI TIẾT TRÒ CHƠI (CÂU HỎI, ĐÁP ÁN, GỢI Ý & GIẢI THÍCH KHI SAI) */}
-      {dataMode === 'legacy' && editingGame && (
+      {editingGame && (
         <div className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
           <div className="admin-station-card w-full max-w-2xl bg-slate-900 border border-cyan-400/40 p-6 rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
             
@@ -502,6 +570,14 @@ export default function AdminStationPage() {
             </div>
 
             <div className="space-y-4 text-xs">
+
+              {dataMode === 'v2' && <div>
+                <label className="font-bold text-slate-300 block mb-1">Mục tiêu học tập:</label>
+                <textarea rows={2} value={editingGame.learningObjective || ''}
+                  onChange={(e) => setEditingGame({ ...editingGame, learningObjective: e.target.value })}
+                  className="admin-station-input w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white" />
+                <p className="mt-1 text-slate-400">Nguồn SGK của trò chơi được giữ nguyên khi lưu.</p>
+              </div>}
               
               {/* TIÊU ĐỀ TRÒ CHƠI */}
               <div>
@@ -648,6 +724,21 @@ export default function AdminStationPage() {
                       />
                     </div>
                   </div>
+                  <div className="space-y-2">
+                    <label className="font-bold text-slate-300 block">Các mục phân loại:</label>
+                    {editingGame.data.items?.map((item, itemIndex) => <div key={itemIndex} className="flex gap-2">
+                      <input value={item.name} onChange={(e) => {
+                        const items = editingGame.data.items.map((entry, index) => index === itemIndex ? { ...entry, name: e.target.value } : entry);
+                        setEditingGame({ ...editingGame, data: { ...editingGame.data, items } });
+                      }} className="admin-station-input w-2/3 bg-slate-950 border border-slate-700 rounded-xl p-2 text-white" />
+                      <select value={item.catIndex} onChange={(e) => {
+                        const items = editingGame.data.items.map((entry, index) => index === itemIndex ? { ...entry, catIndex: Number(e.target.value) } : entry);
+                        setEditingGame({ ...editingGame, data: { ...editingGame.data, items } });
+                      }} className="admin-station-input w-1/3 bg-slate-950 border border-slate-700 rounded-xl p-2 text-white">
+                        {editingGame.data.categories?.map((name, index) => <option key={index} value={index}>{name}</option>)}
+                      </select>
+                    </div>)}
+                  </div>
                 </>
               )}
 
@@ -662,6 +753,12 @@ export default function AdminStationPage() {
                       onChange={(e) => setEditingGame({ ...editingGame, data: { ...editingGame.data, textWithBlanks: e.target.value } })}
                       className="admin-station-input w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white"
                     />
+                  </div>
+                  <div>
+                    <label className="font-bold text-slate-300 block mb-1">Kho từ (mỗi dòng một từ):</label>
+                    <textarea rows={3} value={editingGame.data.bankWords?.join('\n') || ''}
+                      onChange={(e) => setEditingGame({ ...editingGame, data: { ...editingGame.data, bankWords: e.target.value.split('\n') } })}
+                      className="admin-station-input w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-xs text-white" />
                   </div>
                   <div>
                     <label className="font-bold text-emerald-400 block mb-1">Từ đáp án đúng:</label>
@@ -709,8 +806,8 @@ export default function AdminStationPage() {
               <button onClick={() => setEditingGame(null)} className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs cursor-pointer">
                 Hủy Bỏ
               </button>
-              <button onClick={() => handleSaveEditedGame(editingGame)} className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs uppercase tracking-wider cursor-pointer shadow-lg shadow-cyan-500/20">
-                Lưu Thay Đổi
+              <button onClick={() => handleSaveEditedGame(editingGame)} disabled={savingDB} className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs uppercase tracking-wider cursor-pointer shadow-lg shadow-cyan-500/20 disabled:opacity-50">
+                {savingDB ? 'Đang lưu...' : dataMode === 'v2' ? 'Lưu vào V2' : 'Lưu Thay Đổi'}
               </button>
             </div>
 
