@@ -34,6 +34,7 @@ export default function AdminStationPage() {
   const [loadingDB, setLoadingDB] = useState(false);
   const [savingDB, setSavingDB] = useState(false);
   const [publishing, setPublishing] = useState(false);
+  const [publishConfirmRelease, setPublishConfirmRelease] = useState(null);
   const [dataMode, setDataMode] = useState('v2');
   const [release, setRelease] = useState(null);
   const [loadError, setLoadError] = useState('');
@@ -266,14 +267,22 @@ export default function AdminStationPage() {
     showToast('Đã cập nhật chi tiết trò chơi!', 'success');
   };
 
-  const handlePublishRelease = async () => {
+  const handlePublishRelease = () => {
     if (!release || !['draft', 'review'].includes(release.status) || loadingDB || savingDB) return;
-    if (!window.confirm(`Phát hành ${release.version} cho học sinh? Hãy chắc chắn đã duyệt đủ 10 ải và 50 trò chơi.`)) return;
+    setPublishConfirmRelease({ id: release.id, version: release.version, title: release.title });
+  };
+
+  const confirmPublishRelease = async () => {
+    if (!publishConfirmRelease || release?.id !== publishConfirmRelease.id || publishing) {
+      setPublishConfirmRelease(null);
+      return;
+    }
     setPublishing(true);
     try {
-      const { error } = await supabase.rpc('admin_publish_station_release', { p_release_id: release.id });
+      const { error } = await supabase.rpc('admin_publish_station_release', { p_release_id: publishConfirmRelease.id });
       if (error) throw error;
-      showToast(`Đã phát hành ${release.version}. Học sinh đăng nhập sẽ dùng nội dung V2.`, 'success');
+      setPublishConfirmRelease(null);
+      showToast(`Đã phát hành ${publishConfirmRelease.version}. Học sinh đăng nhập sẽ dùng nội dung V2.`, 'success');
       await fetchQuestionsFromSupabase();
     } catch (err) {
       showToast(`Không thể phát hành: ${err.message}`, 'error');
@@ -554,6 +563,38 @@ export default function AdminStationPage() {
         </div>
 
       </div>
+
+      {publishConfirmRelease && <div
+        role="presentation"
+        onClick={() => { if (!publishing) setPublishConfirmRelease(null); }}
+        className="fixed inset-0 z-[10000] bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4"
+      >
+        <div role="dialog" aria-modal="true" aria-labelledby="publish-v2-title"
+          onClick={(event) => event.stopPropagation()}
+          className="admin-station-card w-full max-w-lg rounded-3xl border border-amber-400/40 bg-slate-900 p-6 text-white shadow-2xl">
+          <div className="flex items-start gap-3">
+            <AlertCircle className="w-6 h-6 shrink-0 text-amber-400" />
+            <div>
+              <h2 id="publish-v2-title" className="text-lg font-black">Xác nhận phát hành trạm V2</h2>
+              <p className="mt-2 text-sm text-slate-200">{publishConfirmRelease.title}</p>
+              <p className="mt-1 text-xs font-bold text-amber-300">Phiên bản: {publishConfirmRelease.version}</p>
+            </div>
+          </div>
+          <p className="mt-5 text-sm text-slate-200">
+            Hãy chắc chắn đã duyệt đủ 10 ải và 50 trò chơi. Sau khi phát hành, học sinh đăng nhập sẽ nhận nội dung V2 của trạm này. Bản phát hành sẽ không thể sửa trực tiếp.
+          </p>
+          <div className="mt-6 flex justify-end gap-3">
+            <button type="button" onClick={() => setPublishConfirmRelease(null)} disabled={publishing} autoFocus
+              className="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-bold text-white hover:bg-white/10 disabled:opacity-50">
+              Tiếp tục duyệt
+            </button>
+            <button type="button" onClick={confirmPublishRelease} disabled={publishing}
+              className="rounded-xl bg-amber-500 px-4 py-2.5 text-sm font-extrabold text-slate-950 hover:bg-amber-400 disabled:opacity-50">
+              {publishing ? 'Đang phát hành...' : 'Xác nhận phát hành'}
+            </button>
+          </div>
+        </div>
+      </div>}
 
       {/* ✏️ MODAL CHỈNH SỬA CHI TIẾT TRÒ CHƠI (CÂU HỎI, ĐÁP ÁN, GỢI Ý & GIẢI THÍCH KHI SAI) */}
       {editingGame && (
