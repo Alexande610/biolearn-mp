@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { useToast } from '../components/Toast';
@@ -11,6 +11,7 @@ import { supabase } from '../lib/supabase';
 import { reportSystemError } from '../lib/observability';
 import { ACTIVE_STATIONS } from '../data/stationCatalog';
 import { validatePublishedStage } from '../utils/stationContent';
+import { stationReleaseVersion, toAdminStationGame } from '../utils/stationAdminView';
 
 const GAME_TYPES = [
   { id: 'quiz', name: 'Trắc Nghiệm (Quiz)' },
@@ -32,6 +33,10 @@ export default function AdminStationPage() {
 
   const [loadingDB, setLoadingDB] = useState(false);
   const [savingDB, setSavingDB] = useState(false);
+  const [dataMode, setDataMode] = useState('v2');
+  const [release, setRelease] = useState(null);
+  const [loadError, setLoadError] = useState('');
+  const loadSequence = useRef(0);
 
   // Danh sách trò chơi trong Ải
   const [gamesList, setGamesList] = useState([]);
@@ -46,78 +51,39 @@ export default function AdminStationPage() {
   );
   const selectedDayDisplay = selectedStation.startDay + selectedDay - 1;
 
-  // 2. DỮ LIỆU DEMO MẶC ĐỊNH
-  function getDefaultDemoGames(grade, day) { return [
-    {
-      id: 1,
-      type: 'quiz',
-      title: 'Phần 1: Trắc nghiệm Tế bào',
-      data: {
-        question: `[Lớp ${grade} - Ngày ${day}] Đơn vị cấu tạo nên mọi cơ thể sống là gì?`,
-        options: ['Tế bào', 'Mô', 'Cơ quan', 'Hệ cơ quan'],
-        answerIndex: 0,
-        hint: 'Đây là đơn vị nhỏ nhất thực hiện các chức năng sống cơ bản.',
-        explanation: 'Đáp án đúng là Tế bào. Mọi cơ thể từ vi khuẩn đến con người đều được cấu tạo từ tế bào.'
-      }
-    },
-    {
-      id: 2,
-      type: 'match',
-      title: 'Phần 2: Nối từ Khái niệm',
-      data: {
-        pairs: [
-          { left: 'Nhân tế bào', right: 'Chứa thông tin di truyền ADN' },
-          { left: 'Tế bào chất', right: 'Nơi diễn ra các hoạt động sống' },
-          { left: 'Màng tế bào', right: 'Bảo vệ & kiểm soát các chất' }
-        ],
-        hint: 'Nhân tế bào là trung tâm điều khiển chứa ADN.',
-        explanation: 'Nhân điều khiển di truyền, màng bao bọc kiểm soát chất, tế bào chất là môi trường phản ứng.'
-      }
-    },
-    {
-      id: 3,
-      type: 'fill',
-      title: 'Phần 3: Điền từ Còn thiếu',
-      data: {
-        sentence: 'Kính hiển vi quang học giúp quan sát các [blank] nhỏ bé.',
-        correctAnswer: 'tế bào',
-        hint: 'Từ có 2 tiếng bắt đầu bằng chữ T.',
-        explanation: 'Đáp án đúng: "tế bào". Kính hiển vi dùng phóng đại hình ảnh tế bào.'
-      }
-    },
-    {
-      id: 4,
-      type: 'category',
-      title: 'Phần 4: Phân loại Nhóm Sinh vật',
-      data: {
-        categories: ['Nhân Sơ', 'Nhân Thực'],
-        items: [
-          { name: 'Vi khuẩn E.coli', catIndex: 0 },
-          { name: 'Tế bào thực vật', catIndex: 1 },
-          { name: 'Tế bào động vật', catIndex: 1 }
-        ],
-        hint: 'Vi khuẩn chưa có màng nhân chính thức (nhân sơ).',
-        explanation: 'Vi khuẩn E.coli thuộc nhóm Nhân Sơ. Thực vật & Động vật thuộc nhóm Nhân Thực.'
-      }
-    },
-    {
-      id: 5,
-      type: 'dragdrop',
-      title: 'Phần 5: Kéo thả Hoàn thành câu',
-      data: {
-        textWithBlanks: 'Quang hợp tạo ra khí [blank] cung cấp cho sự sống.',
-        bankWords: ['Oxy', 'Cacbonic', 'Nito'],
-        correctWord: 'Oxy',
-        hint: 'Khí mà con người hít thở hàng ngày.',
-        explanation: 'Đáp án đúng là Oxy. Cây xanh nhả khí Oxy trong quá trình quang hợp.'
-      }
-    }
-  ]; }
-
   // 1. TẢI CÂU HỎI THỰC TẾ TỪ SUPABASE DATABASE
   const fetchQuestionsFromSupabase = async () => {
+    const sequence = ++loadSequence.current;
     setLoadingDB(true);
+    setGamesList([]);
+    setRelease(null);
+    setLoadError('');
     try {
+      if (dataMode === 'v2') {
+        const version = stationReleaseVersion(selectedGrade, selectedStationId);
+        const { data: releaseRow, error: releaseError } = await supabase
+          .from('station_content_releases')
+          .select('id, version, title, status, notes')
+          .eq('version', version)
+          .eq('grade', selectedGrade)
+          .eq('station_id', selectedStationId)
+          .single();
+        if (releaseError) throw releaseError;
+        const { data: items, error: itemsError } = await supabase
+          .from('station_content_items')
+          .select('id, game_index, game_type, title, learning_objective, public_content, answer_key, source_refs')
+          .eq('release_id', releaseRow.id)
+          .eq('day_index', selectedDay)
+          .order('game_index', { ascending: true });
+        if (itemsError) throw itemsError;
+        if (!items || items.length !== 5 || new Set(items.map(item => item.game_type)).size !== 5) {
+          throw new Error('Ải V2 chưa có đủ năm trò chơi khác loại.');
+        }
+        if (sequence !== loadSequence.current) return;
+        setRelease(releaseRow);
+        setGamesList(items.map(toAdminStationGame));
+        return;
+      }
       const { data, error } = await supabase
         .from('station_questions')
         .select('*')
@@ -126,7 +92,9 @@ export default function AdminStationPage() {
         .eq('day_index', selectedDay)
         .order('game_index', { ascending: true });
 
-      if (!error && data && data.length > 0) {
+      if (error) throw error;
+      if (data && data.length > 0) {
+        if (sequence !== loadSequence.current) return;
         setGamesList(data.map(item => ({
           id: item.id || Date.now(),
           type: item.game_type,
@@ -134,26 +102,27 @@ export default function AdminStationPage() {
           data: item.content
         })));
       } else {
-        setGamesList(getDefaultDemoGames(selectedGrade, selectedDayDisplay));
+        if (sequence === loadSequence.current) setLoadError('Bảng câu hỏi cũ không có dữ liệu cho ải này.');
       }
     } catch (err) {
-      console.error('Lỗi fetch station_questions:', err);
+      if (sequence !== loadSequence.current) return;
+      console.error('Lỗi tải dữ liệu trạm:', err);
       reportSystemError(err, {
-        action: 'station_questions_load_failed',
+        action: 'station_content_load_failed',
         component: 'AdminStationPage',
         operation: 'fetchQuestionsFromSupabase',
         supabaseCode: err.code,
       });
-      setGamesList(getDefaultDemoGames(selectedGrade, selectedDayDisplay));
+      setLoadError(`Không tải được dữ liệu ${dataMode === 'v2' ? 'V2' : 'cũ'}: ${err.message || 'Lỗi không xác định'}`);
     }
-    setLoadingDB(false);
+    finally { if (sequence === loadSequence.current) setLoadingDB(false); }
   };
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchQuestionsFromSupabase();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedGrade, selectedStationId, selectedDay]);
+  }, [selectedGrade, selectedStationId, selectedDay, dataMode]);
 
   // NÚT THÊM TRÒ CHƠI LUÔN LUÔN HIỂN THỊ (CÓ SELECT CHỌN LOẠI GAME)
   const handleAddGame = () => {
@@ -286,7 +255,7 @@ export default function AdminStationPage() {
               <h1 className="text-xl md:text-2xl font-black flex items-center gap-2">
                 <Settings className="w-6 h-6 text-cyan-400" /> Quản Lý Trạm Sinh Học (Admin)
               </h1>
-              <p className="text-xs text-slate-400 font-medium">Cấu hình chi tiết trò chơi, đáp án, gợi ý & giải thích cho từng Ải Ngày</p>
+              <p className="text-xs text-slate-400 font-medium">Kiểm tra nội dung V2 theo từng ải; bản nháp chỉ để xem tại đây.</p>
             </div>
           </div>
 
@@ -299,16 +268,31 @@ export default function AdminStationPage() {
               {theme === 'light' ? <Moon className="w-5 h-5 text-slate-800" /> : <Sun className="w-5 h-5 text-yellow-400 animate-pulse" />}
             </button>
 
-            <button
+            {dataMode === 'legacy' && <button
               onClick={handleSaveToDatabase}
-              disabled={savingDB}
+              disabled={savingDB || loadingDB || Boolean(loadError)}
               className="px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-black font-extrabold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg shadow-emerald-500/20 hover:brightness-110 active:scale-95 transition cursor-pointer disabled:opacity-50"
             >
               <Save className={`w-4 h-4 ${savingDB ? 'animate-spin' : ''}`} />
-              <span>{savingDB ? 'Đang Lưu DB...' : 'Lưu Cấu Hình Database'}</span>
-            </button>
+              <span>{savingDB ? 'Đang Lưu DB...' : 'Lưu Bảng Cũ'}</span>
+            </button>}
           </div>
         </header>
+
+        <div className="admin-station-card p-4 rounded-2xl border border-white/10 mb-6 text-sm" role="status">
+          <div className="flex flex-wrap items-center gap-3">
+            <strong>Nguồn dữ liệu: {dataMode === 'v2' ? 'Nội dung V2' : 'Bảng cũ station_questions'}</strong>
+            <button type="button" onClick={() => setDataMode(dataMode === 'v2' ? 'legacy' : 'v2')}
+              className="rounded-lg border border-cyan-400/50 px-3 py-1 text-cyan-200">
+              {dataMode === 'v2' ? 'Xem bảng cũ' : 'Trở về nội dung V2'}
+            </button>
+          </div>
+          {dataMode === 'v2' && <p className="mt-2 text-amber-200">
+            {release ? `${release.version} · ${release.status} · Chỉ xem; nội dung trên trang này không được lưu vào V2.` : 'Đang tải bản phát hành V2 của trạm.'}
+          </p>}
+          {dataMode === 'legacy' && <p className="mt-2 text-amber-200">Chế độ bảng cũ. Mọi thao tác lưu ở đây không sửa bản nháp V2.</p>}
+          {loadError && <p className="mt-2 text-rose-300" role="alert">{loadError}</p>}
+        </div>
 
         {/* BỘ LỌC KHỐI LỚP, TRẠM & ẢI NGÀY */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -367,7 +351,7 @@ export default function AdminStationPage() {
             {loadingDB && <RefreshCw className="w-4 h-4 animate-spin text-cyan-400" aria-label="Đang tải dữ liệu" />}
           </h2>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto">
+          {dataMode === 'legacy' && <div className="flex items-center gap-2 w-full sm:w-auto">
             {/* SELECT CHỌN LOẠI TRÒ CHƠI MONG MUỐN THÊM */}
             <select
               value={selectedGameTypeToAdd}
@@ -386,7 +370,7 @@ export default function AdminStationPage() {
             >
               <Plus className="w-4 h-4" /> Thêm Trò Chơi
             </button>
-          </div>
+          </div>}
         </div>
 
         {/* DANH SÁCH CÁC THẺ TRÒ CHƠI */}
@@ -410,7 +394,7 @@ export default function AdminStationPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                {dataMode === 'legacy' && <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1" aria-label="Sắp xếp trò chơi">
                     <button
                       type="button"
@@ -445,11 +429,15 @@ export default function AdminStationPage() {
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
-                </div>
+                </div>}
               </div>
 
               {/* TÓM TẮT NỘI DUNG VỚI HINT & EXPLANATION */}
               <div className="p-4 rounded-2xl bg-black/20 border border-white/5 text-xs space-y-2">
+                {dataMode === 'v2' && <>
+                  <p><strong>Mục tiêu học tập:</strong> {game.learningObjective}</p>
+                  <p><strong>Nguồn:</strong> {game.sourceRefs?.map(ref => [ref.source, ref.lesson, ref.pages].filter(Boolean).join(' · ')).join('; ')}</p>
+                </>}
                 {game.type === 'quiz' && (
                   <div>
                     <p className="font-bold mb-1">Câu hỏi: {game.data.question}</p>
@@ -500,7 +488,7 @@ export default function AdminStationPage() {
       </div>
 
       {/* ✏️ MODAL CHỈNH SỬA CHI TIẾT TRÒ CHƠI (CÂU HỎI, ĐÁP ÁN, GỢI Ý & GIẢI THÍCH KHI SAI) */}
-      {editingGame && (
+      {dataMode === 'legacy' && editingGame && (
         <div className="fixed inset-0 z-[10000] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
           <div className="admin-station-card w-full max-w-2xl bg-slate-900 border border-cyan-400/40 p-6 rounded-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
             
