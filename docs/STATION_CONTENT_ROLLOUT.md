@@ -76,13 +76,16 @@ nghĩa hàm chấm điểm cũ.
 - Phân loại V2 nhận phản hồi từng mục sau lượt sai đầu tiên, hiện mục sai đỏ
   trong 1,2 giây rồi đưa chúng về kho; mục đúng ở lại bảng.
 - Demo Test chỉ dành cho tài khoản có `profiles.is_test_account = true`. Nó có
-  thể thử ải chưa vượt nhưng không gọi hàm nhận thưởng, không ghi
-  `station_progress` và không mở ải thật. Lượt thường vẫn yêu cầu có sao ở ải
-  trước. Trạm chưa `published` vẫn không có dữ liệu V2 để thử.
+  thể thử ải chưa vượt. Sao và phần thưởng được tính, hiển thị theo kết quả;
+  linh vật mở rương và đi tới ải tiếp theo như lượt thường. Tiến trình demo chỉ
+  giữ trong phiên giao diện, không gọi hàm nhận thưởng, không ghi
+  `station_progress` và không cộng xu/XP vào tài khoản. Lượt thường vẫn yêu cầu
+  có sao ở ải trước. Trạm chưa `published` vẫn không có dữ liệu V2 để thử.
 
 Kiểm tra sau triển khai: một tài khoản test thử ải 2 khi chưa vượt ải 1; một
 tài khoản thường bị chặn ải 2; nối một cặp sai rồi đúng; phân loại một mục sai;
-chơi đủ năm trò và kiểm tra sao/tiến trình chỉ tăng ở lượt thường. Dừng phát
+chơi đủ năm trò và kiểm tra demo hiện sao/rương/linh vật nhưng số dư chỉ tăng ở
+lượt thường. Dừng phát
 hành thêm trạm nếu bất kỳ ca nào không đúng.
 
 1. Chạy `npm test`, `npm run validate:stations`, lint riêng tệp thay đổi và `npm run build`.

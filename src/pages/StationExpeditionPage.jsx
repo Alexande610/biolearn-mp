@@ -189,6 +189,7 @@ export default function StationExpeditionPage() {
   const [mascotType, setMascotType] = useState('turtle');
 
   const [stationProgress, setStationProgress] = useState({});
+  const [demoProgress, setDemoProgress] = useState({});
 
   // 🎮 STATES CHO MÁY CHƠI 5 DẠNG MINI-GAME VỚI LOGIC 2 LẦN THỬ
   const [activeDayQuiz, setActiveDayQuiz] = useState(null);
@@ -280,13 +281,14 @@ export default function StationExpeditionPage() {
   }, [user?.id]);
 
   const stationsForGrade = GRADE_STATIONS[selectedGrade] || GRADE_STATIONS[6];
+  const getDisplayedProgress = (key) => demoMode ? (demoProgress[key] || stationProgress[key]) : stationProgress[key];
 
   const getIslandStats = (stationId, totalDays) => {
     let completedDays = 0;
     let totalStars = 0;
     for (let d = 1; d <= totalDays; d++) {
       const key = `${stationId}_${d}`;
-      const prog = stationProgress[key];
+      const prog = getDisplayedProgress(key);
       if (prog && prog.stars > 0) {
         completedDays++;
         totalStars += prog.stars;
@@ -336,7 +338,7 @@ export default function StationExpeditionPage() {
     let opened = [];
     for (let d = 1; d <= st.daysCount; d++) {
       const key = `${st.id}_${d}`;
-      if (stationProgress[key]?.stars > 0) {
+      if (getDisplayedProgress(key)?.stars > 0) {
         currentPosDay = Math.min(st.daysCount + 1, d + 1);
         if (d <= st.daysCount) opened.push(d - 1);
       }
@@ -830,17 +832,10 @@ export default function StationExpeditionPage() {
       else if (correctRatio >= 0.6) earnedStars = 1;
     }
 
-    if (activeAttemptIsDemo) {
-      setActiveDayQuiz(null);
-      setServerAttemptId(null);
-      setServerCompletion(null);
-      setActiveAttemptIsDemo(false);
-      showToast(`Đã thử xong ải ${dayDisplayNum}. Chế độ Demo không lưu sao hoặc phần thưởng.`, 'info');
-      return;
-    }
-
     const key = `${activeDayQuiz.stationId}_${completedDayIndex}`;
-    const oldProg = stationProgress[key] || { stars: 0, claimedStars: 0 };
+    const oldProg = activeAttemptIsDemo
+      ? (demoProgress[key] || stationProgress[key] || { stars: 0, claimedStars: 0 })
+      : (stationProgress[key] || { stars: 0, claimedStars: 0 });
     const newMaxStars = Math.max(oldProg.stars || 0, earnedStars);
 
     const isGrandChestDay = completedDayIndex === selectedStation.daysCount;
@@ -855,10 +850,14 @@ export default function StationExpeditionPage() {
     const newTotalRewards = getRewardForStars(newMaxStars);
     const claimedRewards = getRewardForStars(oldProg.claimedStars || 0);
 
-    const incCoins = serverAttemptId
+    const incCoins = activeAttemptIsDemo
+      ? getRewardForStars(earnedStars).coins
+      : serverAttemptId
       ? Number(serverCompletion?.reward?.coins || 0)
       : Math.max(0, newTotalRewards.coins - claimedRewards.coins);
-    const incXp = serverAttemptId
+    const incXp = activeAttemptIsDemo
+      ? getRewardForStars(earnedStars).xp
+      : serverAttemptId
       ? Number(serverCompletion?.reward?.xp || 0)
       : Math.max(0, newTotalRewards.xp - claimedRewards.xp);
 
@@ -866,7 +865,11 @@ export default function StationExpeditionPage() {
       ...stationProgress,
       [key]: { stars: newMaxStars, claimedStars: newMaxStars }
     };
-    setStationProgress(updatedProgress);
+    if (activeAttemptIsDemo) {
+      setDemoProgress(previous => ({ ...previous, [key]: { stars: newMaxStars, claimedStars: 0 } }));
+    } else {
+      setStationProgress(updatedProgress);
+    }
 
     if (user?.id && !serverAttemptId) {
       try {
@@ -887,10 +890,11 @@ export default function StationExpeditionPage() {
       }
     }
 
-    if (user?.id && serverAttemptId && serverCompletion?.reward?.awarded) refreshUserStats();
+    if (user?.id && serverAttemptId && !activeAttemptIsDemo && serverCompletion?.reward?.awarded) refreshUserStats();
     setActiveDayQuiz(null);
     setServerAttemptId(null);
     setServerCompletion(null);
+    setActiveAttemptIsDemo(false);
 
     if (earnedStars > 0) {
       setJustCompletedDayNode(completedDayIndex);
@@ -909,7 +913,8 @@ export default function StationExpeditionPage() {
               dayIndex: dayDisplayNum,
               earnedStars,
               isGrand: isGrandChestDay,
-              rewards: { coins: incCoins, xp: incXp }
+              rewards: { coins: incCoins, xp: incXp },
+              isDemo: activeAttemptIsDemo
             });
           }
 
@@ -998,6 +1003,9 @@ export default function StationExpeditionPage() {
               <button
                 onClick={() => {
                   setDemoMode(prev => !prev);
+                  setViewMode('world');
+                  setSelectedStation(null);
+                  setOpenedChests([]);
                   showToast(demoMode ? 'Tắt Chế độ Thử nghiệm' : '⚡ Bật Chế độ Thử nghiệm', 'success');
                 }}
                 className={`px-3 py-1.5 rounded-xl border text-xs font-extrabold transition flex items-center gap-1.5 cursor-pointer ${demoMode ? 'bg-amber-500/20 border-amber-400 text-amber-300' : 'bg-white/5 border-white/10 text-white/60 hover:text-white'
@@ -1219,7 +1227,7 @@ export default function StationExpeditionPage() {
                 const dayIndex = i + 1;
                 const dayDisplayNum = selectedStation.startDay + i;
                 const key = `${selectedStation.id}_${dayIndex}`;
-                const prog = stationProgress[key] || { stars: 0 };
+                const prog = getDisplayedProgress(key) || { stars: 0 };
                 const unlocked = dayIndex === 1 || demoMode || stationProgress[`${selectedStation.id}_${dayIndex - 1}`]?.stars > 0;
                 const isStarPopNode = justCompletedDayNode === dayIndex;
 
@@ -1275,6 +1283,7 @@ export default function StationExpeditionPage() {
             </div>
             <h3 className="text-2xl font-black mb-1">Mở Rương Kho Báu Sinh Học!</h3>
             <p className="text-xs text-amber-500 font-bold mb-6">Thành tích Ngày {showLootModal.dayIndex} • {showLootModal.earnedStars} Sao ⭐</p>
+            {showLootModal.isDemo && <p className="text-xs text-cyan-300 font-bold mb-4">Chế độ Demo: phần thưởng chỉ hiển thị, không cộng vào tài khoản.</p>}
             <div className="grid grid-cols-2 gap-3 mb-6">
               <div className="p-4 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex flex-col items-center">
                 <Coins className="w-8 h-8 text-yellow-500 mb-1" />
@@ -1288,7 +1297,7 @@ export default function StationExpeditionPage() {
               </div>
             </div>
             <button onClick={() => setShowLootModal(null)} className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-black font-extrabold text-sm uppercase tracking-wider hover:brightness-110 active:scale-95 transition cursor-pointer shadow-lg shadow-amber-500/30">
-              Thu Nhận Phần Thưởng
+              {showLootModal.isDemo ? 'Tiếp tục' : 'Thu Nhận Phần Thưởng'}
             </button>
           </div>
         </div>
