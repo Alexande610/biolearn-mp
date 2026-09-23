@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Nhận biết các pha chính của chu kì tế bào.', lesson: 'Bài 16. Chu kì tế bào và nguyên phân',
+    quiz: ['DNA thường được nhân đôi ở pha nào của kì trung gian?', ['Pha S', 'Pha G1', 'Pha G2', 'Kì cuối'], 0, 'Chữ S gợi tổng hợp DNA.', 'DNA được nhân đôi trong pha S của kì trung gian.'],
+    match: [['Pha G1', 'Tế bào lớn lên và chuẩn bị nhân đôi DNA'], ['Pha S', 'DNA được nhân đôi'], ['Pha G2', 'Tiếp tục chuẩn bị cho phân bào']],
+    fill: ['DNA nhân đôi ở pha [blank] của chu kì tế bào.', 'S'],
+    category: [['Kì trung gian', 'Giai đoạn phân bào'], [['Pha G1', 0], ['Pha S', 0], ['Pha G2', 0], ['Kì giữa', 1]]],
+    drag: ['Chu kì tế bào gồm kì trung gian và giai đoạn [blank].', ['phân bào', 'thụ tinh', 'quang hợp'], 'phân bào'],
+  },
+  {
+    objective: 'Sắp xếp các kì nguyên phân và nêu ý nghĩa của nguyên phân.', lesson: 'Bài 16. Chu kì tế bào và nguyên phân',
+    quiz: ['Ở kì giữa nguyên phân, nhiễm sắc thể thường sắp xếp ở đâu?', ['Mặt phẳng xích đạo của tế bào', 'Ngoài tế bào', 'Trong không bào', 'Trên thành tế bào'], 0, 'Vị trí giữa tế bào.', 'Ở kì giữa, nhiễm sắc thể kép tập trung trên mặt phẳng xích đạo.'],
+    match: [['Kì đầu', 'Nhiễm sắc thể co xoắn'], ['Kì giữa', 'Nhiễm sắc thể xếp ở mặt phẳng xích đạo'], ['Kì sau', 'Các chromatid tách và đi về hai cực']],
+    fill: ['Nguyên phân thường tạo [blank] tế bào con từ một tế bào mẹ.', 'hai'],
+    category: [['Diễn ra trong nguyên phân', 'Không phải nguyên phân'], [['Nhiễm sắc thể co xoắn', 0], ['Chromatid tách nhau', 0], ['Tạo hai tế bào con', 0], ['Kết hợp hai giao tử', 1]]],
+    drag: ['Nguyên phân góp phần làm cơ thể đa bào lớn lên nhờ tăng số lượng [blank].', ['tế bào', 'loài', 'quần thể'], 'tế bào'],
+  },
+  {
+    objective: 'Phân biệt giảm phân với nguyên phân.', lesson: 'Bài 17. Giảm phân',
+    quiz: ['Sau giảm phân, bộ nhiễm sắc thể của tế bào con thường thế nào so với tế bào mẹ lưỡng bội?', ['Giảm còn một nửa', 'Gấp đôi', 'Không có DNA', 'Luôn giữ nguyên lưỡng bội'], 0, 'Giao tử thường đơn bội.', 'Giảm phân tạo các tế bào có bộ nhiễm sắc thể đơn bội từ tế bào mẹ lưỡng bội.'],
+    match: [['Nguyên phân', 'Một lần phân chia tạo hai tế bào'], ['Giảm phân', 'Hai lần phân chia tạo tế bào đơn bội'], ['Thụ tinh', 'Khôi phục bộ nhiễm sắc thể lưỡng bội']],
+    fill: ['Giảm phân góp phần tạo giao tử mang bộ nhiễm sắc thể [blank].', 'đơn bội'],
+    category: [['Nguyên phân', 'Giảm phân'], [['Tạo hai tế bào con', 0], ['Giúp cơ thể lớn lên', 0], ['Có hai lần phân chia liên tiếp', 1], ['Tạo giao tử ở nhiều loài', 1]]],
+    drag: ['Giảm phân gồm hai lần [blank] liên tiếp.', ['phân chia', 'thụ tinh', 'quang hợp'], 'phân chia'],
+  },
+  {
+    objective: 'Nhận biết ứng dụng của công nghệ tế bào trong nhân giống.', lesson: 'Bài 19. Công nghệ tế bào',
+    quiz: ['Nuôi cấy mô thực vật thường được dùng để làm gì?', ['Nhân nhanh cây giống', 'Biến lá thành đá', 'Thay thế mọi hoạt động quang hợp', 'Tạo ánh sáng từ đất'], 0, 'Từ mẫu mô nhỏ có thể tạo nhiều cây.', 'Nuôi cấy mô giúp nhân nhanh nhiều cây giống trong điều kiện phù hợp.'],
+    match: [['Nuôi cấy mô', 'Tạo cây từ mẫu mô trong môi trường thích hợp'], ['Môi trường vô trùng', 'Hạn chế nhiễm vi sinh vật'], ['Cây giống', 'Sản phẩm có thể tạo ra từ nuôi cấy mô']],
+    fill: ['Nuôi cấy [blank] có thể tạo nhiều cây giống từ mẫu thực vật nhỏ.', 'mô'],
+    category: [['Điều kiện hỗ trợ nuôi cấy mô', 'Điều kiện dễ gây thất bại'], [['Dụng cụ vô trùng', 0], ['Môi trường dinh dưỡng phù hợp', 0], ['Kiểm soát điều kiện nuôi', 0], ['Để mẫu nhiễm nấm mốc', 1]]],
+    drag: ['Công nghệ nuôi cấy mô thực vật có thể hỗ trợ [blank] giống.', ['nhân', 'xoá mọi', 'đốt'], 'nhân'],
+  },
+  {
+    objective: 'Nêu đặc điểm chung và sự đa dạng của vi sinh vật.', lesson: 'Bài 20. Sự đa dạng và phương pháp nghiên cứu vi sinh vật',
+    quiz: ['Đặc điểm thường gặp của vi sinh vật là gì?', ['Kích thước nhỏ, cần kính hiển vi để quan sát nhiều loài', 'Luôn nhìn rõ bằng mắt thường', 'Đều là động vật lớn', 'Không có vai trò trong tự nhiên'], 0, 'Xét kích thước của nhiều vi khuẩn, nấm men.', 'Nhiều vi sinh vật có kích thước rất nhỏ và cần kính hiển vi để quan sát.'],
+    match: [['Vi khuẩn', 'Vi sinh vật nhân sơ'], ['Nấm men', 'Vi sinh vật nhân thực'], ['Kính hiển vi', 'Dụng cụ quan sát nhiều vi sinh vật']],
+    fill: ['Nhiều vi sinh vật có kích thước rất [blank].', 'nhỏ'],
+    category: [['Vi sinh vật', 'Không phải vi sinh vật'], [['Vi khuẩn', 0], ['Nấm men', 0], ['Trùng roi', 0], ['Cây xoài trưởng thành', 1]]],
+    drag: ['Để quan sát nhiều vi sinh vật, cần dùng [blank].', ['kính hiển vi', 'kính thiên văn', 'ống nhòm sân vận động'], 'kính hiển vi'],
+  },
+  {
+    objective: 'Phân biệt các pha sinh trưởng của quần thể vi khuẩn trong nuôi cấy không liên tục.', lesson: 'Bài 21. Trao đổi chất, sinh trưởng và sinh sản ở vi sinh vật',
+    quiz: ['Trong pha luỹ thừa của quần thể vi khuẩn, số lượng tế bào thường thế nào?', ['Tăng nhanh', 'Luôn bằng không', 'Không bao giờ phân chia', 'Giảm về một tế bào ngay'], 0, 'Vi khuẩn đang phân chia mạnh.', 'Ở pha luỹ thừa, vi khuẩn sinh sản nhanh làm số tế bào tăng mạnh.'],
+    match: [['Pha tiềm phát', 'Tế bào thích nghi môi trường'], ['Pha luỹ thừa', 'Số lượng tế bào tăng nhanh'], ['Pha suy vong', 'Số tế bào chết vượt số tạo mới']],
+    fill: ['Ở pha [blank], số lượng vi khuẩn tăng nhanh.', 'luỹ thừa'],
+    category: [['Số lượng tăng', 'Số lượng giảm'], [['Pha luỹ thừa', 0], ['Phân chia mạnh', 0], ['Pha suy vong', 1], ['Tế bào chết nhiều hơn tạo mới', 1]]],
+    drag: ['Quần thể vi khuẩn tăng nhanh trong pha [blank].', ['luỹ thừa', 'suy vong', 'tiềm phát'], 'luỹ thừa'],
+  },
+  {
+    objective: 'Nhận biết vai trò có ích và tác hại của vi sinh vật.', lesson: 'Bài 22. Vai trò và ứng dụng của vi sinh vật',
+    quiz: ['Vi sinh vật nào thường được dùng để làm sữa chua?', ['Vi khuẩn lactic', 'Virus cúm', 'Trùng sốt rét', 'Vi khuẩn gây tả'], 0, 'Vi sinh vật lên men tạo acid lactic.', 'Vi khuẩn lactic tham gia quá trình làm sữa chua.'],
+    match: [['Vi khuẩn lactic', 'Lên men sữa chua'], ['Nấm men', 'Lên men trong làm bánh'], ['Vi sinh vật phân giải', 'Phân huỷ chất hữu cơ trong tự nhiên']],
+    fill: ['Vi khuẩn lactic có thể được dùng trong quá trình lên men làm [blank].', 'sữa chua'],
+    category: [['Ứng dụng có ích', 'Tác hại có thể xảy ra'], [['Làm sữa chua', 0], ['Làm bánh nhờ nấm men', 0], ['Phân huỷ rác hữu cơ', 0], ['Gây hỏng thực phẩm', 1]]],
+    drag: ['Nấm men có thể tạo khí giúp bột bánh [blank].', ['nở', 'hoá đá', 'đông băng'], 'nở'],
+  },
+  {
+    objective: 'Mô tả cấu tạo cơ bản và đặc điểm nhân lên của virus.', lesson: 'Bài 24. Khái quát về virus',
+    quiz: ['Virus chỉ nhân lên được khi nào?', ['Ở trong tế bào vật chủ phù hợp', 'Trên mặt đá khô', 'Trong nước cất không có tế bào', 'Khi để trong chai rỗng'], 0, 'Virus phụ thuộc bộ máy của tế bào sống.', 'Virus là kí sinh nội bào bắt buộc và chỉ nhân lên trong tế bào vật chủ phù hợp.'],
+    match: [['Vật chất di truyền', 'Mang thông tin của virus'], ['Capsid', 'Vỏ protein bao quanh vật chất di truyền'], ['Tế bào vật chủ', 'Cung cấp bộ máy cho virus nhân lên']],
+    fill: ['Vỏ protein của virus được gọi là [blank].', 'capsid'],
+    category: [['Thành phần cơ bản của virus', 'Không phải thành phần bắt buộc của mọi virus'], [['Vật chất di truyền', 0], ['Vỏ protein', 0], ['Lục lạp', 1], ['Ribosome riêng', 1]]],
+    drag: ['Virus không có cấu tạo [blank] hoàn chỉnh.', ['tế bào', 'protein', 'vật chất di truyền'], 'tế bào'],
+  },
+  {
+    objective: 'Nêu biện pháp phòng ngừa một số bệnh do virus.', lesson: 'Bài 25. Một số bệnh do virus và các thành tựu nghiên cứu ứng dụng virus',
+    quiz: ['Biện pháp nào giúp phòng một số bệnh do virus khi có vaccine phù hợp?', ['Tiêm chủng theo hướng dẫn y tế', 'Tự dùng kháng sinh cho mọi bệnh virus', 'Không rửa tay', 'Dùng chung vật dụng cá nhân khi đang bệnh'], 0, 'Vaccine giúp cơ thể tạo đáp ứng miễn dịch.', 'Tiêm chủng theo hướng dẫn là một biện pháp phòng bệnh virus có vaccine.'],
+    match: [['Vaccine', 'Giúp cơ thể hình thành đáp ứng miễn dịch'], ['Rửa tay', 'Giảm lây truyền nhiều tác nhân gây bệnh'], ['Kháng sinh', 'Không trực tiếp tiêu diệt virus']],
+    fill: ['Vaccine có thể giúp phòng một số bệnh do [blank].', 'virus'],
+    category: [['Biện pháp phòng bệnh', 'Không phải biện pháp phòng bệnh'], [['Tiêm chủng theo hướng dẫn', 0], ['Rửa tay', 0], ['Giữ vệ sinh môi trường', 0], ['Tự ý dùng kháng sinh cho mọi bệnh virus', 1]]],
+    drag: ['Virus chỉ nhân lên trong tế bào [blank] phù hợp.', ['vật chủ', 'đá', 'nước cất'], 'vật chủ'],
+  },
+  {
+    objective: 'Lựa chọn cách truyền thông tin phòng bệnh virus dựa trên nguồn đáng tin cậy.', lesson: 'Bài 26. Thực hành: Điều tra một số bệnh do virus và tuyên truyền phòng bệnh',
+    quiz: ['Khi làm tài liệu phòng bệnh virus, nguồn nào nên ưu tiên?', ['Hướng dẫn từ cơ quan y tế', 'Tin đồn không nguồn', 'Quảng cáo vô căn cứ', 'Bài đăng ẩn danh chưa kiểm chứng'], 0, 'Cần thông tin có kiểm chứng.', 'Thông tin từ cơ quan y tế là nguồn phù hợp để xây dựng tài liệu phòng bệnh.'],
+    match: [['Cơ quan y tế', 'Nguồn hướng dẫn phòng bệnh'], ['Thông tin có nguồn', 'Có thể kiểm tra lại'], ['Tin đồn', 'Cần kiểm chứng trước khi chia sẻ']],
+    fill: ['Thông tin phòng bệnh cần được [blank] trước khi chia sẻ.', 'kiểm chứng'],
+    category: [['Nguồn đáng tin cậy', 'Nguồn cần kiểm chứng'], [['Cơ quan y tế', 0], ['Tài liệu chính thức', 0], ['Tin đồn không nguồn', 1], ['Bài đăng ẩn danh', 1]]],
+    drag: ['Khi truyền thông phòng bệnh, nên ghi rõ [blank] thông tin.', ['nguồn', 'tin đồn', 'màu nền'], 'nguồn'],
+  },
+];
+
+writeStation({ grade: 10, station: 3, title: 'Phân bào, vi sinh vật và virus', book: 'SGK Sinh học 10 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 16–26 của SGK Sinh học 10 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g11-st1-2026.1",
+  "grade": 11,
+  "stationId": "g11_st1",
+  "title": "Lớp 11 - Trạm 1: Trao đổi chất và chuyển hoá năng lượng",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 1–13 của SGK Sinh học 11 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nêu các giai đoạn cơ bản của trao đổi chất và chuyển hoá năng lượng ở sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trao đổi chất ở sinh vật bao gồm hoạt động nào?",
+            "options": [
+              "Thu nhận, biến đổi và thải các chất",
+              "Chỉ thu nhận chất",
+              "Chỉ thải chất",
+              "Chỉ đổi màu cơ thể"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét cả chiều vào, biến đổi và chiều ra.",
+            "explanation": "Trao đổi chất gồm thu nhận, biến đổi và thải chất."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thu nhận chất",
+                "right": "Lấy vật chất từ môi trường"
+              },
+              {
+                "left": "Chuyển hoá",
+                "right": "Biến đổi vật chất và năng lượng"
+              },
+              {
+                "left": "Thải chất",
+                "right": "Đưa sản phẩm không cần thiết ra ngoài"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Thu nhận chất: Lấy vật chất từ môi trường; Chuyển hoá: Biến đổi vật chất và năng lượng; Thải chất: Đưa sản phẩm không cần thiết ra ngoài."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trao đổi chất và chuyển hoá năng lượng là điều kiện duy trì [blank] của cơ thể.",
+            "correctAnswer": "sự sống",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “sự sống”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trao đổi chất",
+              "Chuyển hoá năng lượng"
+            ],
+            "items": [
+              {
+                "name": "Hấp thụ nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Thải carbon dioxide",
+                "catIndex": 0
+              },
+              {
+                "name": "Quang năng thành hoá năng",
+                "catIndex": 1
+              },
+              {
+                "name": "Hoá năng thành cơ năng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Hấp thụ nước thuộc nhóm Trao đổi chất; Thải carbon dioxide thuộc nhóm Trao đổi chất; Quang năng thành hoá năng thuộc nhóm Chuyển hoá năng lượng; Hoá năng thành cơ năng thuộc nhóm Chuyển hoá năng lượng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sinh vật cần trao đổi chất và chuyển hoá [blank] để duy trì hoạt động sống.",
+            "bankWords": [
+              "năng lượng",
+              "màu sắc",
+              "âm thanh"
+            ],
+            "correctWord": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “năng lượng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Mô tả hấp thụ nước và ion khoáng ở rễ cây.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 2. Trao đổi nước và khoáng ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nước và ion khoáng từ đất thường được hấp thụ chủ yếu qua bộ phận nào?",
+            "options": [
+              "Lông hút của rễ",
+              "Cánh hoa",
+              "Quả",
+              "Hạt khô"
+            ],
+            "answerIndex": 0,
+            "hint": "Nằm ở bề mặt rễ non.",
+            "explanation": "Lông hút giúp tăng diện tích hấp thụ nước và ion khoáng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Lông hút",
+                "right": "Tăng diện tích hấp thụ"
+              },
+              {
+                "left": "Nước",
+                "right": "Đi vào rễ theo chênh lệch thế nước"
+              },
+              {
+                "left": "Ion khoáng",
+                "right": "Có thể được hấp thụ chọn lọc"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Lông hút: Tăng diện tích hấp thụ; Nước: Đi vào rễ theo chênh lệch thế nước; Ion khoáng: Có thể được hấp thụ chọn lọc."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các tế bào [blank] hút làm tăng diện tích tiếp xúc của rễ với đất.",
+            "correctAnswer": "lông",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “lông”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hấp thụ từ đất",
+              "Sản phẩm quang hợp từ lá"
+            ],
+            "items": [
+              {
+                "name": "Nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Ion nitrate",
+                "catIndex": 0
+              },
+              {
+                "name": "Ion potassium",
+                "catIndex": 0
+              },
+              {
+                "name": "Saccharose",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Nước thuộc nhóm Hấp thụ từ đất; Ion nitrate thuộc nhóm Hấp thụ từ đất; Ion potassium thuộc nhóm Hấp thụ từ đất; Saccharose thuộc nhóm Sản phẩm quang hợp từ lá."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nước và khoáng đi vào cây chủ yếu qua [blank].",
+            "bankWords": [
+              "rễ",
+              "hoa",
+              "quả"
+            ],
+            "correctWord": "rễ",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “rễ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Phân biệt dòng vận chuyển trong mạch gỗ và mạch rây.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 2. Trao đổi nước và khoáng ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Dòng mạch gỗ chủ yếu vận chuyển gì?",
+            "options": [
+              "Nước và ion khoáng",
+              "Chỉ đường từ lá",
+              "Chỉ protein từ hạt",
+              "Không vận chuyển chất"
+            ],
+            "answerIndex": 0,
+            "hint": "Dòng này đi từ rễ lên các bộ phận trên.",
+            "explanation": "Mạch gỗ chủ yếu vận chuyển nước và ion khoáng từ rễ lên."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mạch gỗ",
+                "right": "Dẫn nước và khoáng từ rễ lên"
+              },
+              {
+                "left": "Mạch rây",
+                "right": "Dẫn chất hữu cơ từ cơ quan nguồn"
+              },
+              {
+                "left": "Thoát hơi nước",
+                "right": "Góp phần tạo lực kéo dòng mạch gỗ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Mạch gỗ: Dẫn nước và khoáng từ rễ lên; Mạch rây: Dẫn chất hữu cơ từ cơ quan nguồn; Thoát hơi nước: Góp phần tạo lực kéo dòng mạch gỗ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Chất hữu cơ được vận chuyển chủ yếu trong mạch [blank].",
+            "correctAnswer": "rây",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “rây”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Dòng mạch gỗ",
+              "Dòng mạch rây"
+            ],
+            "items": [
+              {
+                "name": "Nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Ion khoáng từ rễ",
+                "catIndex": 0
+              },
+              {
+                "name": "Saccharose từ lá",
+                "catIndex": 1
+              },
+              {
+                "name": "Chất hữu cơ tới cơ quan dự trữ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nước thuộc nhóm Dòng mạch gỗ; Ion khoáng từ rễ thuộc nhóm Dòng mạch gỗ; Saccharose từ lá thuộc nhóm Dòng mạch rây; Chất hữu cơ tới cơ quan dự trữ thuộc nhóm Dòng mạch rây."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thoát hơi nước ở lá góp phần kéo dòng nước đi lên trong mạch [blank].",
+            "bankWords": [
+              "gỗ",
+              "rây",
+              "khí"
+            ],
+            "correctWord": "gỗ",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “gỗ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nêu pha sáng, cố định carbon và vai trò của quang hợp ở thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 4. Quang hợp ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Pha sáng của quang hợp sử dụng trực tiếp nguồn năng lượng nào?",
+            "options": [
+              "Ánh sáng",
+              "Âm thanh",
+              "Nhiệt từ lửa",
+              "Chuyển động của gió"
+            ],
+            "answerIndex": 0,
+            "hint": "Tên pha gợi nguồn năng lượng.",
+            "explanation": "Pha sáng chuyển năng lượng ánh sáng thành năng lượng hoá học."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Pha sáng",
+                "right": "Chuyển năng lượng ánh sáng thành ATP và NADPH"
+              },
+              {
+                "left": "Cố định carbon",
+                "right": "Sử dụng carbon dioxide để tổng hợp chất hữu cơ"
+              },
+              {
+                "left": "Lục lạp",
+                "right": "Bào quan diễn ra quang hợp"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Pha sáng: Chuyển năng lượng ánh sáng thành ATP và NADPH; Cố định carbon: Sử dụng carbon dioxide để tổng hợp chất hữu cơ; Lục lạp: Bào quan diễn ra quang hợp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Carbon trong chất hữu cơ quang hợp có nguồn từ khí [blank].",
+            "correctAnswer": "carbon dioxide",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “carbon dioxide”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Pha sáng",
+              "Cố định carbon"
+            ],
+            "items": [
+              {
+                "name": "Nhận ánh sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo ATP và NADPH",
+                "catIndex": 0
+              },
+              {
+                "name": "Sử dụng carbon dioxide",
+                "catIndex": 1
+              },
+              {
+                "name": "Tổng hợp carbohydrate",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Nhận ánh sáng thuộc nhóm Pha sáng; Tạo ATP và NADPH thuộc nhóm Pha sáng; Sử dụng carbon dioxide thuộc nhóm Cố định carbon; Tổng hợp carbohydrate thuộc nhóm Cố định carbon."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Quang hợp giúp tích luỹ [blank] trong chất hữu cơ.",
+            "bankWords": [
+              "hoá năng",
+              "âm thanh",
+              "động năng cơ học"
+            ],
+            "correctWord": "hoá năng",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “hoá năng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Giải thích vai trò của hô hấp ở thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 6. Hô hấp ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hô hấp ở thực vật cung cấp trực tiếp điều gì cho nhiều hoạt động tế bào?",
+            "options": [
+              "ATP",
+              "Ánh sáng",
+              "Tinh bột nguyên hạt",
+              "Khí nitrogen"
+            ],
+            "answerIndex": 0,
+            "hint": "Là dạng năng lượng tế bào thường dùng.",
+            "explanation": "Hô hấp phân giải chất hữu cơ để tạo ATP cho hoạt động sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Glucose",
+                "right": "Cơ chất có thể bị phân giải"
+              },
+              {
+                "left": "Oxygen",
+                "right": "Tham gia hô hấp hiếu khí"
+              },
+              {
+                "left": "ATP",
+                "right": "Cung cấp năng lượng trực tiếp"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Glucose: Cơ chất có thể bị phân giải; Oxygen: Tham gia hô hấp hiếu khí; ATP: Cung cấp năng lượng trực tiếp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hô hấp ở thực vật phân giải chất hữu cơ và tạo [blank].",
+            "correctAnswer": "ATP",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “ATP”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Quang hợp",
+              "Hô hấp ở thực vật"
+            ],
+            "items": [
+              {
+                "name": "Sử dụng ánh sáng để tổng hợp chất hữu cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Cố định carbon dioxide",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân giải chất hữu cơ",
+                "catIndex": 1
+              },
+              {
+                "name": "Giải phóng năng lượng cho tế bào",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Sử dụng ánh sáng để tổng hợp chất hữu cơ thuộc nhóm Quang hợp; Cố định carbon dioxide thuộc nhóm Quang hợp; Phân giải chất hữu cơ thuộc nhóm Hô hấp ở thực vật; Giải phóng năng lượng cho tế bào thuộc nhóm Hô hấp ở thực vật."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cây xanh vừa quang hợp vừa [blank].",
+            "bankWords": [
+              "hô hấp",
+              "chỉ hô hấp khi tối",
+              "không trao đổi chất"
+            ],
+            "correctWord": "hô hấp",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “hô hấp”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Phân biệt các hình thức tiêu hoá và hấp thụ ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 8. Dinh dưỡng và tiêu hoá ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau tiêu hoá, chất dinh dưỡng được đưa vào cơ thể nhờ quá trình nào?",
+            "options": [
+              "Hấp thụ",
+              "Thụ phấn",
+              "Thoát hơi nước",
+              "Quang hợp"
+            ],
+            "answerIndex": 0,
+            "hint": "Chất đi qua bề mặt hấp thụ.",
+            "explanation": "Hấp thụ đưa các chất dinh dưỡng sau tiêu hoá vào cơ thể."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Lấy thức ăn",
+                "right": "Đưa thức ăn vào cơ thể"
+              },
+              {
+                "left": "Tiêu hoá",
+                "right": "Biến đổi thức ăn thành chất dễ hấp thụ"
+              },
+              {
+                "left": "Hấp thụ",
+                "right": "Đưa chất dinh dưỡng vào môi trường trong"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Lấy thức ăn: Đưa thức ăn vào cơ thể; Tiêu hoá: Biến đổi thức ăn thành chất dễ hấp thụ; Hấp thụ: Đưa chất dinh dưỡng vào môi trường trong."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Quá trình biến đổi thức ăn thành chất đơn giản hơn gọi là [blank].",
+            "correctAnswer": "tiêu hoá",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “tiêu hoá”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trước hấp thụ",
+              "Sau hấp thụ"
+            ],
+            "items": [
+              {
+                "name": "Lấy thức ăn",
+                "catIndex": 0
+              },
+              {
+                "name": "Tiêu hoá",
+                "catIndex": 0
+              },
+              {
+                "name": "Vận chuyển chất dinh dưỡng đến tế bào",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào dùng chất dinh dưỡng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Lấy thức ăn thuộc nhóm Trước hấp thụ; Tiêu hoá thuộc nhóm Trước hấp thụ; Vận chuyển chất dinh dưỡng đến tế bào thuộc nhóm Sau hấp thụ; Tế bào dùng chất dinh dưỡng thuộc nhóm Sau hấp thụ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Chất dinh dưỡng được [blank] sau tiêu hoá.",
+            "bankWords": [
+              "hấp thụ",
+              "quang hợp",
+              "thụ tinh"
+            ],
+            "correctWord": "hấp thụ",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “hấp thụ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "So sánh bề mặt trao đổi khí ở một số nhóm động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 9. Hô hấp ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Cá xương chủ yếu trao đổi khí bằng cơ quan nào?",
+            "options": [
+              "Mang",
+              "Phổi",
+              "Khí khổng",
+              "Lông hút"
+            ],
+            "answerIndex": 0,
+            "hint": "Bề mặt này tiếp xúc với nước.",
+            "explanation": "Mang là bề mặt trao đổi khí chủ yếu của cá xương."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cá",
+                "right": "Mang"
+              },
+              {
+                "left": "Côn trùng",
+                "right": "Hệ thống ống khí"
+              },
+              {
+                "left": "Động vật có vú",
+                "right": "Phổi"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Cá: Mang; Côn trùng: Hệ thống ống khí; Động vật có vú: Phổi."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở động vật có vú, trao đổi khí diễn ra chủ yếu tại [blank].",
+            "correctAnswer": "phổi",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “phổi”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trao đổi khí qua mang",
+              "Trao đổi khí qua phổi"
+            ],
+            "items": [
+              {
+                "name": "Cá chép",
+                "catIndex": 0
+              },
+              {
+                "name": "Cá rô",
+                "catIndex": 0
+              },
+              {
+                "name": "Người",
+                "catIndex": 1
+              },
+              {
+                "name": "Chó",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Cá chép thuộc nhóm Trao đổi khí qua mang; Cá rô thuộc nhóm Trao đổi khí qua mang; Người thuộc nhóm Trao đổi khí qua phổi; Chó thuộc nhóm Trao đổi khí qua phổi."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hệ thống ống khí là hình thức trao đổi khí phổ biến ở [blank].",
+            "bankWords": [
+              "côn trùng",
+              "cá xương",
+              "thực vật"
+            ],
+            "correctWord": "côn trùng",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “côn trùng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Mô tả vai trò của hệ tuần hoàn ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 10. Tuần hoàn ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hệ tuần hoàn có chức năng chính nào?",
+            "options": [
+              "Vận chuyển các chất trong cơ thể",
+              "Tạo ánh sáng",
+              "Làm thức ăn tự tiêu biến",
+              "Tạo gene mới liên tục"
+            ],
+            "answerIndex": 0,
+            "hint": "Máu hoặc dịch tuần hoàn di chuyển.",
+            "explanation": "Hệ tuần hoàn vận chuyển khí, dinh dưỡng và nhiều chất khác."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tim",
+                "right": "Tạo lực đẩy dịch tuần hoàn"
+              },
+              {
+                "left": "Mạch máu",
+                "right": "Đường vận chuyển máu"
+              },
+              {
+                "left": "Mao mạch",
+                "right": "Nơi trao đổi chất với mô"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Tim: Tạo lực đẩy dịch tuần hoàn; Mạch máu: Đường vận chuyển máu; Mao mạch: Nơi trao đổi chất với mô."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở người, cơ quan co bóp tạo lực đẩy máu là [blank].",
+            "correctAnswer": "tim",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “tim”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thuộc hệ tuần hoàn",
+              "Không thuộc hệ tuần hoàn"
+            ],
+            "items": [
+              {
+                "name": "Tim",
+                "catIndex": 0
+              },
+              {
+                "name": "Động mạch",
+                "catIndex": 0
+              },
+              {
+                "name": "Tĩnh mạch",
+                "catIndex": 0
+              },
+              {
+                "name": "Khí khổng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Tim thuộc nhóm Thuộc hệ tuần hoàn; Động mạch thuộc nhóm Thuộc hệ tuần hoàn; Tĩnh mạch thuộc nhóm Thuộc hệ tuần hoàn; Khí khổng thuộc nhóm Không thuộc hệ tuần hoàn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Mao mạch là nơi máu trao đổi chất với [blank].",
+            "bankWords": [
+              "mô",
+              "đất",
+              "ánh sáng"
+            ],
+            "correctWord": "mô",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “mô”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Nêu các hàng rào bảo vệ và vai trò của miễn dịch ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 12. Miễn dịch ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hàng rào bảo vệ cơ thể đầu tiên chống nhiều tác nhân gây bệnh là gì?",
+            "options": [
+              "Da và niêm mạc",
+              "Xương đùi",
+              "Tinh bột",
+              "Lục lạp"
+            ],
+            "answerIndex": 0,
+            "hint": "Ngăn tác nhân xâm nhập.",
+            "explanation": "Da và niêm mạc là các hàng rào bảo vệ ban đầu."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Da",
+                "right": "Hàng rào vật lí"
+              },
+              {
+                "left": "Bạch cầu",
+                "right": "Tham gia đáp ứng miễn dịch"
+              },
+              {
+                "left": "Kháng thể",
+                "right": "Có thể nhận biết kháng nguyên đặc hiệu"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Da: Hàng rào vật lí; Bạch cầu: Tham gia đáp ứng miễn dịch; Kháng thể: Có thể nhận biết kháng nguyên đặc hiệu."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hệ [blank] giúp cơ thể nhận biết và chống tác nhân gây bệnh.",
+            "correctAnswer": "miễn dịch",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “miễn dịch”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tham gia bảo vệ cơ thể",
+              "Không thuộc hệ bảo vệ ở động vật"
+            ],
+            "items": [
+              {
+                "name": "Da",
+                "catIndex": 0
+              },
+              {
+                "name": "Bạch cầu",
+                "catIndex": 0
+              },
+              {
+                "name": "Kháng thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Lục lạp",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Da thuộc nhóm Tham gia bảo vệ cơ thể; Bạch cầu thuộc nhóm Tham gia bảo vệ cơ thể; Kháng thể thuộc nhóm Tham gia bảo vệ cơ thể; Lục lạp thuộc nhóm Không thuộc hệ bảo vệ ở động vật."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Vaccine có thể giúp hình thành đáp ứng miễn dịch [blank].",
+            "bankWords": [
+              "đặc hiệu",
+              "quang hợp",
+              "thẩm thấu"
+            ],
+            "correctWord": "đặc hiệu",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “đặc hiệu”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Giải thích vai trò của bài tiết trong cân bằng nội môi.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 13. Bài tiết và cân bằng nội môi"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thận góp phần điều hoà môi trường trong bằng cách nào?",
+            "options": [
+              "Điều chỉnh thải nước và chất tan",
+              "Tạo ánh sáng",
+              "Tổng hợp cellulose",
+              "Thay thế hoàn toàn phổi"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét thành phần nước tiểu.",
+            "explanation": "Thận điều chỉnh sự bài tiết nước và chất tan, góp phần giữ ổn định môi trường trong."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thận",
+                "right": "Tạo nước tiểu và điều chỉnh chất tan"
+              },
+              {
+                "left": "Phổi",
+                "right": "Thải carbon dioxide"
+              },
+              {
+                "left": "Cân bằng nội môi",
+                "right": "Giữ các điều kiện bên trong tương đối ổn định"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Thận: Tạo nước tiểu và điều chỉnh chất tan; Phổi: Thải carbon dioxide; Cân bằng nội môi: Giữ các điều kiện bên trong tương đối ổn định."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Duy trì điều kiện bên trong cơ thể tương đối ổn định gọi là cân bằng [blank].",
+            "correctAnswer": "nội môi",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “nội môi”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tham gia bài tiết hoặc điều hoà",
+              "Không thuộc cơ thể động vật"
+            ],
+            "items": [
+              {
+                "name": "Thận",
+                "catIndex": 0
+              },
+              {
+                "name": "Phổi",
+                "catIndex": 0
+              },
+              {
+                "name": "Da",
+                "catIndex": 0
+              },
+              {
+                "name": "Mạch gỗ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Thận thuộc nhóm Tham gia bài tiết hoặc điều hoà; Phổi thuộc nhóm Tham gia bài tiết hoặc điều hoà; Da thuộc nhóm Tham gia bài tiết hoặc điều hoà; Mạch gỗ thuộc nhóm Không thuộc cơ thể động vật."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Bài tiết giúp loại bỏ chất thải và duy trì cân bằng [blank].",
+            "bankWords": [
+              "nội môi",
+              "quang hợp",
+              "thụ phấn"
+            ],
+            "correctWord": "nội môi",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “nội môi”."
+          }
+        }
+      ]
+    }
+  ]
+}

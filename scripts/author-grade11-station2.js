@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Nêu khái niệm cảm ứng và các giai đoạn đáp ứng kích thích.', lesson: 'Bài 14. Khái quát về cảm ứng ở sinh vật',
+    quiz: ['Cảm ứng ở sinh vật là khả năng nào?', ['Tiếp nhận và phản ứng với kích thích', 'Chỉ tăng kích thước', 'Chỉ tạo giao tử', 'Chỉ phân giải thức ăn'], 0, 'Sinh vật nhận thông tin từ môi trường.', 'Cảm ứng gồm tiếp nhận kích thích và tạo phản ứng phù hợp.'],
+    match: [['Kích thích', 'Thay đổi từ môi trường'], ['Thụ thể', 'Tiếp nhận kích thích'], ['Đáp ứng', 'Phản ứng của cơ thể']],
+    fill: ['Khả năng nhận và phản ứng với kích thích gọi là [blank].', 'cảm ứng'],
+    category: [['Biểu hiện cảm ứng', 'Không phải biểu hiện cảm ứng'], [['Cây hướng sáng', 0], ['Người rụt tay khi chạm nóng', 0], ['Chim tránh tiếng động mạnh', 0], ['DNA gồm nucleotide', 1]]],
+    drag: ['Cảm ứng giúp sinh vật phản ứng với thay đổi của [blank].', ['môi trường', 'tên sách', 'màu bìa'], 'môi trường'],
+  },
+  {
+    objective: 'Phân biệt hướng động và ứng động ở thực vật.', lesson: 'Bài 15. Cảm ứng ở thực vật',
+    quiz: ['Ngọn cây sinh trưởng về phía nguồn sáng là kiểu phản ứng nào?', ['Hướng sáng', 'Hướng trọng lực âm ở rễ', 'Ứng động không sinh trưởng', 'Thụ tinh'], 0, 'Phản ứng phụ thuộc hướng của kích thích ánh sáng.', 'Ngọn cây hướng về phía sáng là hướng sáng.'],
+    match: [['Hướng động', 'Phản ứng có hướng theo tác nhân kích thích'], ['Hướng sáng', 'Sinh trưởng liên quan hướng chiếu sáng'], ['Ứng động', 'Phản ứng không phụ thuộc hướng tác nhân']],
+    fill: ['Ngọn cây cong về phía ánh sáng là hiện tượng hướng [blank].', 'sáng'],
+    category: [['Hướng động', 'Ứng động'], [['Ngọn cây hướng sáng', 0], ['Rễ hướng trọng lực', 0], ['Lá trinh nữ cụp khi chạm', 1], ['Hoa nở theo điều kiện môi trường', 1]]],
+    drag: ['Rễ cây thường có tính hướng [blank] dương.', ['trọng lực', 'ánh sáng', 'âm thanh'], 'trọng lực'],
+  },
+  {
+    objective: 'Thiết kế quan sát có đối chứng về cảm ứng ở thực vật.', lesson: 'Bài 16. Thực hành: Cảm ứng ở thực vật',
+    quiz: ['Khi kiểm tra hướng sáng ở cây non, yếu tố nào cần thay đổi có chủ đích?', ['Hướng nguồn sáng', 'Loài cây, nước và ánh sáng cùng lúc', 'Mọi điều kiện cùng lúc', 'Tên người quan sát'], 0, 'Thay đổi một yếu tố.', 'Thay đổi hướng sáng và giữ các điều kiện còn lại tương tự giúp rút kết luận.'],
+    match: [['Nguồn sáng một phía', 'Tạo kích thích có hướng'], ['Nhóm đối chứng', 'Giúp so sánh kết quả'], ['Ghi chép hướng thân', 'Thu dữ liệu phản ứng']],
+    fill: ['Để kết luận về ánh sáng, cần giữ các điều kiện khác tương đối [blank].', 'giống nhau'],
+    category: [['Thiết kế phù hợp', 'Thiết kế khó kết luận'], [['Có mẫu đối chứng', 0], ['Ghi hướng thân định kì', 0], ['Giữ lượng nước tương tự', 0], ['Đổi ánh sáng và nước cùng lúc', 1]]],
+    drag: ['Một thí nghiệm tốt nên có mẫu [blank] để so sánh.', ['đối chứng', 'bị bỏ quên', 'không ghi tên'], 'đối chứng'],
+  },
+  {
+    objective: 'Nhận biết cấu trúc neuron và chức năng dẫn truyền tín hiệu.', lesson: 'Bài 17. Cảm ứng ở động vật',
+    quiz: ['Tế bào chuyên tiếp nhận và truyền tín hiệu trong hệ thần kinh là gì?', ['Neuron', 'Hồng cầu', 'Tế bào biểu bì lá', 'Tế bào lông hút'], 0, 'Còn gọi là tế bào thần kinh.', 'Neuron là đơn vị cấu trúc và chức năng của hệ thần kinh.'],
+    match: [['Sợi nhánh', 'Tiếp nhận nhiều tín hiệu'], ['Thân neuron', 'Chứa nhân tế bào'], ['Sợi trục', 'Dẫn tín hiệu ra khỏi thân neuron']],
+    fill: ['Tế bào thần kinh còn được gọi là [blank].', 'neuron'],
+    category: [['Bộ phận neuron', 'Không thuộc neuron'], [['Sợi nhánh', 0], ['Thân tế bào', 0], ['Sợi trục', 0], ['Mạch gỗ', 1]]],
+    drag: ['Tín hiệu thần kinh thường truyền dọc theo sợi [blank] của neuron.', ['trục', 'rây', 'gỗ'], 'trục'],
+  },
+  {
+    objective: 'Mô tả cung phản xạ và vai trò phối hợp của hệ thần kinh.', lesson: 'Bài 17. Cảm ứng ở động vật',
+    quiz: ['Khi chạm vật nóng và rụt tay, trung ương xử lí nhanh thường là gì?', ['Tuỷ sống', 'Dạ dày', 'Thận', 'Gan'], 0, 'Đây là ví dụ phản xạ tuỷ.', 'Phản xạ rụt tay có trung ương xử lí tại tuỷ sống.'],
+    match: [['Thụ thể', 'Tiếp nhận kích thích'], ['Neuron cảm giác', 'Dẫn tín hiệu về trung ương'], ['Neuron vận động', 'Dẫn lệnh tới cơ quan đáp ứng']],
+    fill: ['Phản ứng nhanh, tự động của cơ thể trước kích thích gọi là [blank].', 'phản xạ'],
+    category: [['Thành phần cung phản xạ', 'Không thuộc cung phản xạ'], [['Thụ thể', 0], ['Neuron cảm giác', 0], ['Neuron vận động', 0], ['Lục lạp', 1]]],
+    drag: ['Trong phản xạ rụt tay, cơ là cơ quan [blank].', ['đáp ứng', 'quang hợp', 'bài tiết'], 'đáp ứng'],
+  },
+  {
+    objective: 'Phân biệt tập tính bẩm sinh và tập tính học được.', lesson: 'Bài 18. Tập tính ở động vật',
+    quiz: ['Tập tính nào thường hình thành qua huấn luyện?', ['Chó đáp lệnh ngồi', 'Nhện giăng tơ lần đầu', 'Trẻ sơ sinh bú mẹ', 'Chim non há mỏ đòi ăn'], 0, 'Xét kinh nghiệm học tập.', 'Chó đáp lệnh sau huấn luyện là tập tính học được.'],
+    match: [['Tập tính bẩm sinh', 'Có sẵn, mang tính di truyền'], ['Tập tính học được', 'Hình thành qua trải nghiệm'], ['Huấn luyện', 'Có thể làm hình thành phản ứng mới']],
+    fill: ['Tập tính hình thành nhờ học tập là tập tính [blank].', 'học được'],
+    category: [['Bẩm sinh', 'Học được'], [['Nhện giăng tơ', 0], ['Trẻ sơ sinh bú mẹ', 0], ['Chó đáp lệnh sau huấn luyện', 1], ['Quạ dùng công cụ sau học tập', 1]]],
+    drag: ['Học tập và kinh nghiệm có thể thay đổi [blank] của động vật.', ['tập tính', 'số lượng nhiễm sắc thể luôn luôn', 'loài ngay lập tức'], 'tập tính'],
+  },
+  {
+    objective: 'Phân biệt sinh trưởng và phát triển của sinh vật.', lesson: 'Bài 19. Khái quát về sinh trưởng và phát triển ở sinh vật',
+    quiz: ['Sự tăng số lượng và kích thước tế bào thể hiện quá trình nào?', ['Sinh trưởng', 'Thụ tinh', 'Bài tiết', 'Cảm ứng'], 0, 'Đó là biến đổi về lượng.', 'Sinh trưởng liên quan tăng kích thước và khối lượng cơ thể.'],
+    match: [['Sinh trưởng', 'Tăng kích thước và khối lượng'], ['Phát triển', 'Biến đổi về cấu trúc và chức năng'], ['Ra hoa', 'Một biểu hiện phát triển ở cây']],
+    fill: ['Cây tăng chiều cao là một biểu hiện của [blank].', 'sinh trưởng'],
+    category: [['Sinh trưởng', 'Phát triển'], [['Thân dài thêm', 0], ['Khối lượng tăng', 0], ['Hình thành hoa', 1], ['Chuyển sang giai đoạn sinh sản', 1]]],
+    drag: ['Sự biến đổi chất lượng trong vòng đời sinh vật gọi là [blank].', ['phát triển', 'thẩm thấu', 'quang hợp'], 'phát triển'],
+  },
+  {
+    objective: 'Nêu vai trò của mô phân sinh và hormone trong sinh trưởng thực vật.', lesson: 'Bài 20. Sinh trưởng và phát triển ở thực vật',
+    quiz: ['Mô nào có nhiều tế bào phân chia làm cây dài ra?', ['Mô phân sinh đỉnh', 'Mô gỗ đã chết hoàn toàn', 'Lớp bần già', 'Hạt phấn đã rơi'], 0, 'Nằm ở đầu rễ và đầu chồi.', 'Mô phân sinh đỉnh tạo tế bào mới giúp rễ và chồi dài ra.'],
+    match: [['Mô phân sinh đỉnh', 'Góp phần tăng chiều dài'], ['Mô phân sinh bên', 'Góp phần tăng bề ngang ở nhiều cây'], ['Hormone thực vật', 'Điều hoà sinh trưởng và phát triển']],
+    fill: ['Mô phân sinh [blank] giúp nhiều cơ quan cây tăng chiều dài.', 'đỉnh'],
+    category: [['Liên quan sinh trưởng cây', 'Không thuộc cơ thể cây'], [['Mô phân sinh đỉnh', 0], ['Mô phân sinh bên', 0], ['Auxin', 0], ['Neuron vận động', 1]]],
+    drag: ['Các hormone thực vật có thể điều hoà sinh trưởng và [blank].', ['phát triển', 'chỉ hô hấp', 'đông máu'], 'phát triển'],
+  },
+  {
+    objective: 'Phân biệt biến thái hoàn toàn và không hoàn toàn ở côn trùng.', lesson: 'Bài 22. Sinh trưởng và phát triển ở động vật',
+    quiz: ['Vòng đời bướm có giai đoạn nào không có trong biến thái không hoàn toàn của châu chấu?', ['Nhộng', 'Trứng', 'Con trưởng thành', 'Ấu trùng hoặc con non'], 0, 'Bướm có giai đoạn nằm trong kén.', 'Biến thái hoàn toàn ở bướm có giai đoạn nhộng.'],
+    match: [['Bướm', 'Biến thái hoàn toàn'], ['Châu chấu', 'Biến thái không hoàn toàn'], ['Nhộng', 'Giai đoạn trong biến thái hoàn toàn']],
+    fill: ['Vòng đời bướm gồm trứng, sâu non, [blank] và bướm trưởng thành.', 'nhộng'],
+    category: [['Biến thái hoàn toàn', 'Biến thái không hoàn toàn'], [['Bướm', 0], ['Ruồi', 0], ['Châu chấu', 1], ['Gián', 1]]],
+    drag: ['Con non của châu chấu lột xác nhiều lần rồi thành con [blank].', ['trưởng thành', 'nhộng', 'hạt'], 'trưởng thành'],
+  },
+  {
+    objective: 'Nhận biết ảnh hưởng của dinh dưỡng và hormone đến phát triển động vật.', lesson: 'Bài 22. Sinh trưởng và phát triển ở động vật; Bài 23. Thực hành: Quan sát quá trình biến thái ở động vật',
+    quiz: ['Yếu tố nào có thể ảnh hưởng rõ đến sinh trưởng của động vật?', ['Chế độ dinh dưỡng', 'Tên gọi của chuồng', 'Màu nhãn thức ăn', 'Số trang của sách'], 0, 'Cơ thể cần vật chất và năng lượng.', 'Dinh dưỡng phù hợp hỗ trợ động vật sinh trưởng và phát triển.'],
+    match: [['Dinh dưỡng', 'Cung cấp vật chất và năng lượng'], ['Hormone', 'Điều hoà quá trình phát triển'], ['Quan sát vòng đời', 'Giúp nhận biết các giai đoạn biến thái']],
+    fill: ['Sự phát triển của động vật chịu tác động của gene, hormone và điều kiện [blank].', 'môi trường'],
+    category: [['Hỗ trợ phát triển bình thường', 'Có thể cản trở phát triển'], [['Dinh dưỡng phù hợp', 0], ['Điều kiện sống phù hợp', 0], ['Thiếu dinh dưỡng kéo dài', 1], ['Môi trường ô nhiễm nặng', 1]]],
+    drag: ['Quan sát các giai đoạn vòng đời giúp nhận ra kiểu [blank] của động vật.', ['biến thái', 'quang hợp', 'phiên mã'], 'biến thái'],
+  },
+];
+
+writeStation({ grade: 11, station: 2, title: 'Cảm ứng, sinh trưởng và phát triển', book: 'SGK Sinh học 11 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 14–23 của SGK Sinh học 11 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

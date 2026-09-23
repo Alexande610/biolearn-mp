@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g8-st3-2026.1",
+  "grade": 8,
+  "stationId": "g8_st3",
+  "title": "Lớp 8 - Trạm 3: Sinh vật và môi trường",
+  "status": "draft",
+  "notes": "Nội dung soạn theo các Bài 41–47 của SGK KHTN 8 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Phân biệt nhân tố vô sinh và hữu sinh trong môi trường sống.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 41. Môi trường và các nhân tố sinh thái"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhân tố nào sau đây là nhân tố vô sinh?",
+            "options": [
+              "Ánh sáng",
+              "Cây cỏ",
+              "Nấm",
+              "Vi khuẩn"
+            ],
+            "answerIndex": 0,
+            "hint": "Nhân tố này không phải sinh vật.",
+            "explanation": "Ánh sáng là nhân tố vô sinh của môi trường."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Ánh sáng",
+                "right": "Nhân tố vô sinh cung cấp năng lượng"
+              },
+              {
+                "left": "Cây cỏ",
+                "right": "Sinh vật tự dưỡng phổ biến"
+              },
+              {
+                "left": "Động vật ăn cỏ",
+                "right": "Sinh vật tiêu thụ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Ánh sáng: Nhân tố vô sinh cung cấp năng lượng; Cây cỏ: Sinh vật tự dưỡng phổ biến; Động vật ăn cỏ: Sinh vật tiêu thụ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các sinh vật trong môi trường thuộc nhóm nhân tố [blank].",
+            "correctAnswer": "hữu sinh",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “hữu sinh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nhân tố vô sinh",
+              "Nhân tố hữu sinh"
+            ],
+            "items": [
+              {
+                "name": "Nhiệt độ",
+                "catIndex": 0
+              },
+              {
+                "name": "Nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Ánh sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Cây cỏ",
+                "catIndex": 1
+              },
+              {
+                "name": "Động vật",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Nhiệt độ thuộc nhóm Nhân tố vô sinh; Nước thuộc nhóm Nhân tố vô sinh; Ánh sáng thuộc nhóm Nhân tố vô sinh; Cây cỏ thuộc nhóm Nhân tố hữu sinh; Động vật thuộc nhóm Nhân tố hữu sinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nhiệt độ là một nhân tố sinh thái [blank].",
+            "bankWords": [
+              "vô sinh",
+              "hữu sinh",
+              "sinh sản"
+            ],
+            "correctWord": "vô sinh",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “vô sinh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Nhận biết quần thể sinh vật và các đặc trưng cơ bản.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 42. Quần thể sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tập hợp nào có thể là một quần thể sinh vật?",
+            "options": [
+              "Các cây thông cùng loài trong một khu rừng tại một thời điểm",
+              "Mọi loài cây trong rừng",
+              "Cá, chim và cây trong hồ",
+              "Tất cả sinh vật trên Trái Đất"
+            ],
+            "answerIndex": 0,
+            "hint": "Các cá thể phải cùng loài, sống trong một khu vực và thời điểm.",
+            "explanation": "Các cây thông cùng loài trong một khu vực, tại một thời điểm có thể tạo thành quần thể."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Quần thể",
+                "right": "Các cá thể cùng loài sống trong khu vực xác định"
+              },
+              {
+                "left": "Kích thước quần thể",
+                "right": "Số lượng cá thể của quần thể"
+              },
+              {
+                "left": "Mật độ quần thể",
+                "right": "Số cá thể trên một đơn vị diện tích hoặc thể tích"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Quần thể: Các cá thể cùng loài sống trong khu vực xác định; Kích thước quần thể: Số lượng cá thể của quần thể; Mật độ quần thể: Số cá thể trên một đơn vị diện tích hoặc thể tích."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các cá thể trong một quần thể phải thuộc cùng một [blank].",
+            "correctAnswer": "loài",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “loài”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Một quần thể",
+              "Không phải một quần thể"
+            ],
+            "items": [
+              {
+                "name": "Các cây lúa cùng giống trên một ruộng",
+                "catIndex": 0
+              },
+              {
+                "name": "Đàn cá rô cùng loài trong ao",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhiều loài chim trong rừng",
+                "catIndex": 1
+              },
+              {
+                "name": "Cá và tôm trong ao",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Các cây lúa cùng giống trên một ruộng thuộc nhóm Một quần thể; Đàn cá rô cùng loài trong ao thuộc nhóm Một quần thể; Nhiều loài chim trong rừng thuộc nhóm Không phải một quần thể; Cá và tôm trong ao thuộc nhóm Không phải một quần thể."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Mật độ quần thể là số cá thể trên một đơn vị diện tích hoặc [blank].",
+            "bankWords": [
+              "thể tích",
+              "thời gian học",
+              "khối lượng sách"
+            ],
+            "correctWord": "thể tích",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “thể tích”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Phân biệt quần xã sinh vật với quần thể sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 43. Quần xã sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Quần xã sinh vật gồm những thành phần nào?",
+            "options": [
+              "Nhiều quần thể thuộc các loài khác nhau cùng sống trong khu vực",
+              "Chỉ một cá thể",
+              "Chỉ các cá thể cùng loài",
+              "Chỉ đất và nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Quần xã có nhiều loài.",
+            "explanation": "Quần xã là tập hợp các quần thể thuộc nhiều loài cùng sống trong một khu vực."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Quần thể",
+                "right": "Các cá thể cùng loài"
+              },
+              {
+                "left": "Quần xã",
+                "right": "Nhiều quần thể khác loài"
+              },
+              {
+                "left": "Độ đa dạng",
+                "right": "Thể hiện mức phong phú loài trong quần xã"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Quần thể: Các cá thể cùng loài; Quần xã: Nhiều quần thể khác loài; Độ đa dạng: Thể hiện mức phong phú loài trong quần xã."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Một quần xã gồm nhiều [blank] thuộc các loài khác nhau.",
+            "correctAnswer": "quần thể",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “quần thể”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Quần thể",
+              "Quần xã"
+            ],
+            "items": [
+              {
+                "name": "Đàn cá chép trong ao",
+                "catIndex": 0
+              },
+              {
+                "name": "Các cây thông cùng loài trong rừng",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhiều loài sinh vật trong ao",
+                "catIndex": 1
+              },
+              {
+                "name": "Nhiều loài sinh vật trong rừng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Đàn cá chép trong ao thuộc nhóm Quần thể; Các cây thông cùng loài trong rừng thuộc nhóm Quần thể; Nhiều loài sinh vật trong ao thuộc nhóm Quần xã; Nhiều loài sinh vật trong rừng thuộc nhóm Quần xã."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Quần xã có các quần thể thuộc nhiều [blank] khác nhau.",
+            "bankWords": [
+              "loài",
+              "hành tinh",
+              "tế bào máu"
+            ],
+            "correctWord": "loài",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “loài”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nhận biết thành phần vô sinh và hữu sinh của hệ sinh thái.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 44. Hệ sinh thái"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hệ sinh thái gồm những thành phần nào?",
+            "options": [
+              "Quần xã sinh vật và môi trường vô sinh",
+              "Chỉ một loài động vật",
+              "Chỉ đất và nước",
+              "Chỉ các sinh vật sản xuất"
+            ],
+            "answerIndex": 0,
+            "hint": "Hệ sinh thái gồm sinh vật và các yếu tố không sống.",
+            "explanation": "Hệ sinh thái gồm quần xã sinh vật cùng môi trường vô sinh của nó."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh vật sản xuất",
+                "right": "Tạo chất hữu cơ từ chất vô cơ"
+              },
+              {
+                "left": "Sinh vật tiêu thụ",
+                "right": "Sử dụng sinh vật khác làm thức ăn"
+              },
+              {
+                "left": "Sinh vật phân giải",
+                "right": "Phân huỷ xác và chất thải hữu cơ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Sinh vật sản xuất: Tạo chất hữu cơ từ chất vô cơ; Sinh vật tiêu thụ: Sử dụng sinh vật khác làm thức ăn; Sinh vật phân giải: Phân huỷ xác và chất thải hữu cơ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hệ sinh thái gồm quần xã sinh vật và môi trường [blank].",
+            "correctAnswer": "vô sinh",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “vô sinh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thành phần hữu sinh",
+              "Thành phần vô sinh"
+            ],
+            "items": [
+              {
+                "name": "Cây xanh",
+                "catIndex": 0
+              },
+              {
+                "name": "Động vật",
+                "catIndex": 0
+              },
+              {
+                "name": "Nấm phân giải",
+                "catIndex": 0
+              },
+              {
+                "name": "Nước",
+                "catIndex": 1
+              },
+              {
+                "name": "Ánh sáng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Cây xanh thuộc nhóm Thành phần hữu sinh; Động vật thuộc nhóm Thành phần hữu sinh; Nấm phân giải thuộc nhóm Thành phần hữu sinh; Nước thuộc nhóm Thành phần vô sinh; Ánh sáng thuộc nhóm Thành phần vô sinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cây xanh thường đóng vai trò sinh vật [blank] trong hệ sinh thái.",
+            "bankWords": [
+              "sản xuất",
+              "tiêu thụ",
+              "kí sinh bắt buộc"
+            ],
+            "correctWord": "sản xuất",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “sản xuất”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Xác định chiều truyền năng lượng trong chuỗi thức ăn.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 44. Hệ sinh thái"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong chuỗi cỏ → châu chấu → ếch, sinh vật tiêu thụ bậc một là gì?",
+            "options": [
+              "Châu chấu",
+              "Cỏ",
+              "Ếch",
+              "Đất"
+            ],
+            "answerIndex": 0,
+            "hint": "Nó ăn sinh vật sản xuất.",
+            "explanation": "Châu chấu ăn cỏ nên là sinh vật tiêu thụ bậc một."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cỏ",
+                "right": "Sinh vật sản xuất"
+              },
+              {
+                "left": "Châu chấu",
+                "right": "Sinh vật tiêu thụ bậc một"
+              },
+              {
+                "left": "Ếch",
+                "right": "Sinh vật tiêu thụ bậc hai"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Cỏ: Sinh vật sản xuất; Châu chấu: Sinh vật tiêu thụ bậc một; Ếch: Sinh vật tiêu thụ bậc hai."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Mũi tên trong chuỗi thức ăn chỉ chiều truyền vật chất và [blank].",
+            "correctAnswer": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “năng lượng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Sinh vật sản xuất",
+              "Sinh vật tiêu thụ"
+            ],
+            "items": [
+              {
+                "name": "Cỏ",
+                "catIndex": 0
+              },
+              {
+                "name": "Tảo lục",
+                "catIndex": 0
+              },
+              {
+                "name": "Châu chấu",
+                "catIndex": 1
+              },
+              {
+                "name": "Ếch",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Cỏ thuộc nhóm Sinh vật sản xuất; Tảo lục thuộc nhóm Sinh vật sản xuất; Châu chấu thuộc nhóm Sinh vật tiêu thụ; Ếch thuộc nhóm Sinh vật tiêu thụ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong chuỗi cỏ → châu chấu → ếch, ếch ăn [blank].",
+            "bankWords": [
+              "châu chấu",
+              "cỏ trực tiếp",
+              "ánh sáng"
+            ],
+            "correctWord": "châu chấu",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “châu chấu”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nêu khái niệm sinh quyển và vai trò của các hệ sinh thái.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 45. Sinh quyển"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sinh quyển là gì?",
+            "options": [
+              "Phần Trái Đất có sự sống",
+              "Chỉ khí quyển",
+              "Chỉ lõi Trái Đất",
+              "Chỉ một khu rừng"
+            ],
+            "answerIndex": 0,
+            "hint": "Gồm các nơi sinh vật có thể tồn tại.",
+            "explanation": "Sinh quyển là phần Trái Đất có sự sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh quyển",
+                "right": "Phần Trái Đất có sự sống"
+              },
+              {
+                "left": "Hệ sinh thái rừng",
+                "right": "Một kiểu hệ sinh thái trên cạn"
+              },
+              {
+                "left": "Hệ sinh thái biển",
+                "right": "Một kiểu hệ sinh thái dưới nước"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Sinh quyển: Phần Trái Đất có sự sống; Hệ sinh thái rừng: Một kiểu hệ sinh thái trên cạn; Hệ sinh thái biển: Một kiểu hệ sinh thái dưới nước."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phần Trái Đất có sự sống được gọi là [blank].",
+            "correctAnswer": "sinh quyển",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “sinh quyển”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hệ sinh thái trên cạn",
+              "Hệ sinh thái dưới nước"
+            ],
+            "items": [
+              {
+                "name": "Rừng",
+                "catIndex": 0
+              },
+              {
+                "name": "Đồng cỏ",
+                "catIndex": 0
+              },
+              {
+                "name": "Hồ",
+                "catIndex": 1
+              },
+              {
+                "name": "Biển",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Rừng thuộc nhóm Hệ sinh thái trên cạn; Đồng cỏ thuộc nhóm Hệ sinh thái trên cạn; Hồ thuộc nhóm Hệ sinh thái dưới nước; Biển thuộc nhóm Hệ sinh thái dưới nước."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Rừng, hồ và biển đều là các kiểu hệ [blank].",
+            "bankWords": [
+              "sinh thái",
+              "tuần hoàn",
+              "tiêu hoá"
+            ],
+            "correctWord": "sinh thái",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “sinh thái”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Giải thích trạng thái cân bằng tự nhiên và khả năng biến động của hệ sinh thái.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 46. Cân bằng tự nhiên"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Điều gì có thể xảy ra khi một loài bị loại bỏ khỏi lưới thức ăn?",
+            "options": [
+              "Quan hệ dinh dưỡng giữa các loài có thể thay đổi",
+              "Mọi loài còn lại luôn không đổi",
+              "Đất biến mất ngay lập tức",
+              "Không còn ánh sáng mặt trời"
+            ],
+            "answerIndex": 0,
+            "hint": "Các loài có liên hệ với nhau.",
+            "explanation": "Mất một loài có thể ảnh hưởng tới các loài ăn nó hoặc bị nó ăn."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cân bằng tự nhiên",
+                "right": "Trạng thái tương đối ổn định của hệ sinh thái"
+              },
+              {
+                "left": "Loài săn mồi",
+                "right": "Có thể ảnh hưởng số lượng con mồi"
+              },
+              {
+                "left": "Loài bị săn mồi",
+                "right": "Có thể là nguồn thức ăn của loài khác"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Cân bằng tự nhiên: Trạng thái tương đối ổn định của hệ sinh thái; Loài săn mồi: Có thể ảnh hưởng số lượng con mồi; Loài bị săn mồi: Có thể là nguồn thức ăn của loài khác."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các loài trong hệ sinh thái có quan hệ [blank] và ảnh hưởng lẫn nhau.",
+            "correctAnswer": "dinh dưỡng",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “dinh dưỡng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Góp phần duy trì cân bằng",
+              "Có thể phá vỡ cân bằng"
+            ],
+            "items": [
+              {
+                "name": "Bảo vệ sinh cảnh",
+                "catIndex": 0
+              },
+              {
+                "name": "Khai thác hợp lí",
+                "catIndex": 0
+              },
+              {
+                "name": "Bảo vệ đa dạng sinh học",
+                "catIndex": 0
+              },
+              {
+                "name": "Săn bắt tận diệt",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Bảo vệ sinh cảnh thuộc nhóm Góp phần duy trì cân bằng; Khai thác hợp lí thuộc nhóm Góp phần duy trì cân bằng; Bảo vệ đa dạng sinh học thuộc nhóm Góp phần duy trì cân bằng; Săn bắt tận diệt thuộc nhóm Có thể phá vỡ cân bằng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thay đổi số lượng một loài có thể ảnh hưởng tới cả [blank] thức ăn.",
+            "bankWords": [
+              "lưới",
+              "ống",
+              "mạch"
+            ],
+            "correctWord": "lưới",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “lưới”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Nhận diện một số tác động gây suy giảm đa dạng sinh học.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 47. Bảo vệ môi trường"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hành động nào có thể làm suy giảm đa dạng sinh học?",
+            "options": [
+              "Phá huỷ nơi sống của sinh vật",
+              "Trồng cây bản địa",
+              "Bảo vệ rừng",
+              "Giữ sạch nguồn nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Nhiều loài phụ thuộc vào sinh cảnh.",
+            "explanation": "Phá huỷ nơi sống làm nhiều loài mất nơi cư trú và nguồn thức ăn."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Phá rừng",
+                "right": "Làm mất sinh cảnh"
+              },
+              {
+                "left": "Ô nhiễm nước",
+                "right": "Gây hại sinh vật thuỷ sinh"
+              },
+              {
+                "left": "Săn bắt trái phép",
+                "right": "Làm giảm số lượng loài bị khai thác"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Phá rừng: Làm mất sinh cảnh; Ô nhiễm nước: Gây hại sinh vật thuỷ sinh; Săn bắt trái phép: Làm giảm số lượng loài bị khai thác."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phá rừng có thể làm mất [blank] của nhiều loài.",
+            "correctAnswer": "sinh cảnh",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “sinh cảnh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tác động gây suy giảm",
+              "Biện pháp bảo vệ"
+            ],
+            "items": [
+              {
+                "name": "Phá rừng",
+                "catIndex": 0
+              },
+              {
+                "name": "Xả chất thải chưa xử lí",
+                "catIndex": 0
+              },
+              {
+                "name": "Săn bắt trái phép",
+                "catIndex": 0
+              },
+              {
+                "name": "Trồng và bảo vệ rừng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Phá rừng thuộc nhóm Tác động gây suy giảm; Xả chất thải chưa xử lí thuộc nhóm Tác động gây suy giảm; Săn bắt trái phép thuộc nhóm Tác động gây suy giảm; Trồng và bảo vệ rừng thuộc nhóm Biện pháp bảo vệ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Giữ sạch nguồn nước giúp bảo vệ các sinh vật [blank].",
+            "bankWords": [
+              "thuỷ sinh",
+              "trên sa mạc",
+              "trong đá khô"
+            ],
+            "correctWord": "thuỷ sinh",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “thuỷ sinh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Chọn biện pháp bảo vệ môi trường và sử dụng tài nguyên hợp lí.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 47. Bảo vệ môi trường"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Biện pháp nào góp phần bảo vệ môi trường?",
+            "options": [
+              "Phân loại và xử lí rác đúng cách",
+              "Đổ chất thải chưa xử lí ra sông",
+              "Đốt rừng lấy đất",
+              "Khai thác tận diệt"
+            ],
+            "answerIndex": 0,
+            "hint": "Giảm chất thải gây ô nhiễm.",
+            "explanation": "Phân loại và xử lí rác đúng cách góp phần giảm ô nhiễm."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Phân loại rác",
+                "right": "Hỗ trợ tái chế và xử lí phù hợp"
+              },
+              {
+                "left": "Tiết kiệm nước",
+                "right": "Giảm lãng phí tài nguyên"
+              },
+              {
+                "left": "Bảo vệ rừng",
+                "right": "Giữ sinh cảnh và góp phần bảo vệ đất"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Phân loại rác: Hỗ trợ tái chế và xử lí phù hợp; Tiết kiệm nước: Giảm lãng phí tài nguyên; Bảo vệ rừng: Giữ sinh cảnh và góp phần bảo vệ đất."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sử dụng tài nguyên cần tiết kiệm và [blank].",
+            "correctAnswer": "hợp lí",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “hợp lí”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hành động bảo vệ môi trường",
+              "Hành động gây ô nhiễm"
+            ],
+            "items": [
+              {
+                "name": "Thu gom rác đúng nơi",
+                "catIndex": 0
+              },
+              {
+                "name": "Tiết kiệm nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Trồng cây",
+                "catIndex": 0
+              },
+              {
+                "name": "Xả rác xuống kênh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Thu gom rác đúng nơi thuộc nhóm Hành động bảo vệ môi trường; Tiết kiệm nước thuộc nhóm Hành động bảo vệ môi trường; Trồng cây thuộc nhóm Hành động bảo vệ môi trường; Xả rác xuống kênh thuộc nhóm Hành động gây ô nhiễm."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Rác thải cần được thu gom và [blank] phù hợp.",
+            "bankWords": [
+              "xử lí",
+              "vứt xuống sông",
+              "đốt tùy tiện"
+            ],
+            "correctWord": "xử lí",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “xử lí”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Vận dụng kiến thức quần thể, quần xã và hệ sinh thái để khảo sát môi trường gần trường.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 41–47. Sinh vật và môi trường"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi khảo sát hệ sinh thái sân trường, cần ghi nhận gì?",
+            "options": [
+              "Sinh vật và các yếu tố vô sinh",
+              "Chỉ tên một học sinh",
+              "Chỉ màu tường lớp học",
+              "Chỉ nhiệt độ cơ thể người khảo sát"
+            ],
+            "answerIndex": 0,
+            "hint": "Hệ sinh thái gồm quần xã và môi trường.",
+            "explanation": "Cần quan sát sinh vật cùng các yếu tố vô sinh như ánh sáng, nước và đất."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Quan sát sinh vật",
+                "right": "Ghi các loài có mặt"
+              },
+              {
+                "left": "Quan sát môi trường",
+                "right": "Ghi ánh sáng, nước hoặc đất"
+              },
+              {
+                "left": "Ghi chép kết quả",
+                "right": "Lưu bằng chứng để phân tích"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Quan sát sinh vật: Ghi các loài có mặt; Quan sát môi trường: Ghi ánh sáng, nước hoặc đất; Ghi chép kết quả: Lưu bằng chứng để phân tích."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khảo sát hệ sinh thái cần quan sát cả sinh vật và yếu tố [blank].",
+            "correctAnswer": "vô sinh",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “vô sinh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nên làm khi khảo sát",
+              "Không nên làm khi khảo sát"
+            ],
+            "items": [
+              {
+                "name": "Ghi chép quan sát",
+                "catIndex": 0
+              },
+              {
+                "name": "Không làm hại sinh vật",
+                "catIndex": 0
+              },
+              {
+                "name": "Tuân thủ an toàn",
+                "catIndex": 0
+              },
+              {
+                "name": "Phá tổ để đếm cá thể",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Ghi chép quan sát thuộc nhóm Nên làm khi khảo sát; Không làm hại sinh vật thuộc nhóm Nên làm khi khảo sát; Tuân thủ an toàn thuộc nhóm Nên làm khi khảo sát; Phá tổ để đếm cá thể thuộc nhóm Không nên làm khi khảo sát."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sau khảo sát, cần sắp xếp dữ liệu và rút ra [blank].",
+            "bankWords": [
+              "kết luận",
+              "mùi hương",
+              "số đo tùy ý"
+            ],
+            "correctWord": "kết luận",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “kết luận”."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g10-st2-2026.1",
+  "grade": 10,
+  "stationId": "g10_st2",
+  "title": "Lớp 10 - Trạm 2: Trao đổi và chuyển hoá trong tế bào",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 10–15 của SGK Sinh học 10 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Phân biệt khuếch tán và vận chuyển chủ động qua màng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 10. Trao đổi chất qua màng tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vận chuyển chủ động qua màng thường cần điều kiện nào?",
+            "options": [
+              "Năng lượng của tế bào",
+              "Không có protein màng",
+              "Mọi chất đi từ nồng độ cao xuống thấp",
+              "Màng bị phá vỡ hoàn toàn"
+            ],
+            "answerIndex": 0,
+            "hint": "Có thể chuyển chất ngược chiều gradient nồng độ.",
+            "explanation": "Vận chuyển chủ động cần năng lượng và thường có protein vận chuyển."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Khuếch tán đơn giản",
+                "right": "Chất đi xuôi chiều gradient nồng độ"
+              },
+              {
+                "left": "Vận chuyển chủ động",
+                "right": "Có thể đưa chất ngược chiều gradient"
+              },
+              {
+                "left": "Protein màng",
+                "right": "Tham gia vận chuyển chọn lọc nhiều chất"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Khuếch tán đơn giản: Chất đi xuôi chiều gradient nồng độ; Vận chuyển chủ động: Có thể đưa chất ngược chiều gradient; Protein màng: Tham gia vận chuyển chọn lọc nhiều chất."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vận chuyển chủ động thường tiêu tốn [blank] của tế bào.",
+            "correctAnswer": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “năng lượng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vận chuyển thụ động",
+              "Vận chuyển chủ động"
+            ],
+            "items": [
+              {
+                "name": "Khuếch tán oxygen qua màng",
+                "catIndex": 0
+              },
+              {
+                "name": "Chất đi xuôi gradient nồng độ",
+                "catIndex": 0
+              },
+              {
+                "name": "Bơm ion ngược gradient",
+                "catIndex": 1
+              },
+              {
+                "name": "Cần ATP để vận chuyển ion",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Khuếch tán oxygen qua màng thuộc nhóm Vận chuyển thụ động; Chất đi xuôi gradient nồng độ thuộc nhóm Vận chuyển thụ động; Bơm ion ngược gradient thuộc nhóm Vận chuyển chủ động; Cần ATP để vận chuyển ion thuộc nhóm Vận chuyển chủ động."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khuếch tán thụ động diễn ra theo chiều [blank] gradient nồng độ.",
+            "bankWords": [
+              "xuôi",
+              "ngược",
+              "bất kể"
+            ],
+            "correctWord": "xuôi",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “xuôi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Giải thích thẩm thấu là sự di chuyển của nước qua màng bán thấm.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 10. Trao đổi chất qua màng tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thẩm thấu liên quan trực tiếp đến sự di chuyển của chất nào?",
+            "options": [
+              "Nước",
+              "Protein lớn",
+              "DNA",
+              "Tinh bột nguyên hạt"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét dung môi của tế bào.",
+            "explanation": "Thẩm thấu là sự di chuyển của nước qua màng bán thấm."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thẩm thấu",
+                "right": "Nước di chuyển qua màng bán thấm"
+              },
+              {
+                "left": "Dung dịch ưu trương",
+                "right": "Có nồng độ chất tan cao hơn bên so sánh"
+              },
+              {
+                "left": "Dung dịch nhược trương",
+                "right": "Có nồng độ chất tan thấp hơn bên so sánh"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Thẩm thấu: Nước di chuyển qua màng bán thấm; Dung dịch ưu trương: Có nồng độ chất tan cao hơn bên so sánh; Dung dịch nhược trương: Có nồng độ chất tan thấp hơn bên so sánh."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự di chuyển của nước qua màng bán thấm gọi là [blank].",
+            "correctAnswer": "thẩm thấu",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “thẩm thấu”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan thẩm thấu",
+              "Không phải thẩm thấu"
+            ],
+            "items": [
+              {
+                "name": "Nước qua màng",
+                "catIndex": 0
+              },
+              {
+                "name": "Tế bào mất nước trong môi trường ưu trương",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân tử nước di chuyển",
+                "catIndex": 0
+              },
+              {
+                "name": "Ribosome tổng hợp protein",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Nước qua màng thuộc nhóm Liên quan thẩm thấu; Tế bào mất nước trong môi trường ưu trương thuộc nhóm Liên quan thẩm thấu; Phân tử nước di chuyển thuộc nhóm Liên quan thẩm thấu; Ribosome tổng hợp protein thuộc nhóm Không phải thẩm thấu."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tế bào thực vật trong dung dịch ưu trương có thể bị [blank] nguyên sinh.",
+            "bankWords": [
+              "co",
+              "phản co ngay",
+              "nhân đôi"
+            ],
+            "correctWord": "co",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “co”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Phân biệt nhập bào và xuất bào đối với vật chất kích thước lớn.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 10. Trao đổi chất qua màng tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi tế bào đưa một phần vật chất lớn vào bằng túi màng, quá trình đó gọi là gì?",
+            "options": [
+              "Nhập bào",
+              "Xuất bào",
+              "Thẩm thấu",
+              "Khuếch tán đơn giản"
+            ],
+            "answerIndex": 0,
+            "hint": "Màng bao lấy vật chất từ bên ngoài.",
+            "explanation": "Nhập bào đưa vật chất vào tế bào bằng cách hình thành túi màng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhập bào",
+                "right": "Đưa vật chất vào bằng túi màng"
+              },
+              {
+                "left": "Xuất bào",
+                "right": "Đưa vật chất ra bằng túi màng"
+              },
+              {
+                "left": "Túi màng",
+                "right": "Vận chuyển vật chất kích thước lớn"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nhập bào: Đưa vật chất vào bằng túi màng; Xuất bào: Đưa vật chất ra bằng túi màng; Túi màng: Vận chuyển vật chất kích thước lớn."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Đưa chất từ túi màng ra bên ngoài tế bào gọi là [blank].",
+            "correctAnswer": "xuất bào",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “xuất bào”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đưa vật chất vào tế bào",
+              "Đưa vật chất ra khỏi tế bào"
+            ],
+            "items": [
+              {
+                "name": "Nhập bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Thực bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Xuất bào",
+                "catIndex": 1
+              },
+              {
+                "name": "Tiết enzyme ra ngoài tế bào",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nhập bào thuộc nhóm Đưa vật chất vào tế bào; Thực bào thuộc nhóm Đưa vật chất vào tế bào; Xuất bào thuộc nhóm Đưa vật chất ra khỏi tế bào; Tiết enzyme ra ngoài tế bào thuộc nhóm Đưa vật chất ra khỏi tế bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tế bào có thể dùng [blank] để đưa hạt lớn vào bên trong.",
+            "bankWords": [
+              "nhập bào",
+              "thẩm thấu",
+              "khuếch tán oxygen"
+            ],
+            "correctWord": "nhập bào",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “nhập bào”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Giải thích hiện tượng co và phản co nguyên sinh ở tế bào thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 11. Thực hành: Thí nghiệm co và phản co nguyên sinh"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi đặt tế bào thực vật vào dung dịch ưu trương, khối nguyên sinh thường thế nào?",
+            "options": [
+              "Co lại do mất nước",
+              "Trương lên vô hạn",
+              "Tự nhân đôi ngay",
+              "Không thể thay đổi"
+            ],
+            "answerIndex": 0,
+            "hint": "Nước có xu hướng đi ra ngoài tế bào.",
+            "explanation": "Tế bào mất nước nên khối nguyên sinh co lại."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Môi trường ưu trương",
+                "right": "Tế bào có xu hướng mất nước"
+              },
+              {
+                "left": "Co nguyên sinh",
+                "right": "Khối nguyên sinh tách khỏi thành tế bào"
+              },
+              {
+                "left": "Phản co nguyên sinh",
+                "right": "Khối nguyên sinh trương lại khi nhận nước"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Môi trường ưu trương: Tế bào có xu hướng mất nước; Co nguyên sinh: Khối nguyên sinh tách khỏi thành tế bào; Phản co nguyên sinh: Khối nguyên sinh trương lại khi nhận nước."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trong dung dịch ưu trương, tế bào thực vật có thể xảy ra hiện tượng co [blank].",
+            "correctAnswer": "nguyên sinh",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “nguyên sinh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Co nguyên sinh",
+              "Phản co nguyên sinh"
+            ],
+            "items": [
+              {
+                "name": "Tế bào mất nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Khối nguyên sinh co lại",
+                "catIndex": 0
+              },
+              {
+                "name": "Tế bào nhận nước trở lại",
+                "catIndex": 1
+              },
+              {
+                "name": "Khối nguyên sinh trương lên",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Tế bào mất nước thuộc nhóm Co nguyên sinh; Khối nguyên sinh co lại thuộc nhóm Co nguyên sinh; Tế bào nhận nước trở lại thuộc nhóm Phản co nguyên sinh; Khối nguyên sinh trương lên thuộc nhóm Phản co nguyên sinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi chuyển tế bào đã co nguyên sinh sang nước, có thể quan sát hiện tượng [blank].",
+            "bankWords": [
+              "phản co nguyên sinh",
+              "phân bào",
+              "thụ tinh"
+            ],
+            "correctWord": "phản co nguyên sinh",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “phản co nguyên sinh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Mô tả các bước tiếp nhận, truyền và đáp ứng tín hiệu ở tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 12. Truyền tin tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Phân tử tín hiệu thường được tế bào đích nhận biết nhờ gì?",
+            "options": [
+              "Thụ thể phù hợp",
+              "Thành cellulose bất kì",
+              "Nước tinh khiết",
+              "DNA của môi trường"
+            ],
+            "answerIndex": 0,
+            "hint": "Có tính đặc hiệu với tín hiệu.",
+            "explanation": "Thụ thể phù hợp giúp tế bào nhận biết tín hiệu."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tín hiệu",
+                "right": "Mang thông tin giữa tế bào"
+              },
+              {
+                "left": "Thụ thể",
+                "right": "Nhận biết tín hiệu phù hợp"
+              },
+              {
+                "left": "Đáp ứng tế bào",
+                "right": "Thay đổi hoạt động sau khi nhận tín hiệu"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Tín hiệu: Mang thông tin giữa tế bào; Thụ thể: Nhận biết tín hiệu phù hợp; Đáp ứng tế bào: Thay đổi hoạt động sau khi nhận tín hiệu."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phân tử nhận biết tín hiệu ở tế bào đích gọi là [blank].",
+            "correctAnswer": "thụ thể",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “thụ thể”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thành phần truyền tin tế bào",
+              "Không phải thành phần truyền tin"
+            ],
+            "items": [
+              {
+                "name": "Phân tử tín hiệu",
+                "catIndex": 0
+              },
+              {
+                "name": "Thụ thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Đáp ứng tế bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Sỏi trong đất",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Phân tử tín hiệu thuộc nhóm Thành phần truyền tin tế bào; Thụ thể thuộc nhóm Thành phần truyền tin tế bào; Đáp ứng tế bào thuộc nhóm Thành phần truyền tin tế bào; Sỏi trong đất thuộc nhóm Không phải thành phần truyền tin."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tế bào chỉ đáp ứng tín hiệu khi có [blank] thích hợp.",
+            "bankWords": [
+              "thụ thể",
+              "hạt cát",
+              "ánh sáng luôn luôn"
+            ],
+            "correctWord": "thụ thể",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “thụ thể”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nêu vai trò ATP trong chuyển hoá năng lượng của tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 13. Khái quát về chuyển hoá vật chất và năng lượng"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Phân tử nào thường cung cấp năng lượng trực tiếp cho nhiều hoạt động tế bào?",
+            "options": [
+              "ATP",
+              "DNA",
+              "Cellulose",
+              "Nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Được gọi là đồng tiền năng lượng.",
+            "explanation": "ATP cung cấp năng lượng trực tiếp cho nhiều quá trình của tế bào."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "ATP",
+                "right": "Chất mang năng lượng dùng trực tiếp"
+              },
+              {
+                "left": "Chuyển hoá vật chất",
+                "right": "Tập hợp các phản ứng hoá học trong tế bào"
+              },
+              {
+                "left": "Enzyme",
+                "right": "Xúc tác sinh học"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "ATP: Chất mang năng lượng dùng trực tiếp; Chuyển hoá vật chất: Tập hợp các phản ứng hoá học trong tế bào; Enzyme: Xúc tác sinh học."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "ATP được xem là đồng tiền [blank] của tế bào.",
+            "correctAnswer": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “năng lượng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Quá trình có thể cần ATP",
+              "Không phải quá trình sống của tế bào"
+            ],
+            "items": [
+              {
+                "name": "Vận chuyển chủ động",
+                "catIndex": 0
+              },
+              {
+                "name": "Tổng hợp đại phân tử",
+                "catIndex": 0
+              },
+              {
+                "name": "Vận động tế bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Đá lăn xuống dốc",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Vận chuyển chủ động thuộc nhóm Quá trình có thể cần ATP; Tổng hợp đại phân tử thuộc nhóm Quá trình có thể cần ATP; Vận động tế bào thuộc nhóm Quá trình có thể cần ATP; Đá lăn xuống dốc thuộc nhóm Không phải quá trình sống của tế bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nhiều hoạt động tế bào sử dụng năng lượng trực tiếp từ [blank].",
+            "bankWords": [
+              "ATP",
+              "DNA",
+              "cellulose"
+            ],
+            "correctWord": "ATP",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “ATP”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Giải thích vai trò xúc tác và tính đặc hiệu của enzyme.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 13. Khái quát về chuyển hoá vật chất và năng lượng"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Enzyme có vai trò gì trong tế bào?",
+            "options": [
+              "Xúc tác phản ứng sinh hoá",
+              "Là nguồn duy nhất của DNA",
+              "Thay thế mọi chất nền",
+              "Luôn bị tiêu hao hoàn toàn sau một phản ứng"
+            ],
+            "answerIndex": 0,
+            "hint": "Làm phản ứng diễn ra nhanh hơn.",
+            "explanation": "Enzyme là chất xúc tác sinh học cho các phản ứng trong tế bào."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Enzyme",
+                "right": "Chất xúc tác sinh học"
+              },
+              {
+                "left": "Cơ chất",
+                "right": "Chất tham gia phản ứng do enzyme xúc tác"
+              },
+              {
+                "left": "Trung tâm hoạt động",
+                "right": "Vùng gắn cơ chất phù hợp"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Enzyme: Chất xúc tác sinh học; Cơ chất: Chất tham gia phản ứng do enzyme xúc tác; Trung tâm hoạt động: Vùng gắn cơ chất phù hợp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Enzyme thường có tính [blank] với cơ chất hoặc phản ứng.",
+            "correctAnswer": "đặc hiệu",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “đặc hiệu”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đúng về enzyme",
+              "Không đúng về enzyme"
+            ],
+            "items": [
+              {
+                "name": "Xúc tác phản ứng",
+                "catIndex": 0
+              },
+              {
+                "name": "Có vùng gắn cơ chất",
+                "catIndex": 0
+              },
+              {
+                "name": "Hoạt tính chịu ảnh hưởng nhiệt độ",
+                "catIndex": 0
+              },
+              {
+                "name": "Luôn hoạt động tốt ở mọi nhiệt độ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Xúc tác phản ứng thuộc nhóm Đúng về enzyme; Có vùng gắn cơ chất thuộc nhóm Đúng về enzyme; Hoạt tính chịu ảnh hưởng nhiệt độ thuộc nhóm Đúng về enzyme; Luôn hoạt động tốt ở mọi nhiệt độ thuộc nhóm Không đúng về enzyme."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cơ chất gắn vào trung tâm [blank] của enzyme.",
+            "bankWords": [
+              "hoạt động",
+              "di truyền",
+              "sinh sản"
+            ],
+            "correctWord": "hoạt động",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “hoạt động”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Dự đoán tác động của nhiệt độ và pH đến hoạt tính enzyme.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 15. Thực hành: Thí nghiệm phân tích ảnh hưởng của một số yếu tố đến hoạt tính của enzyme"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao đun sôi lâu có thể làm enzyme mất hoạt tính?",
+            "options": [
+              "Cấu trúc không gian của enzyme có thể bị biến đổi",
+              "Enzyme biến thành DNA",
+              "Mọi cơ chất tự biến mất",
+              "Nước không còn là phân tử"
+            ],
+            "answerIndex": 0,
+            "hint": "Protein nhạy với nhiệt độ quá cao.",
+            "explanation": "Nhiệt độ cao có thể làm biến tính protein enzyme, khiến hoạt tính giảm."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhiệt độ quá cao",
+                "right": "Có thể làm enzyme biến tính"
+              },
+              {
+                "left": "pH không phù hợp",
+                "right": "Có thể làm giảm hoạt tính enzyme"
+              },
+              {
+                "left": "Điều kiện tối ưu",
+                "right": "Enzyme thường hoạt động hiệu quả nhất"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Nhiệt độ quá cao: Có thể làm enzyme biến tính; pH không phù hợp: Có thể làm giảm hoạt tính enzyme; Điều kiện tối ưu: Enzyme thường hoạt động hiệu quả nhất."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nhiệt độ và [blank] có thể ảnh hưởng đến hoạt tính enzyme.",
+            "correctAnswer": "pH",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “pH”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể ảnh hưởng hoạt tính enzyme",
+              "Không phải yếu tố của phản ứng enzyme"
+            ],
+            "items": [
+              {
+                "name": "Nhiệt độ",
+                "catIndex": 0
+              },
+              {
+                "name": "pH",
+                "catIndex": 0
+              },
+              {
+                "name": "Nồng độ cơ chất",
+                "catIndex": 0
+              },
+              {
+                "name": "Tên người ghi nhãn ống nghiệm",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Nhiệt độ thuộc nhóm Có thể ảnh hưởng hoạt tính enzyme; pH thuộc nhóm Có thể ảnh hưởng hoạt tính enzyme; Nồng độ cơ chất thuộc nhóm Có thể ảnh hưởng hoạt tính enzyme; Tên người ghi nhãn ống nghiệm thuộc nhóm Không phải yếu tố của phản ứng enzyme."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong thí nghiệm enzyme, cần thay đổi một [blank] mỗi lần để dễ rút kết luận.",
+            "bankWords": [
+              "yếu tố",
+              "mọi yếu tố",
+              "đáp án"
+            ],
+            "correctWord": "yếu tố",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “yếu tố”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Phân biệt phân giải và tổng hợp các chất trong tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 14. Phân giải và tổng hợp các chất trong tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Quá trình nào thuộc tổng hợp chất?",
+            "options": [
+              "Tạo protein từ amino acid",
+              "Phân giải glucose",
+              "Phân giải tinh bột",
+              "Phá vỡ protein thành amino acid"
+            ],
+            "answerIndex": 0,
+            "hint": "Nhiều đơn phân kết hợp thành phân tử lớn.",
+            "explanation": "Tạo protein từ amino acid là quá trình tổng hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tổng hợp",
+                "right": "Tạo chất phức tạp từ chất đơn giản"
+              },
+              {
+                "left": "Phân giải",
+                "right": "Phá vỡ chất phức tạp thành chất đơn giản"
+              },
+              {
+                "left": "Hô hấp tế bào",
+                "right": "Một quá trình phân giải để giải phóng năng lượng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tổng hợp: Tạo chất phức tạp từ chất đơn giản; Phân giải: Phá vỡ chất phức tạp thành chất đơn giản; Hô hấp tế bào: Một quá trình phân giải để giải phóng năng lượng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phân giải chất hữu cơ có thể giải phóng [blank].",
+            "correctAnswer": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “năng lượng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tổng hợp",
+              "Phân giải"
+            ],
+            "items": [
+              {
+                "name": "Tạo protein từ amino acid",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo tinh bột từ glucose",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân giải glucose",
+                "catIndex": 1
+              },
+              {
+                "name": "Phân giải protein",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tạo protein từ amino acid thuộc nhóm Tổng hợp; Tạo tinh bột từ glucose thuộc nhóm Tổng hợp; Phân giải glucose thuộc nhóm Phân giải; Phân giải protein thuộc nhóm Phân giải."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Quá trình tạo phân tử phức tạp từ các đơn vị đơn giản gọi là [blank].",
+            "bankWords": [
+              "tổng hợp",
+              "phân giải",
+              "thẩm thấu"
+            ],
+            "correctWord": "tổng hợp",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “tổng hợp”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Liên hệ quang hợp và hô hấp tế bào trong chuyển hoá năng lượng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 14. Phân giải và tổng hợp các chất trong tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Quang hợp tích luỹ năng lượng chủ yếu dưới dạng nào?",
+            "options": [
+              "Hoá năng trong chất hữu cơ",
+              "Âm thanh",
+              "Động năng của lá",
+              "Nhiệt từ lửa"
+            ],
+            "answerIndex": 0,
+            "hint": "Ánh sáng được chuyển thành năng lượng hoá học.",
+            "explanation": "Quang hợp tích luỹ năng lượng trong các chất hữu cơ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Quang hợp",
+                "right": "Tổng hợp chất hữu cơ nhờ ánh sáng"
+              },
+              {
+                "left": "Hô hấp tế bào",
+                "right": "Phân giải chất hữu cơ giải phóng năng lượng"
+              },
+              {
+                "left": "ATP",
+                "right": "Mang năng lượng trực tiếp cho nhiều hoạt động"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Quang hợp: Tổng hợp chất hữu cơ nhờ ánh sáng; Hô hấp tế bào: Phân giải chất hữu cơ giải phóng năng lượng; ATP: Mang năng lượng trực tiếp cho nhiều hoạt động."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Quang hợp chuyển năng lượng ánh sáng thành [blank] năng.",
+            "correctAnswer": "hoá",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “hoá”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Quang hợp",
+              "Hô hấp tế bào"
+            ],
+            "items": [
+              {
+                "name": "Tổng hợp chất hữu cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Tích luỹ năng lượng",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân giải chất hữu cơ",
+                "catIndex": 1
+              },
+              {
+                "name": "Giải phóng năng lượng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Tổng hợp chất hữu cơ thuộc nhóm Quang hợp; Tích luỹ năng lượng thuộc nhóm Quang hợp; Phân giải chất hữu cơ thuộc nhóm Hô hấp tế bào; Giải phóng năng lượng thuộc nhóm Hô hấp tế bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sản phẩm hữu cơ của quang hợp có thể là nguyên liệu cho [blank] tế bào.",
+            "bankWords": [
+              "hô hấp",
+              "thụ tinh",
+              "xuất bào"
+            ],
+            "correctWord": "hô hấp",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “hô hấp”."
+          }
+        }
+      ]
+    }
+  ]
+}

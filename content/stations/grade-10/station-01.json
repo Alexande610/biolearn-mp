@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g10-st1-2026.1",
+  "grade": 10,
+  "stationId": "g10_st1",
+  "title": "Lớp 10 - Trạm 1: Thành phần hoá học và cấu trúc tế bào",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 4–9 của SGK Sinh học 10 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nêu vai trò của các nguyên tố hoá học và nước đối với tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 4. Các nguyên tố hoá học và nước"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nguyên tố nào thuộc nhóm nguyên tố đa lượng chủ yếu trong tế bào?",
+            "options": [
+              "Carbon",
+              "Sắt",
+              "Kẽm",
+              "Iodine"
+            ],
+            "answerIndex": 0,
+            "hint": "Nguyên tố này tạo khung của nhiều phân tử hữu cơ.",
+            "explanation": "Carbon là nguyên tố đa lượng, tạo bộ khung của nhiều phân tử hữu cơ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Carbon",
+                "right": "Tạo khung phân tử hữu cơ"
+              },
+              {
+                "left": "Nước",
+                "right": "Dung môi và môi trường phản ứng"
+              },
+              {
+                "left": "Nguyên tố vi lượng",
+                "right": "Cần lượng nhỏ nhưng vẫn quan trọng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Carbon: Tạo khung phân tử hữu cơ; Nước: Dung môi và môi trường phản ứng; Nguyên tố vi lượng: Cần lượng nhỏ nhưng vẫn quan trọng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phân tử nước có tính [blank] nên hoà tan nhiều chất phân cực.",
+            "correctAnswer": "phân cực",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “phân cực”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nguyên tố đa lượng chủ yếu",
+              "Nguyên tố vi lượng"
+            ],
+            "items": [
+              {
+                "name": "Carbon",
+                "catIndex": 0
+              },
+              {
+                "name": "Hydrogen",
+                "catIndex": 0
+              },
+              {
+                "name": "Oxygen",
+                "catIndex": 0
+              },
+              {
+                "name": "Sắt",
+                "catIndex": 1
+              },
+              {
+                "name": "Kẽm",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Carbon thuộc nhóm Nguyên tố đa lượng chủ yếu; Hydrogen thuộc nhóm Nguyên tố đa lượng chủ yếu; Oxygen thuộc nhóm Nguyên tố đa lượng chủ yếu; Sắt thuộc nhóm Nguyên tố vi lượng; Kẽm thuộc nhóm Nguyên tố vi lượng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nước là thành phần chiếm tỉ lệ lớn trong nhiều [blank].",
+            "bankWords": [
+              "tế bào",
+              "hòn đá khô",
+              "vật kim loại"
+            ],
+            "correctWord": "tế bào",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “tế bào”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Phân biệt các loại carbohydrate và chức năng chính.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 5. Các phân tử sinh học"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Phân tử nào là polysaccharide dự trữ ở thực vật?",
+            "options": [
+              "Tinh bột",
+              "Glucose",
+              "Fructose",
+              "Saccharose"
+            ],
+            "answerIndex": 0,
+            "hint": "Được tạo từ nhiều đơn phân glucose.",
+            "explanation": "Tinh bột là polysaccharide dự trữ phổ biến ở thực vật."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Glucose",
+                "right": "Đường đơn"
+              },
+              {
+                "left": "Saccharose",
+                "right": "Đường đôi"
+              },
+              {
+                "left": "Tinh bột",
+                "right": "Đường đa dự trữ ở thực vật"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Glucose: Đường đơn; Saccharose: Đường đôi; Tinh bột: Đường đa dự trữ ở thực vật."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cellulose là thành phần quan trọng của thành tế bào [blank].",
+            "correctAnswer": "thực vật",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “thực vật”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đường đơn",
+              "Đường đa"
+            ],
+            "items": [
+              {
+                "name": "Glucose",
+                "catIndex": 0
+              },
+              {
+                "name": "Fructose",
+                "catIndex": 0
+              },
+              {
+                "name": "Tinh bột",
+                "catIndex": 1
+              },
+              {
+                "name": "Cellulose",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Glucose thuộc nhóm Đường đơn; Fructose thuộc nhóm Đường đơn; Tinh bột thuộc nhóm Đường đa; Cellulose thuộc nhóm Đường đa."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Carbohydrate có thể cung cấp và dự trữ [blank] cho tế bào.",
+            "bankWords": [
+              "năng lượng",
+              "ánh sáng",
+              "âm thanh"
+            ],
+            "correctWord": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “năng lượng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Nêu tính chất và vai trò của lipid.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 5. Các phân tử sinh học"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Phospholipid có vai trò cấu trúc quan trọng ở đâu?",
+            "options": [
+              "Màng tế bào",
+              "Thành cellulose",
+              "DNA",
+              "Ribosome"
+            ],
+            "answerIndex": 0,
+            "hint": "Phân tử này tạo lớp kép.",
+            "explanation": "Phospholipid là thành phần quan trọng của lớp kép màng tế bào."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Triglyceride",
+                "right": "Dự trữ năng lượng"
+              },
+              {
+                "left": "Phospholipid",
+                "right": "Tạo lớp kép màng"
+              },
+              {
+                "left": "Steroid",
+                "right": "Một nhóm lipid có nhiều chức năng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Triglyceride: Dự trữ năng lượng; Phospholipid: Tạo lớp kép màng; Steroid: Một nhóm lipid có nhiều chức năng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Lớp kép của màng tế bào chủ yếu được tạo bởi [blank].",
+            "correctAnswer": "phospholipid",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “phospholipid”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Lipid",
+              "Không phải lipid"
+            ],
+            "items": [
+              {
+                "name": "Dầu thực vật",
+                "catIndex": 0
+              },
+              {
+                "name": "Mỡ động vật",
+                "catIndex": 0
+              },
+              {
+                "name": "Phospholipid",
+                "catIndex": 0
+              },
+              {
+                "name": "Glucose",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Dầu thực vật thuộc nhóm Lipid; Mỡ động vật thuộc nhóm Lipid; Phospholipid thuộc nhóm Lipid; Glucose thuộc nhóm Không phải lipid."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Lipid thường ít tan trong [blank].",
+            "bankWords": [
+              "nước",
+              "dung môi hữu cơ",
+              "dầu"
+            ],
+            "correctWord": "nước",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “nước”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nhận biết cấu trúc bậc một và vai trò đa dạng của protein.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 5. Các phân tử sinh học"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đơn phân cấu tạo protein là gì?",
+            "options": [
+              "Amino acid",
+              "Nucleotide",
+              "Glucose",
+              "Acid béo"
+            ],
+            "answerIndex": 0,
+            "hint": "Các đơn phân nối nhau bằng liên kết peptide.",
+            "explanation": "Protein là chuỗi các amino acid."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Amino acid",
+                "right": "Đơn phân cấu tạo protein"
+              },
+              {
+                "left": "Enzyme",
+                "right": "Protein xúc tác nhiều phản ứng"
+              },
+              {
+                "left": "Collagen",
+                "right": "Protein cấu trúc trong mô liên kết"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Amino acid: Đơn phân cấu tạo protein; Enzyme: Protein xúc tác nhiều phản ứng; Collagen: Protein cấu trúc trong mô liên kết."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Liên kết nối các amino acid trong chuỗi protein gọi là liên kết [blank].",
+            "correctAnswer": "peptide",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “peptide”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Protein hoặc thành phần của protein",
+              "Không phải protein"
+            ],
+            "items": [
+              {
+                "name": "Enzyme amylase",
+                "catIndex": 0
+              },
+              {
+                "name": "Collagen",
+                "catIndex": 0
+              },
+              {
+                "name": "Amino acid",
+                "catIndex": 0
+              },
+              {
+                "name": "Tinh bột",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Enzyme amylase thuộc nhóm Protein hoặc thành phần của protein; Collagen thuộc nhóm Protein hoặc thành phần của protein; Amino acid thuộc nhóm Protein hoặc thành phần của protein; Tinh bột thuộc nhóm Không phải protein."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trình tự các [blank] tạo nên cấu trúc bậc một của protein.",
+            "bankWords": [
+              "amino acid",
+              "nucleotide",
+              "đường đơn"
+            ],
+            "correctWord": "amino acid",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “amino acid”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "So sánh chức năng cơ bản của DNA và RNA.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 5. Các phân tử sinh học"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "DNA có chức năng nổi bật nào?",
+            "options": [
+              "Lưu giữ thông tin di truyền",
+              "Tạo lớp kép màng tế bào",
+              "Dự trữ tinh bột",
+              "Vận chuyển oxygen trong máu"
+            ],
+            "answerIndex": 0,
+            "hint": "Gene là đoạn của phân tử này.",
+            "explanation": "DNA lưu giữ và truyền đạt thông tin di truyền."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "DNA",
+                "right": "Lưu giữ thông tin di truyền"
+              },
+              {
+                "left": "mRNA",
+                "right": "Mang thông tin đến nơi tổng hợp protein"
+              },
+              {
+                "left": "Nucleotide",
+                "right": "Đơn phân của nucleic acid"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "DNA: Lưu giữ thông tin di truyền; mRNA: Mang thông tin đến nơi tổng hợp protein; Nucleotide: Đơn phân của nucleic acid."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "DNA và RNA đều thuộc nhóm phân tử [blank] acid.",
+            "correctAnswer": "nucleic",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “nucleic”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đặc trưng DNA",
+              "Đặc trưng RNA"
+            ],
+            "items": [
+              {
+                "name": "Thường hai mạch",
+                "catIndex": 0
+              },
+              {
+                "name": "Có base T",
+                "catIndex": 0
+              },
+              {
+                "name": "Thường một mạch",
+                "catIndex": 1
+              },
+              {
+                "name": "Có base U",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Thường hai mạch thuộc nhóm Đặc trưng DNA; Có base T thuộc nhóm Đặc trưng DNA; Thường một mạch thuộc nhóm Đặc trưng RNA; Có base U thuộc nhóm Đặc trưng RNA."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "RNA thường chứa base U thay cho base [blank] ở DNA.",
+            "bankWords": [
+              "T",
+              "A",
+              "G"
+            ],
+            "correctWord": "T",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “T”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Giải thích nguyên tắc dùng thuốc thử để nhận biết một số phân tử sinh học.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 6. Thực hành: Nhận biết một số phân tử sinh học"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Dung dịch iodine thường dùng để nhận biết chất nào?",
+            "options": [
+              "Tinh bột",
+              "Lipid",
+              "DNA",
+              "Nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Tạo màu xanh tím đặc trưng.",
+            "explanation": "Iodine cho phản ứng màu đặc trưng với tinh bột."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Iodine",
+                "right": "Nhận biết tinh bột"
+              },
+              {
+                "left": "Biuret",
+                "right": "Nhận biết protein"
+              },
+              {
+                "left": "Giấy thấm",
+                "right": "Có thể phát hiện vết dầu mỡ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Iodine: Nhận biết tinh bột; Biuret: Nhận biết protein; Giấy thấm: Có thể phát hiện vết dầu mỡ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phản ứng màu với thuốc thử biuret giúp nhận biết [blank].",
+            "correctAnswer": "protein",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “protein”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thuốc thử hoặc cách nhận biết",
+              "Chất cần nhận biết"
+            ],
+            "items": [
+              {
+                "name": "Iodine",
+                "catIndex": 0
+              },
+              {
+                "name": "Biuret",
+                "catIndex": 0
+              },
+              {
+                "name": "Tinh bột",
+                "catIndex": 1
+              },
+              {
+                "name": "Protein",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Iodine thuộc nhóm Thuốc thử hoặc cách nhận biết; Biuret thuộc nhóm Thuốc thử hoặc cách nhận biết; Tinh bột thuộc nhóm Chất cần nhận biết; Protein thuộc nhóm Chất cần nhận biết."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi làm thực hành, mẫu [blank] giúp so sánh kết quả phản ứng màu.",
+            "bankWords": [
+              "đối chứng",
+              "không ghi nhãn",
+              "bị trộn lẫn"
+            ],
+            "correctWord": "đối chứng",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “đối chứng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Mô tả cấu trúc cơ bản của tế bào nhân sơ.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 7. Tế bào nhân sơ"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tế bào nhân sơ khác tế bào nhân thực ở đặc điểm nào?",
+            "options": [
+              "Chưa có nhân được bao bởi màng",
+              "Không có DNA",
+              "Không có màng sinh chất",
+              "Luôn đa bào"
+            ],
+            "answerIndex": 0,
+            "hint": "DNA nằm ở vùng nhân.",
+            "explanation": "Tế bào nhân sơ chưa có nhân được bao bởi màng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Vùng nhân",
+                "right": "Chứa DNA nhưng không có màng nhân"
+              },
+              {
+                "left": "Màng sinh chất",
+                "right": "Bao bọc và kiểm soát trao đổi chất"
+              },
+              {
+                "left": "Ribosome",
+                "right": "Nơi tổng hợp protein"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Vùng nhân: Chứa DNA nhưng không có màng nhân; Màng sinh chất: Bao bọc và kiểm soát trao đổi chất; Ribosome: Nơi tổng hợp protein."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở tế bào nhân sơ, DNA tập trung trong vùng [blank].",
+            "correctAnswer": "nhân",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “nhân”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có ở nhiều tế bào nhân sơ",
+              "Không có ở tế bào nhân sơ điển hình"
+            ],
+            "items": [
+              {
+                "name": "Màng sinh chất",
+                "catIndex": 0
+              },
+              {
+                "name": "Ribosome",
+                "catIndex": 0
+              },
+              {
+                "name": "Vùng nhân",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhân có màng bao",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Màng sinh chất thuộc nhóm Có ở nhiều tế bào nhân sơ; Ribosome thuộc nhóm Có ở nhiều tế bào nhân sơ; Vùng nhân thuộc nhóm Có ở nhiều tế bào nhân sơ; Nhân có màng bao thuộc nhóm Không có ở tế bào nhân sơ điển hình."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Vi khuẩn là ví dụ của sinh vật có tế bào nhân [blank].",
+            "bankWords": [
+              "sơ",
+              "thực",
+              "rỗng"
+            ],
+            "correctWord": "sơ",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “sơ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Nhận biết nhân và các bào quan chính của tế bào nhân thực.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 8. Tế bào nhân thực"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Bào quan nào là nơi diễn ra phần lớn quá trình hô hấp tế bào hiếu khí?",
+            "options": [
+              "Ty thể",
+              "Lục lạp",
+              "Không bào",
+              "Nhân"
+            ],
+            "answerIndex": 0,
+            "hint": "Bào quan tạo nhiều ATP.",
+            "explanation": "Ty thể là nơi diễn ra nhiều giai đoạn của hô hấp tế bào hiếu khí."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhân",
+                "right": "Chứa phần lớn DNA trong tế bào nhân thực"
+              },
+              {
+                "left": "Ty thể",
+                "right": "Tham gia tạo ATP"
+              },
+              {
+                "left": "Ribosome",
+                "right": "Tổng hợp protein"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Nhân: Chứa phần lớn DNA trong tế bào nhân thực; Ty thể: Tham gia tạo ATP; Ribosome: Tổng hợp protein."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào nhân thực có [blank] được bao bọc bởi màng nhân.",
+            "correctAnswer": "nhân",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “nhân”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bào quan có màng",
+              "Cấu trúc không có màng"
+            ],
+            "items": [
+              {
+                "name": "Ty thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Lục lạp",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhân",
+                "catIndex": 0
+              },
+              {
+                "name": "Ribosome",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Ty thể thuộc nhóm Bào quan có màng; Lục lạp thuộc nhóm Bào quan có màng; Nhân thuộc nhóm Bào quan có màng; Ribosome thuộc nhóm Cấu trúc không có màng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Phần lớn DNA của tế bào nhân thực nằm trong [blank].",
+            "bankWords": [
+              "nhân",
+              "thành tế bào",
+              "dịch ngoại bào"
+            ],
+            "correctWord": "nhân",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “nhân”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "So sánh tế bào thực vật và tế bào động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 8. Tế bào nhân thực"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Cấu trúc nào có ở tế bào thực vật điển hình nhưng không có ở tế bào động vật?",
+            "options": [
+              "Thành cellulose",
+              "Màng sinh chất",
+              "Ribosome",
+              "Ty thể"
+            ],
+            "answerIndex": 0,
+            "hint": "Nằm ngoài màng sinh chất.",
+            "explanation": "Thành tế bào cấu tạo chủ yếu từ cellulose có ở tế bào thực vật."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thành tế bào",
+                "right": "Giúp định hình và bảo vệ tế bào thực vật"
+              },
+              {
+                "left": "Lục lạp",
+                "right": "Thực hiện quang hợp ở tế bào có lục lạp"
+              },
+              {
+                "left": "Ty thể",
+                "right": "Có ở cả tế bào thực vật và động vật"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Thành tế bào: Giúp định hình và bảo vệ tế bào thực vật; Lục lạp: Thực hiện quang hợp ở tế bào có lục lạp; Ty thể: Có ở cả tế bào thực vật và động vật."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào thực vật điển hình có thành tế bào cấu tạo chủ yếu từ [blank].",
+            "correctAnswer": "cellulose",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “cellulose”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đặc trưng tế bào thực vật điển hình",
+              "Có ở cả hai loại tế bào"
+            ],
+            "items": [
+              {
+                "name": "Thành cellulose",
+                "catIndex": 0
+              },
+              {
+                "name": "Lục lạp ở tế bào quang hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Không bào lớn ở tế bào trưởng thành",
+                "catIndex": 0
+              },
+              {
+                "name": "Màng sinh chất",
+                "catIndex": 1
+              },
+              {
+                "name": "Ty thể",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Thành cellulose thuộc nhóm Đặc trưng tế bào thực vật điển hình; Lục lạp ở tế bào quang hợp thuộc nhóm Đặc trưng tế bào thực vật điển hình; Không bào lớn ở tế bào trưởng thành thuộc nhóm Đặc trưng tế bào thực vật điển hình; Màng sinh chất thuộc nhóm Có ở cả hai loại tế bào; Ty thể thuộc nhóm Có ở cả hai loại tế bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Bào quan quang hợp ở nhiều tế bào thực vật là [blank].",
+            "bankWords": [
+              "lục lạp",
+              "ty thể",
+              "ribosome"
+            ],
+            "correctWord": "lục lạp",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “lục lạp”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Chọn dụng cụ và thao tác phù hợp để quan sát tế bào dưới kính hiển vi.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 9. Thực hành: Quan sát tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi bắt đầu quan sát tiêu bản bằng kính hiển vi, nên dùng vật kính nào trước?",
+            "options": [
+              "Vật kính có độ phóng đại nhỏ",
+              "Vật kính lớn nhất ngay lập tức",
+              "Không cần vật kính",
+              "Chỉ dùng mắt thường"
+            ],
+            "answerIndex": 0,
+            "hint": "Dễ tìm mẫu và lấy nét ban đầu.",
+            "explanation": "Bắt đầu với vật kính nhỏ giúp định vị mẫu và lấy nét an toàn."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Lam kính",
+                "right": "Đỡ mẫu quan sát"
+              },
+              {
+                "left": "Lamen",
+                "right": "Đậy lên mẫu trên lam kính"
+              },
+              {
+                "left": "Vật kính",
+                "right": "Tham gia phóng đại ảnh của mẫu"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Lam kính: Đỡ mẫu quan sát; Lamen: Đậy lên mẫu trên lam kính; Vật kính: Tham gia phóng đại ảnh của mẫu."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Mẫu vật cần đặt trên [blank] kính trước khi quan sát.",
+            "correctAnswer": "lam",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “lam”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Dụng cụ làm tiêu bản",
+              "Không phải dụng cụ làm tiêu bản"
+            ],
+            "items": [
+              {
+                "name": "Lam kính",
+                "catIndex": 0
+              },
+              {
+                "name": "Lamen",
+                "catIndex": 0
+              },
+              {
+                "name": "Ống nhỏ giọt",
+                "catIndex": 0
+              },
+              {
+                "name": "Thước dây đo sân",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Lam kính thuộc nhóm Dụng cụ làm tiêu bản; Lamen thuộc nhóm Dụng cụ làm tiêu bản; Ống nhỏ giọt thuộc nhóm Dụng cụ làm tiêu bản; Thước dây đo sân thuộc nhóm Không phải dụng cụ làm tiêu bản."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi đổi sang vật kính lớn, cần chỉnh [blank] cẩn thận để ảnh rõ.",
+            "bankWords": [
+              "nét",
+              "nhiệt độ nước",
+              "âm lượng"
+            ],
+            "correctWord": "nét",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “nét”."
+          }
+        }
+      ]
+    }
+  ]
+}

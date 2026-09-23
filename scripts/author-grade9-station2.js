@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Nêu khái niệm đột biến gene và phân biệt với biến đổi kiểu hình do môi trường.', lesson: 'Bài 41. Đột biến gene',
+    quiz: ['Đột biến gene là gì?', ['Biến đổi trong cấu trúc của gene', 'Thay đổi màu áo của người', 'Cây nghiêng do gió', 'Sự tăng nước trong tế bào'], 0, 'Xét biến đổi ở vật chất di truyền.', 'Đột biến gene là biến đổi trong cấu trúc của gene.'],
+    match: [['Gene', 'Đoạn DNA mang thông tin di truyền'], ['Đột biến gene', 'Biến đổi trong cấu trúc gene'], ['Tác nhân gây đột biến', 'Yếu tố có thể làm tăng khả năng xuất hiện đột biến']],
+    fill: ['Đột biến gene là biến đổi trong cấu trúc của [blank].', 'gene'],
+    category: [['Có thể là đột biến gene', 'Không đủ bằng chứng là đột biến gene'], [['Thay một cặp nucleotide trong gene', 0], ['Mất một cặp nucleotide của gene', 0], ['Lá héo vì thiếu nước', 1], ['Da sạm sau tiếp xúc nắng', 1]]],
+    drag: ['Thay đổi một cặp nucleotide trong gene có thể tạo ra [blank] gene.', ['đột biến', 'quang hợp', 'thoát hơi nước'], 'đột biến'],
+  },
+  {
+    objective: 'Nhận biết cấu trúc và vai trò của nhiễm sắc thể.', lesson: 'Bài 42. Nhiễm sắc thể và bộ nhiễm sắc thể',
+    quiz: ['Nhiễm sắc thể mang thành phần nào chứa thông tin di truyền?', ['DNA', 'Tinh bột', 'Nước', 'Chất béo'], 0, 'Gene là đoạn của phân tử này.', 'DNA trên nhiễm sắc thể mang thông tin di truyền.'],
+    match: [['Nhiễm sắc thể', 'Cấu trúc mang DNA và protein'], ['Gene', 'Đoạn DNA mang thông tin di truyền'], ['Bộ nhiễm sắc thể', 'Tập hợp nhiễm sắc thể đặc trưng của loài']],
+    fill: ['Nhiễm sắc thể chứa phân tử [blank] mang các gene.', 'DNA'],
+    category: [['Liên quan vật chất di truyền', 'Không phải vật chất di truyền'], [['DNA', 0], ['Gene', 0], ['Nhiễm sắc thể', 0], ['Tinh bột dự trữ', 1]]],
+    drag: ['Nhiều gene nằm trên [blank].', ['nhiễm sắc thể', 'thành tế bào', 'khí khổng'], 'nhiễm sắc thể'],
+  },
+  {
+    objective: 'Phân biệt nguyên phân và giảm phân theo tế bào tạo thành và số lượng nhiễm sắc thể.', lesson: 'Bài 43. Nguyên phân và giảm phân',
+    quiz: ['Sau một lần nguyên phân, một tế bào mẹ thường tạo mấy tế bào con?', ['Hai', 'Một', 'Bốn', 'Tám'], 0, 'Đây là hình thức phân chia phổ biến ở tế bào sinh dưỡng.', 'Một tế bào trải qua nguyên phân tạo hai tế bào con.'],
+    match: [['Nguyên phân', 'Tạo hai tế bào con sau một lần phân chia'], ['Giảm phân', 'Tạo tế bào có số nhiễm sắc thể giảm một nửa'], ['Giao tử', 'Được tạo liên quan đến giảm phân ở nhiều loài']],
+    fill: ['Nguyên phân tạo ra [blank] tế bào con từ một tế bào mẹ.', 'hai'],
+    category: [['Nguyên phân', 'Giảm phân'], [['Tạo hai tế bào con', 0], ['Giúp cơ thể lớn lên', 0], ['Tạo tế bào có bộ nhiễm sắc thể giảm nửa', 1], ['Liên quan hình thành giao tử', 1]]],
+    drag: ['Giảm phân làm số nhiễm sắc thể trong tế bào con giảm còn [blank] so với tế bào mẹ.', ['một nửa', 'gấp đôi', 'không còn'], 'một nửa'],
+  },
+  {
+    objective: 'Giải thích ý nghĩa của giảm phân và thụ tinh đối với ổn định bộ nhiễm sắc thể qua thế hệ.', lesson: 'Bài 43. Nguyên phân và giảm phân',
+    quiz: ['Sự kết hợp nào khôi phục bộ nhiễm sắc thể lưỡng bội ở hợp tử?', ['Hai giao tử đơn bội kết hợp', 'Hai tế bào da kết hợp', 'Một tế bào lá tự chia', 'Một gene tự tách'], 0, 'Xét quá trình thụ tinh.', 'Khi hai giao tử đơn bội kết hợp, hợp tử có bộ nhiễm sắc thể lưỡng bội.'],
+    match: [['Giảm phân', 'Tạo tế bào có bộ nhiễm sắc thể đơn bội'], ['Thụ tinh', 'Kết hợp hai giao tử'], ['Hợp tử', 'Mang bộ nhiễm sắc thể được khôi phục']],
+    fill: ['Sự kết hợp của hai giao tử trong thụ tinh tạo thành [blank].', 'hợp tử'],
+    category: [['Giảm phân', 'Thụ tinh'], [['Tạo giao tử đơn bội', 0], ['Làm giảm nửa số nhiễm sắc thể', 0], ['Kết hợp giao tử', 1], ['Khôi phục bộ lưỡng bội ở hợp tử', 1]]],
+    drag: ['Giảm phân và [blank] góp phần duy trì bộ nhiễm sắc thể đặc trưng qua thế hệ.', ['thụ tinh', 'thoát hơi nước', 'hô hấp'], 'thụ tinh'],
+  },
+  {
+    objective: 'Nhận biết vai trò của nhiễm sắc thể giới tính ở người.', lesson: 'Bài 44. Nhiễm sắc thể giới tính và cơ chế xác định giới tính',
+    quiz: ['Ở người, bộ nhiễm sắc thể giới tính thông thường của nữ là gì?', ['XX', 'XY', 'YY', 'XYY'], 0, 'Hai nhiễm sắc thể giới tính cùng loại.', 'Trong mô hình di truyền cơ bản, nữ thường có cặp nhiễm sắc thể giới tính XX.'],
+    match: [['Trứng ở người', 'Thường mang nhiễm sắc thể X'], ['Tinh trùng ở người', 'Có thể mang X hoặc Y'], ['Hợp tử XX', 'Thường phát triển giới tính nữ']],
+    fill: ['Ở người, tinh trùng có thể mang nhiễm sắc thể giới tính X hoặc [blank].', 'Y'],
+    category: [['Giao tử thường mang X', 'Giao tử có thể mang X hoặc Y'], [['Trứng của người', 0], ['Trứng của mẹ', 0], ['Tinh trùng của người', 1], ['Tinh trùng của cha', 1]]],
+    drag: ['Trong mô hình cơ bản, sự kết hợp trứng X với tinh trùng Y tạo hợp tử [blank].', ['XY', 'XX', 'YY'], 'XY'],
+  },
+  {
+    objective: 'Nêu khái niệm di truyền liên kết và ý nghĩa của các gene trên cùng nhiễm sắc thể.', lesson: 'Bài 45. Di truyền liên kết',
+    quiz: ['Các gene nằm gần nhau trên cùng một nhiễm sắc thể thường có xu hướng gì?', ['Di truyền cùng nhau', 'Luôn nằm trên các nhiễm sắc thể khác nhau', 'Không truyền cho đời con', 'Tự biến thành protein'], 0, 'Xét sự cùng phân li của một nhiễm sắc thể.', 'Các gene gần nhau trên cùng nhiễm sắc thể thường có xu hướng di truyền liên kết.'],
+    match: [['Gene liên kết', 'Cùng nằm trên một nhiễm sắc thể'], ['Nhiễm sắc thể', 'Mang nhiều gene'], ['Di truyền liên kết', 'Các gene có xu hướng truyền cùng nhau']],
+    fill: ['Các gene cùng nằm trên một nhiễm sắc thể có thể di truyền [blank].', 'liên kết'],
+    category: [['Phù hợp di truyền liên kết', 'Không mô tả di truyền liên kết'], [['Hai gene cùng nhiễm sắc thể', 0], ['Các gene có xu hướng truyền cùng nhau', 0], ['Hai gene ở hai nhiễm sắc thể khác nhau luôn dính nhau', 1], ['Gene không bao giờ được truyền', 1]]],
+    drag: ['Một nhiễm sắc thể thường mang [blank] gene.', ['nhiều', 'không có', 'chỉ đúng một'], 'nhiều'],
+  },
+  {
+    objective: 'Phân biệt đột biến số lượng và cấu trúc nhiễm sắc thể ở mức cơ bản.', lesson: 'Bài 46. Đột biến nhiễm sắc thể',
+    quiz: ['Mất một đoạn nhiễm sắc thể thuộc loại biến đổi nào?', ['Đột biến cấu trúc nhiễm sắc thể', 'Đột biến số lượng nhiễm sắc thể', 'Quang hợp', 'Thụ tinh bình thường'], 0, 'Xét một phần bên trong nhiễm sắc thể.', 'Mất đoạn làm thay đổi cấu trúc nhiễm sắc thể.'],
+    match: [['Mất đoạn', 'Một đoạn nhiễm sắc thể bị thiếu'], ['Lặp đoạn', 'Một đoạn nhiễm sắc thể xuất hiện thêm'], ['Thừa một nhiễm sắc thể', 'Đột biến số lượng']],
+    fill: ['Thừa hoặc thiếu nhiễm sắc thể là đột biến về [blank] nhiễm sắc thể.', 'số lượng'],
+    category: [['Đột biến cấu trúc', 'Đột biến số lượng'], [['Mất đoạn', 0], ['Lặp đoạn', 0], ['Thừa một nhiễm sắc thể', 1], ['Thiếu một nhiễm sắc thể', 1]]],
+    drag: ['Mất một đoạn DNA trên nhiễm sắc thể là biến đổi về [blank] nhiễm sắc thể.', ['cấu trúc', 'số lượng toàn bộ', 'môi trường sống'], 'cấu trúc'],
+  },
+  {
+    objective: 'Nhận biết vai trò của di truyền học trong tìm hiểu bệnh di truyền ở người.', lesson: 'Bài 47. Di truyền học với con người',
+    quiz: ['Sơ đồ phả hệ dùng để làm gì?', ['Theo dõi sự xuất hiện tính trạng qua các thế hệ gia đình', 'Đo chiều dài DNA bằng thước', 'Chụp ảnh tế bào', 'Đo nhiệt độ môi trường'], 0, 'Sơ đồ này có các thành viên gia đình qua nhiều thế hệ.', 'Phả hệ giúp theo dõi một tính trạng xuất hiện qua các thế hệ trong gia đình.'],
+    match: [['Phả hệ', 'Sơ đồ quan hệ và tính trạng qua các thế hệ'], ['Tính trạng di truyền', 'Có thể truyền trong gia đình'], ['Tư vấn di truyền', 'Cung cấp thông tin về nguy cơ di truyền']],
+    fill: ['Sơ đồ biểu diễn sự xuất hiện của tính trạng qua nhiều thế hệ gia đình gọi là [blank].', 'phả hệ'],
+    category: [['Nguồn thông tin cho phân tích phả hệ', 'Không phải dữ liệu phả hệ'], [['Quan hệ cha mẹ và con', 0], ['Tính trạng của các thành viên', 0], ['Các thế hệ trong gia đình', 0], ['Màu sơn của căn nhà', 1]]],
+    drag: ['Di truyền học có thể hỗ trợ [blank] di truyền cho gia đình.', ['tư vấn', 'quang hợp', 'thụ phấn'], 'tư vấn'],
+  },
+  {
+    objective: 'Phân biệt công nghệ gene với các phương pháp chọn giống truyền thống ở mức khái quát.', lesson: 'Bài 48. Ứng dụng công nghệ di truyền vào đời sống',
+    quiz: ['Công nghệ gene tác động trực tiếp vào đối tượng nào?', ['Vật chất di truyền', 'Chỉ màu chậu cây', 'Chỉ ánh sáng phòng học', 'Chỉ kích thước thước kẻ'], 0, 'Xét DNA và gene.', 'Công nghệ gene thao tác trên vật chất di truyền để tạo hoặc nghiên cứu đặc điểm mong muốn.'],
+    match: [['Gene', 'Đơn vị mang thông tin di truyền'], ['DNA', 'Vật chất mang thông tin di truyền'], ['Công nghệ gene', 'Ứng dụng thao tác trên gene hoặc DNA']],
+    fill: ['Công nghệ gene liên quan tới thao tác với vật chất [blank].', 'di truyền'],
+    category: [['Liên quan công nghệ gene', 'Không trực tiếp là công nghệ gene'], [['Thao tác với DNA', 0], ['Chuyển một gene mục tiêu', 0], ['Nghiên cứu sản phẩm của gene', 0], ['Chọn chậu cây màu đẹp', 1]]],
+    drag: ['DNA và gene là đối tượng quan trọng của công nghệ [blank].', ['di truyền', 'xây dựng', 'cơ khí'], 'di truyền'],
+  },
+  {
+    objective: 'Vận dụng kiến thức gene, nhiễm sắc thể và phân bào để giải thích truyền đạt thông tin di truyền.', lesson: 'Bài 41–48. Gene, nhiễm sắc thể và di truyền người',
+    quiz: ['Trong quá trình sinh sản hữu tính, yếu tố nào góp phần truyền thông tin di truyền từ cha mẹ đến con?', ['Giao tử', 'Không khí', 'Ánh sáng mặt trời', 'Màu quần áo'], 0, 'Giao tử mang nhiễm sắc thể.', 'Giao tử mang nhiễm sắc thể và gene từ cha mẹ để tạo hợp tử.'],
+    match: [['Gene', 'Mang thông tin di truyền'], ['Nhiễm sắc thể', 'Mang các gene'], ['Giao tử', 'Mang nhiễm sắc thể từ cha hoặc mẹ']],
+    fill: ['Giao tử mang các nhiễm sắc thể và [blank] từ cha mẹ.', 'gene'],
+    category: [['Tham gia truyền thông tin di truyền', 'Không mang thông tin di truyền của cha mẹ'], [['Gene', 0], ['Nhiễm sắc thể', 0], ['Giao tử', 0], ['Ánh sáng môi trường', 1]]],
+    drag: ['Sau thụ tinh, [blank] nhận vật chất di truyền từ hai giao tử.', ['hợp tử', 'khí khổng', 'mạch gỗ'], 'hợp tử'],
+  },
+];
+
+writeStation({ grade: 9, station: 2, title: 'Gene, nhiễm sắc thể và di truyền người', book: 'SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 41–48 của SGK KHTN 9 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

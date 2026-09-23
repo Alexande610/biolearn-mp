@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g11-st3-2026.1",
+  "grade": 11,
+  "stationId": "g11_st3",
+  "title": "Lớp 11 - Trạm 3: Sinh sản và tích hợp sinh lí",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 24–29 của SGK Sinh học 11 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Phân biệt sinh sản vô tính và hữu tính ở sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 24. Khái quát về sinh sản ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sinh sản hữu tính có đặc điểm nào?",
+            "options": [
+              "Có sự kết hợp giao tử",
+              "Không liên quan giao tử",
+              "Luôn tạo cá thể giống hệt một bên bố mẹ",
+              "Chỉ diễn ra ở vi khuẩn"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét thụ tinh.",
+            "explanation": "Sinh sản hữu tính gắn với sự kết hợp của các giao tử."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh sản vô tính",
+                "right": "Không có sự kết hợp giao tử"
+              },
+              {
+                "left": "Sinh sản hữu tính",
+                "right": "Có sự kết hợp giao tử"
+              },
+              {
+                "left": "Thụ tinh",
+                "right": "Giao tử kết hợp tạo hợp tử"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Sinh sản vô tính: Không có sự kết hợp giao tử; Sinh sản hữu tính: Có sự kết hợp giao tử; Thụ tinh: Giao tử kết hợp tạo hợp tử."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự kết hợp giao tử đực và giao tử cái gọi là [blank].",
+            "correctAnswer": "thụ tinh",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “thụ tinh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vô tính",
+              "Hữu tính"
+            ],
+            "items": [
+              {
+                "name": "Giâm cành",
+                "catIndex": 0
+              },
+              {
+                "name": "Nảy chồi",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo hạt sau thụ tinh",
+                "catIndex": 1
+              },
+              {
+                "name": "Tinh trùng kết hợp với trứng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Giâm cành thuộc nhóm Vô tính; Nảy chồi thuộc nhóm Vô tính; Tạo hạt sau thụ tinh thuộc nhóm Hữu tính; Tinh trùng kết hợp với trứng thuộc nhóm Hữu tính."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sinh sản tạo ra thế hệ [blank] của sinh vật.",
+            "bankWords": [
+              "mới",
+              "đã mất",
+              "vô sinh"
+            ],
+            "correctWord": "mới",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “mới”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Nhận biết các hình thức sinh sản vô tính ở thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 25. Sinh sản ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hình thức nào tạo cây mới từ đoạn thân hoặc cành?",
+            "options": [
+              "Giâm cành",
+              "Thụ phấn",
+              "Thụ tinh",
+              "Tạo hạt"
+            ],
+            "answerIndex": 0,
+            "hint": "Là nhân giống sinh dưỡng.",
+            "explanation": "Giâm cành tạo cây mới từ một đoạn cành phù hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Giâm cành",
+                "right": "Dùng đoạn cành để tạo cây mới"
+              },
+              {
+                "left": "Chiết cành",
+                "right": "Kích thích cành ra rễ trước khi tách"
+              },
+              {
+                "left": "Ghép cành",
+                "right": "Gắn phần cành lên gốc ghép"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Giâm cành: Dùng đoạn cành để tạo cây mới; Chiết cành: Kích thích cành ra rễ trước khi tách; Ghép cành: Gắn phần cành lên gốc ghép."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Giâm cành là phương pháp nhân giống [blank] ở thực vật.",
+            "correctAnswer": "vô tính",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “vô tính”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nhân giống vô tính",
+              "Sinh sản hữu tính"
+            ],
+            "items": [
+              {
+                "name": "Giâm cành",
+                "catIndex": 0
+              },
+              {
+                "name": "Chiết cành",
+                "catIndex": 0
+              },
+              {
+                "name": "Ghép cành",
+                "catIndex": 0
+              },
+              {
+                "name": "Hạt hình thành sau thụ tinh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Giâm cành thuộc nhóm Nhân giống vô tính; Chiết cành thuộc nhóm Nhân giống vô tính; Ghép cành thuộc nhóm Nhân giống vô tính; Hạt hình thành sau thụ tinh thuộc nhóm Sinh sản hữu tính."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi [blank] cành, người trồng lấy một đoạn cành cắm vào giá thể để ra rễ.",
+            "bankWords": [
+              "giâm",
+              "thụ phấn",
+              "dịch mã"
+            ],
+            "correctWord": "giâm",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “giâm”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Nêu ưu điểm và hạn chế của nhân giống vô tính ở cây trồng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 25. Sinh sản ở thực vật; Bài 26. Thực hành: Nhân giống vô tính và thụ phấn cho cây"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhân giống vô tính thường giúp duy trì đặc điểm nào?",
+            "options": [
+              "Đặc điểm của cây mẹ",
+              "Luôn tạo biến dị tổ hợp lớn",
+              "Luôn có thụ tinh",
+              "Loại bỏ mọi nguy cơ bệnh"
+            ],
+            "answerIndex": 0,
+            "hint": "Cây mới hình thành từ bộ phận sinh dưỡng.",
+            "explanation": "Nhân giống vô tính thường giữ nhiều đặc điểm của cây mẹ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cây mẹ khoẻ",
+                "right": "Nguồn vật liệu nhân giống phù hợp"
+              },
+              {
+                "left": "Dụng cụ sạch",
+                "right": "Giúp giảm nguy cơ nhiễm bệnh"
+              },
+              {
+                "left": "Giâm cành",
+                "right": "Nhân cây không qua hạt"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Cây mẹ khoẻ: Nguồn vật liệu nhân giống phù hợp; Dụng cụ sạch: Giúp giảm nguy cơ nhiễm bệnh; Giâm cành: Nhân cây không qua hạt."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cây tạo từ giâm cành thường mang nhiều đặc điểm giống cây [blank].",
+            "correctAnswer": "mẹ",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “mẹ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Lợi ích nhân giống vô tính",
+              "Điều cần thận trọng"
+            ],
+            "items": [
+              {
+                "name": "Nhân nhanh giống mong muốn",
+                "catIndex": 0
+              },
+              {
+                "name": "Giữ đặc điểm cây mẹ",
+                "catIndex": 0
+              },
+              {
+                "name": "Vật liệu mang bệnh có thể truyền bệnh",
+                "catIndex": 1
+              },
+              {
+                "name": "Đa dạng di truyền có thể thấp",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nhân nhanh giống mong muốn thuộc nhóm Lợi ích nhân giống vô tính; Giữ đặc điểm cây mẹ thuộc nhóm Lợi ích nhân giống vô tính; Vật liệu mang bệnh có thể truyền bệnh thuộc nhóm Điều cần thận trọng; Đa dạng di truyền có thể thấp thuộc nhóm Điều cần thận trọng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi giâm cành nên chọn cây mẹ [blank].",
+            "bankWords": [
+              "khoẻ",
+              "đang bị bệnh nặng",
+              "đã chết"
+            ],
+            "correctWord": "khoẻ",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “khoẻ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Mô tả cấu trúc sinh sản của hoa và quá trình thụ phấn.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 25. Sinh sản ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thụ phấn là quá trình nào?",
+            "options": [
+              "Hạt phấn đến đầu nhuỵ",
+              "Trứng kết hợp tinh trùng ở động vật",
+              "Rễ hút nước",
+              "Quả nảy mầm"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét đường đi của hạt phấn.",
+            "explanation": "Thụ phấn là sự chuyển hạt phấn tới đầu nhuỵ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhị hoa",
+                "right": "Tạo hạt phấn"
+              },
+              {
+                "left": "Nhuỵ hoa",
+                "right": "Chứa bầu nhuỵ"
+              },
+              {
+                "left": "Thụ phấn",
+                "right": "Hạt phấn được đưa tới đầu nhuỵ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Nhị hoa: Tạo hạt phấn; Nhuỵ hoa: Chứa bầu nhuỵ; Thụ phấn: Hạt phấn được đưa tới đầu nhuỵ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hạt phấn được chuyển tới đầu [blank] trong quá trình thụ phấn.",
+            "correctAnswer": "nhuỵ",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “nhuỵ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Cấu trúc của nhị",
+              "Cấu trúc của nhuỵ"
+            ],
+            "items": [
+              {
+                "name": "Bao phấn",
+                "catIndex": 0
+              },
+              {
+                "name": "Chỉ nhị",
+                "catIndex": 0
+              },
+              {
+                "name": "Đầu nhuỵ",
+                "catIndex": 1
+              },
+              {
+                "name": "Bầu nhuỵ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Bao phấn thuộc nhóm Cấu trúc của nhị; Chỉ nhị thuộc nhóm Cấu trúc của nhị; Đầu nhuỵ thuộc nhóm Cấu trúc của nhuỵ; Bầu nhuỵ thuộc nhóm Cấu trúc của nhuỵ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hạt phấn được tạo ở bao [blank].",
+            "bankWords": [
+              "phấn",
+              "hạt",
+              "quả"
+            ],
+            "correctWord": "phấn",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “phấn”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Phân biệt thụ phấn, thụ tinh và sự hình thành hạt, quả.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 25. Sinh sản ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ở cây có hoa, noãn sau thụ tinh thường phát triển thành gì?",
+            "options": [
+              "Hạt",
+              "Rễ",
+              "Thân",
+              "Lá"
+            ],
+            "answerIndex": 0,
+            "hint": "Hạt nằm trong quả.",
+            "explanation": "Noãn phát triển thành hạt sau thụ tinh."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thụ phấn",
+                "right": "Hạt phấn đến đầu nhuỵ"
+              },
+              {
+                "left": "Thụ tinh",
+                "right": "Giao tử đực kết hợp giao tử cái"
+              },
+              {
+                "left": "Bầu nhuỵ",
+                "right": "Thường phát triển thành quả"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Thụ phấn: Hạt phấn đến đầu nhuỵ; Thụ tinh: Giao tử đực kết hợp giao tử cái; Bầu nhuỵ: Thường phát triển thành quả."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Bầu nhuỵ sau thụ tinh thường phát triển thành [blank].",
+            "correctAnswer": "quả",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “quả”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trước thụ tinh",
+              "Sau thụ tinh"
+            ],
+            "items": [
+              {
+                "name": "Thụ phấn",
+                "catIndex": 0
+              },
+              {
+                "name": "Ống phấn phát triển",
+                "catIndex": 0
+              },
+              {
+                "name": "Hình thành hạt",
+                "catIndex": 1
+              },
+              {
+                "name": "Hình thành quả",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Thụ phấn thuộc nhóm Trước thụ tinh; Ống phấn phát triển thuộc nhóm Trước thụ tinh; Hình thành hạt thuộc nhóm Sau thụ tinh; Hình thành quả thuộc nhóm Sau thụ tinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Noãn sau thụ tinh thường phát triển thành [blank].",
+            "bankWords": [
+              "hạt",
+              "cánh hoa",
+              "cuống lá"
+            ],
+            "correctWord": "hạt",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “hạt”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nhận biết sinh sản vô tính ở một số động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 27. Sinh sản ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thuỷ tức thường có thể sinh sản vô tính bằng cách nào?",
+            "options": [
+              "Nảy chồi",
+              "Tạo hạt",
+              "Giâm cành",
+              "Thụ phấn"
+            ],
+            "answerIndex": 0,
+            "hint": "Cơ thể con mọc từ cơ thể mẹ.",
+            "explanation": "Thuỷ tức có thể tạo cá thể mới bằng nảy chồi."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thuỷ tức",
+                "right": "Có thể nảy chồi"
+              },
+              {
+                "left": "Trùng biến hình",
+                "right": "Có thể phân đôi"
+              },
+              {
+                "left": "Sinh sản vô tính",
+                "right": "Không có sự kết hợp giao tử"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Thuỷ tức: Có thể nảy chồi; Trùng biến hình: Có thể phân đôi; Sinh sản vô tính: Không có sự kết hợp giao tử."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Thuỷ tức có thể sinh sản vô tính bằng [blank].",
+            "correctAnswer": "nảy chồi",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “nảy chồi”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Ví dụ sinh sản vô tính",
+              "Ví dụ sinh sản hữu tính"
+            ],
+            "items": [
+              {
+                "name": "Thuỷ tức nảy chồi",
+                "catIndex": 0
+              },
+              {
+                "name": "Trùng biến hình phân đôi",
+                "catIndex": 0
+              },
+              {
+                "name": "Tinh trùng kết hợp trứng",
+                "catIndex": 1
+              },
+              {
+                "name": "Cá tạo hợp tử",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Thuỷ tức nảy chồi thuộc nhóm Ví dụ sinh sản vô tính; Trùng biến hình phân đôi thuộc nhóm Ví dụ sinh sản vô tính; Tinh trùng kết hợp trứng thuộc nhóm Ví dụ sinh sản hữu tính; Cá tạo hợp tử thuộc nhóm Ví dụ sinh sản hữu tính."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi thuỷ tức tạo cơ thể mới từ chồi, đó là sinh sản [blank].",
+            "bankWords": [
+              "vô tính",
+              "hữu tính",
+              "không sinh sản"
+            ],
+            "correctWord": "vô tính",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “vô tính”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Phân biệt thụ tinh ngoài và thụ tinh trong ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 27. Sinh sản ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thụ tinh ngoài diễn ra ở đâu?",
+            "options": [
+              "Bên ngoài cơ thể con cái",
+              "Trong nhân tế bào lá",
+              "Trong quả cây",
+              "Trong tế bào cơ"
+            ],
+            "answerIndex": 0,
+            "hint": "Giao tử kết hợp trong môi trường ngoài.",
+            "explanation": "Thụ tinh ngoài là sự kết hợp giao tử ở ngoài cơ thể con cái."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thụ tinh ngoài",
+                "right": "Giao tử kết hợp ngoài cơ thể con cái"
+              },
+              {
+                "left": "Thụ tinh trong",
+                "right": "Giao tử kết hợp trong cơ thể con cái"
+              },
+              {
+                "left": "Hợp tử",
+                "right": "Sản phẩm trực tiếp của thụ tinh"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Thụ tinh ngoài: Giao tử kết hợp ngoài cơ thể con cái; Thụ tinh trong: Giao tử kết hợp trong cơ thể con cái; Hợp tử: Sản phẩm trực tiếp của thụ tinh."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở thụ tinh [blank], giao tử kết hợp trong cơ thể con cái.",
+            "correctAnswer": "trong",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “trong”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thụ tinh ngoài thường gặp",
+              "Thụ tinh trong thường gặp"
+            ],
+            "items": [
+              {
+                "name": "Nhiều loài cá",
+                "catIndex": 0
+              },
+              {
+                "name": "Ếch",
+                "catIndex": 0
+              },
+              {
+                "name": "Chim",
+                "catIndex": 1
+              },
+              {
+                "name": "Động vật có vú",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Nhiều loài cá thuộc nhóm Thụ tinh ngoài thường gặp; Ếch thuộc nhóm Thụ tinh ngoài thường gặp; Chim thuộc nhóm Thụ tinh trong thường gặp; Động vật có vú thuộc nhóm Thụ tinh trong thường gặp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự kết hợp giao tử đực và cái tạo thành [blank].",
+            "bankWords": [
+              "hợp tử",
+              "phấn hoa",
+              "mạch gỗ"
+            ],
+            "correctWord": "hợp tử",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “hợp tử”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Phân biệt đẻ trứng và đẻ con ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 27. Sinh sản ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhóm động vật nào chủ yếu đẻ con?",
+            "options": [
+              "Động vật có vú",
+              "Côn trùng",
+              "Phần lớn cá",
+              "Phần lớn chim"
+            ],
+            "answerIndex": 0,
+            "hint": "Con non thường được mẹ nuôi bằng sữa.",
+            "explanation": "Phần lớn động vật có vú đẻ con và nuôi con bằng sữa."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Chim",
+                "right": "Đẻ trứng"
+              },
+              {
+                "left": "Động vật có vú",
+                "right": "Phần lớn đẻ con"
+              },
+              {
+                "left": "Cá",
+                "right": "Nhiều loài đẻ trứng trong nước"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Chim: Đẻ trứng; Động vật có vú: Phần lớn đẻ con; Cá: Nhiều loài đẻ trứng trong nước."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phần lớn động vật có vú nuôi con non bằng [blank].",
+            "correctAnswer": "sữa",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “sữa”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thường đẻ trứng",
+              "Thường đẻ con"
+            ],
+            "items": [
+              {
+                "name": "Gà",
+                "catIndex": 0
+              },
+              {
+                "name": "Vịt",
+                "catIndex": 0
+              },
+              {
+                "name": "Mèo",
+                "catIndex": 1
+              },
+              {
+                "name": "Chó",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Gà thuộc nhóm Thường đẻ trứng; Vịt thuộc nhóm Thường đẻ trứng; Mèo thuộc nhóm Thường đẻ con; Chó thuộc nhóm Thường đẻ con."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ở nhiều loài chim, phôi phát triển trong [blank] trước khi nở.",
+            "bankWords": [
+              "trứng",
+              "hoa",
+              "quả"
+            ],
+            "correctWord": "trứng",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “trứng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Giải thích sự phối hợp giữa các quá trình sinh lí trong cơ thể sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 28. Mối quan hệ giữa các quá trình sinh lí trong cơ thể sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao sinh sản cần liên hệ với trao đổi chất?",
+            "options": [
+              "Trao đổi chất cung cấp vật chất và năng lượng",
+              "Sinh sản không cần vật chất",
+              "Tế bào không cần năng lượng",
+              "Quang hợp thay thế hoàn toàn sinh sản"
+            ],
+            "answerIndex": 0,
+            "hint": "Tạo giao tử, hoa hoặc phôi đều cần nguồn lực.",
+            "explanation": "Trao đổi chất cung cấp vật chất và năng lượng cho sinh trưởng và sinh sản."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trao đổi chất",
+                "right": "Cung cấp vật chất và năng lượng"
+              },
+              {
+                "left": "Sinh trưởng",
+                "right": "Tăng kích thước cơ thể"
+              },
+              {
+                "left": "Sinh sản",
+                "right": "Tạo thế hệ mới"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Trao đổi chất: Cung cấp vật chất và năng lượng; Sinh trưởng: Tăng kích thước cơ thể; Sinh sản: Tạo thế hệ mới."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các quá trình sinh lí trong cơ thể có mối liên hệ [blank] với nhau.",
+            "correctAnswer": "chặt chẽ",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “chặt chẽ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Quá trình sinh lí",
+              "Không phải quá trình sinh lí"
+            ],
+            "items": [
+              {
+                "name": "Quang hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Hô hấp",
+                "catIndex": 0
+              },
+              {
+                "name": "Sinh sản",
+                "catIndex": 0
+              },
+              {
+                "name": "Tên gọi của chậu cây",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Quang hợp thuộc nhóm Quá trình sinh lí; Hô hấp thuộc nhóm Quá trình sinh lí; Sinh sản thuộc nhóm Quá trình sinh lí; Tên gọi của chậu cây thuộc nhóm Không phải quá trình sinh lí."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cơ thể sinh vật hoạt động như một thể [blank].",
+            "bankWords": [
+              "thống nhất",
+              "tách rời",
+              "bất biến"
+            ],
+            "correctWord": "thống nhất",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “thống nhất”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Nhận biết một số ngành nghề sử dụng kiến thức sinh học cơ thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 29. Một số ngành nghề liên quan đến sinh học cơ thể"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nghề nào sử dụng kiến thức về sinh trưởng, dinh dưỡng và sinh sản của cây?",
+            "options": [
+              "Kĩ thuật trồng trọt",
+              "Thiết kế mạch điện",
+              "Chế tạo kính thiên văn",
+              "Lập bản đồ sao"
+            ],
+            "answerIndex": 0,
+            "hint": "Liên quan chăm sóc và nhân giống cây.",
+            "explanation": "Kĩ thuật trồng trọt vận dụng sinh lí thực vật trong chăm sóc, nhân giống và sản xuất."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trồng trọt",
+                "right": "Ứng dụng sinh lí thực vật"
+              },
+              {
+                "left": "Chăn nuôi",
+                "right": "Ứng dụng sinh lí động vật"
+              },
+              {
+                "left": "Y học",
+                "right": "Ứng dụng kiến thức cơ thể người"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Trồng trọt: Ứng dụng sinh lí thực vật; Chăn nuôi: Ứng dụng sinh lí động vật; Y học: Ứng dụng kiến thức cơ thể người."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ngành [blank] ứng dụng kiến thức cơ thể người để chăm sóc sức khoẻ.",
+            "correctAnswer": "y học",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “y học”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nghề liên quan sinh học cơ thể",
+              "Nghề không trực tiếp thuộc lĩnh vực này"
+            ],
+            "items": [
+              {
+                "name": "Trồng trọt",
+                "catIndex": 0
+              },
+              {
+                "name": "Chăn nuôi",
+                "catIndex": 0
+              },
+              {
+                "name": "Y học",
+                "catIndex": 0
+              },
+              {
+                "name": "Thiết kế mạch điện",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Trồng trọt thuộc nhóm Nghề liên quan sinh học cơ thể; Chăn nuôi thuộc nhóm Nghề liên quan sinh học cơ thể; Y học thuộc nhóm Nghề liên quan sinh học cơ thể; Thiết kế mạch điện thuộc nhóm Nghề không trực tiếp thuộc lĩnh vực này."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Kiến thức sinh lí cây trồng được ứng dụng nhiều trong [blank].",
+            "bankWords": [
+              "trồng trọt",
+              "thiên văn học",
+              "cơ khí ô tô"
+            ],
+            "correctWord": "trồng trọt",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “trồng trọt”."
+          }
+        }
+      ]
+    }
+  ]
+}

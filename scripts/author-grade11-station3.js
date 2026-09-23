@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Phân biệt sinh sản vô tính và hữu tính ở sinh vật.', lesson: 'Bài 24. Khái quát về sinh sản ở sinh vật',
+    quiz: ['Sinh sản hữu tính có đặc điểm nào?', ['Có sự kết hợp giao tử', 'Không liên quan giao tử', 'Luôn tạo cá thể giống hệt một bên bố mẹ', 'Chỉ diễn ra ở vi khuẩn'], 0, 'Xét thụ tinh.', 'Sinh sản hữu tính gắn với sự kết hợp của các giao tử.'],
+    match: [['Sinh sản vô tính', 'Không có sự kết hợp giao tử'], ['Sinh sản hữu tính', 'Có sự kết hợp giao tử'], ['Thụ tinh', 'Giao tử kết hợp tạo hợp tử']],
+    fill: ['Sự kết hợp giao tử đực và giao tử cái gọi là [blank].', 'thụ tinh'],
+    category: [['Vô tính', 'Hữu tính'], [['Giâm cành', 0], ['Nảy chồi', 0], ['Tạo hạt sau thụ tinh', 1], ['Tinh trùng kết hợp với trứng', 1]]],
+    drag: ['Sinh sản tạo ra thế hệ [blank] của sinh vật.', ['mới', 'đã mất', 'vô sinh'], 'mới'],
+  },
+  {
+    objective: 'Nhận biết các hình thức sinh sản vô tính ở thực vật.', lesson: 'Bài 25. Sinh sản ở thực vật',
+    quiz: ['Hình thức nào tạo cây mới từ đoạn thân hoặc cành?', ['Giâm cành', 'Thụ phấn', 'Thụ tinh', 'Tạo hạt'], 0, 'Là nhân giống sinh dưỡng.', 'Giâm cành tạo cây mới từ một đoạn cành phù hợp.'],
+    match: [['Giâm cành', 'Dùng đoạn cành để tạo cây mới'], ['Chiết cành', 'Kích thích cành ra rễ trước khi tách'], ['Ghép cành', 'Gắn phần cành lên gốc ghép']],
+    fill: ['Giâm cành là phương pháp nhân giống [blank] ở thực vật.', 'vô tính'],
+    category: [['Nhân giống vô tính', 'Sinh sản hữu tính'], [['Giâm cành', 0], ['Chiết cành', 0], ['Ghép cành', 0], ['Hạt hình thành sau thụ tinh', 1]]],
+    drag: ['Khi [blank] cành, người trồng lấy một đoạn cành cắm vào giá thể để ra rễ.', ['giâm', 'thụ phấn', 'dịch mã'], 'giâm'],
+  },
+  {
+    objective: 'Nêu ưu điểm và hạn chế của nhân giống vô tính ở cây trồng.', lesson: 'Bài 25. Sinh sản ở thực vật; Bài 26. Thực hành: Nhân giống vô tính và thụ phấn cho cây',
+    quiz: ['Nhân giống vô tính thường giúp duy trì đặc điểm nào?', ['Đặc điểm của cây mẹ', 'Luôn tạo biến dị tổ hợp lớn', 'Luôn có thụ tinh', 'Loại bỏ mọi nguy cơ bệnh'], 0, 'Cây mới hình thành từ bộ phận sinh dưỡng.', 'Nhân giống vô tính thường giữ nhiều đặc điểm của cây mẹ.'],
+    match: [['Cây mẹ khoẻ', 'Nguồn vật liệu nhân giống phù hợp'], ['Dụng cụ sạch', 'Giúp giảm nguy cơ nhiễm bệnh'], ['Giâm cành', 'Nhân cây không qua hạt']],
+    fill: ['Cây tạo từ giâm cành thường mang nhiều đặc điểm giống cây [blank].', 'mẹ'],
+    category: [['Lợi ích nhân giống vô tính', 'Điều cần thận trọng'], [['Nhân nhanh giống mong muốn', 0], ['Giữ đặc điểm cây mẹ', 0], ['Vật liệu mang bệnh có thể truyền bệnh', 1], ['Đa dạng di truyền có thể thấp', 1]]],
+    drag: ['Khi giâm cành nên chọn cây mẹ [blank].', ['khoẻ', 'đang bị bệnh nặng', 'đã chết'], 'khoẻ'],
+  },
+  {
+    objective: 'Mô tả cấu trúc sinh sản của hoa và quá trình thụ phấn.', lesson: 'Bài 25. Sinh sản ở thực vật',
+    quiz: ['Thụ phấn là quá trình nào?', ['Hạt phấn đến đầu nhuỵ', 'Trứng kết hợp tinh trùng ở động vật', 'Rễ hút nước', 'Quả nảy mầm'], 0, 'Xét đường đi của hạt phấn.', 'Thụ phấn là sự chuyển hạt phấn tới đầu nhuỵ.'],
+    match: [['Nhị hoa', 'Tạo hạt phấn'], ['Nhuỵ hoa', 'Chứa bầu nhuỵ'], ['Thụ phấn', 'Hạt phấn được đưa tới đầu nhuỵ']],
+    fill: ['Hạt phấn được chuyển tới đầu [blank] trong quá trình thụ phấn.', 'nhuỵ'],
+    category: [['Cấu trúc của nhị', 'Cấu trúc của nhuỵ'], [['Bao phấn', 0], ['Chỉ nhị', 0], ['Đầu nhuỵ', 1], ['Bầu nhuỵ', 1]]],
+    drag: ['Hạt phấn được tạo ở bao [blank].', ['phấn', 'hạt', 'quả'], 'phấn'],
+  },
+  {
+    objective: 'Phân biệt thụ phấn, thụ tinh và sự hình thành hạt, quả.', lesson: 'Bài 25. Sinh sản ở thực vật',
+    quiz: ['Ở cây có hoa, noãn sau thụ tinh thường phát triển thành gì?', ['Hạt', 'Rễ', 'Thân', 'Lá'], 0, 'Hạt nằm trong quả.', 'Noãn phát triển thành hạt sau thụ tinh.'],
+    match: [['Thụ phấn', 'Hạt phấn đến đầu nhuỵ'], ['Thụ tinh', 'Giao tử đực kết hợp giao tử cái'], ['Bầu nhuỵ', 'Thường phát triển thành quả']],
+    fill: ['Bầu nhuỵ sau thụ tinh thường phát triển thành [blank].', 'quả'],
+    category: [['Trước thụ tinh', 'Sau thụ tinh'], [['Thụ phấn', 0], ['Ống phấn phát triển', 0], ['Hình thành hạt', 1], ['Hình thành quả', 1]]],
+    drag: ['Noãn sau thụ tinh thường phát triển thành [blank].', ['hạt', 'cánh hoa', 'cuống lá'], 'hạt'],
+  },
+  {
+    objective: 'Nhận biết sinh sản vô tính ở một số động vật.', lesson: 'Bài 27. Sinh sản ở động vật',
+    quiz: ['Thuỷ tức thường có thể sinh sản vô tính bằng cách nào?', ['Nảy chồi', 'Tạo hạt', 'Giâm cành', 'Thụ phấn'], 0, 'Cơ thể con mọc từ cơ thể mẹ.', 'Thuỷ tức có thể tạo cá thể mới bằng nảy chồi.'],
+    match: [['Thuỷ tức', 'Có thể nảy chồi'], ['Trùng biến hình', 'Có thể phân đôi'], ['Sinh sản vô tính', 'Không có sự kết hợp giao tử']],
+    fill: ['Thuỷ tức có thể sinh sản vô tính bằng [blank].', 'nảy chồi'],
+    category: [['Ví dụ sinh sản vô tính', 'Ví dụ sinh sản hữu tính'], [['Thuỷ tức nảy chồi', 0], ['Trùng biến hình phân đôi', 0], ['Tinh trùng kết hợp trứng', 1], ['Cá tạo hợp tử', 1]]],
+    drag: ['Khi thuỷ tức tạo cơ thể mới từ chồi, đó là sinh sản [blank].', ['vô tính', 'hữu tính', 'không sinh sản'], 'vô tính'],
+  },
+  {
+    objective: 'Phân biệt thụ tinh ngoài và thụ tinh trong ở động vật.', lesson: 'Bài 27. Sinh sản ở động vật',
+    quiz: ['Thụ tinh ngoài diễn ra ở đâu?', ['Bên ngoài cơ thể con cái', 'Trong nhân tế bào lá', 'Trong quả cây', 'Trong tế bào cơ'], 0, 'Giao tử kết hợp trong môi trường ngoài.', 'Thụ tinh ngoài là sự kết hợp giao tử ở ngoài cơ thể con cái.'],
+    match: [['Thụ tinh ngoài', 'Giao tử kết hợp ngoài cơ thể con cái'], ['Thụ tinh trong', 'Giao tử kết hợp trong cơ thể con cái'], ['Hợp tử', 'Sản phẩm trực tiếp của thụ tinh']],
+    fill: ['Ở thụ tinh [blank], giao tử kết hợp trong cơ thể con cái.', 'trong'],
+    category: [['Thụ tinh ngoài thường gặp', 'Thụ tinh trong thường gặp'], [['Nhiều loài cá', 0], ['Ếch', 0], ['Chim', 1], ['Động vật có vú', 1]]],
+    drag: ['Sự kết hợp giao tử đực và cái tạo thành [blank].', ['hợp tử', 'phấn hoa', 'mạch gỗ'], 'hợp tử'],
+  },
+  {
+    objective: 'Phân biệt đẻ trứng và đẻ con ở động vật.', lesson: 'Bài 27. Sinh sản ở động vật',
+    quiz: ['Nhóm động vật nào chủ yếu đẻ con?', ['Động vật có vú', 'Côn trùng', 'Phần lớn cá', 'Phần lớn chim'], 0, 'Con non thường được mẹ nuôi bằng sữa.', 'Phần lớn động vật có vú đẻ con và nuôi con bằng sữa.'],
+    match: [['Chim', 'Đẻ trứng'], ['Động vật có vú', 'Phần lớn đẻ con'], ['Cá', 'Nhiều loài đẻ trứng trong nước']],
+    fill: ['Phần lớn động vật có vú nuôi con non bằng [blank].', 'sữa'],
+    category: [['Thường đẻ trứng', 'Thường đẻ con'], [['Gà', 0], ['Vịt', 0], ['Mèo', 1], ['Chó', 1]]],
+    drag: ['Ở nhiều loài chim, phôi phát triển trong [blank] trước khi nở.', ['trứng', 'hoa', 'quả'], 'trứng'],
+  },
+  {
+    objective: 'Giải thích sự phối hợp giữa các quá trình sinh lí trong cơ thể sinh vật.', lesson: 'Bài 28. Mối quan hệ giữa các quá trình sinh lí trong cơ thể sinh vật',
+    quiz: ['Vì sao sinh sản cần liên hệ với trao đổi chất?', ['Trao đổi chất cung cấp vật chất và năng lượng', 'Sinh sản không cần vật chất', 'Tế bào không cần năng lượng', 'Quang hợp thay thế hoàn toàn sinh sản'], 0, 'Tạo giao tử, hoa hoặc phôi đều cần nguồn lực.', 'Trao đổi chất cung cấp vật chất và năng lượng cho sinh trưởng và sinh sản.'],
+    match: [['Trao đổi chất', 'Cung cấp vật chất và năng lượng'], ['Sinh trưởng', 'Tăng kích thước cơ thể'], ['Sinh sản', 'Tạo thế hệ mới']],
+    fill: ['Các quá trình sinh lí trong cơ thể có mối liên hệ [blank] với nhau.', 'chặt chẽ'],
+    category: [['Quá trình sinh lí', 'Không phải quá trình sinh lí'], [['Quang hợp', 0], ['Hô hấp', 0], ['Sinh sản', 0], ['Tên gọi của chậu cây', 1]]],
+    drag: ['Cơ thể sinh vật hoạt động như một thể [blank].', ['thống nhất', 'tách rời', 'bất biến'], 'thống nhất'],
+  },
+  {
+    objective: 'Nhận biết một số ngành nghề sử dụng kiến thức sinh học cơ thể.', lesson: 'Bài 29. Một số ngành nghề liên quan đến sinh học cơ thể',
+    quiz: ['Nghề nào sử dụng kiến thức về sinh trưởng, dinh dưỡng và sinh sản của cây?', ['Kĩ thuật trồng trọt', 'Thiết kế mạch điện', 'Chế tạo kính thiên văn', 'Lập bản đồ sao'], 0, 'Liên quan chăm sóc và nhân giống cây.', 'Kĩ thuật trồng trọt vận dụng sinh lí thực vật trong chăm sóc, nhân giống và sản xuất.'],
+    match: [['Trồng trọt', 'Ứng dụng sinh lí thực vật'], ['Chăn nuôi', 'Ứng dụng sinh lí động vật'], ['Y học', 'Ứng dụng kiến thức cơ thể người']],
+    fill: ['Ngành [blank] ứng dụng kiến thức cơ thể người để chăm sóc sức khoẻ.', 'y học'],
+    category: [['Nghề liên quan sinh học cơ thể', 'Nghề không trực tiếp thuộc lĩnh vực này'], [['Trồng trọt', 0], ['Chăn nuôi', 0], ['Y học', 0], ['Thiết kế mạch điện', 1]]],
+    drag: ['Kiến thức sinh lí cây trồng được ứng dụng nhiều trong [blank].', ['trồng trọt', 'thiên văn học', 'cơ khí ô tô'], 'trồng trọt'],
+  },
+];
+
+writeStation({ grade: 11, station: 3, title: 'Sinh sản và tích hợp sinh lí', book: 'SGK Sinh học 11 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 24–29 của SGK Sinh học 11 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

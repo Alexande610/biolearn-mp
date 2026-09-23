@@ -12,6 +12,10 @@ const migration = (await fs.readFile('supabase_station_content_v2.sql', 'utf8'))
 const pilotRelease = await fs.readFile('generated/station-releases/g6-st1-2026.1.sql', 'utf8');
 const station2Release = await fs.readFile('generated/station-releases/g6-st2-2026.1.sql', 'utf8');
 const station3Release = await fs.readFile('generated/station-releases/g6-st3-2026.1.sql', 'utf8');
+const grade7Station1Release = await fs.readFile('generated/station-releases/g7-st1-2026.1.sql', 'utf8');
+const grade7Station2Release = await fs.readFile('generated/station-releases/g7-st2-2026.1.sql', 'utf8');
+const grade7Station3Release = await fs.readFile('generated/station-releases/g7-st3-2026.1.sql', 'utf8');
+const grade8Releases = await Promise.all([1, 2, 3].map((station) => fs.readFile(`generated/station-releases/g8-st${station}-2026.1.sql`, 'utf8')));
 const cutover = await fs.readFile('supabase_station_content_v2_cutover.sql', 'utf8');
 
 test('generated SQL uses a portable PL/pgSQL declaration block', () => {
@@ -209,6 +213,94 @@ test('grade 6 station 3 imports 50 draft items from SQL Editor', async () => {
     assert.equal(Number((await db.query(
       'select count(*) from station_content_items where release_id=$1', [release.id],
     )).rows[0].count), 50);
+  } finally { await db.close(); }
+});
+
+test('grade 7 station 1 imports 50 draft items from SQL Editor', async () => {
+  const db = await setup();
+  try {
+    await db.exec(grade7Station1Release);
+    const release = (await db.query(
+      "select id, grade, station_id, status, created_by from station_content_releases where version='g7-st1-2026.1'",
+    )).rows[0];
+    assert.equal(release.grade, 7);
+    assert.equal(release.station_id, 'g7_st1');
+    assert.equal(release.status, 'draft');
+    assert.equal(release.created_by, admin);
+    assert.equal(Number((await db.query(
+      'select count(*) from station_content_items where release_id=$1', [release.id],
+    )).rows[0].count), 50);
+  } finally { await db.close(); }
+});
+
+for (const [stationId, version, sql] of [
+  ['g7_st2', 'g7-st2-2026.1', grade7Station2Release],
+  ['g7_st3', 'g7-st3-2026.1', grade7Station3Release],
+]) {
+  test(`${stationId} imports 50 draft items from SQL Editor`, async () => {
+    const db = await setup();
+    try {
+      await db.exec(sql);
+      const release = (await db.query(
+        'select id, grade, station_id, status, created_by from station_content_releases where version=$1', [version],
+      )).rows[0];
+      assert.equal(release.grade, 7);
+      assert.equal(release.station_id, stationId);
+      assert.equal(release.status, 'draft');
+      assert.equal(release.created_by, admin);
+      assert.equal(Number((await db.query(
+        'select count(*) from station_content_items where release_id=$1', [release.id],
+      )).rows[0].count), 50);
+    } finally { await db.close(); }
+  });
+}
+
+for (const [index, sql] of grade8Releases.entries()) {
+  const station = index + 1;
+  test(`g8_st${station} imports 50 draft items from SQL Editor`, async () => {
+    const db = await setup();
+    try {
+      await db.exec(sql);
+      const version = `g8-st${station}-2026.1`;
+      const release = (await db.query(
+        'select id, grade, station_id, status, created_by from station_content_releases where version=$1', [version],
+      )).rows[0];
+      assert.equal(release.grade, 8);
+      assert.equal(release.station_id, `g8_st${station}`);
+      assert.equal(release.status, 'draft');
+      assert.equal(release.created_by, admin);
+      assert.equal(Number((await db.query(
+        'select count(*) from station_content_items where release_id=$1', [release.id],
+      )).rows[0].count), 50);
+    } finally { await db.close(); }
+  });
+}
+
+test('all grade 9–12 draft SQL files import as complete releases', async () => {
+  const db = await setup();
+  try {
+    for (let grade = 9; grade <= 12; grade += 1) {
+      for (let station = 1; station <= 3; station += 1) {
+        const version = `g${grade}-st${station}-2026.1`;
+        const sql = await fs.readFile(`generated/station-releases/${version}.sql`, 'utf8');
+        await db.exec(sql);
+        const result = (await db.query(`
+          select r.grade, r.station_id, r.status, r.created_by,
+            count(i.id)::integer as item_count,
+            count(distinct i.day_index)::integer as day_count
+          from station_content_releases r
+          join station_content_items i on i.release_id = r.id
+          where r.version = $1
+          group by r.id
+        `, [version])).rows[0];
+        assert.equal(result.grade, grade);
+        assert.equal(result.station_id, `g${grade}_st${station}`);
+        assert.equal(result.status, 'draft');
+        assert.equal(result.created_by, admin);
+        assert.equal(result.item_count, 50);
+        assert.equal(result.day_count, 10);
+      }
+    }
   } finally { await db.close(); }
 });
 

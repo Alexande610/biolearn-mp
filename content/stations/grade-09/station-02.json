@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g9-st2-2026.1",
+  "grade": 9,
+  "stationId": "g9_st2",
+  "title": "Lớp 9 - Trạm 2: Gene, nhiễm sắc thể và di truyền người",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 41–48 của SGK KHTN 9 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nêu khái niệm đột biến gene và phân biệt với biến đổi kiểu hình do môi trường.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 41. Đột biến gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đột biến gene là gì?",
+            "options": [
+              "Biến đổi trong cấu trúc của gene",
+              "Thay đổi màu áo của người",
+              "Cây nghiêng do gió",
+              "Sự tăng nước trong tế bào"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét biến đổi ở vật chất di truyền.",
+            "explanation": "Đột biến gene là biến đổi trong cấu trúc của gene."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Gene",
+                "right": "Đoạn DNA mang thông tin di truyền"
+              },
+              {
+                "left": "Đột biến gene",
+                "right": "Biến đổi trong cấu trúc gene"
+              },
+              {
+                "left": "Tác nhân gây đột biến",
+                "right": "Yếu tố có thể làm tăng khả năng xuất hiện đột biến"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Gene: Đoạn DNA mang thông tin di truyền; Đột biến gene: Biến đổi trong cấu trúc gene; Tác nhân gây đột biến: Yếu tố có thể làm tăng khả năng xuất hiện đột biến."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Đột biến gene là biến đổi trong cấu trúc của [blank].",
+            "correctAnswer": "gene",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “gene”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể là đột biến gene",
+              "Không đủ bằng chứng là đột biến gene"
+            ],
+            "items": [
+              {
+                "name": "Thay một cặp nucleotide trong gene",
+                "catIndex": 0
+              },
+              {
+                "name": "Mất một cặp nucleotide của gene",
+                "catIndex": 0
+              },
+              {
+                "name": "Lá héo vì thiếu nước",
+                "catIndex": 1
+              },
+              {
+                "name": "Da sạm sau tiếp xúc nắng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Thay một cặp nucleotide trong gene thuộc nhóm Có thể là đột biến gene; Mất một cặp nucleotide của gene thuộc nhóm Có thể là đột biến gene; Lá héo vì thiếu nước thuộc nhóm Không đủ bằng chứng là đột biến gene; Da sạm sau tiếp xúc nắng thuộc nhóm Không đủ bằng chứng là đột biến gene."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thay đổi một cặp nucleotide trong gene có thể tạo ra [blank] gene.",
+            "bankWords": [
+              "đột biến",
+              "quang hợp",
+              "thoát hơi nước"
+            ],
+            "correctWord": "đột biến",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “đột biến”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Nhận biết cấu trúc và vai trò của nhiễm sắc thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 42. Nhiễm sắc thể và bộ nhiễm sắc thể"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhiễm sắc thể mang thành phần nào chứa thông tin di truyền?",
+            "options": [
+              "DNA",
+              "Tinh bột",
+              "Nước",
+              "Chất béo"
+            ],
+            "answerIndex": 0,
+            "hint": "Gene là đoạn của phân tử này.",
+            "explanation": "DNA trên nhiễm sắc thể mang thông tin di truyền."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhiễm sắc thể",
+                "right": "Cấu trúc mang DNA và protein"
+              },
+              {
+                "left": "Gene",
+                "right": "Đoạn DNA mang thông tin di truyền"
+              },
+              {
+                "left": "Bộ nhiễm sắc thể",
+                "right": "Tập hợp nhiễm sắc thể đặc trưng của loài"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Nhiễm sắc thể: Cấu trúc mang DNA và protein; Gene: Đoạn DNA mang thông tin di truyền; Bộ nhiễm sắc thể: Tập hợp nhiễm sắc thể đặc trưng của loài."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nhiễm sắc thể chứa phân tử [blank] mang các gene.",
+            "correctAnswer": "DNA",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “DNA”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan vật chất di truyền",
+              "Không phải vật chất di truyền"
+            ],
+            "items": [
+              {
+                "name": "DNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Gene",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhiễm sắc thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Tinh bột dự trữ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "DNA thuộc nhóm Liên quan vật chất di truyền; Gene thuộc nhóm Liên quan vật chất di truyền; Nhiễm sắc thể thuộc nhóm Liên quan vật chất di truyền; Tinh bột dự trữ thuộc nhóm Không phải vật chất di truyền."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nhiều gene nằm trên [blank].",
+            "bankWords": [
+              "nhiễm sắc thể",
+              "thành tế bào",
+              "khí khổng"
+            ],
+            "correctWord": "nhiễm sắc thể",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “nhiễm sắc thể”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Phân biệt nguyên phân và giảm phân theo tế bào tạo thành và số lượng nhiễm sắc thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 43. Nguyên phân và giảm phân"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau một lần nguyên phân, một tế bào mẹ thường tạo mấy tế bào con?",
+            "options": [
+              "Hai",
+              "Một",
+              "Bốn",
+              "Tám"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là hình thức phân chia phổ biến ở tế bào sinh dưỡng.",
+            "explanation": "Một tế bào trải qua nguyên phân tạo hai tế bào con."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nguyên phân",
+                "right": "Tạo hai tế bào con sau một lần phân chia"
+              },
+              {
+                "left": "Giảm phân",
+                "right": "Tạo tế bào có số nhiễm sắc thể giảm một nửa"
+              },
+              {
+                "left": "Giao tử",
+                "right": "Được tạo liên quan đến giảm phân ở nhiều loài"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nguyên phân: Tạo hai tế bào con sau một lần phân chia; Giảm phân: Tạo tế bào có số nhiễm sắc thể giảm một nửa; Giao tử: Được tạo liên quan đến giảm phân ở nhiều loài."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nguyên phân tạo ra [blank] tế bào con từ một tế bào mẹ.",
+            "correctAnswer": "hai",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “hai”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nguyên phân",
+              "Giảm phân"
+            ],
+            "items": [
+              {
+                "name": "Tạo hai tế bào con",
+                "catIndex": 0
+              },
+              {
+                "name": "Giúp cơ thể lớn lên",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo tế bào có bộ nhiễm sắc thể giảm nửa",
+                "catIndex": 1
+              },
+              {
+                "name": "Liên quan hình thành giao tử",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Tạo hai tế bào con thuộc nhóm Nguyên phân; Giúp cơ thể lớn lên thuộc nhóm Nguyên phân; Tạo tế bào có bộ nhiễm sắc thể giảm nửa thuộc nhóm Giảm phân; Liên quan hình thành giao tử thuộc nhóm Giảm phân."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Giảm phân làm số nhiễm sắc thể trong tế bào con giảm còn [blank] so với tế bào mẹ.",
+            "bankWords": [
+              "một nửa",
+              "gấp đôi",
+              "không còn"
+            ],
+            "correctWord": "một nửa",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “một nửa”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Giải thích ý nghĩa của giảm phân và thụ tinh đối với ổn định bộ nhiễm sắc thể qua thế hệ.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 43. Nguyên phân và giảm phân"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sự kết hợp nào khôi phục bộ nhiễm sắc thể lưỡng bội ở hợp tử?",
+            "options": [
+              "Hai giao tử đơn bội kết hợp",
+              "Hai tế bào da kết hợp",
+              "Một tế bào lá tự chia",
+              "Một gene tự tách"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét quá trình thụ tinh.",
+            "explanation": "Khi hai giao tử đơn bội kết hợp, hợp tử có bộ nhiễm sắc thể lưỡng bội."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Giảm phân",
+                "right": "Tạo tế bào có bộ nhiễm sắc thể đơn bội"
+              },
+              {
+                "left": "Thụ tinh",
+                "right": "Kết hợp hai giao tử"
+              },
+              {
+                "left": "Hợp tử",
+                "right": "Mang bộ nhiễm sắc thể được khôi phục"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Giảm phân: Tạo tế bào có bộ nhiễm sắc thể đơn bội; Thụ tinh: Kết hợp hai giao tử; Hợp tử: Mang bộ nhiễm sắc thể được khôi phục."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự kết hợp của hai giao tử trong thụ tinh tạo thành [blank].",
+            "correctAnswer": "hợp tử",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “hợp tử”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Giảm phân",
+              "Thụ tinh"
+            ],
+            "items": [
+              {
+                "name": "Tạo giao tử đơn bội",
+                "catIndex": 0
+              },
+              {
+                "name": "Làm giảm nửa số nhiễm sắc thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Kết hợp giao tử",
+                "catIndex": 1
+              },
+              {
+                "name": "Khôi phục bộ lưỡng bội ở hợp tử",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Tạo giao tử đơn bội thuộc nhóm Giảm phân; Làm giảm nửa số nhiễm sắc thể thuộc nhóm Giảm phân; Kết hợp giao tử thuộc nhóm Thụ tinh; Khôi phục bộ lưỡng bội ở hợp tử thuộc nhóm Thụ tinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Giảm phân và [blank] góp phần duy trì bộ nhiễm sắc thể đặc trưng qua thế hệ.",
+            "bankWords": [
+              "thụ tinh",
+              "thoát hơi nước",
+              "hô hấp"
+            ],
+            "correctWord": "thụ tinh",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “thụ tinh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Nhận biết vai trò của nhiễm sắc thể giới tính ở người.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 44. Nhiễm sắc thể giới tính và cơ chế xác định giới tính"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ở người, bộ nhiễm sắc thể giới tính thông thường của nữ là gì?",
+            "options": [
+              "XX",
+              "XY",
+              "YY",
+              "XYY"
+            ],
+            "answerIndex": 0,
+            "hint": "Hai nhiễm sắc thể giới tính cùng loại.",
+            "explanation": "Trong mô hình di truyền cơ bản, nữ thường có cặp nhiễm sắc thể giới tính XX."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trứng ở người",
+                "right": "Thường mang nhiễm sắc thể X"
+              },
+              {
+                "left": "Tinh trùng ở người",
+                "right": "Có thể mang X hoặc Y"
+              },
+              {
+                "left": "Hợp tử XX",
+                "right": "Thường phát triển giới tính nữ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Trứng ở người: Thường mang nhiễm sắc thể X; Tinh trùng ở người: Có thể mang X hoặc Y; Hợp tử XX: Thường phát triển giới tính nữ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở người, tinh trùng có thể mang nhiễm sắc thể giới tính X hoặc [blank].",
+            "correctAnswer": "Y",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “Y”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Giao tử thường mang X",
+              "Giao tử có thể mang X hoặc Y"
+            ],
+            "items": [
+              {
+                "name": "Trứng của người",
+                "catIndex": 0
+              },
+              {
+                "name": "Trứng của mẹ",
+                "catIndex": 0
+              },
+              {
+                "name": "Tinh trùng của người",
+                "catIndex": 1
+              },
+              {
+                "name": "Tinh trùng của cha",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Trứng của người thuộc nhóm Giao tử thường mang X; Trứng của mẹ thuộc nhóm Giao tử thường mang X; Tinh trùng của người thuộc nhóm Giao tử có thể mang X hoặc Y; Tinh trùng của cha thuộc nhóm Giao tử có thể mang X hoặc Y."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong mô hình cơ bản, sự kết hợp trứng X với tinh trùng Y tạo hợp tử [blank].",
+            "bankWords": [
+              "XY",
+              "XX",
+              "YY"
+            ],
+            "correctWord": "XY",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “XY”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nêu khái niệm di truyền liên kết và ý nghĩa của các gene trên cùng nhiễm sắc thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 45. Di truyền liên kết"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Các gene nằm gần nhau trên cùng một nhiễm sắc thể thường có xu hướng gì?",
+            "options": [
+              "Di truyền cùng nhau",
+              "Luôn nằm trên các nhiễm sắc thể khác nhau",
+              "Không truyền cho đời con",
+              "Tự biến thành protein"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét sự cùng phân li của một nhiễm sắc thể.",
+            "explanation": "Các gene gần nhau trên cùng nhiễm sắc thể thường có xu hướng di truyền liên kết."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Gene liên kết",
+                "right": "Cùng nằm trên một nhiễm sắc thể"
+              },
+              {
+                "left": "Nhiễm sắc thể",
+                "right": "Mang nhiều gene"
+              },
+              {
+                "left": "Di truyền liên kết",
+                "right": "Các gene có xu hướng truyền cùng nhau"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Gene liên kết: Cùng nằm trên một nhiễm sắc thể; Nhiễm sắc thể: Mang nhiều gene; Di truyền liên kết: Các gene có xu hướng truyền cùng nhau."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các gene cùng nằm trên một nhiễm sắc thể có thể di truyền [blank].",
+            "correctAnswer": "liên kết",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “liên kết”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Phù hợp di truyền liên kết",
+              "Không mô tả di truyền liên kết"
+            ],
+            "items": [
+              {
+                "name": "Hai gene cùng nhiễm sắc thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Các gene có xu hướng truyền cùng nhau",
+                "catIndex": 0
+              },
+              {
+                "name": "Hai gene ở hai nhiễm sắc thể khác nhau luôn dính nhau",
+                "catIndex": 1
+              },
+              {
+                "name": "Gene không bao giờ được truyền",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Hai gene cùng nhiễm sắc thể thuộc nhóm Phù hợp di truyền liên kết; Các gene có xu hướng truyền cùng nhau thuộc nhóm Phù hợp di truyền liên kết; Hai gene ở hai nhiễm sắc thể khác nhau luôn dính nhau thuộc nhóm Không mô tả di truyền liên kết; Gene không bao giờ được truyền thuộc nhóm Không mô tả di truyền liên kết."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Một nhiễm sắc thể thường mang [blank] gene.",
+            "bankWords": [
+              "nhiều",
+              "không có",
+              "chỉ đúng một"
+            ],
+            "correctWord": "nhiều",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “nhiều”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Phân biệt đột biến số lượng và cấu trúc nhiễm sắc thể ở mức cơ bản.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 46. Đột biến nhiễm sắc thể"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mất một đoạn nhiễm sắc thể thuộc loại biến đổi nào?",
+            "options": [
+              "Đột biến cấu trúc nhiễm sắc thể",
+              "Đột biến số lượng nhiễm sắc thể",
+              "Quang hợp",
+              "Thụ tinh bình thường"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét một phần bên trong nhiễm sắc thể.",
+            "explanation": "Mất đoạn làm thay đổi cấu trúc nhiễm sắc thể."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mất đoạn",
+                "right": "Một đoạn nhiễm sắc thể bị thiếu"
+              },
+              {
+                "left": "Lặp đoạn",
+                "right": "Một đoạn nhiễm sắc thể xuất hiện thêm"
+              },
+              {
+                "left": "Thừa một nhiễm sắc thể",
+                "right": "Đột biến số lượng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Mất đoạn: Một đoạn nhiễm sắc thể bị thiếu; Lặp đoạn: Một đoạn nhiễm sắc thể xuất hiện thêm; Thừa một nhiễm sắc thể: Đột biến số lượng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Thừa hoặc thiếu nhiễm sắc thể là đột biến về [blank] nhiễm sắc thể.",
+            "correctAnswer": "số lượng",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “số lượng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đột biến cấu trúc",
+              "Đột biến số lượng"
+            ],
+            "items": [
+              {
+                "name": "Mất đoạn",
+                "catIndex": 0
+              },
+              {
+                "name": "Lặp đoạn",
+                "catIndex": 0
+              },
+              {
+                "name": "Thừa một nhiễm sắc thể",
+                "catIndex": 1
+              },
+              {
+                "name": "Thiếu một nhiễm sắc thể",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Mất đoạn thuộc nhóm Đột biến cấu trúc; Lặp đoạn thuộc nhóm Đột biến cấu trúc; Thừa một nhiễm sắc thể thuộc nhóm Đột biến số lượng; Thiếu một nhiễm sắc thể thuộc nhóm Đột biến số lượng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Mất một đoạn DNA trên nhiễm sắc thể là biến đổi về [blank] nhiễm sắc thể.",
+            "bankWords": [
+              "cấu trúc",
+              "số lượng toàn bộ",
+              "môi trường sống"
+            ],
+            "correctWord": "cấu trúc",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “cấu trúc”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Nhận biết vai trò của di truyền học trong tìm hiểu bệnh di truyền ở người.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 47. Di truyền học với con người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sơ đồ phả hệ dùng để làm gì?",
+            "options": [
+              "Theo dõi sự xuất hiện tính trạng qua các thế hệ gia đình",
+              "Đo chiều dài DNA bằng thước",
+              "Chụp ảnh tế bào",
+              "Đo nhiệt độ môi trường"
+            ],
+            "answerIndex": 0,
+            "hint": "Sơ đồ này có các thành viên gia đình qua nhiều thế hệ.",
+            "explanation": "Phả hệ giúp theo dõi một tính trạng xuất hiện qua các thế hệ trong gia đình."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Phả hệ",
+                "right": "Sơ đồ quan hệ và tính trạng qua các thế hệ"
+              },
+              {
+                "left": "Tính trạng di truyền",
+                "right": "Có thể truyền trong gia đình"
+              },
+              {
+                "left": "Tư vấn di truyền",
+                "right": "Cung cấp thông tin về nguy cơ di truyền"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Phả hệ: Sơ đồ quan hệ và tính trạng qua các thế hệ; Tính trạng di truyền: Có thể truyền trong gia đình; Tư vấn di truyền: Cung cấp thông tin về nguy cơ di truyền."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sơ đồ biểu diễn sự xuất hiện của tính trạng qua nhiều thế hệ gia đình gọi là [blank].",
+            "correctAnswer": "phả hệ",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “phả hệ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nguồn thông tin cho phân tích phả hệ",
+              "Không phải dữ liệu phả hệ"
+            ],
+            "items": [
+              {
+                "name": "Quan hệ cha mẹ và con",
+                "catIndex": 0
+              },
+              {
+                "name": "Tính trạng của các thành viên",
+                "catIndex": 0
+              },
+              {
+                "name": "Các thế hệ trong gia đình",
+                "catIndex": 0
+              },
+              {
+                "name": "Màu sơn của căn nhà",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Quan hệ cha mẹ và con thuộc nhóm Nguồn thông tin cho phân tích phả hệ; Tính trạng của các thành viên thuộc nhóm Nguồn thông tin cho phân tích phả hệ; Các thế hệ trong gia đình thuộc nhóm Nguồn thông tin cho phân tích phả hệ; Màu sơn của căn nhà thuộc nhóm Không phải dữ liệu phả hệ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Di truyền học có thể hỗ trợ [blank] di truyền cho gia đình.",
+            "bankWords": [
+              "tư vấn",
+              "quang hợp",
+              "thụ phấn"
+            ],
+            "correctWord": "tư vấn",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “tư vấn”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Phân biệt công nghệ gene với các phương pháp chọn giống truyền thống ở mức khái quát.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 48. Ứng dụng công nghệ di truyền vào đời sống"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Công nghệ gene tác động trực tiếp vào đối tượng nào?",
+            "options": [
+              "Vật chất di truyền",
+              "Chỉ màu chậu cây",
+              "Chỉ ánh sáng phòng học",
+              "Chỉ kích thước thước kẻ"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét DNA và gene.",
+            "explanation": "Công nghệ gene thao tác trên vật chất di truyền để tạo hoặc nghiên cứu đặc điểm mong muốn."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Gene",
+                "right": "Đơn vị mang thông tin di truyền"
+              },
+              {
+                "left": "DNA",
+                "right": "Vật chất mang thông tin di truyền"
+              },
+              {
+                "left": "Công nghệ gene",
+                "right": "Ứng dụng thao tác trên gene hoặc DNA"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Gene: Đơn vị mang thông tin di truyền; DNA: Vật chất mang thông tin di truyền; Công nghệ gene: Ứng dụng thao tác trên gene hoặc DNA."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Công nghệ gene liên quan tới thao tác với vật chất [blank].",
+            "correctAnswer": "di truyền",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “di truyền”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan công nghệ gene",
+              "Không trực tiếp là công nghệ gene"
+            ],
+            "items": [
+              {
+                "name": "Thao tác với DNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Chuyển một gene mục tiêu",
+                "catIndex": 0
+              },
+              {
+                "name": "Nghiên cứu sản phẩm của gene",
+                "catIndex": 0
+              },
+              {
+                "name": "Chọn chậu cây màu đẹp",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Thao tác với DNA thuộc nhóm Liên quan công nghệ gene; Chuyển một gene mục tiêu thuộc nhóm Liên quan công nghệ gene; Nghiên cứu sản phẩm của gene thuộc nhóm Liên quan công nghệ gene; Chọn chậu cây màu đẹp thuộc nhóm Không trực tiếp là công nghệ gene."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "DNA và gene là đối tượng quan trọng của công nghệ [blank].",
+            "bankWords": [
+              "di truyền",
+              "xây dựng",
+              "cơ khí"
+            ],
+            "correctWord": "di truyền",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “di truyền”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Vận dụng kiến thức gene, nhiễm sắc thể và phân bào để giải thích truyền đạt thông tin di truyền.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 41–48. Gene, nhiễm sắc thể và di truyền người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong quá trình sinh sản hữu tính, yếu tố nào góp phần truyền thông tin di truyền từ cha mẹ đến con?",
+            "options": [
+              "Giao tử",
+              "Không khí",
+              "Ánh sáng mặt trời",
+              "Màu quần áo"
+            ],
+            "answerIndex": 0,
+            "hint": "Giao tử mang nhiễm sắc thể.",
+            "explanation": "Giao tử mang nhiễm sắc thể và gene từ cha mẹ để tạo hợp tử."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Gene",
+                "right": "Mang thông tin di truyền"
+              },
+              {
+                "left": "Nhiễm sắc thể",
+                "right": "Mang các gene"
+              },
+              {
+                "left": "Giao tử",
+                "right": "Mang nhiễm sắc thể từ cha hoặc mẹ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Gene: Mang thông tin di truyền; Nhiễm sắc thể: Mang các gene; Giao tử: Mang nhiễm sắc thể từ cha hoặc mẹ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Giao tử mang các nhiễm sắc thể và [blank] từ cha mẹ.",
+            "correctAnswer": "gene",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “gene”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tham gia truyền thông tin di truyền",
+              "Không mang thông tin di truyền của cha mẹ"
+            ],
+            "items": [
+              {
+                "name": "Gene",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhiễm sắc thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Giao tử",
+                "catIndex": 0
+              },
+              {
+                "name": "Ánh sáng môi trường",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Gene thuộc nhóm Tham gia truyền thông tin di truyền; Nhiễm sắc thể thuộc nhóm Tham gia truyền thông tin di truyền; Giao tử thuộc nhóm Tham gia truyền thông tin di truyền; Ánh sáng môi trường thuộc nhóm Không mang thông tin di truyền của cha mẹ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sau thụ tinh, [blank] nhận vật chất di truyền từ hai giao tử.",
+            "bankWords": [
+              "hợp tử",
+              "khí khổng",
+              "mạch gỗ"
+            ],
+            "correctWord": "hợp tử",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “hợp tử”."
+          }
+        }
+      ]
+    }
+  ]
+}

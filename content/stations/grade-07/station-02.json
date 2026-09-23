@@ -1,0 +1,1075 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g7-st2-2026.1",
+  "grade": 7,
+  "stationId": "g7_st2",
+  "title": "Lớp 7 - Trạm 2: Hô hấp và trao đổi ở sinh vật",
+  "status": "draft",
+  "notes": "Nội dung soạn theo các Bài 25–28, 31 của SGK KHTN 7 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Xác định nguyên liệu, sản phẩm và ý nghĩa của hô hấp tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 25. Hô hấp tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hô hấp tế bào có vai trò chủ yếu nào?",
+            "options": [
+              "Giải phóng năng lượng từ chất hữu cơ",
+              "Tạo ánh sáng cho tế bào",
+              "Chỉ tạo oxygen",
+              "Ngăn mọi quá trình trao đổi chất"
+            ],
+            "answerIndex": 0,
+            "hint": "Quá trình này cung cấp năng lượng cho hoạt động sống.",
+            "explanation": "Hô hấp tế bào phân giải chất hữu cơ và giải phóng năng lượng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Chất hữu cơ",
+                "right": "Nguồn chất được phân giải"
+              },
+              {
+                "left": "Oxygen",
+                "right": "Tham gia hô hấp tế bào hiếu khí"
+              },
+              {
+                "left": "Năng lượng",
+                "right": "Được giải phóng cho hoạt động sống"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Chất hữu cơ: Nguồn chất được phân giải; Oxygen: Tham gia hô hấp tế bào hiếu khí; Năng lượng: Được giải phóng cho hoạt động sống."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hô hấp tế bào giải phóng [blank] từ chất hữu cơ.",
+            "correctAnswer": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “năng lượng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tham gia hô hấp tế bào hiếu khí",
+              "Được tạo ra từ hô hấp tế bào hiếu khí"
+            ],
+            "items": [
+              {
+                "name": "Chất hữu cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Oxygen",
+                "catIndex": 0
+              },
+              {
+                "name": "Carbon dioxide",
+                "catIndex": 1
+              },
+              {
+                "name": "Nước",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Chất hữu cơ thuộc nhóm Tham gia hô hấp tế bào hiếu khí; Oxygen thuộc nhóm Tham gia hô hấp tế bào hiếu khí; Carbon dioxide thuộc nhóm Được tạo ra từ hô hấp tế bào hiếu khí; Nước thuộc nhóm Được tạo ra từ hô hấp tế bào hiếu khí."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hô hấp tế bào giúp cung cấp [blank] cho các hoạt động sống.",
+            "bankWords": [
+              "năng lượng",
+              "ánh sáng",
+              "diệp lục"
+            ],
+            "correctWord": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “năng lượng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Phân biệt hô hấp tế bào với quang hợp qua chiều biến đổi vật chất và năng lượng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 25. Hô hấp tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Điểm khác nhau về năng lượng giữa quang hợp và hô hấp tế bào là gì?",
+            "options": [
+              "Quang hợp tích luỹ, hô hấp tế bào giải phóng năng lượng",
+              "Cả hai chỉ hấp thụ năng lượng",
+              "Cả hai chỉ tạo ánh sáng",
+              "Hô hấp tế bào không liên quan năng lượng"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét sự tạo chất hữu cơ và phân giải chất hữu cơ.",
+            "explanation": "Quang hợp tích luỹ năng lượng trong chất hữu cơ; hô hấp tế bào giải phóng năng lượng từ chất hữu cơ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Quang hợp",
+                "right": "Tổng hợp chất hữu cơ nhờ ánh sáng"
+              },
+              {
+                "left": "Hô hấp tế bào",
+                "right": "Phân giải chất hữu cơ để giải phóng năng lượng"
+              },
+              {
+                "left": "Thực vật",
+                "right": "Vừa quang hợp vừa hô hấp tế bào"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Quang hợp: Tổng hợp chất hữu cơ nhờ ánh sáng; Hô hấp tế bào: Phân giải chất hữu cơ để giải phóng năng lượng; Thực vật: Vừa quang hợp vừa hô hấp tế bào."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cây xanh thực hiện cả quang hợp và hô hấp [blank].",
+            "correctAnswer": "tế bào",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “tế bào”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Quang hợp",
+              "Hô hấp tế bào"
+            ],
+            "items": [
+              {
+                "name": "Cần ánh sáng để tổng hợp chất hữu cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Tích luỹ năng lượng trong chất hữu cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân giải chất hữu cơ",
+                "catIndex": 1
+              },
+              {
+                "name": "Giải phóng năng lượng cho tế bào",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Cần ánh sáng để tổng hợp chất hữu cơ thuộc nhóm Quang hợp; Tích luỹ năng lượng trong chất hữu cơ thuộc nhóm Quang hợp; Phân giải chất hữu cơ thuộc nhóm Hô hấp tế bào; Giải phóng năng lượng cho tế bào thuộc nhóm Hô hấp tế bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khác với quang hợp, hô hấp tế bào [blank] năng lượng từ chất hữu cơ.",
+            "bankWords": [
+              "giải phóng",
+              "chỉ tích luỹ",
+              "loại bỏ"
+            ],
+            "correctWord": "giải phóng",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “giải phóng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Nêu các yếu tố ảnh hưởng đến hô hấp tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 26. Một số yếu tố ảnh hưởng đến hô hấp tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Yếu tố nào ảnh hưởng trực tiếp đến hô hấp tế bào?",
+            "options": [
+              "Nhiệt độ",
+              "Tên gọi của chậu",
+              "Màu nhãn trên hộp",
+              "Độ dài thước kẻ"
+            ],
+            "answerIndex": 0,
+            "hint": "Hoạt động của enzyme phụ thuộc vào yếu tố này.",
+            "explanation": "Nhiệt độ là một trong các yếu tố ảnh hưởng đến tốc độ hô hấp tế bào."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhiệt độ",
+                "right": "Ảnh hưởng hoạt động enzyme hô hấp"
+              },
+              {
+                "left": "Nước",
+                "right": "Cần cho hoạt động sống của tế bào"
+              },
+              {
+                "left": "Oxygen",
+                "right": "Cần cho hô hấp tế bào hiếu khí"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nhiệt độ: Ảnh hưởng hoạt động enzyme hô hấp; Nước: Cần cho hoạt động sống của tế bào; Oxygen: Cần cho hô hấp tế bào hiếu khí."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nhiệt độ, hàm lượng nước và nồng độ [blank] có thể ảnh hưởng đến hô hấp tế bào.",
+            "correctAnswer": "oxygen",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “oxygen”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Yếu tố ảnh hưởng đến hô hấp tế bào",
+              "Không phải yếu tố sinh học trực tiếp"
+            ],
+            "items": [
+              {
+                "name": "Nhiệt độ",
+                "catIndex": 0
+              },
+              {
+                "name": "Nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Oxygen",
+                "catIndex": 0
+              },
+              {
+                "name": "Màu chữ in trên lọ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nhiệt độ thuộc nhóm Yếu tố ảnh hưởng đến hô hấp tế bào; Nước thuộc nhóm Yếu tố ảnh hưởng đến hô hấp tế bào; Oxygen thuộc nhóm Yếu tố ảnh hưởng đến hô hấp tế bào; Màu chữ in trên lọ thuộc nhóm Không phải yếu tố sinh học trực tiếp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Bảo quản hạt giống khô giúp hạn chế tốc độ hô hấp [blank].",
+            "bankWords": [
+              "tế bào",
+              "quang hợp",
+              "thoát hơi nước"
+            ],
+            "correctWord": "tế bào",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “tế bào”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Giải thích hiện tượng hạt nảy mầm hô hấp và cách kiểm chứng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 27. Thực hành: Hô hấp ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao hạt đang nảy mầm cần được cung cấp oxygen?",
+            "options": [
+              "Để thực hiện hô hấp tế bào hiếu khí",
+              "Để hạt phát sáng",
+              "Để thay thế hoàn toàn nước",
+              "Để tạo đá vôi"
+            ],
+            "answerIndex": 0,
+            "hint": "Hạt cần năng lượng để phát triển mầm.",
+            "explanation": "Hạt nảy mầm hô hấp tế bào, sử dụng oxygen và giải phóng năng lượng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Hạt nảy mầm",
+                "right": "Có hô hấp tế bào mạnh"
+              },
+              {
+                "left": "Oxygen",
+                "right": "Được dùng trong hô hấp hiếu khí"
+              },
+              {
+                "left": "Carbon dioxide",
+                "right": "Sản phẩm có thể phát hiện trong thí nghiệm"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Hạt nảy mầm: Có hô hấp tế bào mạnh; Oxygen: Được dùng trong hô hấp hiếu khí; Carbon dioxide: Sản phẩm có thể phát hiện trong thí nghiệm."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hạt nảy mầm sử dụng khí [blank] trong quá trình hô hấp hiếu khí.",
+            "correctAnswer": "oxygen",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “oxygen”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Phù hợp để kiểm tra hô hấp ở hạt",
+              "Không phù hợp để so sánh"
+            ],
+            "items": [
+              {
+                "name": "Dùng hạt đang nảy mầm",
+                "catIndex": 0
+              },
+              {
+                "name": "Chuẩn bị mẫu đối chứng",
+                "catIndex": 0
+              },
+              {
+                "name": "Giữ điều kiện so sánh tương tự",
+                "catIndex": 0
+              },
+              {
+                "name": "Thay đổi nhiều điều kiện cùng lúc",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Dùng hạt đang nảy mầm thuộc nhóm Phù hợp để kiểm tra hô hấp ở hạt; Chuẩn bị mẫu đối chứng thuộc nhóm Phù hợp để kiểm tra hô hấp ở hạt; Giữ điều kiện so sánh tương tự thuộc nhóm Phù hợp để kiểm tra hô hấp ở hạt; Thay đổi nhiều điều kiện cùng lúc thuộc nhóm Không phù hợp để so sánh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hạt nảy mầm giải phóng khí [blank] khi hô hấp.",
+            "bankWords": [
+              "carbon dioxide",
+              "oxygen",
+              "nitrogen"
+            ],
+            "correctWord": "carbon dioxide",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “carbon dioxide”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Mô tả trao đổi khí giữa sinh vật và môi trường.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 28. Trao đổi khí ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trao đổi khí ở sinh vật là quá trình nào?",
+            "options": [
+              "Lấy khí cần thiết và thải khí ra môi trường",
+              "Chỉ đổi màu cơ thể",
+              "Chỉ vận chuyển thức ăn",
+              "Chỉ hút nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét chiều đi vào và đi ra của các chất khí.",
+            "explanation": "Sinh vật nhận và thải khí với môi trường để phục vụ hoạt động sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trao đổi khí",
+                "right": "Khí đi vào và ra khỏi cơ thể"
+              },
+              {
+                "left": "Hô hấp tế bào hiếu khí",
+                "right": "Sử dụng oxygen trong tế bào"
+              },
+              {
+                "left": "Quang hợp",
+                "right": "Sử dụng carbon dioxide để tổng hợp chất hữu cơ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Trao đổi khí: Khí đi vào và ra khỏi cơ thể; Hô hấp tế bào hiếu khí: Sử dụng oxygen trong tế bào; Quang hợp: Sử dụng carbon dioxide để tổng hợp chất hữu cơ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khi hô hấp, sinh vật thường lấy khí [blank] từ môi trường.",
+            "correctAnswer": "oxygen",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “oxygen”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Gắn với hô hấp tế bào hiếu khí",
+              "Gắn với quang hợp"
+            ],
+            "items": [
+              {
+                "name": "Sử dụng oxygen",
+                "catIndex": 0
+              },
+              {
+                "name": "Thải carbon dioxide",
+                "catIndex": 0
+              },
+              {
+                "name": "Sử dụng carbon dioxide",
+                "catIndex": 1
+              },
+              {
+                "name": "Tạo oxygen",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Sử dụng oxygen thuộc nhóm Gắn với hô hấp tế bào hiếu khí; Thải carbon dioxide thuộc nhóm Gắn với hô hấp tế bào hiếu khí; Sử dụng carbon dioxide thuộc nhóm Gắn với quang hợp; Tạo oxygen thuộc nhóm Gắn với quang hợp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trao đổi khí là sự lấy và thải các chất [blank] giữa cơ thể và môi trường.",
+            "bankWords": [
+              "khí",
+              "rắn",
+              "khoáng"
+            ],
+            "correctWord": "khí",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “khí”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Giải thích vai trò của khí khổng trong trao đổi khí ở thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 28. Trao đổi khí ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khí khổng trên lá có vai trò gì?",
+            "options": [
+              "Cho phép lá trao đổi khí với môi trường",
+              "Vận chuyển chất hữu cơ trong thân",
+              "Hút nước từ đất",
+              "Tạo hạt trong quả"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là các khe có thể đóng mở.",
+            "explanation": "Khí khổng là một con đường trao đổi khí giữa lá và môi trường."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Khí khổng",
+                "right": "Đóng mở và trao đổi khí"
+              },
+              {
+                "left": "Carbon dioxide",
+                "right": "Đi vào lá khi quang hợp"
+              },
+              {
+                "left": "Oxygen",
+                "right": "Có thể thoát khỏi lá khi quang hợp"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Khí khổng: Đóng mở và trao đổi khí; Carbon dioxide: Đi vào lá khi quang hợp; Oxygen: Có thể thoát khỏi lá khi quang hợp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Lá cây trao đổi khí với môi trường chủ yếu qua [blank].",
+            "correctAnswer": "khí khổng",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “khí khổng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Diễn ra khi lá quang hợp",
+              "Diễn ra khi tế bào lá hô hấp hiếu khí"
+            ],
+            "items": [
+              {
+                "name": "Nhận carbon dioxide",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo oxygen",
+                "catIndex": 0
+              },
+              {
+                "name": "Sử dụng oxygen",
+                "catIndex": 1
+              },
+              {
+                "name": "Tạo carbon dioxide",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Nhận carbon dioxide thuộc nhóm Diễn ra khi lá quang hợp; Tạo oxygen thuộc nhóm Diễn ra khi lá quang hợp; Sử dụng oxygen thuộc nhóm Diễn ra khi tế bào lá hô hấp hiếu khí; Tạo carbon dioxide thuộc nhóm Diễn ra khi tế bào lá hô hấp hiếu khí."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự đóng mở [blank] giúp điều chỉnh trao đổi khí ở lá.",
+            "bankWords": [
+              "khí khổng",
+              "mạch rây",
+              "lông hút"
+            ],
+            "correctWord": "khí khổng",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “khí khổng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Nhận biết một số cơ quan trao đổi khí ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 28. Trao đổi khí ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Cá thường trao đổi khí với nước qua cơ quan nào?",
+            "options": [
+              "Mang",
+              "Phổi",
+              "Lông vũ",
+              "Rễ"
+            ],
+            "answerIndex": 0,
+            "hint": "Cơ quan này tiếp xúc với nước.",
+            "explanation": "Mang là cơ quan trao đổi khí của phần lớn các loài cá."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cá",
+                "right": "Mang"
+              },
+              {
+                "left": "Châu chấu",
+                "right": "Hệ thống ống khí"
+              },
+              {
+                "left": "Người",
+                "right": "Phổi"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Cá: Mang; Châu chấu: Hệ thống ống khí; Người: Phổi."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở người, cơ quan trao đổi khí chính là [blank].",
+            "correctAnswer": "phổi",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “phổi”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trao đổi khí chủ yếu qua mang",
+              "Trao đổi khí chủ yếu qua phổi"
+            ],
+            "items": [
+              {
+                "name": "Cá chép",
+                "catIndex": 0
+              },
+              {
+                "name": "Cá rô",
+                "catIndex": 0
+              },
+              {
+                "name": "Người",
+                "catIndex": 1
+              },
+              {
+                "name": "Chim bồ câu",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Cá chép thuộc nhóm Trao đổi khí chủ yếu qua mang; Cá rô thuộc nhóm Trao đổi khí chủ yếu qua mang; Người thuộc nhóm Trao đổi khí chủ yếu qua phổi; Chim bồ câu thuộc nhóm Trao đổi khí chủ yếu qua phổi."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Côn trùng như châu chấu trao đổi khí qua hệ thống [blank].",
+            "bankWords": [
+              "ống khí",
+              "mạch gỗ",
+              "rễ"
+            ],
+            "correctWord": "ống khí",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “ống khí”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Mô tả nhu cầu dinh dưỡng và các bước lấy, tiêu hoá, hấp thụ thức ăn ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 31. Trao đổi nước và chất dinh dưỡng ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau khi thức ăn được tiêu hoá, chất dinh dưỡng đi vào cơ thể chủ yếu nhờ quá trình nào?",
+            "options": [
+              "Hấp thụ",
+              "Thoát hơi nước",
+              "Quang hợp",
+              "Thụ phấn"
+            ],
+            "answerIndex": 0,
+            "hint": "Chất dinh dưỡng phải qua thành ống tiêu hoá.",
+            "explanation": "Các chất dinh dưỡng sau tiêu hoá được hấp thụ để cơ thể sử dụng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Lấy thức ăn",
+                "right": "Đưa thức ăn vào cơ thể"
+              },
+              {
+                "left": "Tiêu hoá",
+                "right": "Biến đổi thức ăn thành chất dễ hấp thụ"
+              },
+              {
+                "left": "Hấp thụ",
+                "right": "Đưa chất dinh dưỡng vào môi trường trong cơ thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Lấy thức ăn: Đưa thức ăn vào cơ thể; Tiêu hoá: Biến đổi thức ăn thành chất dễ hấp thụ; Hấp thụ: Đưa chất dinh dưỡng vào môi trường trong cơ thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Thức ăn được biến đổi thành chất đơn giản hơn trong quá trình [blank].",
+            "correctAnswer": "tiêu hoá",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “tiêu hoá”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trước hấp thụ chất dinh dưỡng",
+              "Sau hấp thụ chất dinh dưỡng"
+            ],
+            "items": [
+              {
+                "name": "Lấy thức ăn",
+                "catIndex": 0
+              },
+              {
+                "name": "Tiêu hoá thức ăn",
+                "catIndex": 0
+              },
+              {
+                "name": "Vận chuyển chất dinh dưỡng tới tế bào",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào sử dụng chất dinh dưỡng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Lấy thức ăn thuộc nhóm Trước hấp thụ chất dinh dưỡng; Tiêu hoá thức ăn thuộc nhóm Trước hấp thụ chất dinh dưỡng; Vận chuyển chất dinh dưỡng tới tế bào thuộc nhóm Sau hấp thụ chất dinh dưỡng; Tế bào sử dụng chất dinh dưỡng thuộc nhóm Sau hấp thụ chất dinh dưỡng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Chất dinh dưỡng cần được [blank] sau tiêu hoá để đi vào cơ thể.",
+            "bankWords": [
+              "hấp thụ",
+              "quang hợp",
+              "thụ phấn"
+            ],
+            "correctWord": "hấp thụ",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “hấp thụ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Nêu nhu cầu sử dụng nước và con đường trao đổi nước ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 31. Trao đổi nước và chất dinh dưỡng ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nước đi vào cơ thể động vật chủ yếu qua đâu?",
+            "options": [
+              "Thức ăn và nước uống",
+              "Quang hợp ở da",
+              "Ánh sáng mặt trời",
+              "Không khí khô"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét hai nguồn được đưa vào hệ tiêu hoá.",
+            "explanation": "Động vật nhận nước từ thức ăn và nước uống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nước uống",
+                "right": "Nguồn cung cấp nước"
+              },
+              {
+                "left": "Thức ăn",
+                "right": "Cũng có thể cung cấp nước"
+              },
+              {
+                "left": "Nước tiểu",
+                "right": "Một con đường thải nước khỏi cơ thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Nước uống: Nguồn cung cấp nước; Thức ăn: Cũng có thể cung cấp nước; Nước tiểu: Một con đường thải nước khỏi cơ thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Động vật lấy nước từ nước uống và [blank].",
+            "correctAnswer": "thức ăn",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “thức ăn”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nước đi vào cơ thể",
+              "Nước đi ra khỏi cơ thể"
+            ],
+            "items": [
+              {
+                "name": "Nước uống",
+                "catIndex": 0
+              },
+              {
+                "name": "Nước trong thức ăn",
+                "catIndex": 0
+              },
+              {
+                "name": "Nước tiểu",
+                "catIndex": 1
+              },
+              {
+                "name": "Mồ hôi",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Nước uống thuộc nhóm Nước đi vào cơ thể; Nước trong thức ăn thuộc nhóm Nước đi vào cơ thể; Nước tiểu thuộc nhóm Nước đi ra khỏi cơ thể; Mồ hôi thuộc nhóm Nước đi ra khỏi cơ thể."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ở người, nước có thể được thải ra ngoài qua nước tiểu và [blank].",
+            "bankWords": [
+              "mồ hôi",
+              "quang hợp",
+              "lông hút"
+            ],
+            "correctWord": "mồ hôi",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “mồ hôi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Giải thích vai trò của hệ tuần hoàn trong vận chuyển các chất ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 31. Trao đổi nước và chất dinh dưỡng ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ở người, hệ nào vận chuyển oxygen và chất dinh dưỡng đến tế bào?",
+            "options": [
+              "Hệ tuần hoàn",
+              "Hệ xương",
+              "Hệ da",
+              "Hệ sinh sản"
+            ],
+            "answerIndex": 0,
+            "hint": "Máu chảy trong hệ này.",
+            "explanation": "Hệ tuần hoàn vận chuyển oxygen và chất dinh dưỡng đến tế bào."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Máu",
+                "right": "Môi trường vận chuyển nhiều chất"
+              },
+              {
+                "left": "Tim",
+                "right": "Co bóp đẩy máu"
+              },
+              {
+                "left": "Mạch máu",
+                "right": "Đường dẫn máu trong cơ thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Máu: Môi trường vận chuyển nhiều chất; Tim: Co bóp đẩy máu; Mạch máu: Đường dẫn máu trong cơ thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Máu được tim đẩy đi trong hệ thống [blank] máu.",
+            "correctAnswer": "mạch",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “mạch”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thành phần hệ tuần hoàn",
+              "Không thuộc hệ tuần hoàn"
+            ],
+            "items": [
+              {
+                "name": "Tim",
+                "catIndex": 0
+              },
+              {
+                "name": "Mạch máu",
+                "catIndex": 0
+              },
+              {
+                "name": "Máu",
+                "catIndex": 0
+              },
+              {
+                "name": "Khí khổng",
+                "catIndex": 1
+              },
+              {
+                "name": "Mạch gỗ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Tim thuộc nhóm Thành phần hệ tuần hoàn; Mạch máu thuộc nhóm Thành phần hệ tuần hoàn; Máu thuộc nhóm Thành phần hệ tuần hoàn; Khí khổng thuộc nhóm Không thuộc hệ tuần hoàn; Mạch gỗ thuộc nhóm Không thuộc hệ tuần hoàn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tim co bóp tạo lực đẩy [blank] lưu thông trong mạch.",
+            "bankWords": [
+              "máu",
+              "nhựa cây",
+              "không khí ngoài trời"
+            ],
+            "correctWord": "máu",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “máu”."
+          }
+        }
+      ]
+    }
+  ]
+}

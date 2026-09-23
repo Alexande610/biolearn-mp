@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g12-st3-2026.1",
+  "grade": 12,
+  "stationId": "g12_st3",
+  "title": "Lớp 12 - Trạm 3: Sinh thái, bảo tồn và phát triển bền vững",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Chương VI–VIII của SGK Sinh học 12 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Phân biệt nhân tố sinh thái vô sinh và hữu sinh, nhận biết giới hạn sinh thái.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương VI. Môi trường và các nhân tố sinh thái"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khoảng giá trị của một nhân tố mà sinh vật có thể tồn tại gọi là gì?",
+            "options": [
+              "Giới hạn sinh thái",
+              "Chuỗi thức ăn",
+              "Diễn thế",
+              "Quần xã"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét khả năng chịu đựng một nhân tố.",
+            "explanation": "Giới hạn sinh thái là khoảng giá trị của nhân tố mà sinh vật có thể tồn tại."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Ánh sáng",
+                "right": "Nhân tố vô sinh"
+              },
+              {
+                "left": "Sinh vật cạnh tranh",
+                "right": "Nhân tố hữu sinh"
+              },
+              {
+                "left": "Giới hạn sinh thái",
+                "right": "Khoảng chịu đựng đối với một nhân tố"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Ánh sáng: Nhân tố vô sinh; Sinh vật cạnh tranh: Nhân tố hữu sinh; Giới hạn sinh thái: Khoảng chịu đựng đối với một nhân tố."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nhiệt độ là một nhân tố sinh thái [blank].",
+            "correctAnswer": "vô sinh",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “vô sinh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nhân tố vô sinh",
+              "Nhân tố hữu sinh"
+            ],
+            "items": [
+              {
+                "name": "Nhiệt độ",
+                "catIndex": 0
+              },
+              {
+                "name": "Nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Ánh sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Kẻ săn mồi",
+                "catIndex": 1
+              },
+              {
+                "name": "Sinh vật cạnh tranh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Nhiệt độ thuộc nhóm Nhân tố vô sinh; Nước thuộc nhóm Nhân tố vô sinh; Ánh sáng thuộc nhóm Nhân tố vô sinh; Kẻ săn mồi thuộc nhóm Nhân tố hữu sinh; Sinh vật cạnh tranh thuộc nhóm Nhân tố hữu sinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Mỗi loài có một khoảng chịu đựng nhất định đối với từng nhân tố [blank].",
+            "bankWords": [
+              "sinh thái",
+              "di truyền luôn luôn",
+              "địa chất thuần túy"
+            ],
+            "correctWord": "sinh thái",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “sinh thái”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Phân biệt kích thước, mật độ và kiểu phân bố cá thể của quần thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương VI. Quần thể sinh vật; Thực hành: Xác định khu phân bố và mật độ quần thể"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mật độ quần thể là đại lượng nào?",
+            "options": [
+              "Số cá thể trên một đơn vị diện tích hoặc thể tích",
+              "Tổng số loài trong quần xã",
+              "Số hệ sinh thái trên Trái Đất",
+              "Khối lượng một cá thể"
+            ],
+            "answerIndex": 0,
+            "hint": "Cần xét không gian sinh sống.",
+            "explanation": "Mật độ quần thể biểu thị số cá thể trên một đơn vị diện tích hoặc thể tích."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Kích thước quần thể",
+                "right": "Số cá thể của quần thể"
+              },
+              {
+                "left": "Mật độ quần thể",
+                "right": "Số cá thể trên đơn vị không gian"
+              },
+              {
+                "left": "Phân bố cá thể",
+                "right": "Cách cá thể sắp xếp trong không gian"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Kích thước quần thể: Số cá thể của quần thể; Mật độ quần thể: Số cá thể trên đơn vị không gian; Phân bố cá thể: Cách cá thể sắp xếp trong không gian."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Số cá thể trên một đơn vị diện tích là [blank] quần thể.",
+            "correctAnswer": "mật độ",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “mật độ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đặc trưng quần thể",
+              "Đặc trưng quần xã"
+            ],
+            "items": [
+              {
+                "name": "Mật độ cá thể cùng loài",
+                "catIndex": 0
+              },
+              {
+                "name": "Kích thước quần thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Tỉ lệ giới tính",
+                "catIndex": 0
+              },
+              {
+                "name": "Độ đa dạng loài",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Mật độ cá thể cùng loài thuộc nhóm Đặc trưng quần thể; Kích thước quần thể thuộc nhóm Đặc trưng quần thể; Tỉ lệ giới tính thuộc nhóm Đặc trưng quần thể; Độ đa dạng loài thuộc nhóm Đặc trưng quần xã."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các cá thể của quần thể có thể phân bố theo nhóm, đồng đều hoặc [blank].",
+            "bankWords": [
+              "ngẫu nhiên",
+              "theo tên",
+              "theo trang sách"
+            ],
+            "correctWord": "ngẫu nhiên",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “ngẫu nhiên”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Giải thích các yếu tố làm thay đổi kích thước quần thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương VI. Quần thể sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Yếu tố nào làm tăng trực tiếp số cá thể của một quần thể?",
+            "options": [
+              "Sinh sản và nhập cư",
+              "Tử vong và xuất cư",
+              "Chỉ tử vong",
+              "Chỉ xuất cư"
+            ],
+            "answerIndex": 0,
+            "hint": "Cá thể được sinh ra hoặc đi vào.",
+            "explanation": "Sinh sản và nhập cư làm tăng số cá thể quần thể."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh sản",
+                "right": "Tạo cá thể mới"
+              },
+              {
+                "left": "Nhập cư",
+                "right": "Cá thể đi vào quần thể"
+              },
+              {
+                "left": "Xuất cư",
+                "right": "Cá thể rời quần thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Sinh sản: Tạo cá thể mới; Nhập cư: Cá thể đi vào quần thể; Xuất cư: Cá thể rời quần thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Số cá thể chết và [blank] cư làm giảm kích thước quần thể.",
+            "correctAnswer": "xuất",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “xuất”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Làm tăng kích thước quần thể",
+              "Làm giảm kích thước quần thể"
+            ],
+            "items": [
+              {
+                "name": "Sinh sản",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhập cư",
+                "catIndex": 0
+              },
+              {
+                "name": "Tử vong",
+                "catIndex": 1
+              },
+              {
+                "name": "Xuất cư",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Sinh sản thuộc nhóm Làm tăng kích thước quần thể; Nhập cư thuộc nhóm Làm tăng kích thước quần thể; Tử vong thuộc nhóm Làm giảm kích thước quần thể; Xuất cư thuộc nhóm Làm giảm kích thước quần thể."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cá thể di chuyển từ nơi khác vào quần thể gọi là [blank].",
+            "bankWords": [
+              "nhập cư",
+              "xuất cư",
+              "thụ tinh"
+            ],
+            "correctWord": "nhập cư",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “nhập cư”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nhận biết quan hệ hỗ trợ và đối kháng giữa các loài trong quần xã.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 26. Quần xã sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Quan hệ ong lấy mật và giúp hoa thụ phấn thường là gì?",
+            "options": [
+              "Hợp tác hoặc cùng có lợi",
+              "Kí sinh",
+              "Sinh vật ăn sinh vật",
+              "Cạnh tranh thức ăn"
+            ],
+            "answerIndex": 0,
+            "hint": "Cả hai bên có thể nhận lợi ích.",
+            "explanation": "Ong nhận thức ăn, hoa có thể được thụ phấn, nên đây là quan hệ cùng có lợi."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cộng sinh",
+                "right": "Hai loài sống gần gũi và cùng có lợi"
+              },
+              {
+                "left": "Cạnh tranh",
+                "right": "Các loài cùng khai thác nguồn lực hạn chế"
+              },
+              {
+                "left": "Kí sinh",
+                "right": "Một loài sống nhờ và gây hại loài khác"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Cộng sinh: Hai loài sống gần gũi và cùng có lợi; Cạnh tranh: Các loài cùng khai thác nguồn lực hạn chế; Kí sinh: Một loài sống nhờ và gây hại loài khác."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hai loài cùng sử dụng nguồn thức ăn hạn chế có thể xảy ra [blank].",
+            "correctAnswer": "cạnh tranh",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “cạnh tranh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Quan hệ hỗ trợ",
+              "Quan hệ đối kháng"
+            ],
+            "items": [
+              {
+                "name": "Cộng sinh",
+                "catIndex": 0
+              },
+              {
+                "name": "Hợp tác",
+                "catIndex": 0
+              },
+              {
+                "name": "Cạnh tranh",
+                "catIndex": 1
+              },
+              {
+                "name": "Kí sinh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Cộng sinh thuộc nhóm Quan hệ hỗ trợ; Hợp tác thuộc nhóm Quan hệ hỗ trợ; Cạnh tranh thuộc nhóm Quan hệ đối kháng; Kí sinh thuộc nhóm Quan hệ đối kháng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong quan hệ kí sinh, một loài có lợi còn loài kia bị [blank].",
+            "bankWords": [
+              "hại",
+              "lợi như nhau",
+              "không ảnh hưởng luôn luôn"
+            ],
+            "correctWord": "hại",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “hại”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Phân biệt quần xã và hệ sinh thái theo thành phần.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 28. Hệ sinh thái"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hệ sinh thái khác quần xã ở điểm nào?",
+            "options": [
+              "Bao gồm cả môi trường vô sinh",
+              "Chỉ gồm một loài",
+              "Không có sinh vật",
+              "Chỉ có động vật"
+            ],
+            "answerIndex": 0,
+            "hint": "Quần xã chỉ là phần hữu sinh.",
+            "explanation": "Hệ sinh thái gồm quần xã sinh vật và môi trường vô sinh."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh vật sản xuất",
+                "right": "Tạo chất hữu cơ từ chất vô cơ"
+              },
+              {
+                "left": "Sinh vật tiêu thụ",
+                "right": "Sử dụng sinh vật khác làm thức ăn"
+              },
+              {
+                "left": "Sinh vật phân giải",
+                "right": "Phân huỷ vật chất hữu cơ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Sinh vật sản xuất: Tạo chất hữu cơ từ chất vô cơ; Sinh vật tiêu thụ: Sử dụng sinh vật khác làm thức ăn; Sinh vật phân giải: Phân huỷ vật chất hữu cơ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Quần xã cùng môi trường vô sinh tạo thành một hệ [blank].",
+            "correctAnswer": "sinh thái",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “sinh thái”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thành phần hữu sinh",
+              "Thành phần vô sinh"
+            ],
+            "items": [
+              {
+                "name": "Cây xanh",
+                "catIndex": 0
+              },
+              {
+                "name": "Động vật",
+                "catIndex": 0
+              },
+              {
+                "name": "Nấm",
+                "catIndex": 0
+              },
+              {
+                "name": "Nước",
+                "catIndex": 1
+              },
+              {
+                "name": "Ánh sáng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Cây xanh thuộc nhóm Thành phần hữu sinh; Động vật thuộc nhóm Thành phần hữu sinh; Nấm thuộc nhóm Thành phần hữu sinh; Nước thuộc nhóm Thành phần vô sinh; Ánh sáng thuộc nhóm Thành phần vô sinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hệ sinh thái gồm quần xã và môi trường [blank].",
+            "bankWords": [
+              "vô sinh",
+              "chỉ hữu sinh",
+              "không tồn tại"
+            ],
+            "correctWord": "vô sinh",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “vô sinh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Mô tả chuỗi, lưới thức ăn và chiều truyền năng lượng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 29. Trao đổi vật chất và chuyển hoá năng lượng trong hệ sinh thái"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong chuỗi cỏ → châu chấu → ếch → rắn, sinh vật tiêu thụ bậc hai là gì?",
+            "options": [
+              "Ếch",
+              "Cỏ",
+              "Châu chấu",
+              "Rắn"
+            ],
+            "answerIndex": 0,
+            "hint": "Nó ăn sinh vật tiêu thụ bậc một.",
+            "explanation": "Ếch ăn châu chấu nên là sinh vật tiêu thụ bậc hai."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cỏ",
+                "right": "Sinh vật sản xuất"
+              },
+              {
+                "left": "Châu chấu",
+                "right": "Tiêu thụ bậc một"
+              },
+              {
+                "left": "Ếch",
+                "right": "Tiêu thụ bậc hai"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Cỏ: Sinh vật sản xuất; Châu chấu: Tiêu thụ bậc một; Ếch: Tiêu thụ bậc hai."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nhiều chuỗi thức ăn có mắt xích chung tạo thành lưới [blank].",
+            "correctAnswer": "thức ăn",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “thức ăn”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Sinh vật sản xuất",
+              "Sinh vật tiêu thụ"
+            ],
+            "items": [
+              {
+                "name": "Cỏ",
+                "catIndex": 0
+              },
+              {
+                "name": "Tảo",
+                "catIndex": 0
+              },
+              {
+                "name": "Châu chấu",
+                "catIndex": 1
+              },
+              {
+                "name": "Ếch",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Cỏ thuộc nhóm Sinh vật sản xuất; Tảo thuộc nhóm Sinh vật sản xuất; Châu chấu thuộc nhóm Sinh vật tiêu thụ; Ếch thuộc nhóm Sinh vật tiêu thụ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Mũi tên trong chuỗi thức ăn chỉ chiều truyền vật chất và [blank].",
+            "bankWords": [
+              "năng lượng",
+              "địa điểm",
+              "tên loài"
+            ],
+            "correctWord": "năng lượng",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “năng lượng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Giải thích chu trình vật chất và sự truyền năng lượng trong hệ sinh thái.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 29. Trao đổi vật chất và chuyển hoá năng lượng trong hệ sinh thái; Chương VII. Chu trình sinh - địa - hoá"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Điểm khác cơ bản giữa vật chất và năng lượng trong hệ sinh thái là gì?",
+            "options": [
+              "Vật chất có thể tuần hoàn, năng lượng truyền qua các bậc và hao hụt",
+              "Năng lượng tuần hoàn hoàn toàn không hao hụt",
+              "Vật chất không bao giờ quay lại môi trường",
+              "Cả hai đều không liên quan sinh vật"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét vai trò của sinh vật phân giải và nhiệt.",
+            "explanation": "Vật chất đi qua các chu trình; năng lượng truyền qua các bậc dinh dưỡng và một phần toả nhiệt."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh vật phân giải",
+                "right": "Trả nhiều chất vô cơ về môi trường"
+              },
+              {
+                "left": "Chu trình carbon",
+                "right": "Carbon luân chuyển giữa sinh vật và môi trường"
+              },
+              {
+                "left": "Nhiệt",
+                "right": "Một dạng năng lượng thất thoát khỏi dòng dinh dưỡng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Sinh vật phân giải: Trả nhiều chất vô cơ về môi trường; Chu trình carbon: Carbon luân chuyển giữa sinh vật và môi trường; Nhiệt: Một dạng năng lượng thất thoát khỏi dòng dinh dưỡng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vật chất trong hệ sinh thái có thể [blank] qua sinh vật và môi trường.",
+            "correctAnswer": "tuần hoàn",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “tuần hoàn”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan chu trình vật chất",
+              "Liên quan dòng năng lượng"
+            ],
+            "items": [
+              {
+                "name": "Carbon trở lại khí quyển",
+                "catIndex": 0
+              },
+              {
+                "name": "Chất khoáng được cây hấp thụ",
+                "catIndex": 0
+              },
+              {
+                "name": "Năng lượng truyền qua bậc dinh dưỡng",
+                "catIndex": 1
+              },
+              {
+                "name": "Một phần năng lượng toả nhiệt",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Carbon trở lại khí quyển thuộc nhóm Liên quan chu trình vật chất; Chất khoáng được cây hấp thụ thuộc nhóm Liên quan chu trình vật chất; Năng lượng truyền qua bậc dinh dưỡng thuộc nhóm Liên quan dòng năng lượng; Một phần năng lượng toả nhiệt thuộc nhóm Liên quan dòng năng lượng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sinh vật phân giải giúp đưa nhiều chất trở lại [blank].",
+            "bankWords": [
+              "môi trường",
+              "vũ trụ xa",
+              "một loài duy nhất"
+            ],
+            "correctWord": "môi trường",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “môi trường”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Nhận biết diễn thế sinh thái và một số nguyên nhân.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương VII. Diễn thế sinh thái"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Diễn thế sinh thái là quá trình nào?",
+            "options": [
+              "Quần xã biến đổi theo thời gian tại một khu vực",
+              "Một cá thể lớn lên trong một ngày",
+              "Một gene tự phiên mã",
+              "Một phân tử nước bay hơi"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét thay thế quần xã.",
+            "explanation": "Diễn thế là sự biến đổi và thay thế quần xã theo thời gian tại một khu vực."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Diễn thế",
+                "right": "Quần xã thay đổi theo thời gian"
+              },
+              {
+                "left": "Loài tiên phong",
+                "right": "Xuất hiện sớm trên môi trường mới"
+              },
+              {
+                "left": "Quần xã về sau",
+                "right": "Hình thành sau các giai đoạn trước"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Diễn thế: Quần xã thay đổi theo thời gian; Loài tiên phong: Xuất hiện sớm trên môi trường mới; Quần xã về sau: Hình thành sau các giai đoạn trước."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự thay thế các quần xã theo thời gian gọi là diễn thế [blank].",
+            "correctAnswer": "sinh thái",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “sinh thái”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể là nguyên nhân diễn thế",
+              "Không phải nguyên nhân sinh thái"
+            ],
+            "items": [
+              {
+                "name": "Cháy rừng",
+                "catIndex": 0
+              },
+              {
+                "name": "Thay đổi khí hậu",
+                "catIndex": 0
+              },
+              {
+                "name": "Hoạt động khai thác rừng",
+                "catIndex": 0
+              },
+              {
+                "name": "Đổi tên khu vực trên bản đồ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Cháy rừng thuộc nhóm Có thể là nguyên nhân diễn thế; Thay đổi khí hậu thuộc nhóm Có thể là nguyên nhân diễn thế; Hoạt động khai thác rừng thuộc nhóm Có thể là nguyên nhân diễn thế; Đổi tên khu vực trên bản đồ thuộc nhóm Không phải nguyên nhân sinh thái."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Loài đến sống đầu tiên trên nền đất mới thường gọi là loài [blank].",
+            "bankWords": [
+              "tiên phong",
+              "đến cuối",
+              "không tồn tại"
+            ],
+            "correctWord": "tiên phong",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “tiên phong”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Nêu mục tiêu phục hồi hệ sinh thái và bảo tồn đa dạng sinh học.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương VIII. Sinh thái học phục hồi và bảo tồn đa dạng sinh học"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mục tiêu phù hợp của phục hồi sinh thái là gì?",
+            "options": [
+              "Khôi phục cấu trúc và chức năng hệ sinh thái bị suy thoái",
+              "Loại bỏ mọi loài bản địa",
+              "Tăng ô nhiễm",
+              "Phá huỷ hoàn toàn sinh cảnh"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét hệ sinh thái bị tổn hại.",
+            "explanation": "Phục hồi sinh thái hướng tới khôi phục cấu trúc và chức năng của hệ sinh thái."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Phục hồi sinh thái",
+                "right": "Khôi phục hệ sinh thái suy thoái"
+              },
+              {
+                "left": "Loài bản địa",
+                "right": "Loài thuộc vùng phân bố tự nhiên"
+              },
+              {
+                "left": "Khu bảo tồn",
+                "right": "Góp phần gìn giữ sinh cảnh và loài"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Phục hồi sinh thái: Khôi phục hệ sinh thái suy thoái; Loài bản địa: Loài thuộc vùng phân bố tự nhiên; Khu bảo tồn: Góp phần gìn giữ sinh cảnh và loài."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Bảo vệ nơi sống góp phần bảo tồn đa dạng [blank].",
+            "correctAnswer": "sinh học",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “sinh học”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hỗ trợ bảo tồn",
+              "Làm suy giảm đa dạng sinh học"
+            ],
+            "items": [
+              {
+                "name": "Bảo vệ sinh cảnh",
+                "catIndex": 0
+              },
+              {
+                "name": "Phục hồi rừng bản địa",
+                "catIndex": 0
+              },
+              {
+                "name": "Quản lí khai thác",
+                "catIndex": 0
+              },
+              {
+                "name": "Săn bắt trái phép",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Bảo vệ sinh cảnh thuộc nhóm Hỗ trợ bảo tồn; Phục hồi rừng bản địa thuộc nhóm Hỗ trợ bảo tồn; Quản lí khai thác thuộc nhóm Hỗ trợ bảo tồn; Săn bắt trái phép thuộc nhóm Làm suy giảm đa dạng sinh học."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Phục hồi sinh thái cần quan tâm tới các loài [blank] của khu vực.",
+            "bankWords": [
+              "bản địa",
+              "xâm hại ưu tiên",
+              "không có thật"
+            ],
+            "correctWord": "bản địa",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “bản địa”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Vận dụng nguyên tắc phát triển bền vững vào lựa chọn hành động địa phương.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 34. Phát triển bền vững; Dự án bảo tồn sinh thái tại địa phương"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hành động nào phù hợp phát triển bền vững?",
+            "options": [
+              "Sử dụng tài nguyên tiết kiệm và bảo vệ khả năng phục hồi",
+              "Khai thác tận diệt trong một mùa",
+              "Xả chất thải chưa xử lí",
+              "Phá rừng để lấy đất ngắn hạn"
+            ],
+            "answerIndex": 0,
+            "hint": "Đáp ứng nhu cầu hiện tại và tương lai.",
+            "explanation": "Sử dụng tài nguyên hợp lí và bảo vệ môi trường hỗ trợ phát triển bền vững."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tiết kiệm tài nguyên",
+                "right": "Giảm lãng phí"
+              },
+              {
+                "left": "Xử lí chất thải",
+                "right": "Giảm ô nhiễm"
+              },
+              {
+                "left": "Bảo vệ đa dạng sinh học",
+                "right": "Giữ loài và sinh cảnh"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Tiết kiệm tài nguyên: Giảm lãng phí; Xử lí chất thải: Giảm ô nhiễm; Bảo vệ đa dạng sinh học: Giữ loài và sinh cảnh."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phát triển bền vững cần cân bằng lợi ích hiện tại và [blank].",
+            "correctAnswer": "tương lai",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “tương lai”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hành động bền vững",
+              "Hành động không bền vững"
+            ],
+            "items": [
+              {
+                "name": "Tiết kiệm nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân loại rác",
+                "catIndex": 0
+              },
+              {
+                "name": "Phục hồi sinh cảnh",
+                "catIndex": 0
+              },
+              {
+                "name": "Khai thác tận diệt",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Tiết kiệm nước thuộc nhóm Hành động bền vững; Phân loại rác thuộc nhóm Hành động bền vững; Phục hồi sinh cảnh thuộc nhóm Hành động bền vững; Khai thác tận diệt thuộc nhóm Hành động không bền vững."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Một dự án bảo tồn cần dựa trên khảo sát thực trạng [blank].",
+            "bankWords": [
+              "địa phương",
+              "tin đồn",
+              "suy đoán không dữ liệu"
+            ],
+            "correctWord": "địa phương",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “địa phương”."
+          }
+        }
+      ]
+    }
+  ]
+}

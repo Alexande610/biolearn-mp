@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g8-st2-2026.1",
+  "grade": 8,
+  "stationId": "g8_st2",
+  "title": "Lớp 8 - Trạm 2: Điều hoà cơ thể người",
+  "status": "draft",
+  "notes": "Nội dung soạn theo các Bài 34–40 của SGK KHTN 8 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Sắp xếp đường đi của không khí qua hệ hô hấp ở người.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 34. Hệ hô hấp ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau khí quản, không khí đi vào cấu trúc nào?",
+            "options": [
+              "Phế quản",
+              "Thực quản",
+              "Dạ dày",
+              "Động mạch chủ"
+            ],
+            "answerIndex": 0,
+            "hint": "Cấu trúc này chia nhánh dẫn khí vào phổi.",
+            "explanation": "Không khí qua khí quản rồi vào phế quản trước khi đến phổi."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mũi",
+                "right": "Lọc bớt bụi và làm ấm không khí"
+              },
+              {
+                "left": "Khí quản",
+                "right": "Dẫn khí đến phế quản"
+              },
+              {
+                "left": "Phổi",
+                "right": "Chứa các phế nang trao đổi khí"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Mũi: Lọc bớt bụi và làm ấm không khí; Khí quản: Dẫn khí đến phế quản; Phổi: Chứa các phế nang trao đổi khí."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Không khí từ khí quản đi tiếp vào [blank] trước khi đến phế nang.",
+            "correctAnswer": "phế quản",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “phế quản”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đường dẫn khí",
+              "Nơi trao đổi khí"
+            ],
+            "items": [
+              {
+                "name": "Mũi",
+                "catIndex": 0
+              },
+              {
+                "name": "Khí quản",
+                "catIndex": 0
+              },
+              {
+                "name": "Phế quản",
+                "catIndex": 0
+              },
+              {
+                "name": "Phế nang",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Mũi thuộc nhóm Đường dẫn khí; Khí quản thuộc nhóm Đường dẫn khí; Phế quản thuộc nhóm Đường dẫn khí; Phế nang thuộc nhóm Nơi trao đổi khí."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các [blank] trong phổi là nơi trao đổi oxygen và carbon dioxide với máu.",
+            "bankWords": [
+              "phế nang",
+              "khớp",
+              "lông ruột"
+            ],
+            "correctWord": "phế nang",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “phế nang”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Giải thích trao đổi khí tại phế nang và bảo vệ hệ hô hấp.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 34. Hệ hô hấp ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ở phế nang, oxygen chủ yếu khuếch tán theo chiều nào?",
+            "options": [
+              "Từ không khí phế nang vào máu",
+              "Từ máu vào không khí phế nang",
+              "Từ dạ dày vào máu",
+              "Từ xương vào khí quản"
+            ],
+            "answerIndex": 0,
+            "hint": "Máu cần nhận oxygen để vận chuyển tới tế bào.",
+            "explanation": "Oxygen khuếch tán từ không khí ở phế nang vào máu."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Phế nang",
+                "right": "Nơi trao đổi khí với máu"
+              },
+              {
+                "left": "Mao mạch phổi",
+                "right": "Nhận oxygen từ phế nang"
+              },
+              {
+                "left": "Tránh khói thuốc",
+                "right": "Giúp giảm tác hại với hệ hô hấp"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Phế nang: Nơi trao đổi khí với máu; Mao mạch phổi: Nhận oxygen từ phế nang; Tránh khói thuốc: Giúp giảm tác hại với hệ hô hấp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Carbon dioxide từ máu đi vào [blank] để được thở ra.",
+            "correctAnswer": "phế nang",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “phế nang”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bảo vệ hệ hô hấp",
+              "Gây hại hệ hô hấp"
+            ],
+            "items": [
+              {
+                "name": "Tránh khói thuốc",
+                "catIndex": 0
+              },
+              {
+                "name": "Giữ không khí trong lành",
+                "catIndex": 0
+              },
+              {
+                "name": "Vận động phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Hít khói thuốc thường xuyên",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Tránh khói thuốc thuộc nhóm Bảo vệ hệ hô hấp; Giữ không khí trong lành thuộc nhóm Bảo vệ hệ hô hấp; Vận động phù hợp thuộc nhóm Bảo vệ hệ hô hấp; Hít khói thuốc thường xuyên thuộc nhóm Gây hại hệ hô hấp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi hít vào, cơ thể nhận khí [blank] để cung cấp cho tế bào.",
+            "bankWords": [
+              "oxygen",
+              "carbon dioxide",
+              "methane"
+            ],
+            "correctWord": "oxygen",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “oxygen”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Nhận biết cơ quan và chức năng chính của hệ bài tiết nước tiểu.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 35. Hệ bài tiết ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Cơ quan nào tạo nước tiểu?",
+            "options": [
+              "Thận",
+              "Phổi",
+              "Tim",
+              "Dạ dày"
+            ],
+            "answerIndex": 0,
+            "hint": "Cơ quan này lọc máu.",
+            "explanation": "Thận lọc máu và tạo nước tiểu."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thận",
+                "right": "Lọc máu và tạo nước tiểu"
+              },
+              {
+                "left": "Ống dẫn nước tiểu",
+                "right": "Dẫn nước tiểu đến bóng đái"
+              },
+              {
+                "left": "Bóng đái",
+                "right": "Chứa nước tiểu trước khi thải ra"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Thận: Lọc máu và tạo nước tiểu; Ống dẫn nước tiểu: Dẫn nước tiểu đến bóng đái; Bóng đái: Chứa nước tiểu trước khi thải ra."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nước tiểu được tạo ra chủ yếu ở [blank].",
+            "correctAnswer": "thận",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “thận”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thuộc hệ bài tiết nước tiểu",
+              "Không thuộc hệ bài tiết nước tiểu"
+            ],
+            "items": [
+              {
+                "name": "Thận",
+                "catIndex": 0
+              },
+              {
+                "name": "Ống dẫn nước tiểu",
+                "catIndex": 0
+              },
+              {
+                "name": "Bóng đái",
+                "catIndex": 0
+              },
+              {
+                "name": "Tim",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Thận thuộc nhóm Thuộc hệ bài tiết nước tiểu; Ống dẫn nước tiểu thuộc nhóm Thuộc hệ bài tiết nước tiểu; Bóng đái thuộc nhóm Thuộc hệ bài tiết nước tiểu; Tim thuộc nhóm Không thuộc hệ bài tiết nước tiểu."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Từ thận, nước tiểu đi qua ống dẫn nước tiểu đến [blank].",
+            "bankWords": [
+              "bóng đái",
+              "phổi",
+              "dạ dày"
+            ],
+            "correctWord": "bóng đái",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “bóng đái”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nêu vai trò giữ ổn định môi trường trong cơ thể và phối hợp của các cơ quan.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 36. Điều hoà môi trường trong của cơ thể người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao cơ thể cần điều hoà môi trường trong?",
+            "options": [
+              "Để tế bào hoạt động trong điều kiện tương đối ổn định",
+              "Để máu ngừng lưu thông",
+              "Để không cần trao đổi chất",
+              "Để cơ thể không cần nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Các tế bào cần điều kiện phù hợp.",
+            "explanation": "Môi trường trong ổn định tạo điều kiện cho tế bào hoạt động bình thường."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Máu",
+                "right": "Vận chuyển nhiều chất trong môi trường trong"
+              },
+              {
+                "left": "Thận",
+                "right": "Tham gia điều chỉnh lượng nước và chất tan"
+              },
+              {
+                "left": "Phổi",
+                "right": "Thải carbon dioxide ra môi trường"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Máu: Vận chuyển nhiều chất trong môi trường trong; Thận: Tham gia điều chỉnh lượng nước và chất tan; Phổi: Thải carbon dioxide ra môi trường."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Duy trì các điều kiện bên trong cơ thể tương đối ổn định gọi là cân bằng [blank].",
+            "correctAnswer": "nội môi",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “nội môi”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tham gia điều hoà môi trường trong",
+              "Không phải cơ quan người"
+            ],
+            "items": [
+              {
+                "name": "Thận",
+                "catIndex": 0
+              },
+              {
+                "name": "Phổi",
+                "catIndex": 0
+              },
+              {
+                "name": "Tim và mạch máu",
+                "catIndex": 0
+              },
+              {
+                "name": "Mạch gỗ của cây",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Thận thuộc nhóm Tham gia điều hoà môi trường trong; Phổi thuộc nhóm Tham gia điều hoà môi trường trong; Tim và mạch máu thuộc nhóm Tham gia điều hoà môi trường trong; Mạch gỗ của cây thuộc nhóm Không phải cơ quan người."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hệ bài tiết góp phần duy trì sự ổn định của môi trường [blank].",
+            "bankWords": [
+              "trong",
+              "ngoài vũ trụ",
+              "đất trồng"
+            ],
+            "correctWord": "trong",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “trong”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Mô tả các bộ phận chính và chức năng điều khiển của hệ thần kinh.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 37. Hệ thần kinh và các giác quan ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Bộ phận nào là trung ương của hệ thần kinh?",
+            "options": [
+              "Não và tuỷ sống",
+              "Tim và mạch máu",
+              "Phổi và khí quản",
+              "Dạ dày và ruột"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét nơi xử lí thông tin thần kinh.",
+            "explanation": "Não và tuỷ sống tạo nên hệ thần kinh trung ương."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Não",
+                "right": "Xử lí nhiều thông tin và điều khiển hoạt động"
+              },
+              {
+                "left": "Tuỷ sống",
+                "right": "Dẫn truyền và tham gia một số phản xạ"
+              },
+              {
+                "left": "Dây thần kinh",
+                "right": "Liên hệ trung ương với các bộ phận cơ thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Não: Xử lí nhiều thông tin và điều khiển hoạt động; Tuỷ sống: Dẫn truyền và tham gia một số phản xạ; Dây thần kinh: Liên hệ trung ương với các bộ phận cơ thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hệ thần kinh trung ương gồm não và [blank] sống.",
+            "correctAnswer": "tuỷ",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “tuỷ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hệ thần kinh trung ương",
+              "Hệ thần kinh ngoại biên"
+            ],
+            "items": [
+              {
+                "name": "Não",
+                "catIndex": 0
+              },
+              {
+                "name": "Tuỷ sống",
+                "catIndex": 0
+              },
+              {
+                "name": "Dây thần kinh",
+                "catIndex": 1
+              },
+              {
+                "name": "Hạch thần kinh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Não thuộc nhóm Hệ thần kinh trung ương; Tuỷ sống thuộc nhóm Hệ thần kinh trung ương; Dây thần kinh thuộc nhóm Hệ thần kinh ngoại biên; Hạch thần kinh thuộc nhóm Hệ thần kinh ngoại biên."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các [blank] thần kinh truyền thông tin giữa trung ương và cơ thể.",
+            "bankWords": [
+              "dây",
+              "mạch",
+              "ống tiêu hoá"
+            ],
+            "correctWord": "dây",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “dây”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nhận biết vai trò của mắt và tai trong tiếp nhận kích thích.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 37. Hệ thần kinh và các giác quan ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Cơ quan cảm giác nào tiếp nhận ánh sáng?",
+            "options": [
+              "Mắt",
+              "Tai",
+              "Lưỡi",
+              "Mũi"
+            ],
+            "answerIndex": 0,
+            "hint": "Nhờ cơ quan này ta nhìn thấy vật.",
+            "explanation": "Mắt tiếp nhận kích thích ánh sáng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mắt",
+                "right": "Tiếp nhận ánh sáng"
+              },
+              {
+                "left": "Tai",
+                "right": "Tiếp nhận âm thanh"
+              },
+              {
+                "left": "Thụ thể cảm giác",
+                "right": "Nhận kích thích từ môi trường"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Mắt: Tiếp nhận ánh sáng; Tai: Tiếp nhận âm thanh; Thụ thể cảm giác: Nhận kích thích từ môi trường."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cơ quan cảm giác tiếp nhận âm thanh là [blank].",
+            "correctAnswer": "tai",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “tai”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan thị giác",
+              "Liên quan thính giác"
+            ],
+            "items": [
+              {
+                "name": "Ánh sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Mắt",
+                "catIndex": 0
+              },
+              {
+                "name": "Âm thanh",
+                "catIndex": 1
+              },
+              {
+                "name": "Tai",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Ánh sáng thuộc nhóm Liên quan thị giác; Mắt thuộc nhóm Liên quan thị giác; Âm thanh thuộc nhóm Liên quan thính giác; Tai thuộc nhóm Liên quan thính giác."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Đọc sách ở nơi đủ ánh sáng giúp bảo vệ [blank].",
+            "bankWords": [
+              "mắt",
+              "tai",
+              "thận"
+            ],
+            "correctWord": "mắt",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “mắt”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Phân biệt tuyến nội tiết với hormone và nêu vai trò điều hoà của hormone.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 38. Hệ nội tiết ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tuyến nội tiết tiết sản phẩm nào vào máu?",
+            "options": [
+              "Hormone",
+              "Nước tiểu",
+              "Thức ăn",
+              "Không khí"
+            ],
+            "answerIndex": 0,
+            "hint": "Chất này tham gia điều hoà hoạt động cơ thể.",
+            "explanation": "Tuyến nội tiết tiết hormone vào máu để điều hoà các hoạt động."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tuyến nội tiết",
+                "right": "Tiết hormone vào máu"
+              },
+              {
+                "left": "Hormone",
+                "right": "Chất truyền tín hiệu điều hoà"
+              },
+              {
+                "left": "Máu",
+                "right": "Vận chuyển hormone đến cơ quan đích"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Tuyến nội tiết: Tiết hormone vào máu; Hormone: Chất truyền tín hiệu điều hoà; Máu: Vận chuyển hormone đến cơ quan đích."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sản phẩm của tuyến nội tiết được gọi là [blank].",
+            "correctAnswer": "hormone",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “hormone”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tuyến nội tiết",
+              "Không phải tuyến nội tiết"
+            ],
+            "items": [
+              {
+                "name": "Tuyến yên",
+                "catIndex": 0
+              },
+              {
+                "name": "Tuyến giáp",
+                "catIndex": 0
+              },
+              {
+                "name": "Tuyến thượng thận",
+                "catIndex": 0
+              },
+              {
+                "name": "Tuyến mồ hôi",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Tuyến yên thuộc nhóm Tuyến nội tiết; Tuyến giáp thuộc nhóm Tuyến nội tiết; Tuyến thượng thận thuộc nhóm Tuyến nội tiết; Tuyến mồ hôi thuộc nhóm Không phải tuyến nội tiết."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hormone được máu vận chuyển tới cơ quan [blank].",
+            "bankWords": [
+              "đích",
+              "rễ",
+              "lá"
+            ],
+            "correctWord": "đích",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “đích”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Nêu chức năng bảo vệ của da và cơ chế điều hoà thân nhiệt.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 39. Da và điều hoà thân nhiệt ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi trời nóng, cơ thể thường tăng tiết mồ hôi để làm gì?",
+            "options": [
+              "Tăng thải nhiệt khi mồ hôi bay hơi",
+              "Ngừng tuần hoàn máu",
+              "Tăng nhiệt độ cơ thể mãi mãi",
+              "Ngừng trao đổi khí"
+            ],
+            "answerIndex": 0,
+            "hint": "Bay hơi lấy nhiệt.",
+            "explanation": "Mồ hôi bay hơi giúp cơ thể toả nhiệt."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Da",
+                "right": "Bảo vệ cơ thể và cảm nhận kích thích"
+              },
+              {
+                "left": "Mồ hôi bay hơi",
+                "right": "Góp phần làm mát cơ thể"
+              },
+              {
+                "left": "Mạch máu dưới da giãn",
+                "right": "Tăng tỏa nhiệt khi trời nóng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Da: Bảo vệ cơ thể và cảm nhận kích thích; Mồ hôi bay hơi: Góp phần làm mát cơ thể; Mạch máu dưới da giãn: Tăng tỏa nhiệt khi trời nóng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Da giúp bảo vệ cơ thể và góp phần điều hoà thân [blank].",
+            "correctAnswer": "nhiệt",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “nhiệt”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Khi trời nóng",
+              "Khi trời lạnh"
+            ],
+            "items": [
+              {
+                "name": "Tăng tiết mồ hôi",
+                "catIndex": 0
+              },
+              {
+                "name": "Tăng tỏa nhiệt qua da",
+                "catIndex": 0
+              },
+              {
+                "name": "Giảm tiết mồ hôi",
+                "catIndex": 1
+              },
+              {
+                "name": "Giảm tỏa nhiệt qua da",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Tăng tiết mồ hôi thuộc nhóm Khi trời nóng; Tăng tỏa nhiệt qua da thuộc nhóm Khi trời nóng; Giảm tiết mồ hôi thuộc nhóm Khi trời lạnh; Giảm tỏa nhiệt qua da thuộc nhóm Khi trời lạnh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Mồ hôi [blank] giúp cơ thể tỏa nhiệt.",
+            "bankWords": [
+              "bay hơi",
+              "đông đặc",
+              "hoá đá"
+            ],
+            "correctWord": "bay hơi",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “bay hơi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Nêu chức năng của cơ quan sinh sản và quá trình thụ tinh ở người.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 40. Sinh sản ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thụ tinh ở người là sự kết hợp của những tế bào nào?",
+            "options": [
+              "Tinh trùng và trứng",
+              "Hai hồng cầu",
+              "Hai tế bào da",
+              "Một tế bào cơ và một bạch cầu"
+            ],
+            "answerIndex": 0,
+            "hint": "Hai loại giao tử kết hợp.",
+            "explanation": "Sự kết hợp của tinh trùng và trứng tạo thành hợp tử."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tinh trùng",
+                "right": "Giao tử đực"
+              },
+              {
+                "left": "Trứng",
+                "right": "Giao tử cái"
+              },
+              {
+                "left": "Hợp tử",
+                "right": "Được tạo sau thụ tinh"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tinh trùng: Giao tử đực; Trứng: Giao tử cái; Hợp tử: Được tạo sau thụ tinh."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tinh trùng kết hợp với trứng tạo thành [blank].",
+            "correctAnswer": "hợp tử",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “hợp tử”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trước thụ tinh",
+              "Sau thụ tinh"
+            ],
+            "items": [
+              {
+                "name": "Tạo tinh trùng",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo trứng",
+                "catIndex": 0
+              },
+              {
+                "name": "Giao tử kết hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Hợp tử phân chia",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tạo tinh trùng thuộc nhóm Trước thụ tinh; Tạo trứng thuộc nhóm Trước thụ tinh; Giao tử kết hợp thuộc nhóm Trước thụ tinh; Hợp tử phân chia thuộc nhóm Sau thụ tinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự kết hợp giữa tinh trùng và trứng gọi là [blank].",
+            "bankWords": [
+              "thụ tinh",
+              "quang hợp",
+              "bài tiết"
+            ],
+            "correctWord": "thụ tinh",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “thụ tinh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Nhận biết thay đổi cơ thể ở tuổi dậy thì và thói quen chăm sóc vệ sinh cá nhân.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 40. Sinh sản ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thay đổi nào thường xuất hiện ở cả nam và nữ trong tuổi dậy thì?",
+            "options": [
+              "Tăng trưởng về chiều cao",
+              "Mọi người đều giống hệt nhau",
+              "Ngừng phát triển cơ thể",
+              "Không cần vệ sinh cá nhân"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là giai đoạn cơ thể phát triển nhanh.",
+            "explanation": "Ở tuổi dậy thì, nhiều người có giai đoạn tăng trưởng chiều cao."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Dậy thì",
+                "right": "Giai đoạn cơ thể có nhiều thay đổi"
+              },
+              {
+                "left": "Vệ sinh cá nhân",
+                "right": "Giúp giữ cơ thể sạch sẽ"
+              },
+              {
+                "left": "Dinh dưỡng và vận động phù hợp",
+                "right": "Hỗ trợ phát triển khỏe mạnh"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Dậy thì: Giai đoạn cơ thể có nhiều thay đổi; Vệ sinh cá nhân: Giúp giữ cơ thể sạch sẽ; Dinh dưỡng và vận động phù hợp: Hỗ trợ phát triển khỏe mạnh."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở tuổi dậy thì, cần giữ vệ sinh [blank] đều đặn.",
+            "correctAnswer": "cá nhân",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “cá nhân”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thói quen chăm sóc bản thân",
+              "Thói quen không có lợi"
+            ],
+            "items": [
+              {
+                "name": "Giữ vệ sinh cơ thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Ngủ đủ thời gian phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Ăn uống đa dạng",
+                "catIndex": 0
+              },
+              {
+                "name": "Bỏ vệ sinh cơ thể kéo dài",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Giữ vệ sinh cơ thể thuộc nhóm Thói quen chăm sóc bản thân; Ngủ đủ thời gian phù hợp thuộc nhóm Thói quen chăm sóc bản thân; Ăn uống đa dạng thuộc nhóm Thói quen chăm sóc bản thân; Bỏ vệ sinh cơ thể kéo dài thuộc nhóm Thói quen không có lợi."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cơ thể có nhiều thay đổi về hình thái và sinh lí ở tuổi [blank].",
+            "bankWords": [
+              "dậy thì",
+              "sơ sinh mãi mãi",
+              "sau khi chết"
+            ],
+            "correctWord": "dậy thì",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “dậy thì”."
+          }
+        }
+      ]
+    }
+  ]
+}

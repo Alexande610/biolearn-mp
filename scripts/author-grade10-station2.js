@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Phân biệt khuếch tán và vận chuyển chủ động qua màng.', lesson: 'Bài 10. Trao đổi chất qua màng tế bào',
+    quiz: ['Vận chuyển chủ động qua màng thường cần điều kiện nào?', ['Năng lượng của tế bào', 'Không có protein màng', 'Mọi chất đi từ nồng độ cao xuống thấp', 'Màng bị phá vỡ hoàn toàn'], 0, 'Có thể chuyển chất ngược chiều gradient nồng độ.', 'Vận chuyển chủ động cần năng lượng và thường có protein vận chuyển.'],
+    match: [['Khuếch tán đơn giản', 'Chất đi xuôi chiều gradient nồng độ'], ['Vận chuyển chủ động', 'Có thể đưa chất ngược chiều gradient'], ['Protein màng', 'Tham gia vận chuyển chọn lọc nhiều chất']],
+    fill: ['Vận chuyển chủ động thường tiêu tốn [blank] của tế bào.', 'năng lượng'],
+    category: [['Vận chuyển thụ động', 'Vận chuyển chủ động'], [['Khuếch tán oxygen qua màng', 0], ['Chất đi xuôi gradient nồng độ', 0], ['Bơm ion ngược gradient', 1], ['Cần ATP để vận chuyển ion', 1]]],
+    drag: ['Khuếch tán thụ động diễn ra theo chiều [blank] gradient nồng độ.', ['xuôi', 'ngược', 'bất kể'], 'xuôi'],
+  },
+  {
+    objective: 'Giải thích thẩm thấu là sự di chuyển của nước qua màng bán thấm.', lesson: 'Bài 10. Trao đổi chất qua màng tế bào',
+    quiz: ['Thẩm thấu liên quan trực tiếp đến sự di chuyển của chất nào?', ['Nước', 'Protein lớn', 'DNA', 'Tinh bột nguyên hạt'], 0, 'Xét dung môi của tế bào.', 'Thẩm thấu là sự di chuyển của nước qua màng bán thấm.'],
+    match: [['Thẩm thấu', 'Nước di chuyển qua màng bán thấm'], ['Dung dịch ưu trương', 'Có nồng độ chất tan cao hơn bên so sánh'], ['Dung dịch nhược trương', 'Có nồng độ chất tan thấp hơn bên so sánh']],
+    fill: ['Sự di chuyển của nước qua màng bán thấm gọi là [blank].', 'thẩm thấu'],
+    category: [['Liên quan thẩm thấu', 'Không phải thẩm thấu'], [['Nước qua màng', 0], ['Tế bào mất nước trong môi trường ưu trương', 0], ['Phân tử nước di chuyển', 0], ['Ribosome tổng hợp protein', 1]]],
+    drag: ['Tế bào thực vật trong dung dịch ưu trương có thể bị [blank] nguyên sinh.', ['co', 'phản co ngay', 'nhân đôi'], 'co'],
+  },
+  {
+    objective: 'Phân biệt nhập bào và xuất bào đối với vật chất kích thước lớn.', lesson: 'Bài 10. Trao đổi chất qua màng tế bào',
+    quiz: ['Khi tế bào đưa một phần vật chất lớn vào bằng túi màng, quá trình đó gọi là gì?', ['Nhập bào', 'Xuất bào', 'Thẩm thấu', 'Khuếch tán đơn giản'], 0, 'Màng bao lấy vật chất từ bên ngoài.', 'Nhập bào đưa vật chất vào tế bào bằng cách hình thành túi màng.'],
+    match: [['Nhập bào', 'Đưa vật chất vào bằng túi màng'], ['Xuất bào', 'Đưa vật chất ra bằng túi màng'], ['Túi màng', 'Vận chuyển vật chất kích thước lớn']],
+    fill: ['Đưa chất từ túi màng ra bên ngoài tế bào gọi là [blank].', 'xuất bào'],
+    category: [['Đưa vật chất vào tế bào', 'Đưa vật chất ra khỏi tế bào'], [['Nhập bào', 0], ['Thực bào', 0], ['Xuất bào', 1], ['Tiết enzyme ra ngoài tế bào', 1]]],
+    drag: ['Tế bào có thể dùng [blank] để đưa hạt lớn vào bên trong.', ['nhập bào', 'thẩm thấu', 'khuếch tán oxygen'], 'nhập bào'],
+  },
+  {
+    objective: 'Giải thích hiện tượng co và phản co nguyên sinh ở tế bào thực vật.', lesson: 'Bài 11. Thực hành: Thí nghiệm co và phản co nguyên sinh',
+    quiz: ['Khi đặt tế bào thực vật vào dung dịch ưu trương, khối nguyên sinh thường thế nào?', ['Co lại do mất nước', 'Trương lên vô hạn', 'Tự nhân đôi ngay', 'Không thể thay đổi'], 0, 'Nước có xu hướng đi ra ngoài tế bào.', 'Tế bào mất nước nên khối nguyên sinh co lại.'],
+    match: [['Môi trường ưu trương', 'Tế bào có xu hướng mất nước'], ['Co nguyên sinh', 'Khối nguyên sinh tách khỏi thành tế bào'], ['Phản co nguyên sinh', 'Khối nguyên sinh trương lại khi nhận nước']],
+    fill: ['Trong dung dịch ưu trương, tế bào thực vật có thể xảy ra hiện tượng co [blank].', 'nguyên sinh'],
+    category: [['Co nguyên sinh', 'Phản co nguyên sinh'], [['Tế bào mất nước', 0], ['Khối nguyên sinh co lại', 0], ['Tế bào nhận nước trở lại', 1], ['Khối nguyên sinh trương lên', 1]]],
+    drag: ['Khi chuyển tế bào đã co nguyên sinh sang nước, có thể quan sát hiện tượng [blank].', ['phản co nguyên sinh', 'phân bào', 'thụ tinh'], 'phản co nguyên sinh'],
+  },
+  {
+    objective: 'Mô tả các bước tiếp nhận, truyền và đáp ứng tín hiệu ở tế bào.', lesson: 'Bài 12. Truyền tin tế bào',
+    quiz: ['Phân tử tín hiệu thường được tế bào đích nhận biết nhờ gì?', ['Thụ thể phù hợp', 'Thành cellulose bất kì', 'Nước tinh khiết', 'DNA của môi trường'], 0, 'Có tính đặc hiệu với tín hiệu.', 'Thụ thể phù hợp giúp tế bào nhận biết tín hiệu.'],
+    match: [['Tín hiệu', 'Mang thông tin giữa tế bào'], ['Thụ thể', 'Nhận biết tín hiệu phù hợp'], ['Đáp ứng tế bào', 'Thay đổi hoạt động sau khi nhận tín hiệu']],
+    fill: ['Phân tử nhận biết tín hiệu ở tế bào đích gọi là [blank].', 'thụ thể'],
+    category: [['Thành phần truyền tin tế bào', 'Không phải thành phần truyền tin'], [['Phân tử tín hiệu', 0], ['Thụ thể', 0], ['Đáp ứng tế bào', 0], ['Sỏi trong đất', 1]]],
+    drag: ['Tế bào chỉ đáp ứng tín hiệu khi có [blank] thích hợp.', ['thụ thể', 'hạt cát', 'ánh sáng luôn luôn'], 'thụ thể'],
+  },
+  {
+    objective: 'Nêu vai trò ATP trong chuyển hoá năng lượng của tế bào.', lesson: 'Bài 13. Khái quát về chuyển hoá vật chất và năng lượng',
+    quiz: ['Phân tử nào thường cung cấp năng lượng trực tiếp cho nhiều hoạt động tế bào?', ['ATP', 'DNA', 'Cellulose', 'Nước'], 0, 'Được gọi là đồng tiền năng lượng.', 'ATP cung cấp năng lượng trực tiếp cho nhiều quá trình của tế bào.'],
+    match: [['ATP', 'Chất mang năng lượng dùng trực tiếp'], ['Chuyển hoá vật chất', 'Tập hợp các phản ứng hoá học trong tế bào'], ['Enzyme', 'Xúc tác sinh học']],
+    fill: ['ATP được xem là đồng tiền [blank] của tế bào.', 'năng lượng'],
+    category: [['Quá trình có thể cần ATP', 'Không phải quá trình sống của tế bào'], [['Vận chuyển chủ động', 0], ['Tổng hợp đại phân tử', 0], ['Vận động tế bào', 0], ['Đá lăn xuống dốc', 1]]],
+    drag: ['Nhiều hoạt động tế bào sử dụng năng lượng trực tiếp từ [blank].', ['ATP', 'DNA', 'cellulose'], 'ATP'],
+  },
+  {
+    objective: 'Giải thích vai trò xúc tác và tính đặc hiệu của enzyme.', lesson: 'Bài 13. Khái quát về chuyển hoá vật chất và năng lượng',
+    quiz: ['Enzyme có vai trò gì trong tế bào?', ['Xúc tác phản ứng sinh hoá', 'Là nguồn duy nhất của DNA', 'Thay thế mọi chất nền', 'Luôn bị tiêu hao hoàn toàn sau một phản ứng'], 0, 'Làm phản ứng diễn ra nhanh hơn.', 'Enzyme là chất xúc tác sinh học cho các phản ứng trong tế bào.'],
+    match: [['Enzyme', 'Chất xúc tác sinh học'], ['Cơ chất', 'Chất tham gia phản ứng do enzyme xúc tác'], ['Trung tâm hoạt động', 'Vùng gắn cơ chất phù hợp']],
+    fill: ['Enzyme thường có tính [blank] với cơ chất hoặc phản ứng.', 'đặc hiệu'],
+    category: [['Đúng về enzyme', 'Không đúng về enzyme'], [['Xúc tác phản ứng', 0], ['Có vùng gắn cơ chất', 0], ['Hoạt tính chịu ảnh hưởng nhiệt độ', 0], ['Luôn hoạt động tốt ở mọi nhiệt độ', 1]]],
+    drag: ['Cơ chất gắn vào trung tâm [blank] của enzyme.', ['hoạt động', 'di truyền', 'sinh sản'], 'hoạt động'],
+  },
+  {
+    objective: 'Dự đoán tác động của nhiệt độ và pH đến hoạt tính enzyme.', lesson: 'Bài 15. Thực hành: Thí nghiệm phân tích ảnh hưởng của một số yếu tố đến hoạt tính của enzyme',
+    quiz: ['Vì sao đun sôi lâu có thể làm enzyme mất hoạt tính?', ['Cấu trúc không gian của enzyme có thể bị biến đổi', 'Enzyme biến thành DNA', 'Mọi cơ chất tự biến mất', 'Nước không còn là phân tử'], 0, 'Protein nhạy với nhiệt độ quá cao.', 'Nhiệt độ cao có thể làm biến tính protein enzyme, khiến hoạt tính giảm.'],
+    match: [['Nhiệt độ quá cao', 'Có thể làm enzyme biến tính'], ['pH không phù hợp', 'Có thể làm giảm hoạt tính enzyme'], ['Điều kiện tối ưu', 'Enzyme thường hoạt động hiệu quả nhất']],
+    fill: ['Nhiệt độ và [blank] có thể ảnh hưởng đến hoạt tính enzyme.', 'pH'],
+    category: [['Có thể ảnh hưởng hoạt tính enzyme', 'Không phải yếu tố của phản ứng enzyme'], [['Nhiệt độ', 0], ['pH', 0], ['Nồng độ cơ chất', 0], ['Tên người ghi nhãn ống nghiệm', 1]]],
+    drag: ['Trong thí nghiệm enzyme, cần thay đổi một [blank] mỗi lần để dễ rút kết luận.', ['yếu tố', 'mọi yếu tố', 'đáp án'], 'yếu tố'],
+  },
+  {
+    objective: 'Phân biệt phân giải và tổng hợp các chất trong tế bào.', lesson: 'Bài 14. Phân giải và tổng hợp các chất trong tế bào',
+    quiz: ['Quá trình nào thuộc tổng hợp chất?', ['Tạo protein từ amino acid', 'Phân giải glucose', 'Phân giải tinh bột', 'Phá vỡ protein thành amino acid'], 0, 'Nhiều đơn phân kết hợp thành phân tử lớn.', 'Tạo protein từ amino acid là quá trình tổng hợp.'],
+    match: [['Tổng hợp', 'Tạo chất phức tạp từ chất đơn giản'], ['Phân giải', 'Phá vỡ chất phức tạp thành chất đơn giản'], ['Hô hấp tế bào', 'Một quá trình phân giải để giải phóng năng lượng']],
+    fill: ['Phân giải chất hữu cơ có thể giải phóng [blank].', 'năng lượng'],
+    category: [['Tổng hợp', 'Phân giải'], [['Tạo protein từ amino acid', 0], ['Tạo tinh bột từ glucose', 0], ['Phân giải glucose', 1], ['Phân giải protein', 1]]],
+    drag: ['Quá trình tạo phân tử phức tạp từ các đơn vị đơn giản gọi là [blank].', ['tổng hợp', 'phân giải', 'thẩm thấu'], 'tổng hợp'],
+  },
+  {
+    objective: 'Liên hệ quang hợp và hô hấp tế bào trong chuyển hoá năng lượng.', lesson: 'Bài 14. Phân giải và tổng hợp các chất trong tế bào',
+    quiz: ['Quang hợp tích luỹ năng lượng chủ yếu dưới dạng nào?', ['Hoá năng trong chất hữu cơ', 'Âm thanh', 'Động năng của lá', 'Nhiệt từ lửa'], 0, 'Ánh sáng được chuyển thành năng lượng hoá học.', 'Quang hợp tích luỹ năng lượng trong các chất hữu cơ.'],
+    match: [['Quang hợp', 'Tổng hợp chất hữu cơ nhờ ánh sáng'], ['Hô hấp tế bào', 'Phân giải chất hữu cơ giải phóng năng lượng'], ['ATP', 'Mang năng lượng trực tiếp cho nhiều hoạt động']],
+    fill: ['Quang hợp chuyển năng lượng ánh sáng thành [blank] năng.', 'hoá'],
+    category: [['Quang hợp', 'Hô hấp tế bào'], [['Tổng hợp chất hữu cơ', 0], ['Tích luỹ năng lượng', 0], ['Phân giải chất hữu cơ', 1], ['Giải phóng năng lượng', 1]]],
+    drag: ['Sản phẩm hữu cơ của quang hợp có thể là nguyên liệu cho [blank] tế bào.', ['hô hấp', 'thụ tinh', 'xuất bào'], 'hô hấp'],
+  },
+];
+
+writeStation({ grade: 10, station: 2, title: 'Trao đổi và chuyển hoá trong tế bào', book: 'SGK Sinh học 10 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 10–15 của SGK Sinh học 10 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

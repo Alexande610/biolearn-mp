@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Phân biệt nhân tố sinh thái vô sinh và hữu sinh, nhận biết giới hạn sinh thái.', lesson: 'Chương VI. Môi trường và các nhân tố sinh thái',
+    quiz: ['Khoảng giá trị của một nhân tố mà sinh vật có thể tồn tại gọi là gì?', ['Giới hạn sinh thái', 'Chuỗi thức ăn', 'Diễn thế', 'Quần xã'], 0, 'Xét khả năng chịu đựng một nhân tố.', 'Giới hạn sinh thái là khoảng giá trị của nhân tố mà sinh vật có thể tồn tại.'],
+    match: [['Ánh sáng', 'Nhân tố vô sinh'], ['Sinh vật cạnh tranh', 'Nhân tố hữu sinh'], ['Giới hạn sinh thái', 'Khoảng chịu đựng đối với một nhân tố']],
+    fill: ['Nhiệt độ là một nhân tố sinh thái [blank].', 'vô sinh'],
+    category: [['Nhân tố vô sinh', 'Nhân tố hữu sinh'], [['Nhiệt độ', 0], ['Nước', 0], ['Ánh sáng', 0], ['Kẻ săn mồi', 1], ['Sinh vật cạnh tranh', 1]]],
+    drag: ['Mỗi loài có một khoảng chịu đựng nhất định đối với từng nhân tố [blank].', ['sinh thái', 'di truyền luôn luôn', 'địa chất thuần túy'], 'sinh thái'],
+  },
+  {
+    objective: 'Phân biệt kích thước, mật độ và kiểu phân bố cá thể của quần thể.', lesson: 'Chương VI. Quần thể sinh vật; Thực hành: Xác định khu phân bố và mật độ quần thể',
+    quiz: ['Mật độ quần thể là đại lượng nào?', ['Số cá thể trên một đơn vị diện tích hoặc thể tích', 'Tổng số loài trong quần xã', 'Số hệ sinh thái trên Trái Đất', 'Khối lượng một cá thể'], 0, 'Cần xét không gian sinh sống.', 'Mật độ quần thể biểu thị số cá thể trên một đơn vị diện tích hoặc thể tích.'],
+    match: [['Kích thước quần thể', 'Số cá thể của quần thể'], ['Mật độ quần thể', 'Số cá thể trên đơn vị không gian'], ['Phân bố cá thể', 'Cách cá thể sắp xếp trong không gian']],
+    fill: ['Số cá thể trên một đơn vị diện tích là [blank] quần thể.', 'mật độ'],
+    category: [['Đặc trưng quần thể', 'Đặc trưng quần xã'], [['Mật độ cá thể cùng loài', 0], ['Kích thước quần thể', 0], ['Tỉ lệ giới tính', 0], ['Độ đa dạng loài', 1]]],
+    drag: ['Các cá thể của quần thể có thể phân bố theo nhóm, đồng đều hoặc [blank].', ['ngẫu nhiên', 'theo tên', 'theo trang sách'], 'ngẫu nhiên'],
+  },
+  {
+    objective: 'Giải thích các yếu tố làm thay đổi kích thước quần thể.', lesson: 'Chương VI. Quần thể sinh vật',
+    quiz: ['Yếu tố nào làm tăng trực tiếp số cá thể của một quần thể?', ['Sinh sản và nhập cư', 'Tử vong và xuất cư', 'Chỉ tử vong', 'Chỉ xuất cư'], 0, 'Cá thể được sinh ra hoặc đi vào.', 'Sinh sản và nhập cư làm tăng số cá thể quần thể.'],
+    match: [['Sinh sản', 'Tạo cá thể mới'], ['Nhập cư', 'Cá thể đi vào quần thể'], ['Xuất cư', 'Cá thể rời quần thể']],
+    fill: ['Số cá thể chết và [blank] cư làm giảm kích thước quần thể.', 'xuất'],
+    category: [['Làm tăng kích thước quần thể', 'Làm giảm kích thước quần thể'], [['Sinh sản', 0], ['Nhập cư', 0], ['Tử vong', 1], ['Xuất cư', 1]]],
+    drag: ['Cá thể di chuyển từ nơi khác vào quần thể gọi là [blank].', ['nhập cư', 'xuất cư', 'thụ tinh'], 'nhập cư'],
+  },
+  {
+    objective: 'Nhận biết quan hệ hỗ trợ và đối kháng giữa các loài trong quần xã.', lesson: 'Bài 26. Quần xã sinh vật',
+    quiz: ['Quan hệ ong lấy mật và giúp hoa thụ phấn thường là gì?', ['Hợp tác hoặc cùng có lợi', 'Kí sinh', 'Sinh vật ăn sinh vật', 'Cạnh tranh thức ăn'], 0, 'Cả hai bên có thể nhận lợi ích.', 'Ong nhận thức ăn, hoa có thể được thụ phấn, nên đây là quan hệ cùng có lợi.'],
+    match: [['Cộng sinh', 'Hai loài sống gần gũi và cùng có lợi'], ['Cạnh tranh', 'Các loài cùng khai thác nguồn lực hạn chế'], ['Kí sinh', 'Một loài sống nhờ và gây hại loài khác']],
+    fill: ['Hai loài cùng sử dụng nguồn thức ăn hạn chế có thể xảy ra [blank].', 'cạnh tranh'],
+    category: [['Quan hệ hỗ trợ', 'Quan hệ đối kháng'], [['Cộng sinh', 0], ['Hợp tác', 0], ['Cạnh tranh', 1], ['Kí sinh', 1]]],
+    drag: ['Trong quan hệ kí sinh, một loài có lợi còn loài kia bị [blank].', ['hại', 'lợi như nhau', 'không ảnh hưởng luôn luôn'], 'hại'],
+  },
+  {
+    objective: 'Phân biệt quần xã và hệ sinh thái theo thành phần.', lesson: 'Bài 28. Hệ sinh thái',
+    quiz: ['Hệ sinh thái khác quần xã ở điểm nào?', ['Bao gồm cả môi trường vô sinh', 'Chỉ gồm một loài', 'Không có sinh vật', 'Chỉ có động vật'], 0, 'Quần xã chỉ là phần hữu sinh.', 'Hệ sinh thái gồm quần xã sinh vật và môi trường vô sinh.'],
+    match: [['Sinh vật sản xuất', 'Tạo chất hữu cơ từ chất vô cơ'], ['Sinh vật tiêu thụ', 'Sử dụng sinh vật khác làm thức ăn'], ['Sinh vật phân giải', 'Phân huỷ vật chất hữu cơ']],
+    fill: ['Quần xã cùng môi trường vô sinh tạo thành một hệ [blank].', 'sinh thái'],
+    category: [['Thành phần hữu sinh', 'Thành phần vô sinh'], [['Cây xanh', 0], ['Động vật', 0], ['Nấm', 0], ['Nước', 1], ['Ánh sáng', 1]]],
+    drag: ['Hệ sinh thái gồm quần xã và môi trường [blank].', ['vô sinh', 'chỉ hữu sinh', 'không tồn tại'], 'vô sinh'],
+  },
+  {
+    objective: 'Mô tả chuỗi, lưới thức ăn và chiều truyền năng lượng.', lesson: 'Bài 29. Trao đổi vật chất và chuyển hoá năng lượng trong hệ sinh thái',
+    quiz: ['Trong chuỗi cỏ → châu chấu → ếch → rắn, sinh vật tiêu thụ bậc hai là gì?', ['Ếch', 'Cỏ', 'Châu chấu', 'Rắn'], 0, 'Nó ăn sinh vật tiêu thụ bậc một.', 'Ếch ăn châu chấu nên là sinh vật tiêu thụ bậc hai.'],
+    match: [['Cỏ', 'Sinh vật sản xuất'], ['Châu chấu', 'Tiêu thụ bậc một'], ['Ếch', 'Tiêu thụ bậc hai']],
+    fill: ['Nhiều chuỗi thức ăn có mắt xích chung tạo thành lưới [blank].', 'thức ăn'],
+    category: [['Sinh vật sản xuất', 'Sinh vật tiêu thụ'], [['Cỏ', 0], ['Tảo', 0], ['Châu chấu', 1], ['Ếch', 1]]],
+    drag: ['Mũi tên trong chuỗi thức ăn chỉ chiều truyền vật chất và [blank].', ['năng lượng', 'địa điểm', 'tên loài'], 'năng lượng'],
+  },
+  {
+    objective: 'Giải thích chu trình vật chất và sự truyền năng lượng trong hệ sinh thái.', lesson: 'Bài 29. Trao đổi vật chất và chuyển hoá năng lượng trong hệ sinh thái; Chương VII. Chu trình sinh - địa - hoá',
+    quiz: ['Điểm khác cơ bản giữa vật chất và năng lượng trong hệ sinh thái là gì?', ['Vật chất có thể tuần hoàn, năng lượng truyền qua các bậc và hao hụt', 'Năng lượng tuần hoàn hoàn toàn không hao hụt', 'Vật chất không bao giờ quay lại môi trường', 'Cả hai đều không liên quan sinh vật'], 0, 'Xét vai trò của sinh vật phân giải và nhiệt.', 'Vật chất đi qua các chu trình; năng lượng truyền qua các bậc dinh dưỡng và một phần toả nhiệt.'],
+    match: [['Sinh vật phân giải', 'Trả nhiều chất vô cơ về môi trường'], ['Chu trình carbon', 'Carbon luân chuyển giữa sinh vật và môi trường'], ['Nhiệt', 'Một dạng năng lượng thất thoát khỏi dòng dinh dưỡng']],
+    fill: ['Vật chất trong hệ sinh thái có thể [blank] qua sinh vật và môi trường.', 'tuần hoàn'],
+    category: [['Liên quan chu trình vật chất', 'Liên quan dòng năng lượng'], [['Carbon trở lại khí quyển', 0], ['Chất khoáng được cây hấp thụ', 0], ['Năng lượng truyền qua bậc dinh dưỡng', 1], ['Một phần năng lượng toả nhiệt', 1]]],
+    drag: ['Sinh vật phân giải giúp đưa nhiều chất trở lại [blank].', ['môi trường', 'vũ trụ xa', 'một loài duy nhất'], 'môi trường'],
+  },
+  {
+    objective: 'Nhận biết diễn thế sinh thái và một số nguyên nhân.', lesson: 'Chương VII. Diễn thế sinh thái',
+    quiz: ['Diễn thế sinh thái là quá trình nào?', ['Quần xã biến đổi theo thời gian tại một khu vực', 'Một cá thể lớn lên trong một ngày', 'Một gene tự phiên mã', 'Một phân tử nước bay hơi'], 0, 'Xét thay thế quần xã.', 'Diễn thế là sự biến đổi và thay thế quần xã theo thời gian tại một khu vực.'],
+    match: [['Diễn thế', 'Quần xã thay đổi theo thời gian'], ['Loài tiên phong', 'Xuất hiện sớm trên môi trường mới'], ['Quần xã về sau', 'Hình thành sau các giai đoạn trước']],
+    fill: ['Sự thay thế các quần xã theo thời gian gọi là diễn thế [blank].', 'sinh thái'],
+    category: [['Có thể là nguyên nhân diễn thế', 'Không phải nguyên nhân sinh thái'], [['Cháy rừng', 0], ['Thay đổi khí hậu', 0], ['Hoạt động khai thác rừng', 0], ['Đổi tên khu vực trên bản đồ', 1]]],
+    drag: ['Loài đến sống đầu tiên trên nền đất mới thường gọi là loài [blank].', ['tiên phong', 'đến cuối', 'không tồn tại'], 'tiên phong'],
+  },
+  {
+    objective: 'Nêu mục tiêu phục hồi hệ sinh thái và bảo tồn đa dạng sinh học.', lesson: 'Chương VIII. Sinh thái học phục hồi và bảo tồn đa dạng sinh học',
+    quiz: ['Mục tiêu phù hợp của phục hồi sinh thái là gì?', ['Khôi phục cấu trúc và chức năng hệ sinh thái bị suy thoái', 'Loại bỏ mọi loài bản địa', 'Tăng ô nhiễm', 'Phá huỷ hoàn toàn sinh cảnh'], 0, 'Xét hệ sinh thái bị tổn hại.', 'Phục hồi sinh thái hướng tới khôi phục cấu trúc và chức năng của hệ sinh thái.'],
+    match: [['Phục hồi sinh thái', 'Khôi phục hệ sinh thái suy thoái'], ['Loài bản địa', 'Loài thuộc vùng phân bố tự nhiên'], ['Khu bảo tồn', 'Góp phần gìn giữ sinh cảnh và loài']],
+    fill: ['Bảo vệ nơi sống góp phần bảo tồn đa dạng [blank].', 'sinh học'],
+    category: [['Hỗ trợ bảo tồn', 'Làm suy giảm đa dạng sinh học'], [['Bảo vệ sinh cảnh', 0], ['Phục hồi rừng bản địa', 0], ['Quản lí khai thác', 0], ['Săn bắt trái phép', 1]]],
+    drag: ['Phục hồi sinh thái cần quan tâm tới các loài [blank] của khu vực.', ['bản địa', 'xâm hại ưu tiên', 'không có thật'], 'bản địa'],
+  },
+  {
+    objective: 'Vận dụng nguyên tắc phát triển bền vững vào lựa chọn hành động địa phương.', lesson: 'Bài 34. Phát triển bền vững; Dự án bảo tồn sinh thái tại địa phương',
+    quiz: ['Hành động nào phù hợp phát triển bền vững?', ['Sử dụng tài nguyên tiết kiệm và bảo vệ khả năng phục hồi', 'Khai thác tận diệt trong một mùa', 'Xả chất thải chưa xử lí', 'Phá rừng để lấy đất ngắn hạn'], 0, 'Đáp ứng nhu cầu hiện tại và tương lai.', 'Sử dụng tài nguyên hợp lí và bảo vệ môi trường hỗ trợ phát triển bền vững.'],
+    match: [['Tiết kiệm tài nguyên', 'Giảm lãng phí'], ['Xử lí chất thải', 'Giảm ô nhiễm'], ['Bảo vệ đa dạng sinh học', 'Giữ loài và sinh cảnh']],
+    fill: ['Phát triển bền vững cần cân bằng lợi ích hiện tại và [blank].', 'tương lai'],
+    category: [['Hành động bền vững', 'Hành động không bền vững'], [['Tiết kiệm nước', 0], ['Phân loại rác', 0], ['Phục hồi sinh cảnh', 0], ['Khai thác tận diệt', 1]]],
+    drag: ['Một dự án bảo tồn cần dựa trên khảo sát thực trạng [blank].', ['địa phương', 'tin đồn', 'suy đoán không dữ liệu'], 'địa phương'],
+  },
+];
+
+writeStation({ grade: 12, station: 3, title: 'Sinh thái, bảo tồn và phát triển bền vững', book: 'SGK Sinh học 12 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Chương VI–VIII của SGK Sinh học 12 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

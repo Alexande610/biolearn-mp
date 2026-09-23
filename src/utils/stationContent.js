@@ -40,6 +40,7 @@ export const validateStationGame = (game) => {
   if (game?.type === 'match') {
     if (!Array.isArray(data.pairs) || data.pairs.length < 2) errors.push('Matching phải có ít nhất hai cặp.');
     if (data.pairs?.some((pair) => !hasText(pair?.left) || !hasText(pair?.right))) errors.push('Matching có cặp bị trống.');
+    if (Array.isArray(data.pairs) && new Set(data.pairs.map((pair) => normalizeComparableText(pair.left))).size !== data.pairs.length) errors.push('Matching có mục cột trái trùng nhau.');
     if (Array.isArray(data.pairs) && new Set(data.pairs.map((pair) => normalizeComparableText(pair.right))).size !== data.pairs.length) errors.push('Matching có đáp án cột phải trùng nhau.');
   }
 
@@ -52,11 +53,13 @@ export const validateStationGame = (game) => {
     if (!Array.isArray(data.categories) || data.categories.length !== 2 || data.categories.some((item) => !hasText(item))) errors.push('Category phải có đúng hai nhóm có tên.');
     if (!Array.isArray(data.items) || data.items.length < 3) errors.push('Category phải có ít nhất ba mục.');
     if (data.items?.some((item) => !hasText(item?.name) || ![0, 1].includes(item?.catIndex))) errors.push('Category có mục hoặc chỉ số nhóm không hợp lệ.');
+    if (Array.isArray(data.items) && new Set(data.items.map((item) => normalizeComparableText(item.name))).size !== data.items.length) errors.push('Category có mục trùng nhau.');
   }
 
   if (game?.type === 'dragdrop') {
     if (!hasOneBlank(data.textWithBlanks)) errors.push('Dragdrop phải có đúng một [blank].');
     if (!Array.isArray(data.bankWords) || data.bankWords.length < 2) errors.push('Dragdrop phải có ít nhất hai từ trong kho.');
+    if (Array.isArray(data.bankWords) && new Set(data.bankWords.map(normalizeComparableText)).size !== data.bankWords.length) errors.push('Dragdrop có từ trong kho trùng nhau.');
     if (!hasText(data.correctWord) || !data.bankWords?.some((word) => normalizeComparableText(word) === normalizeComparableText(data.correctWord))) errors.push('Từ đúng của Dragdrop phải nằm trong kho từ.');
   }
 

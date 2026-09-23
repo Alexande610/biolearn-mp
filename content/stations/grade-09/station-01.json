@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g9-st1-2026.1",
+  "grade": 9,
+  "stationId": "g9_st1",
+  "title": "Lớp 9 - Trạm 1: Mendel, nucleic acid và gene",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 36–40 của SGK KHTN 9 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Phân biệt di truyền, biến dị và đối tượng nghiên cứu của di truyền học.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 36. Khái quát về di truyền học"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hiện tượng con mang đặc điểm giống cha mẹ được gọi là gì?",
+            "options": [
+              "Di truyền",
+              "Biến dị",
+              "Tiến hoá",
+              "Sinh thái"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét sự truyền đặc điểm giữa các thế hệ.",
+            "explanation": "Di truyền là hiện tượng truyền đạt các đặc điểm từ thế hệ trước cho thế hệ sau."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Di truyền",
+                "right": "Truyền đạt đặc điểm qua các thế hệ"
+              },
+              {
+                "left": "Biến dị",
+                "right": "Sự khác nhau về đặc điểm giữa các cá thể"
+              },
+              {
+                "left": "Di truyền học",
+                "right": "Nghiên cứu quy luật di truyền và biến dị"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Di truyền: Truyền đạt đặc điểm qua các thế hệ; Biến dị: Sự khác nhau về đặc điểm giữa các cá thể; Di truyền học: Nghiên cứu quy luật di truyền và biến dị."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự khác nhau về đặc điểm giữa các cá thể được gọi là [blank].",
+            "correctAnswer": "biến dị",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “biến dị”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biểu hiện di truyền",
+              "Biểu hiện biến dị"
+            ],
+            "items": [
+              {
+                "name": "Con có nhóm máu giống một người thân",
+                "catIndex": 0
+              },
+              {
+                "name": "Con có màu mắt giống cha",
+                "catIndex": 0
+              },
+              {
+                "name": "Hai anh em có chiều cao khác nhau",
+                "catIndex": 1
+              },
+              {
+                "name": "Các cá thể cùng loài có màu lông khác nhau",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Con có nhóm máu giống một người thân thuộc nhóm Biểu hiện di truyền; Con có màu mắt giống cha thuộc nhóm Biểu hiện di truyền; Hai anh em có chiều cao khác nhau thuộc nhóm Biểu hiện biến dị; Các cá thể cùng loài có màu lông khác nhau thuộc nhóm Biểu hiện biến dị."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Di truyền học nghiên cứu sự di truyền và [blank].",
+            "bankWords": [
+              "biến dị",
+              "quang hợp",
+              "thoát hơi nước"
+            ],
+            "correctWord": "biến dị",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “biến dị”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Nhận biết các khái niệm tính trạng, cặp tính trạng tương phản và dòng thuần.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 37. Các quy luật di truyền của Mendel"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tính trạng nào là đặc điểm của cây đậu Hà Lan?",
+            "options": [
+              "Màu hoa",
+              "Tên người trồng",
+              "Màu chậu trồng",
+              "Số trang sách"
+            ],
+            "answerIndex": 0,
+            "hint": "Đặc điểm này thuộc về cơ thể cây.",
+            "explanation": "Màu hoa là một tính trạng có thể quan sát ở cây đậu Hà Lan."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tính trạng",
+                "right": "Đặc điểm biểu hiện ở cơ thể"
+              },
+              {
+                "left": "Cặp tính trạng tương phản",
+                "right": "Hai trạng thái đối lập của cùng tính trạng"
+              },
+              {
+                "left": "Dòng thuần",
+                "right": "Qua nhiều thế hệ cho đời con ổn định về tính trạng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Tính trạng: Đặc điểm biểu hiện ở cơ thể; Cặp tính trạng tương phản: Hai trạng thái đối lập của cùng tính trạng; Dòng thuần: Qua nhiều thế hệ cho đời con ổn định về tính trạng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hoa tím và hoa trắng là hai trạng thái [blank] của tính trạng màu hoa.",
+            "correctAnswer": "tương phản",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “tương phản”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tính trạng của cây",
+              "Không phải tính trạng của cây"
+            ],
+            "items": [
+              {
+                "name": "Màu hoa",
+                "catIndex": 0
+              },
+              {
+                "name": "Hình dạng hạt",
+                "catIndex": 0
+              },
+              {
+                "name": "Chiều cao thân",
+                "catIndex": 0
+              },
+              {
+                "name": "Màu nhãn chậu",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Màu hoa thuộc nhóm Tính trạng của cây; Hình dạng hạt thuộc nhóm Tính trạng của cây; Chiều cao thân thuộc nhóm Tính trạng của cây; Màu nhãn chậu thuộc nhóm Không phải tính trạng của cây."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Mendel nghiên cứu các cặp tính trạng [blank] ở đậu Hà Lan.",
+            "bankWords": [
+              "tương phản",
+              "không liên quan",
+              "vô sinh"
+            ],
+            "correctWord": "tương phản",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “tương phản”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Giải thích sự phân li của cặp nhân tố di truyền trong hình thành giao tử.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 37. Các quy luật di truyền của Mendel"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ở cơ thể dị hợp Aa, mỗi giao tử mang bao nhiêu allele của gene này?",
+            "options": [
+              "Một allele",
+              "Hai allele",
+              "Ba allele",
+              "Không allele nào"
+            ],
+            "answerIndex": 0,
+            "hint": "Cặp allele phân li khi tạo giao tử.",
+            "explanation": "Khi giảm phân, cặp allele Aa phân li nên mỗi giao tử nhận một allele."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Kiểu gene Aa",
+                "right": "Dị hợp về một gene"
+              },
+              {
+                "left": "Giao tử mang allele trội A",
+                "right": "Mang một allele trội"
+              },
+              {
+                "left": "Giao tử mang allele lặn a",
+                "right": "Mang một allele lặn"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Kiểu gene Aa: Dị hợp về một gene; Giao tử mang allele trội A: Mang một allele trội; Giao tử mang allele lặn a: Mang một allele lặn."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cặp allele Aa [blank] khi hình thành giao tử.",
+            "correctAnswer": "phân li",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “phân li”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Giao tử có thể tạo từ Aa",
+              "Không phải giao tử bình thường từ Aa"
+            ],
+            "items": [
+              {
+                "name": "Giao tử mang allele trội A",
+                "catIndex": 0
+              },
+              {
+                "name": "Giao tử mang allele lặn a",
+                "catIndex": 0
+              },
+              {
+                "name": "Giao tử chứa hai allele khác nhau Aa",
+                "catIndex": 1
+              },
+              {
+                "name": "Giao tử chứa hai allele trội AA",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Giao tử mang allele trội A thuộc nhóm Giao tử có thể tạo từ Aa; Giao tử mang allele lặn a thuộc nhóm Giao tử có thể tạo từ Aa; Giao tử chứa hai allele khác nhau Aa thuộc nhóm Không phải giao tử bình thường từ Aa; Giao tử chứa hai allele trội AA thuộc nhóm Không phải giao tử bình thường từ Aa."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cơ thể Aa tạo giao tử mang allele trội A hoặc [blank].",
+            "bankWords": [
+              "allele lặn a",
+              "hai allele khác nhau Aa",
+              "hai allele trội AA"
+            ],
+            "correctWord": "allele lặn a",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “allele lặn a”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Dự đoán tỉ lệ kiểu gene của phép lai một cặp tính trạng đơn giản.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 37. Các quy luật di truyền của Mendel"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Phép lai Aa × Aa tạo tỉ lệ kiểu gene nào nếu các giao tử kết hợp ngẫu nhiên?",
+            "options": [
+              "1 AA : 2 Aa : 1 aa",
+              "3 AA : 1 aa",
+              "1 AA : 1 Aa",
+              "Chỉ Aa"
+            ],
+            "answerIndex": 0,
+            "hint": "Lập bảng gồm giao tử A và a từ mỗi bên.",
+            "explanation": "Bảng lai Aa × Aa cho 1 AA, 2 Aa và 1 aa."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Kiểu gene đồng hợp trội AA",
+                "right": "Đồng hợp trội"
+              },
+              {
+                "left": "Kiểu gene dị hợp Aa",
+                "right": "Dị hợp"
+              },
+              {
+                "left": "Kiểu gene đồng hợp lặn aa",
+                "right": "Đồng hợp lặn"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Kiểu gene đồng hợp trội AA: Đồng hợp trội; Kiểu gene dị hợp Aa: Dị hợp; Kiểu gene đồng hợp lặn aa: Đồng hợp lặn."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trong phép lai Aa × Aa, kiểu gene dị hợp xuất hiện với tỉ lệ [blank].",
+            "correctAnswer": "1/2",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “1/2”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đồng hợp",
+              "Dị hợp"
+            ],
+            "items": [
+              {
+                "name": "Đồng hợp trội AA",
+                "catIndex": 0
+              },
+              {
+                "name": "Đồng hợp lặn aa",
+                "catIndex": 0
+              },
+              {
+                "name": "Dị hợp Aa",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Đồng hợp trội AA thuộc nhóm Đồng hợp; Đồng hợp lặn aa thuộc nhóm Đồng hợp; Dị hợp Aa thuộc nhóm Dị hợp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong phép lai Aa × Aa, kiểu gene cuối cùng theo tỉ lệ 1 : 2 : 1 là [blank].",
+            "bankWords": [
+              "đồng hợp lặn aa",
+              "đồng hợp trội AA",
+              "allele A"
+            ],
+            "correctWord": "đồng hợp lặn aa",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “đồng hợp lặn aa”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Nhận biết cấu tạo và chức năng của DNA.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 38. Nucleic acid và gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "DNA được cấu tạo từ các đơn phân nào?",
+            "options": [
+              "Nucleotide",
+              "Amino acid",
+              "Glucose",
+              "Acid béo"
+            ],
+            "answerIndex": 0,
+            "hint": "Mỗi đơn phân có đường, phosphate và base nitrogen.",
+            "explanation": "DNA là phân tử được cấu tạo từ các nucleotide."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "DNA",
+                "right": "Lưu giữ thông tin di truyền"
+              },
+              {
+                "left": "Nucleotide",
+                "right": "Đơn phân cấu tạo DNA"
+              },
+              {
+                "left": "Gene",
+                "right": "Một đoạn DNA mang thông tin di truyền"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "DNA: Lưu giữ thông tin di truyền; Nucleotide: Đơn phân cấu tạo DNA; Gene: Một đoạn DNA mang thông tin di truyền."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Đơn phân cấu tạo nên DNA là [blank].",
+            "correctAnswer": "nucleotide",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “nucleotide”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Base có trong DNA",
+              "Không phải base của DNA"
+            ],
+            "items": [
+              {
+                "name": "A",
+                "catIndex": 0
+              },
+              {
+                "name": "T",
+                "catIndex": 0
+              },
+              {
+                "name": "G",
+                "catIndex": 0
+              },
+              {
+                "name": "C",
+                "catIndex": 0
+              },
+              {
+                "name": "U",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "A thuộc nhóm Base có trong DNA; T thuộc nhóm Base có trong DNA; G thuộc nhóm Base có trong DNA; C thuộc nhóm Base có trong DNA; U thuộc nhóm Không phải base của DNA."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "DNA mang thông tin [blank] của sinh vật.",
+            "bankWords": [
+              "di truyền",
+              "thời tiết",
+              "địa chất"
+            ],
+            "correctWord": "di truyền",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “di truyền”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Vận dụng nguyên tắc bổ sung trong cấu trúc DNA.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 38. Nucleic acid và gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong DNA, base A thường liên kết bổ sung với base nào?",
+            "options": [
+              "T",
+              "G",
+              "C",
+              "U"
+            ],
+            "answerIndex": 0,
+            "hint": "Adenine ghép với thymine trong DNA.",
+            "explanation": "Theo nguyên tắc bổ sung, A ghép với T."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "A",
+                "right": "Bổ sung với T"
+              },
+              {
+                "left": "G",
+                "right": "Bổ sung với C"
+              },
+              {
+                "left": "Hai mạch DNA",
+                "right": "Liên kết theo nguyên tắc bổ sung"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "A: Bổ sung với T; G: Bổ sung với C; Hai mạch DNA: Liên kết theo nguyên tắc bổ sung."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trong DNA, G liên kết bổ sung với [blank].",
+            "correctAnswer": "C",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “C”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Cặp base bổ sung trong DNA",
+              "Không phải cặp base bổ sung trong DNA"
+            ],
+            "items": [
+              {
+                "name": "A–T",
+                "catIndex": 0
+              },
+              {
+                "name": "G–C",
+                "catIndex": 0
+              },
+              {
+                "name": "A–G",
+                "catIndex": 1
+              },
+              {
+                "name": "T–C",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "A–T thuộc nhóm Cặp base bổ sung trong DNA; G–C thuộc nhóm Cặp base bổ sung trong DNA; A–G thuộc nhóm Không phải cặp base bổ sung trong DNA; T–C thuộc nhóm Không phải cặp base bổ sung trong DNA."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nếu một mạch DNA có base A, mạch đối diện thường có base [blank].",
+            "bankWords": [
+              "T",
+              "G",
+              "U"
+            ],
+            "correctWord": "T",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “T”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Phân biệt DNA và RNA theo cấu trúc và loại base đặc trưng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 38. Nucleic acid và gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Base nào có trong RNA thay cho T của DNA?",
+            "options": [
+              "U",
+              "A",
+              "G",
+              "C"
+            ],
+            "answerIndex": 0,
+            "hint": "Tên base là uracil.",
+            "explanation": "RNA chứa uracil (U) thay cho thymine (T) của DNA."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "DNA",
+                "right": "Thường có hai mạch và chứa T"
+              },
+              {
+                "left": "RNA",
+                "right": "Thường có một mạch và chứa U"
+              },
+              {
+                "left": "mRNA",
+                "right": "Mang thông tin từ gene tới nơi tổng hợp protein"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "DNA: Thường có hai mạch và chứa T; RNA: Thường có một mạch và chứa U; mRNA: Mang thông tin từ gene tới nơi tổng hợp protein."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "RNA sử dụng base [blank] thay cho T của DNA.",
+            "correctAnswer": "U",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “U”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đặc trưng DNA",
+              "Đặc trưng RNA"
+            ],
+            "items": [
+              {
+                "name": "Có T",
+                "catIndex": 0
+              },
+              {
+                "name": "Thường gồm hai mạch",
+                "catIndex": 0
+              },
+              {
+                "name": "Có U",
+                "catIndex": 1
+              },
+              {
+                "name": "Thường gồm một mạch",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Có T thuộc nhóm Đặc trưng DNA; Thường gồm hai mạch thuộc nhóm Đặc trưng DNA; Có U thuộc nhóm Đặc trưng RNA; Thường gồm một mạch thuộc nhóm Đặc trưng RNA."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Phân tử RNA dùng base [blank] để bắt cặp với A.",
+            "bankWords": [
+              "U",
+              "T",
+              "G"
+            ],
+            "correctWord": "U",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “U”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Mô tả nguyên tắc chính của quá trình tái bản DNA.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 39. Tái bản DNA và phiên mã tạo RNA"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau tái bản, mỗi phân tử DNA con thường có thành phần nào?",
+            "options": [
+              "Một mạch cũ và một mạch mới",
+              "Hai mạch đều cũ",
+              "Chỉ một mạch RNA",
+              "Không có mạch mới"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là nguyên tắc bán bảo tồn.",
+            "explanation": "Tái bản DNA theo nguyên tắc bán bảo tồn: mỗi DNA con có một mạch cũ và một mạch mới."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mạch DNA khuôn",
+                "right": "Định hướng tổng hợp mạch mới"
+              },
+              {
+                "left": "Nucleotide tự do",
+                "right": "Nguyên liệu tạo mạch mới"
+              },
+              {
+                "left": "DNA con",
+                "right": "Mang một mạch cũ và một mạch mới"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Mạch DNA khuôn: Định hướng tổng hợp mạch mới; Nucleotide tự do: Nguyên liệu tạo mạch mới; DNA con: Mang một mạch cũ và một mạch mới."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tái bản DNA diễn ra theo nguyên tắc bổ sung và bán [blank].",
+            "correctAnswer": "bảo tồn",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “bảo tồn”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan tái bản DNA",
+              "Không phải tái bản DNA"
+            ],
+            "items": [
+              {
+                "name": "Mạch khuôn DNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Nucleotide DNA tự do",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo DNA con",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo chuỗi amino acid",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Mạch khuôn DNA thuộc nhóm Liên quan tái bản DNA; Nucleotide DNA tự do thuộc nhóm Liên quan tái bản DNA; Tạo DNA con thuộc nhóm Liên quan tái bản DNA; Tạo chuỗi amino acid thuộc nhóm Không phải tái bản DNA."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong tái bản, mỗi mạch DNA cũ làm [blank] để tổng hợp mạch mới.",
+            "bankWords": [
+              "khuôn",
+              "enzyme tiêu hoá",
+              "màng tế bào"
+            ],
+            "correctWord": "khuôn",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “khuôn”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Mô tả phiên mã tạo RNA từ gene.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 39. Tái bản DNA và phiên mã tạo RNA"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sản phẩm trực tiếp của quá trình phiên mã là gì?",
+            "options": [
+              "RNA",
+              "DNA con",
+              "Protein hoàn chỉnh",
+              "Lipid"
+            ],
+            "answerIndex": 0,
+            "hint": "Tên quá trình có nghĩa tạo bản sao thông tin dưới dạng RNA.",
+            "explanation": "Phiên mã dùng mạch DNA làm khuôn để tổng hợp RNA."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Gene trên DNA",
+                "right": "Chứa thông tin dùng làm khuôn"
+              },
+              {
+                "left": "Phiên mã",
+                "right": "Tổng hợp RNA từ mạch khuôn DNA"
+              },
+              {
+                "left": "mRNA",
+                "right": "Mang thông tin tới ribosome"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Gene trên DNA: Chứa thông tin dùng làm khuôn; Phiên mã: Tổng hợp RNA từ mạch khuôn DNA; mRNA: Mang thông tin tới ribosome."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Quá trình tổng hợp RNA trên mạch khuôn DNA gọi là [blank].",
+            "correctAnswer": "phiên mã",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “phiên mã”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan phiên mã",
+              "Liên quan dịch mã"
+            ],
+            "items": [
+              {
+                "name": "Mạch khuôn DNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo mRNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Ribosome đọc codon mRNA",
+                "catIndex": 1
+              },
+              {
+                "name": "Tạo chuỗi amino acid",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Mạch khuôn DNA thuộc nhóm Liên quan phiên mã; Tạo mRNA thuộc nhóm Liên quan phiên mã; Ribosome đọc codon mRNA thuộc nhóm Liên quan dịch mã; Tạo chuỗi amino acid thuộc nhóm Liên quan dịch mã."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong phiên mã, sản phẩm được tạo ra là một phân tử [blank].",
+            "bankWords": [
+              "RNA",
+              "lipid",
+              "tinh bột"
+            ],
+            "correctWord": "RNA",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “RNA”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Giải thích mối liên hệ từ gene qua mRNA đến protein và tính trạng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 40. Dịch mã và mối quan hệ từ gene đến tính trạng"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong dịch mã, ribosome sử dụng phân tử nào làm khuôn?",
+            "options": [
+              "mRNA",
+              "DNA hai mạch trực tiếp",
+              "Lipid",
+              "Tinh bột"
+            ],
+            "answerIndex": 0,
+            "hint": "Bản phiên mã mang mã di truyền.",
+            "explanation": "Ribosome đọc mRNA để tổng hợp chuỗi amino acid."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Gene",
+                "right": "Mang thông tin di truyền"
+              },
+              {
+                "left": "mRNA",
+                "right": "Truyền thông tin từ gene"
+              },
+              {
+                "left": "Protein",
+                "right": "Có thể tham gia biểu hiện tính trạng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Gene: Mang thông tin di truyền; mRNA: Truyền thông tin từ gene; Protein: Có thể tham gia biểu hiện tính trạng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Quá trình tổng hợp chuỗi amino acid theo thông tin trên mRNA gọi là [blank].",
+            "correctAnswer": "dịch mã",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “dịch mã”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Theo dòng thông tin gene → tính trạng",
+              "Không nằm trong dòng thông tin đó"
+            ],
+            "items": [
+              {
+                "name": "DNA",
+                "catIndex": 0
+              },
+              {
+                "name": "mRNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Protein",
+                "catIndex": 0
+              },
+              {
+                "name": "Đất đá",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "DNA thuộc nhóm Theo dòng thông tin gene → tính trạng; mRNA thuộc nhóm Theo dòng thông tin gene → tính trạng; Protein thuộc nhóm Theo dòng thông tin gene → tính trạng; Đất đá thuộc nhóm Không nằm trong dòng thông tin đó."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thông tin từ gene được phiên mã thành mRNA rồi dịch mã tạo [blank].",
+            "bankWords": [
+              "protein",
+              "nước",
+              "ánh sáng"
+            ],
+            "correctWord": "protein",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “protein”."
+          }
+        }
+      ]
+    }
+  ]
+}

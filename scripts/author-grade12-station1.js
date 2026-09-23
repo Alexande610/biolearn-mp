@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Giải thích cấu trúc DNA và nguyên tắc tái bản bán bảo tồn.', lesson: 'Bài 1. DNA và cơ chế tái bản DNA',
+    quiz: ['Sau tái bản, mỗi phân tử DNA con có đặc điểm nào?', ['Một mạch cũ và một mạch mới', 'Hai mạch đều cũ', 'Không có mạch khuôn', 'Chỉ gồm RNA'], 0, 'Xét nguyên tắc bán bảo tồn.', 'Mỗi DNA con có một mạch từ phân tử mẹ và một mạch mới tổng hợp.'],
+    match: [['Mạch khuôn', 'Định hướng tổng hợp mạch mới'], ['DNA polymerase', 'Tham gia kéo dài mạch DNA mới'], ['Bán bảo tồn', 'DNA con giữ một mạch cũ']],
+    fill: ['DNA tái bản theo nguyên tắc bổ sung và bán [blank].', 'bảo tồn'],
+    category: [['Tham gia tái bản DNA', 'Không phải thành phần trực tiếp của tái bản'], [['Mạch DNA khuôn', 0], ['Nucleotide tự do', 0], ['DNA polymerase', 0], ['Ribosome dịch mã', 1]]],
+    drag: ['Base A trên mạch khuôn DNA bắt cặp với base [blank] trên mạch mới.', ['T', 'U', 'G'], 'T'],
+  },
+  {
+    objective: 'Mô tả dòng thông tin di truyền từ gene đến protein.', lesson: 'Bài 2. Gene, quá trình truyền đạt thông tin di truyền và hệ gene',
+    quiz: ['Trong phiên mã, sản phẩm trực tiếp thường là gì?', ['RNA', 'Protein hoàn chỉnh', 'DNA con', 'Lipid'], 0, 'Thông tin gene được chép sang dạng này.', 'Phiên mã tạo RNA từ mạch DNA khuôn.'],
+    match: [['Phiên mã', 'Tổng hợp RNA từ DNA'], ['Dịch mã', 'Tổng hợp chuỗi amino acid theo mRNA'], ['Ribosome', 'Nơi diễn ra dịch mã']],
+    fill: ['Bộ ba trên mRNA được gọi là [blank].', 'codon'],
+    category: [['Phiên mã', 'Dịch mã'], [['Mạch DNA làm khuôn', 0], ['Tạo mRNA', 0], ['Ribosome đọc codon', 1], ['Tạo chuỗi amino acid', 1]]],
+    drag: ['Thông tin từ DNA qua mRNA được dùng để tổng hợp [blank].', ['protein', 'cellulose', 'nước'], 'protein'],
+  },
+  {
+    objective: 'Nêu ý nghĩa của điều hoà biểu hiện gene.', lesson: 'Bài 3. Điều hoà biểu hiện gene',
+    quiz: ['Vì sao các tế bào cùng cơ thể có thể thực hiện chức năng khác nhau dù mang bộ gene gần như giống nhau?', ['Chúng biểu hiện các nhóm gene khác nhau', 'Mọi tế bào không có DNA', 'Chúng luôn có số nhiễm sắc thể khác nhau', 'Protein không liên quan chức năng'], 0, 'Không phải gene nào cũng hoạt động như nhau.', 'Các tế bào biểu hiện các gene khác nhau để tạo protein phù hợp chức năng.'],
+    match: [['Biểu hiện gene', 'Gene tạo sản phẩm chức năng'], ['Điều hoà biểu hiện', 'Kiểm soát thời điểm và mức tạo sản phẩm'], ['Protein', 'Một sản phẩm có thể được tạo từ thông tin gene']],
+    fill: ['Điều hoà biểu hiện gene giúp tế bào tạo sản phẩm đúng lúc và đúng [blank].', 'mức'],
+    category: [['Liên quan điều hoà biểu hiện gene', 'Không phải điều hoà biểu hiện gene'], [['Bật phiên mã gene phù hợp', 0], ['Giảm tổng hợp một protein', 0], ['Tăng biểu hiện gene khi cần', 0], ['Đổi tên tế bào trên nhãn', 1]]],
+    drag: ['Cùng một hệ gene có thể tạo nhiều loại tế bào nhờ biểu hiện gene [blank].', ['khác nhau', 'luôn giống hệt', 'không xảy ra'], 'khác nhau'],
+  },
+  {
+    objective: 'Phân loại biến đổi cơ bản của đột biến gene và hệ quả có thể có.', lesson: 'Bài 4. Đột biến gene',
+    quiz: ['Thay thế một cặp nucleotide trong gene là dạng gì?', ['Đột biến điểm', 'Đột biến số lượng nhiễm sắc thể', 'Giảm phân bình thường', 'Thẩm thấu'], 0, 'Chỉ một vị trí base bị đổi.', 'Thay thế một cặp nucleotide là một dạng đột biến điểm.'],
+    match: [['Thay thế', 'Một cặp nucleotide đổi thành cặp khác'], ['Mất', 'Thiếu một hoặc vài cặp nucleotide'], ['Thêm', 'Xuất hiện thêm một hoặc vài cặp nucleotide']],
+    fill: ['Đột biến gene làm thay đổi trình tự [blank] của gene.', 'nucleotide'],
+    category: [['Đột biến gene', 'Không phải đột biến gene'], [['Thay thế một cặp base', 0], ['Mất một cặp base', 0], ['Thêm một cặp base', 0], ['Mất cả nhiễm sắc thể', 1]]],
+    drag: ['Đột biến gene có thể tạo [blank] mới.', ['allele', 'cơ quan', 'hệ sinh thái'], 'allele'],
+  },
+  {
+    objective: 'Nêu nguyên tắc và ứng dụng cơ bản của công nghệ di truyền.', lesson: 'Bài 5. Công nghệ di truyền',
+    quiz: ['DNA tái tổ hợp được tạo khi nào?', ['Kết hợp các đoạn DNA từ những nguồn phù hợp', 'Chỉ nhuộm màu tế bào', 'Đo chiều cao cây', 'Đun nước đến sôi'], 0, 'Các đoạn DNA được ghép lại.', 'DNA tái tổ hợp được tạo bằng cách kết hợp các đoạn DNA theo quy trình công nghệ gene.'],
+    match: [['Gene mục tiêu', 'Mang thông tin cần khai thác'], ['Vector', 'Giúp đưa gene vào tế bào nhận'], ['DNA tái tổ hợp', 'DNA có các đoạn được kết hợp từ nguồn khác']],
+    fill: ['Phân tử mang gene mục tiêu vào tế bào nhận gọi là [blank].', 'vector'],
+    category: [['Liên quan công nghệ gene', 'Không phải thao tác công nghệ gene'], [['Chọn gene mục tiêu', 0], ['Tạo DNA tái tổ hợp', 0], ['Đưa DNA vào tế bào nhận', 0], ['Chỉ đổi màu chậu cây', 1]]],
+    drag: ['Công nghệ gene tác động trên vật chất [blank].', ['di truyền', 'địa chất', 'khí tượng'], 'di truyền'],
+  },
+  {
+    objective: 'Giải thích cấu trúc nhiễm sắc thể và vai trò của centromere.', lesson: 'Chương II. Di truyền nhiễm sắc thể: Cấu trúc và chức năng của nhiễm sắc thể',
+    quiz: ['Thành phần nào là vật chất di truyền được đóng gói trong nhiễm sắc thể?', ['DNA', 'Cellulose', 'Tinh bột', 'Glycogen'], 0, 'Gene nằm trên phân tử này.', 'Nhiễm sắc thể gồm DNA được tổ chức cùng protein.'],
+    match: [['DNA', 'Mang thông tin di truyền'], ['Histone', 'Protein tham gia đóng gói DNA'], ['Centromere', 'Vùng gắn với bộ máy phân li nhiễm sắc thể']],
+    fill: ['DNA quấn quanh protein [blank] tạo các nucleosome.', 'histone'],
+    category: [['Thành phần hoặc vùng của nhiễm sắc thể', 'Không thuộc nhiễm sắc thể'], [['DNA', 0], ['Histone', 0], ['Centromere', 0], ['Lục lạp của tế bào lá', 1]]],
+    drag: ['Nhiễm sắc thể là cấu trúc mang nhiều [blank].', ['gene', 'khí khổng', 'phế nang'], 'gene'],
+  },
+  {
+    objective: 'Vận dụng quy luật phân li Mendel để dự đoán kết quả phép lai một gene.', lesson: 'Chương II. Học thuyết di truyền của Mendel',
+    quiz: ['Nếu A trội hoàn toàn so với a, phép lai Aa × Aa cho tỉ lệ kiểu hình trội nào?', ['3/4', '1/4', '1/2', 'Toàn bộ lặn'], 0, 'Kiểu gene trội là AA và Aa.', 'Trong mô hình trội hoàn toàn, Aa × Aa cho ba phần tư con biểu hiện tính trạng trội.'],
+    match: [['Kiểu gene đồng hợp trội AA', 'Đồng hợp trội'], ['Kiểu gene dị hợp Aa', 'Dị hợp'], ['Kiểu gene đồng hợp lặn aa', 'Đồng hợp lặn']],
+    fill: ['Aa × Aa tạo tỉ lệ kiểu gene 1 AA : 2 Aa : 1 [blank].', 'aa'],
+    category: [['Biểu hiện trội khi A trội hoàn toàn', 'Biểu hiện lặn'], [['Đồng hợp trội AA', 0], ['Dị hợp Aa', 0], ['Đồng hợp lặn aa', 1]]],
+    drag: ['Trong trội hoàn toàn, kiểu gene [blank] có kiểu hình lặn.', ['đồng hợp lặn aa', 'dị hợp Aa', 'đồng hợp trội AA'], 'đồng hợp lặn aa'],
+  },
+  {
+    objective: 'Phân biệt trội hoàn toàn, trội không hoàn toàn và đồng trội.', lesson: 'Chương II. Mở rộng học thuyết Mendel',
+    quiz: ['Trong trội không hoàn toàn, cá thể dị hợp thường biểu hiện thế nào?', ['Kiểu hình trung gian giữa hai đồng hợp', 'Luôn giống đồng hợp trội', 'Không có kiểu hình', 'Luôn giống cả hai đồng hợp cùng lúc'], 0, 'Xét kiểu hình trung gian.', 'Trội không hoàn toàn tạo kiểu hình dị hợp trung gian giữa hai kiểu hình đồng hợp.'],
+    match: [['Trội hoàn toàn', 'Dị hợp biểu hiện tính trạng trội'], ['Trội không hoàn toàn', 'Dị hợp có kiểu hình trung gian'], ['Đồng trội', 'Hai allele cùng biểu hiện ở dị hợp']],
+    fill: ['Hai allele cùng biểu hiện rõ ở cá thể dị hợp là hiện tượng [blank].', 'đồng trội'],
+    category: [['Trội không hoàn toàn', 'Đồng trội'], [['Kiểu hình dị hợp trung gian', 0], ['Hoa đỏ × trắng tạo hoa hồng trong mô hình đơn giản', 0], ['Hai allele cùng biểu hiện', 1], ['Nhóm máu AB ở người', 1]]],
+    drag: ['Kiểu hình trung gian ở dị hợp có thể do trội [blank].', ['không hoàn toàn', 'hoàn toàn', 'liên kết'], 'không hoàn toàn'],
+  },
+  {
+    objective: 'Giải thích di truyền liên kết với giới tính qua gene trên nhiễm sắc thể X.', lesson: 'Chương II. Di truyền giới tính và di truyền liên kết với giới tính',
+    quiz: ['Một nam giới thông thường mang bao nhiêu bản sao của đa số gene trên vùng không tương đồng của X?', ['Một', 'Hai', 'Ba', 'Bốn'], 0, 'Nam thường có bộ nhiễm sắc thể giới tính XY.', 'Nam XY thường chỉ có một bản sao các gene thuộc vùng không tương đồng của X.'],
+    match: [['Nhiễm sắc thể X', 'Mang nhiều gene liên kết giới tính'], ['Nhiễm sắc thể Y', 'Có vùng gene khác X'], ['Nam XY', 'Thường có một X và một Y']],
+    fill: ['Gene nằm trên nhiễm sắc thể X có thể cho kiểu di truyền liên kết với [blank].', 'giới tính'],
+    category: [['Thông thường ở nam XY', 'Thông thường ở nữ XX'], [['Một nhiễm sắc thể X', 0], ['Một nhiễm sắc thể Y', 0], ['Hai nhiễm sắc thể X', 1], ['Không có nhiễm sắc thể Y', 1]]],
+    drag: ['Gene nằm trên X có thể biểu hiện đặc thù ở người mang bộ nhiễm sắc thể [blank].', ['XY', 'XXY luôn luôn', 'không có DNA'], 'XY'],
+  },
+  {
+    objective: 'Phân biệt liên kết gene và hoán vị gene trong giảm phân.', lesson: 'Chương II. Liên kết gene và hoán vị gene',
+    quiz: ['Hoán vị gene xảy ra khi nào?', ['Các chromatid không chị em trao đổi đoạn tương ứng', 'Hai tế bào không liên quan đổi chỗ', 'DNA biến thành protein', 'Cơ thể thay đổi màu tạm thời'], 0, 'Xét trao đổi chéo ở giảm phân.', 'Trao đổi chéo giữa chromatid không chị em có thể tạo tổ hợp allele mới.'],
+    match: [['Liên kết gene', 'Các gene cùng nhiễm sắc thể có xu hướng đi cùng'], ['Hoán vị gene', 'Tạo tổ hợp allele mới từ trao đổi chéo'], ['Giảm phân', 'Quá trình có thể xảy ra trao đổi chéo']],
+    fill: ['Trao đổi chéo có thể tạo biến dị [blank].', 'tổ hợp'],
+    category: [['Liên kết gene', 'Hoán vị gene'], [['Gene cùng nhiễm sắc thể đi cùng', 0], ['Hạn chế tổ hợp tự do giữa gene gần nhau', 0], ['Trao đổi đoạn chromatid', 1], ['Tạo tổ hợp allele mới', 1]]],
+    drag: ['Hoán vị gene liên quan trao đổi chéo giữa các chromatid không [blank].', ['chị em', 'cùng loài', 'cùng tế bào'], 'chị em'],
+  },
+];
+
+writeStation({ grade: 12, station: 1, title: 'Di truyền phân tử và nhiễm sắc thể', book: 'SGK Sinh học 12 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Chương I–II của SGK Sinh học 12 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

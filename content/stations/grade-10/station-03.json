@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g10-st3-2026.1",
+  "grade": 10,
+  "stationId": "g10_st3",
+  "title": "Lớp 10 - Trạm 3: Phân bào, vi sinh vật và virus",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 16–26 của SGK Sinh học 10 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nhận biết các pha chính của chu kì tế bào.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 16. Chu kì tế bào và nguyên phân"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "DNA thường được nhân đôi ở pha nào của kì trung gian?",
+            "options": [
+              "Pha S",
+              "Pha G1",
+              "Pha G2",
+              "Kì cuối"
+            ],
+            "answerIndex": 0,
+            "hint": "Chữ S gợi tổng hợp DNA.",
+            "explanation": "DNA được nhân đôi trong pha S của kì trung gian."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Pha G1",
+                "right": "Tế bào lớn lên và chuẩn bị nhân đôi DNA"
+              },
+              {
+                "left": "Pha S",
+                "right": "DNA được nhân đôi"
+              },
+              {
+                "left": "Pha G2",
+                "right": "Tiếp tục chuẩn bị cho phân bào"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Pha G1: Tế bào lớn lên và chuẩn bị nhân đôi DNA; Pha S: DNA được nhân đôi; Pha G2: Tiếp tục chuẩn bị cho phân bào."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "DNA nhân đôi ở pha [blank] của chu kì tế bào.",
+            "correctAnswer": "S",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “S”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Kì trung gian",
+              "Giai đoạn phân bào"
+            ],
+            "items": [
+              {
+                "name": "Pha G1",
+                "catIndex": 0
+              },
+              {
+                "name": "Pha S",
+                "catIndex": 0
+              },
+              {
+                "name": "Pha G2",
+                "catIndex": 0
+              },
+              {
+                "name": "Kì giữa",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Pha G1 thuộc nhóm Kì trung gian; Pha S thuộc nhóm Kì trung gian; Pha G2 thuộc nhóm Kì trung gian; Kì giữa thuộc nhóm Giai đoạn phân bào."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Chu kì tế bào gồm kì trung gian và giai đoạn [blank].",
+            "bankWords": [
+              "phân bào",
+              "thụ tinh",
+              "quang hợp"
+            ],
+            "correctWord": "phân bào",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “phân bào”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Sắp xếp các kì nguyên phân và nêu ý nghĩa của nguyên phân.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 16. Chu kì tế bào và nguyên phân"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ở kì giữa nguyên phân, nhiễm sắc thể thường sắp xếp ở đâu?",
+            "options": [
+              "Mặt phẳng xích đạo của tế bào",
+              "Ngoài tế bào",
+              "Trong không bào",
+              "Trên thành tế bào"
+            ],
+            "answerIndex": 0,
+            "hint": "Vị trí giữa tế bào.",
+            "explanation": "Ở kì giữa, nhiễm sắc thể kép tập trung trên mặt phẳng xích đạo."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Kì đầu",
+                "right": "Nhiễm sắc thể co xoắn"
+              },
+              {
+                "left": "Kì giữa",
+                "right": "Nhiễm sắc thể xếp ở mặt phẳng xích đạo"
+              },
+              {
+                "left": "Kì sau",
+                "right": "Các chromatid tách và đi về hai cực"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Kì đầu: Nhiễm sắc thể co xoắn; Kì giữa: Nhiễm sắc thể xếp ở mặt phẳng xích đạo; Kì sau: Các chromatid tách và đi về hai cực."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nguyên phân thường tạo [blank] tế bào con từ một tế bào mẹ.",
+            "correctAnswer": "hai",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “hai”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Diễn ra trong nguyên phân",
+              "Không phải nguyên phân"
+            ],
+            "items": [
+              {
+                "name": "Nhiễm sắc thể co xoắn",
+                "catIndex": 0
+              },
+              {
+                "name": "Chromatid tách nhau",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo hai tế bào con",
+                "catIndex": 0
+              },
+              {
+                "name": "Kết hợp hai giao tử",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Nhiễm sắc thể co xoắn thuộc nhóm Diễn ra trong nguyên phân; Chromatid tách nhau thuộc nhóm Diễn ra trong nguyên phân; Tạo hai tế bào con thuộc nhóm Diễn ra trong nguyên phân; Kết hợp hai giao tử thuộc nhóm Không phải nguyên phân."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nguyên phân góp phần làm cơ thể đa bào lớn lên nhờ tăng số lượng [blank].",
+            "bankWords": [
+              "tế bào",
+              "loài",
+              "quần thể"
+            ],
+            "correctWord": "tế bào",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “tế bào”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Phân biệt giảm phân với nguyên phân.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 17. Giảm phân"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau giảm phân, bộ nhiễm sắc thể của tế bào con thường thế nào so với tế bào mẹ lưỡng bội?",
+            "options": [
+              "Giảm còn một nửa",
+              "Gấp đôi",
+              "Không có DNA",
+              "Luôn giữ nguyên lưỡng bội"
+            ],
+            "answerIndex": 0,
+            "hint": "Giao tử thường đơn bội.",
+            "explanation": "Giảm phân tạo các tế bào có bộ nhiễm sắc thể đơn bội từ tế bào mẹ lưỡng bội."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nguyên phân",
+                "right": "Một lần phân chia tạo hai tế bào"
+              },
+              {
+                "left": "Giảm phân",
+                "right": "Hai lần phân chia tạo tế bào đơn bội"
+              },
+              {
+                "left": "Thụ tinh",
+                "right": "Khôi phục bộ nhiễm sắc thể lưỡng bội"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nguyên phân: Một lần phân chia tạo hai tế bào; Giảm phân: Hai lần phân chia tạo tế bào đơn bội; Thụ tinh: Khôi phục bộ nhiễm sắc thể lưỡng bội."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Giảm phân góp phần tạo giao tử mang bộ nhiễm sắc thể [blank].",
+            "correctAnswer": "đơn bội",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “đơn bội”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nguyên phân",
+              "Giảm phân"
+            ],
+            "items": [
+              {
+                "name": "Tạo hai tế bào con",
+                "catIndex": 0
+              },
+              {
+                "name": "Giúp cơ thể lớn lên",
+                "catIndex": 0
+              },
+              {
+                "name": "Có hai lần phân chia liên tiếp",
+                "catIndex": 1
+              },
+              {
+                "name": "Tạo giao tử ở nhiều loài",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Tạo hai tế bào con thuộc nhóm Nguyên phân; Giúp cơ thể lớn lên thuộc nhóm Nguyên phân; Có hai lần phân chia liên tiếp thuộc nhóm Giảm phân; Tạo giao tử ở nhiều loài thuộc nhóm Giảm phân."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Giảm phân gồm hai lần [blank] liên tiếp.",
+            "bankWords": [
+              "phân chia",
+              "thụ tinh",
+              "quang hợp"
+            ],
+            "correctWord": "phân chia",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “phân chia”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nhận biết ứng dụng của công nghệ tế bào trong nhân giống.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 19. Công nghệ tế bào"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nuôi cấy mô thực vật thường được dùng để làm gì?",
+            "options": [
+              "Nhân nhanh cây giống",
+              "Biến lá thành đá",
+              "Thay thế mọi hoạt động quang hợp",
+              "Tạo ánh sáng từ đất"
+            ],
+            "answerIndex": 0,
+            "hint": "Từ mẫu mô nhỏ có thể tạo nhiều cây.",
+            "explanation": "Nuôi cấy mô giúp nhân nhanh nhiều cây giống trong điều kiện phù hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nuôi cấy mô",
+                "right": "Tạo cây từ mẫu mô trong môi trường thích hợp"
+              },
+              {
+                "left": "Môi trường vô trùng",
+                "right": "Hạn chế nhiễm vi sinh vật"
+              },
+              {
+                "left": "Cây giống",
+                "right": "Sản phẩm có thể tạo ra từ nuôi cấy mô"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Nuôi cấy mô: Tạo cây từ mẫu mô trong môi trường thích hợp; Môi trường vô trùng: Hạn chế nhiễm vi sinh vật; Cây giống: Sản phẩm có thể tạo ra từ nuôi cấy mô."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nuôi cấy [blank] có thể tạo nhiều cây giống từ mẫu thực vật nhỏ.",
+            "correctAnswer": "mô",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “mô”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Điều kiện hỗ trợ nuôi cấy mô",
+              "Điều kiện dễ gây thất bại"
+            ],
+            "items": [
+              {
+                "name": "Dụng cụ vô trùng",
+                "catIndex": 0
+              },
+              {
+                "name": "Môi trường dinh dưỡng phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Kiểm soát điều kiện nuôi",
+                "catIndex": 0
+              },
+              {
+                "name": "Để mẫu nhiễm nấm mốc",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Dụng cụ vô trùng thuộc nhóm Điều kiện hỗ trợ nuôi cấy mô; Môi trường dinh dưỡng phù hợp thuộc nhóm Điều kiện hỗ trợ nuôi cấy mô; Kiểm soát điều kiện nuôi thuộc nhóm Điều kiện hỗ trợ nuôi cấy mô; Để mẫu nhiễm nấm mốc thuộc nhóm Điều kiện dễ gây thất bại."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Công nghệ nuôi cấy mô thực vật có thể hỗ trợ [blank] giống.",
+            "bankWords": [
+              "nhân",
+              "xoá mọi",
+              "đốt"
+            ],
+            "correctWord": "nhân",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “nhân”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Nêu đặc điểm chung và sự đa dạng của vi sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 20. Sự đa dạng và phương pháp nghiên cứu vi sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đặc điểm thường gặp của vi sinh vật là gì?",
+            "options": [
+              "Kích thước nhỏ, cần kính hiển vi để quan sát nhiều loài",
+              "Luôn nhìn rõ bằng mắt thường",
+              "Đều là động vật lớn",
+              "Không có vai trò trong tự nhiên"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét kích thước của nhiều vi khuẩn, nấm men.",
+            "explanation": "Nhiều vi sinh vật có kích thước rất nhỏ và cần kính hiển vi để quan sát."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Vi khuẩn",
+                "right": "Vi sinh vật nhân sơ"
+              },
+              {
+                "left": "Nấm men",
+                "right": "Vi sinh vật nhân thực"
+              },
+              {
+                "left": "Kính hiển vi",
+                "right": "Dụng cụ quan sát nhiều vi sinh vật"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Vi khuẩn: Vi sinh vật nhân sơ; Nấm men: Vi sinh vật nhân thực; Kính hiển vi: Dụng cụ quan sát nhiều vi sinh vật."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nhiều vi sinh vật có kích thước rất [blank].",
+            "correctAnswer": "nhỏ",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “nhỏ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vi sinh vật",
+              "Không phải vi sinh vật"
+            ],
+            "items": [
+              {
+                "name": "Vi khuẩn",
+                "catIndex": 0
+              },
+              {
+                "name": "Nấm men",
+                "catIndex": 0
+              },
+              {
+                "name": "Trùng roi",
+                "catIndex": 0
+              },
+              {
+                "name": "Cây xoài trưởng thành",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Vi khuẩn thuộc nhóm Vi sinh vật; Nấm men thuộc nhóm Vi sinh vật; Trùng roi thuộc nhóm Vi sinh vật; Cây xoài trưởng thành thuộc nhóm Không phải vi sinh vật."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Để quan sát nhiều vi sinh vật, cần dùng [blank].",
+            "bankWords": [
+              "kính hiển vi",
+              "kính thiên văn",
+              "ống nhòm sân vận động"
+            ],
+            "correctWord": "kính hiển vi",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “kính hiển vi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Phân biệt các pha sinh trưởng của quần thể vi khuẩn trong nuôi cấy không liên tục.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 21. Trao đổi chất, sinh trưởng và sinh sản ở vi sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong pha luỹ thừa của quần thể vi khuẩn, số lượng tế bào thường thế nào?",
+            "options": [
+              "Tăng nhanh",
+              "Luôn bằng không",
+              "Không bao giờ phân chia",
+              "Giảm về một tế bào ngay"
+            ],
+            "answerIndex": 0,
+            "hint": "Vi khuẩn đang phân chia mạnh.",
+            "explanation": "Ở pha luỹ thừa, vi khuẩn sinh sản nhanh làm số tế bào tăng mạnh."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Pha tiềm phát",
+                "right": "Tế bào thích nghi môi trường"
+              },
+              {
+                "left": "Pha luỹ thừa",
+                "right": "Số lượng tế bào tăng nhanh"
+              },
+              {
+                "left": "Pha suy vong",
+                "right": "Số tế bào chết vượt số tạo mới"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Pha tiềm phát: Tế bào thích nghi môi trường; Pha luỹ thừa: Số lượng tế bào tăng nhanh; Pha suy vong: Số tế bào chết vượt số tạo mới."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ở pha [blank], số lượng vi khuẩn tăng nhanh.",
+            "correctAnswer": "luỹ thừa",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “luỹ thừa”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Số lượng tăng",
+              "Số lượng giảm"
+            ],
+            "items": [
+              {
+                "name": "Pha luỹ thừa",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân chia mạnh",
+                "catIndex": 0
+              },
+              {
+                "name": "Pha suy vong",
+                "catIndex": 1
+              },
+              {
+                "name": "Tế bào chết nhiều hơn tạo mới",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Pha luỹ thừa thuộc nhóm Số lượng tăng; Phân chia mạnh thuộc nhóm Số lượng tăng; Pha suy vong thuộc nhóm Số lượng giảm; Tế bào chết nhiều hơn tạo mới thuộc nhóm Số lượng giảm."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Quần thể vi khuẩn tăng nhanh trong pha [blank].",
+            "bankWords": [
+              "luỹ thừa",
+              "suy vong",
+              "tiềm phát"
+            ],
+            "correctWord": "luỹ thừa",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “luỹ thừa”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Nhận biết vai trò có ích và tác hại của vi sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 22. Vai trò và ứng dụng của vi sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vi sinh vật nào thường được dùng để làm sữa chua?",
+            "options": [
+              "Vi khuẩn lactic",
+              "Virus cúm",
+              "Trùng sốt rét",
+              "Vi khuẩn gây tả"
+            ],
+            "answerIndex": 0,
+            "hint": "Vi sinh vật lên men tạo acid lactic.",
+            "explanation": "Vi khuẩn lactic tham gia quá trình làm sữa chua."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Vi khuẩn lactic",
+                "right": "Lên men sữa chua"
+              },
+              {
+                "left": "Nấm men",
+                "right": "Lên men trong làm bánh"
+              },
+              {
+                "left": "Vi sinh vật phân giải",
+                "right": "Phân huỷ chất hữu cơ trong tự nhiên"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Vi khuẩn lactic: Lên men sữa chua; Nấm men: Lên men trong làm bánh; Vi sinh vật phân giải: Phân huỷ chất hữu cơ trong tự nhiên."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vi khuẩn lactic có thể được dùng trong quá trình lên men làm [blank].",
+            "correctAnswer": "sữa chua",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “sữa chua”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Ứng dụng có ích",
+              "Tác hại có thể xảy ra"
+            ],
+            "items": [
+              {
+                "name": "Làm sữa chua",
+                "catIndex": 0
+              },
+              {
+                "name": "Làm bánh nhờ nấm men",
+                "catIndex": 0
+              },
+              {
+                "name": "Phân huỷ rác hữu cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Gây hỏng thực phẩm",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Làm sữa chua thuộc nhóm Ứng dụng có ích; Làm bánh nhờ nấm men thuộc nhóm Ứng dụng có ích; Phân huỷ rác hữu cơ thuộc nhóm Ứng dụng có ích; Gây hỏng thực phẩm thuộc nhóm Tác hại có thể xảy ra."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nấm men có thể tạo khí giúp bột bánh [blank].",
+            "bankWords": [
+              "nở",
+              "hoá đá",
+              "đông băng"
+            ],
+            "correctWord": "nở",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “nở”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Mô tả cấu tạo cơ bản và đặc điểm nhân lên của virus.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 24. Khái quát về virus"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Virus chỉ nhân lên được khi nào?",
+            "options": [
+              "Ở trong tế bào vật chủ phù hợp",
+              "Trên mặt đá khô",
+              "Trong nước cất không có tế bào",
+              "Khi để trong chai rỗng"
+            ],
+            "answerIndex": 0,
+            "hint": "Virus phụ thuộc bộ máy của tế bào sống.",
+            "explanation": "Virus là kí sinh nội bào bắt buộc và chỉ nhân lên trong tế bào vật chủ phù hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Vật chất di truyền",
+                "right": "Mang thông tin của virus"
+              },
+              {
+                "left": "Capsid",
+                "right": "Vỏ protein bao quanh vật chất di truyền"
+              },
+              {
+                "left": "Tế bào vật chủ",
+                "right": "Cung cấp bộ máy cho virus nhân lên"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Vật chất di truyền: Mang thông tin của virus; Capsid: Vỏ protein bao quanh vật chất di truyền; Tế bào vật chủ: Cung cấp bộ máy cho virus nhân lên."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vỏ protein của virus được gọi là [blank].",
+            "correctAnswer": "capsid",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “capsid”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thành phần cơ bản của virus",
+              "Không phải thành phần bắt buộc của mọi virus"
+            ],
+            "items": [
+              {
+                "name": "Vật chất di truyền",
+                "catIndex": 0
+              },
+              {
+                "name": "Vỏ protein",
+                "catIndex": 0
+              },
+              {
+                "name": "Lục lạp",
+                "catIndex": 1
+              },
+              {
+                "name": "Ribosome riêng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Vật chất di truyền thuộc nhóm Thành phần cơ bản của virus; Vỏ protein thuộc nhóm Thành phần cơ bản của virus; Lục lạp thuộc nhóm Không phải thành phần bắt buộc của mọi virus; Ribosome riêng thuộc nhóm Không phải thành phần bắt buộc của mọi virus."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Virus không có cấu tạo [blank] hoàn chỉnh.",
+            "bankWords": [
+              "tế bào",
+              "protein",
+              "vật chất di truyền"
+            ],
+            "correctWord": "tế bào",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “tế bào”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Nêu biện pháp phòng ngừa một số bệnh do virus.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 25. Một số bệnh do virus và các thành tựu nghiên cứu ứng dụng virus"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Biện pháp nào giúp phòng một số bệnh do virus khi có vaccine phù hợp?",
+            "options": [
+              "Tiêm chủng theo hướng dẫn y tế",
+              "Tự dùng kháng sinh cho mọi bệnh virus",
+              "Không rửa tay",
+              "Dùng chung vật dụng cá nhân khi đang bệnh"
+            ],
+            "answerIndex": 0,
+            "hint": "Vaccine giúp cơ thể tạo đáp ứng miễn dịch.",
+            "explanation": "Tiêm chủng theo hướng dẫn là một biện pháp phòng bệnh virus có vaccine."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Vaccine",
+                "right": "Giúp cơ thể hình thành đáp ứng miễn dịch"
+              },
+              {
+                "left": "Rửa tay",
+                "right": "Giảm lây truyền nhiều tác nhân gây bệnh"
+              },
+              {
+                "left": "Kháng sinh",
+                "right": "Không trực tiếp tiêu diệt virus"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Vaccine: Giúp cơ thể hình thành đáp ứng miễn dịch; Rửa tay: Giảm lây truyền nhiều tác nhân gây bệnh; Kháng sinh: Không trực tiếp tiêu diệt virus."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vaccine có thể giúp phòng một số bệnh do [blank].",
+            "correctAnswer": "virus",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “virus”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biện pháp phòng bệnh",
+              "Không phải biện pháp phòng bệnh"
+            ],
+            "items": [
+              {
+                "name": "Tiêm chủng theo hướng dẫn",
+                "catIndex": 0
+              },
+              {
+                "name": "Rửa tay",
+                "catIndex": 0
+              },
+              {
+                "name": "Giữ vệ sinh môi trường",
+                "catIndex": 0
+              },
+              {
+                "name": "Tự ý dùng kháng sinh cho mọi bệnh virus",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tiêm chủng theo hướng dẫn thuộc nhóm Biện pháp phòng bệnh; Rửa tay thuộc nhóm Biện pháp phòng bệnh; Giữ vệ sinh môi trường thuộc nhóm Biện pháp phòng bệnh; Tự ý dùng kháng sinh cho mọi bệnh virus thuộc nhóm Không phải biện pháp phòng bệnh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Virus chỉ nhân lên trong tế bào [blank] phù hợp.",
+            "bankWords": [
+              "vật chủ",
+              "đá",
+              "nước cất"
+            ],
+            "correctWord": "vật chủ",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “vật chủ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Lựa chọn cách truyền thông tin phòng bệnh virus dựa trên nguồn đáng tin cậy.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 10 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 26. Thực hành: Điều tra một số bệnh do virus và tuyên truyền phòng bệnh"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi làm tài liệu phòng bệnh virus, nguồn nào nên ưu tiên?",
+            "options": [
+              "Hướng dẫn từ cơ quan y tế",
+              "Tin đồn không nguồn",
+              "Quảng cáo vô căn cứ",
+              "Bài đăng ẩn danh chưa kiểm chứng"
+            ],
+            "answerIndex": 0,
+            "hint": "Cần thông tin có kiểm chứng.",
+            "explanation": "Thông tin từ cơ quan y tế là nguồn phù hợp để xây dựng tài liệu phòng bệnh."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Cơ quan y tế",
+                "right": "Nguồn hướng dẫn phòng bệnh"
+              },
+              {
+                "left": "Thông tin có nguồn",
+                "right": "Có thể kiểm tra lại"
+              },
+              {
+                "left": "Tin đồn",
+                "right": "Cần kiểm chứng trước khi chia sẻ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Cơ quan y tế: Nguồn hướng dẫn phòng bệnh; Thông tin có nguồn: Có thể kiểm tra lại; Tin đồn: Cần kiểm chứng trước khi chia sẻ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Thông tin phòng bệnh cần được [blank] trước khi chia sẻ.",
+            "correctAnswer": "kiểm chứng",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “kiểm chứng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nguồn đáng tin cậy",
+              "Nguồn cần kiểm chứng"
+            ],
+            "items": [
+              {
+                "name": "Cơ quan y tế",
+                "catIndex": 0
+              },
+              {
+                "name": "Tài liệu chính thức",
+                "catIndex": 0
+              },
+              {
+                "name": "Tin đồn không nguồn",
+                "catIndex": 1
+              },
+              {
+                "name": "Bài đăng ẩn danh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Cơ quan y tế thuộc nhóm Nguồn đáng tin cậy; Tài liệu chính thức thuộc nhóm Nguồn đáng tin cậy; Tin đồn không nguồn thuộc nhóm Nguồn cần kiểm chứng; Bài đăng ẩn danh thuộc nhóm Nguồn cần kiểm chứng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi truyền thông phòng bệnh, nên ghi rõ [blank] thông tin.",
+            "bankWords": [
+              "nguồn",
+              "tin đồn",
+              "màu nền"
+            ],
+            "correctWord": "nguồn",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “nguồn”."
+          }
+        }
+      ]
+    }
+  ]
+}

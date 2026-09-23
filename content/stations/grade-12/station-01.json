@@ -1,0 +1,1067 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g12-st1-2026.1",
+  "grade": 12,
+  "stationId": "g12_st1",
+  "title": "Lớp 12 - Trạm 1: Di truyền phân tử và nhiễm sắc thể",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Chương I–II của SGK Sinh học 12 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Giải thích cấu trúc DNA và nguyên tắc tái bản bán bảo tồn.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 1. DNA và cơ chế tái bản DNA"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau tái bản, mỗi phân tử DNA con có đặc điểm nào?",
+            "options": [
+              "Một mạch cũ và một mạch mới",
+              "Hai mạch đều cũ",
+              "Không có mạch khuôn",
+              "Chỉ gồm RNA"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét nguyên tắc bán bảo tồn.",
+            "explanation": "Mỗi DNA con có một mạch từ phân tử mẹ và một mạch mới tổng hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mạch khuôn",
+                "right": "Định hướng tổng hợp mạch mới"
+              },
+              {
+                "left": "DNA polymerase",
+                "right": "Tham gia kéo dài mạch DNA mới"
+              },
+              {
+                "left": "Bán bảo tồn",
+                "right": "DNA con giữ một mạch cũ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Mạch khuôn: Định hướng tổng hợp mạch mới; DNA polymerase: Tham gia kéo dài mạch DNA mới; Bán bảo tồn: DNA con giữ một mạch cũ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "DNA tái bản theo nguyên tắc bổ sung và bán [blank].",
+            "correctAnswer": "bảo tồn",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “bảo tồn”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tham gia tái bản DNA",
+              "Không phải thành phần trực tiếp của tái bản"
+            ],
+            "items": [
+              {
+                "name": "Mạch DNA khuôn",
+                "catIndex": 0
+              },
+              {
+                "name": "Nucleotide tự do",
+                "catIndex": 0
+              },
+              {
+                "name": "DNA polymerase",
+                "catIndex": 0
+              },
+              {
+                "name": "Ribosome dịch mã",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Mạch DNA khuôn thuộc nhóm Tham gia tái bản DNA; Nucleotide tự do thuộc nhóm Tham gia tái bản DNA; DNA polymerase thuộc nhóm Tham gia tái bản DNA; Ribosome dịch mã thuộc nhóm Không phải thành phần trực tiếp của tái bản."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Base A trên mạch khuôn DNA bắt cặp với base [blank] trên mạch mới.",
+            "bankWords": [
+              "T",
+              "U",
+              "G"
+            ],
+            "correctWord": "T",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “T”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Mô tả dòng thông tin di truyền từ gene đến protein.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 2. Gene, quá trình truyền đạt thông tin di truyền và hệ gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong phiên mã, sản phẩm trực tiếp thường là gì?",
+            "options": [
+              "RNA",
+              "Protein hoàn chỉnh",
+              "DNA con",
+              "Lipid"
+            ],
+            "answerIndex": 0,
+            "hint": "Thông tin gene được chép sang dạng này.",
+            "explanation": "Phiên mã tạo RNA từ mạch DNA khuôn."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Phiên mã",
+                "right": "Tổng hợp RNA từ DNA"
+              },
+              {
+                "left": "Dịch mã",
+                "right": "Tổng hợp chuỗi amino acid theo mRNA"
+              },
+              {
+                "left": "Ribosome",
+                "right": "Nơi diễn ra dịch mã"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Phiên mã: Tổng hợp RNA từ DNA; Dịch mã: Tổng hợp chuỗi amino acid theo mRNA; Ribosome: Nơi diễn ra dịch mã."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Bộ ba trên mRNA được gọi là [blank].",
+            "correctAnswer": "codon",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “codon”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Phiên mã",
+              "Dịch mã"
+            ],
+            "items": [
+              {
+                "name": "Mạch DNA làm khuôn",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo mRNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Ribosome đọc codon",
+                "catIndex": 1
+              },
+              {
+                "name": "Tạo chuỗi amino acid",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Mạch DNA làm khuôn thuộc nhóm Phiên mã; Tạo mRNA thuộc nhóm Phiên mã; Ribosome đọc codon thuộc nhóm Dịch mã; Tạo chuỗi amino acid thuộc nhóm Dịch mã."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thông tin từ DNA qua mRNA được dùng để tổng hợp [blank].",
+            "bankWords": [
+              "protein",
+              "cellulose",
+              "nước"
+            ],
+            "correctWord": "protein",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “protein”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Nêu ý nghĩa của điều hoà biểu hiện gene.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 3. Điều hoà biểu hiện gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao các tế bào cùng cơ thể có thể thực hiện chức năng khác nhau dù mang bộ gene gần như giống nhau?",
+            "options": [
+              "Chúng biểu hiện các nhóm gene khác nhau",
+              "Mọi tế bào không có DNA",
+              "Chúng luôn có số nhiễm sắc thể khác nhau",
+              "Protein không liên quan chức năng"
+            ],
+            "answerIndex": 0,
+            "hint": "Không phải gene nào cũng hoạt động như nhau.",
+            "explanation": "Các tế bào biểu hiện các gene khác nhau để tạo protein phù hợp chức năng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Biểu hiện gene",
+                "right": "Gene tạo sản phẩm chức năng"
+              },
+              {
+                "left": "Điều hoà biểu hiện",
+                "right": "Kiểm soát thời điểm và mức tạo sản phẩm"
+              },
+              {
+                "left": "Protein",
+                "right": "Một sản phẩm có thể được tạo từ thông tin gene"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Biểu hiện gene: Gene tạo sản phẩm chức năng; Điều hoà biểu hiện: Kiểm soát thời điểm và mức tạo sản phẩm; Protein: Một sản phẩm có thể được tạo từ thông tin gene."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Điều hoà biểu hiện gene giúp tế bào tạo sản phẩm đúng lúc và đúng [blank].",
+            "correctAnswer": "mức",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “mức”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan điều hoà biểu hiện gene",
+              "Không phải điều hoà biểu hiện gene"
+            ],
+            "items": [
+              {
+                "name": "Bật phiên mã gene phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Giảm tổng hợp một protein",
+                "catIndex": 0
+              },
+              {
+                "name": "Tăng biểu hiện gene khi cần",
+                "catIndex": 0
+              },
+              {
+                "name": "Đổi tên tế bào trên nhãn",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Bật phiên mã gene phù hợp thuộc nhóm Liên quan điều hoà biểu hiện gene; Giảm tổng hợp một protein thuộc nhóm Liên quan điều hoà biểu hiện gene; Tăng biểu hiện gene khi cần thuộc nhóm Liên quan điều hoà biểu hiện gene; Đổi tên tế bào trên nhãn thuộc nhóm Không phải điều hoà biểu hiện gene."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cùng một hệ gene có thể tạo nhiều loại tế bào nhờ biểu hiện gene [blank].",
+            "bankWords": [
+              "khác nhau",
+              "luôn giống hệt",
+              "không xảy ra"
+            ],
+            "correctWord": "khác nhau",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “khác nhau”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Phân loại biến đổi cơ bản của đột biến gene và hệ quả có thể có.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 4. Đột biến gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thay thế một cặp nucleotide trong gene là dạng gì?",
+            "options": [
+              "Đột biến điểm",
+              "Đột biến số lượng nhiễm sắc thể",
+              "Giảm phân bình thường",
+              "Thẩm thấu"
+            ],
+            "answerIndex": 0,
+            "hint": "Chỉ một vị trí base bị đổi.",
+            "explanation": "Thay thế một cặp nucleotide là một dạng đột biến điểm."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thay thế",
+                "right": "Một cặp nucleotide đổi thành cặp khác"
+              },
+              {
+                "left": "Mất",
+                "right": "Thiếu một hoặc vài cặp nucleotide"
+              },
+              {
+                "left": "Thêm",
+                "right": "Xuất hiện thêm một hoặc vài cặp nucleotide"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Thay thế: Một cặp nucleotide đổi thành cặp khác; Mất: Thiếu một hoặc vài cặp nucleotide; Thêm: Xuất hiện thêm một hoặc vài cặp nucleotide."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Đột biến gene làm thay đổi trình tự [blank] của gene.",
+            "correctAnswer": "nucleotide",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “nucleotide”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Đột biến gene",
+              "Không phải đột biến gene"
+            ],
+            "items": [
+              {
+                "name": "Thay thế một cặp base",
+                "catIndex": 0
+              },
+              {
+                "name": "Mất một cặp base",
+                "catIndex": 0
+              },
+              {
+                "name": "Thêm một cặp base",
+                "catIndex": 0
+              },
+              {
+                "name": "Mất cả nhiễm sắc thể",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Thay thế một cặp base thuộc nhóm Đột biến gene; Mất một cặp base thuộc nhóm Đột biến gene; Thêm một cặp base thuộc nhóm Đột biến gene; Mất cả nhiễm sắc thể thuộc nhóm Không phải đột biến gene."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Đột biến gene có thể tạo [blank] mới.",
+            "bankWords": [
+              "allele",
+              "cơ quan",
+              "hệ sinh thái"
+            ],
+            "correctWord": "allele",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “allele”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Nêu nguyên tắc và ứng dụng cơ bản của công nghệ di truyền.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 5. Công nghệ di truyền"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "DNA tái tổ hợp được tạo khi nào?",
+            "options": [
+              "Kết hợp các đoạn DNA từ những nguồn phù hợp",
+              "Chỉ nhuộm màu tế bào",
+              "Đo chiều cao cây",
+              "Đun nước đến sôi"
+            ],
+            "answerIndex": 0,
+            "hint": "Các đoạn DNA được ghép lại.",
+            "explanation": "DNA tái tổ hợp được tạo bằng cách kết hợp các đoạn DNA theo quy trình công nghệ gene."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Gene mục tiêu",
+                "right": "Mang thông tin cần khai thác"
+              },
+              {
+                "left": "Vector",
+                "right": "Giúp đưa gene vào tế bào nhận"
+              },
+              {
+                "left": "DNA tái tổ hợp",
+                "right": "DNA có các đoạn được kết hợp từ nguồn khác"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Gene mục tiêu: Mang thông tin cần khai thác; Vector: Giúp đưa gene vào tế bào nhận; DNA tái tổ hợp: DNA có các đoạn được kết hợp từ nguồn khác."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phân tử mang gene mục tiêu vào tế bào nhận gọi là [blank].",
+            "correctAnswer": "vector",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “vector”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan công nghệ gene",
+              "Không phải thao tác công nghệ gene"
+            ],
+            "items": [
+              {
+                "name": "Chọn gene mục tiêu",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo DNA tái tổ hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Đưa DNA vào tế bào nhận",
+                "catIndex": 0
+              },
+              {
+                "name": "Chỉ đổi màu chậu cây",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Chọn gene mục tiêu thuộc nhóm Liên quan công nghệ gene; Tạo DNA tái tổ hợp thuộc nhóm Liên quan công nghệ gene; Đưa DNA vào tế bào nhận thuộc nhóm Liên quan công nghệ gene; Chỉ đổi màu chậu cây thuộc nhóm Không phải thao tác công nghệ gene."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Công nghệ gene tác động trên vật chất [blank].",
+            "bankWords": [
+              "di truyền",
+              "địa chất",
+              "khí tượng"
+            ],
+            "correctWord": "di truyền",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “di truyền”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Giải thích cấu trúc nhiễm sắc thể và vai trò của centromere.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương II. Di truyền nhiễm sắc thể: Cấu trúc và chức năng của nhiễm sắc thể"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thành phần nào là vật chất di truyền được đóng gói trong nhiễm sắc thể?",
+            "options": [
+              "DNA",
+              "Cellulose",
+              "Tinh bột",
+              "Glycogen"
+            ],
+            "answerIndex": 0,
+            "hint": "Gene nằm trên phân tử này.",
+            "explanation": "Nhiễm sắc thể gồm DNA được tổ chức cùng protein."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "DNA",
+                "right": "Mang thông tin di truyền"
+              },
+              {
+                "left": "Histone",
+                "right": "Protein tham gia đóng gói DNA"
+              },
+              {
+                "left": "Centromere",
+                "right": "Vùng gắn với bộ máy phân li nhiễm sắc thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "DNA: Mang thông tin di truyền; Histone: Protein tham gia đóng gói DNA; Centromere: Vùng gắn với bộ máy phân li nhiễm sắc thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "DNA quấn quanh protein [blank] tạo các nucleosome.",
+            "correctAnswer": "histone",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “histone”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thành phần hoặc vùng của nhiễm sắc thể",
+              "Không thuộc nhiễm sắc thể"
+            ],
+            "items": [
+              {
+                "name": "DNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Histone",
+                "catIndex": 0
+              },
+              {
+                "name": "Centromere",
+                "catIndex": 0
+              },
+              {
+                "name": "Lục lạp của tế bào lá",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "DNA thuộc nhóm Thành phần hoặc vùng của nhiễm sắc thể; Histone thuộc nhóm Thành phần hoặc vùng của nhiễm sắc thể; Centromere thuộc nhóm Thành phần hoặc vùng của nhiễm sắc thể; Lục lạp của tế bào lá thuộc nhóm Không thuộc nhiễm sắc thể."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nhiễm sắc thể là cấu trúc mang nhiều [blank].",
+            "bankWords": [
+              "gene",
+              "khí khổng",
+              "phế nang"
+            ],
+            "correctWord": "gene",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “gene”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Vận dụng quy luật phân li Mendel để dự đoán kết quả phép lai một gene.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương II. Học thuyết di truyền của Mendel"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nếu A trội hoàn toàn so với a, phép lai Aa × Aa cho tỉ lệ kiểu hình trội nào?",
+            "options": [
+              "3/4",
+              "1/4",
+              "1/2",
+              "Toàn bộ lặn"
+            ],
+            "answerIndex": 0,
+            "hint": "Kiểu gene trội là AA và Aa.",
+            "explanation": "Trong mô hình trội hoàn toàn, Aa × Aa cho ba phần tư con biểu hiện tính trạng trội."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Kiểu gene đồng hợp trội AA",
+                "right": "Đồng hợp trội"
+              },
+              {
+                "left": "Kiểu gene dị hợp Aa",
+                "right": "Dị hợp"
+              },
+              {
+                "left": "Kiểu gene đồng hợp lặn aa",
+                "right": "Đồng hợp lặn"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Kiểu gene đồng hợp trội AA: Đồng hợp trội; Kiểu gene dị hợp Aa: Dị hợp; Kiểu gene đồng hợp lặn aa: Đồng hợp lặn."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Aa × Aa tạo tỉ lệ kiểu gene 1 AA : 2 Aa : 1 [blank].",
+            "correctAnswer": "aa",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “aa”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biểu hiện trội khi A trội hoàn toàn",
+              "Biểu hiện lặn"
+            ],
+            "items": [
+              {
+                "name": "Đồng hợp trội AA",
+                "catIndex": 0
+              },
+              {
+                "name": "Dị hợp Aa",
+                "catIndex": 0
+              },
+              {
+                "name": "Đồng hợp lặn aa",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Đồng hợp trội AA thuộc nhóm Biểu hiện trội khi A trội hoàn toàn; Dị hợp Aa thuộc nhóm Biểu hiện trội khi A trội hoàn toàn; Đồng hợp lặn aa thuộc nhóm Biểu hiện lặn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong trội hoàn toàn, kiểu gene [blank] có kiểu hình lặn.",
+            "bankWords": [
+              "đồng hợp lặn aa",
+              "dị hợp Aa",
+              "đồng hợp trội AA"
+            ],
+            "correctWord": "đồng hợp lặn aa",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “đồng hợp lặn aa”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Phân biệt trội hoàn toàn, trội không hoàn toàn và đồng trội.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương II. Mở rộng học thuyết Mendel"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong trội không hoàn toàn, cá thể dị hợp thường biểu hiện thế nào?",
+            "options": [
+              "Kiểu hình trung gian giữa hai đồng hợp",
+              "Luôn giống đồng hợp trội",
+              "Không có kiểu hình",
+              "Luôn giống cả hai đồng hợp cùng lúc"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét kiểu hình trung gian.",
+            "explanation": "Trội không hoàn toàn tạo kiểu hình dị hợp trung gian giữa hai kiểu hình đồng hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trội hoàn toàn",
+                "right": "Dị hợp biểu hiện tính trạng trội"
+              },
+              {
+                "left": "Trội không hoàn toàn",
+                "right": "Dị hợp có kiểu hình trung gian"
+              },
+              {
+                "left": "Đồng trội",
+                "right": "Hai allele cùng biểu hiện ở dị hợp"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Trội hoàn toàn: Dị hợp biểu hiện tính trạng trội; Trội không hoàn toàn: Dị hợp có kiểu hình trung gian; Đồng trội: Hai allele cùng biểu hiện ở dị hợp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Hai allele cùng biểu hiện rõ ở cá thể dị hợp là hiện tượng [blank].",
+            "correctAnswer": "đồng trội",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “đồng trội”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trội không hoàn toàn",
+              "Đồng trội"
+            ],
+            "items": [
+              {
+                "name": "Kiểu hình dị hợp trung gian",
+                "catIndex": 0
+              },
+              {
+                "name": "Hoa đỏ × trắng tạo hoa hồng trong mô hình đơn giản",
+                "catIndex": 0
+              },
+              {
+                "name": "Hai allele cùng biểu hiện",
+                "catIndex": 1
+              },
+              {
+                "name": "Nhóm máu AB ở người",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Kiểu hình dị hợp trung gian thuộc nhóm Trội không hoàn toàn; Hoa đỏ × trắng tạo hoa hồng trong mô hình đơn giản thuộc nhóm Trội không hoàn toàn; Hai allele cùng biểu hiện thuộc nhóm Đồng trội; Nhóm máu AB ở người thuộc nhóm Đồng trội."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Kiểu hình trung gian ở dị hợp có thể do trội [blank].",
+            "bankWords": [
+              "không hoàn toàn",
+              "hoàn toàn",
+              "liên kết"
+            ],
+            "correctWord": "không hoàn toàn",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “không hoàn toàn”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Giải thích di truyền liên kết với giới tính qua gene trên nhiễm sắc thể X.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương II. Di truyền giới tính và di truyền liên kết với giới tính"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Một nam giới thông thường mang bao nhiêu bản sao của đa số gene trên vùng không tương đồng của X?",
+            "options": [
+              "Một",
+              "Hai",
+              "Ba",
+              "Bốn"
+            ],
+            "answerIndex": 0,
+            "hint": "Nam thường có bộ nhiễm sắc thể giới tính XY.",
+            "explanation": "Nam XY thường chỉ có một bản sao các gene thuộc vùng không tương đồng của X."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhiễm sắc thể X",
+                "right": "Mang nhiều gene liên kết giới tính"
+              },
+              {
+                "left": "Nhiễm sắc thể Y",
+                "right": "Có vùng gene khác X"
+              },
+              {
+                "left": "Nam XY",
+                "right": "Thường có một X và một Y"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Nhiễm sắc thể X: Mang nhiều gene liên kết giới tính; Nhiễm sắc thể Y: Có vùng gene khác X; Nam XY: Thường có một X và một Y."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Gene nằm trên nhiễm sắc thể X có thể cho kiểu di truyền liên kết với [blank].",
+            "correctAnswer": "giới tính",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “giới tính”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thông thường ở nam XY",
+              "Thông thường ở nữ XX"
+            ],
+            "items": [
+              {
+                "name": "Một nhiễm sắc thể X",
+                "catIndex": 0
+              },
+              {
+                "name": "Một nhiễm sắc thể Y",
+                "catIndex": 0
+              },
+              {
+                "name": "Hai nhiễm sắc thể X",
+                "catIndex": 1
+              },
+              {
+                "name": "Không có nhiễm sắc thể Y",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Một nhiễm sắc thể X thuộc nhóm Thông thường ở nam XY; Một nhiễm sắc thể Y thuộc nhóm Thông thường ở nam XY; Hai nhiễm sắc thể X thuộc nhóm Thông thường ở nữ XX; Không có nhiễm sắc thể Y thuộc nhóm Thông thường ở nữ XX."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Gene nằm trên X có thể biểu hiện đặc thù ở người mang bộ nhiễm sắc thể [blank].",
+            "bankWords": [
+              "XY",
+              "XXY luôn luôn",
+              "không có DNA"
+            ],
+            "correctWord": "XY",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “XY”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Phân biệt liên kết gene và hoán vị gene trong giảm phân.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 12 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Chương II. Liên kết gene và hoán vị gene"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hoán vị gene xảy ra khi nào?",
+            "options": [
+              "Các chromatid không chị em trao đổi đoạn tương ứng",
+              "Hai tế bào không liên quan đổi chỗ",
+              "DNA biến thành protein",
+              "Cơ thể thay đổi màu tạm thời"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét trao đổi chéo ở giảm phân.",
+            "explanation": "Trao đổi chéo giữa chromatid không chị em có thể tạo tổ hợp allele mới."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Liên kết gene",
+                "right": "Các gene cùng nhiễm sắc thể có xu hướng đi cùng"
+              },
+              {
+                "left": "Hoán vị gene",
+                "right": "Tạo tổ hợp allele mới từ trao đổi chéo"
+              },
+              {
+                "left": "Giảm phân",
+                "right": "Quá trình có thể xảy ra trao đổi chéo"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Liên kết gene: Các gene cùng nhiễm sắc thể có xu hướng đi cùng; Hoán vị gene: Tạo tổ hợp allele mới từ trao đổi chéo; Giảm phân: Quá trình có thể xảy ra trao đổi chéo."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trao đổi chéo có thể tạo biến dị [blank].",
+            "correctAnswer": "tổ hợp",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “tổ hợp”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên kết gene",
+              "Hoán vị gene"
+            ],
+            "items": [
+              {
+                "name": "Gene cùng nhiễm sắc thể đi cùng",
+                "catIndex": 0
+              },
+              {
+                "name": "Hạn chế tổ hợp tự do giữa gene gần nhau",
+                "catIndex": 0
+              },
+              {
+                "name": "Trao đổi đoạn chromatid",
+                "catIndex": 1
+              },
+              {
+                "name": "Tạo tổ hợp allele mới",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Gene cùng nhiễm sắc thể đi cùng thuộc nhóm Liên kết gene; Hạn chế tổ hợp tự do giữa gene gần nhau thuộc nhóm Liên kết gene; Trao đổi đoạn chromatid thuộc nhóm Hoán vị gene; Tạo tổ hợp allele mới thuộc nhóm Hoán vị gene."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hoán vị gene liên quan trao đổi chéo giữa các chromatid không [blank].",
+            "bankWords": [
+              "chị em",
+              "cùng loài",
+              "cùng tế bào"
+            ],
+            "correctWord": "chị em",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “chị em”."
+          }
+        }
+      ]
+    }
+  ]
+}

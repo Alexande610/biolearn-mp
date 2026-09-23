@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g7-st3-2026.1",
+  "grade": 7,
+  "stationId": "g7_st3",
+  "title": "Lớp 7 - Trạm 3: Cảm ứng, sinh trưởng và sinh sản",
+  "status": "draft",
+  "notes": "Nội dung soạn theo các Bài 33–42 của SGK KHTN 7 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nêu khái niệm cảm ứng và nhận biết các phản ứng với kích thích ở sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 33. Cảm ứng ở sinh vật và tập tính ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hiện tượng nào thể hiện cảm ứng ở thực vật?",
+            "options": [
+              "Ngọn cây hướng về phía ánh sáng",
+              "Hạt có màu nâu",
+              "Thân cây chứa mạch gỗ",
+              "Rễ có nhiều tế bào"
+            ],
+            "answerIndex": 0,
+            "hint": "Cảm ứng là phản ứng với kích thích.",
+            "explanation": "Ngọn cây đổi hướng sinh trưởng khi nhận ánh sáng là biểu hiện cảm ứng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Ánh sáng",
+                "right": "Kích thích từ môi trường"
+              },
+              {
+                "left": "Ngọn cây hướng sáng",
+                "right": "Phản ứng của cây"
+              },
+              {
+                "left": "Cảm ứng",
+                "right": "Khả năng tiếp nhận và đáp ứng kích thích"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Ánh sáng: Kích thích từ môi trường; Ngọn cây hướng sáng: Phản ứng của cây; Cảm ứng: Khả năng tiếp nhận và đáp ứng kích thích."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khả năng sinh vật tiếp nhận và phản ứng với kích thích gọi là [blank].",
+            "correctAnswer": "cảm ứng",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “cảm ứng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biểu hiện cảm ứng",
+              "Không phải biểu hiện cảm ứng"
+            ],
+            "items": [
+              {
+                "name": "Lá cây trinh nữ cụp khi chạm",
+                "catIndex": 0
+              },
+              {
+                "name": "Ngọn cây hướng sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Động vật chạy trốn kẻ thù",
+                "catIndex": 0
+              },
+              {
+                "name": "Cây có rễ và thân",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Lá cây trinh nữ cụp khi chạm thuộc nhóm Biểu hiện cảm ứng; Ngọn cây hướng sáng thuộc nhóm Biểu hiện cảm ứng; Động vật chạy trốn kẻ thù thuộc nhóm Biểu hiện cảm ứng; Cây có rễ và thân thuộc nhóm Không phải biểu hiện cảm ứng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi có kích thích từ môi trường, sinh vật có thể đưa ra [blank] phù hợp.",
+            "bankWords": [
+              "phản ứng",
+              "hạt giống",
+              "chất khoáng"
+            ],
+            "correctWord": "phản ứng",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “phản ứng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Phân biệt một số tập tính bẩm sinh và học được ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 33. Cảm ứng ở sinh vật và tập tính ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ví dụ nào là tập tính học được?",
+            "options": [
+              "Chó làm theo lệnh sau khi được huấn luyện",
+              "Nhện giăng tơ lần đầu",
+              "Trẻ sơ sinh bú mẹ",
+              "Chim non há mỏ đòi ăn"
+            ],
+            "answerIndex": 0,
+            "hint": "Tập tính này hình thành nhờ kinh nghiệm.",
+            "explanation": "Chó đáp ứng lệnh sau huấn luyện là tập tính học được."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tập tính bẩm sinh",
+                "right": "Có sẵn từ khi sinh ra"
+              },
+              {
+                "left": "Tập tính học được",
+                "right": "Hình thành qua học tập và kinh nghiệm"
+              },
+              {
+                "left": "Huấn luyện",
+                "right": "Có thể hình thành tập tính mới"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Tập tính bẩm sinh: Có sẵn từ khi sinh ra; Tập tính học được: Hình thành qua học tập và kinh nghiệm; Huấn luyện: Có thể hình thành tập tính mới."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tập tính hình thành trong quá trình sống nhờ học tập gọi là tập tính [blank].",
+            "correctAnswer": "học được",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “học được”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tập tính bẩm sinh",
+              "Tập tính học được"
+            ],
+            "items": [
+              {
+                "name": "Nhện giăng tơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Trẻ sơ sinh bú mẹ",
+                "catIndex": 0
+              },
+              {
+                "name": "Chó nghe lệnh sau huấn luyện",
+                "catIndex": 1
+              },
+              {
+                "name": "Khỉ dùng công cụ sau khi học",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Nhện giăng tơ thuộc nhóm Tập tính bẩm sinh; Trẻ sơ sinh bú mẹ thuộc nhóm Tập tính bẩm sinh; Chó nghe lệnh sau huấn luyện thuộc nhóm Tập tính học được; Khỉ dùng công cụ sau khi học thuộc nhóm Tập tính học được."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tập tính có sẵn từ khi sinh ra được gọi là tập tính [blank].",
+            "bankWords": [
+              "bẩm sinh",
+              "học được",
+              "tạm thời"
+            ],
+            "correctWord": "bẩm sinh",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “bẩm sinh”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Vận dụng hiểu biết về cảm ứng để chăm sóc cây và điều chỉnh tập tính động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 34. Vận dụng hiện tượng cảm ứng ở sinh vật vào thực tiễn"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao cần xoay chậu cây để cây nhận ánh sáng đều các phía?",
+            "options": [
+              "Cây thường hướng sinh trưởng về phía ánh sáng",
+              "Cây không cần ánh sáng",
+              "Cây chỉ hấp thụ nước ở một phía",
+              "Ánh sáng làm hỏng rễ ngay lập tức"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét tính hướng sáng của thân cây.",
+            "explanation": "Xoay chậu giúp các phía của cây nhận ánh sáng, hạn chế thân nghiêng về một phía."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tính hướng sáng",
+                "right": "Có thể làm cây nghiêng về phía sáng"
+              },
+              {
+                "left": "Huấn luyện thú nuôi",
+                "right": "Dựa vào khả năng hình thành tập tính học được"
+              },
+              {
+                "left": "Tính hướng nước của rễ",
+                "right": "Rễ có thể phát triển về phía nguồn nước"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Tính hướng sáng: Có thể làm cây nghiêng về phía sáng; Huấn luyện thú nuôi: Dựa vào khả năng hình thành tập tính học được; Tính hướng nước của rễ: Rễ có thể phát triển về phía nguồn nước."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Thân cây thường sinh trưởng hướng về nguồn [blank].",
+            "correctAnswer": "ánh sáng",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “ánh sáng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vận dụng cảm ứng hợp lí",
+              "Không phù hợp khi chăm sóc sinh vật"
+            ],
+            "items": [
+              {
+                "name": "Đặt cây nơi có ánh sáng phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Xoay chậu cây định kì",
+                "catIndex": 0
+              },
+              {
+                "name": "Huấn luyện động vật bằng cách phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Để cây thiếu sáng kéo dài",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Đặt cây nơi có ánh sáng phù hợp thuộc nhóm Vận dụng cảm ứng hợp lí; Xoay chậu cây định kì thuộc nhóm Vận dụng cảm ứng hợp lí; Huấn luyện động vật bằng cách phù hợp thuộc nhóm Vận dụng cảm ứng hợp lí; Để cây thiếu sáng kéo dài thuộc nhóm Không phù hợp khi chăm sóc sinh vật."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thân cây mọc hướng về phía nguồn sáng là hiện tượng hướng [blank].",
+            "bankWords": [
+              "sáng",
+              "nước",
+              "trọng lực"
+            ],
+            "correctWord": "sáng",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “sáng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Quan sát và mô tả được phản ứng cảm ứng của cây.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 35. Thực hành: Cảm ứng ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong thí nghiệm hướng sáng ở cây non, yếu tố nên thay đổi giữa hai nhóm là gì?",
+            "options": [
+              "Hướng chiếu sáng",
+              "Loài cây và độ tuổi cùng lúc",
+              "Loại đất và lượng nước cùng lúc",
+              "Mọi điều kiện trong thí nghiệm"
+            ],
+            "answerIndex": 0,
+            "hint": "Chỉ thay đổi yếu tố cần khảo sát.",
+            "explanation": "Thay đổi hướng chiếu sáng và giữ điều kiện khác tương tự giúp quan sát hướng sáng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nguồn sáng một phía",
+                "right": "Tạo kích thích có hướng"
+              },
+              {
+                "left": "Đo hướng mọc của thân",
+                "right": "Ghi nhận phản ứng"
+              },
+              {
+                "left": "Mẫu đối chứng",
+                "right": "Giúp so sánh kết quả"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Nguồn sáng một phía: Tạo kích thích có hướng; Đo hướng mọc của thân: Ghi nhận phản ứng; Mẫu đối chứng: Giúp so sánh kết quả."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khi khảo sát cảm ứng, cần ghi chép kết quả [blank] được.",
+            "correctAnswer": "quan sát",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “quan sát”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thực hành có kiểm soát",
+              "Thực hành khó kết luận"
+            ],
+            "items": [
+              {
+                "name": "Giữ lượng nước tương tự",
+                "catIndex": 0
+              },
+              {
+                "name": "Ghi chép hướng mọc",
+                "catIndex": 0
+              },
+              {
+                "name": "So sánh với mẫu đối chứng",
+                "catIndex": 0
+              },
+              {
+                "name": "Thay đổi ánh sáng và nước cùng lúc",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Giữ lượng nước tương tự thuộc nhóm Thực hành có kiểm soát; Ghi chép hướng mọc thuộc nhóm Thực hành có kiểm soát; So sánh với mẫu đối chứng thuộc nhóm Thực hành có kiểm soát; Thay đổi ánh sáng và nước cùng lúc thuộc nhóm Thực hành khó kết luận."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Để so sánh ảnh hưởng ánh sáng, cần giữ các điều kiện khác tương đối [blank].",
+            "bankWords": [
+              "giống nhau",
+              "khác hoàn toàn",
+              "ngẫu nhiên"
+            ],
+            "correctWord": "giống nhau",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “giống nhau”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Phân biệt sinh trưởng và phát triển ở sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 36. Khái quát về sinh trưởng và phát triển ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sự tăng kích thước và khối lượng cơ thể được gọi là gì?",
+            "options": [
+              "Sinh trưởng",
+              "Cảm ứng",
+              "Quang hợp",
+              "Thoát hơi nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét thay đổi về lượng.",
+            "explanation": "Sinh trưởng là sự tăng kích thước và khối lượng cơ thể."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh trưởng",
+                "right": "Tăng kích thước và khối lượng"
+              },
+              {
+                "left": "Phát triển",
+                "right": "Biến đổi về hình thái và chức năng"
+              },
+              {
+                "left": "Cây ra hoa",
+                "right": "Một biểu hiện của phát triển"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Sinh trưởng: Tăng kích thước và khối lượng; Phát triển: Biến đổi về hình thái và chức năng; Cây ra hoa: Một biểu hiện của phát triển."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cơ thể tăng kích thước và khối lượng là biểu hiện của [blank].",
+            "correctAnswer": "sinh trưởng",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “sinh trưởng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biểu hiện sinh trưởng",
+              "Biểu hiện phát triển"
+            ],
+            "items": [
+              {
+                "name": "Cây cao thêm",
+                "catIndex": 0
+              },
+              {
+                "name": "Khối lượng cơ thể tăng",
+                "catIndex": 0
+              },
+              {
+                "name": "Cây ra hoa",
+                "catIndex": 1
+              },
+              {
+                "name": "Nòng nọc biến thành ếch",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Cây cao thêm thuộc nhóm Biểu hiện sinh trưởng; Khối lượng cơ thể tăng thuộc nhóm Biểu hiện sinh trưởng; Cây ra hoa thuộc nhóm Biểu hiện phát triển; Nòng nọc biến thành ếch thuộc nhóm Biểu hiện phát triển."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự biến đổi về hình thái và chức năng trong vòng đời gọi là [blank].",
+            "bankWords": [
+              "phát triển",
+              "hô hấp",
+              "bài tiết"
+            ],
+            "correctWord": "phát triển",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “phát triển”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nêu ảnh hưởng của điều kiện sống đến sinh trưởng và phát triển.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 37. Ứng dụng sinh trưởng và phát triển ở sinh vật vào thực tiễn; Bài 38. Thực hành: Quan sát, mô tả sự sinh trưởng và phát triển ở một số sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Điều kiện nào thường cần thiết để hạt giống nảy mầm?",
+            "options": [
+              "Độ ẩm thích hợp",
+              "Ngâm trong nước sôi",
+              "Để khô tuyệt đối",
+              "Đặt trong dung dịch muối đậm đặc"
+            ],
+            "answerIndex": 0,
+            "hint": "Hạt cần hấp thụ nước.",
+            "explanation": "Độ ẩm thích hợp giúp hạt bắt đầu nảy mầm; các điều kiện khác cũng cần phù hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nước",
+                "right": "Cần cho nhiều quá trình sống"
+              },
+              {
+                "left": "Nhiệt độ phù hợp",
+                "right": "Giúp hoạt động sống diễn ra bình thường"
+              },
+              {
+                "left": "Chất dinh dưỡng",
+                "right": "Cung cấp vật chất cho sinh trưởng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Nước: Cần cho nhiều quá trình sống; Nhiệt độ phù hợp: Giúp hoạt động sống diễn ra bình thường; Chất dinh dưỡng: Cung cấp vật chất cho sinh trưởng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sinh trưởng và phát triển của sinh vật chịu ảnh hưởng của môi trường [blank].",
+            "correctAnswer": "sống",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “sống”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Điều kiện thuận lợi cho cây non",
+              "Điều kiện bất lợi cho cây non"
+            ],
+            "items": [
+              {
+                "name": "Nước vừa đủ",
+                "catIndex": 0
+              },
+              {
+                "name": "Ánh sáng phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Chất dinh dưỡng phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Ngập úng kéo dài",
+                "catIndex": 1
+              },
+              {
+                "name": "Thiếu nước kéo dài",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Nước vừa đủ thuộc nhóm Điều kiện thuận lợi cho cây non; Ánh sáng phù hợp thuộc nhóm Điều kiện thuận lợi cho cây non; Chất dinh dưỡng phù hợp thuộc nhóm Điều kiện thuận lợi cho cây non; Ngập úng kéo dài thuộc nhóm Điều kiện bất lợi cho cây non; Thiếu nước kéo dài thuộc nhóm Điều kiện bất lợi cho cây non."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi theo dõi cây non, đo chiều cao theo thời gian giúp nhận biết sự [blank].",
+            "bankWords": [
+              "sinh trưởng",
+              "sinh sản",
+              "thụ tinh"
+            ],
+            "correctWord": "sinh trưởng",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “sinh trưởng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Nhận biết sinh sản vô tính và một số hình thức thường gặp.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 39. Sinh sản vô tính ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sinh sản vô tính có đặc điểm nào?",
+            "options": [
+              "Không có sự kết hợp giao tử đực và giao tử cái",
+              "Luôn có sự thụ tinh",
+              "Chỉ xảy ra ở động vật",
+              "Luôn tạo hạt và quả"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét vai trò của giao tử.",
+            "explanation": "Sinh sản vô tính không có sự kết hợp giữa giao tử đực và giao tử cái."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Phân đôi",
+                "right": "Một cơ thể tạo thành hai cơ thể"
+              },
+              {
+                "left": "Nảy chồi",
+                "right": "Cơ thể mới hình thành từ chồi"
+              },
+              {
+                "left": "Giâm cành",
+                "right": "Tạo cây mới từ đoạn cành"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Phân đôi: Một cơ thể tạo thành hai cơ thể; Nảy chồi: Cơ thể mới hình thành từ chồi; Giâm cành: Tạo cây mới từ đoạn cành."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Giâm cành là một hình thức sinh sản [blank] ở thực vật.",
+            "correctAnswer": "vô tính",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “vô tính”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Sinh sản vô tính",
+              "Sinh sản hữu tính"
+            ],
+            "items": [
+              {
+                "name": "Vi khuẩn phân đôi",
+                "catIndex": 0
+              },
+              {
+                "name": "Giâm cành cây hoa hồng",
+                "catIndex": 0
+              },
+              {
+                "name": "Nấm men nảy chồi",
+                "catIndex": 0
+              },
+              {
+                "name": "Cây tạo hạt sau thụ tinh",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Vi khuẩn phân đôi thuộc nhóm Sinh sản vô tính; Giâm cành cây hoa hồng thuộc nhóm Sinh sản vô tính; Nấm men nảy chồi thuộc nhóm Sinh sản vô tính; Cây tạo hạt sau thụ tinh thuộc nhóm Sinh sản hữu tính."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ở sinh sản vô tính, cơ thể mới có thể hình thành từ một [blank] ban đầu.",
+            "bankWords": [
+              "cơ thể",
+              "cặp giao tử",
+              "hợp tử"
+            ],
+            "correctWord": "cơ thể",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “cơ thể”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Mô tả vai trò của hoa, thụ phấn và thụ tinh trong sinh sản hữu tính ở cây có hoa.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 40. Sinh sản hữu tính ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thụ phấn ở cây có hoa là quá trình nào?",
+            "options": [
+              "Hạt phấn được chuyển đến đầu nhuỵ",
+              "Hạt nảy mầm trong đất",
+              "Quả chín và rụng",
+              "Rễ hút chất khoáng"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét đường đi của hạt phấn.",
+            "explanation": "Thụ phấn là sự chuyển hạt phấn đến đầu nhuỵ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nhị hoa",
+                "right": "Tạo hạt phấn"
+              },
+              {
+                "left": "Nhuỵ hoa",
+                "right": "Chứa bầu nhuỵ"
+              },
+              {
+                "left": "Thụ phấn",
+                "right": "Hạt phấn đến đầu nhuỵ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Nhị hoa: Tạo hạt phấn; Nhuỵ hoa: Chứa bầu nhuỵ; Thụ phấn: Hạt phấn đến đầu nhuỵ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sau thụ tinh, noãn thường phát triển thành [blank].",
+            "correctAnswer": "hạt",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “hạt”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan sinh sản hữu tính ở cây có hoa",
+              "Không trực tiếp là bước sinh sản hữu tính"
+            ],
+            "items": [
+              {
+                "name": "Tạo hạt phấn",
+                "catIndex": 0
+              },
+              {
+                "name": "Thụ phấn",
+                "catIndex": 0
+              },
+              {
+                "name": "Thụ tinh",
+                "catIndex": 0
+              },
+              {
+                "name": "Rễ hút nước",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Tạo hạt phấn thuộc nhóm Liên quan sinh sản hữu tính ở cây có hoa; Thụ phấn thuộc nhóm Liên quan sinh sản hữu tính ở cây có hoa; Thụ tinh thuộc nhóm Liên quan sinh sản hữu tính ở cây có hoa; Rễ hút nước thuộc nhóm Không trực tiếp là bước sinh sản hữu tính."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ở cây có hoa, bầu nhuỵ sau thụ tinh thường phát triển thành [blank].",
+            "bankWords": [
+              "quả",
+              "rễ",
+              "lá"
+            ],
+            "correctWord": "quả",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “quả”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Phân biệt thụ tinh với sự phát triển phôi ở động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 40. Sinh sản hữu tính ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thụ tinh là sự kết hợp giữa những tế bào nào?",
+            "options": [
+              "Giao tử đực và giao tử cái",
+              "Hai tế bào da",
+              "Hai tế bào lá",
+              "Một tế bào cơ và một tế bào máu"
+            ],
+            "answerIndex": 0,
+            "hint": "Đó là hai loại giao tử.",
+            "explanation": "Sự kết hợp giao tử đực và giao tử cái tạo thành hợp tử."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Giao tử đực ở nhiều động vật",
+                "right": "Tinh trùng"
+              },
+              {
+                "left": "Giao tử cái ở nhiều động vật",
+                "right": "Trứng"
+              },
+              {
+                "left": "Hợp tử",
+                "right": "Được tạo sau khi hai giao tử kết hợp"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Giao tử đực ở nhiều động vật: Tinh trùng; Giao tử cái ở nhiều động vật: Trứng; Hợp tử: Được tạo sau khi hai giao tử kết hợp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự kết hợp giao tử đực và giao tử cái tạo thành [blank].",
+            "correctAnswer": "hợp tử",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “hợp tử”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trước hoặc tại thụ tinh",
+              "Sau thụ tinh"
+            ],
+            "items": [
+              {
+                "name": "Tạo giao tử đực",
+                "catIndex": 0
+              },
+              {
+                "name": "Tạo giao tử cái",
+                "catIndex": 0
+              },
+              {
+                "name": "Giao tử kết hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Hợp tử phát triển thành phôi",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Tạo giao tử đực thuộc nhóm Trước hoặc tại thụ tinh; Tạo giao tử cái thuộc nhóm Trước hoặc tại thụ tinh; Giao tử kết hợp thuộc nhóm Trước hoặc tại thụ tinh; Hợp tử phát triển thành phôi thuộc nhóm Sau thụ tinh."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hợp tử tiếp tục phân chia và phát triển thành [blank].",
+            "bankWords": [
+              "phôi",
+              "hạt phấn",
+              "lông hút"
+            ],
+            "correctWord": "phôi",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “phôi”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Nêu tác động của các yếu tố môi trường đến sinh sản và mối liên hệ các quá trình sống.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 41. Một số yếu tố ảnh hưởng và điều hoà, điều khiển sinh sản ở sinh vật; Bài 42. Cơ thể sinh vật là một thể thống nhất"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao cây cần đủ nước và chất dinh dưỡng trước khi ra hoa, kết quả?",
+            "options": [
+              "Các quá trình sống liên hệ và hỗ trợ nhau",
+              "Sinh sản không cần trao đổi chất",
+              "Nước luôn ngăn cây ra hoa",
+              "Chỉ lá cây cần dinh dưỡng"
+            ],
+            "answerIndex": 0,
+            "hint": "Sinh sản cần vật chất và năng lượng.",
+            "explanation": "Trao đổi chất cung cấp vật chất, năng lượng hỗ trợ sinh trưởng và sinh sản."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trao đổi chất",
+                "right": "Cung cấp vật chất và năng lượng"
+              },
+              {
+                "left": "Sinh trưởng",
+                "right": "Giúp cơ thể đạt kích thước phù hợp"
+              },
+              {
+                "left": "Sinh sản",
+                "right": "Tạo thế hệ mới"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Trao đổi chất: Cung cấp vật chất và năng lượng; Sinh trưởng: Giúp cơ thể đạt kích thước phù hợp; Sinh sản: Tạo thế hệ mới."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trong cơ thể sinh vật, các quá trình sống có mối liên hệ [blank] với nhau.",
+            "correctAnswer": "chặt chẽ",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “chặt chẽ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hỗ trợ sinh sản ở cây trồng",
+              "Có thể cản trở sinh sản ở cây trồng"
+            ],
+            "items": [
+              {
+                "name": "Cung cấp nước phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Bón phân hợp lí",
+                "catIndex": 0
+              },
+              {
+                "name": "Ánh sáng phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Thiếu nước kéo dài",
+                "catIndex": 1
+              },
+              {
+                "name": "Dinh dưỡng quá thiếu",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Cung cấp nước phù hợp thuộc nhóm Hỗ trợ sinh sản ở cây trồng; Bón phân hợp lí thuộc nhóm Hỗ trợ sinh sản ở cây trồng; Ánh sáng phù hợp thuộc nhóm Hỗ trợ sinh sản ở cây trồng; Thiếu nước kéo dài thuộc nhóm Có thể cản trở sinh sản ở cây trồng; Dinh dưỡng quá thiếu thuộc nhóm Có thể cản trở sinh sản ở cây trồng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cơ thể sinh vật hoạt động như một thể [blank].",
+            "bankWords": [
+              "thống nhất",
+              "tách rời",
+              "bất biến"
+            ],
+            "correctWord": "thống nhất",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “thống nhất”."
+          }
+        }
+      ]
+    }
+  ]
+}

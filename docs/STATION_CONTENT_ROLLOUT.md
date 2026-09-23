@@ -16,10 +16,27 @@
 
 | Khối | Trạm | Trạng thái |
 |---|---|---|
-| 6 | `g6_st1` Kính hiển vi và tế bào | Đã soạn đủ 10 ải/50 trò, đang ở `draft`; cần nhập lại bản đã hiệu chỉnh nguồn trước khi duyệt |
-| 6 | `g6_st2` Từ tế bào đến cơ thể | Đã soạn đủ 10 ải/50 trò, đang chờ nhập `draft` và duyệt |
-| 6 | `g6_st3` Đa dạng thế giới sống | Đã soạn đủ 10 ải/50 trò, đang chờ nhập `draft` và duyệt |
-| 7–12 | 18 trạm hoạt động | Chờ biên soạn và duyệt |
+| 6 | `g6_st1` Kính hiển vi và tế bào | Đã soạn đủ 10 ải/50 trò; người vận hành báo đã chạy SQL nháp; cần xác minh trên Supabase và duyệt |
+| 6 | `g6_st2` Từ tế bào đến cơ thể | Đã soạn đủ 10 ải/50 trò; người vận hành báo đã chạy SQL nháp; cần xác minh trên Supabase và duyệt |
+| 6 | `g6_st3` Đa dạng thế giới sống | Đã soạn đủ 10 ải/50 trò; người vận hành báo đã chạy SQL nháp; cần xác minh trên Supabase và duyệt |
+| 7 | `g7_st1` Quang hợp và dinh dưỡng thực vật | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 7 | `g7_st2` Hô hấp và trao đổi ở sinh vật | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 7 | `g7_st3` Cảm ứng, sinh trưởng và sinh sản | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 8 | `g8_st1` Vận động, dinh dưỡng và tuần hoàn | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 8 | `g8_st2` Điều hoà cơ thể người | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 8 | `g8_st3` Sinh vật và môi trường | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 9 | `g9_st1` Mendel, nucleic acid và gene | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 9 | `g9_st2` Gene, nhiễm sắc thể và di truyền người | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 9 | `g9_st3` Tiến hoá | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 10 | `g10_st1` Thành phần hoá học và cấu trúc tế bào | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 10 | `g10_st2` Trao đổi và chuyển hoá trong tế bào | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 10 | `g10_st3` Phân bào, vi sinh vật và virus | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 11 | `g11_st1` Trao đổi chất và chuyển hoá năng lượng | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 11 | `g11_st2` Cảm ứng, sinh trưởng và phát triển | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 11 | `g11_st3` Sinh sản và tích hợp sinh lí | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 12 | `g12_st1` Di truyền phân tử và nhiễm sắc thể | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 12 | `g12_st2` Di truyền mở rộng và tiến hoá | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
+| 12 | `g12_st3` Sinh thái, bảo tồn và phát triển bền vững | Đã soạn đủ 10 ải/50 trò ở `draft`, có SQL nháp; cần duyệt kiến thức, thử giao diện và nhập Supabase |
 | 6–12 | Bảy trạm thứ tư | Giữ khóa, không tạo bản phát hành |
 
 ## Trình tự an toàn
@@ -32,6 +49,39 @@
 6. Gọi `admin_publish_station_release(release_id)`. Bản cũ được lưu để hoàn tác; nội dung đã phát hành bị khóa sửa trực tiếp.
 7. Lặp lại cho đủ 21 trạm.
 8. Chỉ sau khi 21 trạm đều có bản V2 hoàn chỉnh mới chạy `supabase_station_content_v2_cutover.sql`. Migration này tự chặn nếu thiếu bất kỳ trạm nào; khi đạt điều kiện, nó khóa đường đọc đáp án và tự khai sao của hệ thống cũ.
+
+### Điểm tiếp tục sau khi chạy ba SQL lớp 6
+
+Người vận hành đã báo chạy đủ ba SQL lớp 6. Chưa có kết quả truy vấn xác minh trên Supabase được ghi nhận trong repo, nên không coi ba bản nháp là đã phát hành. Kiểm tra `status = draft`, `item_count = 50`, `day_count = 10` cho từng release và thử năm trò trên giao diện trước khi phát hành.
+
+Các trạm lớp 7–12 có nguồn tại `content/stations/grade-07/` đến `grade-12/` và SQL nháp tại `generated/station-releases/`. Trước khi chạy SQL, người duyệt cần đọc lại nội dung trên PDF gốc và xác nhận câu chữ, đáp án cùng giao diện. Các nguồn SGK lớp 12 có vài nhãn số bài không rõ trong bản TXT OCR nên tham chiếu theo tên chương/chủ đề; khi duyệt phải kiểm tra lại PDF gốc. SQL chỉ tạo/cập nhật release `draft`.
+
+Để xác minh các bản nháp đã nhập vào Supabase, chạy truy vấn chỉ đọc sau trong SQL Editor. Mỗi release đã nhập đúng phải có `status = draft`, `item_count = 50`, `day_count = 10`, `game_type_count = 5`. Trạm chưa nhập sẽ không xuất hiện.
+
+```sql
+select r.grade, r.station_id, r.version, r.status,
+       count(i.id) as item_count,
+       count(distinct i.day_index) as day_count,
+       count(distinct i.game_type) as game_type_count
+from public.station_content_releases r
+left join public.station_content_items i on i.release_id = r.id
+where r.version ~ '^g(6|7|8|9|10|11|12)-st[1-3]-2026[.]1$'
+group by r.id, r.grade, r.station_id, r.version, r.status
+order by r.grade, r.station_id;
+```
+
+Sau khi nhập từng trạm, kiểm tra các ải lỗi; truy vấn này phải trả về 0 dòng cho những release đã nhập:
+
+```sql
+select r.version, i.day_index, count(*) as game_count,
+       count(distinct i.game_type) as unique_game_types
+from public.station_content_releases r
+join public.station_content_items i on i.release_id = r.id
+where r.version ~ '^g(6|7|8|9|10|11|12)-st[1-3]-2026[.]1$'
+group by r.version, i.day_index
+having count(*) <> 5 or count(distinct i.game_type) <> 5
+order by r.version, i.day_index;
+```
 
 ## Bảo mật và tính toàn vẹn
 

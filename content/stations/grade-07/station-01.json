@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g7-st1-2026.1",
+  "grade": 7,
+  "stationId": "g7_st1",
+  "title": "Lớp 7 - Trạm 1: Quang hợp và dinh dưỡng thực vật",
+  "status": "draft",
+  "notes": "Nội dung soạn theo các Bài 21–24, 29–30, 32 của SGK KHTN 7 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Phân biệt trao đổi chất với chuyển hoá năng lượng và nêu vai trò của chúng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 21. Khái quát về trao đổi chất và chuyển hoá năng lượng"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Quá trình nào là một biểu hiện của trao đổi chất ở cây?",
+            "options": [
+              "Rễ hấp thụ nước từ đất",
+              "Lá đổi hướng do gió",
+              "Thân cao thêm do đo bằng thước",
+              "Lá rung khi chạm vào"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét sự lấy chất từ môi trường.",
+            "explanation": "Rễ lấy nước từ đất là một phần của quá trình trao đổi chất."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Trao đổi chất",
+                "right": "Lấy, biến đổi và thải các chất"
+              },
+              {
+                "left": "Chuyển hoá năng lượng",
+                "right": "Biến đổi năng lượng từ dạng này sang dạng khác"
+              },
+              {
+                "left": "Quang hợp",
+                "right": "Biến quang năng thành hoá năng"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 1.",
+            "explanation": "Trao đổi chất: Lấy, biến đổi và thải các chất; Chuyển hoá năng lượng: Biến đổi năng lượng từ dạng này sang dạng khác; Quang hợp: Biến quang năng thành hoá năng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trong quang hợp, quang năng được biến đổi thành [blank] năng tích luỹ trong chất hữu cơ.",
+            "correctAnswer": "hoá",
+            "hint": "Dựa vào nội dung của ải 1.",
+            "explanation": "Từ cần điền là “hoá”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trao đổi chất",
+              "Chuyển hoá năng lượng"
+            ],
+            "items": [
+              {
+                "name": "Rễ hấp thụ nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Lá nhận khí carbon dioxide",
+                "catIndex": 0
+              },
+              {
+                "name": "Thải oxygen ra môi trường",
+                "catIndex": 0
+              },
+              {
+                "name": "Quang năng biến thành hoá năng",
+                "catIndex": 1
+              },
+              {
+                "name": "Hoá năng biến thành nhiệt năng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 1.",
+            "explanation": "Rễ hấp thụ nước thuộc nhóm Trao đổi chất; Lá nhận khí carbon dioxide thuộc nhóm Trao đổi chất; Thải oxygen ra môi trường thuộc nhóm Trao đổi chất; Quang năng biến thành hoá năng thuộc nhóm Chuyển hoá năng lượng; Hoá năng biến thành nhiệt năng thuộc nhóm Chuyển hoá năng lượng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sinh vật lấy chất từ môi trường, biến đổi và thải chất là quá trình [blank].",
+            "bankWords": [
+              "trao đổi chất",
+              "sinh sản",
+              "cảm ứng"
+            ],
+            "correctWord": "trao đổi chất",
+            "hint": "Dựa vào nội dung của ải 1.",
+            "explanation": "Từ đúng là “trao đổi chất”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Xác định nguyên liệu, sản phẩm và điều kiện của quang hợp.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 22. Quang hợp ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nguyên liệu trực tiếp của quá trình quang hợp là gì?",
+            "options": [
+              "Nước và carbon dioxide",
+              "Glucose và oxygen",
+              "Nước và oxygen",
+              "Chất khoáng và glucose"
+            ],
+            "answerIndex": 0,
+            "hint": "Xem các chất cây lấy vào để tổng hợp chất hữu cơ.",
+            "explanation": "Cây sử dụng nước và carbon dioxide để tạo chất hữu cơ trong quang hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nước",
+                "right": "Được rễ hấp thụ từ đất"
+              },
+              {
+                "left": "Carbon dioxide",
+                "right": "Được lá nhận từ không khí"
+              },
+              {
+                "left": "Oxygen",
+                "right": "Được tạo ra và giải phóng khi quang hợp"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 2.",
+            "explanation": "Nước: Được rễ hấp thụ từ đất; Carbon dioxide: Được lá nhận từ không khí; Oxygen: Được tạo ra và giải phóng khi quang hợp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Quang hợp sử dụng năng lượng [blank] để tổng hợp chất hữu cơ.",
+            "correctAnswer": "ánh sáng",
+            "hint": "Dựa vào nội dung của ải 2.",
+            "explanation": "Từ cần điền là “ánh sáng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Nguyên liệu quang hợp",
+              "Sản phẩm quang hợp"
+            ],
+            "items": [
+              {
+                "name": "Nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Carbon dioxide",
+                "catIndex": 0
+              },
+              {
+                "name": "Chất hữu cơ",
+                "catIndex": 1
+              },
+              {
+                "name": "Oxygen",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 2.",
+            "explanation": "Nước thuộc nhóm Nguyên liệu quang hợp; Carbon dioxide thuộc nhóm Nguyên liệu quang hợp; Chất hữu cơ thuộc nhóm Sản phẩm quang hợp; Oxygen thuộc nhóm Sản phẩm quang hợp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Lá cây nhận khí [blank] từ không khí để quang hợp.",
+            "bankWords": [
+              "carbon dioxide",
+              "oxygen",
+              "nitrogen"
+            ],
+            "correctWord": "carbon dioxide",
+            "hint": "Dựa vào nội dung của ải 2.",
+            "explanation": "Từ đúng là “carbon dioxide”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Giải thích vai trò của lá, lục lạp và khí khổng trong quang hợp.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 22. Quang hợp ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Quang hợp ở cây xanh diễn ra chủ yếu trong bào quan nào?",
+            "options": [
+              "Lục lạp",
+              "Không bào",
+              "Nhân tế bào",
+              "Ty thể"
+            ],
+            "answerIndex": 0,
+            "hint": "Bào quan này chứa sắc tố quang hợp.",
+            "explanation": "Lục lạp là bào quan thực hiện quang hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Lục lạp",
+                "right": "Bào quan thực hiện quang hợp"
+              },
+              {
+                "left": "Khí khổng",
+                "right": "Nơi trao đổi khí của lá với môi trường"
+              },
+              {
+                "left": "Phiến lá rộng",
+                "right": "Giúp lá nhận nhiều ánh sáng"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 3.",
+            "explanation": "Lục lạp: Bào quan thực hiện quang hợp; Khí khổng: Nơi trao đổi khí của lá với môi trường; Phiến lá rộng: Giúp lá nhận nhiều ánh sáng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Quang hợp ở thực vật diễn ra chủ yếu trong [blank] của tế bào lá.",
+            "correctAnswer": "lục lạp",
+            "hint": "Dựa vào nội dung của ải 3.",
+            "explanation": "Từ cần điền là “lục lạp”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hỗ trợ lá quang hợp",
+              "Không trực tiếp hỗ trợ lá quang hợp"
+            ],
+            "items": [
+              {
+                "name": "Lục lạp chứa sắc tố",
+                "catIndex": 0
+              },
+              {
+                "name": "Phiến lá nhận ánh sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Khí khổng trao đổi khí",
+                "catIndex": 0
+              },
+              {
+                "name": "Gai nhọn bảo vệ thân",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 3.",
+            "explanation": "Lục lạp chứa sắc tố thuộc nhóm Hỗ trợ lá quang hợp; Phiến lá nhận ánh sáng thuộc nhóm Hỗ trợ lá quang hợp; Khí khổng trao đổi khí thuộc nhóm Hỗ trợ lá quang hợp; Gai nhọn bảo vệ thân thuộc nhóm Không trực tiếp hỗ trợ lá quang hợp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khí [blank] từ không khí đi vào lá qua khí khổng để tham gia quang hợp.",
+            "bankWords": [
+              "carbon dioxide",
+              "oxygen",
+              "hydrogen"
+            ],
+            "correctWord": "carbon dioxide",
+            "hint": "Dựa vào nội dung của ải 3.",
+            "explanation": "Từ đúng là “carbon dioxide”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nêu ảnh hưởng của ánh sáng, carbon dioxide, nước và nhiệt độ tới quang hợp.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 23. Một số yếu tố ảnh hưởng đến quang hợp"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi thiếu ánh sáng nghiêm trọng, quá trình quang hợp của cây thường thế nào?",
+            "options": [
+              "Giảm",
+              "Luôn tăng",
+              "Không đổi trong mọi trường hợp",
+              "Chuyển thành hô hấp"
+            ],
+            "answerIndex": 0,
+            "hint": "Ánh sáng cung cấp năng lượng cho quang hợp.",
+            "explanation": "Thiếu ánh sáng làm giảm quang hợp vì cây nhận ít năng lượng ánh sáng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Ánh sáng",
+                "right": "Cung cấp năng lượng cho quang hợp"
+              },
+              {
+                "left": "Nước",
+                "right": "Là nguyên liệu của quang hợp"
+              },
+              {
+                "left": "Carbon dioxide",
+                "right": "Là nguyên liệu cây nhận từ không khí"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 4.",
+            "explanation": "Ánh sáng: Cung cấp năng lượng cho quang hợp; Nước: Là nguyên liệu của quang hợp; Carbon dioxide: Là nguyên liệu cây nhận từ không khí."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ngoài ánh sáng và nước, khí [blank] cũng ảnh hưởng đến quang hợp.",
+            "correctAnswer": "carbon dioxide",
+            "hint": "Dựa vào nội dung của ải 4.",
+            "explanation": "Từ cần điền là “carbon dioxide”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Yếu tố ảnh hưởng đến quang hợp",
+              "Không phải yếu tố trực tiếp của quang hợp"
+            ],
+            "items": [
+              {
+                "name": "Cường độ ánh sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Lượng nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Nhiệt độ",
+                "catIndex": 0
+              },
+              {
+                "name": "Màu sơn chậu cây",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 4.",
+            "explanation": "Cường độ ánh sáng thuộc nhóm Yếu tố ảnh hưởng đến quang hợp; Lượng nước thuộc nhóm Yếu tố ảnh hưởng đến quang hợp; Nhiệt độ thuộc nhóm Yếu tố ảnh hưởng đến quang hợp; Màu sơn chậu cây thuộc nhóm Không phải yếu tố trực tiếp của quang hợp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cần đặt cây ở nơi có [blank] phù hợp để cây quang hợp.",
+            "bankWords": [
+              "ánh sáng",
+              "bóng tối hoàn toàn",
+              "khói bụi"
+            ],
+            "correctWord": "ánh sáng",
+            "hint": "Dựa vào nội dung của ải 4.",
+            "explanation": "Từ đúng là “ánh sáng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Giải thích cách dùng lá được che sáng để kiểm tra vai trò của ánh sáng đối với quang hợp.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 24. Thực hành: Chứng minh quang hợp ở cây xanh"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong thí nghiệm kiểm tra vai trò của ánh sáng, phần lá bị che kín dùng để làm gì?",
+            "options": [
+              "Đối chứng với phần lá được chiếu sáng",
+              "Làm lá nhận thêm ánh sáng",
+              "Cung cấp tinh bột cho lá",
+              "Tăng lượng nước đi vào lá"
+            ],
+            "answerIndex": 0,
+            "hint": "So sánh hai vùng trên cùng một lá.",
+            "explanation": "Phần lá bị che tạo đối chứng để so sánh với phần được chiếu sáng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Che một phần lá",
+                "right": "Tạo vùng không nhận ánh sáng"
+              },
+              {
+                "left": "Phần lá được chiếu sáng",
+                "right": "Có điều kiện tạo tinh bột"
+              },
+              {
+                "left": "Dung dịch iodine",
+                "right": "Dùng nhận biết tinh bột"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 5.",
+            "explanation": "Che một phần lá: Tạo vùng không nhận ánh sáng; Phần lá được chiếu sáng: Có điều kiện tạo tinh bột; Dung dịch iodine: Dùng nhận biết tinh bột."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Dung dịch [blank] được dùng để nhận biết tinh bột trong lá.",
+            "correctAnswer": "iodine",
+            "hint": "Dựa vào nội dung của ải 5.",
+            "explanation": "Từ cần điền là “iodine”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Dùng để kiểm tra vai trò ánh sáng",
+              "Không giúp kiểm tra vai trò ánh sáng"
+            ],
+            "items": [
+              {
+                "name": "Che kín một phần lá",
+                "catIndex": 0
+              },
+              {
+                "name": "So sánh hai vùng của lá",
+                "catIndex": 0
+              },
+              {
+                "name": "Thử tinh bột ở lá",
+                "catIndex": 0
+              },
+              {
+                "name": "Chỉ quan sát chiều cao của chậu",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 5.",
+            "explanation": "Che kín một phần lá thuộc nhóm Dùng để kiểm tra vai trò ánh sáng; So sánh hai vùng của lá thuộc nhóm Dùng để kiểm tra vai trò ánh sáng; Thử tinh bột ở lá thuộc nhóm Dùng để kiểm tra vai trò ánh sáng; Chỉ quan sát chiều cao của chậu thuộc nhóm Không giúp kiểm tra vai trò ánh sáng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Vùng lá không được chiếu sáng là vùng [blank] trong phép so sánh.",
+            "bankWords": [
+              "đối chứng",
+              "được bón phân",
+              "được tưới nước"
+            ],
+            "correctWord": "đối chứng",
+            "hint": "Dựa vào nội dung của ải 5.",
+            "explanation": "Từ đúng là “đối chứng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nêu vai trò của nước và chất dinh dưỡng đối với đời sống thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 29. Vai trò của nước và chất dinh dưỡng đối với sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nước giúp cây thực hiện chức năng nào sau đây?",
+            "options": [
+              "Vận chuyển các chất trong cơ thể",
+              "Thay thế hoàn toàn ánh sáng",
+              "Tạo ra chất khoáng từ hư không",
+              "Ngừng thoát hơi nước vĩnh viễn"
+            ],
+            "answerIndex": 0,
+            "hint": "Nước là môi trường hoà tan nhiều chất.",
+            "explanation": "Nước góp phần hoà tan và vận chuyển các chất trong cây."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nước",
+                "right": "Là thành phần và môi trường cho nhiều quá trình sống"
+              },
+              {
+                "left": "Chất khoáng",
+                "right": "Cần cho sinh trưởng và phát triển"
+              },
+              {
+                "left": "Thiếu nước kéo dài",
+                "right": "Có thể làm cây héo"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 6.",
+            "explanation": "Nước: Là thành phần và môi trường cho nhiều quá trình sống; Chất khoáng: Cần cho sinh trưởng và phát triển; Thiếu nước kéo dài: Có thể làm cây héo."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cây cần hấp thụ nước và chất [blank] từ đất để sinh trưởng.",
+            "correctAnswer": "khoáng",
+            "hint": "Dựa vào nội dung của ải 6.",
+            "explanation": "Từ cần điền là “khoáng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vai trò của nước",
+              "Biểu hiện cây thiếu nước"
+            ],
+            "items": [
+              {
+                "name": "Hoà tan chất khoáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Tham gia vận chuyển chất",
+                "catIndex": 0
+              },
+              {
+                "name": "Lá héo rũ",
+                "catIndex": 1
+              },
+              {
+                "name": "Sinh trưởng kém khi khô hạn",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 6.",
+            "explanation": "Hoà tan chất khoáng thuộc nhóm Vai trò của nước; Tham gia vận chuyển chất thuộc nhóm Vai trò của nước; Lá héo rũ thuộc nhóm Biểu hiện cây thiếu nước; Sinh trưởng kém khi khô hạn thuộc nhóm Biểu hiện cây thiếu nước."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nước góp phần [blank] các chất dinh dưỡng trong cơ thể cây.",
+            "bankWords": [
+              "vận chuyển",
+              "loại bỏ hoàn toàn",
+              "ngăn cản"
+            ],
+            "correctWord": "vận chuyển",
+            "hint": "Dựa vào nội dung của ải 6.",
+            "explanation": "Từ đúng là “vận chuyển”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Mô tả con đường hấp thụ nước và chất khoáng từ đất vào rễ.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 30. Trao đổi nước và chất dinh dưỡng ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ở phần lớn cây trên cạn, bộ phận nào của rễ hấp thụ nước và chất khoáng chủ yếu?",
+            "options": [
+              "Tế bào lông hút",
+              "Chóp rễ đã hoá gỗ",
+              "Hoa",
+              "Quả"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là tế bào biểu bì rễ biến dạng.",
+            "explanation": "Tế bào lông hút hấp thụ nước và chất khoáng hoà tan từ đất."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Đất",
+                "right": "Chứa nước và chất khoáng hoà tan"
+              },
+              {
+                "left": "Lông hút",
+                "right": "Hấp thụ nước và chất khoáng"
+              },
+              {
+                "left": "Mạch gỗ",
+                "right": "Vận chuyển nước và chất khoáng lên thân lá"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 7.",
+            "explanation": "Đất: Chứa nước và chất khoáng hoà tan; Lông hút: Hấp thụ nước và chất khoáng; Mạch gỗ: Vận chuyển nước và chất khoáng lên thân lá."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nước và chất khoáng hoà tan từ đất thường đi vào rễ qua tế bào [blank].",
+            "correctAnswer": "lông hút",
+            "hint": "Dựa vào nội dung của ải 7.",
+            "explanation": "Từ cần điền là “lông hút”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Trên đường nước đi từ đất lên lá",
+              "Không thuộc đường đi đó"
+            ],
+            "items": [
+              {
+                "name": "Lông hút",
+                "catIndex": 0
+              },
+              {
+                "name": "Mạch gỗ ở rễ",
+                "catIndex": 0
+              },
+              {
+                "name": "Mạch gỗ ở thân",
+                "catIndex": 0
+              },
+              {
+                "name": "Mạch rây chuyển chất hữu cơ từ lá",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 7.",
+            "explanation": "Lông hút thuộc nhóm Trên đường nước đi từ đất lên lá; Mạch gỗ ở rễ thuộc nhóm Trên đường nước đi từ đất lên lá; Mạch gỗ ở thân thuộc nhóm Trên đường nước đi từ đất lên lá; Mạch rây chuyển chất hữu cơ từ lá thuộc nhóm Không thuộc đường đi đó."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Nước từ đất được lông hút hấp thụ rồi đi vào [blank] để lên thân.",
+            "bankWords": [
+              "mạch gỗ",
+              "mạch rây",
+              "quả"
+            ],
+            "correctWord": "mạch gỗ",
+            "hint": "Dựa vào nội dung của ải 7.",
+            "explanation": "Từ đúng là “mạch gỗ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Phân biệt chức năng vận chuyển của mạch gỗ và mạch rây.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 30. Trao đổi nước và chất dinh dưỡng ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mạch rây chủ yếu vận chuyển chất nào từ lá tới các cơ quan khác?",
+            "options": [
+              "Chất hữu cơ",
+              "Cát",
+              "Đá",
+              "Không khí"
+            ],
+            "answerIndex": 0,
+            "hint": "Chất này được tạo ra nhờ quang hợp.",
+            "explanation": "Mạch rây vận chuyển chất hữu cơ được tổng hợp ở lá tới các bộ phận khác của cây."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mạch gỗ",
+                "right": "Đưa nước và chất khoáng từ rễ lên"
+              },
+              {
+                "left": "Mạch rây",
+                "right": "Đưa chất hữu cơ từ lá tới cơ quan khác"
+              },
+              {
+                "left": "Lá",
+                "right": "Nơi tạo nhiều chất hữu cơ nhờ quang hợp"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 8.",
+            "explanation": "Mạch gỗ: Đưa nước và chất khoáng từ rễ lên; Mạch rây: Đưa chất hữu cơ từ lá tới cơ quan khác; Lá: Nơi tạo nhiều chất hữu cơ nhờ quang hợp."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Dòng vận chuyển nước và chất khoáng từ rễ lên lá diễn ra trong mạch [blank].",
+            "correctAnswer": "gỗ",
+            "hint": "Dựa vào nội dung của ải 8.",
+            "explanation": "Từ cần điền là “gỗ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Gắn với mạch gỗ",
+              "Gắn với mạch rây"
+            ],
+            "items": [
+              {
+                "name": "Vận chuyển nước",
+                "catIndex": 0
+              },
+              {
+                "name": "Vận chuyển chất khoáng từ rễ",
+                "catIndex": 0
+              },
+              {
+                "name": "Vận chuyển chất hữu cơ từ lá",
+                "catIndex": 1
+              },
+              {
+                "name": "Đưa sản phẩm quang hợp tới cơ quan khác",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 8.",
+            "explanation": "Vận chuyển nước thuộc nhóm Gắn với mạch gỗ; Vận chuyển chất khoáng từ rễ thuộc nhóm Gắn với mạch gỗ; Vận chuyển chất hữu cơ từ lá thuộc nhóm Gắn với mạch rây; Đưa sản phẩm quang hợp tới cơ quan khác thuộc nhóm Gắn với mạch rây."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Chất hữu cơ do lá tạo ra được vận chuyển trong mạch [blank].",
+            "bankWords": [
+              "rây",
+              "gỗ",
+              "khí"
+            ],
+            "correctWord": "rây",
+            "hint": "Dựa vào nội dung của ải 8.",
+            "explanation": "Từ đúng là “rây”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Mô tả thoát hơi nước qua lá và vai trò đóng mở của khí khổng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 30. Trao đổi nước và chất dinh dưỡng ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Phần lớn hơi nước thoát ra khỏi lá qua cấu trúc nào?",
+            "options": [
+              "Khí khổng",
+              "Mạch gỗ trong rễ",
+              "Hạt",
+              "Hoa"
+            ],
+            "answerIndex": 0,
+            "hint": "Cấu trúc này có thể đóng và mở.",
+            "explanation": "Khí khổng là con đường chủ yếu để hơi nước thoát ra khỏi lá."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Khí khổng mở",
+                "right": "Tạo điều kiện trao đổi khí và thoát hơi nước"
+              },
+              {
+                "left": "Khí khổng đóng",
+                "right": "Giảm thoát hơi nước"
+              },
+              {
+                "left": "Thoát hơi nước",
+                "right": "Góp phần tạo lực kéo dòng nước trong mạch gỗ"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 9.",
+            "explanation": "Khí khổng mở: Tạo điều kiện trao đổi khí và thoát hơi nước; Khí khổng đóng: Giảm thoát hơi nước; Thoát hơi nước: Góp phần tạo lực kéo dòng nước trong mạch gỗ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự đóng mở của [blank] điều tiết quá trình thoát hơi nước ở lá.",
+            "correctAnswer": "khí khổng",
+            "hint": "Dựa vào nội dung của ải 9.",
+            "explanation": "Từ cần điền là “khí khổng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Khi khí khổng mở",
+              "Khi khí khổng đóng"
+            ],
+            "items": [
+              {
+                "name": "Hơi nước dễ thoát ra hơn",
+                "catIndex": 0
+              },
+              {
+                "name": "Carbon dioxide dễ đi vào lá hơn",
+                "catIndex": 0
+              },
+              {
+                "name": "Hạn chế mất nước hơn",
+                "catIndex": 1
+              },
+              {
+                "name": "Trao đổi khí qua khí khổng giảm",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 9.",
+            "explanation": "Hơi nước dễ thoát ra hơn thuộc nhóm Khi khí khổng mở; Carbon dioxide dễ đi vào lá hơn thuộc nhóm Khi khí khổng mở; Hạn chế mất nước hơn thuộc nhóm Khi khí khổng đóng; Trao đổi khí qua khí khổng giảm thuộc nhóm Khi khí khổng đóng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Thoát hơi nước ở lá góp phần kéo nước đi lên trong mạch [blank].",
+            "bankWords": [
+              "gỗ",
+              "rây",
+              "đường"
+            ],
+            "correctWord": "gỗ",
+            "hint": "Dựa vào nội dung của ải 9.",
+            "explanation": "Từ đúng là “gỗ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Vận dụng kiến thức trao đổi nước để tưới và bón phân hợp lí cho cây.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 7 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 30. Trao đổi nước và chất dinh dưỡng ở thực vật; Bài 32. Thực hành: Chứng minh thân vận chuyển nước và lá thoát hơi nước"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi đất khô kéo dài, biện pháp nào phù hợp để chăm sóc cây?",
+            "options": [
+              "Tưới nước với lượng phù hợp",
+              "Bón phân thật đậm đặc thay nước",
+              "Cắt hết rễ hút nước",
+              "Để cây tiếp tục thiếu nước"
+            ],
+            "answerIndex": 0,
+            "hint": "Cây cần nước để hấp thụ và vận chuyển chất.",
+            "explanation": "Tưới đủ nước theo nhu cầu giúp cây duy trì trao đổi nước."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tưới đúng nhu cầu",
+                "right": "Tránh thiếu hoặc thừa nước"
+              },
+              {
+                "left": "Bón phân hợp lí",
+                "right": "Cung cấp chất khoáng ở lượng phù hợp"
+              },
+              {
+                "left": "Phủ gốc cây",
+                "right": "Giúp hạn chế nước bốc hơi từ đất"
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 10.",
+            "explanation": "Tưới đúng nhu cầu: Tránh thiếu hoặc thừa nước; Bón phân hợp lí: Cung cấp chất khoáng ở lượng phù hợp; Phủ gốc cây: Giúp hạn chế nước bốc hơi từ đất."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tưới quá nhiều nước liên tục có thể làm rễ thiếu [blank].",
+            "correctAnswer": "oxygen",
+            "hint": "Dựa vào nội dung của ải 10.",
+            "explanation": "Từ cần điền là “oxygen”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Chăm sóc cây hợp lí",
+              "Chăm sóc cây không hợp lí"
+            ],
+            "items": [
+              {
+                "name": "Quan sát độ ẩm đất trước khi tưới",
+                "catIndex": 0
+              },
+              {
+                "name": "Tưới phù hợp nhu cầu loài cây",
+                "catIndex": 0
+              },
+              {
+                "name": "Bón phân đúng lượng",
+                "catIndex": 0
+              },
+              {
+                "name": "Bón phân đậm đặc tùy ý",
+                "catIndex": 1
+              },
+              {
+                "name": "Để đất ngập úng kéo dài",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào nội dung của ải 10.",
+            "explanation": "Quan sát độ ẩm đất trước khi tưới thuộc nhóm Chăm sóc cây hợp lí; Tưới phù hợp nhu cầu loài cây thuộc nhóm Chăm sóc cây hợp lí; Bón phân đúng lượng thuộc nhóm Chăm sóc cây hợp lí; Bón phân đậm đặc tùy ý thuộc nhóm Chăm sóc cây không hợp lí; Để đất ngập úng kéo dài thuộc nhóm Chăm sóc cây không hợp lí."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi tưới cây cần cân nhắc nhu cầu của cây và độ [blank] của đất.",
+            "bankWords": [
+              "ẩm",
+              "cứng",
+              "mặn luôn luôn"
+            ],
+            "correctWord": "ẩm",
+            "hint": "Dựa vào nội dung của ải 10.",
+            "explanation": "Từ đúng là “ẩm”."
+          }
+        }
+      ]
+    }
+  ]
+}

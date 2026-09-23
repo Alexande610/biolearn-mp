@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Nêu vai trò của các nguyên tố hoá học và nước đối với tế bào.', lesson: 'Bài 4. Các nguyên tố hoá học và nước',
+    quiz: ['Nguyên tố nào thuộc nhóm nguyên tố đa lượng chủ yếu trong tế bào?', ['Carbon', 'Sắt', 'Kẽm', 'Iodine'], 0, 'Nguyên tố này tạo khung của nhiều phân tử hữu cơ.', 'Carbon là nguyên tố đa lượng, tạo bộ khung của nhiều phân tử hữu cơ.'],
+    match: [['Carbon', 'Tạo khung phân tử hữu cơ'], ['Nước', 'Dung môi và môi trường phản ứng'], ['Nguyên tố vi lượng', 'Cần lượng nhỏ nhưng vẫn quan trọng']],
+    fill: ['Phân tử nước có tính [blank] nên hoà tan nhiều chất phân cực.', 'phân cực'],
+    category: [['Nguyên tố đa lượng chủ yếu', 'Nguyên tố vi lượng'], [['Carbon', 0], ['Hydrogen', 0], ['Oxygen', 0], ['Sắt', 1], ['Kẽm', 1]]],
+    drag: ['Nước là thành phần chiếm tỉ lệ lớn trong nhiều [blank].', ['tế bào', 'hòn đá khô', 'vật kim loại'], 'tế bào'],
+  },
+  {
+    objective: 'Phân biệt các loại carbohydrate và chức năng chính.', lesson: 'Bài 5. Các phân tử sinh học',
+    quiz: ['Phân tử nào là polysaccharide dự trữ ở thực vật?', ['Tinh bột', 'Glucose', 'Fructose', 'Saccharose'], 0, 'Được tạo từ nhiều đơn phân glucose.', 'Tinh bột là polysaccharide dự trữ phổ biến ở thực vật.'],
+    match: [['Glucose', 'Đường đơn'], ['Saccharose', 'Đường đôi'], ['Tinh bột', 'Đường đa dự trữ ở thực vật']],
+    fill: ['Cellulose là thành phần quan trọng của thành tế bào [blank].', 'thực vật'],
+    category: [['Đường đơn', 'Đường đa'], [['Glucose', 0], ['Fructose', 0], ['Tinh bột', 1], ['Cellulose', 1]]],
+    drag: ['Carbohydrate có thể cung cấp và dự trữ [blank] cho tế bào.', ['năng lượng', 'ánh sáng', 'âm thanh'], 'năng lượng'],
+  },
+  {
+    objective: 'Nêu tính chất và vai trò của lipid.', lesson: 'Bài 5. Các phân tử sinh học',
+    quiz: ['Phospholipid có vai trò cấu trúc quan trọng ở đâu?', ['Màng tế bào', 'Thành cellulose', 'DNA', 'Ribosome'], 0, 'Phân tử này tạo lớp kép.', 'Phospholipid là thành phần quan trọng của lớp kép màng tế bào.'],
+    match: [['Triglyceride', 'Dự trữ năng lượng'], ['Phospholipid', 'Tạo lớp kép màng'], ['Steroid', 'Một nhóm lipid có nhiều chức năng']],
+    fill: ['Lớp kép của màng tế bào chủ yếu được tạo bởi [blank].', 'phospholipid'],
+    category: [['Lipid', 'Không phải lipid'], [['Dầu thực vật', 0], ['Mỡ động vật', 0], ['Phospholipid', 0], ['Glucose', 1]]],
+    drag: ['Lipid thường ít tan trong [blank].', ['nước', 'dung môi hữu cơ', 'dầu'], 'nước'],
+  },
+  {
+    objective: 'Nhận biết cấu trúc bậc một và vai trò đa dạng của protein.', lesson: 'Bài 5. Các phân tử sinh học',
+    quiz: ['Đơn phân cấu tạo protein là gì?', ['Amino acid', 'Nucleotide', 'Glucose', 'Acid béo'], 0, 'Các đơn phân nối nhau bằng liên kết peptide.', 'Protein là chuỗi các amino acid.'],
+    match: [['Amino acid', 'Đơn phân cấu tạo protein'], ['Enzyme', 'Protein xúc tác nhiều phản ứng'], ['Collagen', 'Protein cấu trúc trong mô liên kết']],
+    fill: ['Liên kết nối các amino acid trong chuỗi protein gọi là liên kết [blank].', 'peptide'],
+    category: [['Protein hoặc thành phần của protein', 'Không phải protein'], [['Enzyme amylase', 0], ['Collagen', 0], ['Amino acid', 0], ['Tinh bột', 1]]],
+    drag: ['Trình tự các [blank] tạo nên cấu trúc bậc một của protein.', ['amino acid', 'nucleotide', 'đường đơn'], 'amino acid'],
+  },
+  {
+    objective: 'So sánh chức năng cơ bản của DNA và RNA.', lesson: 'Bài 5. Các phân tử sinh học',
+    quiz: ['DNA có chức năng nổi bật nào?', ['Lưu giữ thông tin di truyền', 'Tạo lớp kép màng tế bào', 'Dự trữ tinh bột', 'Vận chuyển oxygen trong máu'], 0, 'Gene là đoạn của phân tử này.', 'DNA lưu giữ và truyền đạt thông tin di truyền.'],
+    match: [['DNA', 'Lưu giữ thông tin di truyền'], ['mRNA', 'Mang thông tin đến nơi tổng hợp protein'], ['Nucleotide', 'Đơn phân của nucleic acid']],
+    fill: ['DNA và RNA đều thuộc nhóm phân tử [blank] acid.', 'nucleic'],
+    category: [['Đặc trưng DNA', 'Đặc trưng RNA'], [['Thường hai mạch', 0], ['Có base T', 0], ['Thường một mạch', 1], ['Có base U', 1]]],
+    drag: ['RNA thường chứa base U thay cho base [blank] ở DNA.', ['T', 'A', 'G'], 'T'],
+  },
+  {
+    objective: 'Giải thích nguyên tắc dùng thuốc thử để nhận biết một số phân tử sinh học.', lesson: 'Bài 6. Thực hành: Nhận biết một số phân tử sinh học',
+    quiz: ['Dung dịch iodine thường dùng để nhận biết chất nào?', ['Tinh bột', 'Lipid', 'DNA', 'Nước'], 0, 'Tạo màu xanh tím đặc trưng.', 'Iodine cho phản ứng màu đặc trưng với tinh bột.'],
+    match: [['Iodine', 'Nhận biết tinh bột'], ['Biuret', 'Nhận biết protein'], ['Giấy thấm', 'Có thể phát hiện vết dầu mỡ']],
+    fill: ['Phản ứng màu với thuốc thử biuret giúp nhận biết [blank].', 'protein'],
+    category: [['Thuốc thử hoặc cách nhận biết', 'Chất cần nhận biết'], [['Iodine', 0], ['Biuret', 0], ['Tinh bột', 1], ['Protein', 1]]],
+    drag: ['Khi làm thực hành, mẫu [blank] giúp so sánh kết quả phản ứng màu.', ['đối chứng', 'không ghi nhãn', 'bị trộn lẫn'], 'đối chứng'],
+  },
+  {
+    objective: 'Mô tả cấu trúc cơ bản của tế bào nhân sơ.', lesson: 'Bài 7. Tế bào nhân sơ',
+    quiz: ['Tế bào nhân sơ khác tế bào nhân thực ở đặc điểm nào?', ['Chưa có nhân được bao bởi màng', 'Không có DNA', 'Không có màng sinh chất', 'Luôn đa bào'], 0, 'DNA nằm ở vùng nhân.', 'Tế bào nhân sơ chưa có nhân được bao bởi màng.'],
+    match: [['Vùng nhân', 'Chứa DNA nhưng không có màng nhân'], ['Màng sinh chất', 'Bao bọc và kiểm soát trao đổi chất'], ['Ribosome', 'Nơi tổng hợp protein']],
+    fill: ['Ở tế bào nhân sơ, DNA tập trung trong vùng [blank].', 'nhân'],
+    category: [['Có ở nhiều tế bào nhân sơ', 'Không có ở tế bào nhân sơ điển hình'], [['Màng sinh chất', 0], ['Ribosome', 0], ['Vùng nhân', 0], ['Nhân có màng bao', 1]]],
+    drag: ['Vi khuẩn là ví dụ của sinh vật có tế bào nhân [blank].', ['sơ', 'thực', 'rỗng'], 'sơ'],
+  },
+  {
+    objective: 'Nhận biết nhân và các bào quan chính của tế bào nhân thực.', lesson: 'Bài 8. Tế bào nhân thực',
+    quiz: ['Bào quan nào là nơi diễn ra phần lớn quá trình hô hấp tế bào hiếu khí?', ['Ty thể', 'Lục lạp', 'Không bào', 'Nhân'], 0, 'Bào quan tạo nhiều ATP.', 'Ty thể là nơi diễn ra nhiều giai đoạn của hô hấp tế bào hiếu khí.'],
+    match: [['Nhân', 'Chứa phần lớn DNA trong tế bào nhân thực'], ['Ty thể', 'Tham gia tạo ATP'], ['Ribosome', 'Tổng hợp protein']],
+    fill: ['Tế bào nhân thực có [blank] được bao bọc bởi màng nhân.', 'nhân'],
+    category: [['Bào quan có màng', 'Cấu trúc không có màng'], [['Ty thể', 0], ['Lục lạp', 0], ['Nhân', 0], ['Ribosome', 1]]],
+    drag: ['Phần lớn DNA của tế bào nhân thực nằm trong [blank].', ['nhân', 'thành tế bào', 'dịch ngoại bào'], 'nhân'],
+  },
+  {
+    objective: 'So sánh tế bào thực vật và tế bào động vật.', lesson: 'Bài 8. Tế bào nhân thực',
+    quiz: ['Cấu trúc nào có ở tế bào thực vật điển hình nhưng không có ở tế bào động vật?', ['Thành cellulose', 'Màng sinh chất', 'Ribosome', 'Ty thể'], 0, 'Nằm ngoài màng sinh chất.', 'Thành tế bào cấu tạo chủ yếu từ cellulose có ở tế bào thực vật.'],
+    match: [['Thành tế bào', 'Giúp định hình và bảo vệ tế bào thực vật'], ['Lục lạp', 'Thực hiện quang hợp ở tế bào có lục lạp'], ['Ty thể', 'Có ở cả tế bào thực vật và động vật']],
+    fill: ['Tế bào thực vật điển hình có thành tế bào cấu tạo chủ yếu từ [blank].', 'cellulose'],
+    category: [['Đặc trưng tế bào thực vật điển hình', 'Có ở cả hai loại tế bào'], [['Thành cellulose', 0], ['Lục lạp ở tế bào quang hợp', 0], ['Không bào lớn ở tế bào trưởng thành', 0], ['Màng sinh chất', 1], ['Ty thể', 1]]],
+    drag: ['Bào quan quang hợp ở nhiều tế bào thực vật là [blank].', ['lục lạp', 'ty thể', 'ribosome'], 'lục lạp'],
+  },
+  {
+    objective: 'Chọn dụng cụ và thao tác phù hợp để quan sát tế bào dưới kính hiển vi.', lesson: 'Bài 9. Thực hành: Quan sát tế bào',
+    quiz: ['Khi bắt đầu quan sát tiêu bản bằng kính hiển vi, nên dùng vật kính nào trước?', ['Vật kính có độ phóng đại nhỏ', 'Vật kính lớn nhất ngay lập tức', 'Không cần vật kính', 'Chỉ dùng mắt thường'], 0, 'Dễ tìm mẫu và lấy nét ban đầu.', 'Bắt đầu với vật kính nhỏ giúp định vị mẫu và lấy nét an toàn.'],
+    match: [['Lam kính', 'Đỡ mẫu quan sát'], ['Lamen', 'Đậy lên mẫu trên lam kính'], ['Vật kính', 'Tham gia phóng đại ảnh của mẫu']],
+    fill: ['Mẫu vật cần đặt trên [blank] kính trước khi quan sát.', 'lam'],
+    category: [['Dụng cụ làm tiêu bản', 'Không phải dụng cụ làm tiêu bản'], [['Lam kính', 0], ['Lamen', 0], ['Ống nhỏ giọt', 0], ['Thước dây đo sân', 1]]],
+    drag: ['Khi đổi sang vật kính lớn, cần chỉnh [blank] cẩn thận để ảnh rõ.', ['nét', 'nhiệt độ nước', 'âm lượng'], 'nét'],
+  },
+];
+
+writeStation({ grade: 10, station: 1, title: 'Thành phần hoá học và cấu trúc tế bào', book: 'SGK Sinh học 10 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 4–9 của SGK Sinh học 10 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { ACTIVE_STATIONS, STATION_CATALOG, STATION_GAME_TYPES } from '../src/data/stationCatalog.js';
-import { shuffleArray, validatePublishedStage } from '../src/utils/stationContent.js';
+import { shuffleArray, validatePublishedStage, validateStationGame } from '../src/utils/stationContent.js';
 import { toDatabaseRelease } from '../src/utils/stationRelease.js';
 
 const validGames = [
@@ -25,6 +25,21 @@ test('published stage requires all five unique game types', () => {
   assert.deepEqual(validatePublishedStage({ grade: 6, stationId: 'g6_st1', dayIndex: 1, games: validGames }), []);
   const duplicate = [...validGames.slice(0, 4), validGames[0]];
   assert.ok(validatePublishedStage({ grade: 6, stationId: 'g6_st1', dayIndex: 1, games: duplicate }).length > 0);
+});
+
+test('visually distinct allele labels must remain distinct after answer normalization', () => {
+  const match = structuredClone(validGames[1]);
+  match.data.pairs = [{ left: 'AA', right: 'Trội' }, { left: 'aa', right: 'Lặn' }];
+  assert.ok(validateStationGame(match).some((error) => error.includes('cột trái trùng')));
+
+  const category = structuredClone(validGames[3]);
+  category.data.items = [{ name: 'AA', catIndex: 0 }, { name: 'Aa', catIndex: 0 }, { name: 'aa', catIndex: 1 }];
+  assert.ok(validateStationGame(category).some((error) => error.includes('mục trùng')));
+
+  const drag = structuredClone(validGames[4]);
+  drag.data.bankWords = ['AA', 'aa'];
+  drag.data.correctWord = 'AA';
+  assert.ok(validateStationGame(drag).some((error) => error.includes('kho trùng')));
 });
 
 test('shuffle does not mutate input and preserves every game type', () => {

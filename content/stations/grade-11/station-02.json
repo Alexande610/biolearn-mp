@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g11-st2-2026.1",
+  "grade": 11,
+  "stationId": "g11_st2",
+  "title": "Lớp 11 - Trạm 2: Cảm ứng, sinh trưởng và phát triển",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 14–23 của SGK Sinh học 11 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nêu khái niệm cảm ứng và các giai đoạn đáp ứng kích thích.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 14. Khái quát về cảm ứng ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Cảm ứng ở sinh vật là khả năng nào?",
+            "options": [
+              "Tiếp nhận và phản ứng với kích thích",
+              "Chỉ tăng kích thước",
+              "Chỉ tạo giao tử",
+              "Chỉ phân giải thức ăn"
+            ],
+            "answerIndex": 0,
+            "hint": "Sinh vật nhận thông tin từ môi trường.",
+            "explanation": "Cảm ứng gồm tiếp nhận kích thích và tạo phản ứng phù hợp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Kích thích",
+                "right": "Thay đổi từ môi trường"
+              },
+              {
+                "left": "Thụ thể",
+                "right": "Tiếp nhận kích thích"
+              },
+              {
+                "left": "Đáp ứng",
+                "right": "Phản ứng của cơ thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Kích thích: Thay đổi từ môi trường; Thụ thể: Tiếp nhận kích thích; Đáp ứng: Phản ứng của cơ thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Khả năng nhận và phản ứng với kích thích gọi là [blank].",
+            "correctAnswer": "cảm ứng",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “cảm ứng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biểu hiện cảm ứng",
+              "Không phải biểu hiện cảm ứng"
+            ],
+            "items": [
+              {
+                "name": "Cây hướng sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Người rụt tay khi chạm nóng",
+                "catIndex": 0
+              },
+              {
+                "name": "Chim tránh tiếng động mạnh",
+                "catIndex": 0
+              },
+              {
+                "name": "DNA gồm nucleotide",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Cây hướng sáng thuộc nhóm Biểu hiện cảm ứng; Người rụt tay khi chạm nóng thuộc nhóm Biểu hiện cảm ứng; Chim tránh tiếng động mạnh thuộc nhóm Biểu hiện cảm ứng; DNA gồm nucleotide thuộc nhóm Không phải biểu hiện cảm ứng."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cảm ứng giúp sinh vật phản ứng với thay đổi của [blank].",
+            "bankWords": [
+              "môi trường",
+              "tên sách",
+              "màu bìa"
+            ],
+            "correctWord": "môi trường",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “môi trường”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Phân biệt hướng động và ứng động ở thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 15. Cảm ứng ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Ngọn cây sinh trưởng về phía nguồn sáng là kiểu phản ứng nào?",
+            "options": [
+              "Hướng sáng",
+              "Hướng trọng lực âm ở rễ",
+              "Ứng động không sinh trưởng",
+              "Thụ tinh"
+            ],
+            "answerIndex": 0,
+            "hint": "Phản ứng phụ thuộc hướng của kích thích ánh sáng.",
+            "explanation": "Ngọn cây hướng về phía sáng là hướng sáng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Hướng động",
+                "right": "Phản ứng có hướng theo tác nhân kích thích"
+              },
+              {
+                "left": "Hướng sáng",
+                "right": "Sinh trưởng liên quan hướng chiếu sáng"
+              },
+              {
+                "left": "Ứng động",
+                "right": "Phản ứng không phụ thuộc hướng tác nhân"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Hướng động: Phản ứng có hướng theo tác nhân kích thích; Hướng sáng: Sinh trưởng liên quan hướng chiếu sáng; Ứng động: Phản ứng không phụ thuộc hướng tác nhân."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Ngọn cây cong về phía ánh sáng là hiện tượng hướng [blank].",
+            "correctAnswer": "sáng",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “sáng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hướng động",
+              "Ứng động"
+            ],
+            "items": [
+              {
+                "name": "Ngọn cây hướng sáng",
+                "catIndex": 0
+              },
+              {
+                "name": "Rễ hướng trọng lực",
+                "catIndex": 0
+              },
+              {
+                "name": "Lá trinh nữ cụp khi chạm",
+                "catIndex": 1
+              },
+              {
+                "name": "Hoa nở theo điều kiện môi trường",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Ngọn cây hướng sáng thuộc nhóm Hướng động; Rễ hướng trọng lực thuộc nhóm Hướng động; Lá trinh nữ cụp khi chạm thuộc nhóm Ứng động; Hoa nở theo điều kiện môi trường thuộc nhóm Ứng động."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Rễ cây thường có tính hướng [blank] dương.",
+            "bankWords": [
+              "trọng lực",
+              "ánh sáng",
+              "âm thanh"
+            ],
+            "correctWord": "trọng lực",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “trọng lực”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Thiết kế quan sát có đối chứng về cảm ứng ở thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 16. Thực hành: Cảm ứng ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi kiểm tra hướng sáng ở cây non, yếu tố nào cần thay đổi có chủ đích?",
+            "options": [
+              "Hướng nguồn sáng",
+              "Loài cây, nước và ánh sáng cùng lúc",
+              "Mọi điều kiện cùng lúc",
+              "Tên người quan sát"
+            ],
+            "answerIndex": 0,
+            "hint": "Thay đổi một yếu tố.",
+            "explanation": "Thay đổi hướng sáng và giữ các điều kiện còn lại tương tự giúp rút kết luận."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Nguồn sáng một phía",
+                "right": "Tạo kích thích có hướng"
+              },
+              {
+                "left": "Nhóm đối chứng",
+                "right": "Giúp so sánh kết quả"
+              },
+              {
+                "left": "Ghi chép hướng thân",
+                "right": "Thu dữ liệu phản ứng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Nguồn sáng một phía: Tạo kích thích có hướng; Nhóm đối chứng: Giúp so sánh kết quả; Ghi chép hướng thân: Thu dữ liệu phản ứng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Để kết luận về ánh sáng, cần giữ các điều kiện khác tương đối [blank].",
+            "correctAnswer": "giống nhau",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “giống nhau”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thiết kế phù hợp",
+              "Thiết kế khó kết luận"
+            ],
+            "items": [
+              {
+                "name": "Có mẫu đối chứng",
+                "catIndex": 0
+              },
+              {
+                "name": "Ghi hướng thân định kì",
+                "catIndex": 0
+              },
+              {
+                "name": "Giữ lượng nước tương tự",
+                "catIndex": 0
+              },
+              {
+                "name": "Đổi ánh sáng và nước cùng lúc",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Có mẫu đối chứng thuộc nhóm Thiết kế phù hợp; Ghi hướng thân định kì thuộc nhóm Thiết kế phù hợp; Giữ lượng nước tương tự thuộc nhóm Thiết kế phù hợp; Đổi ánh sáng và nước cùng lúc thuộc nhóm Thiết kế khó kết luận."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Một thí nghiệm tốt nên có mẫu [blank] để so sánh.",
+            "bankWords": [
+              "đối chứng",
+              "bị bỏ quên",
+              "không ghi tên"
+            ],
+            "correctWord": "đối chứng",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “đối chứng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nhận biết cấu trúc neuron và chức năng dẫn truyền tín hiệu.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 17. Cảm ứng ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tế bào chuyên tiếp nhận và truyền tín hiệu trong hệ thần kinh là gì?",
+            "options": [
+              "Neuron",
+              "Hồng cầu",
+              "Tế bào biểu bì lá",
+              "Tế bào lông hút"
+            ],
+            "answerIndex": 0,
+            "hint": "Còn gọi là tế bào thần kinh.",
+            "explanation": "Neuron là đơn vị cấu trúc và chức năng của hệ thần kinh."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sợi nhánh",
+                "right": "Tiếp nhận nhiều tín hiệu"
+              },
+              {
+                "left": "Thân neuron",
+                "right": "Chứa nhân tế bào"
+              },
+              {
+                "left": "Sợi trục",
+                "right": "Dẫn tín hiệu ra khỏi thân neuron"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Sợi nhánh: Tiếp nhận nhiều tín hiệu; Thân neuron: Chứa nhân tế bào; Sợi trục: Dẫn tín hiệu ra khỏi thân neuron."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào thần kinh còn được gọi là [blank].",
+            "correctAnswer": "neuron",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “neuron”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bộ phận neuron",
+              "Không thuộc neuron"
+            ],
+            "items": [
+              {
+                "name": "Sợi nhánh",
+                "catIndex": 0
+              },
+              {
+                "name": "Thân tế bào",
+                "catIndex": 0
+              },
+              {
+                "name": "Sợi trục",
+                "catIndex": 0
+              },
+              {
+                "name": "Mạch gỗ",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Sợi nhánh thuộc nhóm Bộ phận neuron; Thân tế bào thuộc nhóm Bộ phận neuron; Sợi trục thuộc nhóm Bộ phận neuron; Mạch gỗ thuộc nhóm Không thuộc neuron."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tín hiệu thần kinh thường truyền dọc theo sợi [blank] của neuron.",
+            "bankWords": [
+              "trục",
+              "rây",
+              "gỗ"
+            ],
+            "correctWord": "trục",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “trục”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Mô tả cung phản xạ và vai trò phối hợp của hệ thần kinh.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 17. Cảm ứng ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Khi chạm vật nóng và rụt tay, trung ương xử lí nhanh thường là gì?",
+            "options": [
+              "Tuỷ sống",
+              "Dạ dày",
+              "Thận",
+              "Gan"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là ví dụ phản xạ tuỷ.",
+            "explanation": "Phản xạ rụt tay có trung ương xử lí tại tuỷ sống."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thụ thể",
+                "right": "Tiếp nhận kích thích"
+              },
+              {
+                "left": "Neuron cảm giác",
+                "right": "Dẫn tín hiệu về trung ương"
+              },
+              {
+                "left": "Neuron vận động",
+                "right": "Dẫn lệnh tới cơ quan đáp ứng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Thụ thể: Tiếp nhận kích thích; Neuron cảm giác: Dẫn tín hiệu về trung ương; Neuron vận động: Dẫn lệnh tới cơ quan đáp ứng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Phản ứng nhanh, tự động của cơ thể trước kích thích gọi là [blank].",
+            "correctAnswer": "phản xạ",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “phản xạ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thành phần cung phản xạ",
+              "Không thuộc cung phản xạ"
+            ],
+            "items": [
+              {
+                "name": "Thụ thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Neuron cảm giác",
+                "catIndex": 0
+              },
+              {
+                "name": "Neuron vận động",
+                "catIndex": 0
+              },
+              {
+                "name": "Lục lạp",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Thụ thể thuộc nhóm Thành phần cung phản xạ; Neuron cảm giác thuộc nhóm Thành phần cung phản xạ; Neuron vận động thuộc nhóm Thành phần cung phản xạ; Lục lạp thuộc nhóm Không thuộc cung phản xạ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong phản xạ rụt tay, cơ là cơ quan [blank].",
+            "bankWords": [
+              "đáp ứng",
+              "quang hợp",
+              "bài tiết"
+            ],
+            "correctWord": "đáp ứng",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “đáp ứng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Phân biệt tập tính bẩm sinh và tập tính học được.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 18. Tập tính ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tập tính nào thường hình thành qua huấn luyện?",
+            "options": [
+              "Chó đáp lệnh ngồi",
+              "Nhện giăng tơ lần đầu",
+              "Trẻ sơ sinh bú mẹ",
+              "Chim non há mỏ đòi ăn"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét kinh nghiệm học tập.",
+            "explanation": "Chó đáp lệnh sau huấn luyện là tập tính học được."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tập tính bẩm sinh",
+                "right": "Có sẵn, mang tính di truyền"
+              },
+              {
+                "left": "Tập tính học được",
+                "right": "Hình thành qua trải nghiệm"
+              },
+              {
+                "left": "Huấn luyện",
+                "right": "Có thể làm hình thành phản ứng mới"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Tập tính bẩm sinh: Có sẵn, mang tính di truyền; Tập tính học được: Hình thành qua trải nghiệm; Huấn luyện: Có thể làm hình thành phản ứng mới."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tập tính hình thành nhờ học tập là tập tính [blank].",
+            "correctAnswer": "học được",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “học được”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bẩm sinh",
+              "Học được"
+            ],
+            "items": [
+              {
+                "name": "Nhện giăng tơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Trẻ sơ sinh bú mẹ",
+                "catIndex": 0
+              },
+              {
+                "name": "Chó đáp lệnh sau huấn luyện",
+                "catIndex": 1
+              },
+              {
+                "name": "Quạ dùng công cụ sau học tập",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Nhện giăng tơ thuộc nhóm Bẩm sinh; Trẻ sơ sinh bú mẹ thuộc nhóm Bẩm sinh; Chó đáp lệnh sau huấn luyện thuộc nhóm Học được; Quạ dùng công cụ sau học tập thuộc nhóm Học được."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Học tập và kinh nghiệm có thể thay đổi [blank] của động vật.",
+            "bankWords": [
+              "tập tính",
+              "số lượng nhiễm sắc thể luôn luôn",
+              "loài ngay lập tức"
+            ],
+            "correctWord": "tập tính",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “tập tính”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Phân biệt sinh trưởng và phát triển của sinh vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 19. Khái quát về sinh trưởng và phát triển ở sinh vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sự tăng số lượng và kích thước tế bào thể hiện quá trình nào?",
+            "options": [
+              "Sinh trưởng",
+              "Thụ tinh",
+              "Bài tiết",
+              "Cảm ứng"
+            ],
+            "answerIndex": 0,
+            "hint": "Đó là biến đổi về lượng.",
+            "explanation": "Sinh trưởng liên quan tăng kích thước và khối lượng cơ thể."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Sinh trưởng",
+                "right": "Tăng kích thước và khối lượng"
+              },
+              {
+                "left": "Phát triển",
+                "right": "Biến đổi về cấu trúc và chức năng"
+              },
+              {
+                "left": "Ra hoa",
+                "right": "Một biểu hiện phát triển ở cây"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Sinh trưởng: Tăng kích thước và khối lượng; Phát triển: Biến đổi về cấu trúc và chức năng; Ra hoa: Một biểu hiện phát triển ở cây."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cây tăng chiều cao là một biểu hiện của [blank].",
+            "correctAnswer": "sinh trưởng",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “sinh trưởng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Sinh trưởng",
+              "Phát triển"
+            ],
+            "items": [
+              {
+                "name": "Thân dài thêm",
+                "catIndex": 0
+              },
+              {
+                "name": "Khối lượng tăng",
+                "catIndex": 0
+              },
+              {
+                "name": "Hình thành hoa",
+                "catIndex": 1
+              },
+              {
+                "name": "Chuyển sang giai đoạn sinh sản",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Thân dài thêm thuộc nhóm Sinh trưởng; Khối lượng tăng thuộc nhóm Sinh trưởng; Hình thành hoa thuộc nhóm Phát triển; Chuyển sang giai đoạn sinh sản thuộc nhóm Phát triển."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự biến đổi chất lượng trong vòng đời sinh vật gọi là [blank].",
+            "bankWords": [
+              "phát triển",
+              "thẩm thấu",
+              "quang hợp"
+            ],
+            "correctWord": "phát triển",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “phát triển”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Nêu vai trò của mô phân sinh và hormone trong sinh trưởng thực vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 20. Sinh trưởng và phát triển ở thực vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mô nào có nhiều tế bào phân chia làm cây dài ra?",
+            "options": [
+              "Mô phân sinh đỉnh",
+              "Mô gỗ đã chết hoàn toàn",
+              "Lớp bần già",
+              "Hạt phấn đã rơi"
+            ],
+            "answerIndex": 0,
+            "hint": "Nằm ở đầu rễ và đầu chồi.",
+            "explanation": "Mô phân sinh đỉnh tạo tế bào mới giúp rễ và chồi dài ra."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Mô phân sinh đỉnh",
+                "right": "Góp phần tăng chiều dài"
+              },
+              {
+                "left": "Mô phân sinh bên",
+                "right": "Góp phần tăng bề ngang ở nhiều cây"
+              },
+              {
+                "left": "Hormone thực vật",
+                "right": "Điều hoà sinh trưởng và phát triển"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Mô phân sinh đỉnh: Góp phần tăng chiều dài; Mô phân sinh bên: Góp phần tăng bề ngang ở nhiều cây; Hormone thực vật: Điều hoà sinh trưởng và phát triển."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Mô phân sinh [blank] giúp nhiều cơ quan cây tăng chiều dài.",
+            "correctAnswer": "đỉnh",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “đỉnh”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan sinh trưởng cây",
+              "Không thuộc cơ thể cây"
+            ],
+            "items": [
+              {
+                "name": "Mô phân sinh đỉnh",
+                "catIndex": 0
+              },
+              {
+                "name": "Mô phân sinh bên",
+                "catIndex": 0
+              },
+              {
+                "name": "Auxin",
+                "catIndex": 0
+              },
+              {
+                "name": "Neuron vận động",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Mô phân sinh đỉnh thuộc nhóm Liên quan sinh trưởng cây; Mô phân sinh bên thuộc nhóm Liên quan sinh trưởng cây; Auxin thuộc nhóm Liên quan sinh trưởng cây; Neuron vận động thuộc nhóm Không thuộc cơ thể cây."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các hormone thực vật có thể điều hoà sinh trưởng và [blank].",
+            "bankWords": [
+              "phát triển",
+              "chỉ hô hấp",
+              "đông máu"
+            ],
+            "correctWord": "phát triển",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “phát triển”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Phân biệt biến thái hoàn toàn và không hoàn toàn ở côn trùng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 22. Sinh trưởng và phát triển ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vòng đời bướm có giai đoạn nào không có trong biến thái không hoàn toàn của châu chấu?",
+            "options": [
+              "Nhộng",
+              "Trứng",
+              "Con trưởng thành",
+              "Ấu trùng hoặc con non"
+            ],
+            "answerIndex": 0,
+            "hint": "Bướm có giai đoạn nằm trong kén.",
+            "explanation": "Biến thái hoàn toàn ở bướm có giai đoạn nhộng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Bướm",
+                "right": "Biến thái hoàn toàn"
+              },
+              {
+                "left": "Châu chấu",
+                "right": "Biến thái không hoàn toàn"
+              },
+              {
+                "left": "Nhộng",
+                "right": "Giai đoạn trong biến thái hoàn toàn"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Bướm: Biến thái hoàn toàn; Châu chấu: Biến thái không hoàn toàn; Nhộng: Giai đoạn trong biến thái hoàn toàn."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vòng đời bướm gồm trứng, sâu non, [blank] và bướm trưởng thành.",
+            "correctAnswer": "nhộng",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “nhộng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Biến thái hoàn toàn",
+              "Biến thái không hoàn toàn"
+            ],
+            "items": [
+              {
+                "name": "Bướm",
+                "catIndex": 0
+              },
+              {
+                "name": "Ruồi",
+                "catIndex": 0
+              },
+              {
+                "name": "Châu chấu",
+                "catIndex": 1
+              },
+              {
+                "name": "Gián",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Bướm thuộc nhóm Biến thái hoàn toàn; Ruồi thuộc nhóm Biến thái hoàn toàn; Châu chấu thuộc nhóm Biến thái không hoàn toàn; Gián thuộc nhóm Biến thái không hoàn toàn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Con non của châu chấu lột xác nhiều lần rồi thành con [blank].",
+            "bankWords": [
+              "trưởng thành",
+              "nhộng",
+              "hạt"
+            ],
+            "correctWord": "trưởng thành",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “trưởng thành”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Nhận biết ảnh hưởng của dinh dưỡng và hormone đến phát triển động vật.",
+      "sourceRefs": [
+        {
+          "source": "SGK Sinh học 11 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 22. Sinh trưởng và phát triển ở động vật; Bài 23. Thực hành: Quan sát quá trình biến thái ở động vật"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Yếu tố nào có thể ảnh hưởng rõ đến sinh trưởng của động vật?",
+            "options": [
+              "Chế độ dinh dưỡng",
+              "Tên gọi của chuồng",
+              "Màu nhãn thức ăn",
+              "Số trang của sách"
+            ],
+            "answerIndex": 0,
+            "hint": "Cơ thể cần vật chất và năng lượng.",
+            "explanation": "Dinh dưỡng phù hợp hỗ trợ động vật sinh trưởng và phát triển."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Dinh dưỡng",
+                "right": "Cung cấp vật chất và năng lượng"
+              },
+              {
+                "left": "Hormone",
+                "right": "Điều hoà quá trình phát triển"
+              },
+              {
+                "left": "Quan sát vòng đời",
+                "right": "Giúp nhận biết các giai đoạn biến thái"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Dinh dưỡng: Cung cấp vật chất và năng lượng; Hormone: Điều hoà quá trình phát triển; Quan sát vòng đời: Giúp nhận biết các giai đoạn biến thái."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự phát triển của động vật chịu tác động của gene, hormone và điều kiện [blank].",
+            "correctAnswer": "môi trường",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “môi trường”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Hỗ trợ phát triển bình thường",
+              "Có thể cản trở phát triển"
+            ],
+            "items": [
+              {
+                "name": "Dinh dưỡng phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Điều kiện sống phù hợp",
+                "catIndex": 0
+              },
+              {
+                "name": "Thiếu dinh dưỡng kéo dài",
+                "catIndex": 1
+              },
+              {
+                "name": "Môi trường ô nhiễm nặng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Dinh dưỡng phù hợp thuộc nhóm Hỗ trợ phát triển bình thường; Điều kiện sống phù hợp thuộc nhóm Hỗ trợ phát triển bình thường; Thiếu dinh dưỡng kéo dài thuộc nhóm Có thể cản trở phát triển; Môi trường ô nhiễm nặng thuộc nhóm Có thể cản trở phát triển."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Quan sát các giai đoạn vòng đời giúp nhận ra kiểu [blank] của động vật.",
+            "bankWords": [
+              "biến thái",
+              "quang hợp",
+              "phiên mã"
+            ],
+            "correctWord": "biến thái",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “biến thái”."
+          }
+        }
+      ]
+    }
+  ]
+}

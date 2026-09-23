@@ -1,0 +1,1083 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g8-st1-2026.1",
+  "grade": 8,
+  "stationId": "g8_st1",
+  "title": "Lớp 8 - Trạm 1: Vận động, dinh dưỡng và tuần hoàn",
+  "status": "draft",
+  "notes": "Nội dung soạn theo các Bài 30–33 của SGK KHTN 8 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nhận biết các phần và một số hệ cơ quan chính của cơ thể người.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 30. Khái quát về cơ thể người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hệ cơ quan nào giúp cơ thể vận chuyển máu?",
+            "options": [
+              "Hệ tuần hoàn",
+              "Hệ vận động",
+              "Hệ da",
+              "Hệ sinh sản"
+            ],
+            "answerIndex": 0,
+            "hint": "Tim và mạch máu thuộc hệ này.",
+            "explanation": "Hệ tuần hoàn gồm tim và mạch máu, giúp vận chuyển máu."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Hệ vận động",
+                "right": "Giúp cơ thể di chuyển"
+              },
+              {
+                "left": "Hệ tiêu hoá",
+                "right": "Biến đổi và hấp thụ thức ăn"
+              },
+              {
+                "left": "Hệ tuần hoàn",
+                "right": "Vận chuyển máu và các chất"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Hệ vận động: Giúp cơ thể di chuyển; Hệ tiêu hoá: Biến đổi và hấp thụ thức ăn; Hệ tuần hoàn: Vận chuyển máu và các chất."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Nhiều cơ quan phối hợp thực hiện chức năng tạo thành một hệ [blank].",
+            "correctAnswer": "cơ quan",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “cơ quan”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bộ phận thuộc hệ tiêu hoá",
+              "Bộ phận thuộc hệ tuần hoàn"
+            ],
+            "items": [
+              {
+                "name": "Dạ dày",
+                "catIndex": 0
+              },
+              {
+                "name": "Ruột non",
+                "catIndex": 0
+              },
+              {
+                "name": "Tim",
+                "catIndex": 1
+              },
+              {
+                "name": "Mạch máu",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Dạ dày thuộc nhóm Bộ phận thuộc hệ tiêu hoá; Ruột non thuộc nhóm Bộ phận thuộc hệ tiêu hoá; Tim thuộc nhóm Bộ phận thuộc hệ tuần hoàn; Mạch máu thuộc nhóm Bộ phận thuộc hệ tuần hoàn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Cơ thể người gồm nhiều hệ [blank] phối hợp hoạt động.",
+            "bankWords": [
+              "cơ quan",
+              "sinh thái",
+              "quần thể"
+            ],
+            "correctWord": "cơ quan",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “cơ quan”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Mô tả chức năng của xương, khớp và cơ trong hệ vận động.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 31. Hệ vận động ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thành phần nào co lại tạo lực làm xương cử động?",
+            "options": [
+              "Cơ",
+              "Da",
+              "Máu",
+              "Phổi"
+            ],
+            "answerIndex": 0,
+            "hint": "Nó bám vào xương và có khả năng co.",
+            "explanation": "Cơ co tạo lực kéo xương, gây ra cử động tại khớp."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Xương",
+                "right": "Nâng đỡ và bảo vệ cơ thể"
+              },
+              {
+                "left": "Khớp",
+                "right": "Nối các xương và cho phép cử động"
+              },
+              {
+                "left": "Cơ",
+                "right": "Co tạo lực vận động"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Xương: Nâng đỡ và bảo vệ cơ thể; Khớp: Nối các xương và cho phép cử động; Cơ: Co tạo lực vận động."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cơ co kéo xương chuyển động quanh [blank].",
+            "correctAnswer": "khớp",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “khớp”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thuộc hệ vận động",
+              "Không thuộc hệ vận động"
+            ],
+            "items": [
+              {
+                "name": "Xương",
+                "catIndex": 0
+              },
+              {
+                "name": "Khớp",
+                "catIndex": 0
+              },
+              {
+                "name": "Cơ",
+                "catIndex": 0
+              },
+              {
+                "name": "Phổi",
+                "catIndex": 1
+              },
+              {
+                "name": "Dạ dày",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Xương thuộc nhóm Thuộc hệ vận động; Khớp thuộc nhóm Thuộc hệ vận động; Cơ thuộc nhóm Thuộc hệ vận động; Phổi thuộc nhóm Không thuộc hệ vận động; Dạ dày thuộc nhóm Không thuộc hệ vận động."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự phối hợp của xương, cơ và [blank] tạo nên vận động.",
+            "bankWords": [
+              "khớp",
+              "phế nang",
+              "ruột non"
+            ],
+            "correctWord": "khớp",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “khớp”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Nêu biện pháp giữ sức khoẻ hệ vận động và phòng tránh chấn thương.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 31. Hệ vận động ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Việc nào giúp bảo vệ hệ vận động?",
+            "options": [
+              "Tập luyện phù hợp và giữ tư thế đúng",
+              "Mang vật quá nặng một bên kéo dài",
+              "Ngồi cong lưng liên tục",
+              "Bỏ qua khởi động trước vận động mạnh"
+            ],
+            "answerIndex": 0,
+            "hint": "Chú ý tải trọng và tư thế.",
+            "explanation": "Tập luyện vừa sức, khởi động và giữ tư thế đúng giúp bảo vệ hệ vận động."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Khởi động",
+                "right": "Chuẩn bị cơ và khớp trước vận động"
+              },
+              {
+                "left": "Tư thế đúng",
+                "right": "Giúp hạn chế biến dạng cột sống"
+              },
+              {
+                "left": "Tập luyện phù hợp",
+                "right": "Góp phần tăng sức bền của cơ và xương"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Khởi động: Chuẩn bị cơ và khớp trước vận động; Tư thế đúng: Giúp hạn chế biến dạng cột sống; Tập luyện phù hợp: Góp phần tăng sức bền của cơ và xương."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Trước khi chơi thể thao nên [blank] để chuẩn bị hệ vận động.",
+            "correctAnswer": "khởi động",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “khởi động”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thói quen tốt cho hệ vận động",
+              "Thói quen gây hại"
+            ],
+            "items": [
+              {
+                "name": "Ngồi đúng tư thế",
+                "catIndex": 0
+              },
+              {
+                "name": "Vận động vừa sức",
+                "catIndex": 0
+              },
+              {
+                "name": "Khởi động trước tập luyện",
+                "catIndex": 0
+              },
+              {
+                "name": "Mang cặp quá nặng một bên",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Ngồi đúng tư thế thuộc nhóm Thói quen tốt cho hệ vận động; Vận động vừa sức thuộc nhóm Thói quen tốt cho hệ vận động; Khởi động trước tập luyện thuộc nhóm Thói quen tốt cho hệ vận động; Mang cặp quá nặng một bên thuộc nhóm Thói quen gây hại."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Giữ lưng thẳng khi ngồi giúp bảo vệ [blank].",
+            "bankWords": [
+              "cột sống",
+              "phế nang",
+              "dạ dày"
+            ],
+            "correctWord": "cột sống",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “cột sống”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nêu vai trò của các nhóm chất dinh dưỡng và nhu cầu ăn uống đa dạng.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 32. Dinh dưỡng và tiêu hoá ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhóm chất nào là nguồn cung cấp năng lượng quan trọng cho cơ thể?",
+            "options": [
+              "Carbohydrate",
+              "Nước tinh khiết",
+              "Chất xơ không tiêu hoá",
+              "Muối khoáng đơn lẻ"
+            ],
+            "answerIndex": 0,
+            "hint": "Tinh bột thuộc nhóm này.",
+            "explanation": "Carbohydrate là một trong các nguồn năng lượng quan trọng của cơ thể."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Carbohydrate",
+                "right": "Nguồn cung cấp năng lượng"
+              },
+              {
+                "left": "Protein",
+                "right": "Góp phần xây dựng cơ thể"
+              },
+              {
+                "left": "Vitamin",
+                "right": "Cần với lượng nhỏ cho hoạt động bình thường"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Carbohydrate: Nguồn cung cấp năng lượng; Protein: Góp phần xây dựng cơ thể; Vitamin: Cần với lượng nhỏ cho hoạt động bình thường."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Chế độ ăn cần đa dạng để cung cấp đủ các nhóm chất [blank].",
+            "correctAnswer": "dinh dưỡng",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “dinh dưỡng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Chất dinh dưỡng đa lượng",
+              "Chất cần lượng nhỏ"
+            ],
+            "items": [
+              {
+                "name": "Carbohydrate",
+                "catIndex": 0
+              },
+              {
+                "name": "Protein",
+                "catIndex": 0
+              },
+              {
+                "name": "Chất béo",
+                "catIndex": 0
+              },
+              {
+                "name": "Vitamin",
+                "catIndex": 1
+              },
+              {
+                "name": "Chất khoáng",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Carbohydrate thuộc nhóm Chất dinh dưỡng đa lượng; Protein thuộc nhóm Chất dinh dưỡng đa lượng; Chất béo thuộc nhóm Chất dinh dưỡng đa lượng; Vitamin thuộc nhóm Chất cần lượng nhỏ; Chất khoáng thuộc nhóm Chất cần lượng nhỏ."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ăn đa dạng thực phẩm giúp cơ thể nhận đủ chất [blank].",
+            "bankWords": [
+              "dinh dưỡng",
+              "độc hại",
+              "thải"
+            ],
+            "correctWord": "dinh dưỡng",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “dinh dưỡng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Sắp xếp đường đi của thức ăn qua ống tiêu hoá.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 32. Dinh dưỡng và tiêu hoá ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sau dạ dày, thức ăn tiếp tục đi vào cơ quan nào?",
+            "options": [
+              "Ruột non",
+              "Thực quản",
+              "Miệng",
+              "Khí quản"
+            ],
+            "answerIndex": 0,
+            "hint": "Tại đây có nhiều quá trình tiêu hoá và hấp thụ.",
+            "explanation": "Thức ăn từ dạ dày đi vào ruột non."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Miệng",
+                "right": "Nhai và trộn thức ăn với nước bọt"
+              },
+              {
+                "left": "Dạ dày",
+                "right": "Co bóp và tiêu hoá một phần thức ăn"
+              },
+              {
+                "left": "Ruột non",
+                "right": "Tiêu hoá tiếp và hấp thụ nhiều chất dinh dưỡng"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Miệng: Nhai và trộn thức ăn với nước bọt; Dạ dày: Co bóp và tiêu hoá một phần thức ăn; Ruột non: Tiêu hoá tiếp và hấp thụ nhiều chất dinh dưỡng."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Từ miệng, thức ăn đi qua thực quản rồi đến [blank].",
+            "correctAnswer": "dạ dày",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “dạ dày”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Thuộc ống tiêu hoá",
+              "Không thuộc ống tiêu hoá"
+            ],
+            "items": [
+              {
+                "name": "Miệng",
+                "catIndex": 0
+              },
+              {
+                "name": "Dạ dày",
+                "catIndex": 0
+              },
+              {
+                "name": "Ruột non",
+                "catIndex": 0
+              },
+              {
+                "name": "Phổi",
+                "catIndex": 1
+              },
+              {
+                "name": "Tim",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Miệng thuộc nhóm Thuộc ống tiêu hoá; Dạ dày thuộc nhóm Thuộc ống tiêu hoá; Ruột non thuộc nhóm Thuộc ống tiêu hoá; Phổi thuộc nhóm Không thuộc ống tiêu hoá; Tim thuộc nhóm Không thuộc ống tiêu hoá."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sau khi qua dạ dày, thức ăn tiếp tục được tiêu hoá ở ruột [blank].",
+            "bankWords": [
+              "non",
+              "già",
+              "thừa"
+            ],
+            "correctWord": "non",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “non”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Giải thích sự tiêu hoá và hấp thụ chất dinh dưỡng ở ruột non.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 32. Dinh dưỡng và tiêu hoá ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Nhiều chất dinh dưỡng sau tiêu hoá được hấp thụ chủ yếu ở đâu?",
+            "options": [
+              "Ruột non",
+              "Thực quản",
+              "Khí quản",
+              "Tim"
+            ],
+            "answerIndex": 0,
+            "hint": "Cơ quan này có nhiều lông ruột.",
+            "explanation": "Ruột non là nơi hấp thụ phần lớn chất dinh dưỡng sau tiêu hoá."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tiêu hoá",
+                "right": "Biến đổi thức ăn thành chất đơn giản"
+              },
+              {
+                "left": "Hấp thụ",
+                "right": "Đưa chất dinh dưỡng qua thành ruột"
+              },
+              {
+                "left": "Lông ruột",
+                "right": "Làm tăng diện tích bề mặt hấp thụ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Tiêu hoá: Biến đổi thức ăn thành chất đơn giản; Hấp thụ: Đưa chất dinh dưỡng qua thành ruột; Lông ruột: Làm tăng diện tích bề mặt hấp thụ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Các [blank] ruột làm tăng diện tích hấp thụ ở ruột non.",
+            "correctAnswer": "lông",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “lông”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan hấp thụ dinh dưỡng",
+              "Không có vai trò hấp thụ dinh dưỡng trực tiếp"
+            ],
+            "items": [
+              {
+                "name": "Ruột non",
+                "catIndex": 0
+              },
+              {
+                "name": "Lông ruột",
+                "catIndex": 0
+              },
+              {
+                "name": "Mao mạch trong lông ruột",
+                "catIndex": 0
+              },
+              {
+                "name": "Khí quản",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Ruột non thuộc nhóm Liên quan hấp thụ dinh dưỡng; Lông ruột thuộc nhóm Liên quan hấp thụ dinh dưỡng; Mao mạch trong lông ruột thuộc nhóm Liên quan hấp thụ dinh dưỡng; Khí quản thuộc nhóm Không có vai trò hấp thụ dinh dưỡng trực tiếp."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Ruột [blank] hấp thụ phần lớn chất dinh dưỡng đã tiêu hoá.",
+            "bankWords": [
+              "non",
+              "già",
+              "mù"
+            ],
+            "correctWord": "non",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “non”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Lựa chọn thói quen vệ sinh ăn uống bảo vệ hệ tiêu hoá.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 32. Dinh dưỡng và tiêu hoá ở người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thói quen nào góp phần phòng bệnh đường tiêu hoá?",
+            "options": [
+              "Rửa tay trước khi ăn",
+              "Ăn thực phẩm đã ôi thiu",
+              "Uống nước chưa xử lí",
+              "Bỏ qua vệ sinh dụng cụ ăn"
+            ],
+            "answerIndex": 0,
+            "hint": "Ngăn tác nhân gây bệnh đi theo thức ăn.",
+            "explanation": "Rửa tay trước ăn và dùng thực phẩm sạch giúp giảm nguy cơ bệnh tiêu hoá."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Rửa tay",
+                "right": "Giảm đưa vi sinh vật gây bệnh vào thức ăn"
+              },
+              {
+                "left": "Ăn chín uống sôi",
+                "right": "Hạn chế mầm bệnh từ thực phẩm và nước"
+              },
+              {
+                "left": "Đọc hạn sử dụng",
+                "right": "Giúp tránh thực phẩm quá hạn"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Rửa tay: Giảm đưa vi sinh vật gây bệnh vào thức ăn; Ăn chín uống sôi: Hạn chế mầm bệnh từ thực phẩm và nước; Đọc hạn sử dụng: Giúp tránh thực phẩm quá hạn."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Cần ăn chín, uống [blank] để góp phần bảo vệ hệ tiêu hoá.",
+            "correctAnswer": "sôi",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “sôi”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vệ sinh ăn uống",
+              "Không an toàn cho tiêu hoá"
+            ],
+            "items": [
+              {
+                "name": "Rửa tay trước ăn",
+                "catIndex": 0
+              },
+              {
+                "name": "Dùng nước sạch",
+                "catIndex": 0
+              },
+              {
+                "name": "Bảo quản thức ăn hợp lí",
+                "catIndex": 0
+              },
+              {
+                "name": "Ăn thức ăn ôi thiu",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Rửa tay trước ăn thuộc nhóm Vệ sinh ăn uống; Dùng nước sạch thuộc nhóm Vệ sinh ăn uống; Bảo quản thức ăn hợp lí thuộc nhóm Vệ sinh ăn uống; Ăn thức ăn ôi thiu thuộc nhóm Không an toàn cho tiêu hoá."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Không dùng thực phẩm [blank] vì có nguy cơ gây bệnh tiêu hoá.",
+            "bankWords": [
+              "ôi thiu",
+              "đã nấu chín",
+              "được bảo quản đúng"
+            ],
+            "correctWord": "ôi thiu",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “ôi thiu”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Nhận biết thành phần chính và một số chức năng của máu.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 33. Máu và hệ tuần hoàn của cơ thể người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thành phần nào của máu vận chuyển oxygen chủ yếu?",
+            "options": [
+              "Hồng cầu",
+              "Tiểu cầu",
+              "Huyết tương",
+              "Bạch cầu"
+            ],
+            "answerIndex": 0,
+            "hint": "Tế bào này chứa hemoglobin.",
+            "explanation": "Hồng cầu chứa hemoglobin, tham gia vận chuyển oxygen."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Hồng cầu",
+                "right": "Vận chuyển oxygen"
+              },
+              {
+                "left": "Bạch cầu",
+                "right": "Tham gia bảo vệ cơ thể"
+              },
+              {
+                "left": "Tiểu cầu",
+                "right": "Tham gia đông máu"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Hồng cầu: Vận chuyển oxygen; Bạch cầu: Tham gia bảo vệ cơ thể; Tiểu cầu: Tham gia đông máu."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tế bào máu tham gia bảo vệ cơ thể là [blank].",
+            "correctAnswer": "bạch cầu",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “bạch cầu”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Tế bào hoặc mảnh tế bào của máu",
+              "Phần dịch của máu"
+            ],
+            "items": [
+              {
+                "name": "Hồng cầu",
+                "catIndex": 0
+              },
+              {
+                "name": "Bạch cầu",
+                "catIndex": 0
+              },
+              {
+                "name": "Tiểu cầu",
+                "catIndex": 0
+              },
+              {
+                "name": "Huyết tương",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Hồng cầu thuộc nhóm Tế bào hoặc mảnh tế bào của máu; Bạch cầu thuộc nhóm Tế bào hoặc mảnh tế bào của máu; Tiểu cầu thuộc nhóm Tế bào hoặc mảnh tế bào của máu; Huyết tương thuộc nhóm Phần dịch của máu."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Khi bị thương, [blank] góp phần hình thành cục máu đông.",
+            "bankWords": [
+              "tiểu cầu",
+              "hồng cầu",
+              "phế nang"
+            ],
+            "correctWord": "tiểu cầu",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “tiểu cầu”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Phân biệt động mạch, tĩnh mạch và mao mạch theo chiều vận chuyển máu.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 33. Máu và hệ tuần hoàn của cơ thể người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Mạch máu nào đưa máu từ tim đi tới các cơ quan?",
+            "options": [
+              "Động mạch",
+              "Tĩnh mạch",
+              "Mao mạch",
+              "Ống tiêu hoá"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét chiều máu rời tim.",
+            "explanation": "Động mạch dẫn máu từ tim tới các cơ quan."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Động mạch",
+                "right": "Dẫn máu từ tim đi"
+              },
+              {
+                "left": "Tĩnh mạch",
+                "right": "Dẫn máu về tim"
+              },
+              {
+                "left": "Mao mạch",
+                "right": "Nơi trao đổi chất với tế bào"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Động mạch: Dẫn máu từ tim đi; Tĩnh mạch: Dẫn máu về tim; Mao mạch: Nơi trao đổi chất với tế bào."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Mạch dẫn máu từ các cơ quan trở về tim gọi là [blank].",
+            "correctAnswer": "tĩnh mạch",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “tĩnh mạch”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Dẫn máu ra khỏi tim",
+              "Dẫn máu trở về tim"
+            ],
+            "items": [
+              {
+                "name": "Động mạch chủ",
+                "catIndex": 0
+              },
+              {
+                "name": "Động mạch phổi",
+                "catIndex": 0
+              },
+              {
+                "name": "Tĩnh mạch chủ",
+                "catIndex": 1
+              },
+              {
+                "name": "Tĩnh mạch phổi",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Động mạch chủ thuộc nhóm Dẫn máu ra khỏi tim; Động mạch phổi thuộc nhóm Dẫn máu ra khỏi tim; Tĩnh mạch chủ thuộc nhóm Dẫn máu trở về tim; Tĩnh mạch phổi thuộc nhóm Dẫn máu trở về tim."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Sự trao đổi chất giữa máu và tế bào diễn ra chủ yếu ở [blank].",
+            "bankWords": [
+              "mao mạch",
+              "động mạch chủ",
+              "tĩnh mạch chủ"
+            ],
+            "correctWord": "mao mạch",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “mao mạch”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Mô tả vai trò của tim và hai vòng tuần hoàn ở người.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 33. Máu và hệ tuần hoàn của cơ thể người"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vòng tuần hoàn nhỏ đưa máu qua cơ quan nào để trao đổi khí?",
+            "options": [
+              "Phổi",
+              "Dạ dày",
+              "Gan",
+              "Thận"
+            ],
+            "answerIndex": 0,
+            "hint": "Vòng này còn gọi là vòng tuần hoàn phổi.",
+            "explanation": "Vòng tuần hoàn nhỏ đưa máu từ tim tới phổi và trở về tim."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tim",
+                "right": "Co bóp tạo lực đẩy máu"
+              },
+              {
+                "left": "Vòng tuần hoàn nhỏ",
+                "right": "Đưa máu qua phổi"
+              },
+              {
+                "left": "Vòng tuần hoàn lớn",
+                "right": "Đưa máu qua các cơ quan của cơ thể"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Tim: Co bóp tạo lực đẩy máu; Vòng tuần hoàn nhỏ: Đưa máu qua phổi; Vòng tuần hoàn lớn: Đưa máu qua các cơ quan của cơ thể."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Vòng tuần hoàn [blank] đưa máu từ tim qua phổi rồi về tim.",
+            "correctAnswer": "nhỏ",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “nhỏ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Vòng tuần hoàn nhỏ",
+              "Vòng tuần hoàn lớn"
+            ],
+            "items": [
+              {
+                "name": "Qua phổi để trao đổi khí",
+                "catIndex": 0
+              },
+              {
+                "name": "Còn gọi là tuần hoàn phổi",
+                "catIndex": 0
+              },
+              {
+                "name": "Qua nhiều cơ quan của cơ thể",
+                "catIndex": 1
+              },
+              {
+                "name": "Cung cấp chất cho mô toàn thân",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Qua phổi để trao đổi khí thuộc nhóm Vòng tuần hoàn nhỏ; Còn gọi là tuần hoàn phổi thuộc nhóm Vòng tuần hoàn nhỏ; Qua nhiều cơ quan của cơ thể thuộc nhóm Vòng tuần hoàn lớn; Cung cấp chất cho mô toàn thân thuộc nhóm Vòng tuần hoàn lớn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tim co bóp liên tục để đẩy [blank] lưu thông trong cơ thể.",
+            "bankWords": [
+              "máu",
+              "thức ăn",
+              "không khí"
+            ],
+            "correctWord": "máu",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “máu”."
+          }
+        }
+      ]
+    }
+  ]
+}

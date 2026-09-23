@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Nhận biết tiến hoá là sự biến đổi của sinh vật qua thời gian.', lesson: 'Bài 49. Khái niệm tiến hoá và các hình thức chọn lọc',
+    quiz: ['Tiến hoá sinh học nói đến điều gì?', ['Sự biến đổi của sinh vật qua nhiều thế hệ', 'Một cá thể cao lên trong một ngày', 'Một chiếc lá rung theo gió', 'Cơ thể mất nước sau vận động'], 0, 'Xét thay đổi qua các thế hệ.', 'Tiến hoá liên quan đến sự biến đổi của các quần thể sinh vật qua nhiều thế hệ.'],
+    match: [['Tiến hoá', 'Biến đổi của sinh vật qua nhiều thế hệ'], ['Biến dị', 'Tạo sự khác biệt giữa cá thể'], ['Di truyền', 'Truyền đặc điểm cho thế hệ sau']],
+    fill: ['Tiến hoá diễn ra qua nhiều [blank] của sinh vật.', 'thế hệ'],
+    category: [['Liên quan tiến hoá', 'Thay đổi ở một cá thể ngắn hạn'], [['Tần số đặc điểm thay đổi qua nhiều thế hệ', 0], ['Quần thể thay đổi theo thời gian', 0], ['Một con vật tăng cân sau bữa ăn', 1], ['Lá héo vì thiếu nước trong ngày', 1]]],
+    drag: ['Các đặc điểm di truyền có thể thay đổi tần số qua nhiều [blank].', ['thế hệ', 'giờ học', 'mùa trong một ngày'], 'thế hệ'],
+  },
+  {
+    objective: 'Phân biệt chọn lọc tự nhiên và chọn lọc nhân tạo.', lesson: 'Bài 49. Khái niệm tiến hoá và các hình thức chọn lọc',
+    quiz: ['Chọn lọc nhân tạo gắn với tác động chủ động của ai?', ['Con người', 'Ánh sáng', 'Nước biển', 'Gió'], 0, 'Liên quan chọn giống cây trồng, vật nuôi.', 'Con người chọn cá thể có đặc điểm mong muốn để nhân giống là chọn lọc nhân tạo.'],
+    match: [['Chọn lọc tự nhiên', 'Môi trường ảnh hưởng khả năng sống và sinh sản'], ['Chọn lọc nhân tạo', 'Con người chọn đặc điểm mong muốn'], ['Giống cây trồng', 'Có thể được cải thiện qua chọn lọc nhân tạo']],
+    fill: ['Chọn giống vật nuôi theo mục tiêu của người nuôi là chọn lọc [blank].', 'nhân tạo'],
+    category: [['Chọn lọc tự nhiên', 'Chọn lọc nhân tạo'], [['Cá thể thích nghi sống sót tốt hơn trong môi trường', 0], ['Môi trường làm thay đổi khả năng sinh sản', 0], ['Người chọn hạt giống từ cây năng suất cao', 1], ['Người chọn chó có đặc điểm mong muốn để nhân giống', 1]]],
+    drag: ['Trong chọn lọc [blank], con người quyết định cá thể nào được nhân giống.', ['nhân tạo', 'tự nhiên', 'ngẫu nhiên hoàn toàn'], 'nhân tạo'],
+  },
+  {
+    objective: 'Giải thích điều kiện cần để chọn lọc tự nhiên tác động đến quần thể.', lesson: 'Bài 50. Cơ chế tiến hoá',
+    quiz: ['Điều kiện nào giúp chọn lọc tự nhiên làm thay đổi quần thể qua nhiều thế hệ?', ['Có biến dị di truyền giữa cá thể', 'Mọi cá thể giống hệt nhau về mọi gene', 'Không cá thể nào sinh sản', 'Không có môi trường sống'], 0, 'Các cá thể cần khác nhau về đặc điểm có thể truyền.', 'Biến dị di truyền tạo nguyên liệu để chọn lọc tự nhiên tác động.'],
+    match: [['Biến dị di truyền', 'Tạo khác biệt có thể truyền cho đời sau'], ['Môi trường', 'Tạo áp lực chọn lọc'], ['Sinh sản khác nhau', 'Làm thay đổi tần số đặc điểm qua thế hệ']],
+    fill: ['Biến dị [blank] là nguyên liệu cho chọn lọc tự nhiên.', 'di truyền'],
+    category: [['Có thể ảnh hưởng tiến hoá', 'Không truyền thành đặc điểm di truyền'], [['Đột biến có thể di truyền', 0], ['Khác biệt gene giữa cá thể', 0], ['Một vết bẩn trên lông', 1], ['Đổi kiểu cắt tóc', 1]]],
+    drag: ['Chọn lọc tự nhiên tác động lên sự khác biệt giữa các [blank] trong quần thể.', ['cá thể', 'viên đá', 'giọt nước cất'], 'cá thể'],
+  },
+  {
+    objective: 'Nhận biết vai trò của đột biến trong việc tạo biến dị di truyền.', lesson: 'Bài 50. Cơ chế tiến hoá',
+    quiz: ['Đột biến có thể đóng góp gì cho tiến hoá?', ['Tạo allele mới', 'Luôn làm mọi cá thể khoẻ hơn', 'Xoá mọi biến dị', 'Ngăn hoàn toàn sinh sản'], 0, 'Xét sự thay đổi vật chất di truyền.', 'Đột biến có thể tạo allele mới, cung cấp biến dị di truyền.'],
+    match: [['Đột biến', 'Nguồn phát sinh biến dị di truyền'], ['Allele mới', 'Biến thể mới của gene'], ['Chọn lọc tự nhiên', 'Có thể làm thay đổi tần số allele']],
+    fill: ['Đột biến có thể tạo ra [blank] mới của gene.', 'allele'],
+    category: [['Có thể tạo biến dị di truyền', 'Không làm đổi gene'], [['Thay đổi trình tự DNA', 0], ['Đột biến gene', 0], ['Bụi bám lên lá', 1], ['Cắt ngắn tóc', 1]]],
+    drag: ['Một biến thể khác của cùng gene được gọi là [blank].', ['allele', 'cơ quan', 'mô'], 'allele'],
+  },
+  {
+    objective: 'Giải thích thích nghi là kết quả của chọn lọc qua nhiều thế hệ.', lesson: 'Bài 50. Cơ chế tiến hoá',
+    quiz: ['Vì sao một đặc điểm có lợi trong môi trường có thể phổ biến dần?', ['Cá thể mang đặc điểm đó có thể sống sót và sinh sản nhiều hơn', 'Mọi cá thể tự đổi gene theo ý muốn', 'Môi trường không ảnh hưởng sinh sản', 'Đặc điểm không thể di truyền'], 0, 'Xét thành công sinh sản.', 'Nếu đặc điểm có tính di truyền và giúp sinh sản tốt hơn, nó có thể tăng tần số qua các thế hệ.'],
+    match: [['Đặc điểm có lợi', 'Có thể tăng khả năng sống và sinh sản'], ['Di truyền', 'Cho phép đặc điểm truyền sang đời sau'], ['Thích nghi', 'Sự phù hợp tương đối với môi trường sống']],
+    fill: ['Đặc điểm giúp cá thể tồn tại và sinh sản tốt hơn trong môi trường có thể được xem là có lợi cho sự [blank].', 'thích nghi'],
+    category: [['Có thể là đặc điểm thích nghi', 'Không phải ví dụ rõ về thích nghi di truyền'], [['Màu ngụy trang có tính di truyền', 0], ['Cấu trúc mỏ phù hợp thức ăn', 0], ['Bùn dính tạm lên lông', 1], ['Một vết xước mới', 1]]],
+    drag: ['Tính thích nghi phụ thuộc vào điều kiện [blank] cụ thể.', ['môi trường', 'tên gọi', 'màu sách'], 'môi trường'],
+  },
+  {
+    objective: 'Nêu khái niệm loài và sự hình thành loài mới ở mức khái quát.', lesson: 'Bài 50. Cơ chế tiến hoá',
+    quiz: ['Sự hình thành loài mới thường gắn với điều gì?', ['Sự tích luỹ khác biệt di truyền và cách li sinh sản', 'Một cá thể đổi màu trong ngày', 'Một lần uống nước', 'Mọi cá thể cùng loài sống cùng chỗ'], 0, 'Xét biến đổi lâu dài giữa các nhóm quần thể.', 'Khác biệt di truyền tích luỹ và cách li sinh sản có thể dẫn tới hình thành loài mới.'],
+    match: [['Quần thể', 'Nhóm cá thể cùng loài'], ['Khác biệt di truyền tích luỹ', 'Có thể làm các nhóm phân hoá'], ['Cách li sinh sản', 'Hạn chế trao đổi gene giữa các nhóm']],
+    fill: ['Sự hình thành loài mới có thể liên quan đến cách li [blank].', 'sinh sản'],
+    category: [['Có thể thúc đẩy phân hoá loài', 'Không đủ tạo loài mới ngay'], [['Tích luỹ khác biệt di truyền lâu dài', 0], ['Cách li sinh sản', 0], ['Một cá thể bị bẩn lông', 1], ['Một ngày thay đổi thời tiết', 1]]],
+    drag: ['Hai nhóm không còn giao phối sinh ra con hữu thụ có thể đã hình thành cách li [blank].', ['sinh sản', 'ánh sáng', 'dinh dưỡng'], 'sinh sản'],
+  },
+  {
+    objective: 'Nhận biết hoá thạch như một bằng chứng về sinh vật trong quá khứ.', lesson: 'Bài 51. Sự phát sinh và phát triển sự sống trên Trái Đất',
+    quiz: ['Hoá thạch cung cấp thông tin về điều gì?', ['Sinh vật từng sống trong quá khứ', 'Chỉ thời tiết ngày mai', 'Chỉ chất lượng nước uống hiện tại', 'Chỉ nhịp tim người'], 0, 'Đây là dấu tích được lưu giữ trong các lớp đất đá.', 'Hoá thạch là dấu tích của sinh vật cổ, giúp tìm hiểu sự sống trong quá khứ.'],
+    match: [['Hoá thạch', 'Dấu tích sinh vật trong quá khứ'], ['Lớp đá trầm tích', 'Có thể lưu giữ dấu tích sinh vật'], ['Bằng chứng tiến hoá', 'Giúp nghiên cứu lịch sử sự sống']],
+    fill: ['Dấu tích của sinh vật cổ được bảo tồn gọi là [blank].', 'hoá thạch'],
+    category: [['Có thể là hoá thạch', 'Không phải hoá thạch'], [['Dấu in lá cổ trong đá', 0], ['Xương sinh vật cổ hoá đá', 0], ['Lá tươi mới rụng', 1], ['Ảnh chụp động vật hôm nay', 1]]],
+    drag: ['Hoá thạch giúp tìm hiểu lịch sử [blank] trên Trái Đất.', ['sự sống', 'mạng Internet', 'âm nhạc'], 'sự sống'],
+  },
+  {
+    objective: 'Mô tả sự sống trên Trái Đất đã thay đổi qua các thời kì địa chất.', lesson: 'Bài 51. Sự phát sinh và phát triển sự sống trên Trái Đất',
+    quiz: ['Điều gì đúng về lịch sử sự sống trên Trái Đất?', ['Các nhóm sinh vật xuất hiện và biến đổi qua thời gian dài', 'Mọi loài hiện nay xuất hiện cùng một ngày', 'Không loài nào từng tuyệt chủng', 'Hoá thạch không liên quan lịch sử sự sống'], 0, 'Xét bằng chứng hoá thạch và thời gian địa chất.', 'Sinh vật đã xuất hiện, phát triển và nhiều nhóm đã tuyệt chủng qua các thời kì.'],
+    match: [['Thời gian địa chất', 'Khoảng thời gian rất dài của lịch sử Trái Đất'], ['Hoá thạch', 'Ghi lại dấu tích của sinh vật cổ'], ['Tuyệt chủng', 'Một loài không còn cá thể sống']],
+    fill: ['Một loài không còn cá thể sống được gọi là đã [blank].', 'tuyệt chủng'],
+    category: [['Bằng chứng lịch sử sự sống', 'Không phải bằng chứng lịch sử sự sống'], [['Hoá thạch', 0], ['Các lớp địa chất', 0], ['Dấu tích sinh vật cổ', 0], ['Dự đoán ngẫu nhiên không dữ liệu', 1]]],
+    drag: ['Các lớp đá khác tuổi có thể chứa các nhóm [blank] khác nhau.', ['hoá thạch', 'mạch máu', 'khí khổng'], 'hoá thạch'],
+  },
+  {
+    objective: 'Giải thích mối liên hệ giữa thay đổi môi trường, tuyệt chủng và đa dạng sinh học.', lesson: 'Bài 51. Sự phát sinh và phát triển sự sống trên Trái Đất',
+    quiz: ['Thay đổi môi trường lớn có thể dẫn đến điều gì?', ['Một số loài suy giảm hoặc tuyệt chủng', 'Mọi loài luôn tăng số lượng', 'Gene của tất cả loài ngừng biến đổi', 'Không ảnh hưởng sinh vật'], 0, 'Khả năng sống sót phụ thuộc điều kiện môi trường.', 'Thay đổi lớn của môi trường có thể làm các loài kém thích nghi suy giảm hoặc tuyệt chủng.'],
+    match: [['Thay đổi môi trường', 'Có thể đổi áp lực chọn lọc'], ['Tuyệt chủng', 'Loài biến mất hoàn toàn'], ['Đa dạng sinh học', 'Mức phong phú của sự sống']],
+    fill: ['Một loài biến mất hoàn toàn khỏi Trái Đất gọi là [blank].', 'tuyệt chủng'],
+    category: [['Có thể làm suy giảm đa dạng sinh học', 'Có thể hỗ trợ bảo tồn đa dạng sinh học'], [['Mất sinh cảnh', 0], ['Khai thác quá mức', 0], ['Bảo vệ nơi sống', 1], ['Khu bảo tồn', 1]]],
+    drag: ['Bảo vệ sinh cảnh góp phần giảm nguy cơ [blank] của nhiều loài.', ['tuyệt chủng', 'quang hợp', 'phiên mã'], 'tuyệt chủng'],
+  },
+  {
+    objective: 'Tổng hợp vai trò của biến dị, di truyền và chọn lọc trong tiến hoá.', lesson: 'Bài 49–51. Tiến hoá và sự phát triển sự sống',
+    quiz: ['Trong tiến hoá, yếu tố nào cung cấp các khác biệt có thể truyền cho đời sau?', ['Biến dị di truyền', 'Màu áo của người quan sát', 'Bụi bẩn tạm thời', 'Tên gọi của loài'], 0, 'Các khác biệt này nằm trong vật chất di truyền.', 'Biến dị di truyền cung cấp khác biệt để các quá trình tiến hoá tác động.'],
+    match: [['Biến dị di truyền', 'Cung cấp khác biệt giữa cá thể'], ['Di truyền', 'Truyền khác biệt cho đời sau'], ['Chọn lọc tự nhiên', 'Tác động đến thành công sống sót và sinh sản']],
+    fill: ['Biến dị di truyền và chọn lọc tự nhiên là những yếu tố quan trọng của [blank].', 'tiến hoá'],
+    category: [['Có thể ảnh hưởng tiến hoá', 'Không là biến đổi di truyền'], [['Đột biến có thể truyền', 0], ['Chọn lọc tự nhiên', 0], ['Dòng gene giữa quần thể', 0], ['Một vết bẩn trên thân', 1]]],
+    drag: ['Chọn lọc tự nhiên làm một số đặc điểm di truyền trở nên phổ biến hơn qua nhiều [blank].', ['thế hệ', 'phút', 'trang sách'], 'thế hệ'],
+  },
+];
+
+writeStation({ grade: 9, station: 3, title: 'Tiến hoá', book: 'SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 49–51 của SGK KHTN 9 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

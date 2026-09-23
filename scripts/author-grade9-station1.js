@@ -1,0 +1,91 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Phân biệt di truyền, biến dị và đối tượng nghiên cứu của di truyền học.', lesson: 'Bài 36. Khái quát về di truyền học',
+    quiz: ['Hiện tượng con mang đặc điểm giống cha mẹ được gọi là gì?', ['Di truyền', 'Biến dị', 'Tiến hoá', 'Sinh thái'], 0, 'Xét sự truyền đặc điểm giữa các thế hệ.', 'Di truyền là hiện tượng truyền đạt các đặc điểm từ thế hệ trước cho thế hệ sau.'],
+    match: [['Di truyền', 'Truyền đạt đặc điểm qua các thế hệ'], ['Biến dị', 'Sự khác nhau về đặc điểm giữa các cá thể'], ['Di truyền học', 'Nghiên cứu quy luật di truyền và biến dị']],
+    fill: ['Sự khác nhau về đặc điểm giữa các cá thể được gọi là [blank].', 'biến dị'],
+    category: [['Biểu hiện di truyền', 'Biểu hiện biến dị'], [['Con có nhóm máu giống một người thân', 0], ['Con có màu mắt giống cha', 0], ['Hai anh em có chiều cao khác nhau', 1], ['Các cá thể cùng loài có màu lông khác nhau', 1]]],
+    drag: ['Di truyền học nghiên cứu sự di truyền và [blank].', ['biến dị', 'quang hợp', 'thoát hơi nước'], 'biến dị'],
+  },
+  {
+    objective: 'Nhận biết các khái niệm tính trạng, cặp tính trạng tương phản và dòng thuần.', lesson: 'Bài 37. Các quy luật di truyền của Mendel',
+    quiz: ['Tính trạng nào là đặc điểm của cây đậu Hà Lan?', ['Màu hoa', 'Tên người trồng', 'Màu chậu trồng', 'Số trang sách'], 0, 'Đặc điểm này thuộc về cơ thể cây.', 'Màu hoa là một tính trạng có thể quan sát ở cây đậu Hà Lan.'],
+    match: [['Tính trạng', 'Đặc điểm biểu hiện ở cơ thể'], ['Cặp tính trạng tương phản', 'Hai trạng thái đối lập của cùng tính trạng'], ['Dòng thuần', 'Qua nhiều thế hệ cho đời con ổn định về tính trạng']],
+    fill: ['Hoa tím và hoa trắng là hai trạng thái [blank] của tính trạng màu hoa.', 'tương phản'],
+    category: [['Tính trạng của cây', 'Không phải tính trạng của cây'], [['Màu hoa', 0], ['Hình dạng hạt', 0], ['Chiều cao thân', 0], ['Màu nhãn chậu', 1]]],
+    drag: ['Mendel nghiên cứu các cặp tính trạng [blank] ở đậu Hà Lan.', ['tương phản', 'không liên quan', 'vô sinh'], 'tương phản'],
+  },
+  {
+    objective: 'Giải thích sự phân li của cặp nhân tố di truyền trong hình thành giao tử.', lesson: 'Bài 37. Các quy luật di truyền của Mendel',
+    quiz: ['Ở cơ thể dị hợp Aa, mỗi giao tử mang bao nhiêu allele của gene này?', ['Một allele', 'Hai allele', 'Ba allele', 'Không allele nào'], 0, 'Cặp allele phân li khi tạo giao tử.', 'Khi giảm phân, cặp allele Aa phân li nên mỗi giao tử nhận một allele.'],
+    match: [['Kiểu gene Aa', 'Dị hợp về một gene'], ['Giao tử mang allele trội A', 'Mang một allele trội'], ['Giao tử mang allele lặn a', 'Mang một allele lặn']],
+    fill: ['Cặp allele Aa [blank] khi hình thành giao tử.', 'phân li'],
+    category: [['Giao tử có thể tạo từ Aa', 'Không phải giao tử bình thường từ Aa'], [['Giao tử mang allele trội A', 0], ['Giao tử mang allele lặn a', 0], ['Giao tử chứa hai allele khác nhau Aa', 1], ['Giao tử chứa hai allele trội AA', 1]]],
+    drag: ['Cơ thể Aa tạo giao tử mang allele trội A hoặc [blank].', ['allele lặn a', 'hai allele khác nhau Aa', 'hai allele trội AA'], 'allele lặn a'],
+  },
+  {
+    objective: 'Dự đoán tỉ lệ kiểu gene của phép lai một cặp tính trạng đơn giản.', lesson: 'Bài 37. Các quy luật di truyền của Mendel',
+    quiz: ['Phép lai Aa × Aa tạo tỉ lệ kiểu gene nào nếu các giao tử kết hợp ngẫu nhiên?', ['1 AA : 2 Aa : 1 aa', '3 AA : 1 aa', '1 AA : 1 Aa', 'Chỉ Aa'], 0, 'Lập bảng gồm giao tử A và a từ mỗi bên.', 'Bảng lai Aa × Aa cho 1 AA, 2 Aa và 1 aa.'],
+    match: [['Kiểu gene đồng hợp trội AA', 'Đồng hợp trội'], ['Kiểu gene dị hợp Aa', 'Dị hợp'], ['Kiểu gene đồng hợp lặn aa', 'Đồng hợp lặn']],
+    fill: ['Trong phép lai Aa × Aa, kiểu gene dị hợp xuất hiện với tỉ lệ [blank].', '1/2'],
+    category: [['Đồng hợp', 'Dị hợp'], [['Đồng hợp trội AA', 0], ['Đồng hợp lặn aa', 0], ['Dị hợp Aa', 1]]],
+    drag: ['Trong phép lai Aa × Aa, kiểu gene cuối cùng theo tỉ lệ 1 : 2 : 1 là [blank].', ['đồng hợp lặn aa', 'đồng hợp trội AA', 'allele A'], 'đồng hợp lặn aa'],
+  },
+  {
+    objective: 'Nhận biết cấu tạo và chức năng của DNA.', lesson: 'Bài 38. Nucleic acid và gene',
+    quiz: ['DNA được cấu tạo từ các đơn phân nào?', ['Nucleotide', 'Amino acid', 'Glucose', 'Acid béo'], 0, 'Mỗi đơn phân có đường, phosphate và base nitrogen.', 'DNA là phân tử được cấu tạo từ các nucleotide.'],
+    match: [['DNA', 'Lưu giữ thông tin di truyền'], ['Nucleotide', 'Đơn phân cấu tạo DNA'], ['Gene', 'Một đoạn DNA mang thông tin di truyền']],
+    fill: ['Đơn phân cấu tạo nên DNA là [blank].', 'nucleotide'],
+    category: [['Base có trong DNA', 'Không phải base của DNA'], [['A', 0], ['T', 0], ['G', 0], ['C', 0], ['U', 1]]],
+    drag: ['DNA mang thông tin [blank] của sinh vật.', ['di truyền', 'thời tiết', 'địa chất'], 'di truyền'],
+  },
+  {
+    objective: 'Vận dụng nguyên tắc bổ sung trong cấu trúc DNA.', lesson: 'Bài 38. Nucleic acid và gene',
+    quiz: ['Trong DNA, base A thường liên kết bổ sung với base nào?', ['T', 'G', 'C', 'U'], 0, 'Adenine ghép với thymine trong DNA.', 'Theo nguyên tắc bổ sung, A ghép với T.'],
+    match: [['A', 'Bổ sung với T'], ['G', 'Bổ sung với C'], ['Hai mạch DNA', 'Liên kết theo nguyên tắc bổ sung']],
+    fill: ['Trong DNA, G liên kết bổ sung với [blank].', 'C'],
+    category: [['Cặp base bổ sung trong DNA', 'Không phải cặp base bổ sung trong DNA'], [['A–T', 0], ['G–C', 0], ['A–G', 1], ['T–C', 1]]],
+    drag: ['Nếu một mạch DNA có base A, mạch đối diện thường có base [blank].', ['T', 'G', 'U'], 'T'],
+  },
+  {
+    objective: 'Phân biệt DNA và RNA theo cấu trúc và loại base đặc trưng.', lesson: 'Bài 38. Nucleic acid và gene',
+    quiz: ['Base nào có trong RNA thay cho T của DNA?', ['U', 'A', 'G', 'C'], 0, 'Tên base là uracil.', 'RNA chứa uracil (U) thay cho thymine (T) của DNA.'],
+    match: [['DNA', 'Thường có hai mạch và chứa T'], ['RNA', 'Thường có một mạch và chứa U'], ['mRNA', 'Mang thông tin từ gene tới nơi tổng hợp protein']],
+    fill: ['RNA sử dụng base [blank] thay cho T của DNA.', 'U'],
+    category: [['Đặc trưng DNA', 'Đặc trưng RNA'], [['Có T', 0], ['Thường gồm hai mạch', 0], ['Có U', 1], ['Thường gồm một mạch', 1]]],
+    drag: ['Phân tử RNA dùng base [blank] để bắt cặp với A.', ['U', 'T', 'G'], 'U'],
+  },
+  {
+    objective: 'Mô tả nguyên tắc chính của quá trình tái bản DNA.', lesson: 'Bài 39. Tái bản DNA và phiên mã tạo RNA',
+    quiz: ['Sau tái bản, mỗi phân tử DNA con thường có thành phần nào?', ['Một mạch cũ và một mạch mới', 'Hai mạch đều cũ', 'Chỉ một mạch RNA', 'Không có mạch mới'], 0, 'Đây là nguyên tắc bán bảo tồn.', 'Tái bản DNA theo nguyên tắc bán bảo tồn: mỗi DNA con có một mạch cũ và một mạch mới.'],
+    match: [['Mạch DNA khuôn', 'Định hướng tổng hợp mạch mới'], ['Nucleotide tự do', 'Nguyên liệu tạo mạch mới'], ['DNA con', 'Mang một mạch cũ và một mạch mới']],
+    fill: ['Tái bản DNA diễn ra theo nguyên tắc bổ sung và bán [blank].', 'bảo tồn'],
+    category: [['Liên quan tái bản DNA', 'Không phải tái bản DNA'], [['Mạch khuôn DNA', 0], ['Nucleotide DNA tự do', 0], ['Tạo DNA con', 0], ['Tạo chuỗi amino acid', 1]]],
+    drag: ['Trong tái bản, mỗi mạch DNA cũ làm [blank] để tổng hợp mạch mới.', ['khuôn', 'enzyme tiêu hoá', 'màng tế bào'], 'khuôn'],
+  },
+  {
+    objective: 'Mô tả phiên mã tạo RNA từ gene.', lesson: 'Bài 39. Tái bản DNA và phiên mã tạo RNA',
+    quiz: ['Sản phẩm trực tiếp của quá trình phiên mã là gì?', ['RNA', 'DNA con', 'Protein hoàn chỉnh', 'Lipid'], 0, 'Tên quá trình có nghĩa tạo bản sao thông tin dưới dạng RNA.', 'Phiên mã dùng mạch DNA làm khuôn để tổng hợp RNA.'],
+    match: [['Gene trên DNA', 'Chứa thông tin dùng làm khuôn'], ['Phiên mã', 'Tổng hợp RNA từ mạch khuôn DNA'], ['mRNA', 'Mang thông tin tới ribosome']],
+    fill: ['Quá trình tổng hợp RNA trên mạch khuôn DNA gọi là [blank].', 'phiên mã'],
+    category: [['Liên quan phiên mã', 'Liên quan dịch mã'], [['Mạch khuôn DNA', 0], ['Tạo mRNA', 0], ['Ribosome đọc codon mRNA', 1], ['Tạo chuỗi amino acid', 1]]],
+    drag: ['Trong phiên mã, sản phẩm được tạo ra là một phân tử [blank].', ['RNA', 'lipid', 'tinh bột'], 'RNA'],
+  },
+  {
+    objective: 'Giải thích mối liên hệ từ gene qua mRNA đến protein và tính trạng.', lesson: 'Bài 40. Dịch mã và mối quan hệ từ gene đến tính trạng',
+    quiz: ['Trong dịch mã, ribosome sử dụng phân tử nào làm khuôn?', ['mRNA', 'DNA hai mạch trực tiếp', 'Lipid', 'Tinh bột'], 0, 'Bản phiên mã mang mã di truyền.', 'Ribosome đọc mRNA để tổng hợp chuỗi amino acid.'],
+    match: [['Gene', 'Mang thông tin di truyền'], ['mRNA', 'Truyền thông tin từ gene'], ['Protein', 'Có thể tham gia biểu hiện tính trạng']],
+    fill: ['Quá trình tổng hợp chuỗi amino acid theo thông tin trên mRNA gọi là [blank].', 'dịch mã'],
+    category: [['Theo dòng thông tin gene → tính trạng', 'Không nằm trong dòng thông tin đó'], [['DNA', 0], ['mRNA', 0], ['Protein', 0], ['Đất đá', 1]]],
+    drag: ['Thông tin từ gene được phiên mã thành mRNA rồi dịch mã tạo [blank].', ['protein', 'nước', 'ánh sáng'], 'protein'],
+  },
+];
+
+writeStation({
+  grade: 9, station: 1, title: 'Mendel, nucleic acid và gene',
+  book: 'SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống',
+  notes: 'Nội dung soạn theo Bài 36–40 của SGK KHTN 9 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.',
+  stages,
+});

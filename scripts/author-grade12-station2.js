@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Giải thích một đặc điểm của di truyền gene ngoài nhân.', lesson: 'Chương III. Di truyền gene ngoài nhân',
+    quiz: ['Gene ngoài nhân thường có ở đâu?', ['Ty thể hoặc lục lạp', 'Chỉ trên nhiễm sắc thể X', 'Chỉ trong thành tế bào', 'Chỉ ở dịch ngoài tế bào'], 0, 'Hai bào quan có DNA riêng.', 'Ty thể và lục lạp có DNA riêng mang một số gene ngoài nhân.'],
+    match: [['Ty thể', 'Có DNA riêng'], ['Lục lạp', 'Có DNA riêng ở tế bào quang hợp'], ['Di truyền ngoài nhân', 'Liên quan gene ngoài nhiễm sắc thể trong nhân']],
+    fill: ['Ty thể và lục lạp có thể mang gene ngoài [blank].', 'nhân'],
+    category: [['Có thể chứa DNA ngoài nhân', 'Không phải bào quan chứa DNA ngoài nhân thông thường'], [['Ty thể', 0], ['Lục lạp', 0], ['Ribosome tự do', 1], ['Bộ máy Golgi', 1]]],
+    drag: ['Di truyền gene ở ty thể là một ví dụ của di truyền ngoài [blank].', ['nhân', 'quần thể', 'hệ sinh thái'], 'nhân'],
+  },
+  {
+    objective: 'Phân biệt kiểu gene, môi trường và kiểu hình.', lesson: 'Chương III. Tương tác giữa kiểu gene với môi trường',
+    quiz: ['Kiểu hình của sinh vật chịu ảnh hưởng trực tiếp của những yếu tố nào?', ['Kiểu gene và môi trường', 'Chỉ tên loài', 'Chỉ màu nhãn thí nghiệm', 'Chỉ vị trí trang sách'], 0, 'Gene hoạt động trong điều kiện sống cụ thể.', 'Kiểu hình là kết quả tương tác giữa kiểu gene và môi trường.'],
+    match: [['Kiểu gene', 'Thông tin di truyền của cá thể'], ['Môi trường', 'Các điều kiện tác động lên biểu hiện'], ['Kiểu hình', 'Đặc điểm được biểu hiện']],
+    fill: ['Kiểu hình là kết quả tương tác giữa kiểu gene và [blank].', 'môi trường'],
+    category: [['Yếu tố có thể tác động kiểu hình', 'Không phải yếu tố sinh học của kiểu hình'], [['Kiểu gene', 0], ['Dinh dưỡng', 0], ['Nhiệt độ', 0], ['Tên nhãn chậu', 1]]],
+    drag: ['Cùng kiểu gene có thể biểu hiện khác nhau trong các điều kiện [blank] khác nhau.', ['môi trường', 'tên sách', 'màu bút'], 'môi trường'],
+  },
+  {
+    objective: 'Giải thích thường biến và giới hạn phản ứng.', lesson: 'Chương III. Tương tác giữa kiểu gene với môi trường; Thực hành: Thường biến ở cây trồng',
+    quiz: ['Thường biến là biến đổi nào?', ['Biến đổi kiểu hình do môi trường trong giới hạn kiểu gene', 'Đột biến DNA ở mọi tế bào', 'Thay đổi số nhiễm sắc thể luôn luôn', 'Tạo allele mới bắt buộc'], 0, 'Không phải mọi thay đổi kiểu hình đều đổi DNA.', 'Thường biến là biến đổi kiểu hình do môi trường tác động trong giới hạn phản ứng của kiểu gene.'],
+    match: [['Thường biến', 'Biến đổi kiểu hình do môi trường'], ['Giới hạn phản ứng', 'Khoảng biểu hiện kiểu hình của một kiểu gene'], ['Đột biến', 'Biến đổi vật chất di truyền']],
+    fill: ['Thường biến không nhất thiết làm thay đổi trình tự [blank].', 'DNA'],
+    category: [['Có thể là thường biến', 'Có thể là đột biến'], [['Cây cùng giống cao khác nhau do dinh dưỡng', 0], ['Lá lớn hơn khi đủ nước', 0], ['Thay thế một cặp nucleotide', 1], ['Mất đoạn nhiễm sắc thể', 1]]],
+    drag: ['Môi trường có thể làm thay đổi [blank] mà không nhất thiết đổi kiểu gene.', ['kiểu hình', 'số lượng loài', 'tên gene'], 'kiểu hình'],
+  },
+  {
+    objective: 'Nêu ý nghĩa của chọn giống dựa trên kiểu gene và môi trường.', lesson: 'Chương III. Tương tác giữa kiểu gene với môi trường và thành tựu chọn giống',
+    quiz: ['Vì sao cần thử nghiệm một giống cây ở nhiều môi trường?', ['Đánh giá khả năng biểu hiện và thích nghi', 'Để đổi tên gene của cây', 'Để cây không cần nước', 'Để bỏ qua năng suất'], 0, 'Cùng kiểu gene có thể cho kiểu hình khác nhau.', 'Thử ở nhiều điều kiện giúp đánh giá năng suất và độ ổn định biểu hiện của giống.'],
+    match: [['Giống cây', 'Mang đặc điểm di truyền nhất định'], ['Môi trường canh tác', 'Ảnh hưởng biểu hiện kiểu hình'], ['Thử nghiệm giống', 'Đánh giá hiệu quả ở điều kiện khác nhau']],
+    fill: ['Năng suất cây trồng chịu ảnh hưởng của giống và điều kiện [blank].', 'canh tác'],
+    category: [['Đánh giá giống hợp lí', 'Đánh giá thiếu căn cứ'], [['Thử ở nhiều điều kiện', 0], ['Đo năng suất', 0], ['Ghi điều kiện canh tác', 0], ['Chỉ chọn theo màu nhãn chậu', 1]]],
+    drag: ['Chọn giống cần kết hợp đặc điểm di truyền với điều kiện [blank].', ['môi trường', 'màu nhãn', 'tên người trồng'], 'môi trường'],
+  },
+  {
+    objective: 'Tính tần số allele và kiểu gene của quần thể đơn giản.', lesson: 'Chương III. Di truyền quần thể',
+    quiz: ['Ở quần thể lưỡng bội có tần số kiểu gene AA = 0,25 và Aa = 0,50, tần số allele A bằng bao nhiêu?', ['0,50', '0,25', '0,75', '1,00'], 0, 'p = f(AA) + 1/2 f(Aa).', 'Tần số A = 0,25 + 0,5 × 0,50 = 0,50.'],
+    match: [['Tần số allele A', 'Tỉ lệ bản sao allele A trong quần thể'], ['Tần số kiểu gene', 'Tỉ lệ cá thể mang một kiểu gene'], ['Quần thể', 'Tập hợp cá thể cùng loài trong khu vực']],
+    fill: ['Tần số hai allele A và a của một gene hai allele có tổng bằng [blank].', '1'],
+    category: [['Đại lượng di truyền quần thể', 'Không phải đại lượng di truyền quần thể'], [['Tần số allele A', 0], ['Tần số kiểu gene dị hợp Aa', 0], ['Tần số kiểu gene đồng hợp lặn aa', 0], ['Màu bìa sách', 1]]],
+    drag: ['Nếu chỉ có hai allele A và a thì p + q = [blank].', ['1', '2', '0'], '1'],
+  },
+  {
+    objective: 'Vận dụng biểu thức Hardy–Weinberg trong trường hợp đủ giả định.', lesson: 'Chương III. Di truyền quần thể',
+    quiz: ['Với hai allele có tần số p và q, tần số kiểu gene dị hợp ở trạng thái Hardy–Weinberg là gì?', ['2pq', 'p²', 'q²', 'p + q'], 0, 'Hạng giữa trong khai triển (p + q)².', 'Tần số kiểu gene Aa bằng 2pq.'],
+    match: [['p²', 'Tần số đồng hợp trội'], ['2pq', 'Tần số dị hợp'], ['q²', 'Tần số đồng hợp lặn']],
+    fill: ['Trong biểu thức p² + 2pq + q² = 1, tần số dị hợp là [blank].', '2pq'],
+    category: [['Kiểu gene đồng hợp', 'Kiểu gene dị hợp'], [['Đồng hợp trội AA', 0], ['Đồng hợp lặn aa', 0], ['Dị hợp Aa', 1]]],
+    drag: ['Ở mô hình hai allele, tần số aa tại cân bằng là [blank].', ['q²', '2pq', 'p²'], 'q²'],
+  },
+  {
+    objective: 'Nhận biết bằng chứng hoá thạch và bằng chứng giải phẫu so sánh.', lesson: 'Chương IV. Các bằng chứng tiến hoá',
+    quiz: ['Cơ quan tương đồng gợi ý điều gì?', ['Nguồn gốc chung của các nhóm sinh vật', 'Các loài luôn sống cùng nơi', 'Không có tiến hoá', 'Mọi loài có cùng kích thước'], 0, 'Cùng kiểu cấu trúc cơ bản có thể biến đổi chức năng.', 'Cơ quan tương đồng là bằng chứng về nguồn gốc chung.'],
+    match: [['Hoá thạch', 'Dấu tích sinh vật cổ'], ['Cơ quan tương đồng', 'Có nguồn gốc chung về cấu trúc'], ['DNA', 'Có thể so sánh sự tương đồng phân tử']],
+    fill: ['Dấu tích sinh vật cổ được bảo tồn là [blank].', 'hoá thạch'],
+    category: [['Bằng chứng tiến hoá', 'Không phải bằng chứng tiến hoá'], [['Hoá thạch', 0], ['Cơ quan tương đồng', 0], ['Trình tự DNA', 0], ['Tin đồn không dữ liệu', 1]]],
+    drag: ['Cơ quan tương đồng là bằng chứng về nguồn gốc [blank].', ['chung', 'không liên quan', 'ngẫu nhiên luôn luôn'], 'chung'],
+  },
+  {
+    objective: 'Giải thích vai trò của biến dị và chọn lọc tự nhiên trong quan niệm Darwin.', lesson: 'Chương IV. Quan niệm của Darwin về chọn lọc tự nhiên và hình thành loài',
+    quiz: ['Trong chọn lọc tự nhiên, cá thể nào có xu hướng đóng góp nhiều hơn vào thế hệ sau?', ['Cá thể sống sót và sinh sản thành công hơn', 'Cá thể luôn lớn nhất', 'Cá thể có màu đẹp theo con người', 'Cá thể không sinh sản'], 0, 'Xét thành công sinh sản.', 'Các cá thể có đặc điểm thuận lợi trong môi trường có thể để lại nhiều con hơn.'],
+    match: [['Biến dị', 'Tạo khác biệt giữa cá thể'], ['Chọn lọc tự nhiên', 'Tác động đến sống sót và sinh sản'], ['Thích nghi', 'Sự phù hợp tương đối với môi trường']],
+    fill: ['Chọn lọc tự nhiên tác động qua khả năng sống sót và [blank].', 'sinh sản'],
+    category: [['Có thể được chọn lọc tác động qua thế hệ', 'Không truyền cho đời sau'], [['Biến dị di truyền', 0], ['Allele có lợi trong môi trường', 0], ['Vết bẩn tạm trên da', 1], ['Kiểu tóc mới cắt', 1]]],
+    drag: ['Môi trường quyết định đặc điểm nào có lợi cho sự [blank].', ['thích nghi', 'đổi tên', 'quang hợp luôn luôn'], 'thích nghi'],
+  },
+  {
+    objective: 'Phân biệt đột biến, chọn lọc tự nhiên, phiêu bạt di truyền và dòng gene.', lesson: 'Chương IV. Học thuyết tiến hoá tổng hợp',
+    quiz: ['Dòng gene giữa hai quần thể xảy ra khi nào?', ['Cá thể di cư và trao đổi allele giữa quần thể', 'Chỉ khi mọi cá thể chết', 'Khi gene tự biến thành protein', 'Khi hai loài không bao giờ sinh sản'], 0, 'Xét sự di chuyển allele giữa quần thể.', 'Di cư kèm sinh sản có thể chuyển allele giữa các quần thể.'],
+    match: [['Đột biến', 'Tạo allele mới'], ['Phiêu bạt di truyền', 'Thay đổi tần số allele do yếu tố ngẫu nhiên'], ['Dòng gene', 'Trao đổi allele giữa các quần thể']],
+    fill: ['Sự thay đổi tần số allele do ngẫu nhiên gọi là phiêu bạt [blank].', 'di truyền'],
+    category: [['Có thể đổi tần số allele', 'Không phải cơ chế tiến hoá'], [['Chọn lọc tự nhiên', 0], ['Phiêu bạt di truyền', 0], ['Dòng gene', 0], ['Lá cây lay động vì gió', 1]]],
+    drag: ['Dòng gene có thể xuất hiện khi cá thể [blank] giữa các quần thể và sinh sản.', ['di cư', 'ngừng sống', 'chỉ đổi màu'], 'di cư'],
+  },
+  {
+    objective: 'Đọc cây phát sinh chủng loại ở mức cơ bản.', lesson: 'Chương IV. Tiến hoá lớn và quá trình phát sinh chủng loại',
+    quiz: ['Trên cây phát sinh chủng loại, nút phân nhánh thường biểu thị điều gì?', ['Tổ tiên chung của các nhánh hậu duệ', 'Một cá thể đang ngủ', 'Màu sắc của môi trường', 'Số lượng thức ăn'], 0, 'Xét điểm hai nhánh tách ra.', 'Nút phân nhánh biểu thị tổ tiên chung gần nhất của các nhóm hậu duệ.'],
+    match: [['Nút phân nhánh', 'Tổ tiên chung của các nhánh'], ['Nhánh', 'Một dòng tiến hoá'], ['Cây phát sinh chủng loại', 'Sơ đồ giả thuyết quan hệ họ hàng']],
+    fill: ['Cây phát sinh chủng loại thể hiện quan hệ [blank] giữa các nhóm sinh vật.', 'họ hàng'],
+    category: [['Thông tin cây phát sinh có thể thể hiện', 'Không đọc trực tiếp từ cây phát sinh'], [['Quan hệ họ hàng', 0], ['Tổ tiên chung', 0], ['Nhánh tiến hoá', 0], ['Khối lượng mỗi cá thể hiện sống', 1]]],
+    drag: ['Hai nhánh gần nhau trên cây có thể chia sẻ tổ tiên [blank] gần.', ['chung', 'riêng hoàn toàn', 'không có'], 'chung'],
+  },
+];
+
+writeStation({ grade: 12, station: 2, title: 'Di truyền mở rộng và tiến hoá', book: 'SGK Sinh học 12 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Chương III–V của SGK Sinh học 12 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

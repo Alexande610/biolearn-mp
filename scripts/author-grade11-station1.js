@@ -1,0 +1,86 @@
+import { writeStation } from './station-authoring.js';
+
+const stages = [
+  {
+    objective: 'Nêu các giai đoạn cơ bản của trao đổi chất và chuyển hoá năng lượng ở sinh vật.', lesson: 'Bài 1. Khái quát về trao đổi chất và chuyển hoá năng lượng',
+    quiz: ['Trao đổi chất ở sinh vật bao gồm hoạt động nào?', ['Thu nhận, biến đổi và thải các chất', 'Chỉ thu nhận chất', 'Chỉ thải chất', 'Chỉ đổi màu cơ thể'], 0, 'Xét cả chiều vào, biến đổi và chiều ra.', 'Trao đổi chất gồm thu nhận, biến đổi và thải chất.'],
+    match: [['Thu nhận chất', 'Lấy vật chất từ môi trường'], ['Chuyển hoá', 'Biến đổi vật chất và năng lượng'], ['Thải chất', 'Đưa sản phẩm không cần thiết ra ngoài']],
+    fill: ['Trao đổi chất và chuyển hoá năng lượng là điều kiện duy trì [blank] của cơ thể.', 'sự sống'],
+    category: [['Trao đổi chất', 'Chuyển hoá năng lượng'], [['Hấp thụ nước', 0], ['Thải carbon dioxide', 0], ['Quang năng thành hoá năng', 1], ['Hoá năng thành cơ năng', 1]]],
+    drag: ['Sinh vật cần trao đổi chất và chuyển hoá [blank] để duy trì hoạt động sống.', ['năng lượng', 'màu sắc', 'âm thanh'], 'năng lượng'],
+  },
+  {
+    objective: 'Mô tả hấp thụ nước và ion khoáng ở rễ cây.', lesson: 'Bài 2. Trao đổi nước và khoáng ở thực vật',
+    quiz: ['Nước và ion khoáng từ đất thường được hấp thụ chủ yếu qua bộ phận nào?', ['Lông hút của rễ', 'Cánh hoa', 'Quả', 'Hạt khô'], 0, 'Nằm ở bề mặt rễ non.', 'Lông hút giúp tăng diện tích hấp thụ nước và ion khoáng.'],
+    match: [['Lông hút', 'Tăng diện tích hấp thụ'], ['Nước', 'Đi vào rễ theo chênh lệch thế nước'], ['Ion khoáng', 'Có thể được hấp thụ chọn lọc']],
+    fill: ['Các tế bào [blank] hút làm tăng diện tích tiếp xúc của rễ với đất.', 'lông'],
+    category: [['Hấp thụ từ đất', 'Sản phẩm quang hợp từ lá'], [['Nước', 0], ['Ion nitrate', 0], ['Ion potassium', 0], ['Saccharose', 1]]],
+    drag: ['Nước và khoáng đi vào cây chủ yếu qua [blank].', ['rễ', 'hoa', 'quả'], 'rễ'],
+  },
+  {
+    objective: 'Phân biệt dòng vận chuyển trong mạch gỗ và mạch rây.', lesson: 'Bài 2. Trao đổi nước và khoáng ở thực vật',
+    quiz: ['Dòng mạch gỗ chủ yếu vận chuyển gì?', ['Nước và ion khoáng', 'Chỉ đường từ lá', 'Chỉ protein từ hạt', 'Không vận chuyển chất'], 0, 'Dòng này đi từ rễ lên các bộ phận trên.', 'Mạch gỗ chủ yếu vận chuyển nước và ion khoáng từ rễ lên.'],
+    match: [['Mạch gỗ', 'Dẫn nước và khoáng từ rễ lên'], ['Mạch rây', 'Dẫn chất hữu cơ từ cơ quan nguồn'], ['Thoát hơi nước', 'Góp phần tạo lực kéo dòng mạch gỗ']],
+    fill: ['Chất hữu cơ được vận chuyển chủ yếu trong mạch [blank].', 'rây'],
+    category: [['Dòng mạch gỗ', 'Dòng mạch rây'], [['Nước', 0], ['Ion khoáng từ rễ', 0], ['Saccharose từ lá', 1], ['Chất hữu cơ tới cơ quan dự trữ', 1]]],
+    drag: ['Thoát hơi nước ở lá góp phần kéo dòng nước đi lên trong mạch [blank].', ['gỗ', 'rây', 'khí'], 'gỗ'],
+  },
+  {
+    objective: 'Nêu pha sáng, cố định carbon và vai trò của quang hợp ở thực vật.', lesson: 'Bài 4. Quang hợp ở thực vật',
+    quiz: ['Pha sáng của quang hợp sử dụng trực tiếp nguồn năng lượng nào?', ['Ánh sáng', 'Âm thanh', 'Nhiệt từ lửa', 'Chuyển động của gió'], 0, 'Tên pha gợi nguồn năng lượng.', 'Pha sáng chuyển năng lượng ánh sáng thành năng lượng hoá học.'],
+    match: [['Pha sáng', 'Chuyển năng lượng ánh sáng thành ATP và NADPH'], ['Cố định carbon', 'Sử dụng carbon dioxide để tổng hợp chất hữu cơ'], ['Lục lạp', 'Bào quan diễn ra quang hợp']],
+    fill: ['Carbon trong chất hữu cơ quang hợp có nguồn từ khí [blank].', 'carbon dioxide'],
+    category: [['Pha sáng', 'Cố định carbon'], [['Nhận ánh sáng', 0], ['Tạo ATP và NADPH', 0], ['Sử dụng carbon dioxide', 1], ['Tổng hợp carbohydrate', 1]]],
+    drag: ['Quang hợp giúp tích luỹ [blank] trong chất hữu cơ.', ['hoá năng', 'âm thanh', 'động năng cơ học'], 'hoá năng'],
+  },
+  {
+    objective: 'Giải thích vai trò của hô hấp ở thực vật.', lesson: 'Bài 6. Hô hấp ở thực vật',
+    quiz: ['Hô hấp ở thực vật cung cấp trực tiếp điều gì cho nhiều hoạt động tế bào?', ['ATP', 'Ánh sáng', 'Tinh bột nguyên hạt', 'Khí nitrogen'], 0, 'Là dạng năng lượng tế bào thường dùng.', 'Hô hấp phân giải chất hữu cơ để tạo ATP cho hoạt động sống.'],
+    match: [['Glucose', 'Cơ chất có thể bị phân giải'], ['Oxygen', 'Tham gia hô hấp hiếu khí'], ['ATP', 'Cung cấp năng lượng trực tiếp']],
+    fill: ['Hô hấp ở thực vật phân giải chất hữu cơ và tạo [blank].', 'ATP'],
+    category: [['Quang hợp', 'Hô hấp ở thực vật'], [['Sử dụng ánh sáng để tổng hợp chất hữu cơ', 0], ['Cố định carbon dioxide', 0], ['Phân giải chất hữu cơ', 1], ['Giải phóng năng lượng cho tế bào', 1]]],
+    drag: ['Cây xanh vừa quang hợp vừa [blank].', ['hô hấp', 'chỉ hô hấp khi tối', 'không trao đổi chất'], 'hô hấp'],
+  },
+  {
+    objective: 'Phân biệt các hình thức tiêu hoá và hấp thụ ở động vật.', lesson: 'Bài 8. Dinh dưỡng và tiêu hoá ở động vật',
+    quiz: ['Sau tiêu hoá, chất dinh dưỡng được đưa vào cơ thể nhờ quá trình nào?', ['Hấp thụ', 'Thụ phấn', 'Thoát hơi nước', 'Quang hợp'], 0, 'Chất đi qua bề mặt hấp thụ.', 'Hấp thụ đưa các chất dinh dưỡng sau tiêu hoá vào cơ thể.'],
+    match: [['Lấy thức ăn', 'Đưa thức ăn vào cơ thể'], ['Tiêu hoá', 'Biến đổi thức ăn thành chất dễ hấp thụ'], ['Hấp thụ', 'Đưa chất dinh dưỡng vào môi trường trong']],
+    fill: ['Quá trình biến đổi thức ăn thành chất đơn giản hơn gọi là [blank].', 'tiêu hoá'],
+    category: [['Trước hấp thụ', 'Sau hấp thụ'], [['Lấy thức ăn', 0], ['Tiêu hoá', 0], ['Vận chuyển chất dinh dưỡng đến tế bào', 1], ['Tế bào dùng chất dinh dưỡng', 1]]],
+    drag: ['Chất dinh dưỡng được [blank] sau tiêu hoá.', ['hấp thụ', 'quang hợp', 'thụ tinh'], 'hấp thụ'],
+  },
+  {
+    objective: 'So sánh bề mặt trao đổi khí ở một số nhóm động vật.', lesson: 'Bài 9. Hô hấp ở động vật',
+    quiz: ['Cá xương chủ yếu trao đổi khí bằng cơ quan nào?', ['Mang', 'Phổi', 'Khí khổng', 'Lông hút'], 0, 'Bề mặt này tiếp xúc với nước.', 'Mang là bề mặt trao đổi khí chủ yếu của cá xương.'],
+    match: [['Cá', 'Mang'], ['Côn trùng', 'Hệ thống ống khí'], ['Động vật có vú', 'Phổi']],
+    fill: ['Ở động vật có vú, trao đổi khí diễn ra chủ yếu tại [blank].', 'phổi'],
+    category: [['Trao đổi khí qua mang', 'Trao đổi khí qua phổi'], [['Cá chép', 0], ['Cá rô', 0], ['Người', 1], ['Chó', 1]]],
+    drag: ['Hệ thống ống khí là hình thức trao đổi khí phổ biến ở [blank].', ['côn trùng', 'cá xương', 'thực vật'], 'côn trùng'],
+  },
+  {
+    objective: 'Mô tả vai trò của hệ tuần hoàn ở động vật.', lesson: 'Bài 10. Tuần hoàn ở động vật',
+    quiz: ['Hệ tuần hoàn có chức năng chính nào?', ['Vận chuyển các chất trong cơ thể', 'Tạo ánh sáng', 'Làm thức ăn tự tiêu biến', 'Tạo gene mới liên tục'], 0, 'Máu hoặc dịch tuần hoàn di chuyển.', 'Hệ tuần hoàn vận chuyển khí, dinh dưỡng và nhiều chất khác.'],
+    match: [['Tim', 'Tạo lực đẩy dịch tuần hoàn'], ['Mạch máu', 'Đường vận chuyển máu'], ['Mao mạch', 'Nơi trao đổi chất với mô']],
+    fill: ['Ở người, cơ quan co bóp tạo lực đẩy máu là [blank].', 'tim'],
+    category: [['Thuộc hệ tuần hoàn', 'Không thuộc hệ tuần hoàn'], [['Tim', 0], ['Động mạch', 0], ['Tĩnh mạch', 0], ['Khí khổng', 1]]],
+    drag: ['Mao mạch là nơi máu trao đổi chất với [blank].', ['mô', 'đất', 'ánh sáng'], 'mô'],
+  },
+  {
+    objective: 'Nêu các hàng rào bảo vệ và vai trò của miễn dịch ở động vật.', lesson: 'Bài 12. Miễn dịch ở động vật',
+    quiz: ['Hàng rào bảo vệ cơ thể đầu tiên chống nhiều tác nhân gây bệnh là gì?', ['Da và niêm mạc', 'Xương đùi', 'Tinh bột', 'Lục lạp'], 0, 'Ngăn tác nhân xâm nhập.', 'Da và niêm mạc là các hàng rào bảo vệ ban đầu.'],
+    match: [['Da', 'Hàng rào vật lí'], ['Bạch cầu', 'Tham gia đáp ứng miễn dịch'], ['Kháng thể', 'Có thể nhận biết kháng nguyên đặc hiệu']],
+    fill: ['Hệ [blank] giúp cơ thể nhận biết và chống tác nhân gây bệnh.', 'miễn dịch'],
+    category: [['Tham gia bảo vệ cơ thể', 'Không thuộc hệ bảo vệ ở động vật'], [['Da', 0], ['Bạch cầu', 0], ['Kháng thể', 0], ['Lục lạp', 1]]],
+    drag: ['Vaccine có thể giúp hình thành đáp ứng miễn dịch [blank].', ['đặc hiệu', 'quang hợp', 'thẩm thấu'], 'đặc hiệu'],
+  },
+  {
+    objective: 'Giải thích vai trò của bài tiết trong cân bằng nội môi.', lesson: 'Bài 13. Bài tiết và cân bằng nội môi',
+    quiz: ['Thận góp phần điều hoà môi trường trong bằng cách nào?', ['Điều chỉnh thải nước và chất tan', 'Tạo ánh sáng', 'Tổng hợp cellulose', 'Thay thế hoàn toàn phổi'], 0, 'Xét thành phần nước tiểu.', 'Thận điều chỉnh sự bài tiết nước và chất tan, góp phần giữ ổn định môi trường trong.'],
+    match: [['Thận', 'Tạo nước tiểu và điều chỉnh chất tan'], ['Phổi', 'Thải carbon dioxide'], ['Cân bằng nội môi', 'Giữ các điều kiện bên trong tương đối ổn định']],
+    fill: ['Duy trì điều kiện bên trong cơ thể tương đối ổn định gọi là cân bằng [blank].', 'nội môi'],
+    category: [['Tham gia bài tiết hoặc điều hoà', 'Không thuộc cơ thể động vật'], [['Thận', 0], ['Phổi', 0], ['Da', 0], ['Mạch gỗ', 1]]],
+    drag: ['Bài tiết giúp loại bỏ chất thải và duy trì cân bằng [blank].', ['nội môi', 'quang hợp', 'thụ phấn'], 'nội môi'],
+  },
+];
+
+writeStation({ grade: 11, station: 1, title: 'Trao đổi chất và chuyển hoá năng lượng', book: 'SGK Sinh học 11 - Kết nối tri thức với cuộc sống', notes: 'Nội dung soạn theo Bài 1–13 của SGK Sinh học 11 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.', stages });

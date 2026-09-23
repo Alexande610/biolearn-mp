@@ -1,0 +1,1071 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "g9-st3-2026.1",
+  "grade": 9,
+  "stationId": "g9_st3",
+  "title": "Lớp 9 - Trạm 3: Tiến hoá",
+  "status": "draft",
+  "notes": "Nội dung soạn theo Bài 49–51 của SGK KHTN 9 Kết nối tri thức; chờ duyệt nội dung và thử giao diện trước khi phát hành.",
+  "stages": [
+    {
+      "dayIndex": 1,
+      "learningObjective": "Nhận biết tiến hoá là sự biến đổi của sinh vật qua thời gian.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 49. Khái niệm tiến hoá và các hình thức chọn lọc"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Tiến hoá sinh học nói đến điều gì?",
+            "options": [
+              "Sự biến đổi của sinh vật qua nhiều thế hệ",
+              "Một cá thể cao lên trong một ngày",
+              "Một chiếc lá rung theo gió",
+              "Cơ thể mất nước sau vận động"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét thay đổi qua các thế hệ.",
+            "explanation": "Tiến hoá liên quan đến sự biến đổi của các quần thể sinh vật qua nhiều thế hệ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Tiến hoá",
+                "right": "Biến đổi của sinh vật qua nhiều thế hệ"
+              },
+              {
+                "left": "Biến dị",
+                "right": "Tạo sự khác biệt giữa cá thể"
+              },
+              {
+                "left": "Di truyền",
+                "right": "Truyền đặc điểm cho thế hệ sau"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Tiến hoá: Biến đổi của sinh vật qua nhiều thế hệ; Biến dị: Tạo sự khác biệt giữa cá thể; Di truyền: Truyền đặc điểm cho thế hệ sau."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Tiến hoá diễn ra qua nhiều [blank] của sinh vật.",
+            "correctAnswer": "thế hệ",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ cần điền là “thế hệ”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Liên quan tiến hoá",
+              "Thay đổi ở một cá thể ngắn hạn"
+            ],
+            "items": [
+              {
+                "name": "Tần số đặc điểm thay đổi qua nhiều thế hệ",
+                "catIndex": 0
+              },
+              {
+                "name": "Quần thể thay đổi theo thời gian",
+                "catIndex": 0
+              },
+              {
+                "name": "Một con vật tăng cân sau bữa ăn",
+                "catIndex": 1
+              },
+              {
+                "name": "Lá héo vì thiếu nước trong ngày",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Tần số đặc điểm thay đổi qua nhiều thế hệ thuộc nhóm Liên quan tiến hoá; Quần thể thay đổi theo thời gian thuộc nhóm Liên quan tiến hoá; Một con vật tăng cân sau bữa ăn thuộc nhóm Thay đổi ở một cá thể ngắn hạn; Lá héo vì thiếu nước trong ngày thuộc nhóm Thay đổi ở một cá thể ngắn hạn."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các đặc điểm di truyền có thể thay đổi tần số qua nhiều [blank].",
+            "bankWords": [
+              "thế hệ",
+              "giờ học",
+              "mùa trong một ngày"
+            ],
+            "correctWord": "thế hệ",
+            "hint": "Dựa vào kiến thức của ải 1.",
+            "explanation": "Từ đúng là “thế hệ”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 2,
+      "learningObjective": "Phân biệt chọn lọc tự nhiên và chọn lọc nhân tạo.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 49. Khái niệm tiến hoá và các hình thức chọn lọc"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Chọn lọc nhân tạo gắn với tác động chủ động của ai?",
+            "options": [
+              "Con người",
+              "Ánh sáng",
+              "Nước biển",
+              "Gió"
+            ],
+            "answerIndex": 0,
+            "hint": "Liên quan chọn giống cây trồng, vật nuôi.",
+            "explanation": "Con người chọn cá thể có đặc điểm mong muốn để nhân giống là chọn lọc nhân tạo."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Chọn lọc tự nhiên",
+                "right": "Môi trường ảnh hưởng khả năng sống và sinh sản"
+              },
+              {
+                "left": "Chọn lọc nhân tạo",
+                "right": "Con người chọn đặc điểm mong muốn"
+              },
+              {
+                "left": "Giống cây trồng",
+                "right": "Có thể được cải thiện qua chọn lọc nhân tạo"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Chọn lọc tự nhiên: Môi trường ảnh hưởng khả năng sống và sinh sản; Chọn lọc nhân tạo: Con người chọn đặc điểm mong muốn; Giống cây trồng: Có thể được cải thiện qua chọn lọc nhân tạo."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Chọn giống vật nuôi theo mục tiêu của người nuôi là chọn lọc [blank].",
+            "correctAnswer": "nhân tạo",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ cần điền là “nhân tạo”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Chọn lọc tự nhiên",
+              "Chọn lọc nhân tạo"
+            ],
+            "items": [
+              {
+                "name": "Cá thể thích nghi sống sót tốt hơn trong môi trường",
+                "catIndex": 0
+              },
+              {
+                "name": "Môi trường làm thay đổi khả năng sinh sản",
+                "catIndex": 0
+              },
+              {
+                "name": "Người chọn hạt giống từ cây năng suất cao",
+                "catIndex": 1
+              },
+              {
+                "name": "Người chọn chó có đặc điểm mong muốn để nhân giống",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Cá thể thích nghi sống sót tốt hơn trong môi trường thuộc nhóm Chọn lọc tự nhiên; Môi trường làm thay đổi khả năng sinh sản thuộc nhóm Chọn lọc tự nhiên; Người chọn hạt giống từ cây năng suất cao thuộc nhóm Chọn lọc nhân tạo; Người chọn chó có đặc điểm mong muốn để nhân giống thuộc nhóm Chọn lọc nhân tạo."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Trong chọn lọc [blank], con người quyết định cá thể nào được nhân giống.",
+            "bankWords": [
+              "nhân tạo",
+              "tự nhiên",
+              "ngẫu nhiên hoàn toàn"
+            ],
+            "correctWord": "nhân tạo",
+            "hint": "Dựa vào kiến thức của ải 2.",
+            "explanation": "Từ đúng là “nhân tạo”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 3,
+      "learningObjective": "Giải thích điều kiện cần để chọn lọc tự nhiên tác động đến quần thể.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 50. Cơ chế tiến hoá"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Điều kiện nào giúp chọn lọc tự nhiên làm thay đổi quần thể qua nhiều thế hệ?",
+            "options": [
+              "Có biến dị di truyền giữa cá thể",
+              "Mọi cá thể giống hệt nhau về mọi gene",
+              "Không cá thể nào sinh sản",
+              "Không có môi trường sống"
+            ],
+            "answerIndex": 0,
+            "hint": "Các cá thể cần khác nhau về đặc điểm có thể truyền.",
+            "explanation": "Biến dị di truyền tạo nguyên liệu để chọn lọc tự nhiên tác động."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Biến dị di truyền",
+                "right": "Tạo khác biệt có thể truyền cho đời sau"
+              },
+              {
+                "left": "Môi trường",
+                "right": "Tạo áp lực chọn lọc"
+              },
+              {
+                "left": "Sinh sản khác nhau",
+                "right": "Làm thay đổi tần số đặc điểm qua thế hệ"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Biến dị di truyền: Tạo khác biệt có thể truyền cho đời sau; Môi trường: Tạo áp lực chọn lọc; Sinh sản khác nhau: Làm thay đổi tần số đặc điểm qua thế hệ."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Biến dị [blank] là nguyên liệu cho chọn lọc tự nhiên.",
+            "correctAnswer": "di truyền",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ cần điền là “di truyền”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể ảnh hưởng tiến hoá",
+              "Không truyền thành đặc điểm di truyền"
+            ],
+            "items": [
+              {
+                "name": "Đột biến có thể di truyền",
+                "catIndex": 0
+              },
+              {
+                "name": "Khác biệt gene giữa cá thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Một vết bẩn trên lông",
+                "catIndex": 1
+              },
+              {
+                "name": "Đổi kiểu cắt tóc",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Đột biến có thể di truyền thuộc nhóm Có thể ảnh hưởng tiến hoá; Khác biệt gene giữa cá thể thuộc nhóm Có thể ảnh hưởng tiến hoá; Một vết bẩn trên lông thuộc nhóm Không truyền thành đặc điểm di truyền; Đổi kiểu cắt tóc thuộc nhóm Không truyền thành đặc điểm di truyền."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Chọn lọc tự nhiên tác động lên sự khác biệt giữa các [blank] trong quần thể.",
+            "bankWords": [
+              "cá thể",
+              "viên đá",
+              "giọt nước cất"
+            ],
+            "correctWord": "cá thể",
+            "hint": "Dựa vào kiến thức của ải 3.",
+            "explanation": "Từ đúng là “cá thể”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 4,
+      "learningObjective": "Nhận biết vai trò của đột biến trong việc tạo biến dị di truyền.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 50. Cơ chế tiến hoá"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Đột biến có thể đóng góp gì cho tiến hoá?",
+            "options": [
+              "Tạo allele mới",
+              "Luôn làm mọi cá thể khoẻ hơn",
+              "Xoá mọi biến dị",
+              "Ngăn hoàn toàn sinh sản"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét sự thay đổi vật chất di truyền.",
+            "explanation": "Đột biến có thể tạo allele mới, cung cấp biến dị di truyền."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Đột biến",
+                "right": "Nguồn phát sinh biến dị di truyền"
+              },
+              {
+                "left": "Allele mới",
+                "right": "Biến thể mới của gene"
+              },
+              {
+                "left": "Chọn lọc tự nhiên",
+                "right": "Có thể làm thay đổi tần số allele"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Đột biến: Nguồn phát sinh biến dị di truyền; Allele mới: Biến thể mới của gene; Chọn lọc tự nhiên: Có thể làm thay đổi tần số allele."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Đột biến có thể tạo ra [blank] mới của gene.",
+            "correctAnswer": "allele",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ cần điền là “allele”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể tạo biến dị di truyền",
+              "Không làm đổi gene"
+            ],
+            "items": [
+              {
+                "name": "Thay đổi trình tự DNA",
+                "catIndex": 0
+              },
+              {
+                "name": "Đột biến gene",
+                "catIndex": 0
+              },
+              {
+                "name": "Bụi bám lên lá",
+                "catIndex": 1
+              },
+              {
+                "name": "Cắt ngắn tóc",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Thay đổi trình tự DNA thuộc nhóm Có thể tạo biến dị di truyền; Đột biến gene thuộc nhóm Có thể tạo biến dị di truyền; Bụi bám lên lá thuộc nhóm Không làm đổi gene; Cắt ngắn tóc thuộc nhóm Không làm đổi gene."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Một biến thể khác của cùng gene được gọi là [blank].",
+            "bankWords": [
+              "allele",
+              "cơ quan",
+              "mô"
+            ],
+            "correctWord": "allele",
+            "hint": "Dựa vào kiến thức của ải 4.",
+            "explanation": "Từ đúng là “allele”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 5,
+      "learningObjective": "Giải thích thích nghi là kết quả của chọn lọc qua nhiều thế hệ.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 50. Cơ chế tiến hoá"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Vì sao một đặc điểm có lợi trong môi trường có thể phổ biến dần?",
+            "options": [
+              "Cá thể mang đặc điểm đó có thể sống sót và sinh sản nhiều hơn",
+              "Mọi cá thể tự đổi gene theo ý muốn",
+              "Môi trường không ảnh hưởng sinh sản",
+              "Đặc điểm không thể di truyền"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét thành công sinh sản.",
+            "explanation": "Nếu đặc điểm có tính di truyền và giúp sinh sản tốt hơn, nó có thể tăng tần số qua các thế hệ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Đặc điểm có lợi",
+                "right": "Có thể tăng khả năng sống và sinh sản"
+              },
+              {
+                "left": "Di truyền",
+                "right": "Cho phép đặc điểm truyền sang đời sau"
+              },
+              {
+                "left": "Thích nghi",
+                "right": "Sự phù hợp tương đối với môi trường sống"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Đặc điểm có lợi: Có thể tăng khả năng sống và sinh sản; Di truyền: Cho phép đặc điểm truyền sang đời sau; Thích nghi: Sự phù hợp tương đối với môi trường sống."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Đặc điểm giúp cá thể tồn tại và sinh sản tốt hơn trong môi trường có thể được xem là có lợi cho sự [blank].",
+            "correctAnswer": "thích nghi",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ cần điền là “thích nghi”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể là đặc điểm thích nghi",
+              "Không phải ví dụ rõ về thích nghi di truyền"
+            ],
+            "items": [
+              {
+                "name": "Màu ngụy trang có tính di truyền",
+                "catIndex": 0
+              },
+              {
+                "name": "Cấu trúc mỏ phù hợp thức ăn",
+                "catIndex": 0
+              },
+              {
+                "name": "Bùn dính tạm lên lông",
+                "catIndex": 1
+              },
+              {
+                "name": "Một vết xước mới",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Màu ngụy trang có tính di truyền thuộc nhóm Có thể là đặc điểm thích nghi; Cấu trúc mỏ phù hợp thức ăn thuộc nhóm Có thể là đặc điểm thích nghi; Bùn dính tạm lên lông thuộc nhóm Không phải ví dụ rõ về thích nghi di truyền; Một vết xước mới thuộc nhóm Không phải ví dụ rõ về thích nghi di truyền."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Tính thích nghi phụ thuộc vào điều kiện [blank] cụ thể.",
+            "bankWords": [
+              "môi trường",
+              "tên gọi",
+              "màu sách"
+            ],
+            "correctWord": "môi trường",
+            "hint": "Dựa vào kiến thức của ải 5.",
+            "explanation": "Từ đúng là “môi trường”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 6,
+      "learningObjective": "Nêu khái niệm loài và sự hình thành loài mới ở mức khái quát.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 50. Cơ chế tiến hoá"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Sự hình thành loài mới thường gắn với điều gì?",
+            "options": [
+              "Sự tích luỹ khác biệt di truyền và cách li sinh sản",
+              "Một cá thể đổi màu trong ngày",
+              "Một lần uống nước",
+              "Mọi cá thể cùng loài sống cùng chỗ"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét biến đổi lâu dài giữa các nhóm quần thể.",
+            "explanation": "Khác biệt di truyền tích luỹ và cách li sinh sản có thể dẫn tới hình thành loài mới."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Quần thể",
+                "right": "Nhóm cá thể cùng loài"
+              },
+              {
+                "left": "Khác biệt di truyền tích luỹ",
+                "right": "Có thể làm các nhóm phân hoá"
+              },
+              {
+                "left": "Cách li sinh sản",
+                "right": "Hạn chế trao đổi gene giữa các nhóm"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Quần thể: Nhóm cá thể cùng loài; Khác biệt di truyền tích luỹ: Có thể làm các nhóm phân hoá; Cách li sinh sản: Hạn chế trao đổi gene giữa các nhóm."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Sự hình thành loài mới có thể liên quan đến cách li [blank].",
+            "correctAnswer": "sinh sản",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ cần điền là “sinh sản”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể thúc đẩy phân hoá loài",
+              "Không đủ tạo loài mới ngay"
+            ],
+            "items": [
+              {
+                "name": "Tích luỹ khác biệt di truyền lâu dài",
+                "catIndex": 0
+              },
+              {
+                "name": "Cách li sinh sản",
+                "catIndex": 0
+              },
+              {
+                "name": "Một cá thể bị bẩn lông",
+                "catIndex": 1
+              },
+              {
+                "name": "Một ngày thay đổi thời tiết",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Tích luỹ khác biệt di truyền lâu dài thuộc nhóm Có thể thúc đẩy phân hoá loài; Cách li sinh sản thuộc nhóm Có thể thúc đẩy phân hoá loài; Một cá thể bị bẩn lông thuộc nhóm Không đủ tạo loài mới ngay; Một ngày thay đổi thời tiết thuộc nhóm Không đủ tạo loài mới ngay."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hai nhóm không còn giao phối sinh ra con hữu thụ có thể đã hình thành cách li [blank].",
+            "bankWords": [
+              "sinh sản",
+              "ánh sáng",
+              "dinh dưỡng"
+            ],
+            "correctWord": "sinh sản",
+            "hint": "Dựa vào kiến thức của ải 6.",
+            "explanation": "Từ đúng là “sinh sản”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 7,
+      "learningObjective": "Nhận biết hoá thạch như một bằng chứng về sinh vật trong quá khứ.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 51. Sự phát sinh và phát triển sự sống trên Trái Đất"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Hoá thạch cung cấp thông tin về điều gì?",
+            "options": [
+              "Sinh vật từng sống trong quá khứ",
+              "Chỉ thời tiết ngày mai",
+              "Chỉ chất lượng nước uống hiện tại",
+              "Chỉ nhịp tim người"
+            ],
+            "answerIndex": 0,
+            "hint": "Đây là dấu tích được lưu giữ trong các lớp đất đá.",
+            "explanation": "Hoá thạch là dấu tích của sinh vật cổ, giúp tìm hiểu sự sống trong quá khứ."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Hoá thạch",
+                "right": "Dấu tích sinh vật trong quá khứ"
+              },
+              {
+                "left": "Lớp đá trầm tích",
+                "right": "Có thể lưu giữ dấu tích sinh vật"
+              },
+              {
+                "left": "Bằng chứng tiến hoá",
+                "right": "Giúp nghiên cứu lịch sử sự sống"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Hoá thạch: Dấu tích sinh vật trong quá khứ; Lớp đá trầm tích: Có thể lưu giữ dấu tích sinh vật; Bằng chứng tiến hoá: Giúp nghiên cứu lịch sử sự sống."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Dấu tích của sinh vật cổ được bảo tồn gọi là [blank].",
+            "correctAnswer": "hoá thạch",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ cần điền là “hoá thạch”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể là hoá thạch",
+              "Không phải hoá thạch"
+            ],
+            "items": [
+              {
+                "name": "Dấu in lá cổ trong đá",
+                "catIndex": 0
+              },
+              {
+                "name": "Xương sinh vật cổ hoá đá",
+                "catIndex": 0
+              },
+              {
+                "name": "Lá tươi mới rụng",
+                "catIndex": 1
+              },
+              {
+                "name": "Ảnh chụp động vật hôm nay",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Dấu in lá cổ trong đá thuộc nhóm Có thể là hoá thạch; Xương sinh vật cổ hoá đá thuộc nhóm Có thể là hoá thạch; Lá tươi mới rụng thuộc nhóm Không phải hoá thạch; Ảnh chụp động vật hôm nay thuộc nhóm Không phải hoá thạch."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Hoá thạch giúp tìm hiểu lịch sử [blank] trên Trái Đất.",
+            "bankWords": [
+              "sự sống",
+              "mạng Internet",
+              "âm nhạc"
+            ],
+            "correctWord": "sự sống",
+            "hint": "Dựa vào kiến thức của ải 7.",
+            "explanation": "Từ đúng là “sự sống”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 8,
+      "learningObjective": "Mô tả sự sống trên Trái Đất đã thay đổi qua các thời kì địa chất.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 51. Sự phát sinh và phát triển sự sống trên Trái Đất"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Điều gì đúng về lịch sử sự sống trên Trái Đất?",
+            "options": [
+              "Các nhóm sinh vật xuất hiện và biến đổi qua thời gian dài",
+              "Mọi loài hiện nay xuất hiện cùng một ngày",
+              "Không loài nào từng tuyệt chủng",
+              "Hoá thạch không liên quan lịch sử sự sống"
+            ],
+            "answerIndex": 0,
+            "hint": "Xét bằng chứng hoá thạch và thời gian địa chất.",
+            "explanation": "Sinh vật đã xuất hiện, phát triển và nhiều nhóm đã tuyệt chủng qua các thời kì."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thời gian địa chất",
+                "right": "Khoảng thời gian rất dài của lịch sử Trái Đất"
+              },
+              {
+                "left": "Hoá thạch",
+                "right": "Ghi lại dấu tích của sinh vật cổ"
+              },
+              {
+                "left": "Tuyệt chủng",
+                "right": "Một loài không còn cá thể sống"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Thời gian địa chất: Khoảng thời gian rất dài của lịch sử Trái Đất; Hoá thạch: Ghi lại dấu tích của sinh vật cổ; Tuyệt chủng: Một loài không còn cá thể sống."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Một loài không còn cá thể sống được gọi là đã [blank].",
+            "correctAnswer": "tuyệt chủng",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ cần điền là “tuyệt chủng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Bằng chứng lịch sử sự sống",
+              "Không phải bằng chứng lịch sử sự sống"
+            ],
+            "items": [
+              {
+                "name": "Hoá thạch",
+                "catIndex": 0
+              },
+              {
+                "name": "Các lớp địa chất",
+                "catIndex": 0
+              },
+              {
+                "name": "Dấu tích sinh vật cổ",
+                "catIndex": 0
+              },
+              {
+                "name": "Dự đoán ngẫu nhiên không dữ liệu",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Hoá thạch thuộc nhóm Bằng chứng lịch sử sự sống; Các lớp địa chất thuộc nhóm Bằng chứng lịch sử sự sống; Dấu tích sinh vật cổ thuộc nhóm Bằng chứng lịch sử sự sống; Dự đoán ngẫu nhiên không dữ liệu thuộc nhóm Không phải bằng chứng lịch sử sự sống."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Các lớp đá khác tuổi có thể chứa các nhóm [blank] khác nhau.",
+            "bankWords": [
+              "hoá thạch",
+              "mạch máu",
+              "khí khổng"
+            ],
+            "correctWord": "hoá thạch",
+            "hint": "Dựa vào kiến thức của ải 8.",
+            "explanation": "Từ đúng là “hoá thạch”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 9,
+      "learningObjective": "Giải thích mối liên hệ giữa thay đổi môi trường, tuyệt chủng và đa dạng sinh học.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 51. Sự phát sinh và phát triển sự sống trên Trái Đất"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Thay đổi môi trường lớn có thể dẫn đến điều gì?",
+            "options": [
+              "Một số loài suy giảm hoặc tuyệt chủng",
+              "Mọi loài luôn tăng số lượng",
+              "Gene của tất cả loài ngừng biến đổi",
+              "Không ảnh hưởng sinh vật"
+            ],
+            "answerIndex": 0,
+            "hint": "Khả năng sống sót phụ thuộc điều kiện môi trường.",
+            "explanation": "Thay đổi lớn của môi trường có thể làm các loài kém thích nghi suy giảm hoặc tuyệt chủng."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Thay đổi môi trường",
+                "right": "Có thể đổi áp lực chọn lọc"
+              },
+              {
+                "left": "Tuyệt chủng",
+                "right": "Loài biến mất hoàn toàn"
+              },
+              {
+                "left": "Đa dạng sinh học",
+                "right": "Mức phong phú của sự sống"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Thay đổi môi trường: Có thể đổi áp lực chọn lọc; Tuyệt chủng: Loài biến mất hoàn toàn; Đa dạng sinh học: Mức phong phú của sự sống."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Một loài biến mất hoàn toàn khỏi Trái Đất gọi là [blank].",
+            "correctAnswer": "tuyệt chủng",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ cần điền là “tuyệt chủng”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể làm suy giảm đa dạng sinh học",
+              "Có thể hỗ trợ bảo tồn đa dạng sinh học"
+            ],
+            "items": [
+              {
+                "name": "Mất sinh cảnh",
+                "catIndex": 0
+              },
+              {
+                "name": "Khai thác quá mức",
+                "catIndex": 0
+              },
+              {
+                "name": "Bảo vệ nơi sống",
+                "catIndex": 1
+              },
+              {
+                "name": "Khu bảo tồn",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Mất sinh cảnh thuộc nhóm Có thể làm suy giảm đa dạng sinh học; Khai thác quá mức thuộc nhóm Có thể làm suy giảm đa dạng sinh học; Bảo vệ nơi sống thuộc nhóm Có thể hỗ trợ bảo tồn đa dạng sinh học; Khu bảo tồn thuộc nhóm Có thể hỗ trợ bảo tồn đa dạng sinh học."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Bảo vệ sinh cảnh góp phần giảm nguy cơ [blank] của nhiều loài.",
+            "bankWords": [
+              "tuyệt chủng",
+              "quang hợp",
+              "phiên mã"
+            ],
+            "correctWord": "tuyệt chủng",
+            "hint": "Dựa vào kiến thức của ải 9.",
+            "explanation": "Từ đúng là “tuyệt chủng”."
+          }
+        }
+      ]
+    },
+    {
+      "dayIndex": 10,
+      "learningObjective": "Tổng hợp vai trò của biến dị, di truyền và chọn lọc trong tiến hoá.",
+      "sourceRefs": [
+        {
+          "source": "SGK Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống",
+          "publisher": "Nhà xuất bản Giáo dục Việt Nam",
+          "lesson": "Bài 49–51. Tiến hoá và sự phát triển sự sống"
+        }
+      ],
+      "games": [
+        {
+          "type": "quiz",
+          "title": "Chọn đáp án chính xác",
+          "data": {
+            "question": "Trong tiến hoá, yếu tố nào cung cấp các khác biệt có thể truyền cho đời sau?",
+            "options": [
+              "Biến dị di truyền",
+              "Màu áo của người quan sát",
+              "Bụi bẩn tạm thời",
+              "Tên gọi của loài"
+            ],
+            "answerIndex": 0,
+            "hint": "Các khác biệt này nằm trong vật chất di truyền.",
+            "explanation": "Biến dị di truyền cung cấp khác biệt để các quá trình tiến hoá tác động."
+          }
+        },
+        {
+          "type": "match",
+          "title": "Nối khái niệm với đặc điểm",
+          "data": {
+            "pairs": [
+              {
+                "left": "Biến dị di truyền",
+                "right": "Cung cấp khác biệt giữa cá thể"
+              },
+              {
+                "left": "Di truyền",
+                "right": "Truyền khác biệt cho đời sau"
+              },
+              {
+                "left": "Chọn lọc tự nhiên",
+                "right": "Tác động đến thành công sống sót và sinh sản"
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Biến dị di truyền: Cung cấp khác biệt giữa cá thể; Di truyền: Truyền khác biệt cho đời sau; Chọn lọc tự nhiên: Tác động đến thành công sống sót và sinh sản."
+          }
+        },
+        {
+          "type": "fill",
+          "title": "Hoàn thiện kiến thức",
+          "data": {
+            "sentence": "Biến dị di truyền và chọn lọc tự nhiên là những yếu tố quan trọng của [blank].",
+            "correctAnswer": "tiến hoá",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ cần điền là “tiến hoá”."
+          }
+        },
+        {
+          "type": "category",
+          "title": "Phân loại đúng nhóm",
+          "data": {
+            "categories": [
+              "Có thể ảnh hưởng tiến hoá",
+              "Không là biến đổi di truyền"
+            ],
+            "items": [
+              {
+                "name": "Đột biến có thể truyền",
+                "catIndex": 0
+              },
+              {
+                "name": "Chọn lọc tự nhiên",
+                "catIndex": 0
+              },
+              {
+                "name": "Dòng gene giữa quần thể",
+                "catIndex": 0
+              },
+              {
+                "name": "Một vết bẩn trên thân",
+                "catIndex": 1
+              }
+            ],
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Đột biến có thể truyền thuộc nhóm Có thể ảnh hưởng tiến hoá; Chọn lọc tự nhiên thuộc nhóm Có thể ảnh hưởng tiến hoá; Dòng gene giữa quần thể thuộc nhóm Có thể ảnh hưởng tiến hoá; Một vết bẩn trên thân thuộc nhóm Không là biến đổi di truyền."
+          }
+        },
+        {
+          "type": "dragdrop",
+          "title": "Kéo từ hoàn thành câu",
+          "data": {
+            "textWithBlanks": "Chọn lọc tự nhiên làm một số đặc điểm di truyền trở nên phổ biến hơn qua nhiều [blank].",
+            "bankWords": [
+              "thế hệ",
+              "phút",
+              "trang sách"
+            ],
+            "correctWord": "thế hệ",
+            "hint": "Dựa vào kiến thức của ải 10.",
+            "explanation": "Từ đúng là “thế hệ”."
+          }
+        }
+      ]
+    }
+  ]
+}
