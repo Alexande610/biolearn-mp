@@ -5,6 +5,7 @@ import { PGlite } from '@electric-sql/pglite';
 
 const admin = '00000000-0000-4000-8000-000000000001';
 const student = '00000000-0000-4000-8000-000000000002';
+const ordinaryStudent = '00000000-0000-4000-8000-000000000003';
 // Supabase already provides pgcrypto. PGlite does not bundle that extension,
 // while its core still provides gen_random_uuid(), so omit only this setup line.
 const migration = (await fs.readFile('supabase_station_content_v2.sql', 'utf8'))
@@ -18,6 +19,7 @@ const grade7Station3Release = await fs.readFile('generated/station-releases/g7-s
 const grade8Releases = await Promise.all([1, 2, 3].map((station) => fs.readFile(`generated/station-releases/g8-st${station}-2026.1.sql`, 'utf8')));
 const cutover = await fs.readFile('supabase_station_content_v2_cutover.sql', 'utf8');
 const adminEditMigration = await fs.readFile('supabase_station_content_v2_admin_edit.sql', 'utf8');
+const gameplayFixMigration = await fs.readFile('supabase_station_content_v2_gameplay_fix.sql', 'utf8');
 
 test('generated SQL uses a portable PL/pgSQL declaration block', () => {
   assert.match(pilotRelease, /do \$station_release\$\r?\ndeclare\r?\n\s+v_release_id uuid;/);
@@ -57,10 +59,12 @@ async function setup() {
     create schema auth;
     create function auth.uid() returns uuid language sql stable as
       $$ select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
-    create table public.profiles(id uuid primary key, role text not null);
+    create table public.profiles(id uuid primary key, role text not null,
+      is_test_account boolean not null default false);
     insert into public.profiles values
-      ('${admin}', 'admin'),
-      ('${student}', 'student');
+      ('${admin}', 'admin', false),
+      ('${student}', 'student', true),
+      ('${ordinaryStudent}', 'student', false);
     create table public.station_progress(
       user_id uuid not null references public.profiles(id),
       station_id text not null,
@@ -163,6 +167,109 @@ test('student receives shuffled public data only and server scores two attempts'
     assert.equal(second.correct, true);
     assert.equal(second.resolved, true);
     assert.equal(second.answer_reveal, 'Tế bào');
+  } finally { await db.close(); }
+});
+
+test('V2 matching checks each pair before green feedback and category reports wrong placements', async () => {
+  const db = await setup();
+  try {
+    await db.exec(gameplayFixMigration);
+    const releaseId = await createCompleteRelease(db, 'g6-st1-feedback');
+    await db.query('select admin_publish_station_release($1)', [releaseId]);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${student}', false); set role authenticated;`);
+    const started = (await db.query("select start_station_attempt(6, 'g6_st1', 1) as result")).rows[0].result;
+    const match = started.games.find(game => game.type === 'match');
+    const wrong = (await db.query('select check_station_match_pair($1,$2,$3,$4) as result',
+      [started.attempt_id, match.id, 'Màng tế bào', 'Chứa vật chất di truyền'])).rows[0].result;
+    assert.deepEqual(wrong, { correct: false });
+    const right = (await db.query('select check_station_match_pair($1,$2,$3,$4) as result',
+      [started.attempt_id, match.id, 'Màng tế bào', 'Bao bọc tế bào'])).rows[0].result;
+    assert.deepEqual(right, { correct: true });
+    assert.equal(JSON.stringify(right).includes('Chứa vật chất di truyền'), false);
+
+    const category = started.games.find(game => game.type === 'category');
+    const answer = fiveGames.find(([type]) => type === 'category')[2].value;
+    const wrongAnswer = answer.map((item, index) => index === 0 ? { ...item, catIndex: 1 } : item);
+    const first = (await db.query('select submit_station_answer($1,$2,$3::jsonb) as result',
+      [started.attempt_id, category.id, JSON.stringify({ value: wrongAnswer })])).rows[0].result;
+    assert.equal(first.resolved, false);
+    assert.equal(first.feedback.find(item => item.name === 'Vi khuẩn').correct, false);
+    assert.equal(first.feedback.find(item => item.name === 'Tế bào thực vật').correct, true);
+    assert.equal(first.answer_reveal, null);
+  } finally { await db.close(); }
+});
+
+test('test account can demo locked day without progress or reward; ordinary student cannot', async () => {
+  const db = await setup();
+  try {
+    await db.exec(gameplayFixMigration);
+    const releaseId = await createCompleteRelease(db, 'g6-st1-demo');
+    await db.query('select admin_publish_station_release($1)', [releaseId]);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${ordinaryStudent}', false); set role authenticated;`);
+    await assert.rejects(db.query("select start_station_demo_attempt(6, 'g6_st1', 2)"), /demo_test_account_required/);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${student}', false);`);
+    await assert.rejects(db.query("select start_station_attempt(6, 'g6_st1', 2)"), /previous_day_required/);
+    const started = (await db.query("select start_station_demo_attempt(6, 'g6_st1', 2) as result")).rows[0].result;
+    assert.equal(started.is_demo, true);
+    assert.equal(started.games.length, 5);
+    let completion;
+    for (const game of started.games) {
+      const answer = fiveGames.find(([type]) => type === game.type)[2].value;
+      completion = (await db.query('select submit_station_answer($1,$2,$3::jsonb) as result',
+        [started.attempt_id, game.id, JSON.stringify({ value: answer })])).rows[0].result;
+    }
+    assert.equal(completion.stage_complete, true);
+    assert.equal(completion.stars, 3);
+    assert.deepEqual(completion.reward, {});
+    assert.equal(Number((await db.query('select count(*) from station_progress where user_id=$1', [student])).rows[0].count), 0);
+  } finally { await db.close(); }
+});
+
+test('unpublished V2 station reports publication absence before checking day-two progress', async () => {
+  const db = await setup();
+  try {
+    await db.exec(gameplayFixMigration);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${ordinaryStudent}', false); set role authenticated;`);
+    await assert.rejects(db.query("select start_station_attempt(6, 'g6_st1', 2)"), /station_content_not_published/);
+  } finally { await db.close(); }
+});
+
+test('all five V2 games keep two server attempts and only real completion unlocks day two', async () => {
+  const db = await setup();
+  try {
+    await db.exec(gameplayFixMigration);
+    const releaseId = await createCompleteRelease(db, 'g6-st1-all-games');
+    await db.query('select admin_publish_station_release($1)', [releaseId]);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${ordinaryStudent}', false); set role authenticated;`);
+    await assert.rejects(db.query("select start_station_attempt(6, 'g6_st1', 2)"), /previous_day_required/);
+    const started = (await db.query("select start_station_attempt(6, 'g6_st1', 1) as result")).rows[0].result;
+    const wrongAnswers = {
+      quiz: 'Mô',
+      match: [{ left: 'Màng tế bào', right: 'Chứa vật chất di truyền' }, { left: 'Nhân', right: 'Bao bọc tế bào' }],
+      fill: 'Sai',
+      category: [{ name: 'Vi khuẩn', catIndex: 1 }, { name: 'Tế bào thực vật', catIndex: 1 }, { name: 'Tế bào động vật', catIndex: 1 }],
+      dragdrop: 'phân chia',
+    };
+    let completion;
+    for (const game of started.games) {
+      const first = (await db.query('select submit_station_answer($1,$2,$3::jsonb) as result',
+        [started.attempt_id, game.id, JSON.stringify({ value: wrongAnswers[game.type] })])).rows[0].result;
+      assert.equal(first.attempt_no, 1, game.type);
+      assert.equal(first.can_retry, true, game.type);
+      assert.equal(first.answer_reveal, null, game.type);
+      const correct = fiveGames.find(([type]) => type === game.type)[2].value;
+      completion = (await db.query('select submit_station_answer($1,$2,$3::jsonb) as result',
+        [started.attempt_id, game.id, JSON.stringify({ value: correct })])).rows[0].result;
+      assert.equal(completion.attempt_no, 2, game.type);
+      assert.equal(completion.correct, true, game.type);
+    }
+    assert.equal(completion.stage_complete, true);
+    assert.equal(completion.stars, 3);
+    assert.equal(completion.reward.awarded, true);
+    assert.equal((await db.query('select stars from station_progress where user_id=$1 and station_id=$2 and day_index=1',
+      [ordinaryStudent, 'g6_st1'])).rows[0].stars, 3);
+    const dayTwo = (await db.query("select start_station_attempt(6, 'g6_st1', 2) as result")).rows[0].result;
+    assert.equal(dayTwo.games.length, 5);
   } finally { await db.close(); }
 });
 

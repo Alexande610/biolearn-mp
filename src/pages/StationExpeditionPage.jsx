@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { useToast } from '../components/Toast';
@@ -196,6 +196,7 @@ export default function StationExpeditionPage() {
   const [gameStep, setGameStep] = useState(0);
   const [serverAttemptId, setServerAttemptId] = useState(null);
   const [serverCompletion, setServerCompletion] = useState(null);
+  const [activeAttemptIsDemo, setActiveAttemptIsDemo] = useState(false);
 
   // General Attempt States
   const [attemptCount, setAttemptCount] = useState(0); // 0: chưa nộp, 1: nộp lần 1, 2: nộp lần 2/hoàn thành
@@ -212,6 +213,11 @@ export default function StationExpeditionPage() {
   const [selectedLeftMatch, setSelectedLeftMatch] = useState(null);
   const [wrongMatchPair, setWrongMatchPair] = useState(null); // { leftIdx, rightText }
   const [matchedPairs, setMatchedPairs] = useState([]); // [{ leftText, rightText, isCorrect }]
+  const [checkingMatchPair, setCheckingMatchPair] = useState(false);
+  const matchCheckInFlight = useRef(false);
+  const matchCheckSequence = useRef(0);
+  const matchFeedbackTimer = useRef(null);
+  const categoryFeedbackTimer = useRef(null);
 
   // Game 3: Fill
   const [fillInputText, setFillInputText] = useState('');
@@ -220,6 +226,7 @@ export default function StationExpeditionPage() {
   const [unassignedItems, setUnassignedItems] = useState([]);
   const [categoryBoards, setCategoryBoards] = useState([[], []]); // [board0Items, board1Items]
   const [categoryItemStatus, setCategoryItemStatus] = useState({}); // { itemName: 'correct' | 'wrong' | 'normal' }
+  const [categoryFeedbackPending, setCategoryFeedbackPending] = useState(false);
   const [selectedUnassignedItem, setSelectedUnassignedItem] = useState(null);
 
   // Game 5: Drag & Drop Sentence (ĐẢO KHO TỪ NGẪU NHIÊN)
@@ -304,9 +311,9 @@ export default function StationExpeditionPage() {
   const currentActiveBoatIndex = animatingBoatStationIndex !== null ? animatingBoatStationIndex : getHighestActiveStationIndex();
 
   const isIslandUnlocked = (stationIndex) => {
-    if (stationIndex === 0 || demoMode) return true;
     const st = stationsForGrade[stationIndex];
     if (st.isFuture) return false;
+    if (stationIndex === 0 || demoMode) return true;
 
     const prevStation = stationsForGrade[stationIndex - 1];
     if (!prevStation || prevStation.isFuture) return false;
@@ -361,7 +368,7 @@ export default function StationExpeditionPage() {
     let attemptId = null;
     try {
       if (user?.id) {
-        const { data: secureAttempt, error: secureError } = await supabase.rpc('start_station_attempt', {
+        const { data: secureAttempt, error: secureError } = await supabase.rpc(demoMode ? 'start_station_demo_attempt' : 'start_station_attempt', {
           p_grade: selectedGrade,
           p_station_id: selectedStation.id,
           p_day_index: dayIndex,
@@ -378,6 +385,8 @@ export default function StationExpeditionPage() {
             }
             return { ...item, ...content };
           });
+        } else if (demoMode && secureError) {
+          throw secureError;
         } else if (secureError && !['PGRST202', '42883'].includes(secureError.code)
           && !secureError.message?.includes('station_content_not_published')) {
           throw secureError;
@@ -438,6 +447,7 @@ export default function StationExpeditionPage() {
 
     setCurrentGames(games);
     setServerAttemptId(attemptId);
+    setActiveAttemptIsDemo(Boolean(attemptId && demoMode));
     setServerCompletion(null);
     setActiveDayQuiz({ stationId: selectedStation.id, dayIndex, dayDisplayNum: selectedStation.startDay + dayIndex - 1 });
 
@@ -447,7 +457,26 @@ export default function StationExpeditionPage() {
     setGameScores(games.map(() => 0));
   };
 
+  const handleCloseDayQuiz = () => {
+    matchCheckSequence.current += 1;
+    if (matchFeedbackTimer.current) clearTimeout(matchFeedbackTimer.current);
+    if (categoryFeedbackTimer.current) clearTimeout(categoryFeedbackTimer.current);
+    matchCheckInFlight.current = false;
+    setCheckingMatchPair(false);
+    setCategoryFeedbackPending(false);
+    setActiveDayQuiz(null);
+    setServerAttemptId(null);
+    setServerCompletion(null);
+    setActiveAttemptIsDemo(false);
+  };
+
   const resetCurrentStepState = (gameObj) => {
+    matchCheckSequence.current += 1;
+    if (matchFeedbackTimer.current) clearTimeout(matchFeedbackTimer.current);
+    if (categoryFeedbackTimer.current) clearTimeout(categoryFeedbackTimer.current);
+    setCheckingMatchPair(false);
+    matchCheckInFlight.current = false;
+    setCategoryFeedbackPending(false);
     setAttemptCount(0);
     setAttempt1Wrong(false);
     setAttempt2Finished(false);
@@ -506,6 +535,53 @@ export default function StationExpeditionPage() {
     };
   };
 
+  const handleMatchPairSelection = async (rightText) => {
+    if (selectedLeftMatch === null || matchCheckInFlight.current || wrongMatchPair || attempt2Finished) return;
+    const leftIdx = selectedLeftMatch;
+    const game = currentGames[gameStep];
+    const leftText = game.pairs[leftIdx]?.left;
+    if (!leftText) return;
+    const sequence = matchCheckSequence.current;
+    matchCheckInFlight.current = true;
+    setCheckingMatchPair(true);
+    try {
+      let correct;
+      if (serverAttemptId) {
+        const { data, error } = await supabase.rpc('check_station_match_pair', {
+          p_attempt_id: serverAttemptId,
+          p_item_id: game.id,
+          p_left: leftText,
+          p_right: rightText,
+        });
+        if (error) throw error;
+        correct = data?.correct === true;
+      } else {
+        correct = game.pairs[leftIdx].right === rightText;
+      }
+      if (sequence !== matchCheckSequence.current) return;
+      if (correct) {
+        setMatchedPairs(previous => [...previous, { leftText, rightText, isCorrect: true }]);
+        setSelectedLeftMatch(null);
+      } else {
+        setWrongMatchPair({ leftIdx, rightText });
+        matchFeedbackTimer.current = setTimeout(() => {
+          if (sequence !== matchCheckSequence.current) return;
+          setWrongMatchPair(null);
+          setSelectedLeftMatch(null);
+        }, 600);
+      }
+    } catch (error) {
+      if (sequence === matchCheckSequence.current) {
+        showToast(`Không kiểm tra được cặp nối: ${error.message || 'Lỗi máy chủ'}`, 'error');
+      }
+    } finally {
+      if (sequence === matchCheckSequence.current) {
+        matchCheckInFlight.current = false;
+        setCheckingMatchPair(false);
+      }
+    }
+  };
+
   const applyServerReveal = (game, result) => {
     const answer = result.answer_reveal;
     return {
@@ -546,6 +622,14 @@ export default function StationExpeditionPage() {
           index === gameStep ? applyServerReveal(game, result) : game
         )));
         if (result.stage_complete) setServerCompletion(result);
+        if (currentGame.type === 'category' && Array.isArray(result.answer_reveal)) {
+          const expected = new Map(result.answer_reveal.map(item => [item.name, item.catIndex]));
+          const statuses = {};
+          categoryBoards.forEach((board, boardIndex) => board.forEach(item => {
+            statuses[item.name] = expected.get(item.name) === boardIndex ? 'correct' : 'wrong';
+          }));
+          setCategoryItemStatus(statuses);
+        }
       } else {
         setAttemptCount(result.attempt_no);
         setAttempt1Wrong(true);
@@ -554,7 +638,25 @@ export default function StationExpeditionPage() {
           setMatchedPairs([]);
           setSelectedLeftMatch(null);
         }
-        if (currentGame.type === 'category') {
+        if (currentGame.type === 'category' && Array.isArray(result.feedback)) {
+          setCategoryFeedbackPending(true);
+          const correctByName = new Map(result.feedback.map(item => [item.name, item.correct]));
+          const statuses = Object.fromEntries(result.feedback.map(item => [item.name, item.correct ? 'correct' : 'wrong']));
+          setCategoryItemStatus(statuses);
+          const sequence = matchCheckSequence.current;
+          categoryFeedbackTimer.current = setTimeout(() => {
+            if (sequence !== matchCheckSequence.current) return;
+            const wrongItems = categoryBoards.flat().filter(item => correctByName.get(item.name) === false);
+            setCategoryBoards(previous => previous.map(board => board.filter(item => correctByName.get(item.name) !== false)));
+            setUnassignedItems(previous => [...previous, ...wrongItems]);
+            setCategoryItemStatus(previous => {
+              const next = { ...previous };
+              wrongItems.forEach(item => { delete next[item.name]; });
+              return next;
+            });
+            setCategoryFeedbackPending(false);
+          }, 1200);
+        } else if (currentGame.type === 'category') {
           setCategoryBoards([[], []]);
           setUnassignedItems(shuffleArray(currentGame.items));
           setSelectedUnassignedItem(null);
@@ -728,6 +830,15 @@ export default function StationExpeditionPage() {
       else if (correctRatio >= 0.6) earnedStars = 1;
     }
 
+    if (activeAttemptIsDemo) {
+      setActiveDayQuiz(null);
+      setServerAttemptId(null);
+      setServerCompletion(null);
+      setActiveAttemptIsDemo(false);
+      showToast(`Đã thử xong ải ${dayDisplayNum}. Chế độ Demo không lưu sao hoặc phần thưởng.`, 'info');
+      return;
+    }
+
     const key = `${activeDayQuiz.stationId}_${completedDayIndex}`;
     const oldProg = stationProgress[key] || { stars: 0, claimedStars: 0 };
     const newMaxStars = Math.max(oldProg.stars || 0, earnedStars);
@@ -848,6 +959,7 @@ export default function StationExpeditionPage() {
   // KIỂM TRA ĐIỀU KIỆN KHÓA NÚT "TRẢ LỜI" THEO DẠNG GAME (GAME NỐI TỪ BẮT BUỘC NỐI ĐỦ MỚI MỞ NÚT)
   const isSubmitDisabled = () => {
     if (attempt2Finished) return false;
+    if (categoryFeedbackPending || checkingMatchPair || Boolean(wrongMatchPair)) return true;
     if (currentGame.type === 'quiz') return selectedQuizOptText === null;
     if (currentGame.type === 'match') return matchedPairs.length < (currentGame.pairs?.length || 0);
     if (currentGame.type === 'fill') return !fillInputText.trim();
@@ -1204,7 +1316,7 @@ export default function StationExpeditionPage() {
                     <Lightbulb className="w-4 h-4 text-amber-400" /> Xem Gợi Ý
                   </button>
                 )}
-                <button onClick={() => setActiveDayQuiz(null)} className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer">✕</button>
+                <button onClick={handleCloseDayQuiz} className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center cursor-pointer">✕</button>
               </div>
             </div>
 
@@ -1279,7 +1391,7 @@ export default function StationExpeditionPage() {
                       return (
                         <button
                           key={leftIdx}
-                          disabled={isMatched}
+                          disabled={isMatched || checkingMatchPair || Boolean(wrongMatchPair) || attempt2Finished}
                           onClick={() => setSelectedLeftMatch(leftIdx)}
                           className={`w-full p-3 rounded-xl text-left text-xs font-bold border transition cursor-pointer ${isMatched
                             ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-400 opacity-60'
@@ -1306,26 +1418,8 @@ export default function StationExpeditionPage() {
                       return (
                         <button
                           key={rightIdx}
-                          disabled={isMatched}
-                          onClick={() => {
-                            if (selectedLeftMatch !== null) {
-                              const targetLeftObj = currentGame.pairs[selectedLeftMatch];
-                              const isRightMatch = Boolean(serverAttemptId) || targetLeftObj.right === rightText;
-
-                              if (isRightMatch) {
-                                // 🎯 NỐI ĐÚNG: VIỀN XANH + MỜ KHÔNG CHO CHỌN LẠI
-                                setMatchedPairs(prev => [...prev, { leftText: targetLeftObj.left, rightText, isCorrect: true }]);
-                                setSelectedLeftMatch(null);
-                              } else {
-                                // 🎯 NỐI SAI: VIỀN ĐỎ + RUNG 600MS RỒI TỰ MẤT CHO CHỌN LẠI
-                                setWrongMatchPair({ leftIdx: selectedLeftMatch, rightText });
-                                setTimeout(() => {
-                                  setWrongMatchPair(null);
-                                  setSelectedLeftMatch(null);
-                                }, 600);
-                              }
-                            }
-                          }}
+                          disabled={isMatched || checkingMatchPair || Boolean(wrongMatchPair) || attempt2Finished}
+                          onClick={() => handleMatchPairSelection(rightText)}
                           className={`w-full p-3 rounded-xl text-left text-xs font-bold border transition cursor-pointer ${isMatched
                             ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
                             : isWrong
@@ -1378,7 +1472,7 @@ export default function StationExpeditionPage() {
                     <div
                       key={cIdx}
                       onClick={() => {
-                        if (selectedUnassignedItem) {
+                        if (selectedUnassignedItem && !categoryFeedbackPending && !attempt2Finished) {
                           setCategoryBoards(prev => {
                             const newB = [...prev];
                             newB[cIdx] = [...newB[cIdx], selectedUnassignedItem];
@@ -1400,7 +1494,7 @@ export default function StationExpeditionPage() {
                               key={itemIdx}
                               onClick={(e) => {
                                 e.stopPropagation();
-                                if (!attempt2Finished) {
+                                if (!attempt2Finished && !categoryFeedbackPending) {
                                   // Cho phép gỡ từ khỏi bảng ra lại kho
                                   setCategoryBoards(prev => {
                                     const newB = [...prev];
@@ -1436,7 +1530,7 @@ export default function StationExpeditionPage() {
                       unassignedItems.map((item, idx) => (
                         <button
                           key={idx}
-                          onClick={() => setSelectedUnassignedItem(item)}
+                          onClick={() => { if (!categoryFeedbackPending && !attempt2Finished) setSelectedUnassignedItem(item); }}
                           className={`px-3 py-2 rounded-xl text-xs font-bold border transition cursor-pointer ${selectedUnassignedItem?.name === item.name
                             ? 'bg-cyan-500/30 border-cyan-400 text-cyan-300 scale-105'
                             : 'bg-slate-900 border-slate-700 hover:border-cyan-400'
