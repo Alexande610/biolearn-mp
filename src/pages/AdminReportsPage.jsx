@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { ArrowLeft, BarChart2, BookOpen, Calendar, RefreshCw, TrendingUp, Users, Sun, Moon, Activity, Award } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { loadPresentationActivity, loadPresentationPeople } from '../lib/presentationPeople';
+import { completedLessonCount, loadAllAdminProfiles } from '../lib/adminProfileMetrics';
 
 const toMetricDate = (value) => {
   const date = new Date(value);
@@ -19,9 +21,10 @@ export default function AdminReportsPage() {
 
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState(null);
+  const [sampleCount, setSampleCount] = useState(0);
   const [roleDistribution, setRoleDistribution] = useState([]);
   
-  // Real live data from profiles plus mock visual trends for clean display
+  // Real activity and explicitly marked presentation records are shown together.
   const [chartData, setChartData] = useState([]);
   const [topSections, setTopSections] = useState([]);
   const [selectedWeekOffset, setSelectedWeekOffset] = useState(0);
@@ -69,11 +72,17 @@ export default function AdminReportsPage() {
     setLoading(true);
     try {
       // 1. Fetch real statistics from profiles
-      const { data: profiles, error } = await supabase
-        .from('profiles')
-        .select('role, total_score, created_at, last_active_at, class_progress');
-
-      if (error) throw error;
+      const realProfiles = await loadAllAdminProfiles(supabase);
+      const presentation = await loadPresentationPeople(supabase);
+      setSampleCount(presentation.length);
+      const profiles = [...realProfiles, ...presentation.map(person => ({
+        ...person, is_presentation_data: true
+      }))];
+      const activityStart = new Date();
+      activityStart.setDate(activityStart.getDate() - 90);
+      const presentationActivity = await loadPresentationActivity(
+        supabase, toMetricDate(activityStart), toMetricDate(new Date())
+      );
 
       const total = profiles?.length || 0;
       let studentsCount = 0;
@@ -107,20 +116,12 @@ export default function AdminReportsPage() {
         else {
           studentsCount++;
           // Count completed levels for this student
-          let completedCount = 0;
-          if (p.class_progress) {
-            Object.keys(p.class_progress).forEach(classId => {
-              const classProg = p.class_progress[classId] || {};
-              if (classProg.completedLevels && Array.isArray(classProg.completedLevels)) {
-                completedCount += classProg.completedLevels.length;
-              }
-            });
-          }
+          const completedCount = completedLessonCount(p);
           if (completedCount === 0) notStarted++;
           else if (completedCount <= 15) inProgress++;
           else advanced++;
         }
-        totalScore += p.total_score || 0;
+        if (p.role !== 'teacher' && p.role !== 'admin') totalScore += Number(p.total_score || 0);
 
         // Active tracking
         if (p.last_active_at) {
@@ -149,7 +150,7 @@ export default function AdminReportsPage() {
         students: studentsCount,
         teachers: teachersCount,
         admins: adminsCount,
-        averageScore: total > 0 ? Math.round(totalScore / total) : 0
+        averageScore: studentsCount > 0 ? Math.round(totalScore / studentsCount) : 0
       });
 
       setDauWauMau({ dau, wau, mau });
@@ -209,6 +210,10 @@ export default function AdminReportsPage() {
         featureCounts.missions = legacyLogs?.filter(l => /mission|quest/i.test(l.action || '')).length || 0;
         featureCounts.mini_game = legacyLogs?.filter(l => /game|puzzle|crossword/i.test(l.action || '')).length || 0;
       }
+      for (const row of presentationActivity) {
+        if (Object.prototype.hasOwnProperty.call(featureCounts, row.feature)
+          && row.metric_date >= toMetricDate(metricStart)) featureCounts[row.feature]++;
+      }
 
       const sectionsMap = {
         'Học tập (Learning Map)': featureCounts.learning_map,
@@ -256,9 +261,10 @@ export default function AdminReportsPage() {
       const dailyChart = weekInfo.map((dayObj) => {
         const dStart = new Date(dayObj.fullDate);
         const metricDate = toMetricDate(dStart);
-        const uniqueUsersOnDay = new Set(
-          (weekUsers || []).filter(row => row.metric_date === metricDate).map(row => row.user_id).filter(Boolean)
-        ).size;
+        const uniqueUsersOnDay = new Set([
+          ...(weekUsers || []).filter(row => row.metric_date === metricDate).map(row => row.user_id).filter(Boolean),
+          ...presentationActivity.filter(row => row.metric_date === metricDate).map(row => `sample:${row.person_id}`)
+        ]).size;
 
         return {
           day: `${dayObj.day} (${dayObj.date})`,
@@ -359,6 +365,7 @@ export default function AdminReportsPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
+        {sampleCount > 0 && <p className="mb-4 text-xs text-amber-200">Số liệu tổng hợp có {sampleCount} hồ sơ mẫu dùng cho bài trình bày.</p>}
         {loading ? (
           <div className="flex justify-center items-center py-24">
             <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
@@ -399,7 +406,7 @@ export default function AdminReportsPage() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Điểm trung bình</p>
-                    <p className="text-xl font-bold text-white">{stats?.averageScore} XP</p>
+                    <p className="text-xl font-bold text-white">{stats?.averageScore} điểm</p>
                   </div>
                 </div>
               </div>

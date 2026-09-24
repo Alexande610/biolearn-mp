@@ -25,6 +25,8 @@ import { supabase } from '../lib/supabase';
 import { sendAutoTeacherCodeEmail } from '../lib/email';
 import { useToast } from '../components/Toast';
 import { reportSystemError } from '../lib/observability';
+import { loadPresentationPeople } from '../lib/presentationPeople';
+import { loadAllAdminProfiles, summarizeAdminProfiles } from '../lib/adminProfileMetrics';
 
 export default function AdminPage() {
   const navigate = useNavigate();
@@ -32,6 +34,7 @@ export default function AdminPage() {
   const { showToast } = useToast();
 
   const [stats, setStats] = useState(null);
+  const [sampleCount, setSampleCount] = useState(0);
   const [statsError, setStatsError] = useState('');
   const [loading, setLoading] = useState(true);
   const onlineCountLabel = onlinePresence?.status === 'connected'
@@ -213,29 +216,14 @@ export default function AdminPage() {
     setLoading(true);
     setStatsError('');
     try {
-      // 1. Total users
-      const { count: totalUsers, error: totalError } = await supabase
-        .from('profiles')
-        .select('*', { count: 'exact', head: true });
-      if (totalError) throw totalError;
-
-      // 2. Active today
-      const today = new Date();
-      today.setHours(0,0,0,0);
-      const { count: activeToday, error: activeError } = await supabase
-        .from('profiles')
-        .select('*', { count: 'exact', head: true })
-        .gte('last_active_at', today.toISOString());
-      if (activeError) throw activeError;
-
-      setStats({
-        totalUsers: totalUsers || 0,
-        activeToday: activeToday || 0,
-        activeWeek: activeToday || 0, // Simplified
-        totalLessonsCompleted: 0, // Would need more tables
-        averageScore: 0,
-        newUsersThisWeek: 0,
-      });
+      const [profiles, presentation] = await Promise.all([
+        loadAllAdminProfiles(supabase), loadPresentationPeople(supabase)
+      ]);
+      setSampleCount(presentation.length);
+      setStats(summarizeAdminProfiles([
+        ...profiles,
+        ...presentation.map(person => ({ ...person, is_presentation_data: true }))
+      ]));
     } catch (err) {
       console.error(err);
       setStats(null);
@@ -313,6 +301,7 @@ export default function AdminPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
+        {sampleCount > 0 && <p className="mb-4 text-xs text-amber-200">Số liệu tổng hợp có {sampleCount} hồ sơ mẫu dùng cho bài trình bày.</p>}
         {statsError && <p role="alert" className="mb-4 rounded-xl border border-red-400 p-3 text-red-500">{statsError}</p>}
 
         <div className={`game-card mb-6 ${isLight ? '!bg-white/90 !border-slate-300 shadow-lg' : ''}`}>
@@ -506,7 +495,7 @@ export default function AdminPage() {
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Điểm trung bình</p>
-                <p className="text-2xl font-bold text-white">{stats?.averageScore}%</p>
+                <p className="text-2xl font-bold text-white">{stats?.averageScore?.toLocaleString('vi-VN')} điểm</p>
               </div>
             </div>
           </div>

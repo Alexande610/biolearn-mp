@@ -7,6 +7,7 @@ import {
   ChevronUp, ChevronDown, Minus, RefreshCw, Swords, Bot, Users, X, Clock, User
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { loadPresentationPeople, mergeRankings, presentationWeekScore } from '../lib/presentationPeople';
 import { useWeeklyCountdown } from '../hooks/useCountdown';
 import { 
   Sprout, Leaf, TreePine, Flower2, Dna, Microscope, GraduationCap,
@@ -159,25 +160,40 @@ export default function LeaderboardPage() {
           .limit(50);
         if (error) throw error;
 
-        return (data || []).map(row => ({
-          ...row.profiles,
-          weekly_score: row.weekly_score,
-          weekly_map_score: row.map_score,
-          weekly_pvp_score: row.pvp_score
-        }));
+        return {
+          weekStart,
+          rows: (data || []).map(row => ({
+            ...row.profiles,
+            weekly_score: row.weekly_score,
+            weekly_map_score: row.map_score,
+            weekly_pvp_score: row.pvp_score
+          }))
+        };
       })();
 
-      const [totalResult, weeklyResult] = await Promise.allSettled([totalRequest, weeklyRequest]);
+      const [totalResult, weeklyResult, presentationResult] = await Promise.allSettled([
+        totalRequest, weeklyRequest, loadPresentationPeople(supabase)
+      ]);
+      const people = presentationResult.status === 'fulfilled' ? presentationResult.value : [];
+      if (presentationResult.status === 'rejected') console.error('Error fetching presentation people:', presentationResult.reason);
+      const students = people.filter(person => person.role === 'student');
 
       if (totalResult.status === 'fulfilled' && !totalResult.value.error) {
-        setTotalLeaderboard(totalResult.value.data || []);
+        setTotalLeaderboard(mergeRankings(totalResult.value.data || [], students.map(person => ({
+          ...person, is_presentation_data: true
+        })), 'total_score', 50));
       } else {
         console.error('Error fetching total leaderboard:', totalResult.status === 'rejected' ? totalResult.reason : totalResult.value.error);
         setTotalLeaderboard([]);
       }
 
       if (weeklyResult.status === 'fulfilled') {
-        setWeeklyLeaderboard(weeklyResult.value);
+        const sampleWeekly = students.map(person => ({
+          ...person,
+          weekly_score: presentationWeekScore(person, weeklyResult.value.weekStart),
+          is_presentation_data: true
+        }));
+        setWeeklyLeaderboard(mergeRankings(weeklyResult.value.rows, sampleWeekly, 'weekly_score', 50));
       } else {
         // Tạm tương thích nếu giao diện được cập nhật trước migration database.
         const { data: fallbackData, error: fallbackError } = await supabase
@@ -333,14 +349,29 @@ export default function LeaderboardPage() {
         .limit(10);
 
       if (!error && data) {
-        setClassLeaderboard(data.map(row => ({
+        const realRows = data.map(row => ({
           ...row.profiles,
           pvp_score: row.score,
           wins: row.wins,
           losses: row.losses,
           draws: row.draws,
           completed_matches: row.completed_matches
-        })));
+        }));
+        let people = [];
+        try { people = await loadPresentationPeople(supabase); }
+        catch (presentationError) { console.error('Error fetching presentation people:', presentationError); }
+        const sampleRows = people.filter(person => person.role === 'student'
+          && person.grade === Number(classId) && person.week_start === timeLeft.weekStart)
+          .map(person => ({
+            ...person,
+            pvp_score: Number(person.weekly_pvp_score || 0),
+            wins: person.pvp_wins,
+            losses: person.pvp_losses,
+            draws: 0,
+            completed_matches: Number(person.pvp_wins || 0) + Number(person.pvp_losses || 0),
+            is_presentation_data: true
+          }));
+        setClassLeaderboard(mergeRankings(realRows, sampleRows, 'pvp_score', 10));
       }
     } catch (err) {
       console.error('Error fetching class leaderboard:', err);
@@ -601,6 +632,7 @@ export default function LeaderboardPage() {
                         <div className="text-center z-20 flex flex-col items-center">
                            <div className="flex items-center justify-center gap-1.5 mb-2 max-w-36">
                              <h4 className="text-white font-black text-sm drop-shadow-lg truncate uppercase tracking-widest">{actualPlayer.display_name || 'Người chơi'}</h4>
+                             {actualPlayer.is_presentation_data && <span className="text-[8px] text-amber-200 shrink-0">Mẫu</span>}
                              {isCurrentUser && <span className="leaderboard-current-badge bg-orange-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest shrink-0">Bạn</span>}
                            </div>
                            <div className={`${config.pillColor} text-white px-4 py-1.5 rounded-full text-[10px] font-black shadow-[0_5px_15px_rgba(0,0,0,0.3)] flex items-center gap-2 border border-white/20 transition-all hover:scale-105`}>
@@ -662,7 +694,7 @@ export default function LeaderboardPage() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-0.5">
                              <p className={`font-black text-base truncate uppercase tracking-tight ${isCurrentUser ? 'text-white' : 'text-white/90'}`}>
-                               {player.display_name || 'Người chơi'}
+                               {player.display_name || 'Người chơi'}{player.is_presentation_data && <span className="ml-2 text-[9px] text-amber-200">Mẫu</span>}
                              </p>
                              {isCurrentUser && <span className="bg-white/20 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest">Bạn</span>}
                           </div>
@@ -768,7 +800,7 @@ export default function LeaderboardPage() {
                     </div>
 
                     <div className="flex-1">
-                      <p className="text-white font-semibold text-sm">{player.display_name || 'Người chơi'}</p>
+                      <p className="text-white font-semibold text-sm">{player.display_name || 'Người chơi'}{player.is_presentation_data && <span className="ml-2 text-[9px] text-amber-200">Mẫu</span>}</p>
                       <p className="text-purple-300 text-xs">{player.wins || 0} trận thắng</p>
                     </div>
 

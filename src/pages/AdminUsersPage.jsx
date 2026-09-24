@@ -9,6 +9,7 @@ import {
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 import { useToast } from '../components/Toast';
+import { loadPresentationPeople } from '../lib/presentationPeople';
 
 const USERS_PAGE_LIMIT = 12;
 const DEFAULT_LOCK_REASON = 'Phát hiện hành vi bất thường. Vui lòng liên hệ quản trị viên.';
@@ -49,6 +50,7 @@ export default function AdminUsersPage() {
   const { showToast } = useToast();
 
   const [users, setUsers] = useState([]);
+  const [presentationPeople, setPresentationPeople] = useState([]);
   const [usersTotal, setUsersTotal] = useState(0);
   const [usersPage, setUsersPage] = useState(1);
   const [usersTotalPages, setUsersTotalPages] = useState(1);
@@ -130,6 +132,7 @@ export default function AdminUsersPage() {
       setUsers(data || []);
       setUsersTotal(count || 0);
       setUsersTotalPages(Math.ceil((count || 0) / USERS_PAGE_LIMIT));
+      setPresentationPeople(await loadPresentationPeople(supabase));
     } catch (err) {
       console.error(err);
       setUsers([]);
@@ -429,7 +432,7 @@ export default function AdminUsersPage() {
             <div className="game-card mb-6">
               <div className="flex items-center gap-2 text-white font-semibold mb-4">
                 <Users className="w-5 h-5 text-blue-400" />
-                Danh sách toàn bộ người dùng
+                Danh sách tài khoản thật
               </div>
 
               <div className="grid md:grid-cols-4 gap-3 mb-4">
@@ -553,6 +556,24 @@ export default function AdminUsersPage() {
                 </button>
               </div>
             </div>
+
+          {presentationPeople.length > 0 && (
+            <div className="game-card mb-6">
+              <h2 className="text-white font-semibold mb-2">Hồ sơ mẫu dùng cho bài trình bày ({presentationPeople.length})</h2>
+              <p className="text-gray-300 text-xs mb-3">Các hồ sơ này không có tài khoản đăng nhập, phần thưởng hoặc quyền tham gia PvP.</p>
+              <div className="max-h-72 overflow-y-auto space-y-1">
+                {presentationPeople.filter(person =>
+                  (usersRoleFilter === 'all' || person.role === usersRoleFilter)
+                  && (!usersSearchTerm || person.display_name.toLocaleLowerCase('vi-VN').includes(usersSearchTerm.toLocaleLowerCase('vi-VN')))
+                ).map(person => (
+                  <div key={person.id} className="flex justify-between gap-3 rounded-lg bg-white/5 px-3 py-2 text-xs text-white">
+                    <span>{person.display_name} · {getRoleLabel(person.role)} lớp {person.grade}</span>
+                    <span>{Number(person.total_score || 0).toLocaleString('vi-VN')} điểm</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           </div>
 
           {/* Cột phải: Chi tiết người dùng slide-out panel */}
