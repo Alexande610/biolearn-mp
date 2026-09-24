@@ -52,7 +52,7 @@
                 "right": "Khoảng chịu đựng đối với một nhân tố"
               }
             ],
-            "hint": "Phân biệt vai trò của “Ánh sáng” và “Sinh vật cạnh tranh” trước khi nối. Mô tả của “Ánh sáng” bắt đầu bằng “N”.",
+            "hint": "“Ánh sáng” tương ứng với “Nhân tố vô sinh”.",
             "explanation": "Ánh sáng: Nhân tố vô sinh; Sinh vật cạnh tranh: Nhân tố hữu sinh; Giới hạn sinh thái: Khoảng chịu đựng đối với một nhân tố."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Nhiệt độ là một nhân tố sinh thái [blank].",
             "correctAnswer": "vô sinh",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nhiệt độ là một nhân tố sinh thái [blank].”. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ cần điền là “vô sinh”."
           }
         },
@@ -96,7 +96,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nhân tố vô sinh” và “Nhân tố hữu sinh” theo đặc điểm của từng mục. “Nhiệt độ” thuộc nhóm “Nhân tố vô sinh”.",
+            "hint": "“Nhiệt độ” thuộc nhóm “Nhân tố vô sinh”.",
             "explanation": "Nhiệt độ thuộc nhóm Nhân tố vô sinh; Nước thuộc nhóm Nhân tố vô sinh; Ánh sáng thuộc nhóm Nhân tố vô sinh; Kẻ săn mồi thuộc nhóm Nhân tố hữu sinh; Sinh vật cạnh tranh thuộc nhóm Nhân tố hữu sinh."
           }
         },
@@ -111,7 +111,7 @@
               "địa chất thuần túy"
             ],
             "correctWord": "sinh thái",
-            "hint": "Thử từng từ trong kho vào câu “Mỗi loài có một khoảng chịu đựng nhất định đối với từng nhân tố [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ đúng là “sinh thái”."
           }
         }
@@ -162,7 +162,7 @@
                 "right": "Cách cá thể sắp xếp trong không gian"
               }
             ],
-            "hint": "Phân biệt vai trò của “Kích thước quần thể” và “Mật độ quần thể” trước khi nối. Mô tả của “Kích thước quần thể” bắt đầu bằng “S”.",
+            "hint": "“Kích thước quần thể” tương ứng với “Số cá thể của quần thể”.",
             "explanation": "Kích thước quần thể: Số cá thể của quần thể; Mật độ quần thể: Số cá thể trên đơn vị không gian; Phân bố cá thể: Cách cá thể sắp xếp trong không gian."
           }
         },
@@ -172,7 +172,7 @@
           "data": {
             "sentence": "Số cá thể trên một đơn vị diện tích là [blank] quần thể.",
             "correctAnswer": "mật độ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Số cá thể trên một đơn vị diện tích là [blank] quần thể.”. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ cần điền là “mật độ”."
           }
         },
@@ -202,7 +202,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đặc trưng quần thể” và “Đặc trưng quần xã” theo đặc điểm của từng mục. “Mật độ cá thể cùng loài” thuộc nhóm “Đặc trưng quần thể”.",
+            "hint": "“Mật độ cá thể cùng loài” thuộc nhóm “Đặc trưng quần thể”.",
             "explanation": "Mật độ cá thể cùng loài thuộc nhóm Đặc trưng quần thể; Kích thước quần thể thuộc nhóm Đặc trưng quần thể; Tỉ lệ giới tính thuộc nhóm Đặc trưng quần thể; Độ đa dạng loài thuộc nhóm Đặc trưng quần xã."
           }
         },
@@ -217,7 +217,7 @@
               "theo trang sách"
             ],
             "correctWord": "ngẫu nhiên",
-            "hint": "Thử từng từ trong kho vào câu “Các cá thể của quần thể có thể phân bố theo nhóm, đồng đều hoặc [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “ngẫu nhiên”."
           }
         }
@@ -268,7 +268,7 @@
                 "right": "Cá thể rời quần thể"
               }
             ],
-            "hint": "Phân biệt vai trò của “Sinh sản” và “Nhập cư” trước khi nối. Mô tả của “Sinh sản” bắt đầu bằng “T”.",
+            "hint": "“Sinh sản” tương ứng với “Tạo cá thể mới”.",
             "explanation": "Sinh sản: Tạo cá thể mới; Nhập cư: Cá thể đi vào quần thể; Xuất cư: Cá thể rời quần thể."
           }
         },
@@ -278,7 +278,7 @@
           "data": {
             "sentence": "Số cá thể chết và [blank] cư làm giảm kích thước quần thể.",
             "correctAnswer": "xuất",
-            "hint": "Xét ngữ cảnh của ô trống trong “Số cá thể chết và [blank] cư làm giảm kích thước quần thể.”. Từ cần chọn bắt đầu bằng “x” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “x”.",
             "explanation": "Từ cần điền là “xuất”."
           }
         },
@@ -308,7 +308,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Làm tăng kích thước quần thể” và “Làm giảm kích thước quần thể” theo đặc điểm của từng mục. “Sinh sản” thuộc nhóm “Làm tăng kích thước quần thể”.",
+            "hint": "“Sinh sản” thuộc nhóm “Làm tăng kích thước quần thể”.",
             "explanation": "Sinh sản thuộc nhóm Làm tăng kích thước quần thể; Nhập cư thuộc nhóm Làm tăng kích thước quần thể; Tử vong thuộc nhóm Làm giảm kích thước quần thể; Xuất cư thuộc nhóm Làm giảm kích thước quần thể."
           }
         },
@@ -323,7 +323,7 @@
               "thụ tinh"
             ],
             "correctWord": "nhập cư",
-            "hint": "Thử từng từ trong kho vào câu “Cá thể di chuyển từ nơi khác vào quần thể gọi là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nhập cư”."
           }
         }
@@ -374,7 +374,7 @@
                 "right": "Một loài sống nhờ và gây hại loài khác"
               }
             ],
-            "hint": "Phân biệt vai trò của “Cộng sinh” và “Cạnh tranh” trước khi nối. Mô tả của “Cộng sinh” bắt đầu bằng “H”.",
+            "hint": "“Cộng sinh” tương ứng với “Hai loài sống gần gũi và cùng có lợi”.",
             "explanation": "Cộng sinh: Hai loài sống gần gũi và cùng có lợi; Cạnh tranh: Các loài cùng khai thác nguồn lực hạn chế; Kí sinh: Một loài sống nhờ và gây hại loài khác."
           }
         },
@@ -384,7 +384,7 @@
           "data": {
             "sentence": "Hai loài cùng sử dụng nguồn thức ăn hạn chế có thể xảy ra [blank].",
             "correctAnswer": "cạnh tranh",
-            "hint": "Xét ngữ cảnh của ô trống trong “Hai loài cùng sử dụng nguồn thức ăn hạn chế có thể xảy ra [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “cạnh tranh”."
           }
         },
@@ -414,7 +414,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Quan hệ hỗ trợ” và “Quan hệ đối kháng” theo đặc điểm của từng mục. “Cộng sinh” thuộc nhóm “Quan hệ hỗ trợ”.",
+            "hint": "“Cộng sinh” thuộc nhóm “Quan hệ hỗ trợ”.",
             "explanation": "Cộng sinh thuộc nhóm Quan hệ hỗ trợ; Hợp tác thuộc nhóm Quan hệ hỗ trợ; Cạnh tranh thuộc nhóm Quan hệ đối kháng; Kí sinh thuộc nhóm Quan hệ đối kháng."
           }
         },
@@ -429,7 +429,7 @@
               "không ảnh hưởng luôn luôn"
             ],
             "correctWord": "hại",
-            "hint": "Thử từng từ trong kho vào câu “Trong quan hệ kí sinh, một loài có lợi còn loài kia bị [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ đúng là “hại”."
           }
         }
@@ -480,7 +480,7 @@
                 "right": "Phân huỷ vật chất hữu cơ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Sinh vật sản xuất” và “Sinh vật tiêu thụ” trước khi nối. Mô tả của “Sinh vật sản xuất” bắt đầu bằng “T”.",
+            "hint": "“Sinh vật sản xuất” tương ứng với “Tạo chất hữu cơ từ chất vô cơ”.",
             "explanation": "Sinh vật sản xuất: Tạo chất hữu cơ từ chất vô cơ; Sinh vật tiêu thụ: Sử dụng sinh vật khác làm thức ăn; Sinh vật phân giải: Phân huỷ vật chất hữu cơ."
           }
         },
@@ -490,7 +490,7 @@
           "data": {
             "sentence": "Quần xã cùng môi trường vô sinh tạo thành một hệ [blank].",
             "correctAnswer": "sinh thái",
-            "hint": "Xét ngữ cảnh của ô trống trong “Quần xã cùng môi trường vô sinh tạo thành một hệ [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sinh thái”."
           }
         },
@@ -524,7 +524,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thành phần hữu sinh” và “Thành phần vô sinh” theo đặc điểm của từng mục. “Cây xanh” thuộc nhóm “Thành phần hữu sinh”.",
+            "hint": "“Cây xanh” thuộc nhóm “Thành phần hữu sinh”.",
             "explanation": "Cây xanh thuộc nhóm Thành phần hữu sinh; Động vật thuộc nhóm Thành phần hữu sinh; Nấm thuộc nhóm Thành phần hữu sinh; Nước thuộc nhóm Thành phần vô sinh; Ánh sáng thuộc nhóm Thành phần vô sinh."
           }
         },
@@ -539,7 +539,7 @@
               "không tồn tại"
             ],
             "correctWord": "vô sinh",
-            "hint": "Thử từng từ trong kho vào câu “Hệ sinh thái gồm quần xã và môi trường [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ đúng là “vô sinh”."
           }
         }
@@ -590,7 +590,7 @@
                 "right": "Tiêu thụ bậc hai"
               }
             ],
-            "hint": "Phân biệt vai trò của “Cỏ” và “Châu chấu” trước khi nối. Mô tả của “Cỏ” bắt đầu bằng “S”.",
+            "hint": "“Cỏ” tương ứng với “Sinh vật sản xuất”.",
             "explanation": "Cỏ: Sinh vật sản xuất; Châu chấu: Tiêu thụ bậc một; Ếch: Tiêu thụ bậc hai."
           }
         },
@@ -600,7 +600,7 @@
           "data": {
             "sentence": "Nhiều chuỗi thức ăn có mắt xích chung tạo thành lưới [blank].",
             "correctAnswer": "thức ăn",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nhiều chuỗi thức ăn có mắt xích chung tạo thành lưới [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “thức ăn”."
           }
         },
@@ -630,7 +630,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Sinh vật sản xuất” và “Sinh vật tiêu thụ” theo đặc điểm của từng mục. “Cỏ” thuộc nhóm “Sinh vật sản xuất”.",
+            "hint": "“Cỏ” thuộc nhóm “Sinh vật sản xuất”.",
             "explanation": "Cỏ thuộc nhóm Sinh vật sản xuất; Tảo thuộc nhóm Sinh vật sản xuất; Châu chấu thuộc nhóm Sinh vật tiêu thụ; Ếch thuộc nhóm Sinh vật tiêu thụ."
           }
         },
@@ -645,7 +645,7 @@
               "tên loài"
             ],
             "correctWord": "năng lượng",
-            "hint": "Thử từng từ trong kho vào câu “Mũi tên trong chuỗi thức ăn chỉ chiều truyền vật chất và [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “năng lượng”."
           }
         }
@@ -696,7 +696,7 @@
                 "right": "Một dạng năng lượng thất thoát khỏi dòng dinh dưỡng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Sinh vật phân giải” và “Chu trình carbon” trước khi nối. Mô tả của “Sinh vật phân giải” bắt đầu bằng “T”.",
+            "hint": "“Sinh vật phân giải” tương ứng với “Trả nhiều chất vô cơ về môi trường”.",
             "explanation": "Sinh vật phân giải: Trả nhiều chất vô cơ về môi trường; Chu trình carbon: Carbon luân chuyển giữa sinh vật và môi trường; Nhiệt: Một dạng năng lượng thất thoát khỏi dòng dinh dưỡng."
           }
         },
@@ -706,7 +706,7 @@
           "data": {
             "sentence": "Vật chất trong hệ sinh thái có thể [blank] qua sinh vật và môi trường.",
             "correctAnswer": "tuần hoàn",
-            "hint": "Xét ngữ cảnh của ô trống trong “Vật chất trong hệ sinh thái có thể [blank] qua sinh vật và môi trường.”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “tuần hoàn”."
           }
         },
@@ -736,7 +736,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Liên quan chu trình vật chất” và “Liên quan dòng năng lượng” theo đặc điểm của từng mục. “Carbon trở lại khí quyển” thuộc nhóm “Liên quan chu trình vật chất”.",
+            "hint": "“Carbon trở lại khí quyển” thuộc nhóm “Liên quan chu trình vật chất”.",
             "explanation": "Carbon trở lại khí quyển thuộc nhóm Liên quan chu trình vật chất; Chất khoáng được cây hấp thụ thuộc nhóm Liên quan chu trình vật chất; Năng lượng truyền qua bậc dinh dưỡng thuộc nhóm Liên quan dòng năng lượng; Một phần năng lượng toả nhiệt thuộc nhóm Liên quan dòng năng lượng."
           }
         },
@@ -751,7 +751,7 @@
               "một loài duy nhất"
             ],
             "correctWord": "môi trường",
-            "hint": "Thử từng từ trong kho vào câu “Sinh vật phân giải giúp đưa nhiều chất trở lại [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “môi trường”."
           }
         }
@@ -802,7 +802,7 @@
                 "right": "Hình thành sau các giai đoạn trước"
               }
             ],
-            "hint": "Phân biệt vai trò của “Diễn thế” và “Loài tiên phong” trước khi nối. Mô tả của “Diễn thế” bắt đầu bằng “Q”.",
+            "hint": "“Diễn thế” tương ứng với “Quần xã thay đổi theo thời gian”.",
             "explanation": "Diễn thế: Quần xã thay đổi theo thời gian; Loài tiên phong: Xuất hiện sớm trên môi trường mới; Quần xã về sau: Hình thành sau các giai đoạn trước."
           }
         },
@@ -812,7 +812,7 @@
           "data": {
             "sentence": "Sự thay thế các quần xã theo thời gian gọi là diễn thế [blank].",
             "correctAnswer": "sinh thái",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sự thay thế các quần xã theo thời gian gọi là diễn thế [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sinh thái”."
           }
         },
@@ -842,7 +842,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có thể là nguyên nhân diễn thế” và “Không phải nguyên nhân sinh thái” theo đặc điểm của từng mục. “Cháy rừng” thuộc nhóm “Có thể là nguyên nhân diễn thế”.",
+            "hint": "“Cháy rừng” thuộc nhóm “Có thể là nguyên nhân diễn thế”.",
             "explanation": "Cháy rừng thuộc nhóm Có thể là nguyên nhân diễn thế; Thay đổi khí hậu thuộc nhóm Có thể là nguyên nhân diễn thế; Hoạt động khai thác rừng thuộc nhóm Có thể là nguyên nhân diễn thế; Đổi tên khu vực trên bản đồ thuộc nhóm Không phải nguyên nhân sinh thái."
           }
         },
@@ -857,7 +857,7 @@
               "không tồn tại"
             ],
             "correctWord": "tiên phong",
-            "hint": "Thử từng từ trong kho vào câu “Loài đến sống đầu tiên trên nền đất mới thường gọi là loài [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “tiên phong”."
           }
         }
@@ -908,7 +908,7 @@
                 "right": "Góp phần gìn giữ sinh cảnh và loài"
               }
             ],
-            "hint": "Phân biệt vai trò của “Phục hồi sinh thái” và “Loài bản địa” trước khi nối. Mô tả của “Phục hồi sinh thái” bắt đầu bằng “K”.",
+            "hint": "“Phục hồi sinh thái” tương ứng với “Khôi phục hệ sinh thái suy thoái”.",
             "explanation": "Phục hồi sinh thái: Khôi phục hệ sinh thái suy thoái; Loài bản địa: Loài thuộc vùng phân bố tự nhiên; Khu bảo tồn: Góp phần gìn giữ sinh cảnh và loài."
           }
         },
@@ -918,7 +918,7 @@
           "data": {
             "sentence": "Bảo vệ nơi sống góp phần bảo tồn đa dạng [blank].",
             "correctAnswer": "sinh học",
-            "hint": "Xét ngữ cảnh của ô trống trong “Bảo vệ nơi sống góp phần bảo tồn đa dạng [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sinh học”."
           }
         },
@@ -948,7 +948,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Hỗ trợ bảo tồn” và “Làm suy giảm đa dạng sinh học” theo đặc điểm của từng mục. “Bảo vệ sinh cảnh” thuộc nhóm “Hỗ trợ bảo tồn”.",
+            "hint": "“Bảo vệ sinh cảnh” thuộc nhóm “Hỗ trợ bảo tồn”.",
             "explanation": "Bảo vệ sinh cảnh thuộc nhóm Hỗ trợ bảo tồn; Phục hồi rừng bản địa thuộc nhóm Hỗ trợ bảo tồn; Quản lí khai thác thuộc nhóm Hỗ trợ bảo tồn; Săn bắt trái phép thuộc nhóm Làm suy giảm đa dạng sinh học."
           }
         },
@@ -963,7 +963,7 @@
               "không có thật"
             ],
             "correctWord": "bản địa",
-            "hint": "Thử từng từ trong kho vào câu “Phục hồi sinh thái cần quan tâm tới các loài [blank] của khu vực.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “b”.",
             "explanation": "Từ đúng là “bản địa”."
           }
         }
@@ -1014,7 +1014,7 @@
                 "right": "Giữ loài và sinh cảnh"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tiết kiệm tài nguyên” và “Xử lí chất thải” trước khi nối. Mô tả của “Tiết kiệm tài nguyên” bắt đầu bằng “G”.",
+            "hint": "“Tiết kiệm tài nguyên” tương ứng với “Giảm lãng phí”.",
             "explanation": "Tiết kiệm tài nguyên: Giảm lãng phí; Xử lí chất thải: Giảm ô nhiễm; Bảo vệ đa dạng sinh học: Giữ loài và sinh cảnh."
           }
         },
@@ -1024,7 +1024,7 @@
           "data": {
             "sentence": "Phát triển bền vững cần cân bằng lợi ích hiện tại và [blank].",
             "correctAnswer": "tương lai",
-            "hint": "Xét ngữ cảnh của ô trống trong “Phát triển bền vững cần cân bằng lợi ích hiện tại và [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “tương lai”."
           }
         },
@@ -1054,7 +1054,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Hành động bền vững” và “Hành động không bền vững” theo đặc điểm của từng mục. “Tiết kiệm nước” thuộc nhóm “Hành động bền vững”.",
+            "hint": "“Tiết kiệm nước” thuộc nhóm “Hành động bền vững”.",
             "explanation": "Tiết kiệm nước thuộc nhóm Hành động bền vững; Phân loại rác thuộc nhóm Hành động bền vững; Phục hồi sinh cảnh thuộc nhóm Hành động bền vững; Khai thác tận diệt thuộc nhóm Hành động không bền vững."
           }
         },
@@ -1069,7 +1069,7 @@
               "suy đoán không dữ liệu"
             ],
             "correctWord": "địa phương",
-            "hint": "Thử từng từ trong kho vào câu “Một dự án bảo tồn cần dựa trên khảo sát thực trạng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ đúng là “địa phương”."
           }
         }

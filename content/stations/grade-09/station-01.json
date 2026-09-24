@@ -52,7 +52,7 @@
                 "right": "Nghiên cứu quy luật di truyền và biến dị"
               }
             ],
-            "hint": "Phân biệt vai trò của “Di truyền” và “Biến dị” trước khi nối. Mô tả của “Di truyền” bắt đầu bằng “T”.",
+            "hint": "“Di truyền” tương ứng với “Truyền đạt đặc điểm qua các thế hệ”.",
             "explanation": "Di truyền: Truyền đạt đặc điểm qua các thế hệ; Biến dị: Sự khác nhau về đặc điểm giữa các cá thể; Di truyền học: Nghiên cứu quy luật di truyền và biến dị."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Sự khác nhau về đặc điểm giữa các cá thể được gọi là [blank].",
             "correctAnswer": "biến dị",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sự khác nhau về đặc điểm giữa các cá thể được gọi là [blank].”. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “b”.",
             "explanation": "Từ cần điền là “biến dị”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Biểu hiện di truyền” và “Biểu hiện biến dị” theo đặc điểm của từng mục. “Con có nhóm máu giống một người thân” thuộc nhóm “Biểu hiện di truyền”.",
+            "hint": "“Con có nhóm máu giống một người thân” thuộc nhóm “Biểu hiện di truyền”.",
             "explanation": "Con có nhóm máu giống một người thân thuộc nhóm Biểu hiện di truyền; Con có màu mắt giống cha thuộc nhóm Biểu hiện di truyền; Hai anh em có chiều cao khác nhau thuộc nhóm Biểu hiện biến dị; Các cá thể cùng loài có màu lông khác nhau thuộc nhóm Biểu hiện biến dị."
           }
         },
@@ -107,7 +107,7 @@
               "thoát hơi nước"
             ],
             "correctWord": "biến dị",
-            "hint": "Thử từng từ trong kho vào câu “Di truyền học nghiên cứu sự di truyền và [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “b”.",
             "explanation": "Từ đúng là “biến dị”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Qua nhiều thế hệ cho đời con ổn định về tính trạng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tính trạng” và “Cặp tính trạng tương phản” trước khi nối. Mô tả của “Tính trạng” bắt đầu bằng “Đ”.",
+            "hint": "“Tính trạng” tương ứng với “Đặc điểm biểu hiện ở cơ thể”.",
             "explanation": "Tính trạng: Đặc điểm biểu hiện ở cơ thể; Cặp tính trạng tương phản: Hai trạng thái đối lập của cùng tính trạng; Dòng thuần: Qua nhiều thế hệ cho đời con ổn định về tính trạng."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Hoa tím và hoa trắng là hai trạng thái [blank] của tính trạng màu hoa.",
             "correctAnswer": "tương phản",
-            "hint": "Xét ngữ cảnh của ô trống trong “Hoa tím và hoa trắng là hai trạng thái [blank] của tính trạng màu hoa.”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “tương phản”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Tính trạng của cây” và “Không phải tính trạng của cây” theo đặc điểm của từng mục. “Màu hoa” thuộc nhóm “Tính trạng của cây”.",
+            "hint": "“Màu hoa” thuộc nhóm “Tính trạng của cây”.",
             "explanation": "Màu hoa thuộc nhóm Tính trạng của cây; Hình dạng hạt thuộc nhóm Tính trạng của cây; Chiều cao thân thuộc nhóm Tính trạng của cây; Màu nhãn chậu thuộc nhóm Không phải tính trạng của cây."
           }
         },
@@ -213,7 +213,7 @@
               "vô sinh"
             ],
             "correctWord": "tương phản",
-            "hint": "Thử từng từ trong kho vào câu “Mendel nghiên cứu các cặp tính trạng [blank] ở đậu Hà Lan.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “tương phản”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Mang một allele lặn"
               }
             ],
-            "hint": "Phân biệt vai trò của “Kiểu gene Aa” và “Giao tử mang allele trội A” trước khi nối. Mô tả của “Kiểu gene Aa” bắt đầu bằng “D”.",
+            "hint": "“Kiểu gene Aa” tương ứng với “Dị hợp về một gene”.",
             "explanation": "Kiểu gene Aa: Dị hợp về một gene; Giao tử mang allele trội A: Mang một allele trội; Giao tử mang allele lặn a: Mang một allele lặn."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Cặp allele Aa [blank] khi hình thành giao tử.",
             "correctAnswer": "phân li",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cặp allele Aa [blank] khi hình thành giao tử.”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ cần điền là “phân li”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Giao tử có thể tạo từ Aa” và “Không phải giao tử bình thường từ Aa” theo đặc điểm của từng mục. “Giao tử mang allele trội A” thuộc nhóm “Giao tử có thể tạo từ Aa”.",
+            "hint": "“Giao tử mang allele trội A” thuộc nhóm “Giao tử có thể tạo từ Aa”.",
             "explanation": "Giao tử mang allele trội A thuộc nhóm Giao tử có thể tạo từ Aa; Giao tử mang allele lặn a thuộc nhóm Giao tử có thể tạo từ Aa; Giao tử chứa hai allele khác nhau Aa thuộc nhóm Không phải giao tử bình thường từ Aa; Giao tử chứa hai allele trội AA thuộc nhóm Không phải giao tử bình thường từ Aa."
           }
         },
@@ -319,7 +319,7 @@
               "hai allele trội AA"
             ],
             "correctWord": "allele lặn a",
-            "hint": "Thử từng từ trong kho vào câu “Cơ thể Aa tạo giao tử mang allele trội A hoặc [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “a” và gồm 3 tiếng.",
+            "hint": "Từ cần chọn gồm 3 tiếng và bắt đầu bằng chữ “a”.",
             "explanation": "Từ đúng là “allele lặn a”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Đồng hợp lặn"
               }
             ],
-            "hint": "Phân biệt vai trò của “Kiểu gene đồng hợp trội AA” và “Kiểu gene dị hợp Aa” trước khi nối. Mô tả của “Kiểu gene đồng hợp trội AA” bắt đầu bằng “Đ”.",
+            "hint": "“Kiểu gene đồng hợp trội AA” tương ứng với “Đồng hợp trội”.",
             "explanation": "Kiểu gene đồng hợp trội AA: Đồng hợp trội; Kiểu gene dị hợp Aa: Dị hợp; Kiểu gene đồng hợp lặn aa: Đồng hợp lặn."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Trong phép lai Aa × Aa, kiểu gene dị hợp xuất hiện với tỉ lệ [blank].",
             "correctAnswer": "1/2",
-            "hint": "Xét ngữ cảnh của ô trống trong “Trong phép lai Aa × Aa, kiểu gene dị hợp xuất hiện với tỉ lệ [blank].”. Từ cần chọn bắt đầu bằng “1” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “1”.",
             "explanation": "Từ cần điền là “1/2”."
           }
         },
@@ -406,7 +406,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đồng hợp” và “Dị hợp” theo đặc điểm của từng mục. “Đồng hợp trội AA” thuộc nhóm “Đồng hợp”.",
+            "hint": "“Đồng hợp trội AA” thuộc nhóm “Đồng hợp”.",
             "explanation": "Đồng hợp trội AA thuộc nhóm Đồng hợp; Đồng hợp lặn aa thuộc nhóm Đồng hợp; Dị hợp Aa thuộc nhóm Dị hợp."
           }
         },
@@ -421,7 +421,7 @@
               "allele A"
             ],
             "correctWord": "đồng hợp lặn aa",
-            "hint": "Thử từng từ trong kho vào câu “Trong phép lai Aa × Aa, kiểu gene cuối cùng theo tỉ lệ 1 : 2 : 1 là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 4 tiếng.",
+            "hint": "Từ cần chọn gồm 4 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ đúng là “đồng hợp lặn aa”."
           }
         }
@@ -472,7 +472,7 @@
                 "right": "Một đoạn DNA mang thông tin di truyền"
               }
             ],
-            "hint": "Phân biệt vai trò của “DNA” và “Nucleotide” trước khi nối. Mô tả của “DNA” bắt đầu bằng “L”.",
+            "hint": "“DNA” tương ứng với “Lưu giữ thông tin di truyền”.",
             "explanation": "DNA: Lưu giữ thông tin di truyền; Nucleotide: Đơn phân cấu tạo DNA; Gene: Một đoạn DNA mang thông tin di truyền."
           }
         },
@@ -482,7 +482,7 @@
           "data": {
             "sentence": "Đơn phân cấu tạo nên DNA là [blank].",
             "correctAnswer": "nucleotide",
-            "hint": "Xét ngữ cảnh của ô trống trong “Đơn phân cấu tạo nên DNA là [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nucleotide”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Base có trong DNA” và “Không phải base của DNA” theo đặc điểm của từng mục. “A” thuộc nhóm “Base có trong DNA”.",
+            "hint": "“A” thuộc nhóm “Base có trong DNA”.",
             "explanation": "A thuộc nhóm Base có trong DNA; T thuộc nhóm Base có trong DNA; G thuộc nhóm Base có trong DNA; C thuộc nhóm Base có trong DNA; U thuộc nhóm Không phải base của DNA."
           }
         },
@@ -531,7 +531,7 @@
               "địa chất"
             ],
             "correctWord": "di truyền",
-            "hint": "Thử từng từ trong kho vào câu “DNA mang thông tin [blank] của sinh vật.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “d”.",
             "explanation": "Từ đúng là “di truyền”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Liên kết theo nguyên tắc bổ sung"
               }
             ],
-            "hint": "Phân biệt vai trò của “A” và “G” trước khi nối. Mô tả của “A” bắt đầu bằng “B”.",
+            "hint": "“A” tương ứng với “Bổ sung với T”.",
             "explanation": "A: Bổ sung với T; G: Bổ sung với C; Hai mạch DNA: Liên kết theo nguyên tắc bổ sung."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Trong DNA, G liên kết bổ sung với [blank].",
             "correctAnswer": "C",
-            "hint": "Xét ngữ cảnh của ô trống trong “Trong DNA, G liên kết bổ sung với [blank].”. Từ cần chọn bắt đầu bằng “C” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “C”.",
             "explanation": "Từ cần điền là “C”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Cặp base bổ sung trong DNA” và “Không phải cặp base bổ sung trong DNA” theo đặc điểm của từng mục. “A–T” thuộc nhóm “Cặp base bổ sung trong DNA”.",
+            "hint": "“A–T” thuộc nhóm “Cặp base bổ sung trong DNA”.",
             "explanation": "A–T thuộc nhóm Cặp base bổ sung trong DNA; G–C thuộc nhóm Cặp base bổ sung trong DNA; A–G thuộc nhóm Không phải cặp base bổ sung trong DNA; T–C thuộc nhóm Không phải cặp base bổ sung trong DNA."
           }
         },
@@ -637,7 +637,7 @@
               "U"
             ],
             "correctWord": "T",
-            "hint": "Thử từng từ trong kho vào câu “Nếu một mạch DNA có base A, mạch đối diện thường có base [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “T” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “T”.",
             "explanation": "Từ đúng là “T”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Mang thông tin từ gene tới nơi tổng hợp protein"
               }
             ],
-            "hint": "Phân biệt vai trò của “DNA” và “RNA” trước khi nối. Mô tả của “DNA” bắt đầu bằng “T”.",
+            "hint": "“DNA” tương ứng với “Thường có hai mạch và chứa T”.",
             "explanation": "DNA: Thường có hai mạch và chứa T; RNA: Thường có một mạch và chứa U; mRNA: Mang thông tin từ gene tới nơi tổng hợp protein."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "RNA sử dụng base [blank] thay cho T của DNA.",
             "correctAnswer": "U",
-            "hint": "Xét ngữ cảnh của ô trống trong “RNA sử dụng base [blank] thay cho T của DNA.”. Từ cần chọn bắt đầu bằng “U” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “U”.",
             "explanation": "Từ cần điền là “U”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đặc trưng DNA” và “Đặc trưng RNA” theo đặc điểm của từng mục. “Có T” thuộc nhóm “Đặc trưng DNA”.",
+            "hint": "“Có T” thuộc nhóm “Đặc trưng DNA”.",
             "explanation": "Có T thuộc nhóm Đặc trưng DNA; Thường gồm hai mạch thuộc nhóm Đặc trưng DNA; Có U thuộc nhóm Đặc trưng RNA; Thường gồm một mạch thuộc nhóm Đặc trưng RNA."
           }
         },
@@ -743,7 +743,7 @@
               "G"
             ],
             "correctWord": "U",
-            "hint": "Thử từng từ trong kho vào câu “Phân tử RNA dùng base [blank] để bắt cặp với A.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “U” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “U”.",
             "explanation": "Từ đúng là “U”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Mang một mạch cũ và một mạch mới"
               }
             ],
-            "hint": "Phân biệt vai trò của “Mạch DNA khuôn” và “Nucleotide tự do” trước khi nối. Mô tả của “Mạch DNA khuôn” bắt đầu bằng “Đ”.",
+            "hint": "“Mạch DNA khuôn” tương ứng với “Định hướng tổng hợp mạch mới”.",
             "explanation": "Mạch DNA khuôn: Định hướng tổng hợp mạch mới; Nucleotide tự do: Nguyên liệu tạo mạch mới; DNA con: Mang một mạch cũ và một mạch mới."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Tái bản DNA diễn ra theo nguyên tắc bổ sung và bán [blank].",
             "correctAnswer": "bảo tồn",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tái bản DNA diễn ra theo nguyên tắc bổ sung và bán [blank].”. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “b”.",
             "explanation": "Từ cần điền là “bảo tồn”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Liên quan tái bản DNA” và “Không phải tái bản DNA” theo đặc điểm của từng mục. “Mạch khuôn DNA” thuộc nhóm “Liên quan tái bản DNA”.",
+            "hint": "“Mạch khuôn DNA” thuộc nhóm “Liên quan tái bản DNA”.",
             "explanation": "Mạch khuôn DNA thuộc nhóm Liên quan tái bản DNA; Nucleotide DNA tự do thuộc nhóm Liên quan tái bản DNA; Tạo DNA con thuộc nhóm Liên quan tái bản DNA; Tạo chuỗi amino acid thuộc nhóm Không phải tái bản DNA."
           }
         },
@@ -849,7 +849,7 @@
               "màng tế bào"
             ],
             "correctWord": "khuôn",
-            "hint": "Thử từng từ trong kho vào câu “Trong tái bản, mỗi mạch DNA cũ làm [blank] để tổng hợp mạch mới.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ đúng là “khuôn”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Mang thông tin tới ribosome"
               }
             ],
-            "hint": "Phân biệt vai trò của “Gene trên DNA” và “Phiên mã” trước khi nối. Mô tả của “Gene trên DNA” bắt đầu bằng “C”.",
+            "hint": "“Gene trên DNA” tương ứng với “Chứa thông tin dùng làm khuôn”.",
             "explanation": "Gene trên DNA: Chứa thông tin dùng làm khuôn; Phiên mã: Tổng hợp RNA từ mạch khuôn DNA; mRNA: Mang thông tin tới ribosome."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Quá trình tổng hợp RNA trên mạch khuôn DNA gọi là [blank].",
             "correctAnswer": "phiên mã",
-            "hint": "Xét ngữ cảnh của ô trống trong “Quá trình tổng hợp RNA trên mạch khuôn DNA gọi là [blank].”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ cần điền là “phiên mã”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Liên quan phiên mã” và “Liên quan dịch mã” theo đặc điểm của từng mục. “Mạch khuôn DNA” thuộc nhóm “Liên quan phiên mã”.",
+            "hint": "“Mạch khuôn DNA” thuộc nhóm “Liên quan phiên mã”.",
             "explanation": "Mạch khuôn DNA thuộc nhóm Liên quan phiên mã; Tạo mRNA thuộc nhóm Liên quan phiên mã; Ribosome đọc codon mRNA thuộc nhóm Liên quan dịch mã; Tạo chuỗi amino acid thuộc nhóm Liên quan dịch mã."
           }
         },
@@ -955,7 +955,7 @@
               "tinh bột"
             ],
             "correctWord": "RNA",
-            "hint": "Thử từng từ trong kho vào câu “Trong phiên mã, sản phẩm được tạo ra là một phân tử [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “R” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “R”.",
             "explanation": "Từ đúng là “RNA”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Có thể tham gia biểu hiện tính trạng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Gene” và “mRNA” trước khi nối. Mô tả của “Gene” bắt đầu bằng “M”.",
+            "hint": "“Gene” tương ứng với “Mang thông tin di truyền”.",
             "explanation": "Gene: Mang thông tin di truyền; mRNA: Truyền thông tin từ gene; Protein: Có thể tham gia biểu hiện tính trạng."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Quá trình tổng hợp chuỗi amino acid theo thông tin trên mRNA gọi là [blank].",
             "correctAnswer": "dịch mã",
-            "hint": "Xét ngữ cảnh của ô trống trong “Quá trình tổng hợp chuỗi amino acid theo thông tin trên mRNA gọi là [blank].”. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “d”.",
             "explanation": "Từ cần điền là “dịch mã”."
           }
         },
@@ -1046,7 +1046,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Theo dòng thông tin gene → tính trạng” và “Không nằm trong dòng thông tin đó” theo đặc điểm của từng mục. “DNA” thuộc nhóm “Theo dòng thông tin gene → tính trạng”.",
+            "hint": "“DNA” thuộc nhóm “Theo dòng thông tin gene → tính trạng”.",
             "explanation": "DNA thuộc nhóm Theo dòng thông tin gene → tính trạng; mRNA thuộc nhóm Theo dòng thông tin gene → tính trạng; Protein thuộc nhóm Theo dòng thông tin gene → tính trạng; Đất đá thuộc nhóm Không nằm trong dòng thông tin đó."
           }
         },
@@ -1061,7 +1061,7 @@
               "ánh sáng"
             ],
             "correctWord": "protein",
-            "hint": "Thử từng từ trong kho vào câu “Thông tin từ gene được phiên mã thành mRNA rồi dịch mã tạo [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “protein”."
           }
         }

@@ -53,7 +53,7 @@
                 "right": "Điều chỉnh khoảng cách để ảnh rõ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Thị kính” và “Vật kính” trước khi nối. Mô tả của “Thị kính” bắt đầu bằng “N”.",
+            "hint": "“Thị kính” tương ứng với “Nơi đặt mắt để quan sát”.",
             "explanation": "Thị kính: Nơi đặt mắt để quan sát; Vật kính: Phóng đại ảnh của vật; Ốc điều chỉnh: Điều chỉnh khoảng cách để ảnh rõ."
           }
         },
@@ -63,7 +63,7 @@
           "data": {
             "sentence": "Kính hiển vi quang học giúp quan sát những vật có kích thước [blank] mà mắt thường khó thấy.",
             "correctAnswer": "nhỏ bé",
-            "hint": "Xét ngữ cảnh của ô trống trong “Kính hiển vi quang học giúp quan sát những vật có kích thước [blank] mà mắt thường khó thấy.”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhỏ bé”."
           }
         },
@@ -93,7 +93,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Bộ phận quang học” và “Bộ phận cơ học” theo đặc điểm của từng mục. “Thị kính” thuộc nhóm “Bộ phận quang học”.",
+            "hint": "“Thị kính” thuộc nhóm “Bộ phận quang học”.",
             "explanation": "Thị kính thuộc nhóm Bộ phận quang học; Vật kính thuộc nhóm Bộ phận quang học; Bàn kính thuộc nhóm Bộ phận cơ học; Ốc điều chỉnh thuộc nhóm Bộ phận cơ học."
           }
         },
@@ -108,7 +108,7 @@
               "kẹp tiêu bản"
             ],
             "correctWord": "ốc điều chỉnh",
-            "hint": "Thử từng từ trong kho vào câu “Sau khi đặt tiêu bản, cần điều chỉnh [blank] để ảnh quan sát rõ nét.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “ố” và gồm 3 tiếng.",
+            "hint": "Từ cần chọn gồm 3 tiếng và bắt đầu bằng chữ “ố”.",
             "explanation": "Từ đúng là “ốc điều chỉnh”."
           }
         }
@@ -160,7 +160,7 @@
                 "right": "Có dạng gần hình hộp"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tế bào da người” và “Tế bào thần kinh” trước khi nối. Mô tả của “Tế bào da người” bắt đầu bằng “D”.",
+            "hint": "“Tế bào da người” tương ứng với “Dẹt và xếp sát nhau”.",
             "explanation": "Tế bào da người: Dẹt và xếp sát nhau; Tế bào thần kinh: Có phần kéo dài; Tế bào thịt lá: Có dạng gần hình hộp."
           }
         },
@@ -170,7 +170,7 @@
           "data": {
             "sentence": "Các tế bào khác nhau có hình dạng và kích thước [blank].",
             "correctAnswer": "khác nhau",
-            "hint": "Xét ngữ cảnh của ô trống trong “Các tế bào khác nhau có hình dạng và kích thước [blank].”. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ cần điền là “khác nhau”."
           }
         },
@@ -200,7 +200,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có thể quan sát bằng mắt thường” và “Cần dụng cụ phóng đại” theo đặc điểm của từng mục. “Tế bào trứng đà điểu” thuộc nhóm “Có thể quan sát bằng mắt thường”.",
+            "hint": "“Tế bào trứng đà điểu” thuộc nhóm “Có thể quan sát bằng mắt thường”.",
             "explanation": "Tế bào trứng đà điểu thuộc nhóm Có thể quan sát bằng mắt thường; Tế bào trứng cá thuộc nhóm Có thể quan sát bằng mắt thường; Tế bào vi khuẩn thuộc nhóm Cần dụng cụ phóng đại; Tế bào biểu bì hành thuộc nhóm Cần dụng cụ phóng đại."
           }
         },
@@ -215,7 +215,7 @@
               "ống đong"
             ],
             "correctWord": "kính hiển vi",
-            "hint": "Thử từng từ trong kho vào câu “Hầu hết tế bào có kích thước rất nhỏ và được quan sát bằng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 3 tiếng.",
+            "hint": "Từ cần chọn gồm 3 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ đúng là “kính hiển vi”."
           }
         }
@@ -267,7 +267,7 @@
                 "right": "Chứa vật chất di truyền"
               }
             ],
-            "hint": "Phân biệt vai trò của “Màng tế bào” và “Tế bào chất” trước khi nối. Mô tả của “Màng tế bào” bắt đầu bằng “B”.",
+            "hint": "“Màng tế bào” tương ứng với “Bao bọc và kiểm soát trao đổi chất”.",
             "explanation": "Màng tế bào: Bao bọc và kiểm soát trao đổi chất; Tế bào chất: Nơi diễn ra phần lớn hoạt động sống; Nhân hoặc vùng nhân: Chứa vật chất di truyền."
           }
         },
@@ -277,7 +277,7 @@
           "data": {
             "sentence": "Phần lớn hoạt động sống của tế bào diễn ra trong [blank].",
             "correctAnswer": "tế bào chất",
-            "hint": "Xét ngữ cảnh của ô trống trong “Phần lớn hoạt động sống của tế bào diễn ra trong [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 3 tiếng.",
+            "hint": "Từ cần điền gồm 3 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “tế bào chất”."
           }
         },
@@ -307,7 +307,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có ở mọi tế bào” và “Chỉ có ở một số loại tế bào” theo đặc điểm của từng mục. “Màng tế bào” thuộc nhóm “Có ở mọi tế bào”.",
+            "hint": "“Màng tế bào” thuộc nhóm “Có ở mọi tế bào”.",
             "explanation": "Màng tế bào thuộc nhóm Có ở mọi tế bào; Tế bào chất thuộc nhóm Có ở mọi tế bào; Vật chất di truyền thuộc nhóm Có ở mọi tế bào; Lục lạp thuộc nhóm Chỉ có ở một số loại tế bào."
           }
         },
@@ -322,7 +322,7 @@
               "không bào"
             ],
             "correctWord": "vùng nhân",
-            "hint": "Thử từng từ trong kho vào câu “Thông tin di truyền của tế bào nằm trong nhân hoặc [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ đúng là “vùng nhân”."
           }
         }
@@ -374,7 +374,7 @@
                 "right": "Nhân thực, có thành tế bào"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tế bào vi khuẩn” và “Tế bào động vật” trước khi nối. Mô tả của “Tế bào vi khuẩn” bắt đầu bằng “N”.",
+            "hint": "“Tế bào vi khuẩn” tương ứng với “Nhân sơ, chưa có nhân hoàn chỉnh”.",
             "explanation": "Tế bào vi khuẩn: Nhân sơ, chưa có nhân hoàn chỉnh; Tế bào động vật: Nhân thực, không có thành tế bào; Tế bào thực vật: Nhân thực, có thành tế bào."
           }
         },
@@ -384,7 +384,7 @@
           "data": {
             "sentence": "Tế bào có nhân được màng nhân bao bọc gọi là tế bào [blank].",
             "correctAnswer": "nhân thực",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào có nhân được màng nhân bao bọc gọi là tế bào [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhân thực”."
           }
         },
@@ -414,7 +414,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nhân sơ” và “Nhân thực” theo đặc điểm của từng mục. “Vi khuẩn lactic” thuộc nhóm “Nhân sơ”.",
+            "hint": "“Vi khuẩn lactic” thuộc nhóm “Nhân sơ”.",
             "explanation": "Vi khuẩn lactic thuộc nhóm Nhân sơ; Vi khuẩn E. coli thuộc nhóm Nhân sơ; Tế bào nấm men thuộc nhóm Nhân thực; Tế bào lá cây thuộc nhóm Nhân thực."
           }
         },
@@ -429,7 +429,7 @@
               "không bào"
             ],
             "correctWord": "vùng nhân",
-            "hint": "Thử từng từ trong kho vào câu “Ở tế bào nhân sơ, vật chất di truyền tập trung tại [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ đúng là “vùng nhân”."
           }
         }
@@ -481,7 +481,7 @@
                 "right": "Chứa dịch tế bào"
               }
             ],
-            "hint": "Phân biệt vai trò của “Thành tế bào” và “Lục lạp” trước khi nối. Mô tả của “Thành tế bào” bắt đầu bằng “G”.",
+            "hint": "“Thành tế bào” tương ứng với “Giữ hình dạng và bảo vệ tế bào thực vật”.",
             "explanation": "Thành tế bào: Giữ hình dạng và bảo vệ tế bào thực vật; Lục lạp: Thực hiện quang hợp; Không bào: Chứa dịch tế bào."
           }
         },
@@ -491,7 +491,7 @@
           "data": {
             "sentence": "Tế bào thực vật có [blank] ở phía ngoài màng tế bào.",
             "correctAnswer": "thành tế bào",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào thực vật có [blank] ở phía ngoài màng tế bào.”. Từ cần chọn bắt đầu bằng “t” và gồm 3 tiếng.",
+            "hint": "Từ cần điền gồm 3 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “thành tế bào”."
           }
         },
@@ -525,7 +525,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có ở tế bào thực vật nhưng không có ở tế bào động vật” và “Có ở cả tế bào thực vật và động vật” theo đặc điểm của từng mục. “Lục lạp” thuộc nhóm “Có ở tế bào thực vật nhưng không có ở tế bào động vật”.",
+            "hint": "“Lục lạp” thuộc nhóm “Có ở tế bào thực vật nhưng không có ở tế bào động vật”.",
             "explanation": "Lục lạp thuộc nhóm Có ở tế bào thực vật nhưng không có ở tế bào động vật; Thành tế bào thuộc nhóm Có ở tế bào thực vật nhưng không có ở tế bào động vật; Màng tế bào thuộc nhóm Có ở cả tế bào thực vật và động vật; Tế bào chất thuộc nhóm Có ở cả tế bào thực vật và động vật; Nhân thuộc nhóm Có ở cả tế bào thực vật và động vật."
           }
         },
@@ -540,7 +540,7 @@
               "màng tế bào"
             ],
             "correctWord": "lục lạp",
-            "hint": "Thử từng từ trong kho vào câu “Sắc tố diệp lục tập trung trong [blank] của tế bào thực vật.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ đúng là “lục lạp”."
           }
         }
@@ -592,7 +592,7 @@
                 "right": "Cung cấp vật chất cho tế bào lớn lên"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tế bào non” và “Tế bào trưởng thành” trước khi nối. Mô tả của “Tế bào non” bắt đầu bằng “K”.",
+            "hint": "“Tế bào non” tương ứng với “Kích thước còn nhỏ”.",
             "explanation": "Tế bào non: Kích thước còn nhỏ; Tế bào trưởng thành: Đạt kích thước nhất định; Trao đổi chất: Cung cấp vật chất cho tế bào lớn lên."
           }
         },
@@ -602,7 +602,7 @@
           "data": {
             "sentence": "Tế bào non lớn dần thành tế bào [blank].",
             "correctAnswer": "trưởng thành",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào non lớn dần thành tế bào [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “trưởng thành”."
           }
         },
@@ -632,7 +632,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Biểu hiện của tế bào lớn lên” và “Không phải biểu hiện của tế bào lớn lên” theo đặc điểm của từng mục. “Tăng kích thước” thuộc nhóm “Biểu hiện của tế bào lớn lên”.",
+            "hint": "“Tăng kích thước” thuộc nhóm “Biểu hiện của tế bào lớn lên”.",
             "explanation": "Tăng kích thước thuộc nhóm Biểu hiện của tế bào lớn lên; Tăng khối lượng thuộc nhóm Biểu hiện của tế bào lớn lên; Tổng hợp thêm chất thuộc nhóm Biểu hiện của tế bào lớn lên; Mất vật chất di truyền thuộc nhóm Không phải biểu hiện của tế bào lớn lên."
           }
         },
@@ -647,7 +647,7 @@
               "nảy mầm"
             ],
             "correctWord": "phân chia",
-            "hint": "Thử từng từ trong kho vào câu “Tế bào lớn lên đến một kích thước nhất định rồi có thể tiến hành [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phân chia”."
           }
         }
@@ -699,7 +699,7 @@
                 "right": "8 tế bào con"
               }
             ],
-            "hint": "Phân biệt vai trò của “1 lần phân chia” và “2 lần phân chia liên tiếp” trước khi nối. Mô tả của “1 lần phân chia” bắt đầu bằng “2”.",
+            "hint": "“1 lần phân chia” tương ứng với “2 tế bào con”.",
             "explanation": "1 lần phân chia: 2 tế bào con; 2 lần phân chia liên tiếp: 4 tế bào con; 3 lần phân chia liên tiếp: 8 tế bào con."
           }
         },
@@ -709,7 +709,7 @@
           "data": {
             "sentence": "Sự lớn lên và phân chia của tế bào là cơ sở cho sự [blank] của cơ thể.",
             "correctAnswer": "lớn lên",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sự lớn lên và phân chia của tế bào là cơ sở cho sự [blank] của cơ thể.”. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ cần điền là “lớn lên”."
           }
         },
@@ -739,7 +739,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Vai trò của phân chia tế bào” và “Không phải vai trò của phân chia tế bào” theo đặc điểm của từng mục. “Tăng số lượng tế bào” thuộc nhóm “Vai trò của phân chia tế bào”.",
+            "hint": "“Tăng số lượng tế bào” thuộc nhóm “Vai trò của phân chia tế bào”.",
             "explanation": "Tăng số lượng tế bào thuộc nhóm Vai trò của phân chia tế bào; Thay thế tế bào già thuộc nhóm Vai trò của phân chia tế bào; Làm lành vết thương thuộc nhóm Vai trò của phân chia tế bào; Làm mọi tế bào mất nhân thuộc nhóm Không phải vai trò của phân chia tế bào."
           }
         },
@@ -754,7 +754,7 @@
               "ngừng trao đổi chất"
             ],
             "correctWord": "phân chia",
-            "hint": "Thử từng từ trong kho vào câu “Các tế bào mới sinh ra tiếp tục lớn lên và [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phân chia”."
           }
         }
@@ -806,7 +806,7 @@
                 "right": "Nhỏ nước hoặc dung dịch lên mẫu"
               }
             ],
-            "hint": "Phân biệt vai trò của “Lam kính” và “Lamen” trước khi nối. Mô tả của “Lam kính” bắt đầu bằng “Đ”.",
+            "hint": "“Lam kính” tương ứng với “Đặt mẫu quan sát”.",
             "explanation": "Lam kính: Đặt mẫu quan sát; Lamen: Đậy lên mẫu; Ống nhỏ giọt: Nhỏ nước hoặc dung dịch lên mẫu."
           }
         },
@@ -816,7 +816,7 @@
           "data": {
             "sentence": "Khi đậy lamen cần thao tác nhẹ để hạn chế tạo [blank] khí.",
             "correctAnswer": "bọt",
-            "hint": "Xét ngữ cảnh của ô trống trong “Khi đậy lamen cần thao tác nhẹ để hạn chế tạo [blank] khí.”. Từ cần chọn bắt đầu bằng “b” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “b”.",
             "explanation": "Từ cần điền là “bọt”."
           }
         },
@@ -846,7 +846,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Dụng cụ làm tiêu bản” và “Thiết bị quan sát” theo đặc điểm của từng mục. “Lam kính” thuộc nhóm “Dụng cụ làm tiêu bản”.",
+            "hint": "“Lam kính” thuộc nhóm “Dụng cụ làm tiêu bản”.",
             "explanation": "Lam kính thuộc nhóm Dụng cụ làm tiêu bản; Lamen thuộc nhóm Dụng cụ làm tiêu bản; Ống nhỏ giọt thuộc nhóm Dụng cụ làm tiêu bản; Kính hiển vi thuộc nhóm Thiết bị quan sát."
           }
         },
@@ -861,7 +861,7 @@
               "vật kính"
             ],
             "correctWord": "lam kính",
-            "hint": "Thử từng từ trong kho vào câu “Tiêu bản biểu bì hành cần được đặt trên [blank] trước khi đậy lamen.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ đúng là “lam kính”."
           }
         }
@@ -913,7 +913,7 @@
                 "right": "Tiếp nhận và truyền tín hiệu"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tế bào lông hút” và “Tế bào cơ” trước khi nối. Mô tả của “Tế bào lông hút” bắt đầu bằng “H”.",
+            "hint": "“Tế bào lông hút” tương ứng với “Hấp thụ nước và muối khoáng”.",
             "explanation": "Tế bào lông hút: Hấp thụ nước và muối khoáng; Tế bào cơ: Co dãn tạo vận động; Tế bào thần kinh: Tiếp nhận và truyền tín hiệu."
           }
         },
@@ -923,7 +923,7 @@
           "data": {
             "sentence": "Hình dạng của tế bào thường phù hợp với [blank] mà tế bào đảm nhiệm.",
             "correctAnswer": "chức năng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Hình dạng của tế bào thường phù hợp với [blank] mà tế bào đảm nhiệm.”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “chức năng”."
           }
         },
@@ -953,7 +953,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Tế bào thực vật” và “Tế bào động vật” theo đặc điểm của từng mục. “Tế bào lông hút” thuộc nhóm “Tế bào thực vật”.",
+            "hint": "“Tế bào lông hút” thuộc nhóm “Tế bào thực vật”.",
             "explanation": "Tế bào lông hút thuộc nhóm Tế bào thực vật; Tế bào thịt lá thuộc nhóm Tế bào thực vật; Tế bào cơ thuộc nhóm Tế bào động vật; Tế bào thần kinh thuộc nhóm Tế bào động vật."
           }
         },
@@ -968,7 +968,7 @@
               "phân chia"
             ],
             "correctWord": "hấp thụ",
-            "hint": "Thử từng từ trong kho vào câu “Tế bào lông hút có phần kéo dài giúp tăng diện tích [blank] nước và muối khoáng.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ đúng là “hấp thụ”."
           }
         }
@@ -1020,7 +1020,7 @@
                 "right": "Làm tăng số lượng tế bào"
               }
             ],
-            "hint": "Phân biệt vai trò của “Kính hiển vi” và “Màng tế bào” trước khi nối. Mô tả của “Kính hiển vi” bắt đầu bằng “Q”.",
+            "hint": "“Kính hiển vi” tương ứng với “Quan sát tế bào rất nhỏ”.",
             "explanation": "Kính hiển vi: Quan sát tế bào rất nhỏ; Màng tế bào: Kiểm soát trao đổi chất; Phân chia tế bào: Làm tăng số lượng tế bào."
           }
         },
@@ -1030,7 +1030,7 @@
           "data": {
             "sentence": "Tế bào thực vật và tế bào động vật đều có màng tế bào, tế bào chất và [blank].",
             "correctAnswer": "nhân",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào thực vật và tế bào động vật đều có màng tế bào, tế bào chất và [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhân”."
           }
         },
@@ -1060,7 +1060,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đúng với tế bào thực vật” và “Đúng với tế bào vi khuẩn” theo đặc điểm của từng mục. “Có không bào lớn ở tế bào trưởng thành” thuộc nhóm “Đúng với tế bào thực vật”.",
+            "hint": "“Có không bào lớn ở tế bào trưởng thành” thuộc nhóm “Đúng với tế bào thực vật”.",
             "explanation": "Có không bào lớn ở tế bào trưởng thành thuộc nhóm Đúng với tế bào thực vật; Có thể có lục lạp thuộc nhóm Đúng với tế bào thực vật; Thuộc kiểu tế bào nhân sơ thuộc nhóm Đúng với tế bào vi khuẩn; Chưa có nhân hoàn chỉnh thuộc nhóm Đúng với tế bào vi khuẩn."
           }
         },
@@ -1075,7 +1075,7 @@
               "hoà tan"
             ],
             "correctWord": "phân chia",
-            "hint": "Thử từng từ trong kho vào câu “Sự lớn lên và [blank] của tế bào giúp cơ thể sinh trưởng.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phân chia”."
           }
         }

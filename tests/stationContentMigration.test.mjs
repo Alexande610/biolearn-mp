@@ -21,7 +21,14 @@ const cutover = await fs.readFile('supabase_station_content_v2_cutover.sql', 'ut
 const adminEditMigration = await fs.readFile('supabase_station_content_v2_admin_edit.sql', 'utf8');
 const gameplayFixMigration = await fs.readFile('supabase_station_content_v2_gameplay_fix.sql', 'utf8');
 const matchRetryMigration = await fs.readFile('supabase_station_content_v2_match_retry_fix.sql', 'utf8');
-const hintReviewMigration = await fs.readFile('generated/station-releases/station-hints-review.sql', 'utf8');
+const hintReviewMigration = await fs.readFile('generated/station-releases/g6-st1-hints-review.sql', 'utf8');
+const allHintsReviewMigration = await fs.readFile('generated/station-releases/station-hints-review.sql', 'utf8');
+
+test('pilot hint SQL contains only the selected station', () => {
+  assert.match(hintReviewMigration, /g6-st1-2026\.1/);
+  assert.doesNotMatch(hintReviewMigration, /g6-st2-2026\.1/);
+  assert.match(allHintsReviewMigration, /g12-st3-2026\.1/);
+});
 
 async function restorePlaceholderHints(db, releaseId) {
   await db.query(`update station_content_items

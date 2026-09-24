@@ -52,7 +52,7 @@
                 "right": "Biến quang năng thành hoá năng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Trao đổi chất” và “Chuyển hoá năng lượng” trước khi nối. Mô tả của “Trao đổi chất” bắt đầu bằng “L”.",
+            "hint": "“Trao đổi chất” tương ứng với “Lấy, biến đổi và thải các chất”.",
             "explanation": "Trao đổi chất: Lấy, biến đổi và thải các chất; Chuyển hoá năng lượng: Biến đổi năng lượng từ dạng này sang dạng khác; Quang hợp: Biến quang năng thành hoá năng."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Trong quang hợp, quang năng được biến đổi thành [blank] năng tích luỹ trong chất hữu cơ.",
             "correctAnswer": "hoá",
-            "hint": "Xét ngữ cảnh của ô trống trong “Trong quang hợp, quang năng được biến đổi thành [blank] năng tích luỹ trong chất hữu cơ.”. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ cần điền là “hoá”."
           }
         },
@@ -96,7 +96,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Trao đổi chất” và “Chuyển hoá năng lượng” theo đặc điểm của từng mục. “Rễ hấp thụ nước” thuộc nhóm “Trao đổi chất”.",
+            "hint": "“Rễ hấp thụ nước” thuộc nhóm “Trao đổi chất”.",
             "explanation": "Rễ hấp thụ nước thuộc nhóm Trao đổi chất; Lá nhận khí carbon dioxide thuộc nhóm Trao đổi chất; Thải oxygen ra môi trường thuộc nhóm Trao đổi chất; Quang năng biến thành hoá năng thuộc nhóm Chuyển hoá năng lượng; Hoá năng biến thành nhiệt năng thuộc nhóm Chuyển hoá năng lượng."
           }
         },
@@ -111,7 +111,7 @@
               "cảm ứng"
             ],
             "correctWord": "trao đổi chất",
-            "hint": "Thử từng từ trong kho vào câu “Sinh vật lấy chất từ môi trường, biến đổi và thải chất là quá trình [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 3 tiếng.",
+            "hint": "Từ cần chọn gồm 3 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “trao đổi chất”."
           }
         }
@@ -162,7 +162,7 @@
                 "right": "Được tạo ra và giải phóng khi quang hợp"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nước” và “Carbon dioxide” trước khi nối. Mô tả của “Nước” bắt đầu bằng “Đ”.",
+            "hint": "“Nước” tương ứng với “Được rễ hấp thụ từ đất”.",
             "explanation": "Nước: Được rễ hấp thụ từ đất; Carbon dioxide: Được lá nhận từ không khí; Oxygen: Được tạo ra và giải phóng khi quang hợp."
           }
         },
@@ -172,7 +172,7 @@
           "data": {
             "sentence": "Quang hợp sử dụng năng lượng [blank] để tổng hợp chất hữu cơ.",
             "correctAnswer": "ánh sáng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Quang hợp sử dụng năng lượng [blank] để tổng hợp chất hữu cơ.”. Từ cần chọn bắt đầu bằng “á” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “á”.",
             "explanation": "Từ cần điền là “ánh sáng”."
           }
         },
@@ -202,7 +202,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nguyên liệu quang hợp” và “Sản phẩm quang hợp” theo đặc điểm của từng mục. “Nước” thuộc nhóm “Nguyên liệu quang hợp”.",
+            "hint": "“Nước” thuộc nhóm “Nguyên liệu quang hợp”.",
             "explanation": "Nước thuộc nhóm Nguyên liệu quang hợp; Carbon dioxide thuộc nhóm Nguyên liệu quang hợp; Chất hữu cơ thuộc nhóm Sản phẩm quang hợp; Oxygen thuộc nhóm Sản phẩm quang hợp."
           }
         },
@@ -217,7 +217,7 @@
               "nitrogen"
             ],
             "correctWord": "carbon dioxide",
-            "hint": "Thử từng từ trong kho vào câu “Lá cây nhận khí [blank] từ không khí để quang hợp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “carbon dioxide”."
           }
         }
@@ -268,7 +268,7 @@
                 "right": "Giúp lá nhận nhiều ánh sáng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Lục lạp” và “Khí khổng” trước khi nối. Mô tả của “Lục lạp” bắt đầu bằng “B”.",
+            "hint": "“Lục lạp” tương ứng với “Bào quan thực hiện quang hợp”.",
             "explanation": "Lục lạp: Bào quan thực hiện quang hợp; Khí khổng: Nơi trao đổi khí của lá với môi trường; Phiến lá rộng: Giúp lá nhận nhiều ánh sáng."
           }
         },
@@ -278,7 +278,7 @@
           "data": {
             "sentence": "Quang hợp ở thực vật diễn ra chủ yếu trong [blank] của tế bào lá.",
             "correctAnswer": "lục lạp",
-            "hint": "Xét ngữ cảnh của ô trống trong “Quang hợp ở thực vật diễn ra chủ yếu trong [blank] của tế bào lá.”. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ cần điền là “lục lạp”."
           }
         },
@@ -308,7 +308,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Hỗ trợ lá quang hợp” và “Không trực tiếp hỗ trợ lá quang hợp” theo đặc điểm của từng mục. “Lục lạp chứa sắc tố” thuộc nhóm “Hỗ trợ lá quang hợp”.",
+            "hint": "“Lục lạp chứa sắc tố” thuộc nhóm “Hỗ trợ lá quang hợp”.",
             "explanation": "Lục lạp chứa sắc tố thuộc nhóm Hỗ trợ lá quang hợp; Phiến lá nhận ánh sáng thuộc nhóm Hỗ trợ lá quang hợp; Khí khổng trao đổi khí thuộc nhóm Hỗ trợ lá quang hợp; Gai nhọn bảo vệ thân thuộc nhóm Không trực tiếp hỗ trợ lá quang hợp."
           }
         },
@@ -323,7 +323,7 @@
               "hydrogen"
             ],
             "correctWord": "carbon dioxide",
-            "hint": "Thử từng từ trong kho vào câu “Khí [blank] từ không khí đi vào lá qua khí khổng để tham gia quang hợp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “carbon dioxide”."
           }
         }
@@ -374,7 +374,7 @@
                 "right": "Là nguyên liệu cây nhận từ không khí"
               }
             ],
-            "hint": "Phân biệt vai trò của “Ánh sáng” và “Nước” trước khi nối. Mô tả của “Ánh sáng” bắt đầu bằng “C”.",
+            "hint": "“Ánh sáng” tương ứng với “Cung cấp năng lượng cho quang hợp”.",
             "explanation": "Ánh sáng: Cung cấp năng lượng cho quang hợp; Nước: Là nguyên liệu của quang hợp; Carbon dioxide: Là nguyên liệu cây nhận từ không khí."
           }
         },
@@ -384,7 +384,7 @@
           "data": {
             "sentence": "Ngoài ánh sáng và nước, khí [blank] cũng ảnh hưởng đến quang hợp.",
             "correctAnswer": "carbon dioxide",
-            "hint": "Xét ngữ cảnh của ô trống trong “Ngoài ánh sáng và nước, khí [blank] cũng ảnh hưởng đến quang hợp.”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “carbon dioxide”."
           }
         },
@@ -414,7 +414,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Yếu tố ảnh hưởng đến quang hợp” và “Không phải yếu tố trực tiếp của quang hợp” theo đặc điểm của từng mục. “Cường độ ánh sáng” thuộc nhóm “Yếu tố ảnh hưởng đến quang hợp”.",
+            "hint": "“Cường độ ánh sáng” thuộc nhóm “Yếu tố ảnh hưởng đến quang hợp”.",
             "explanation": "Cường độ ánh sáng thuộc nhóm Yếu tố ảnh hưởng đến quang hợp; Lượng nước thuộc nhóm Yếu tố ảnh hưởng đến quang hợp; Nhiệt độ thuộc nhóm Yếu tố ảnh hưởng đến quang hợp; Màu sơn chậu cây thuộc nhóm Không phải yếu tố trực tiếp của quang hợp."
           }
         },
@@ -429,7 +429,7 @@
               "khói bụi"
             ],
             "correctWord": "ánh sáng",
-            "hint": "Thử từng từ trong kho vào câu “Cần đặt cây ở nơi có [blank] phù hợp để cây quang hợp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “á” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “á”.",
             "explanation": "Từ đúng là “ánh sáng”."
           }
         }
@@ -480,7 +480,7 @@
                 "right": "Dùng nhận biết tinh bột"
               }
             ],
-            "hint": "Phân biệt vai trò của “Che một phần lá” và “Phần lá được chiếu sáng” trước khi nối. Mô tả của “Che một phần lá” bắt đầu bằng “T”.",
+            "hint": "“Che một phần lá” tương ứng với “Tạo vùng không nhận ánh sáng”.",
             "explanation": "Che một phần lá: Tạo vùng không nhận ánh sáng; Phần lá được chiếu sáng: Có điều kiện tạo tinh bột; Dung dịch iodine: Dùng nhận biết tinh bột."
           }
         },
@@ -490,7 +490,7 @@
           "data": {
             "sentence": "Dung dịch [blank] được dùng để nhận biết tinh bột trong lá.",
             "correctAnswer": "iodine",
-            "hint": "Xét ngữ cảnh của ô trống trong “Dung dịch [blank] được dùng để nhận biết tinh bột trong lá.”. Từ cần chọn bắt đầu bằng “i” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “i”.",
             "explanation": "Từ cần điền là “iodine”."
           }
         },
@@ -520,7 +520,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Dùng để kiểm tra vai trò ánh sáng” và “Không giúp kiểm tra vai trò ánh sáng” theo đặc điểm của từng mục. “Che kín một phần lá” thuộc nhóm “Dùng để kiểm tra vai trò ánh sáng”.",
+            "hint": "“Che kín một phần lá” thuộc nhóm “Dùng để kiểm tra vai trò ánh sáng”.",
             "explanation": "Che kín một phần lá thuộc nhóm Dùng để kiểm tra vai trò ánh sáng; So sánh hai vùng của lá thuộc nhóm Dùng để kiểm tra vai trò ánh sáng; Thử tinh bột ở lá thuộc nhóm Dùng để kiểm tra vai trò ánh sáng; Chỉ quan sát chiều cao của chậu thuộc nhóm Không giúp kiểm tra vai trò ánh sáng."
           }
         },
@@ -535,7 +535,7 @@
               "được tưới nước"
             ],
             "correctWord": "đối chứng",
-            "hint": "Thử từng từ trong kho vào câu “Vùng lá không được chiếu sáng là vùng [blank] trong phép so sánh.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ đúng là “đối chứng”."
           }
         }
@@ -586,7 +586,7 @@
                 "right": "Có thể làm cây héo"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nước” và “Chất khoáng” trước khi nối. Mô tả của “Nước” bắt đầu bằng “L”.",
+            "hint": "“Nước” tương ứng với “Là thành phần và môi trường cho nhiều quá trình sống”.",
             "explanation": "Nước: Là thành phần và môi trường cho nhiều quá trình sống; Chất khoáng: Cần cho sinh trưởng và phát triển; Thiếu nước kéo dài: Có thể làm cây héo."
           }
         },
@@ -596,7 +596,7 @@
           "data": {
             "sentence": "Cây cần hấp thụ nước và chất [blank] từ đất để sinh trưởng.",
             "correctAnswer": "khoáng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cây cần hấp thụ nước và chất [blank] từ đất để sinh trưởng.”. Từ cần chọn bắt đầu bằng “k” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ cần điền là “khoáng”."
           }
         },
@@ -626,7 +626,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Vai trò của nước” và “Biểu hiện cây thiếu nước” theo đặc điểm của từng mục. “Hoà tan chất khoáng” thuộc nhóm “Vai trò của nước”.",
+            "hint": "“Hoà tan chất khoáng” thuộc nhóm “Vai trò của nước”.",
             "explanation": "Hoà tan chất khoáng thuộc nhóm Vai trò của nước; Tham gia vận chuyển chất thuộc nhóm Vai trò của nước; Lá héo rũ thuộc nhóm Biểu hiện cây thiếu nước; Sinh trưởng kém khi khô hạn thuộc nhóm Biểu hiện cây thiếu nước."
           }
         },
@@ -641,7 +641,7 @@
               "ngăn cản"
             ],
             "correctWord": "vận chuyển",
-            "hint": "Thử từng từ trong kho vào câu “Nước góp phần [blank] các chất dinh dưỡng trong cơ thể cây.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ đúng là “vận chuyển”."
           }
         }
@@ -692,7 +692,7 @@
                 "right": "Vận chuyển nước và chất khoáng lên thân lá"
               }
             ],
-            "hint": "Phân biệt vai trò của “Đất” và “Lông hút” trước khi nối. Mô tả của “Đất” bắt đầu bằng “C”.",
+            "hint": "“Đất” tương ứng với “Chứa nước và chất khoáng hoà tan”.",
             "explanation": "Đất: Chứa nước và chất khoáng hoà tan; Lông hút: Hấp thụ nước và chất khoáng; Mạch gỗ: Vận chuyển nước và chất khoáng lên thân lá."
           }
         },
@@ -702,7 +702,7 @@
           "data": {
             "sentence": "Nước và chất khoáng hoà tan từ đất thường đi vào rễ qua tế bào [blank].",
             "correctAnswer": "lông hút",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nước và chất khoáng hoà tan từ đất thường đi vào rễ qua tế bào [blank].”. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ cần điền là “lông hút”."
           }
         },
@@ -732,7 +732,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Trên đường nước đi từ đất lên lá” và “Không thuộc đường đi đó” theo đặc điểm của từng mục. “Lông hút” thuộc nhóm “Trên đường nước đi từ đất lên lá”.",
+            "hint": "“Lông hút” thuộc nhóm “Trên đường nước đi từ đất lên lá”.",
             "explanation": "Lông hút thuộc nhóm Trên đường nước đi từ đất lên lá; Mạch gỗ ở rễ thuộc nhóm Trên đường nước đi từ đất lên lá; Mạch gỗ ở thân thuộc nhóm Trên đường nước đi từ đất lên lá; Mạch rây chuyển chất hữu cơ từ lá thuộc nhóm Không thuộc đường đi đó."
           }
         },
@@ -747,7 +747,7 @@
               "quả"
             ],
             "correctWord": "mạch gỗ",
-            "hint": "Thử từng từ trong kho vào câu “Nước từ đất được lông hút hấp thụ rồi đi vào [blank] để lên thân.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “mạch gỗ”."
           }
         }
@@ -798,7 +798,7 @@
                 "right": "Nơi tạo nhiều chất hữu cơ nhờ quang hợp"
               }
             ],
-            "hint": "Phân biệt vai trò của “Mạch gỗ” và “Mạch rây” trước khi nối. Mô tả của “Mạch gỗ” bắt đầu bằng “Đ”.",
+            "hint": "“Mạch gỗ” tương ứng với “Đưa nước và chất khoáng từ rễ lên”.",
             "explanation": "Mạch gỗ: Đưa nước và chất khoáng từ rễ lên; Mạch rây: Đưa chất hữu cơ từ lá tới cơ quan khác; Lá: Nơi tạo nhiều chất hữu cơ nhờ quang hợp."
           }
         },
@@ -808,7 +808,7 @@
           "data": {
             "sentence": "Dòng vận chuyển nước và chất khoáng từ rễ lên lá diễn ra trong mạch [blank].",
             "correctAnswer": "gỗ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Dòng vận chuyển nước và chất khoáng từ rễ lên lá diễn ra trong mạch [blank].”. Từ cần chọn bắt đầu bằng “g” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “g”.",
             "explanation": "Từ cần điền là “gỗ”."
           }
         },
@@ -838,7 +838,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Gắn với mạch gỗ” và “Gắn với mạch rây” theo đặc điểm của từng mục. “Vận chuyển nước” thuộc nhóm “Gắn với mạch gỗ”.",
+            "hint": "“Vận chuyển nước” thuộc nhóm “Gắn với mạch gỗ”.",
             "explanation": "Vận chuyển nước thuộc nhóm Gắn với mạch gỗ; Vận chuyển chất khoáng từ rễ thuộc nhóm Gắn với mạch gỗ; Vận chuyển chất hữu cơ từ lá thuộc nhóm Gắn với mạch rây; Đưa sản phẩm quang hợp tới cơ quan khác thuộc nhóm Gắn với mạch rây."
           }
         },
@@ -853,7 +853,7 @@
               "khí"
             ],
             "correctWord": "rây",
-            "hint": "Thử từng từ trong kho vào câu “Chất hữu cơ do lá tạo ra được vận chuyển trong mạch [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “r” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “r”.",
             "explanation": "Từ đúng là “rây”."
           }
         }
@@ -904,7 +904,7 @@
                 "right": "Góp phần tạo lực kéo dòng nước trong mạch gỗ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Khí khổng mở” và “Khí khổng đóng” trước khi nối. Mô tả của “Khí khổng mở” bắt đầu bằng “T”.",
+            "hint": "“Khí khổng mở” tương ứng với “Tạo điều kiện trao đổi khí và thoát hơi nước”.",
             "explanation": "Khí khổng mở: Tạo điều kiện trao đổi khí và thoát hơi nước; Khí khổng đóng: Giảm thoát hơi nước; Thoát hơi nước: Góp phần tạo lực kéo dòng nước trong mạch gỗ."
           }
         },
@@ -914,7 +914,7 @@
           "data": {
             "sentence": "Sự đóng mở của [blank] điều tiết quá trình thoát hơi nước ở lá.",
             "correctAnswer": "khí khổng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sự đóng mở của [blank] điều tiết quá trình thoát hơi nước ở lá.”. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ cần điền là “khí khổng”."
           }
         },
@@ -944,7 +944,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Khi khí khổng mở” và “Khi khí khổng đóng” theo đặc điểm của từng mục. “Hơi nước dễ thoát ra hơn” thuộc nhóm “Khi khí khổng mở”.",
+            "hint": "“Hơi nước dễ thoát ra hơn” thuộc nhóm “Khi khí khổng mở”.",
             "explanation": "Hơi nước dễ thoát ra hơn thuộc nhóm Khi khí khổng mở; Carbon dioxide dễ đi vào lá hơn thuộc nhóm Khi khí khổng mở; Hạn chế mất nước hơn thuộc nhóm Khi khí khổng đóng; Trao đổi khí qua khí khổng giảm thuộc nhóm Khi khí khổng đóng."
           }
         },
@@ -959,7 +959,7 @@
               "đường"
             ],
             "correctWord": "gỗ",
-            "hint": "Thử từng từ trong kho vào câu “Thoát hơi nước ở lá góp phần kéo nước đi lên trong mạch [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “g” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “g”.",
             "explanation": "Từ đúng là “gỗ”."
           }
         }
@@ -1010,7 +1010,7 @@
                 "right": "Giúp hạn chế nước bốc hơi từ đất"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tưới đúng nhu cầu” và “Bón phân hợp lí” trước khi nối. Mô tả của “Tưới đúng nhu cầu” bắt đầu bằng “T”.",
+            "hint": "“Tưới đúng nhu cầu” tương ứng với “Tránh thiếu hoặc thừa nước”.",
             "explanation": "Tưới đúng nhu cầu: Tránh thiếu hoặc thừa nước; Bón phân hợp lí: Cung cấp chất khoáng ở lượng phù hợp; Phủ gốc cây: Giúp hạn chế nước bốc hơi từ đất."
           }
         },
@@ -1020,7 +1020,7 @@
           "data": {
             "sentence": "Tưới quá nhiều nước liên tục có thể làm rễ thiếu [blank].",
             "correctAnswer": "oxygen",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tưới quá nhiều nước liên tục có thể làm rễ thiếu [blank].”. Từ cần chọn bắt đầu bằng “o” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “o”.",
             "explanation": "Từ cần điền là “oxygen”."
           }
         },
@@ -1054,7 +1054,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Chăm sóc cây hợp lí” và “Chăm sóc cây không hợp lí” theo đặc điểm của từng mục. “Quan sát độ ẩm đất trước khi tưới” thuộc nhóm “Chăm sóc cây hợp lí”.",
+            "hint": "“Quan sát độ ẩm đất trước khi tưới” thuộc nhóm “Chăm sóc cây hợp lí”.",
             "explanation": "Quan sát độ ẩm đất trước khi tưới thuộc nhóm Chăm sóc cây hợp lí; Tưới phù hợp nhu cầu loài cây thuộc nhóm Chăm sóc cây hợp lí; Bón phân đúng lượng thuộc nhóm Chăm sóc cây hợp lí; Bón phân đậm đặc tùy ý thuộc nhóm Chăm sóc cây không hợp lí; Để đất ngập úng kéo dài thuộc nhóm Chăm sóc cây không hợp lí."
           }
         },
@@ -1069,7 +1069,7 @@
               "mặn luôn luôn"
             ],
             "correctWord": "ẩm",
-            "hint": "Thử từng từ trong kho vào câu “Khi tưới cây cần cân nhắc nhu cầu của cây và độ [blank] của đất.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “ẩ” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “ẩ”.",
             "explanation": "Từ đúng là “ẩm”."
           }
         }

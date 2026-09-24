@@ -52,7 +52,7 @@
                 "right": "Vận chuyển máu và các chất"
               }
             ],
-            "hint": "Phân biệt vai trò của “Hệ vận động” và “Hệ tiêu hoá” trước khi nối. Mô tả của “Hệ vận động” bắt đầu bằng “G”.",
+            "hint": "“Hệ vận động” tương ứng với “Giúp cơ thể di chuyển”.",
             "explanation": "Hệ vận động: Giúp cơ thể di chuyển; Hệ tiêu hoá: Biến đổi và hấp thụ thức ăn; Hệ tuần hoàn: Vận chuyển máu và các chất."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Nhiều cơ quan phối hợp thực hiện chức năng tạo thành một hệ [blank].",
             "correctAnswer": "cơ quan",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nhiều cơ quan phối hợp thực hiện chức năng tạo thành một hệ [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “cơ quan”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Bộ phận thuộc hệ tiêu hoá” và “Bộ phận thuộc hệ tuần hoàn” theo đặc điểm của từng mục. “Dạ dày” thuộc nhóm “Bộ phận thuộc hệ tiêu hoá”.",
+            "hint": "“Dạ dày” thuộc nhóm “Bộ phận thuộc hệ tiêu hoá”.",
             "explanation": "Dạ dày thuộc nhóm Bộ phận thuộc hệ tiêu hoá; Ruột non thuộc nhóm Bộ phận thuộc hệ tiêu hoá; Tim thuộc nhóm Bộ phận thuộc hệ tuần hoàn; Mạch máu thuộc nhóm Bộ phận thuộc hệ tuần hoàn."
           }
         },
@@ -107,7 +107,7 @@
               "quần thể"
             ],
             "correctWord": "cơ quan",
-            "hint": "Thử từng từ trong kho vào câu “Cơ thể người gồm nhiều hệ [blank] phối hợp hoạt động.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “cơ quan”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Co tạo lực vận động"
               }
             ],
-            "hint": "Phân biệt vai trò của “Xương” và “Khớp” trước khi nối. Mô tả của “Xương” bắt đầu bằng “N”.",
+            "hint": "“Xương” tương ứng với “Nâng đỡ và bảo vệ cơ thể”.",
             "explanation": "Xương: Nâng đỡ và bảo vệ cơ thể; Khớp: Nối các xương và cho phép cử động; Cơ: Co tạo lực vận động."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Cơ co kéo xương chuyển động quanh [blank].",
             "correctAnswer": "khớp",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cơ co kéo xương chuyển động quanh [blank].”. Từ cần chọn bắt đầu bằng “k” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ cần điền là “khớp”."
           }
         },
@@ -202,7 +202,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thuộc hệ vận động” và “Không thuộc hệ vận động” theo đặc điểm của từng mục. “Xương” thuộc nhóm “Thuộc hệ vận động”.",
+            "hint": "“Xương” thuộc nhóm “Thuộc hệ vận động”.",
             "explanation": "Xương thuộc nhóm Thuộc hệ vận động; Khớp thuộc nhóm Thuộc hệ vận động; Cơ thuộc nhóm Thuộc hệ vận động; Phổi thuộc nhóm Không thuộc hệ vận động; Dạ dày thuộc nhóm Không thuộc hệ vận động."
           }
         },
@@ -217,7 +217,7 @@
               "ruột non"
             ],
             "correctWord": "khớp",
-            "hint": "Thử từng từ trong kho vào câu “Sự phối hợp của xương, cơ và [blank] tạo nên vận động.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ đúng là “khớp”."
           }
         }
@@ -268,7 +268,7 @@
                 "right": "Góp phần tăng sức bền của cơ và xương"
               }
             ],
-            "hint": "Phân biệt vai trò của “Khởi động” và “Tư thế đúng” trước khi nối. Mô tả của “Khởi động” bắt đầu bằng “C”.",
+            "hint": "“Khởi động” tương ứng với “Chuẩn bị cơ và khớp trước vận động”.",
             "explanation": "Khởi động: Chuẩn bị cơ và khớp trước vận động; Tư thế đúng: Giúp hạn chế biến dạng cột sống; Tập luyện phù hợp: Góp phần tăng sức bền của cơ và xương."
           }
         },
@@ -278,7 +278,7 @@
           "data": {
             "sentence": "Trước khi chơi thể thao nên [blank] để chuẩn bị hệ vận động.",
             "correctAnswer": "khởi động",
-            "hint": "Xét ngữ cảnh của ô trống trong “Trước khi chơi thể thao nên [blank] để chuẩn bị hệ vận động.”. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ cần điền là “khởi động”."
           }
         },
@@ -308,7 +308,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thói quen tốt cho hệ vận động” và “Thói quen gây hại” theo đặc điểm của từng mục. “Ngồi đúng tư thế” thuộc nhóm “Thói quen tốt cho hệ vận động”.",
+            "hint": "“Ngồi đúng tư thế” thuộc nhóm “Thói quen tốt cho hệ vận động”.",
             "explanation": "Ngồi đúng tư thế thuộc nhóm Thói quen tốt cho hệ vận động; Vận động vừa sức thuộc nhóm Thói quen tốt cho hệ vận động; Khởi động trước tập luyện thuộc nhóm Thói quen tốt cho hệ vận động; Mang cặp quá nặng một bên thuộc nhóm Thói quen gây hại."
           }
         },
@@ -323,7 +323,7 @@
               "dạ dày"
             ],
             "correctWord": "cột sống",
-            "hint": "Thử từng từ trong kho vào câu “Giữ lưng thẳng khi ngồi giúp bảo vệ [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “cột sống”."
           }
         }
@@ -374,7 +374,7 @@
                 "right": "Cần với lượng nhỏ cho hoạt động bình thường"
               }
             ],
-            "hint": "Phân biệt vai trò của “Carbohydrate” và “Protein” trước khi nối. Mô tả của “Carbohydrate” bắt đầu bằng “N”.",
+            "hint": "“Carbohydrate” tương ứng với “Nguồn cung cấp năng lượng”.",
             "explanation": "Carbohydrate: Nguồn cung cấp năng lượng; Protein: Góp phần xây dựng cơ thể; Vitamin: Cần với lượng nhỏ cho hoạt động bình thường."
           }
         },
@@ -384,7 +384,7 @@
           "data": {
             "sentence": "Chế độ ăn cần đa dạng để cung cấp đủ các nhóm chất [blank].",
             "correctAnswer": "dinh dưỡng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Chế độ ăn cần đa dạng để cung cấp đủ các nhóm chất [blank].”. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “d”.",
             "explanation": "Từ cần điền là “dinh dưỡng”."
           }
         },
@@ -418,7 +418,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Chất dinh dưỡng đa lượng” và “Chất cần lượng nhỏ” theo đặc điểm của từng mục. “Carbohydrate” thuộc nhóm “Chất dinh dưỡng đa lượng”.",
+            "hint": "“Carbohydrate” thuộc nhóm “Chất dinh dưỡng đa lượng”.",
             "explanation": "Carbohydrate thuộc nhóm Chất dinh dưỡng đa lượng; Protein thuộc nhóm Chất dinh dưỡng đa lượng; Chất béo thuộc nhóm Chất dinh dưỡng đa lượng; Vitamin thuộc nhóm Chất cần lượng nhỏ; Chất khoáng thuộc nhóm Chất cần lượng nhỏ."
           }
         },
@@ -433,7 +433,7 @@
               "thải"
             ],
             "correctWord": "dinh dưỡng",
-            "hint": "Thử từng từ trong kho vào câu “Ăn đa dạng thực phẩm giúp cơ thể nhận đủ chất [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “d”.",
             "explanation": "Từ đúng là “dinh dưỡng”."
           }
         }
@@ -484,7 +484,7 @@
                 "right": "Tiêu hoá tiếp và hấp thụ nhiều chất dinh dưỡng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Miệng” và “Dạ dày” trước khi nối. Mô tả của “Miệng” bắt đầu bằng “N”.",
+            "hint": "“Miệng” tương ứng với “Nhai và trộn thức ăn với nước bọt”.",
             "explanation": "Miệng: Nhai và trộn thức ăn với nước bọt; Dạ dày: Co bóp và tiêu hoá một phần thức ăn; Ruột non: Tiêu hoá tiếp và hấp thụ nhiều chất dinh dưỡng."
           }
         },
@@ -494,7 +494,7 @@
           "data": {
             "sentence": "Từ miệng, thức ăn đi qua thực quản rồi đến [blank].",
             "correctAnswer": "dạ dày",
-            "hint": "Xét ngữ cảnh của ô trống trong “Từ miệng, thức ăn đi qua thực quản rồi đến [blank].”. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “d”.",
             "explanation": "Từ cần điền là “dạ dày”."
           }
         },
@@ -528,7 +528,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thuộc ống tiêu hoá” và “Không thuộc ống tiêu hoá” theo đặc điểm của từng mục. “Miệng” thuộc nhóm “Thuộc ống tiêu hoá”.",
+            "hint": "“Miệng” thuộc nhóm “Thuộc ống tiêu hoá”.",
             "explanation": "Miệng thuộc nhóm Thuộc ống tiêu hoá; Dạ dày thuộc nhóm Thuộc ống tiêu hoá; Ruột non thuộc nhóm Thuộc ống tiêu hoá; Phổi thuộc nhóm Không thuộc ống tiêu hoá; Tim thuộc nhóm Không thuộc ống tiêu hoá."
           }
         },
@@ -543,7 +543,7 @@
               "thừa"
             ],
             "correctWord": "non",
-            "hint": "Thử từng từ trong kho vào câu “Sau khi qua dạ dày, thức ăn tiếp tục được tiêu hoá ở ruột [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “non”."
           }
         }
@@ -594,7 +594,7 @@
                 "right": "Làm tăng diện tích bề mặt hấp thụ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tiêu hoá” và “Hấp thụ” trước khi nối. Mô tả của “Tiêu hoá” bắt đầu bằng “B”.",
+            "hint": "“Tiêu hoá” tương ứng với “Biến đổi thức ăn thành chất đơn giản”.",
             "explanation": "Tiêu hoá: Biến đổi thức ăn thành chất đơn giản; Hấp thụ: Đưa chất dinh dưỡng qua thành ruột; Lông ruột: Làm tăng diện tích bề mặt hấp thụ."
           }
         },
@@ -604,7 +604,7 @@
           "data": {
             "sentence": "Các [blank] ruột làm tăng diện tích hấp thụ ở ruột non.",
             "correctAnswer": "lông",
-            "hint": "Xét ngữ cảnh của ô trống trong “Các [blank] ruột làm tăng diện tích hấp thụ ở ruột non.”. Từ cần chọn bắt đầu bằng “l” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ cần điền là “lông”."
           }
         },
@@ -634,7 +634,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Liên quan hấp thụ dinh dưỡng” và “Không có vai trò hấp thụ dinh dưỡng trực tiếp” theo đặc điểm của từng mục. “Ruột non” thuộc nhóm “Liên quan hấp thụ dinh dưỡng”.",
+            "hint": "“Ruột non” thuộc nhóm “Liên quan hấp thụ dinh dưỡng”.",
             "explanation": "Ruột non thuộc nhóm Liên quan hấp thụ dinh dưỡng; Lông ruột thuộc nhóm Liên quan hấp thụ dinh dưỡng; Mao mạch trong lông ruột thuộc nhóm Liên quan hấp thụ dinh dưỡng; Khí quản thuộc nhóm Không có vai trò hấp thụ dinh dưỡng trực tiếp."
           }
         },
@@ -649,7 +649,7 @@
               "mù"
             ],
             "correctWord": "non",
-            "hint": "Thử từng từ trong kho vào câu “Ruột [blank] hấp thụ phần lớn chất dinh dưỡng đã tiêu hoá.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “non”."
           }
         }
@@ -700,7 +700,7 @@
                 "right": "Giúp tránh thực phẩm quá hạn"
               }
             ],
-            "hint": "Phân biệt vai trò của “Rửa tay” và “Ăn chín uống sôi” trước khi nối. Mô tả của “Rửa tay” bắt đầu bằng “G”.",
+            "hint": "“Rửa tay” tương ứng với “Giảm đưa vi sinh vật gây bệnh vào thức ăn”.",
             "explanation": "Rửa tay: Giảm đưa vi sinh vật gây bệnh vào thức ăn; Ăn chín uống sôi: Hạn chế mầm bệnh từ thực phẩm và nước; Đọc hạn sử dụng: Giúp tránh thực phẩm quá hạn."
           }
         },
@@ -710,7 +710,7 @@
           "data": {
             "sentence": "Cần ăn chín, uống [blank] để góp phần bảo vệ hệ tiêu hoá.",
             "correctAnswer": "sôi",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cần ăn chín, uống [blank] để góp phần bảo vệ hệ tiêu hoá.”. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sôi”."
           }
         },
@@ -740,7 +740,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Vệ sinh ăn uống” và “Không an toàn cho tiêu hoá” theo đặc điểm của từng mục. “Rửa tay trước ăn” thuộc nhóm “Vệ sinh ăn uống”.",
+            "hint": "“Rửa tay trước ăn” thuộc nhóm “Vệ sinh ăn uống”.",
             "explanation": "Rửa tay trước ăn thuộc nhóm Vệ sinh ăn uống; Dùng nước sạch thuộc nhóm Vệ sinh ăn uống; Bảo quản thức ăn hợp lí thuộc nhóm Vệ sinh ăn uống; Ăn thức ăn ôi thiu thuộc nhóm Không an toàn cho tiêu hoá."
           }
         },
@@ -755,7 +755,7 @@
               "được bảo quản đúng"
             ],
             "correctWord": "ôi thiu",
-            "hint": "Thử từng từ trong kho vào câu “Không dùng thực phẩm [blank] vì có nguy cơ gây bệnh tiêu hoá.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “ô” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “ô”.",
             "explanation": "Từ đúng là “ôi thiu”."
           }
         }
@@ -806,7 +806,7 @@
                 "right": "Tham gia đông máu"
               }
             ],
-            "hint": "Phân biệt vai trò của “Hồng cầu” và “Bạch cầu” trước khi nối. Mô tả của “Hồng cầu” bắt đầu bằng “V”.",
+            "hint": "“Hồng cầu” tương ứng với “Vận chuyển oxygen”.",
             "explanation": "Hồng cầu: Vận chuyển oxygen; Bạch cầu: Tham gia bảo vệ cơ thể; Tiểu cầu: Tham gia đông máu."
           }
         },
@@ -816,7 +816,7 @@
           "data": {
             "sentence": "Tế bào máu tham gia bảo vệ cơ thể là [blank].",
             "correctAnswer": "bạch cầu",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào máu tham gia bảo vệ cơ thể là [blank].”. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “b”.",
             "explanation": "Từ cần điền là “bạch cầu”."
           }
         },
@@ -846,7 +846,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Tế bào hoặc mảnh tế bào của máu” và “Phần dịch của máu” theo đặc điểm của từng mục. “Hồng cầu” thuộc nhóm “Tế bào hoặc mảnh tế bào của máu”.",
+            "hint": "“Hồng cầu” thuộc nhóm “Tế bào hoặc mảnh tế bào của máu”.",
             "explanation": "Hồng cầu thuộc nhóm Tế bào hoặc mảnh tế bào của máu; Bạch cầu thuộc nhóm Tế bào hoặc mảnh tế bào của máu; Tiểu cầu thuộc nhóm Tế bào hoặc mảnh tế bào của máu; Huyết tương thuộc nhóm Phần dịch của máu."
           }
         },
@@ -861,7 +861,7 @@
               "phế nang"
             ],
             "correctWord": "tiểu cầu",
-            "hint": "Thử từng từ trong kho vào câu “Khi bị thương, [blank] góp phần hình thành cục máu đông.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “tiểu cầu”."
           }
         }
@@ -912,7 +912,7 @@
                 "right": "Nơi trao đổi chất với tế bào"
               }
             ],
-            "hint": "Phân biệt vai trò của “Động mạch” và “Tĩnh mạch” trước khi nối. Mô tả của “Động mạch” bắt đầu bằng “D”.",
+            "hint": "“Động mạch” tương ứng với “Dẫn máu từ tim đi”.",
             "explanation": "Động mạch: Dẫn máu từ tim đi; Tĩnh mạch: Dẫn máu về tim; Mao mạch: Nơi trao đổi chất với tế bào."
           }
         },
@@ -922,7 +922,7 @@
           "data": {
             "sentence": "Mạch dẫn máu từ các cơ quan trở về tim gọi là [blank].",
             "correctAnswer": "tĩnh mạch",
-            "hint": "Xét ngữ cảnh của ô trống trong “Mạch dẫn máu từ các cơ quan trở về tim gọi là [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “tĩnh mạch”."
           }
         },
@@ -952,7 +952,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Dẫn máu ra khỏi tim” và “Dẫn máu trở về tim” theo đặc điểm của từng mục. “Động mạch chủ” thuộc nhóm “Dẫn máu ra khỏi tim”.",
+            "hint": "“Động mạch chủ” thuộc nhóm “Dẫn máu ra khỏi tim”.",
             "explanation": "Động mạch chủ thuộc nhóm Dẫn máu ra khỏi tim; Động mạch phổi thuộc nhóm Dẫn máu ra khỏi tim; Tĩnh mạch chủ thuộc nhóm Dẫn máu trở về tim; Tĩnh mạch phổi thuộc nhóm Dẫn máu trở về tim."
           }
         },
@@ -967,7 +967,7 @@
               "tĩnh mạch chủ"
             ],
             "correctWord": "mao mạch",
-            "hint": "Thử từng từ trong kho vào câu “Sự trao đổi chất giữa máu và tế bào diễn ra chủ yếu ở [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “mao mạch”."
           }
         }
@@ -1018,7 +1018,7 @@
                 "right": "Đưa máu qua các cơ quan của cơ thể"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tim” và “Vòng tuần hoàn nhỏ” trước khi nối. Mô tả của “Tim” bắt đầu bằng “C”.",
+            "hint": "“Tim” tương ứng với “Co bóp tạo lực đẩy máu”.",
             "explanation": "Tim: Co bóp tạo lực đẩy máu; Vòng tuần hoàn nhỏ: Đưa máu qua phổi; Vòng tuần hoàn lớn: Đưa máu qua các cơ quan của cơ thể."
           }
         },
@@ -1028,7 +1028,7 @@
           "data": {
             "sentence": "Vòng tuần hoàn [blank] đưa máu từ tim qua phổi rồi về tim.",
             "correctAnswer": "nhỏ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Vòng tuần hoàn [blank] đưa máu từ tim qua phổi rồi về tim.”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhỏ”."
           }
         },
@@ -1058,7 +1058,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Vòng tuần hoàn nhỏ” và “Vòng tuần hoàn lớn” theo đặc điểm của từng mục. “Qua phổi để trao đổi khí” thuộc nhóm “Vòng tuần hoàn nhỏ”.",
+            "hint": "“Qua phổi để trao đổi khí” thuộc nhóm “Vòng tuần hoàn nhỏ”.",
             "explanation": "Qua phổi để trao đổi khí thuộc nhóm Vòng tuần hoàn nhỏ; Còn gọi là tuần hoàn phổi thuộc nhóm Vòng tuần hoàn nhỏ; Qua nhiều cơ quan của cơ thể thuộc nhóm Vòng tuần hoàn lớn; Cung cấp chất cho mô toàn thân thuộc nhóm Vòng tuần hoàn lớn."
           }
         },
@@ -1073,7 +1073,7 @@
               "không khí"
             ],
             "correctWord": "máu",
-            "hint": "Thử từng từ trong kho vào câu “Tim co bóp liên tục để đẩy [blank] lưu thông trong cơ thể.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “máu”."
           }
         }

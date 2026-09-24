@@ -52,7 +52,7 @@
                 "right": "Cần lượng nhỏ nhưng vẫn quan trọng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Carbon” và “Nước” trước khi nối. Mô tả của “Carbon” bắt đầu bằng “T”.",
+            "hint": "“Carbon” tương ứng với “Tạo khung phân tử hữu cơ”.",
             "explanation": "Carbon: Tạo khung phân tử hữu cơ; Nước: Dung môi và môi trường phản ứng; Nguyên tố vi lượng: Cần lượng nhỏ nhưng vẫn quan trọng."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Phân tử nước có tính [blank] nên hoà tan nhiều chất phân cực.",
             "correctAnswer": "phân cực",
-            "hint": "Xét ngữ cảnh của ô trống trong “Phân tử nước có tính [blank] nên hoà tan nhiều chất phân cực.”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ cần điền là “phân cực”."
           }
         },
@@ -96,7 +96,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nguyên tố đa lượng chủ yếu” và “Nguyên tố vi lượng” theo đặc điểm của từng mục. “Carbon” thuộc nhóm “Nguyên tố đa lượng chủ yếu”.",
+            "hint": "“Carbon” thuộc nhóm “Nguyên tố đa lượng chủ yếu”.",
             "explanation": "Carbon thuộc nhóm Nguyên tố đa lượng chủ yếu; Hydrogen thuộc nhóm Nguyên tố đa lượng chủ yếu; Oxygen thuộc nhóm Nguyên tố đa lượng chủ yếu; Sắt thuộc nhóm Nguyên tố vi lượng; Kẽm thuộc nhóm Nguyên tố vi lượng."
           }
         },
@@ -111,7 +111,7 @@
               "vật kim loại"
             ],
             "correctWord": "tế bào",
-            "hint": "Thử từng từ trong kho vào câu “Nước là thành phần chiếm tỉ lệ lớn trong nhiều [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “tế bào”."
           }
         }
@@ -162,7 +162,7 @@
                 "right": "Đường đa dự trữ ở thực vật"
               }
             ],
-            "hint": "Phân biệt vai trò của “Glucose” và “Saccharose” trước khi nối. Mô tả của “Glucose” bắt đầu bằng “Đ”.",
+            "hint": "“Glucose” tương ứng với “Đường đơn”.",
             "explanation": "Glucose: Đường đơn; Saccharose: Đường đôi; Tinh bột: Đường đa dự trữ ở thực vật."
           }
         },
@@ -172,7 +172,7 @@
           "data": {
             "sentence": "Cellulose là thành phần quan trọng của thành tế bào [blank].",
             "correctAnswer": "thực vật",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cellulose là thành phần quan trọng của thành tế bào [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “thực vật”."
           }
         },
@@ -202,7 +202,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đường đơn” và “Đường đa” theo đặc điểm của từng mục. “Glucose” thuộc nhóm “Đường đơn”.",
+            "hint": "“Glucose” thuộc nhóm “Đường đơn”.",
             "explanation": "Glucose thuộc nhóm Đường đơn; Fructose thuộc nhóm Đường đơn; Tinh bột thuộc nhóm Đường đa; Cellulose thuộc nhóm Đường đa."
           }
         },
@@ -217,7 +217,7 @@
               "âm thanh"
             ],
             "correctWord": "năng lượng",
-            "hint": "Thử từng từ trong kho vào câu “Carbohydrate có thể cung cấp và dự trữ [blank] cho tế bào.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “năng lượng”."
           }
         }
@@ -268,7 +268,7 @@
                 "right": "Một nhóm lipid có nhiều chức năng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Triglyceride” và “Phospholipid” trước khi nối. Mô tả của “Triglyceride” bắt đầu bằng “D”.",
+            "hint": "“Triglyceride” tương ứng với “Dự trữ năng lượng”.",
             "explanation": "Triglyceride: Dự trữ năng lượng; Phospholipid: Tạo lớp kép màng; Steroid: Một nhóm lipid có nhiều chức năng."
           }
         },
@@ -278,7 +278,7 @@
           "data": {
             "sentence": "Lớp kép của màng tế bào chủ yếu được tạo bởi [blank].",
             "correctAnswer": "phospholipid",
-            "hint": "Xét ngữ cảnh của ô trống trong “Lớp kép của màng tế bào chủ yếu được tạo bởi [blank].”. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ cần điền là “phospholipid”."
           }
         },
@@ -308,7 +308,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Lipid” và “Không phải lipid” theo đặc điểm của từng mục. “Dầu thực vật” thuộc nhóm “Lipid”.",
+            "hint": "“Dầu thực vật” thuộc nhóm “Lipid”.",
             "explanation": "Dầu thực vật thuộc nhóm Lipid; Mỡ động vật thuộc nhóm Lipid; Phospholipid thuộc nhóm Lipid; Glucose thuộc nhóm Không phải lipid."
           }
         },
@@ -323,7 +323,7 @@
               "dầu"
             ],
             "correctWord": "nước",
-            "hint": "Thử từng từ trong kho vào câu “Lipid thường ít tan trong [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nước”."
           }
         }
@@ -374,7 +374,7 @@
                 "right": "Protein cấu trúc trong mô liên kết"
               }
             ],
-            "hint": "Phân biệt vai trò của “Amino acid” và “Enzyme” trước khi nối. Mô tả của “Amino acid” bắt đầu bằng “Đ”.",
+            "hint": "“Amino acid” tương ứng với “Đơn phân cấu tạo protein”.",
             "explanation": "Amino acid: Đơn phân cấu tạo protein; Enzyme: Protein xúc tác nhiều phản ứng; Collagen: Protein cấu trúc trong mô liên kết."
           }
         },
@@ -384,7 +384,7 @@
           "data": {
             "sentence": "Liên kết nối các amino acid trong chuỗi protein gọi là liên kết [blank].",
             "correctAnswer": "peptide",
-            "hint": "Xét ngữ cảnh của ô trống trong “Liên kết nối các amino acid trong chuỗi protein gọi là liên kết [blank].”. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ cần điền là “peptide”."
           }
         },
@@ -414,7 +414,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Protein hoặc thành phần của protein” và “Không phải protein” theo đặc điểm của từng mục. “Enzyme amylase” thuộc nhóm “Protein hoặc thành phần của protein”.",
+            "hint": "“Enzyme amylase” thuộc nhóm “Protein hoặc thành phần của protein”.",
             "explanation": "Enzyme amylase thuộc nhóm Protein hoặc thành phần của protein; Collagen thuộc nhóm Protein hoặc thành phần của protein; Amino acid thuộc nhóm Protein hoặc thành phần của protein; Tinh bột thuộc nhóm Không phải protein."
           }
         },
@@ -429,7 +429,7 @@
               "đường đơn"
             ],
             "correctWord": "amino acid",
-            "hint": "Thử từng từ trong kho vào câu “Trình tự các [blank] tạo nên cấu trúc bậc một của protein.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “a” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “a”.",
             "explanation": "Từ đúng là “amino acid”."
           }
         }
@@ -480,7 +480,7 @@
                 "right": "Đơn phân của nucleic acid"
               }
             ],
-            "hint": "Phân biệt vai trò của “DNA” và “mRNA” trước khi nối. Mô tả của “DNA” bắt đầu bằng “L”.",
+            "hint": "“DNA” tương ứng với “Lưu giữ thông tin di truyền”.",
             "explanation": "DNA: Lưu giữ thông tin di truyền; mRNA: Mang thông tin đến nơi tổng hợp protein; Nucleotide: Đơn phân của nucleic acid."
           }
         },
@@ -490,7 +490,7 @@
           "data": {
             "sentence": "DNA và RNA đều thuộc nhóm phân tử [blank] acid.",
             "correctAnswer": "nucleic",
-            "hint": "Xét ngữ cảnh của ô trống trong “DNA và RNA đều thuộc nhóm phân tử [blank] acid.”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nucleic”."
           }
         },
@@ -520,7 +520,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đặc trưng DNA” và “Đặc trưng RNA” theo đặc điểm của từng mục. “Thường hai mạch” thuộc nhóm “Đặc trưng DNA”.",
+            "hint": "“Thường hai mạch” thuộc nhóm “Đặc trưng DNA”.",
             "explanation": "Thường hai mạch thuộc nhóm Đặc trưng DNA; Có base T thuộc nhóm Đặc trưng DNA; Thường một mạch thuộc nhóm Đặc trưng RNA; Có base U thuộc nhóm Đặc trưng RNA."
           }
         },
@@ -535,7 +535,7 @@
               "G"
             ],
             "correctWord": "T",
-            "hint": "Thử từng từ trong kho vào câu “RNA thường chứa base U thay cho base [blank] ở DNA.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “T” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “T”.",
             "explanation": "Từ đúng là “T”."
           }
         }
@@ -586,7 +586,7 @@
                 "right": "Có thể phát hiện vết dầu mỡ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Iodine” và “Biuret” trước khi nối. Mô tả của “Iodine” bắt đầu bằng “N”.",
+            "hint": "“Iodine” tương ứng với “Nhận biết tinh bột”.",
             "explanation": "Iodine: Nhận biết tinh bột; Biuret: Nhận biết protein; Giấy thấm: Có thể phát hiện vết dầu mỡ."
           }
         },
@@ -596,7 +596,7 @@
           "data": {
             "sentence": "Phản ứng màu với thuốc thử biuret giúp nhận biết [blank].",
             "correctAnswer": "protein",
-            "hint": "Xét ngữ cảnh của ô trống trong “Phản ứng màu với thuốc thử biuret giúp nhận biết [blank].”. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ cần điền là “protein”."
           }
         },
@@ -626,7 +626,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thuốc thử hoặc cách nhận biết” và “Chất cần nhận biết” theo đặc điểm của từng mục. “Iodine” thuộc nhóm “Thuốc thử hoặc cách nhận biết”.",
+            "hint": "“Iodine” thuộc nhóm “Thuốc thử hoặc cách nhận biết”.",
             "explanation": "Iodine thuộc nhóm Thuốc thử hoặc cách nhận biết; Biuret thuộc nhóm Thuốc thử hoặc cách nhận biết; Tinh bột thuộc nhóm Chất cần nhận biết; Protein thuộc nhóm Chất cần nhận biết."
           }
         },
@@ -641,7 +641,7 @@
               "bị trộn lẫn"
             ],
             "correctWord": "đối chứng",
-            "hint": "Thử từng từ trong kho vào câu “Khi làm thực hành, mẫu [blank] giúp so sánh kết quả phản ứng màu.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ đúng là “đối chứng”."
           }
         }
@@ -692,7 +692,7 @@
                 "right": "Nơi tổng hợp protein"
               }
             ],
-            "hint": "Phân biệt vai trò của “Vùng nhân” và “Màng sinh chất” trước khi nối. Mô tả của “Vùng nhân” bắt đầu bằng “C”.",
+            "hint": "“Vùng nhân” tương ứng với “Chứa DNA nhưng không có màng nhân”.",
             "explanation": "Vùng nhân: Chứa DNA nhưng không có màng nhân; Màng sinh chất: Bao bọc và kiểm soát trao đổi chất; Ribosome: Nơi tổng hợp protein."
           }
         },
@@ -702,7 +702,7 @@
           "data": {
             "sentence": "Ở tế bào nhân sơ, DNA tập trung trong vùng [blank].",
             "correctAnswer": "nhân",
-            "hint": "Xét ngữ cảnh của ô trống trong “Ở tế bào nhân sơ, DNA tập trung trong vùng [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhân”."
           }
         },
@@ -732,7 +732,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có ở nhiều tế bào nhân sơ” và “Không có ở tế bào nhân sơ điển hình” theo đặc điểm của từng mục. “Màng sinh chất” thuộc nhóm “Có ở nhiều tế bào nhân sơ”.",
+            "hint": "“Màng sinh chất” thuộc nhóm “Có ở nhiều tế bào nhân sơ”.",
             "explanation": "Màng sinh chất thuộc nhóm Có ở nhiều tế bào nhân sơ; Ribosome thuộc nhóm Có ở nhiều tế bào nhân sơ; Vùng nhân thuộc nhóm Có ở nhiều tế bào nhân sơ; Nhân có màng bao thuộc nhóm Không có ở tế bào nhân sơ điển hình."
           }
         },
@@ -747,7 +747,7 @@
               "rỗng"
             ],
             "correctWord": "sơ",
-            "hint": "Thử từng từ trong kho vào câu “Vi khuẩn là ví dụ của sinh vật có tế bào nhân [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ đúng là “sơ”."
           }
         }
@@ -798,7 +798,7 @@
                 "right": "Tổng hợp protein"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nhân” và “Ty thể” trước khi nối. Mô tả của “Nhân” bắt đầu bằng “C”.",
+            "hint": "“Nhân” tương ứng với “Chứa phần lớn DNA trong tế bào nhân thực”.",
             "explanation": "Nhân: Chứa phần lớn DNA trong tế bào nhân thực; Ty thể: Tham gia tạo ATP; Ribosome: Tổng hợp protein."
           }
         },
@@ -808,7 +808,7 @@
           "data": {
             "sentence": "Tế bào nhân thực có [blank] được bao bọc bởi màng nhân.",
             "correctAnswer": "nhân",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào nhân thực có [blank] được bao bọc bởi màng nhân.”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhân”."
           }
         },
@@ -838,7 +838,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Bào quan có màng” và “Cấu trúc không có màng” theo đặc điểm của từng mục. “Ty thể” thuộc nhóm “Bào quan có màng”.",
+            "hint": "“Ty thể” thuộc nhóm “Bào quan có màng”.",
             "explanation": "Ty thể thuộc nhóm Bào quan có màng; Lục lạp thuộc nhóm Bào quan có màng; Nhân thuộc nhóm Bào quan có màng; Ribosome thuộc nhóm Cấu trúc không có màng."
           }
         },
@@ -853,7 +853,7 @@
               "dịch ngoại bào"
             ],
             "correctWord": "nhân",
-            "hint": "Thử từng từ trong kho vào câu “Phần lớn DNA của tế bào nhân thực nằm trong [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nhân”."
           }
         }
@@ -904,7 +904,7 @@
                 "right": "Có ở cả tế bào thực vật và động vật"
               }
             ],
-            "hint": "Phân biệt vai trò của “Thành tế bào” và “Lục lạp” trước khi nối. Mô tả của “Thành tế bào” bắt đầu bằng “G”.",
+            "hint": "“Thành tế bào” tương ứng với “Giúp định hình và bảo vệ tế bào thực vật”.",
             "explanation": "Thành tế bào: Giúp định hình và bảo vệ tế bào thực vật; Lục lạp: Thực hiện quang hợp ở tế bào có lục lạp; Ty thể: Có ở cả tế bào thực vật và động vật."
           }
         },
@@ -914,7 +914,7 @@
           "data": {
             "sentence": "Tế bào thực vật điển hình có thành tế bào cấu tạo chủ yếu từ [blank].",
             "correctAnswer": "cellulose",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào thực vật điển hình có thành tế bào cấu tạo chủ yếu từ [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “cellulose”."
           }
         },
@@ -948,7 +948,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đặc trưng tế bào thực vật điển hình” và “Có ở cả hai loại tế bào” theo đặc điểm của từng mục. “Thành cellulose” thuộc nhóm “Đặc trưng tế bào thực vật điển hình”.",
+            "hint": "“Thành cellulose” thuộc nhóm “Đặc trưng tế bào thực vật điển hình”.",
             "explanation": "Thành cellulose thuộc nhóm Đặc trưng tế bào thực vật điển hình; Lục lạp ở tế bào quang hợp thuộc nhóm Đặc trưng tế bào thực vật điển hình; Không bào lớn ở tế bào trưởng thành thuộc nhóm Đặc trưng tế bào thực vật điển hình; Màng sinh chất thuộc nhóm Có ở cả hai loại tế bào; Ty thể thuộc nhóm Có ở cả hai loại tế bào."
           }
         },
@@ -963,7 +963,7 @@
               "ribosome"
             ],
             "correctWord": "lục lạp",
-            "hint": "Thử từng từ trong kho vào câu “Bào quan quang hợp ở nhiều tế bào thực vật là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ đúng là “lục lạp”."
           }
         }
@@ -1014,7 +1014,7 @@
                 "right": "Tham gia phóng đại ảnh của mẫu"
               }
             ],
-            "hint": "Phân biệt vai trò của “Lam kính” và “Lamen” trước khi nối. Mô tả của “Lam kính” bắt đầu bằng “Đ”.",
+            "hint": "“Lam kính” tương ứng với “Đỡ mẫu quan sát”.",
             "explanation": "Lam kính: Đỡ mẫu quan sát; Lamen: Đậy lên mẫu trên lam kính; Vật kính: Tham gia phóng đại ảnh của mẫu."
           }
         },
@@ -1024,7 +1024,7 @@
           "data": {
             "sentence": "Mẫu vật cần đặt trên [blank] kính trước khi quan sát.",
             "correctAnswer": "lam",
-            "hint": "Xét ngữ cảnh của ô trống trong “Mẫu vật cần đặt trên [blank] kính trước khi quan sát.”. Từ cần chọn bắt đầu bằng “l” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ cần điền là “lam”."
           }
         },
@@ -1054,7 +1054,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Dụng cụ làm tiêu bản” và “Không phải dụng cụ làm tiêu bản” theo đặc điểm của từng mục. “Lam kính” thuộc nhóm “Dụng cụ làm tiêu bản”.",
+            "hint": "“Lam kính” thuộc nhóm “Dụng cụ làm tiêu bản”.",
             "explanation": "Lam kính thuộc nhóm Dụng cụ làm tiêu bản; Lamen thuộc nhóm Dụng cụ làm tiêu bản; Ống nhỏ giọt thuộc nhóm Dụng cụ làm tiêu bản; Thước dây đo sân thuộc nhóm Không phải dụng cụ làm tiêu bản."
           }
         },
@@ -1069,7 +1069,7 @@
               "âm lượng"
             ],
             "correctWord": "nét",
-            "hint": "Thử từng từ trong kho vào câu “Khi đổi sang vật kính lớn, cần chỉnh [blank] cẩn thận để ảnh rõ.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nét”."
           }
         }

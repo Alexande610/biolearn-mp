@@ -53,7 +53,7 @@
                 "right": "Sinh sản"
               }
             ],
-            "hint": "Phân biệt vai trò của “Cây hướng về phía ánh sáng” và “Gà con lớn thành gà trưởng thành” trước khi nối. Mô tả của “Cây hướng về phía ánh sáng” bắt đầu bằng “C”.",
+            "hint": "“Cây hướng về phía ánh sáng” tương ứng với “Cảm ứng”.",
             "explanation": "Cây hướng về phía ánh sáng: Cảm ứng; Gà con lớn thành gà trưởng thành: Lớn lên; Cây tạo hạt: Sinh sản."
           }
         },
@@ -63,7 +63,7 @@
           "data": {
             "sentence": "Cơ thể sinh vật có khả năng thực hiện các hoạt động [blank].",
             "correctAnswer": "sống",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cơ thể sinh vật có khả năng thực hiện các hoạt động [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sống”."
           }
         },
@@ -93,7 +93,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Biểu hiện của cơ thể sống” và “Không phải biểu hiện của cơ thể sống” theo đặc điểm của từng mục. “Trao đổi chất” thuộc nhóm “Biểu hiện của cơ thể sống”.",
+            "hint": "“Trao đổi chất” thuộc nhóm “Biểu hiện của cơ thể sống”.",
             "explanation": "Trao đổi chất thuộc nhóm Biểu hiện của cơ thể sống; Lớn lên thuộc nhóm Biểu hiện của cơ thể sống; Sinh sản thuộc nhóm Biểu hiện của cơ thể sống; Gỉ sét thuộc nhóm Không phải biểu hiện của cơ thể sống."
           }
         },
@@ -108,7 +108,7 @@
               "nam châm"
             ],
             "correctWord": "môi trường",
-            "hint": "Thử từng từ trong kho vào câu “Cơ thể sống luôn có sự trao đổi chất với [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “môi trường”."
           }
         }
@@ -160,7 +160,7 @@
                 "right": "Nấm đơn bào"
               }
             ],
-            "hint": "Phân biệt vai trò của “Trùng biến hình” và “Vi khuẩn” trước khi nối. Mô tả của “Trùng biến hình” bắt đầu bằng “D”.",
+            "hint": "“Trùng biến hình” tương ứng với “Di chuyển bằng chân giả”.",
             "explanation": "Trùng biến hình: Di chuyển bằng chân giả; Vi khuẩn: Cơ thể đơn bào có cấu tạo đơn giản; Nấm men: Nấm đơn bào."
           }
         },
@@ -170,7 +170,7 @@
           "data": {
             "sentence": "Ở cơ thể đơn bào, một tế bào thực hiện [blank] các hoạt động sống.",
             "correctAnswer": "đầy đủ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Ở cơ thể đơn bào, một tế bào thực hiện [blank] các hoạt động sống.”. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ cần điền là “đầy đủ”."
           }
         },
@@ -204,7 +204,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Cơ thể đơn bào” và “Không phải cơ thể đơn bào” theo đặc điểm của từng mục. “Vi khuẩn” thuộc nhóm “Cơ thể đơn bào”.",
+            "hint": "“Vi khuẩn” thuộc nhóm “Cơ thể đơn bào”.",
             "explanation": "Vi khuẩn thuộc nhóm Cơ thể đơn bào; Nấm men thuộc nhóm Cơ thể đơn bào; Trùng biến hình thuộc nhóm Cơ thể đơn bào; Con thỏ thuộc nhóm Không phải cơ thể đơn bào; Cây táo thuộc nhóm Không phải cơ thể đơn bào."
           }
         },
@@ -219,7 +219,7 @@
               "không sống"
             ],
             "correctWord": "đơn bào",
-            "hint": "Thử từng từ trong kho vào câu “Trùng biến hình là ví dụ về cơ thể [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ đúng là “đơn bào”."
           }
         }
@@ -271,7 +271,7 @@
                 "right": "Cơ thể nấm đa bào"
               }
             ],
-            "hint": "Phân biệt vai trò của “Con thỏ” và “Cây táo” trước khi nối. Mô tả của “Con thỏ” bắt đầu bằng “C”.",
+            "hint": "“Con thỏ” tương ứng với “Cơ thể động vật đa bào”.",
             "explanation": "Con thỏ: Cơ thể động vật đa bào; Cây táo: Cơ thể thực vật đa bào; Cây nấm: Cơ thể nấm đa bào."
           }
         },
@@ -281,7 +281,7 @@
           "data": {
             "sentence": "Trong cơ thể đa bào, các loại tế bào có thể thực hiện những chức năng [blank].",
             "correctAnswer": "khác nhau",
-            "hint": "Xét ngữ cảnh của ô trống trong “Trong cơ thể đa bào, các loại tế bào có thể thực hiện những chức năng [blank].”. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ cần điền là “khác nhau”."
           }
         },
@@ -315,7 +315,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Cơ thể đa bào” và “Cơ thể đơn bào” theo đặc điểm của từng mục. “Em bé” thuộc nhóm “Cơ thể đa bào”.",
+            "hint": "“Em bé” thuộc nhóm “Cơ thể đa bào”.",
             "explanation": "Em bé thuộc nhóm Cơ thể đa bào; Con bướm thuộc nhóm Cơ thể đa bào; Cây hoa thuộc nhóm Cơ thể đa bào; Vi khuẩn thuộc nhóm Cơ thể đơn bào; Trùng biến hình thuộc nhóm Cơ thể đơn bào."
           }
         },
@@ -330,7 +330,7 @@
               "không có"
             ],
             "correctWord": "nhiều",
-            "hint": "Thử từng từ trong kho vào câu “Cơ thể con voi được cấu tạo từ [blank] tế bào.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nhiều”."
           }
         }
@@ -382,7 +382,7 @@
                 "right": "Cả hai nhóm"
               }
             ],
-            "hint": "Phân biệt vai trò của “Một tế bào thực hiện mọi hoạt động sống” và “Nhiều tế bào phối hợp hoạt động” trước khi nối. Mô tả của “Một tế bào thực hiện mọi hoạt động sống” bắt đầu bằng “C”.",
+            "hint": "“Một tế bào thực hiện mọi hoạt động sống” tương ứng với “Cơ thể đơn bào”.",
             "explanation": "Một tế bào thực hiện mọi hoạt động sống: Cơ thể đơn bào; Nhiều tế bào phối hợp hoạt động: Cơ thể đa bào; Đều thực hiện trao đổi chất: Cả hai nhóm."
           }
         },
@@ -392,7 +392,7 @@
           "data": {
             "sentence": "Cơ thể đơn bào và đa bào đều là những cơ thể [blank].",
             "correctAnswer": "sống",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cơ thể đơn bào và đa bào đều là những cơ thể [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sống”."
           }
         },
@@ -422,7 +422,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đặc điểm của cơ thể đơn bào” và “Đặc điểm của cơ thể đa bào” theo đặc điểm của từng mục. “Chỉ gồm một tế bào” thuộc nhóm “Đặc điểm của cơ thể đơn bào”.",
+            "hint": "“Chỉ gồm một tế bào” thuộc nhóm “Đặc điểm của cơ thể đơn bào”.",
             "explanation": "Chỉ gồm một tế bào thuộc nhóm Đặc điểm của cơ thể đơn bào; Một tế bào đảm nhiệm mọi hoạt động sống thuộc nhóm Đặc điểm của cơ thể đơn bào; Gồm nhiều tế bào thuộc nhóm Đặc điểm của cơ thể đa bào; Có tế bào chuyên hoá thuộc nhóm Đặc điểm của cơ thể đa bào."
           }
         },
@@ -437,7 +437,7 @@
               "không sống"
             ],
             "correctWord": "đa bào",
-            "hint": "Thử từng từ trong kho vào câu “Nhiều tế bào chuyên hoá phối hợp với nhau là đặc điểm của cơ thể [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ đúng là “đa bào”."
           }
         }
@@ -489,7 +489,7 @@
                 "right": "Nhóm cơ quan phối hợp hoạt động"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tế bào” và “Mô” trước khi nối. Mô tả của “Tế bào” bắt đầu bằng “Đ”.",
+            "hint": "“Tế bào” tương ứng với “Đơn vị cấu tạo cơ bản”.",
             "explanation": "Tế bào: Đơn vị cấu tạo cơ bản; Mô: Nhóm tế bào cùng thực hiện chức năng; Hệ cơ quan: Nhóm cơ quan phối hợp hoạt động."
           }
         },
@@ -499,7 +499,7 @@
           "data": {
             "sentence": "Nhiều mô phối hợp thực hiện một hoạt động sống tạo thành [blank].",
             "correctAnswer": "cơ quan",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nhiều mô phối hợp thực hiện một hoạt động sống tạo thành [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “cơ quan”."
           }
         },
@@ -529,7 +529,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Cấp tổ chức nhỏ hơn cơ quan” và “Cấp tổ chức lớn hơn cơ quan” theo đặc điểm của từng mục. “Tế bào” thuộc nhóm “Cấp tổ chức nhỏ hơn cơ quan”.",
+            "hint": "“Tế bào” thuộc nhóm “Cấp tổ chức nhỏ hơn cơ quan”.",
             "explanation": "Tế bào thuộc nhóm Cấp tổ chức nhỏ hơn cơ quan; Mô thuộc nhóm Cấp tổ chức nhỏ hơn cơ quan; Hệ cơ quan thuộc nhóm Cấp tổ chức lớn hơn cơ quan; Cơ thể thuộc nhóm Cấp tổ chức lớn hơn cơ quan."
           }
         },
@@ -544,7 +544,7 @@
               "quần thể"
             ],
             "correctWord": "cơ quan",
-            "hint": "Thử từng từ trong kho vào câu “Tế bào → mô → [blank] → hệ cơ quan → cơ thể.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “cơ quan”."
           }
         }
@@ -596,7 +596,7 @@
                 "right": "Vận chuyển nước và muối khoáng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Mô cơ” và “Mô biểu bì” trước khi nối. Mô tả của “Mô cơ” bắt đầu bằng “C”.",
+            "hint": "“Mô cơ” tương ứng với “Co dãn tạo vận động”.",
             "explanation": "Mô cơ: Co dãn tạo vận động; Mô biểu bì: Bao bọc và bảo vệ; Mô mạch gỗ: Vận chuyển nước và muối khoáng."
           }
         },
@@ -606,7 +606,7 @@
           "data": {
             "sentence": "Các tế bào trong một mô thường có cấu tạo [blank] nhau.",
             "correctAnswer": "giống",
-            "hint": "Xét ngữ cảnh của ô trống trong “Các tế bào trong một mô thường có cấu tạo [blank] nhau.”. Từ cần chọn bắt đầu bằng “g” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “g”.",
             "explanation": "Từ cần điền là “giống”."
           }
         },
@@ -636,7 +636,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Mô ở động vật” và “Mô ở thực vật” theo đặc điểm của từng mục. “Mô cơ” thuộc nhóm “Mô ở động vật”.",
+            "hint": "“Mô cơ” thuộc nhóm “Mô ở động vật”.",
             "explanation": "Mô cơ thuộc nhóm Mô ở động vật; Mô biểu bì ở da thuộc nhóm Mô ở động vật; Mô mạch gỗ thuộc nhóm Mô ở thực vật; Mô mạch rây thuộc nhóm Mô ở thực vật."
           }
         },
@@ -651,7 +651,7 @@
               "quần thể"
             ],
             "correctWord": "mô",
-            "hint": "Thử từng từ trong kho vào câu “Nhóm tế bào cùng thực hiện một chức năng tạo thành [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “mô”."
           }
         }
@@ -703,7 +703,7 @@
                 "right": "Quang hợp"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tim” và “Phổi” trước khi nối. Mô tả của “Tim” bắt đầu bằng “B”.",
+            "hint": "“Tim” tương ứng với “Bơm máu”.",
             "explanation": "Tim: Bơm máu; Phổi: Trao đổi khí; Lá: Quang hợp."
           }
         },
@@ -713,7 +713,7 @@
           "data": {
             "sentence": "Rễ, thân và lá là các [blank] của thực vật.",
             "correctAnswer": "cơ quan",
-            "hint": "Xét ngữ cảnh của ô trống trong “Rễ, thân và lá là các [blank] của thực vật.”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “cơ quan”."
           }
         },
@@ -743,7 +743,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Cơ quan ở người” và “Cơ quan ở thực vật” theo đặc điểm của từng mục. “Tim” thuộc nhóm “Cơ quan ở người”.",
+            "hint": "“Tim” thuộc nhóm “Cơ quan ở người”.",
             "explanation": "Tim thuộc nhóm Cơ quan ở người; Dạ dày thuộc nhóm Cơ quan ở người; Rễ thuộc nhóm Cơ quan ở thực vật; Lá thuộc nhóm Cơ quan ở thực vật."
           }
         },
@@ -758,7 +758,7 @@
               "môi trường"
             ],
             "correctWord": "cơ quan",
-            "hint": "Thử từng từ trong kho vào câu “Nhiều mô phối hợp thực hiện một hoạt động sống tạo thành [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “cơ quan”."
           }
         }
@@ -810,7 +810,7 @@
                 "right": "Điều khiển và phối hợp hoạt động"
               }
             ],
-            "hint": "Phân biệt vai trò của “Hệ tiêu hoá” và “Hệ tuần hoàn” trước khi nối. Mô tả của “Hệ tiêu hoá” bắt đầu bằng “B”.",
+            "hint": "“Hệ tiêu hoá” tương ứng với “Biến đổi thức ăn và hấp thụ chất dinh dưỡng”.",
             "explanation": "Hệ tiêu hoá: Biến đổi thức ăn và hấp thụ chất dinh dưỡng; Hệ tuần hoàn: Vận chuyển các chất; Hệ thần kinh: Điều khiển và phối hợp hoạt động."
           }
         },
@@ -820,7 +820,7 @@
           "data": {
             "sentence": "Tim và các mạch máu là những cơ quan chính của hệ [blank].",
             "correctAnswer": "tuần hoàn",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tim và các mạch máu là những cơ quan chính của hệ [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “tuần hoàn”."
           }
         },
@@ -850,7 +850,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thuộc hệ tiêu hoá” và “Thuộc hệ tuần hoàn” theo đặc điểm của từng mục. “Miệng” thuộc nhóm “Thuộc hệ tiêu hoá”.",
+            "hint": "“Miệng” thuộc nhóm “Thuộc hệ tiêu hoá”.",
             "explanation": "Miệng thuộc nhóm Thuộc hệ tiêu hoá; Dạ dày thuộc nhóm Thuộc hệ tiêu hoá; Tim thuộc nhóm Thuộc hệ tuần hoàn; Mạch máu thuộc nhóm Thuộc hệ tuần hoàn."
           }
         },
@@ -865,7 +865,7 @@
               "tuần hoàn"
             ],
             "correctWord": "thần kinh",
-            "hint": "Thử từng từ trong kho vào câu “Não và tuỷ sống thuộc hệ [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “thần kinh”."
           }
         }
@@ -917,7 +917,7 @@
                 "right": "Tham gia sinh sản"
               }
             ],
-            "hint": "Phân biệt vai trò của “Rễ” và “Lá” trước khi nối. Mô tả của “Rễ” bắt đầu bằng “H”.",
+            "hint": "“Rễ” tương ứng với “Hấp thụ nước và muối khoáng”.",
             "explanation": "Rễ: Hấp thụ nước và muối khoáng; Lá: Quang hợp và trao đổi khí; Hoa: Tham gia sinh sản."
           }
         },
@@ -927,7 +927,7 @@
           "data": {
             "sentence": "Thân, lá, hoa và quả thuộc hệ [blank].",
             "correctAnswer": "chồi",
-            "hint": "Xét ngữ cảnh của ô trống trong “Thân, lá, hoa và quả thuộc hệ [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “chồi”."
           }
         },
@@ -961,7 +961,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Hệ rễ” và “Hệ chồi” theo đặc điểm của từng mục. “Rễ chính” thuộc nhóm “Hệ rễ”.",
+            "hint": "“Rễ chính” thuộc nhóm “Hệ rễ”.",
             "explanation": "Rễ chính thuộc nhóm Hệ rễ; Rễ bên thuộc nhóm Hệ rễ; Thân thuộc nhóm Hệ chồi; Lá thuộc nhóm Hệ chồi; Hoa thuộc nhóm Hệ chồi."
           }
         },
@@ -976,7 +976,7 @@
               "tuần hoàn"
             ],
             "correctWord": "rễ",
-            "hint": "Thử từng từ trong kho vào câu “Hệ [blank] giúp cây bám vào đất và hấp thụ nước.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “r” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “r”.",
             "explanation": "Từ đúng là “rễ”."
           }
         }
@@ -1028,7 +1028,7 @@
                 "right": "Nhận biết cơ quan thực vật"
               }
             ],
-            "hint": "Phân biệt vai trò của “Mẫu nước ao” và “Mô hình giải phẫu người” trước khi nối. Mô tả của “Mẫu nước ao” bắt đầu bằng “Q”.",
+            "hint": "“Mẫu nước ao” tương ứng với “Quan sát cơ thể đơn bào”.",
             "explanation": "Mẫu nước ao: Quan sát cơ thể đơn bào; Mô hình giải phẫu người: Nhận biết hệ cơ quan; Cây có hoa: Nhận biết cơ quan thực vật."
           }
         },
@@ -1038,7 +1038,7 @@
           "data": {
             "sentence": "Khi quan sát mẫu nước ao, mẫu được đặt trên [blank].",
             "correctAnswer": "lam kính",
-            "hint": "Xét ngữ cảnh của ô trống trong “Khi quan sát mẫu nước ao, mẫu được đặt trên [blank].”. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ cần điền là “lam kính”."
           }
         },
@@ -1068,7 +1068,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đối tượng quan sát trực tiếp” và “Dụng cụ hoặc mô hình hỗ trợ” theo đặc điểm của từng mục. “Mẫu nước ao” thuộc nhóm “Đối tượng quan sát trực tiếp”.",
+            "hint": "“Mẫu nước ao” thuộc nhóm “Đối tượng quan sát trực tiếp”.",
             "explanation": "Mẫu nước ao thuộc nhóm Đối tượng quan sát trực tiếp; Cây có hoa thuộc nhóm Đối tượng quan sát trực tiếp; Kính hiển vi thuộc nhóm Dụng cụ hoặc mô hình hỗ trợ; Mô hình giải phẫu thuộc nhóm Dụng cụ hoặc mô hình hỗ trợ."
           }
         },
@@ -1083,7 +1083,7 @@
               "khoáng vật"
             ],
             "correctWord": "cơ thể",
-            "hint": "Thử từng từ trong kho vào câu “Tế bào → mô → cơ quan → hệ cơ quan → [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “cơ thể”."
           }
         }

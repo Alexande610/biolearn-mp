@@ -52,7 +52,7 @@
                 "right": "Tiếp tục chuẩn bị cho phân bào"
               }
             ],
-            "hint": "Phân biệt vai trò của “Pha G1” và “Pha S” trước khi nối. Mô tả của “Pha G1” bắt đầu bằng “T”.",
+            "hint": "“Pha G1” tương ứng với “Tế bào lớn lên và chuẩn bị nhân đôi DNA”.",
             "explanation": "Pha G1: Tế bào lớn lên và chuẩn bị nhân đôi DNA; Pha S: DNA được nhân đôi; Pha G2: Tiếp tục chuẩn bị cho phân bào."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "DNA nhân đôi ở pha [blank] của chu kì tế bào.",
             "correctAnswer": "S",
-            "hint": "Xét ngữ cảnh của ô trống trong “DNA nhân đôi ở pha [blank] của chu kì tế bào.”. Từ cần chọn bắt đầu bằng “S” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “S”.",
             "explanation": "Từ cần điền là “S”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Kì trung gian” và “Giai đoạn phân bào” theo đặc điểm của từng mục. “Pha G1” thuộc nhóm “Kì trung gian”.",
+            "hint": "“Pha G1” thuộc nhóm “Kì trung gian”.",
             "explanation": "Pha G1 thuộc nhóm Kì trung gian; Pha S thuộc nhóm Kì trung gian; Pha G2 thuộc nhóm Kì trung gian; Kì giữa thuộc nhóm Giai đoạn phân bào."
           }
         },
@@ -107,7 +107,7 @@
               "quang hợp"
             ],
             "correctWord": "phân bào",
-            "hint": "Thử từng từ trong kho vào câu “Chu kì tế bào gồm kì trung gian và giai đoạn [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phân bào”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Các chromatid tách và đi về hai cực"
               }
             ],
-            "hint": "Phân biệt vai trò của “Kì đầu” và “Kì giữa” trước khi nối. Mô tả của “Kì đầu” bắt đầu bằng “N”.",
+            "hint": "“Kì đầu” tương ứng với “Nhiễm sắc thể co xoắn”.",
             "explanation": "Kì đầu: Nhiễm sắc thể co xoắn; Kì giữa: Nhiễm sắc thể xếp ở mặt phẳng xích đạo; Kì sau: Các chromatid tách và đi về hai cực."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Nguyên phân thường tạo [blank] tế bào con từ một tế bào mẹ.",
             "correctAnswer": "hai",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nguyên phân thường tạo [blank] tế bào con từ một tế bào mẹ.”. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ cần điền là “hai”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Diễn ra trong nguyên phân” và “Không phải nguyên phân” theo đặc điểm của từng mục. “Nhiễm sắc thể co xoắn” thuộc nhóm “Diễn ra trong nguyên phân”.",
+            "hint": "“Nhiễm sắc thể co xoắn” thuộc nhóm “Diễn ra trong nguyên phân”.",
             "explanation": "Nhiễm sắc thể co xoắn thuộc nhóm Diễn ra trong nguyên phân; Chromatid tách nhau thuộc nhóm Diễn ra trong nguyên phân; Tạo hai tế bào con thuộc nhóm Diễn ra trong nguyên phân; Kết hợp hai giao tử thuộc nhóm Không phải nguyên phân."
           }
         },
@@ -213,7 +213,7 @@
               "quần thể"
             ],
             "correctWord": "tế bào",
-            "hint": "Thử từng từ trong kho vào câu “Nguyên phân góp phần làm cơ thể đa bào lớn lên nhờ tăng số lượng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “tế bào”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Khôi phục bộ nhiễm sắc thể lưỡng bội"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nguyên phân” và “Giảm phân” trước khi nối. Mô tả của “Nguyên phân” bắt đầu bằng “M”.",
+            "hint": "“Nguyên phân” tương ứng với “Một lần phân chia tạo hai tế bào”.",
             "explanation": "Nguyên phân: Một lần phân chia tạo hai tế bào; Giảm phân: Hai lần phân chia tạo tế bào đơn bội; Thụ tinh: Khôi phục bộ nhiễm sắc thể lưỡng bội."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Giảm phân góp phần tạo giao tử mang bộ nhiễm sắc thể [blank].",
             "correctAnswer": "đơn bội",
-            "hint": "Xét ngữ cảnh của ô trống trong “Giảm phân góp phần tạo giao tử mang bộ nhiễm sắc thể [blank].”. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “đ”.",
             "explanation": "Từ cần điền là “đơn bội”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nguyên phân” và “Giảm phân” theo đặc điểm của từng mục. “Tạo hai tế bào con” thuộc nhóm “Nguyên phân”.",
+            "hint": "“Tạo hai tế bào con” thuộc nhóm “Nguyên phân”.",
             "explanation": "Tạo hai tế bào con thuộc nhóm Nguyên phân; Giúp cơ thể lớn lên thuộc nhóm Nguyên phân; Có hai lần phân chia liên tiếp thuộc nhóm Giảm phân; Tạo giao tử ở nhiều loài thuộc nhóm Giảm phân."
           }
         },
@@ -319,7 +319,7 @@
               "quang hợp"
             ],
             "correctWord": "phân chia",
-            "hint": "Thử từng từ trong kho vào câu “Giảm phân gồm hai lần [blank] liên tiếp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phân chia”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Sản phẩm có thể tạo ra từ nuôi cấy mô"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nuôi cấy mô” và “Môi trường vô trùng” trước khi nối. Mô tả của “Nuôi cấy mô” bắt đầu bằng “T”.",
+            "hint": "“Nuôi cấy mô” tương ứng với “Tạo cây từ mẫu mô trong môi trường thích hợp”.",
             "explanation": "Nuôi cấy mô: Tạo cây từ mẫu mô trong môi trường thích hợp; Môi trường vô trùng: Hạn chế nhiễm vi sinh vật; Cây giống: Sản phẩm có thể tạo ra từ nuôi cấy mô."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Nuôi cấy [blank] có thể tạo nhiều cây giống từ mẫu thực vật nhỏ.",
             "correctAnswer": "mô",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nuôi cấy [blank] có thể tạo nhiều cây giống từ mẫu thực vật nhỏ.”. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ cần điền là “mô”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Điều kiện hỗ trợ nuôi cấy mô” và “Điều kiện dễ gây thất bại” theo đặc điểm của từng mục. “Dụng cụ vô trùng” thuộc nhóm “Điều kiện hỗ trợ nuôi cấy mô”.",
+            "hint": "“Dụng cụ vô trùng” thuộc nhóm “Điều kiện hỗ trợ nuôi cấy mô”.",
             "explanation": "Dụng cụ vô trùng thuộc nhóm Điều kiện hỗ trợ nuôi cấy mô; Môi trường dinh dưỡng phù hợp thuộc nhóm Điều kiện hỗ trợ nuôi cấy mô; Kiểm soát điều kiện nuôi thuộc nhóm Điều kiện hỗ trợ nuôi cấy mô; Để mẫu nhiễm nấm mốc thuộc nhóm Điều kiện dễ gây thất bại."
           }
         },
@@ -425,7 +425,7 @@
               "đốt"
             ],
             "correctWord": "nhân",
-            "hint": "Thử từng từ trong kho vào câu “Công nghệ nuôi cấy mô thực vật có thể hỗ trợ [blank] giống.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nhân”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Dụng cụ quan sát nhiều vi sinh vật"
               }
             ],
-            "hint": "Phân biệt vai trò của “Vi khuẩn” và “Nấm men” trước khi nối. Mô tả của “Vi khuẩn” bắt đầu bằng “V”.",
+            "hint": "“Vi khuẩn” tương ứng với “Vi sinh vật nhân sơ”.",
             "explanation": "Vi khuẩn: Vi sinh vật nhân sơ; Nấm men: Vi sinh vật nhân thực; Kính hiển vi: Dụng cụ quan sát nhiều vi sinh vật."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Nhiều vi sinh vật có kích thước rất [blank].",
             "correctAnswer": "nhỏ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Nhiều vi sinh vật có kích thước rất [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhỏ”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Vi sinh vật” và “Không phải vi sinh vật” theo đặc điểm của từng mục. “Vi khuẩn” thuộc nhóm “Vi sinh vật”.",
+            "hint": "“Vi khuẩn” thuộc nhóm “Vi sinh vật”.",
             "explanation": "Vi khuẩn thuộc nhóm Vi sinh vật; Nấm men thuộc nhóm Vi sinh vật; Trùng roi thuộc nhóm Vi sinh vật; Cây xoài trưởng thành thuộc nhóm Không phải vi sinh vật."
           }
         },
@@ -531,7 +531,7 @@
               "ống nhòm sân vận động"
             ],
             "correctWord": "kính hiển vi",
-            "hint": "Thử từng từ trong kho vào câu “Để quan sát nhiều vi sinh vật, cần dùng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 3 tiếng.",
+            "hint": "Từ cần chọn gồm 3 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ đúng là “kính hiển vi”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Số tế bào chết vượt số tạo mới"
               }
             ],
-            "hint": "Phân biệt vai trò của “Pha tiềm phát” và “Pha luỹ thừa” trước khi nối. Mô tả của “Pha tiềm phát” bắt đầu bằng “T”.",
+            "hint": "“Pha tiềm phát” tương ứng với “Tế bào thích nghi môi trường”.",
             "explanation": "Pha tiềm phát: Tế bào thích nghi môi trường; Pha luỹ thừa: Số lượng tế bào tăng nhanh; Pha suy vong: Số tế bào chết vượt số tạo mới."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Ở pha [blank], số lượng vi khuẩn tăng nhanh.",
             "correctAnswer": "luỹ thừa",
-            "hint": "Xét ngữ cảnh của ô trống trong “Ở pha [blank], số lượng vi khuẩn tăng nhanh.”. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ cần điền là “luỹ thừa”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Số lượng tăng” và “Số lượng giảm” theo đặc điểm của từng mục. “Pha luỹ thừa” thuộc nhóm “Số lượng tăng”.",
+            "hint": "“Pha luỹ thừa” thuộc nhóm “Số lượng tăng”.",
             "explanation": "Pha luỹ thừa thuộc nhóm Số lượng tăng; Phân chia mạnh thuộc nhóm Số lượng tăng; Pha suy vong thuộc nhóm Số lượng giảm; Tế bào chết nhiều hơn tạo mới thuộc nhóm Số lượng giảm."
           }
         },
@@ -637,7 +637,7 @@
               "tiềm phát"
             ],
             "correctWord": "luỹ thừa",
-            "hint": "Thử từng từ trong kho vào câu “Quần thể vi khuẩn tăng nhanh trong pha [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “l”.",
             "explanation": "Từ đúng là “luỹ thừa”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Phân huỷ chất hữu cơ trong tự nhiên"
               }
             ],
-            "hint": "Phân biệt vai trò của “Vi khuẩn lactic” và “Nấm men” trước khi nối. Mô tả của “Vi khuẩn lactic” bắt đầu bằng “L”.",
+            "hint": "“Vi khuẩn lactic” tương ứng với “Lên men sữa chua”.",
             "explanation": "Vi khuẩn lactic: Lên men sữa chua; Nấm men: Lên men trong làm bánh; Vi sinh vật phân giải: Phân huỷ chất hữu cơ trong tự nhiên."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Vi khuẩn lactic có thể được dùng trong quá trình lên men làm [blank].",
             "correctAnswer": "sữa chua",
-            "hint": "Xét ngữ cảnh của ô trống trong “Vi khuẩn lactic có thể được dùng trong quá trình lên men làm [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sữa chua”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Ứng dụng có ích” và “Tác hại có thể xảy ra” theo đặc điểm của từng mục. “Làm sữa chua” thuộc nhóm “Ứng dụng có ích”.",
+            "hint": "“Làm sữa chua” thuộc nhóm “Ứng dụng có ích”.",
             "explanation": "Làm sữa chua thuộc nhóm Ứng dụng có ích; Làm bánh nhờ nấm men thuộc nhóm Ứng dụng có ích; Phân huỷ rác hữu cơ thuộc nhóm Ứng dụng có ích; Gây hỏng thực phẩm thuộc nhóm Tác hại có thể xảy ra."
           }
         },
@@ -743,7 +743,7 @@
               "đông băng"
             ],
             "correctWord": "nở",
-            "hint": "Thử từng từ trong kho vào câu “Nấm men có thể tạo khí giúp bột bánh [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nở”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Cung cấp bộ máy cho virus nhân lên"
               }
             ],
-            "hint": "Phân biệt vai trò của “Vật chất di truyền” và “Capsid” trước khi nối. Mô tả của “Vật chất di truyền” bắt đầu bằng “M”.",
+            "hint": "“Vật chất di truyền” tương ứng với “Mang thông tin của virus”.",
             "explanation": "Vật chất di truyền: Mang thông tin của virus; Capsid: Vỏ protein bao quanh vật chất di truyền; Tế bào vật chủ: Cung cấp bộ máy cho virus nhân lên."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Vỏ protein của virus được gọi là [blank].",
             "correctAnswer": "capsid",
-            "hint": "Xét ngữ cảnh của ô trống trong “Vỏ protein của virus được gọi là [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “capsid”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thành phần cơ bản của virus” và “Không phải thành phần bắt buộc của mọi virus” theo đặc điểm của từng mục. “Vật chất di truyền” thuộc nhóm “Thành phần cơ bản của virus”.",
+            "hint": "“Vật chất di truyền” thuộc nhóm “Thành phần cơ bản của virus”.",
             "explanation": "Vật chất di truyền thuộc nhóm Thành phần cơ bản của virus; Vỏ protein thuộc nhóm Thành phần cơ bản của virus; Lục lạp thuộc nhóm Không phải thành phần bắt buộc của mọi virus; Ribosome riêng thuộc nhóm Không phải thành phần bắt buộc của mọi virus."
           }
         },
@@ -849,7 +849,7 @@
               "vật chất di truyền"
             ],
             "correctWord": "tế bào",
-            "hint": "Thử từng từ trong kho vào câu “Virus không có cấu tạo [blank] hoàn chỉnh.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “tế bào”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Không trực tiếp tiêu diệt virus"
               }
             ],
-            "hint": "Phân biệt vai trò của “Vaccine” và “Rửa tay” trước khi nối. Mô tả của “Vaccine” bắt đầu bằng “G”.",
+            "hint": "“Vaccine” tương ứng với “Giúp cơ thể hình thành đáp ứng miễn dịch”.",
             "explanation": "Vaccine: Giúp cơ thể hình thành đáp ứng miễn dịch; Rửa tay: Giảm lây truyền nhiều tác nhân gây bệnh; Kháng sinh: Không trực tiếp tiêu diệt virus."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Vaccine có thể giúp phòng một số bệnh do [blank].",
             "correctAnswer": "virus",
-            "hint": "Xét ngữ cảnh của ô trống trong “Vaccine có thể giúp phòng một số bệnh do [blank].”. Từ cần chọn bắt đầu bằng “v” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ cần điền là “virus”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Biện pháp phòng bệnh” và “Không phải biện pháp phòng bệnh” theo đặc điểm của từng mục. “Tiêm chủng theo hướng dẫn” thuộc nhóm “Biện pháp phòng bệnh”.",
+            "hint": "“Tiêm chủng theo hướng dẫn” thuộc nhóm “Biện pháp phòng bệnh”.",
             "explanation": "Tiêm chủng theo hướng dẫn thuộc nhóm Biện pháp phòng bệnh; Rửa tay thuộc nhóm Biện pháp phòng bệnh; Giữ vệ sinh môi trường thuộc nhóm Biện pháp phòng bệnh; Tự ý dùng kháng sinh cho mọi bệnh virus thuộc nhóm Không phải biện pháp phòng bệnh."
           }
         },
@@ -955,7 +955,7 @@
               "nước cất"
             ],
             "correctWord": "vật chủ",
-            "hint": "Thử từng từ trong kho vào câu “Virus chỉ nhân lên trong tế bào [blank] phù hợp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ đúng là “vật chủ”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Cần kiểm chứng trước khi chia sẻ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Cơ quan y tế” và “Thông tin có nguồn” trước khi nối. Mô tả của “Cơ quan y tế” bắt đầu bằng “N”.",
+            "hint": "“Cơ quan y tế” tương ứng với “Nguồn hướng dẫn phòng bệnh”.",
             "explanation": "Cơ quan y tế: Nguồn hướng dẫn phòng bệnh; Thông tin có nguồn: Có thể kiểm tra lại; Tin đồn: Cần kiểm chứng trước khi chia sẻ."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Thông tin phòng bệnh cần được [blank] trước khi chia sẻ.",
             "correctAnswer": "kiểm chứng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Thông tin phòng bệnh cần được [blank] trước khi chia sẻ.”. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ cần điền là “kiểm chứng”."
           }
         },
@@ -1046,7 +1046,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nguồn đáng tin cậy” và “Nguồn cần kiểm chứng” theo đặc điểm của từng mục. “Cơ quan y tế” thuộc nhóm “Nguồn đáng tin cậy”.",
+            "hint": "“Cơ quan y tế” thuộc nhóm “Nguồn đáng tin cậy”.",
             "explanation": "Cơ quan y tế thuộc nhóm Nguồn đáng tin cậy; Tài liệu chính thức thuộc nhóm Nguồn đáng tin cậy; Tin đồn không nguồn thuộc nhóm Nguồn cần kiểm chứng; Bài đăng ẩn danh thuộc nhóm Nguồn cần kiểm chứng."
           }
         },
@@ -1061,7 +1061,7 @@
               "màu nền"
             ],
             "correctWord": "nguồn",
-            "hint": "Thử từng từ trong kho vào câu “Khi truyền thông phòng bệnh, nên ghi rõ [blank] thông tin.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nguồn”."
           }
         }

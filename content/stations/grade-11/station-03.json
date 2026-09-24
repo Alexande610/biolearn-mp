@@ -52,7 +52,7 @@
                 "right": "Giao tử kết hợp tạo hợp tử"
               }
             ],
-            "hint": "Phân biệt vai trò của “Sinh sản vô tính” và “Sinh sản hữu tính” trước khi nối. Mô tả của “Sinh sản vô tính” bắt đầu bằng “K”.",
+            "hint": "“Sinh sản vô tính” tương ứng với “Không có sự kết hợp giao tử”.",
             "explanation": "Sinh sản vô tính: Không có sự kết hợp giao tử; Sinh sản hữu tính: Có sự kết hợp giao tử; Thụ tinh: Giao tử kết hợp tạo hợp tử."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Sự kết hợp giao tử đực và giao tử cái gọi là [blank].",
             "correctAnswer": "thụ tinh",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sự kết hợp giao tử đực và giao tử cái gọi là [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “thụ tinh”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Vô tính” và “Hữu tính” theo đặc điểm của từng mục. “Giâm cành” thuộc nhóm “Vô tính”.",
+            "hint": "“Giâm cành” thuộc nhóm “Vô tính”.",
             "explanation": "Giâm cành thuộc nhóm Vô tính; Nảy chồi thuộc nhóm Vô tính; Tạo hạt sau thụ tinh thuộc nhóm Hữu tính; Tinh trùng kết hợp với trứng thuộc nhóm Hữu tính."
           }
         },
@@ -107,7 +107,7 @@
               "vô sinh"
             ],
             "correctWord": "mới",
-            "hint": "Thử từng từ trong kho vào câu “Sinh sản tạo ra thế hệ [blank] của sinh vật.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “mới”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Gắn phần cành lên gốc ghép"
               }
             ],
-            "hint": "Phân biệt vai trò của “Giâm cành” và “Chiết cành” trước khi nối. Mô tả của “Giâm cành” bắt đầu bằng “D”.",
+            "hint": "“Giâm cành” tương ứng với “Dùng đoạn cành để tạo cây mới”.",
             "explanation": "Giâm cành: Dùng đoạn cành để tạo cây mới; Chiết cành: Kích thích cành ra rễ trước khi tách; Ghép cành: Gắn phần cành lên gốc ghép."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Giâm cành là phương pháp nhân giống [blank] ở thực vật.",
             "correctAnswer": "vô tính",
-            "hint": "Xét ngữ cảnh của ô trống trong “Giâm cành là phương pháp nhân giống [blank] ở thực vật.”. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ cần điền là “vô tính”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nhân giống vô tính” và “Sinh sản hữu tính” theo đặc điểm của từng mục. “Giâm cành” thuộc nhóm “Nhân giống vô tính”.",
+            "hint": "“Giâm cành” thuộc nhóm “Nhân giống vô tính”.",
             "explanation": "Giâm cành thuộc nhóm Nhân giống vô tính; Chiết cành thuộc nhóm Nhân giống vô tính; Ghép cành thuộc nhóm Nhân giống vô tính; Hạt hình thành sau thụ tinh thuộc nhóm Sinh sản hữu tính."
           }
         },
@@ -213,7 +213,7 @@
               "dịch mã"
             ],
             "correctWord": "giâm",
-            "hint": "Thử từng từ trong kho vào câu “Khi [blank] cành, người trồng lấy một đoạn cành cắm vào giá thể để ra rễ.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “g” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “g”.",
             "explanation": "Từ đúng là “giâm”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Nhân cây không qua hạt"
               }
             ],
-            "hint": "Phân biệt vai trò của “Cây mẹ khoẻ” và “Dụng cụ sạch” trước khi nối. Mô tả của “Cây mẹ khoẻ” bắt đầu bằng “N”.",
+            "hint": "“Cây mẹ khoẻ” tương ứng với “Nguồn vật liệu nhân giống phù hợp”.",
             "explanation": "Cây mẹ khoẻ: Nguồn vật liệu nhân giống phù hợp; Dụng cụ sạch: Giúp giảm nguy cơ nhiễm bệnh; Giâm cành: Nhân cây không qua hạt."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Cây tạo từ giâm cành thường mang nhiều đặc điểm giống cây [blank].",
             "correctAnswer": "mẹ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cây tạo từ giâm cành thường mang nhiều đặc điểm giống cây [blank].”. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ cần điền là “mẹ”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Lợi ích nhân giống vô tính” và “Điều cần thận trọng” theo đặc điểm của từng mục. “Nhân nhanh giống mong muốn” thuộc nhóm “Lợi ích nhân giống vô tính”.",
+            "hint": "“Nhân nhanh giống mong muốn” thuộc nhóm “Lợi ích nhân giống vô tính”.",
             "explanation": "Nhân nhanh giống mong muốn thuộc nhóm Lợi ích nhân giống vô tính; Giữ đặc điểm cây mẹ thuộc nhóm Lợi ích nhân giống vô tính; Vật liệu mang bệnh có thể truyền bệnh thuộc nhóm Điều cần thận trọng; Đa dạng di truyền có thể thấp thuộc nhóm Điều cần thận trọng."
           }
         },
@@ -319,7 +319,7 @@
               "đã chết"
             ],
             "correctWord": "khoẻ",
-            "hint": "Thử từng từ trong kho vào câu “Khi giâm cành nên chọn cây mẹ [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ đúng là “khoẻ”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Hạt phấn được đưa tới đầu nhuỵ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nhị hoa” và “Nhuỵ hoa” trước khi nối. Mô tả của “Nhị hoa” bắt đầu bằng “T”.",
+            "hint": "“Nhị hoa” tương ứng với “Tạo hạt phấn”.",
             "explanation": "Nhị hoa: Tạo hạt phấn; Nhuỵ hoa: Chứa bầu nhuỵ; Thụ phấn: Hạt phấn được đưa tới đầu nhuỵ."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Hạt phấn được chuyển tới đầu [blank] trong quá trình thụ phấn.",
             "correctAnswer": "nhuỵ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Hạt phấn được chuyển tới đầu [blank] trong quá trình thụ phấn.”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhuỵ”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Cấu trúc của nhị” và “Cấu trúc của nhuỵ” theo đặc điểm của từng mục. “Bao phấn” thuộc nhóm “Cấu trúc của nhị”.",
+            "hint": "“Bao phấn” thuộc nhóm “Cấu trúc của nhị”.",
             "explanation": "Bao phấn thuộc nhóm Cấu trúc của nhị; Chỉ nhị thuộc nhóm Cấu trúc của nhị; Đầu nhuỵ thuộc nhóm Cấu trúc của nhuỵ; Bầu nhuỵ thuộc nhóm Cấu trúc của nhuỵ."
           }
         },
@@ -425,7 +425,7 @@
               "quả"
             ],
             "correctWord": "phấn",
-            "hint": "Thử từng từ trong kho vào câu “Hạt phấn được tạo ở bao [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phấn”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Thường phát triển thành quả"
               }
             ],
-            "hint": "Phân biệt vai trò của “Thụ phấn” và “Thụ tinh” trước khi nối. Mô tả của “Thụ phấn” bắt đầu bằng “H”.",
+            "hint": "“Thụ phấn” tương ứng với “Hạt phấn đến đầu nhuỵ”.",
             "explanation": "Thụ phấn: Hạt phấn đến đầu nhuỵ; Thụ tinh: Giao tử đực kết hợp giao tử cái; Bầu nhuỵ: Thường phát triển thành quả."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Bầu nhuỵ sau thụ tinh thường phát triển thành [blank].",
             "correctAnswer": "quả",
-            "hint": "Xét ngữ cảnh của ô trống trong “Bầu nhuỵ sau thụ tinh thường phát triển thành [blank].”. Từ cần chọn bắt đầu bằng “q” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “q”.",
             "explanation": "Từ cần điền là “quả”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Trước thụ tinh” và “Sau thụ tinh” theo đặc điểm của từng mục. “Thụ phấn” thuộc nhóm “Trước thụ tinh”.",
+            "hint": "“Thụ phấn” thuộc nhóm “Trước thụ tinh”.",
             "explanation": "Thụ phấn thuộc nhóm Trước thụ tinh; Ống phấn phát triển thuộc nhóm Trước thụ tinh; Hình thành hạt thuộc nhóm Sau thụ tinh; Hình thành quả thuộc nhóm Sau thụ tinh."
           }
         },
@@ -531,7 +531,7 @@
               "cuống lá"
             ],
             "correctWord": "hạt",
-            "hint": "Thử từng từ trong kho vào câu “Noãn sau thụ tinh thường phát triển thành [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ đúng là “hạt”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Không có sự kết hợp giao tử"
               }
             ],
-            "hint": "Phân biệt vai trò của “Thuỷ tức” và “Trùng biến hình” trước khi nối. Mô tả của “Thuỷ tức” bắt đầu bằng “C”.",
+            "hint": "“Thuỷ tức” tương ứng với “Có thể nảy chồi”.",
             "explanation": "Thuỷ tức: Có thể nảy chồi; Trùng biến hình: Có thể phân đôi; Sinh sản vô tính: Không có sự kết hợp giao tử."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Thuỷ tức có thể sinh sản vô tính bằng [blank].",
             "correctAnswer": "nảy chồi",
-            "hint": "Xét ngữ cảnh của ô trống trong “Thuỷ tức có thể sinh sản vô tính bằng [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nảy chồi”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Ví dụ sinh sản vô tính” và “Ví dụ sinh sản hữu tính” theo đặc điểm của từng mục. “Thuỷ tức nảy chồi” thuộc nhóm “Ví dụ sinh sản vô tính”.",
+            "hint": "“Thuỷ tức nảy chồi” thuộc nhóm “Ví dụ sinh sản vô tính”.",
             "explanation": "Thuỷ tức nảy chồi thuộc nhóm Ví dụ sinh sản vô tính; Trùng biến hình phân đôi thuộc nhóm Ví dụ sinh sản vô tính; Tinh trùng kết hợp trứng thuộc nhóm Ví dụ sinh sản hữu tính; Cá tạo hợp tử thuộc nhóm Ví dụ sinh sản hữu tính."
           }
         },
@@ -637,7 +637,7 @@
               "không sinh sản"
             ],
             "correctWord": "vô tính",
-            "hint": "Thử từng từ trong kho vào câu “Khi thuỷ tức tạo cơ thể mới từ chồi, đó là sinh sản [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ đúng là “vô tính”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Sản phẩm trực tiếp của thụ tinh"
               }
             ],
-            "hint": "Phân biệt vai trò của “Thụ tinh ngoài” và “Thụ tinh trong” trước khi nối. Mô tả của “Thụ tinh ngoài” bắt đầu bằng “G”.",
+            "hint": "“Thụ tinh ngoài” tương ứng với “Giao tử kết hợp ngoài cơ thể con cái”.",
             "explanation": "Thụ tinh ngoài: Giao tử kết hợp ngoài cơ thể con cái; Thụ tinh trong: Giao tử kết hợp trong cơ thể con cái; Hợp tử: Sản phẩm trực tiếp của thụ tinh."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Ở thụ tinh [blank], giao tử kết hợp trong cơ thể con cái.",
             "correctAnswer": "trong",
-            "hint": "Xét ngữ cảnh của ô trống trong “Ở thụ tinh [blank], giao tử kết hợp trong cơ thể con cái.”. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ cần điền là “trong”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thụ tinh ngoài thường gặp” và “Thụ tinh trong thường gặp” theo đặc điểm của từng mục. “Nhiều loài cá” thuộc nhóm “Thụ tinh ngoài thường gặp”.",
+            "hint": "“Nhiều loài cá” thuộc nhóm “Thụ tinh ngoài thường gặp”.",
             "explanation": "Nhiều loài cá thuộc nhóm Thụ tinh ngoài thường gặp; Ếch thuộc nhóm Thụ tinh ngoài thường gặp; Chim thuộc nhóm Thụ tinh trong thường gặp; Động vật có vú thuộc nhóm Thụ tinh trong thường gặp."
           }
         },
@@ -743,7 +743,7 @@
               "mạch gỗ"
             ],
             "correctWord": "hợp tử",
-            "hint": "Thử từng từ trong kho vào câu “Sự kết hợp giao tử đực và cái tạo thành [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ đúng là “hợp tử”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Nhiều loài đẻ trứng trong nước"
               }
             ],
-            "hint": "Phân biệt vai trò của “Chim” và “Động vật có vú” trước khi nối. Mô tả của “Chim” bắt đầu bằng “Đ”.",
+            "hint": "“Chim” tương ứng với “Đẻ trứng”.",
             "explanation": "Chim: Đẻ trứng; Động vật có vú: Phần lớn đẻ con; Cá: Nhiều loài đẻ trứng trong nước."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Phần lớn động vật có vú nuôi con non bằng [blank].",
             "correctAnswer": "sữa",
-            "hint": "Xét ngữ cảnh của ô trống trong “Phần lớn động vật có vú nuôi con non bằng [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sữa”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thường đẻ trứng” và “Thường đẻ con” theo đặc điểm của từng mục. “Gà” thuộc nhóm “Thường đẻ trứng”.",
+            "hint": "“Gà” thuộc nhóm “Thường đẻ trứng”.",
             "explanation": "Gà thuộc nhóm Thường đẻ trứng; Vịt thuộc nhóm Thường đẻ trứng; Mèo thuộc nhóm Thường đẻ con; Chó thuộc nhóm Thường đẻ con."
           }
         },
@@ -849,7 +849,7 @@
               "quả"
             ],
             "correctWord": "trứng",
-            "hint": "Thử từng từ trong kho vào câu “Ở nhiều loài chim, phôi phát triển trong [blank] trước khi nở.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “trứng”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Tạo thế hệ mới"
               }
             ],
-            "hint": "Phân biệt vai trò của “Trao đổi chất” và “Sinh trưởng” trước khi nối. Mô tả của “Trao đổi chất” bắt đầu bằng “C”.",
+            "hint": "“Trao đổi chất” tương ứng với “Cung cấp vật chất và năng lượng”.",
             "explanation": "Trao đổi chất: Cung cấp vật chất và năng lượng; Sinh trưởng: Tăng kích thước cơ thể; Sinh sản: Tạo thế hệ mới."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Các quá trình sinh lí trong cơ thể có mối liên hệ [blank] với nhau.",
             "correctAnswer": "chặt chẽ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Các quá trình sinh lí trong cơ thể có mối liên hệ [blank] với nhau.”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “chặt chẽ”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Quá trình sinh lí” và “Không phải quá trình sinh lí” theo đặc điểm của từng mục. “Quang hợp” thuộc nhóm “Quá trình sinh lí”.",
+            "hint": "“Quang hợp” thuộc nhóm “Quá trình sinh lí”.",
             "explanation": "Quang hợp thuộc nhóm Quá trình sinh lí; Hô hấp thuộc nhóm Quá trình sinh lí; Sinh sản thuộc nhóm Quá trình sinh lí; Tên gọi của chậu cây thuộc nhóm Không phải quá trình sinh lí."
           }
         },
@@ -955,7 +955,7 @@
               "bất biến"
             ],
             "correctWord": "thống nhất",
-            "hint": "Thử từng từ trong kho vào câu “Cơ thể sinh vật hoạt động như một thể [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “thống nhất”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Ứng dụng kiến thức cơ thể người"
               }
             ],
-            "hint": "Phân biệt vai trò của “Trồng trọt” và “Chăn nuôi” trước khi nối. Mô tả của “Trồng trọt” bắt đầu bằng “Ứ”.",
+            "hint": "“Trồng trọt” tương ứng với “Ứng dụng sinh lí thực vật”.",
             "explanation": "Trồng trọt: Ứng dụng sinh lí thực vật; Chăn nuôi: Ứng dụng sinh lí động vật; Y học: Ứng dụng kiến thức cơ thể người."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Ngành [blank] ứng dụng kiến thức cơ thể người để chăm sóc sức khoẻ.",
             "correctAnswer": "y học",
-            "hint": "Xét ngữ cảnh của ô trống trong “Ngành [blank] ứng dụng kiến thức cơ thể người để chăm sóc sức khoẻ.”. Từ cần chọn bắt đầu bằng “y” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “y”.",
             "explanation": "Từ cần điền là “y học”."
           }
         },
@@ -1046,7 +1046,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Nghề liên quan sinh học cơ thể” và “Nghề không trực tiếp thuộc lĩnh vực này” theo đặc điểm của từng mục. “Trồng trọt” thuộc nhóm “Nghề liên quan sinh học cơ thể”.",
+            "hint": "“Trồng trọt” thuộc nhóm “Nghề liên quan sinh học cơ thể”.",
             "explanation": "Trồng trọt thuộc nhóm Nghề liên quan sinh học cơ thể; Chăn nuôi thuộc nhóm Nghề liên quan sinh học cơ thể; Y học thuộc nhóm Nghề liên quan sinh học cơ thể; Thiết kế mạch điện thuộc nhóm Nghề không trực tiếp thuộc lĩnh vực này."
           }
         },
@@ -1061,7 +1061,7 @@
               "cơ khí ô tô"
             ],
             "correctWord": "trồng trọt",
-            "hint": "Thử từng từ trong kho vào câu “Kiến thức sinh lí cây trồng được ứng dụng nhiều trong [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “trồng trọt”."
           }
         }

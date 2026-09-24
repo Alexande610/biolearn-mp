@@ -1,13 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 import { isPlaceholderStationHint } from '../src/utils/stationHints.js';
 import { publicAndAnswer } from '../src/utils/stationRelease.js';
 
 const literal = (value) => `'${String(value).replaceAll("'", "''")}'`;
+const selectedVersion = process.argv[2] || null;
+const output = process.argv[3] || 'generated/station-releases/station-hints-review.sql';
 const rows = [];
 for (const gradeDir of fs.readdirSync('content/stations').sort()) {
   for (const name of fs.readdirSync(path.join('content/stations', gradeDir)).filter((entry) => entry.endsWith('.json')).sort()) {
     const document = JSON.parse(fs.readFileSync(path.join('content/stations', gradeDir, name), 'utf8'));
+    if (selectedVersion && document.releaseVersion !== selectedVersion) continue;
     for (const stage of document.stages) {
       for (const game of stage.games) {
         if (game.type === 'quiz') continue;
@@ -19,7 +23,8 @@ for (const gradeDir of fs.readdirSync('content/stations').sort()) {
     }
   }
 }
-if (rows.length !== 840) throw new Error(`Cần đúng 840 gợi ý, hiện có ${rows.length}.`);
+const expectedCount = selectedVersion ? 40 : 840;
+if (rows.length !== expectedCount) throw new Error(`Cần đúng ${expectedCount} gợi ý, hiện có ${rows.length}.`);
 
 const sql = `-- Hint-only review. Run after the V2 base migration. Do not auto-publish.
 -- Draft/review releases: replace only unchanged placeholder hints.
@@ -105,6 +110,5 @@ $station_hints$;
 commit;
 `;
 
-const output = 'generated/station-releases/station-hints-review.sql';
 fs.writeFileSync(output, sql);
 console.log(`Đã tạo ${output}: ${rows.length} gợi ý, không tự phát hành.`);

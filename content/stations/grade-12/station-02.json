@@ -52,7 +52,7 @@
                 "right": "Liên quan gene ngoài nhiễm sắc thể trong nhân"
               }
             ],
-            "hint": "Phân biệt vai trò của “Ty thể” và “Lục lạp” trước khi nối. Mô tả của “Ty thể” bắt đầu bằng “C”.",
+            "hint": "“Ty thể” tương ứng với “Có DNA riêng”.",
             "explanation": "Ty thể: Có DNA riêng; Lục lạp: Có DNA riêng ở tế bào quang hợp; Di truyền ngoài nhân: Liên quan gene ngoài nhiễm sắc thể trong nhân."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Ty thể và lục lạp có thể mang gene ngoài [blank].",
             "correctAnswer": "nhân",
-            "hint": "Xét ngữ cảnh của ô trống trong “Ty thể và lục lạp có thể mang gene ngoài [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ cần điền là “nhân”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có thể chứa DNA ngoài nhân” và “Không phải bào quan chứa DNA ngoài nhân thông thường” theo đặc điểm của từng mục. “Ty thể” thuộc nhóm “Có thể chứa DNA ngoài nhân”.",
+            "hint": "“Ty thể” thuộc nhóm “Có thể chứa DNA ngoài nhân”.",
             "explanation": "Ty thể thuộc nhóm Có thể chứa DNA ngoài nhân; Lục lạp thuộc nhóm Có thể chứa DNA ngoài nhân; Ribosome tự do thuộc nhóm Không phải bào quan chứa DNA ngoài nhân thông thường; Bộ máy Golgi thuộc nhóm Không phải bào quan chứa DNA ngoài nhân thông thường."
           }
         },
@@ -107,7 +107,7 @@
               "hệ sinh thái"
             ],
             "correctWord": "nhân",
-            "hint": "Thử từng từ trong kho vào câu “Di truyền gene ở ty thể là một ví dụ của di truyền ngoài [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “n”.",
             "explanation": "Từ đúng là “nhân”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Đặc điểm được biểu hiện"
               }
             ],
-            "hint": "Phân biệt vai trò của “Kiểu gene” và “Môi trường” trước khi nối. Mô tả của “Kiểu gene” bắt đầu bằng “T”.",
+            "hint": "“Kiểu gene” tương ứng với “Thông tin di truyền của cá thể”.",
             "explanation": "Kiểu gene: Thông tin di truyền của cá thể; Môi trường: Các điều kiện tác động lên biểu hiện; Kiểu hình: Đặc điểm được biểu hiện."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Kiểu hình là kết quả tương tác giữa kiểu gene và [blank].",
             "correctAnswer": "môi trường",
-            "hint": "Xét ngữ cảnh của ô trống trong “Kiểu hình là kết quả tương tác giữa kiểu gene và [blank].”. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ cần điền là “môi trường”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Yếu tố có thể tác động kiểu hình” và “Không phải yếu tố sinh học của kiểu hình” theo đặc điểm của từng mục. “Kiểu gene” thuộc nhóm “Yếu tố có thể tác động kiểu hình”.",
+            "hint": "“Kiểu gene” thuộc nhóm “Yếu tố có thể tác động kiểu hình”.",
             "explanation": "Kiểu gene thuộc nhóm Yếu tố có thể tác động kiểu hình; Dinh dưỡng thuộc nhóm Yếu tố có thể tác động kiểu hình; Nhiệt độ thuộc nhóm Yếu tố có thể tác động kiểu hình; Tên nhãn chậu thuộc nhóm Không phải yếu tố sinh học của kiểu hình."
           }
         },
@@ -213,7 +213,7 @@
               "màu bút"
             ],
             "correctWord": "môi trường",
-            "hint": "Thử từng từ trong kho vào câu “Cùng kiểu gene có thể biểu hiện khác nhau trong các điều kiện [blank] khác nhau.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “môi trường”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Biến đổi vật chất di truyền"
               }
             ],
-            "hint": "Phân biệt vai trò của “Thường biến” và “Giới hạn phản ứng” trước khi nối. Mô tả của “Thường biến” bắt đầu bằng “B”.",
+            "hint": "“Thường biến” tương ứng với “Biến đổi kiểu hình do môi trường”.",
             "explanation": "Thường biến: Biến đổi kiểu hình do môi trường; Giới hạn phản ứng: Khoảng biểu hiện kiểu hình của một kiểu gene; Đột biến: Biến đổi vật chất di truyền."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Thường biến không nhất thiết làm thay đổi trình tự [blank].",
             "correctAnswer": "DNA",
-            "hint": "Xét ngữ cảnh của ô trống trong “Thường biến không nhất thiết làm thay đổi trình tự [blank].”. Từ cần chọn bắt đầu bằng “D” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “D”.",
             "explanation": "Từ cần điền là “DNA”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có thể là thường biến” và “Có thể là đột biến” theo đặc điểm của từng mục. “Cây cùng giống cao khác nhau do dinh dưỡng” thuộc nhóm “Có thể là thường biến”.",
+            "hint": "“Cây cùng giống cao khác nhau do dinh dưỡng” thuộc nhóm “Có thể là thường biến”.",
             "explanation": "Cây cùng giống cao khác nhau do dinh dưỡng thuộc nhóm Có thể là thường biến; Lá lớn hơn khi đủ nước thuộc nhóm Có thể là thường biến; Thay thế một cặp nucleotide thuộc nhóm Có thể là đột biến; Mất đoạn nhiễm sắc thể thuộc nhóm Có thể là đột biến."
           }
         },
@@ -319,7 +319,7 @@
               "tên gene"
             ],
             "correctWord": "kiểu hình",
-            "hint": "Thử từng từ trong kho vào câu “Môi trường có thể làm thay đổi [blank] mà không nhất thiết đổi kiểu gene.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “k”.",
             "explanation": "Từ đúng là “kiểu hình”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Đánh giá hiệu quả ở điều kiện khác nhau"
               }
             ],
-            "hint": "Phân biệt vai trò của “Giống cây” và “Môi trường canh tác” trước khi nối. Mô tả của “Giống cây” bắt đầu bằng “M”.",
+            "hint": "“Giống cây” tương ứng với “Mang đặc điểm di truyền nhất định”.",
             "explanation": "Giống cây: Mang đặc điểm di truyền nhất định; Môi trường canh tác: Ảnh hưởng biểu hiện kiểu hình; Thử nghiệm giống: Đánh giá hiệu quả ở điều kiện khác nhau."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Năng suất cây trồng chịu ảnh hưởng của giống và điều kiện [blank].",
             "correctAnswer": "canh tác",
-            "hint": "Xét ngữ cảnh của ô trống trong “Năng suất cây trồng chịu ảnh hưởng của giống và điều kiện [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “canh tác”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đánh giá giống hợp lí” và “Đánh giá thiếu căn cứ” theo đặc điểm của từng mục. “Thử ở nhiều điều kiện” thuộc nhóm “Đánh giá giống hợp lí”.",
+            "hint": "“Thử ở nhiều điều kiện” thuộc nhóm “Đánh giá giống hợp lí”.",
             "explanation": "Thử ở nhiều điều kiện thuộc nhóm Đánh giá giống hợp lí; Đo năng suất thuộc nhóm Đánh giá giống hợp lí; Ghi điều kiện canh tác thuộc nhóm Đánh giá giống hợp lí; Chỉ chọn theo màu nhãn chậu thuộc nhóm Đánh giá thiếu căn cứ."
           }
         },
@@ -425,7 +425,7 @@
               "tên người trồng"
             ],
             "correctWord": "môi trường",
-            "hint": "Thử từng từ trong kho vào câu “Chọn giống cần kết hợp đặc điểm di truyền với điều kiện [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “m”.",
             "explanation": "Từ đúng là “môi trường”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Tập hợp cá thể cùng loài trong khu vực"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tần số allele A” và “Tần số kiểu gene” trước khi nối. Mô tả của “Tần số allele A” bắt đầu bằng “T”.",
+            "hint": "“Tần số allele A” tương ứng với “Tỉ lệ bản sao allele A trong quần thể”.",
             "explanation": "Tần số allele A: Tỉ lệ bản sao allele A trong quần thể; Tần số kiểu gene: Tỉ lệ cá thể mang một kiểu gene; Quần thể: Tập hợp cá thể cùng loài trong khu vực."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Tần số hai allele A và a của một gene hai allele có tổng bằng [blank].",
             "correctAnswer": "1",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tần số hai allele A và a của một gene hai allele có tổng bằng [blank].”. Từ cần chọn bắt đầu bằng “1” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “1”.",
             "explanation": "Từ cần điền là “1”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Đại lượng di truyền quần thể” và “Không phải đại lượng di truyền quần thể” theo đặc điểm của từng mục. “Tần số allele A” thuộc nhóm “Đại lượng di truyền quần thể”.",
+            "hint": "“Tần số allele A” thuộc nhóm “Đại lượng di truyền quần thể”.",
             "explanation": "Tần số allele A thuộc nhóm Đại lượng di truyền quần thể; Tần số kiểu gene dị hợp Aa thuộc nhóm Đại lượng di truyền quần thể; Tần số kiểu gene đồng hợp lặn aa thuộc nhóm Đại lượng di truyền quần thể; Màu bìa sách thuộc nhóm Không phải đại lượng di truyền quần thể."
           }
         },
@@ -531,7 +531,7 @@
               "0"
             ],
             "correctWord": "1",
-            "hint": "Thử từng từ trong kho vào câu “Nếu chỉ có hai allele A và a thì p + q = [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “1” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “1”.",
             "explanation": "Từ đúng là “1”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Tần số đồng hợp lặn"
               }
             ],
-            "hint": "Phân biệt vai trò của “p²” và “2pq” trước khi nối. Mô tả của “p²” bắt đầu bằng “T”.",
+            "hint": "“p²” tương ứng với “Tần số đồng hợp trội”.",
             "explanation": "p²: Tần số đồng hợp trội; 2pq: Tần số dị hợp; q²: Tần số đồng hợp lặn."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Trong biểu thức p² + 2pq + q² = 1, tần số dị hợp là [blank].",
             "correctAnswer": "2pq",
-            "hint": "Xét ngữ cảnh của ô trống trong “Trong biểu thức p² + 2pq + q² = 1, tần số dị hợp là [blank].”. Từ cần chọn bắt đầu bằng “2” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “2”.",
             "explanation": "Từ cần điền là “2pq”."
           }
         },
@@ -618,7 +618,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Kiểu gene đồng hợp” và “Kiểu gene dị hợp” theo đặc điểm của từng mục. “Đồng hợp trội AA” thuộc nhóm “Kiểu gene đồng hợp”.",
+            "hint": "“Đồng hợp trội AA” thuộc nhóm “Kiểu gene đồng hợp”.",
             "explanation": "Đồng hợp trội AA thuộc nhóm Kiểu gene đồng hợp; Đồng hợp lặn aa thuộc nhóm Kiểu gene đồng hợp; Dị hợp Aa thuộc nhóm Kiểu gene dị hợp."
           }
         },
@@ -633,7 +633,7 @@
               "p²"
             ],
             "correctWord": "q²",
-            "hint": "Thử từng từ trong kho vào câu “Ở mô hình hai allele, tần số aa tại cân bằng là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “q” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “q”.",
             "explanation": "Từ đúng là “q²”."
           }
         }
@@ -684,7 +684,7 @@
                 "right": "Có thể so sánh sự tương đồng phân tử"
               }
             ],
-            "hint": "Phân biệt vai trò của “Hoá thạch” và “Cơ quan tương đồng” trước khi nối. Mô tả của “Hoá thạch” bắt đầu bằng “D”.",
+            "hint": "“Hoá thạch” tương ứng với “Dấu tích sinh vật cổ”.",
             "explanation": "Hoá thạch: Dấu tích sinh vật cổ; Cơ quan tương đồng: Có nguồn gốc chung về cấu trúc; DNA: Có thể so sánh sự tương đồng phân tử."
           }
         },
@@ -694,7 +694,7 @@
           "data": {
             "sentence": "Dấu tích sinh vật cổ được bảo tồn là [blank].",
             "correctAnswer": "hoá thạch",
-            "hint": "Xét ngữ cảnh của ô trống trong “Dấu tích sinh vật cổ được bảo tồn là [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ cần điền là “hoá thạch”."
           }
         },
@@ -724,7 +724,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Bằng chứng tiến hoá” và “Không phải bằng chứng tiến hoá” theo đặc điểm của từng mục. “Hoá thạch” thuộc nhóm “Bằng chứng tiến hoá”.",
+            "hint": "“Hoá thạch” thuộc nhóm “Bằng chứng tiến hoá”.",
             "explanation": "Hoá thạch thuộc nhóm Bằng chứng tiến hoá; Cơ quan tương đồng thuộc nhóm Bằng chứng tiến hoá; Trình tự DNA thuộc nhóm Bằng chứng tiến hoá; Tin đồn không dữ liệu thuộc nhóm Không phải bằng chứng tiến hoá."
           }
         },
@@ -739,7 +739,7 @@
               "ngẫu nhiên luôn luôn"
             ],
             "correctWord": "chung",
-            "hint": "Thử từng từ trong kho vào câu “Cơ quan tương đồng là bằng chứng về nguồn gốc [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “chung”."
           }
         }
@@ -790,7 +790,7 @@
                 "right": "Sự phù hợp tương đối với môi trường"
               }
             ],
-            "hint": "Phân biệt vai trò của “Biến dị” và “Chọn lọc tự nhiên” trước khi nối. Mô tả của “Biến dị” bắt đầu bằng “T”.",
+            "hint": "“Biến dị” tương ứng với “Tạo khác biệt giữa cá thể”.",
             "explanation": "Biến dị: Tạo khác biệt giữa cá thể; Chọn lọc tự nhiên: Tác động đến sống sót và sinh sản; Thích nghi: Sự phù hợp tương đối với môi trường."
           }
         },
@@ -800,7 +800,7 @@
           "data": {
             "sentence": "Chọn lọc tự nhiên tác động qua khả năng sống sót và [blank].",
             "correctAnswer": "sinh sản",
-            "hint": "Xét ngữ cảnh của ô trống trong “Chọn lọc tự nhiên tác động qua khả năng sống sót và [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sinh sản”."
           }
         },
@@ -830,7 +830,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có thể được chọn lọc tác động qua thế hệ” và “Không truyền cho đời sau” theo đặc điểm của từng mục. “Biến dị di truyền” thuộc nhóm “Có thể được chọn lọc tác động qua thế hệ”.",
+            "hint": "“Biến dị di truyền” thuộc nhóm “Có thể được chọn lọc tác động qua thế hệ”.",
             "explanation": "Biến dị di truyền thuộc nhóm Có thể được chọn lọc tác động qua thế hệ; Allele có lợi trong môi trường thuộc nhóm Có thể được chọn lọc tác động qua thế hệ; Vết bẩn tạm trên da thuộc nhóm Không truyền cho đời sau; Kiểu tóc mới cắt thuộc nhóm Không truyền cho đời sau."
           }
         },
@@ -845,7 +845,7 @@
               "quang hợp luôn luôn"
             ],
             "correctWord": "thích nghi",
-            "hint": "Thử từng từ trong kho vào câu “Môi trường quyết định đặc điểm nào có lợi cho sự [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “thích nghi”."
           }
         }
@@ -896,7 +896,7 @@
                 "right": "Trao đổi allele giữa các quần thể"
               }
             ],
-            "hint": "Phân biệt vai trò của “Đột biến” và “Phiêu bạt di truyền” trước khi nối. Mô tả của “Đột biến” bắt đầu bằng “T”.",
+            "hint": "“Đột biến” tương ứng với “Tạo allele mới”.",
             "explanation": "Đột biến: Tạo allele mới; Phiêu bạt di truyền: Thay đổi tần số allele do yếu tố ngẫu nhiên; Dòng gene: Trao đổi allele giữa các quần thể."
           }
         },
@@ -906,7 +906,7 @@
           "data": {
             "sentence": "Sự thay đổi tần số allele do ngẫu nhiên gọi là phiêu bạt [blank].",
             "correctAnswer": "di truyền",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sự thay đổi tần số allele do ngẫu nhiên gọi là phiêu bạt [blank].”. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “d”.",
             "explanation": "Từ cần điền là “di truyền”."
           }
         },
@@ -936,7 +936,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Có thể đổi tần số allele” và “Không phải cơ chế tiến hoá” theo đặc điểm của từng mục. “Chọn lọc tự nhiên” thuộc nhóm “Có thể đổi tần số allele”.",
+            "hint": "“Chọn lọc tự nhiên” thuộc nhóm “Có thể đổi tần số allele”.",
             "explanation": "Chọn lọc tự nhiên thuộc nhóm Có thể đổi tần số allele; Phiêu bạt di truyền thuộc nhóm Có thể đổi tần số allele; Dòng gene thuộc nhóm Có thể đổi tần số allele; Lá cây lay động vì gió thuộc nhóm Không phải cơ chế tiến hoá."
           }
         },
@@ -951,7 +951,7 @@
               "chỉ đổi màu"
             ],
             "correctWord": "di cư",
-            "hint": "Thử từng từ trong kho vào câu “Dòng gene có thể xuất hiện khi cá thể [blank] giữa các quần thể và sinh sản.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “d”.",
             "explanation": "Từ đúng là “di cư”."
           }
         }
@@ -1002,7 +1002,7 @@
                 "right": "Sơ đồ giả thuyết quan hệ họ hàng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nút phân nhánh” và “Nhánh” trước khi nối. Mô tả của “Nút phân nhánh” bắt đầu bằng “T”.",
+            "hint": "“Nút phân nhánh” tương ứng với “Tổ tiên chung của các nhánh”.",
             "explanation": "Nút phân nhánh: Tổ tiên chung của các nhánh; Nhánh: Một dòng tiến hoá; Cây phát sinh chủng loại: Sơ đồ giả thuyết quan hệ họ hàng."
           }
         },
@@ -1012,7 +1012,7 @@
           "data": {
             "sentence": "Cây phát sinh chủng loại thể hiện quan hệ [blank] giữa các nhóm sinh vật.",
             "correctAnswer": "họ hàng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cây phát sinh chủng loại thể hiện quan hệ [blank] giữa các nhóm sinh vật.”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ cần điền là “họ hàng”."
           }
         },
@@ -1042,7 +1042,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thông tin cây phát sinh có thể thể hiện” và “Không đọc trực tiếp từ cây phát sinh” theo đặc điểm của từng mục. “Quan hệ họ hàng” thuộc nhóm “Thông tin cây phát sinh có thể thể hiện”.",
+            "hint": "“Quan hệ họ hàng” thuộc nhóm “Thông tin cây phát sinh có thể thể hiện”.",
             "explanation": "Quan hệ họ hàng thuộc nhóm Thông tin cây phát sinh có thể thể hiện; Tổ tiên chung thuộc nhóm Thông tin cây phát sinh có thể thể hiện; Nhánh tiến hoá thuộc nhóm Thông tin cây phát sinh có thể thể hiện; Khối lượng mỗi cá thể hiện sống thuộc nhóm Không đọc trực tiếp từ cây phát sinh."
           }
         },
@@ -1057,7 +1057,7 @@
               "không có"
             ],
             "correctWord": "chung",
-            "hint": "Thử từng từ trong kho vào câu “Hai nhánh gần nhau trên cây có thể chia sẻ tổ tiên [blank] gần.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “chung”."
           }
         }

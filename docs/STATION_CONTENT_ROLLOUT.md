@@ -113,6 +113,14 @@ vẫn trùng bản nguồn; nó không ghi đè câu đã sửa trên admin. Rel
 phát hành từng trạm, sau khi thử đủ năm trò. SQL này không tự phát hành và chạy
 lại không tạo bản sao trùng.
 
+Thí điểm trước với `generated/station-releases/g6-st1-hints-review.sql`: chỉ
+chứa 40 gợi ý của `g6_st1`. Trò nối và phân loại cho một ví dụ đúng; trò điền
+và chọn từ cho số tiếng cùng chữ đầu, giống phong cách gợi ý bảng cũ. Nếu trạm
+đang `published`, SQL chỉ tạo bản `review`; kiểm tra cả 10 ải trước khi phát
+hành. Khi thí điểm đạt, tạo SQL riêng cho mỗi trạm tiếp theo bằng
+`node scripts/build-station-hint-review-sql.js <releaseVersion> <output.sql>`.
+Không chạy bản tổng 840 gợi ý trước khi duyệt đủ nội dung.
+
 1. Chạy `npm test`, `npm run validate:stations`, lint riêng tệp thay đổi và `npm run build`.
 2. Chạy `supabase_station_content_v2.sql`. Migration này chỉ thêm bảng/hàm/chính sách, không xóa bảng `station_questions` và không đổi tiến trình cũ.
 3. Tạo SQL nháp từ JSON bằng `npm run build:station-release -- <file.json> <output.sql>`.

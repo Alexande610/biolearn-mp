@@ -52,7 +52,7 @@
                 "right": "Khả năng tiếp nhận và đáp ứng kích thích"
               }
             ],
-            "hint": "Phân biệt vai trò của “Ánh sáng” và “Ngọn cây hướng sáng” trước khi nối. Mô tả của “Ánh sáng” bắt đầu bằng “K”.",
+            "hint": "“Ánh sáng” tương ứng với “Kích thích từ môi trường”.",
             "explanation": "Ánh sáng: Kích thích từ môi trường; Ngọn cây hướng sáng: Phản ứng của cây; Cảm ứng: Khả năng tiếp nhận và đáp ứng kích thích."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Khả năng sinh vật tiếp nhận và phản ứng với kích thích gọi là [blank].",
             "correctAnswer": "cảm ứng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Khả năng sinh vật tiếp nhận và phản ứng với kích thích gọi là [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “cảm ứng”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Biểu hiện cảm ứng” và “Không phải biểu hiện cảm ứng” theo đặc điểm của từng mục. “Lá cây trinh nữ cụp khi chạm” thuộc nhóm “Biểu hiện cảm ứng”.",
+            "hint": "“Lá cây trinh nữ cụp khi chạm” thuộc nhóm “Biểu hiện cảm ứng”.",
             "explanation": "Lá cây trinh nữ cụp khi chạm thuộc nhóm Biểu hiện cảm ứng; Ngọn cây hướng sáng thuộc nhóm Biểu hiện cảm ứng; Động vật chạy trốn kẻ thù thuộc nhóm Biểu hiện cảm ứng; Cây có rễ và thân thuộc nhóm Không phải biểu hiện cảm ứng."
           }
         },
@@ -107,7 +107,7 @@
               "chất khoáng"
             ],
             "correctWord": "phản ứng",
-            "hint": "Thử từng từ trong kho vào câu “Khi có kích thích từ môi trường, sinh vật có thể đưa ra [blank] phù hợp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phản ứng”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Có thể hình thành tập tính mới"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tập tính bẩm sinh” và “Tập tính học được” trước khi nối. Mô tả của “Tập tính bẩm sinh” bắt đầu bằng “C”.",
+            "hint": "“Tập tính bẩm sinh” tương ứng với “Có sẵn từ khi sinh ra”.",
             "explanation": "Tập tính bẩm sinh: Có sẵn từ khi sinh ra; Tập tính học được: Hình thành qua học tập và kinh nghiệm; Huấn luyện: Có thể hình thành tập tính mới."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Tập tính hình thành trong quá trình sống nhờ học tập gọi là tập tính [blank].",
             "correctAnswer": "học được",
-            "hint": "Xét ngữ cảnh của ô trống trong “Tập tính hình thành trong quá trình sống nhờ học tập gọi là tập tính [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ cần điền là “học được”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Tập tính bẩm sinh” và “Tập tính học được” theo đặc điểm của từng mục. “Nhện giăng tơ” thuộc nhóm “Tập tính bẩm sinh”.",
+            "hint": "“Nhện giăng tơ” thuộc nhóm “Tập tính bẩm sinh”.",
             "explanation": "Nhện giăng tơ thuộc nhóm Tập tính bẩm sinh; Trẻ sơ sinh bú mẹ thuộc nhóm Tập tính bẩm sinh; Chó nghe lệnh sau huấn luyện thuộc nhóm Tập tính học được; Khỉ dùng công cụ sau khi học thuộc nhóm Tập tính học được."
           }
         },
@@ -213,7 +213,7 @@
               "tạm thời"
             ],
             "correctWord": "bẩm sinh",
-            "hint": "Thử từng từ trong kho vào câu “Tập tính có sẵn từ khi sinh ra được gọi là tập tính [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “b”.",
             "explanation": "Từ đúng là “bẩm sinh”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Rễ có thể phát triển về phía nguồn nước"
               }
             ],
-            "hint": "Phân biệt vai trò của “Tính hướng sáng” và “Huấn luyện thú nuôi” trước khi nối. Mô tả của “Tính hướng sáng” bắt đầu bằng “C”.",
+            "hint": "“Tính hướng sáng” tương ứng với “Có thể làm cây nghiêng về phía sáng”.",
             "explanation": "Tính hướng sáng: Có thể làm cây nghiêng về phía sáng; Huấn luyện thú nuôi: Dựa vào khả năng hình thành tập tính học được; Tính hướng nước của rễ: Rễ có thể phát triển về phía nguồn nước."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Thân cây thường sinh trưởng hướng về nguồn [blank].",
             "correctAnswer": "ánh sáng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Thân cây thường sinh trưởng hướng về nguồn [blank].”. Từ cần chọn bắt đầu bằng “á” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “á”.",
             "explanation": "Từ cần điền là “ánh sáng”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Vận dụng cảm ứng hợp lí” và “Không phù hợp khi chăm sóc sinh vật” theo đặc điểm của từng mục. “Đặt cây nơi có ánh sáng phù hợp” thuộc nhóm “Vận dụng cảm ứng hợp lí”.",
+            "hint": "“Đặt cây nơi có ánh sáng phù hợp” thuộc nhóm “Vận dụng cảm ứng hợp lí”.",
             "explanation": "Đặt cây nơi có ánh sáng phù hợp thuộc nhóm Vận dụng cảm ứng hợp lí; Xoay chậu cây định kì thuộc nhóm Vận dụng cảm ứng hợp lí; Huấn luyện động vật bằng cách phù hợp thuộc nhóm Vận dụng cảm ứng hợp lí; Để cây thiếu sáng kéo dài thuộc nhóm Không phù hợp khi chăm sóc sinh vật."
           }
         },
@@ -319,7 +319,7 @@
               "trọng lực"
             ],
             "correctWord": "sáng",
-            "hint": "Thử từng từ trong kho vào câu “Thân cây mọc hướng về phía nguồn sáng là hiện tượng hướng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ đúng là “sáng”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Giúp so sánh kết quả"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nguồn sáng một phía” và “Đo hướng mọc của thân” trước khi nối. Mô tả của “Nguồn sáng một phía” bắt đầu bằng “T”.",
+            "hint": "“Nguồn sáng một phía” tương ứng với “Tạo kích thích có hướng”.",
             "explanation": "Nguồn sáng một phía: Tạo kích thích có hướng; Đo hướng mọc của thân: Ghi nhận phản ứng; Mẫu đối chứng: Giúp so sánh kết quả."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Khi khảo sát cảm ứng, cần ghi chép kết quả [blank] được.",
             "correctAnswer": "quan sát",
-            "hint": "Xét ngữ cảnh của ô trống trong “Khi khảo sát cảm ứng, cần ghi chép kết quả [blank] được.”. Từ cần chọn bắt đầu bằng “q” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “q”.",
             "explanation": "Từ cần điền là “quan sát”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Thực hành có kiểm soát” và “Thực hành khó kết luận” theo đặc điểm của từng mục. “Giữ lượng nước tương tự” thuộc nhóm “Thực hành có kiểm soát”.",
+            "hint": "“Giữ lượng nước tương tự” thuộc nhóm “Thực hành có kiểm soát”.",
             "explanation": "Giữ lượng nước tương tự thuộc nhóm Thực hành có kiểm soát; Ghi chép hướng mọc thuộc nhóm Thực hành có kiểm soát; So sánh với mẫu đối chứng thuộc nhóm Thực hành có kiểm soát; Thay đổi ánh sáng và nước cùng lúc thuộc nhóm Thực hành khó kết luận."
           }
         },
@@ -425,7 +425,7 @@
               "ngẫu nhiên"
             ],
             "correctWord": "giống nhau",
-            "hint": "Thử từng từ trong kho vào câu “Để so sánh ảnh hưởng ánh sáng, cần giữ các điều kiện khác tương đối [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “g” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “g”.",
             "explanation": "Từ đúng là “giống nhau”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Một biểu hiện của phát triển"
               }
             ],
-            "hint": "Phân biệt vai trò của “Sinh trưởng” và “Phát triển” trước khi nối. Mô tả của “Sinh trưởng” bắt đầu bằng “T”.",
+            "hint": "“Sinh trưởng” tương ứng với “Tăng kích thước và khối lượng”.",
             "explanation": "Sinh trưởng: Tăng kích thước và khối lượng; Phát triển: Biến đổi về hình thái và chức năng; Cây ra hoa: Một biểu hiện của phát triển."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Cơ thể tăng kích thước và khối lượng là biểu hiện của [blank].",
             "correctAnswer": "sinh trưởng",
-            "hint": "Xét ngữ cảnh của ô trống trong “Cơ thể tăng kích thước và khối lượng là biểu hiện của [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sinh trưởng”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Biểu hiện sinh trưởng” và “Biểu hiện phát triển” theo đặc điểm của từng mục. “Cây cao thêm” thuộc nhóm “Biểu hiện sinh trưởng”.",
+            "hint": "“Cây cao thêm” thuộc nhóm “Biểu hiện sinh trưởng”.",
             "explanation": "Cây cao thêm thuộc nhóm Biểu hiện sinh trưởng; Khối lượng cơ thể tăng thuộc nhóm Biểu hiện sinh trưởng; Cây ra hoa thuộc nhóm Biểu hiện phát triển; Nòng nọc biến thành ếch thuộc nhóm Biểu hiện phát triển."
           }
         },
@@ -531,7 +531,7 @@
               "bài tiết"
             ],
             "correctWord": "phát triển",
-            "hint": "Thử từng từ trong kho vào câu “Sự biến đổi về hình thái và chức năng trong vòng đời gọi là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phát triển”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Cung cấp vật chất cho sinh trưởng"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nước” và “Nhiệt độ phù hợp” trước khi nối. Mô tả của “Nước” bắt đầu bằng “C”.",
+            "hint": "“Nước” tương ứng với “Cần cho nhiều quá trình sống”.",
             "explanation": "Nước: Cần cho nhiều quá trình sống; Nhiệt độ phù hợp: Giúp hoạt động sống diễn ra bình thường; Chất dinh dưỡng: Cung cấp vật chất cho sinh trưởng."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Sinh trưởng và phát triển của sinh vật chịu ảnh hưởng của môi trường [blank].",
             "correctAnswer": "sống",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sinh trưởng và phát triển của sinh vật chịu ảnh hưởng của môi trường [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ cần điền là “sống”."
           }
         },
@@ -626,7 +626,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Điều kiện thuận lợi cho cây non” và “Điều kiện bất lợi cho cây non” theo đặc điểm của từng mục. “Nước vừa đủ” thuộc nhóm “Điều kiện thuận lợi cho cây non”.",
+            "hint": "“Nước vừa đủ” thuộc nhóm “Điều kiện thuận lợi cho cây non”.",
             "explanation": "Nước vừa đủ thuộc nhóm Điều kiện thuận lợi cho cây non; Ánh sáng phù hợp thuộc nhóm Điều kiện thuận lợi cho cây non; Chất dinh dưỡng phù hợp thuộc nhóm Điều kiện thuận lợi cho cây non; Ngập úng kéo dài thuộc nhóm Điều kiện bất lợi cho cây non; Thiếu nước kéo dài thuộc nhóm Điều kiện bất lợi cho cây non."
           }
         },
@@ -641,7 +641,7 @@
               "thụ tinh"
             ],
             "correctWord": "sinh trưởng",
-            "hint": "Thử từng từ trong kho vào câu “Khi theo dõi cây non, đo chiều cao theo thời gian giúp nhận biết sự [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “s”.",
             "explanation": "Từ đúng là “sinh trưởng”."
           }
         }
@@ -692,7 +692,7 @@
                 "right": "Tạo cây mới từ đoạn cành"
               }
             ],
-            "hint": "Phân biệt vai trò của “Phân đôi” và “Nảy chồi” trước khi nối. Mô tả của “Phân đôi” bắt đầu bằng “M”.",
+            "hint": "“Phân đôi” tương ứng với “Một cơ thể tạo thành hai cơ thể”.",
             "explanation": "Phân đôi: Một cơ thể tạo thành hai cơ thể; Nảy chồi: Cơ thể mới hình thành từ chồi; Giâm cành: Tạo cây mới từ đoạn cành."
           }
         },
@@ -702,7 +702,7 @@
           "data": {
             "sentence": "Giâm cành là một hình thức sinh sản [blank] ở thực vật.",
             "correctAnswer": "vô tính",
-            "hint": "Xét ngữ cảnh của ô trống trong “Giâm cành là một hình thức sinh sản [blank] ở thực vật.”. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “v”.",
             "explanation": "Từ cần điền là “vô tính”."
           }
         },
@@ -732,7 +732,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Sinh sản vô tính” và “Sinh sản hữu tính” theo đặc điểm của từng mục. “Vi khuẩn phân đôi” thuộc nhóm “Sinh sản vô tính”.",
+            "hint": "“Vi khuẩn phân đôi” thuộc nhóm “Sinh sản vô tính”.",
             "explanation": "Vi khuẩn phân đôi thuộc nhóm Sinh sản vô tính; Giâm cành cây hoa hồng thuộc nhóm Sinh sản vô tính; Nấm men nảy chồi thuộc nhóm Sinh sản vô tính; Cây tạo hạt sau thụ tinh thuộc nhóm Sinh sản hữu tính."
           }
         },
@@ -747,7 +747,7 @@
               "hợp tử"
             ],
             "correctWord": "cơ thể",
-            "hint": "Thử từng từ trong kho vào câu “Ở sinh sản vô tính, cơ thể mới có thể hình thành từ một [blank] ban đầu.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ đúng là “cơ thể”."
           }
         }
@@ -798,7 +798,7 @@
                 "right": "Hạt phấn đến đầu nhuỵ"
               }
             ],
-            "hint": "Phân biệt vai trò của “Nhị hoa” và “Nhuỵ hoa” trước khi nối. Mô tả của “Nhị hoa” bắt đầu bằng “T”.",
+            "hint": "“Nhị hoa” tương ứng với “Tạo hạt phấn”.",
             "explanation": "Nhị hoa: Tạo hạt phấn; Nhuỵ hoa: Chứa bầu nhuỵ; Thụ phấn: Hạt phấn đến đầu nhuỵ."
           }
         },
@@ -808,7 +808,7 @@
           "data": {
             "sentence": "Sau thụ tinh, noãn thường phát triển thành [blank].",
             "correctAnswer": "hạt",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sau thụ tinh, noãn thường phát triển thành [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
+            "hint": "Từ cần điền gồm 1 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ cần điền là “hạt”."
           }
         },
@@ -838,7 +838,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Liên quan sinh sản hữu tính ở cây có hoa” và “Không trực tiếp là bước sinh sản hữu tính” theo đặc điểm của từng mục. “Tạo hạt phấn” thuộc nhóm “Liên quan sinh sản hữu tính ở cây có hoa”.",
+            "hint": "“Tạo hạt phấn” thuộc nhóm “Liên quan sinh sản hữu tính ở cây có hoa”.",
             "explanation": "Tạo hạt phấn thuộc nhóm Liên quan sinh sản hữu tính ở cây có hoa; Thụ phấn thuộc nhóm Liên quan sinh sản hữu tính ở cây có hoa; Thụ tinh thuộc nhóm Liên quan sinh sản hữu tính ở cây có hoa; Rễ hút nước thuộc nhóm Không trực tiếp là bước sinh sản hữu tính."
           }
         },
@@ -853,7 +853,7 @@
               "lá"
             ],
             "correctWord": "quả",
-            "hint": "Thử từng từ trong kho vào câu “Ở cây có hoa, bầu nhuỵ sau thụ tinh thường phát triển thành [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “q” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “q”.",
             "explanation": "Từ đúng là “quả”."
           }
         }
@@ -904,7 +904,7 @@
                 "right": "Được tạo sau khi hai giao tử kết hợp"
               }
             ],
-            "hint": "Phân biệt vai trò của “Giao tử đực ở nhiều động vật” và “Giao tử cái ở nhiều động vật” trước khi nối. Mô tả của “Giao tử đực ở nhiều động vật” bắt đầu bằng “T”.",
+            "hint": "“Giao tử đực ở nhiều động vật” tương ứng với “Tinh trùng”.",
             "explanation": "Giao tử đực ở nhiều động vật: Tinh trùng; Giao tử cái ở nhiều động vật: Trứng; Hợp tử: Được tạo sau khi hai giao tử kết hợp."
           }
         },
@@ -914,7 +914,7 @@
           "data": {
             "sentence": "Sự kết hợp giao tử đực và giao tử cái tạo thành [blank].",
             "correctAnswer": "hợp tử",
-            "hint": "Xét ngữ cảnh của ô trống trong “Sự kết hợp giao tử đực và giao tử cái tạo thành [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “h”.",
             "explanation": "Từ cần điền là “hợp tử”."
           }
         },
@@ -944,7 +944,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Trước hoặc tại thụ tinh” và “Sau thụ tinh” theo đặc điểm của từng mục. “Tạo giao tử đực” thuộc nhóm “Trước hoặc tại thụ tinh”.",
+            "hint": "“Tạo giao tử đực” thuộc nhóm “Trước hoặc tại thụ tinh”.",
             "explanation": "Tạo giao tử đực thuộc nhóm Trước hoặc tại thụ tinh; Tạo giao tử cái thuộc nhóm Trước hoặc tại thụ tinh; Giao tử kết hợp thuộc nhóm Trước hoặc tại thụ tinh; Hợp tử phát triển thành phôi thuộc nhóm Sau thụ tinh."
           }
         },
@@ -959,7 +959,7 @@
               "lông hút"
             ],
             "correctWord": "phôi",
-            "hint": "Thử từng từ trong kho vào câu “Hợp tử tiếp tục phân chia và phát triển thành [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
+            "hint": "Từ cần chọn gồm 1 tiếng và bắt đầu bằng chữ “p”.",
             "explanation": "Từ đúng là “phôi”."
           }
         }
@@ -1010,7 +1010,7 @@
                 "right": "Tạo thế hệ mới"
               }
             ],
-            "hint": "Phân biệt vai trò của “Trao đổi chất” và “Sinh trưởng” trước khi nối. Mô tả của “Trao đổi chất” bắt đầu bằng “C”.",
+            "hint": "“Trao đổi chất” tương ứng với “Cung cấp vật chất và năng lượng”.",
             "explanation": "Trao đổi chất: Cung cấp vật chất và năng lượng; Sinh trưởng: Giúp cơ thể đạt kích thước phù hợp; Sinh sản: Tạo thế hệ mới."
           }
         },
@@ -1020,7 +1020,7 @@
           "data": {
             "sentence": "Trong cơ thể sinh vật, các quá trình sống có mối liên hệ [blank] với nhau.",
             "correctAnswer": "chặt chẽ",
-            "hint": "Xét ngữ cảnh của ô trống trong “Trong cơ thể sinh vật, các quá trình sống có mối liên hệ [blank] với nhau.”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
+            "hint": "Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “c”.",
             "explanation": "Từ cần điền là “chặt chẽ”."
           }
         },
@@ -1054,7 +1054,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Phân biệt hai nhóm “Hỗ trợ sinh sản ở cây trồng” và “Có thể cản trở sinh sản ở cây trồng” theo đặc điểm của từng mục. “Cung cấp nước phù hợp” thuộc nhóm “Hỗ trợ sinh sản ở cây trồng”.",
+            "hint": "“Cung cấp nước phù hợp” thuộc nhóm “Hỗ trợ sinh sản ở cây trồng”.",
             "explanation": "Cung cấp nước phù hợp thuộc nhóm Hỗ trợ sinh sản ở cây trồng; Bón phân hợp lí thuộc nhóm Hỗ trợ sinh sản ở cây trồng; Ánh sáng phù hợp thuộc nhóm Hỗ trợ sinh sản ở cây trồng; Thiếu nước kéo dài thuộc nhóm Có thể cản trở sinh sản ở cây trồng; Dinh dưỡng quá thiếu thuộc nhóm Có thể cản trở sinh sản ở cây trồng."
           }
         },
@@ -1069,7 +1069,7 @@
               "bất biến"
             ],
             "correctWord": "thống nhất",
-            "hint": "Thử từng từ trong kho vào câu “Cơ thể sinh vật hoạt động như một thể [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
+            "hint": "Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “t”.",
             "explanation": "Từ đúng là “thống nhất”."
           }
         }
