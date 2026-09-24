@@ -587,3 +587,42 @@ test('legacy cutover is blocked until every active station is published', async 
     await assert.rejects(db.exec(cutover), /cutover_blocked_missing_complete_publications: 20/);
   } finally { await db.close(); }
 });
+
+test('legacy cutover revokes direct reward and question access after 21 publications', async () => {
+  const db = await setup();
+  try {
+    await db.exec(`create table public.station_questions(id integer);
+      grant select on public.station_questions to anon, authenticated;
+      select set_config('request.jwt.claim.sub', '${admin}', false);`);
+    for (let grade = 6; grade <= 12; grade += 1) {
+      for (let station = 1; station <= 3; station += 1) {
+        const version = `g${grade}-st${station}-2026.1`;
+        await db.exec(await fs.readFile(`generated/station-releases/${version}.sql`, 'utf8'));
+        const release = (await db.query('select id from station_content_releases where version = $1', [version])).rows[0];
+        await db.query('select admin_publish_station_release($1)', [release.id]);
+      }
+    }
+    await db.exec(cutover);
+    await db.exec(cutover);
+    const grants = (await db.query(`select
+      has_function_privilege('authenticated', 'public.claim_station_reward(text, integer, integer)', 'EXECUTE') as old_reward,
+      has_table_privilege('authenticated', 'public.station_questions', 'SELECT') as old_questions,
+      has_function_privilege('authenticated', 'public.submit_station_answer(uuid, uuid, jsonb)', 'EXECUTE') as v2_answer`)).rows[0];
+    assert.equal(grants.old_reward, false);
+    assert.equal(grants.old_questions, false);
+    assert.equal(grants.v2_answer, true);
+    const answerRows = (await db.query(`select i.id, i.answer_key from station_content_items i
+      join station_content_releases r on r.id = i.release_id
+      where r.version = 'g6-st1-2026.1' and i.day_index = 1`)).rows;
+    const answers = new Map(answerRows.map(item => [item.id, item.answer_key.value]));
+    await db.exec(`select set_config('request.jwt.claim.sub', '${ordinaryStudent}', false); set role authenticated;`);
+    const started = (await db.query("select start_station_attempt(6, 'g6_st1', 1) as result")).rows[0].result;
+    let completion;
+    for (const game of started.games) {
+      completion = (await db.query('select submit_station_answer($1,$2,$3::jsonb) as result',
+        [started.attempt_id, game.id, JSON.stringify({ value: answers.get(game.id) })])).rows[0].result;
+    }
+    assert.equal(completion.stage_complete, true);
+    assert.equal(completion.reward.awarded, true);
+  } finally { await db.close(); }
+});

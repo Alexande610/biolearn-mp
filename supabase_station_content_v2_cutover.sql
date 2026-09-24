@@ -1,6 +1,6 @@
 -- Run only after all 21 active stations have a verified V2 publication and
--- the V2 client has been deployed. This removes the legacy answer/reward path.
-begin;
+-- the V2 client has been deployed. One statement keeps the guard and revokes
+-- atomic in SQL Editor. This removes the legacy answer/reward path.
 
 do $cutover$
 declare
@@ -21,12 +21,8 @@ begin
   if v_missing > 0 then
     raise exception 'cutover_blocked_missing_complete_publications: %', v_missing;
   end if;
+
+  execute 'revoke execute on function public.claim_station_reward(text, integer, integer) from public, anon, authenticated';
+  execute 'revoke all on table public.station_questions from anon, authenticated';
 end;
 $cutover$;
-
-revoke execute on function public.claim_station_reward(text, integer, integer)
-from public, anon, authenticated;
-
-revoke all on table public.station_questions from anon, authenticated;
-
-commit;
