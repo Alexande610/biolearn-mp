@@ -30,18 +30,6 @@ const sql = `-- Hint-only review. Run after the V2 base migration. Do not auto-p
 -- Draft/review releases: replace only unchanged placeholder hints.
 -- Published releases: clone current database content to a new review version,
 -- preserving admin edits, answers, source references, and the live publication.
-begin;
-create temporary table station_hint_review_values (
-  base_version text not null,
-  day_index integer not null,
-  game_type text not null,
-  hint text not null,
-  expected_content jsonb not null,
-  primary key(base_version, day_index, game_type)
-) on commit drop;
-insert into station_hint_review_values values
-${rows.join(',\n')};
-
 do $station_hints$
 declare
   v_base record;
@@ -49,6 +37,17 @@ declare
   v_admin_id uuid;
   v_changed integer;
 begin
+  create temporary table station_hint_review_values (
+    base_version text not null,
+    day_index integer not null,
+    game_type text not null,
+    hint text not null,
+    expected_content jsonb not null,
+    primary key(base_version, day_index, game_type)
+  ) on commit drop;
+  insert into station_hint_review_values values
+${rows.join(',\n')};
+
   select id into v_admin_id from public.profiles where role = 'admin' order by id limit 1;
   if v_admin_id is null then raise exception 'station_hint_review_requires_admin_profile'; end if;
   for v_base in
@@ -107,7 +106,6 @@ begin
   end loop;
 end;
 $station_hints$;
-commit;
 `;
 
 fs.writeFileSync(output, sql);

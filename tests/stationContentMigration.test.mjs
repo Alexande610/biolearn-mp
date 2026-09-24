@@ -24,6 +24,14 @@ const matchRetryMigration = await fs.readFile('supabase_station_content_v2_match
 const hintReviewMigration = await fs.readFile('generated/station-releases/g6-st1-hints-review.sql', 'utf8');
 const allHintsReviewMigration = await fs.readFile('generated/station-releases/station-hints-review.sql', 'utf8');
 
+test('hint review runs as one SQL Editor statement so the temporary table survives', () => {
+  for (const sql of [hintReviewMigration, allHintsReviewMigration]) {
+    assert.match(sql, /^do \$station_hints\$/m);
+    assert.doesNotMatch(sql, /^begin;\s*$/m);
+    assert.doesNotMatch(sql, /^create temporary table station_hint_review_values/m);
+  }
+});
+
 test('pilot hint SQL contains only the selected station', () => {
   assert.match(hintReviewMigration, /g6-st1-2026\.1/);
   assert.doesNotMatch(hintReviewMigration, /g6-st2-2026\.1/);

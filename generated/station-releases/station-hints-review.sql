@@ -2,16 +2,22 @@
 -- Draft/review releases: replace only unchanged placeholder hints.
 -- Published releases: clone current database content to a new review version,
 -- preserving admin edits, answers, source references, and the live publication.
-begin;
-create temporary table station_hint_review_values (
-  base_version text not null,
-  day_index integer not null,
-  game_type text not null,
-  hint text not null,
-  expected_content jsonb not null,
-  primary key(base_version, day_index, game_type)
-) on commit drop;
-insert into station_hint_review_values values
+do $station_hints$
+declare
+  v_base record;
+  v_new_id uuid;
+  v_admin_id uuid;
+  v_changed integer;
+begin
+  create temporary table station_hint_review_values (
+    base_version text not null,
+    day_index integer not null,
+    game_type text not null,
+    hint text not null,
+    expected_content jsonb not null,
+    primary key(base_version, day_index, game_type)
+  ) on commit drop;
+  insert into station_hint_review_values values
   ('g6-st1-2026.1', 1, 'match', '“Thị kính” tương ứng với “Nơi đặt mắt để quan sát”.', '{"leftItems":["Thị kính","Vật kính","Ốc điều chỉnh"],"rightItems":["Điều chỉnh khoảng cách để ảnh rõ","Phóng đại ảnh của vật","Nơi đặt mắt để quan sát"]}'::jsonb),
   ('g6-st1-2026.1', 1, 'fill', 'Từ cần điền gồm 2 tiếng và bắt đầu bằng chữ “n”.', '{"sentence":"Kính hiển vi quang học giúp quan sát những vật có kích thước [blank] mà mắt thường khó thấy."}'::jsonb),
   ('g6-st1-2026.1', 1, 'category', '“Thị kính” thuộc nhóm “Bộ phận quang học”.', '{"categories":["Bộ phận quang học","Bộ phận cơ học"],"items":["Thị kính","Vật kính","Bàn kính","Ốc điều chỉnh"]}'::jsonb),
@@ -853,13 +859,6 @@ insert into station_hint_review_values values
   ('g12-st3-2026.1', 10, 'category', '“Tiết kiệm nước” thuộc nhóm “Hành động bền vững”.', '{"categories":["Hành động bền vững","Hành động không bền vững"],"items":["Tiết kiệm nước","Phân loại rác","Phục hồi sinh cảnh","Khai thác tận diệt"]}'::jsonb),
   ('g12-st3-2026.1', 10, 'dragdrop', 'Từ cần chọn gồm 2 tiếng và bắt đầu bằng chữ “đ”.', '{"textWithBlanks":"Một dự án bảo tồn cần dựa trên khảo sát thực trạng [blank].","bankWords":["địa phương","tin đồn","suy đoán không dữ liệu"]}'::jsonb);
 
-do $station_hints$
-declare
-  v_base record;
-  v_new_id uuid;
-  v_admin_id uuid;
-  v_changed integer;
-begin
   select id into v_admin_id from public.profiles where role = 'admin' order by id limit 1;
   if v_admin_id is null then raise exception 'station_hint_review_requires_admin_profile'; end if;
   for v_base in
@@ -918,4 +917,3 @@ begin
   end loop;
 end;
 $station_hints$;
-commit;
