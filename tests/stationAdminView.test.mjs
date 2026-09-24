@@ -1,6 +1,18 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { stationReleaseVersion, toAdminStationGame, toAdminStationDocument, toAdminStationUpdate } from '../src/utils/stationAdminView.js';
+import { stationReleaseVersion, selectAdminStationRelease, toAdminStationGame, toAdminStationDocument, toAdminStationUpdate } from '../src/utils/stationAdminView.js';
+
+test('admin can select a review clone while the published base remains available', () => {
+  const releases = [
+    { version: 'g6-st1-2026.1-hints.1', status: 'review' },
+    { version: 'g6-st1-2026.1', status: 'published' },
+  ];
+  assert.equal(selectAdminStationRelease(releases, '', 'g6-st1-2026.1'), releases[0]);
+  assert.equal(selectAdminStationRelease(releases, 'g6-st1-2026.1', 'g6-st1-2026.1'), releases[1]);
+  releases[0].status = 'published';
+  releases[1].status = 'archived';
+  assert.equal(selectAdminStationRelease(releases, '', 'g6-st1-2026.1'), releases[0]);
+});
 
 test('admin V2 view identifies the imported release and reconstructs answer for review', () => {
   assert.equal(stationReleaseVersion(12, 'g12_st3'), 'g12-st3-2026.1');

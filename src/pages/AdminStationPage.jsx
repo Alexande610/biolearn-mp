@@ -11,7 +11,7 @@ import { supabase } from '../lib/supabase';
 import { reportSystemError } from '../lib/observability';
 import { ACTIVE_STATIONS } from '../data/stationCatalog';
 import { validatePublishedStage, validateStationGame } from '../utils/stationContent';
-import { stationReleaseVersion, toAdminStationGame, toAdminStationUpdate, toAdminStationDocument } from '../utils/stationAdminView';
+import { stationReleaseVersion, selectAdminStationRelease, toAdminStationGame, toAdminStationUpdate, toAdminStationDocument } from '../utils/stationAdminView';
 
 const GAME_TYPES = [
   { id: 'quiz', name: 'Trắc Nghiệm (Quiz)' },
@@ -37,6 +37,8 @@ export default function AdminStationPage() {
   const [publishConfirmRelease, setPublishConfirmRelease] = useState(null);
   const [dataMode, setDataMode] = useState('v2');
   const [release, setRelease] = useState(null);
+  const [availableReleases, setAvailableReleases] = useState([]);
+  const [selectedReleaseVersion, setSelectedReleaseVersion] = useState('');
   const [loadError, setLoadError] = useState('');
   const loadSequence = useRef(0);
 
@@ -62,15 +64,16 @@ export default function AdminStationPage() {
     setLoadError('');
     try {
       if (dataMode === 'v2') {
-        const version = stationReleaseVersion(selectedGrade, selectedStationId);
-        const { data: releaseRow, error: releaseError } = await supabase
+        const baseVersion = stationReleaseVersion(selectedGrade, selectedStationId);
+        const { data: releaseRows, error: releaseError } = await supabase
           .from('station_content_releases')
           .select('id, version, grade, station_id, title, status, notes')
-          .eq('version', version)
           .eq('grade', selectedGrade)
           .eq('station_id', selectedStationId)
-          .single();
+          .order('created_at', { ascending: false });
         if (releaseError) throw releaseError;
+        const releaseRow = selectAdminStationRelease(releaseRows || [], selectedReleaseVersion, baseVersion);
+        if (!releaseRow) throw new Error('Trạm chưa có bản nội dung V2.');
         const { data: items, error: itemsError } = await supabase
           .from('station_content_items')
           .select('id, game_index, game_type, title, learning_objective, public_content, answer_key, source_refs, updated_at')
@@ -82,6 +85,7 @@ export default function AdminStationPage() {
           throw new Error('Ải V2 chưa có đủ năm trò chơi khác loại.');
         }
         if (sequence !== loadSequence.current) return;
+        setAvailableReleases(releaseRows);
         setRelease(releaseRow);
         setGamesList(items.map(toAdminStationGame));
         return;
@@ -124,7 +128,7 @@ export default function AdminStationPage() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     fetchQuestionsFromSupabase();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedGrade, selectedStationId, selectedDay, dataMode]);
+  }, [selectedGrade, selectedStationId, selectedDay, selectedReleaseVersion, dataMode]);
 
   // NÚT THÊM TRÒ CHƠI LUÔN LUÔN HIỂN THỊ (CÓ SELECT CHỌN LOẠI GAME)
   const handleAddGame = () => {
@@ -367,6 +371,16 @@ export default function AdminStationPage() {
           {dataMode === 'v2' && <p className="mt-2 text-amber-200">
             {release ? `${release.version} · ${release.status} · ${release.status === 'published' ? 'Đang dùng cho học sinh; muốn sửa cần phiên bản mới.' : 'Có thể sửa từng trò chơi và lưu trực tiếp vào V2.'}` : 'Đang tải bản phát hành V2 của trạm.'}
           </p>}
+          {dataMode === 'v2' && availableReleases.length > 1 && <label className="mt-3 block text-xs font-bold text-slate-200">
+            Chọn phiên bản V2 để duyệt
+            <select value={selectedReleaseVersion || release?.version || availableReleases[0]?.version || ''}
+              onChange={event => setSelectedReleaseVersion(event.target.value)}
+              className="admin-station-input mt-2 w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white">
+              {availableReleases.map(option => <option key={option.id} value={option.version}>
+                {option.version} · {option.status}
+              </option>)}
+            </select>
+          </label>}
           {dataMode === 'legacy' && <p className="mt-2 text-amber-200">Chế độ bảng cũ. Mọi thao tác lưu ở đây không sửa bản nháp V2.</p>}
           {loadError && <p className="mt-2 text-rose-300" role="alert">{loadError}</p>}
         </div>
@@ -383,6 +397,8 @@ export default function AdminStationPage() {
                 setSelectedGrade(nextGrade);
                 setSelectedStationId(firstStation.id);
                 setSelectedDay(1);
+                setSelectedReleaseVersion('');
+                setAvailableReleases([]);
               }}
               className="admin-station-input w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white focus:outline-none"
             >
@@ -400,6 +416,8 @@ export default function AdminStationPage() {
                 const nextStation = stationOptions.find(station => station.id === e.target.value) || stationOptions[0];
                 setSelectedStationId(nextStation.id);
                 setSelectedDay(1);
+                setSelectedReleaseVersion('');
+                setAvailableReleases([]);
               }}
               className="admin-station-input w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs font-bold text-white focus:outline-none"
             >

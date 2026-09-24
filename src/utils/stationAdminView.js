@@ -6,6 +6,15 @@ export function stationReleaseVersion(grade, stationId) {
   return `g${grade}-st${order}-2026.1`;
 }
 
+export function selectAdminStationRelease(releases, requestedVersion, baseVersion) {
+  if (!releases.length) return null;
+  return releases.find(release => release.version === requestedVersion)
+    || releases.find(release => release.status === 'review' && release.version.startsWith(`${baseVersion}-hints.`))
+    || releases.find(release => release.status === 'published')
+    || releases.find(release => release.version === baseVersion)
+    || releases[0];
+}
+
 export function toAdminStationGame(item) {
   const content = item.public_content || {};
   const answer = item.answer_key || {};

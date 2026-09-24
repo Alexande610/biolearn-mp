@@ -115,9 +115,14 @@ lại không tạo bản sao trùng.
 
 Thí điểm trước với `generated/station-releases/g6-st1-hints-review.sql`: chỉ
 chứa 40 gợi ý của `g6_st1`. Trò nối và phân loại cho một ví dụ đúng; trò điền
-và chọn từ cho số tiếng cùng chữ đầu, giống phong cách gợi ý bảng cũ. Nếu trạm
-đang `published`, SQL chỉ tạo bản `review`; kiểm tra cả 10 ải trước khi phát
-hành. Khi thí điểm đạt, tạo SQL riêng cho mỗi trạm tiếp theo bằng
+và chọn từ cho số tiếng cùng chữ đầu, giống phong cách gợi ý bảng cũ. Cần đưa
+bản admin có bộ chọn phiên bản V2 lên môi trường vận hành trước khi chạy SQL;
+nếu trạm đang `published`, SQL tạo bản `-hints.1` ở trạng thái `review` và
+bản đang phục vụ học sinh vẫn giữ nguyên. Sau khi chạy, kiểm tra bản mới đủ
+50 trò, 10 ải, 5 dạng và 40 gợi ý mới. Chọn bản `-hints.1` trên admin,
+duyệt cả 10 ải rồi phát hành. Tài khoản demo chỉ chơi được bản đã phát hành,
+vì vậy kiểm tra gameplay và gợi ý bằng demo ngay sau khi phát hành thí điểm;
+nếu có lỗi thì phát hành lại bản cũ. Khi thí điểm đạt, tạo SQL riêng cho mỗi trạm tiếp theo bằng
 `node scripts/build-station-hint-review-sql.js <releaseVersion> <output.sql>`.
 Không chạy bản tổng 840 gợi ý trước khi duyệt đủ nội dung.
 
