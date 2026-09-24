@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { replacePlaceholderStationHints } from '../src/utils/stationHints.js';
 
 const source = (lesson) => [{ source: 'SGK Khoa học tự nhiên 8 - Kết nối tri thức với cuộc sống', publisher: 'Nhà xuất bản Giáo dục Việt Nam', lesson }];
 const stages = [
@@ -105,5 +106,5 @@ const document = {
   stages: stages.map((stage, index) => ({ dayIndex: index + 1, learningObjective: stage.objective, sourceRefs: source(stage.lesson), games: gamesFor(stage, index + 1) })),
 };
 fs.mkdirSync('content/stations/grade-08', { recursive: true });
-fs.writeFileSync('content/stations/grade-08/station-01.json', `${JSON.stringify(document, null, 2)}\n`);
+fs.writeFileSync('content/stations/grade-08/station-01.json', `${JSON.stringify(replacePlaceholderStationHints(document), null, 2)}\n`);
 console.log('Đã tạo content/stations/grade-08/station-01.json');

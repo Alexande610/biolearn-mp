@@ -53,7 +53,7 @@
                 "right": "Các loài động vật"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Giới Khởi sinh” và “Giới Nấm” trước khi nối. Mô tả của “Giới Khởi sinh” bắt đầu bằng “V”.",
             "explanation": "Giới Khởi sinh: Vi khuẩn; Giới Nấm: Nấm men và nấm mũ; Giới Động vật: Các loài động vật."
           }
         },
@@ -63,7 +63,7 @@
           "data": {
             "sentence": "Việc sắp xếp sinh vật vào các nhóm dựa trên đặc điểm chung gọi là [blank] sinh vật.",
             "correctAnswer": "phân loại",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Việc sắp xếp sinh vật vào các nhóm dựa trên đặc điểm chung gọi là [blank] sinh vật.”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “phân loại”."
           }
         },
@@ -97,7 +97,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Bậc phân loại lớn hơn họ” và “Bậc phân loại nhỏ hơn họ” theo đặc điểm của từng mục. “Giới” thuộc nhóm “Bậc phân loại lớn hơn họ”.",
             "explanation": "Giới thuộc nhóm Bậc phân loại lớn hơn họ; Ngành thuộc nhóm Bậc phân loại lớn hơn họ; Lớp thuộc nhóm Bậc phân loại lớn hơn họ; Chi thuộc nhóm Bậc phân loại nhỏ hơn họ; Loài thuộc nhóm Bậc phân loại nhỏ hơn họ."
           }
         },
@@ -112,7 +112,7 @@
               "ngành"
             ],
             "correctWord": "loài",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Các bậc phân loại từ nhỏ đến lớn bắt đầu bằng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “l” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “loài”."
           }
         }
@@ -164,7 +164,7 @@
                 "right": "Tách đối tượng thành hai nhóm"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Có cánh” và “Không có cánh” trước khi nối. Mô tả của “Có cánh” bắt đầu bằng “Đ”.",
             "explanation": "Có cánh: Đi theo nhánh có cánh; Không có cánh: Đi theo nhánh không cánh; Đặc điểm đối lập: Tách đối tượng thành hai nhóm."
           }
         },
@@ -174,7 +174,7 @@
           "data": {
             "sentence": "Khoá lưỡng phân gồm các cặp đặc điểm [blank] nhau.",
             "correctAnswer": "đối lập",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Khoá lưỡng phân gồm các cặp đặc điểm [blank] nhau.”. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “đối lập”."
           }
         },
@@ -204,7 +204,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Đặc điểm phù hợp làm cặp phân đôi” và “Đặc điểm không tạo cặp phân đôi rõ” theo đặc điểm của từng mục. “Có xương sống / không xương sống” thuộc nhóm “Đặc điểm phù hợp làm cặp phân đôi”.",
             "explanation": "Có xương sống / không xương sống thuộc nhóm Đặc điểm phù hợp làm cặp phân đôi; Có cánh / không có cánh thuộc nhóm Đặc điểm phù hợp làm cặp phân đôi; Sống dưới nước / không sống dưới nước thuộc nhóm Đặc điểm phù hợp làm cặp phân đôi; Đẹp / không đẹp thuộc nhóm Đặc điểm không tạo cặp phân đôi rõ."
           }
         },
@@ -219,7 +219,7 @@
               "nhiệt độ"
             ],
             "correctWord": "nhánh",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Sau mỗi lựa chọn, khoá lưỡng phân dẫn tới một [blank] tiếp theo hoặc tên sinh vật.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “nhánh”."
           }
         }
@@ -271,7 +271,7 @@
                 "right": "Có thể làm người hoặc sinh vật mắc bệnh"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Vi khuẩn lactic” và “Vi khuẩn cố định đạm” trước khi nối. Mô tả của “Vi khuẩn lactic” bắt đầu bằng “T”.",
             "explanation": "Vi khuẩn lactic: Tham gia làm sữa chua; Vi khuẩn cố định đạm: Góp phần cung cấp đạm cho cây; Vi khuẩn gây bệnh: Có thể làm người hoặc sinh vật mắc bệnh."
           }
         },
@@ -281,7 +281,7 @@
           "data": {
             "sentence": "Vi khuẩn chưa có [blank] hoàn chỉnh.",
             "correctAnswer": "nhân",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Vi khuẩn chưa có [blank] hoàn chỉnh.”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “nhân”."
           }
         },
@@ -311,7 +311,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Vai trò có ích của vi khuẩn” và “Tác hại của vi khuẩn” theo đặc điểm của từng mục. “Làm sữa chua” thuộc nhóm “Vai trò có ích của vi khuẩn”.",
             "explanation": "Làm sữa chua thuộc nhóm Vai trò có ích của vi khuẩn; Phân huỷ xác sinh vật thuộc nhóm Vai trò có ích của vi khuẩn; Gây sâu răng thuộc nhóm Tác hại của vi khuẩn; Làm hỏng thức ăn thuộc nhóm Tác hại của vi khuẩn."
           }
         },
@@ -326,7 +326,7 @@
               "kính thiên văn"
             ],
             "correctWord": "kính hiển vi",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Quan sát hình thái vi khuẩn trong sữa chua thường cần dùng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 3 tiếng.",
             "explanation": "Từ đúng là “kính hiển vi”."
           }
         }
@@ -378,7 +378,7 @@
                 "right": "Nơi virus nhân lên"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Vật chất di truyền” và “Vỏ protein” trước khi nối. Mô tả của “Vật chất di truyền” bắt đầu bằng “M”.",
             "explanation": "Vật chất di truyền: Mang thông tin di truyền; Vỏ protein: Bao bọc vật chất di truyền; Tế bào vật chủ: Nơi virus nhân lên."
           }
         },
@@ -388,7 +388,7 @@
           "data": {
             "sentence": "Virus có cấu tạo rất đơn giản và không có cấu tạo [blank].",
             "correctAnswer": "tế bào",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Virus có cấu tạo rất đơn giản và không có cấu tạo [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “tế bào”."
           }
         },
@@ -418,7 +418,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Bệnh có thể do virus gây ra” và “Không phải bệnh do virus gây ra” theo đặc điểm của từng mục. “Cúm” thuộc nhóm “Bệnh có thể do virus gây ra”.",
             "explanation": "Cúm thuộc nhóm Bệnh có thể do virus gây ra; Sởi thuộc nhóm Bệnh có thể do virus gây ra; Bệnh khảm thuốc lá thuộc nhóm Bệnh có thể do virus gây ra; Sâu răng do vi khuẩn thuộc nhóm Không phải bệnh do virus gây ra."
           }
         },
@@ -433,7 +433,7 @@
               "giọt nước cất"
             ],
             "correctWord": "tế bào",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Virus kí sinh bắt buộc bên trong [blank] vật chủ.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “tế bào”."
           }
         }
@@ -485,7 +485,7 @@
                 "right": "Di chuyển bằng lông bơi"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Trùng biến hình” và “Trùng roi” trước khi nối. Mô tả của “Trùng biến hình” bắt đầu bằng “D”.",
             "explanation": "Trùng biến hình: Di chuyển bằng chân giả; Trùng roi: Di chuyển bằng roi; Trùng giày: Di chuyển bằng lông bơi."
           }
         },
@@ -495,7 +495,7 @@
           "data": {
             "sentence": "Nguyên sinh vật thường sống trong môi trường nước hoặc nơi [blank].",
             "correctAnswer": "ẩm",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Nguyên sinh vật thường sống trong môi trường nước hoặc nơi [blank].”. Từ cần chọn bắt đầu bằng “ẩ” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “ẩm”."
           }
         },
@@ -525,7 +525,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Nguyên sinh vật có khả năng quang hợp” và “Nguyên sinh vật không quang hợp” theo đặc điểm của từng mục. “Trùng roi xanh” thuộc nhóm “Nguyên sinh vật có khả năng quang hợp”.",
             "explanation": "Trùng roi xanh thuộc nhóm Nguyên sinh vật có khả năng quang hợp; Tảo lục đơn bào thuộc nhóm Nguyên sinh vật có khả năng quang hợp; Trùng biến hình thuộc nhóm Nguyên sinh vật không quang hợp; Trùng giày thuộc nhóm Nguyên sinh vật không quang hợp."
           }
         },
@@ -540,7 +540,7 @@
               "nhiệt kế"
             ],
             "correctWord": "kính hiển vi",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Để quan sát nguyên sinh vật trong nước ao cần dùng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 3 tiếng.",
             "explanation": "Từ đúng là “kính hiển vi”."
           }
         }
@@ -592,7 +592,7 @@
                 "right": "Được sử dụng làm thực phẩm"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “Nấm men” và “Nấm mốc” trước khi nối. Mô tả của “Nấm men” bắt đầu bằng “C”.",
             "explanation": "Nấm men: Có thể dùng làm bánh và lên men; Nấm mốc: Thường tạo lớp mốc trên thức ăn; Nấm ăn: Được sử dụng làm thực phẩm."
           }
         },
@@ -602,7 +602,7 @@
           "data": {
             "sentence": "Nấm không có [blank] nên không tự quang hợp.",
             "correctAnswer": "diệp lục",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Nấm không có [blank] nên không tự quang hợp.”. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “diệp lục”."
           }
         },
@@ -636,7 +636,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Vai trò có ích của nấm” và “Tác hại của nấm” theo đặc điểm của từng mục. “Làm thực phẩm” thuộc nhóm “Vai trò có ích của nấm”.",
             "explanation": "Làm thực phẩm thuộc nhóm Vai trò có ích của nấm; Lên men thuộc nhóm Vai trò có ích của nấm; Phân huỷ chất hữu cơ thuộc nhóm Vai trò có ích của nấm; Gây mốc thức ăn thuộc nhóm Tác hại của nấm; Gây bệnh ngoài da thuộc nhóm Tác hại của nấm."
           }
         },
@@ -651,7 +651,7 @@
               "trứng"
             ],
             "correctWord": "bào tử",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Nhiều loài nấm sinh sản bằng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “bào tử”."
           }
         }
@@ -707,7 +707,7 @@
                 "right": "Có hoa và quả"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Rêu” và “Dương xỉ” trước khi nối. Mô tả của “Rêu” bắt đầu bằng “C”.",
             "explanation": "Rêu: Chưa có mạch dẫn; Dương xỉ: Sinh sản bằng bào tử, có mạch dẫn; Hạt trần: Có hạt nhưng không có quả; Hạt kín: Có hoa và quả."
           }
         },
@@ -717,7 +717,7 @@
           "data": {
             "sentence": "Cây thông thuộc nhóm thực vật hạt [blank].",
             "correctAnswer": "trần",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Cây thông thuộc nhóm thực vật hạt [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “trần”."
           }
         },
@@ -747,7 +747,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Sinh sản bằng bào tử” và “Sinh sản bằng hạt” theo đặc điểm của từng mục. “Rêu” thuộc nhóm “Sinh sản bằng bào tử”.",
             "explanation": "Rêu thuộc nhóm Sinh sản bằng bào tử; Dương xỉ thuộc nhóm Sinh sản bằng bào tử; Cây thông thuộc nhóm Sinh sản bằng hạt; Cây lúa thuộc nhóm Sinh sản bằng hạt."
           }
         },
@@ -762,7 +762,7 @@
               "thân"
             ],
             "correctWord": "quả",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Ở thực vật hạt kín, hạt được bảo vệ trong [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “q” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “quả”."
           }
         }
@@ -818,7 +818,7 @@
                 "right": "Cơ thể có ba phần và ba đôi chân"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Cá” và “Chim” trước khi nối. Mô tả của “Cá” bắt đầu bằng “S”.",
             "explanation": "Cá: Sống dưới nước, thở bằng mang; Chim: Có lông vũ; Giun đất: Cơ thể dài và phân đốt; Bướm: Cơ thể có ba phần và ba đôi chân."
           }
         },
@@ -828,7 +828,7 @@
           "data": {
             "sentence": "Thú là nhóm động vật có [blank] sống.",
             "correctAnswer": "xương",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Thú là nhóm động vật có [blank] sống.”. Từ cần chọn bắt đầu bằng “x” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “xương”."
           }
         },
@@ -866,7 +866,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Động vật không xương sống” và “Động vật có xương sống” theo đặc điểm của từng mục. “Sứa” thuộc nhóm “Động vật không xương sống”.",
             "explanation": "Sứa thuộc nhóm Động vật không xương sống; Ốc sên thuộc nhóm Động vật không xương sống; Tôm thuộc nhóm Động vật không xương sống; Ếch thuộc nhóm Động vật có xương sống; Chim thuộc nhóm Động vật có xương sống; Mèo thuộc nhóm Động vật có xương sống."
           }
         },
@@ -881,7 +881,7 @@
               "nhiều"
             ],
             "correctWord": "không",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Côn trùng thuộc nhóm động vật [blank] xương sống.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “không”."
           }
         }
@@ -933,7 +933,7 @@
                 "right": "Góp phần bảo vệ loài và sinh cảnh"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Rừng” và “Đa dạng sinh học” trước khi nối. Mô tả của “Rừng” bắt đầu bằng “N”.",
             "explanation": "Rừng: Nơi sống của nhiều loài; Đa dạng sinh học: Cung cấp nguồn thực phẩm và dược liệu; Khu bảo tồn: Góp phần bảo vệ loài và sinh cảnh."
           }
         },
@@ -943,7 +943,7 @@
           "data": {
             "sentence": "Sự phong phú về số lượng loài và môi trường sống tạo nên tính đa dạng [blank].",
             "correctAnswer": "sinh học",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Sự phong phú về số lượng loài và môi trường sống tạo nên tính đa dạng [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “sinh học”."
           }
         },
@@ -977,7 +977,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Hành động bảo vệ đa dạng sinh học” và “Hành động làm suy giảm đa dạng sinh học” theo đặc điểm của từng mục. “Trồng và bảo vệ rừng” thuộc nhóm “Hành động bảo vệ đa dạng sinh học”.",
             "explanation": "Trồng và bảo vệ rừng thuộc nhóm Hành động bảo vệ đa dạng sinh học; Thành lập khu bảo tồn thuộc nhóm Hành động bảo vệ đa dạng sinh học; Khai thác hợp lí thuộc nhóm Hành động bảo vệ đa dạng sinh học; Săn bắt trái phép thuộc nhóm Hành động làm suy giảm đa dạng sinh học; Phá huỷ sinh cảnh thuộc nhóm Hành động làm suy giảm đa dạng sinh học."
           }
         },
@@ -992,7 +992,7 @@
               "nhiệt độ"
             ],
             "correctWord": "sinh học",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “Không săn bắt động vật quý hiếm góp phần bảo vệ đa dạng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “sinh học”."
           }
         }
@@ -1044,7 +1044,7 @@
                 "right": "Quan sát chi tiết nhỏ"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Sổ ghi chép” và “Máy ảnh” trước khi nối. Mô tả của “Sổ ghi chép” bắt đầu bằng “G”.",
             "explanation": "Sổ ghi chép: Ghi đặc điểm và nơi gặp sinh vật; Máy ảnh: Lưu lại hình ảnh quan sát; Kính lúp: Quan sát chi tiết nhỏ."
           }
         },
@@ -1054,7 +1054,7 @@
           "data": {
             "sentence": "Khi khảo sát ngoài thiên nhiên cần tuân thủ quy định về [blank].",
             "correctAnswer": "an toàn",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Khi khảo sát ngoài thiên nhiên cần tuân thủ quy định về [blank].”. Từ cần chọn bắt đầu bằng “a” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “an toàn”."
           }
         },
@@ -1088,7 +1088,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Nên thực hiện khi khảo sát” và “Không nên thực hiện khi khảo sát” theo đặc điểm của từng mục. “Đi theo nhóm” thuộc nhóm “Nên thực hiện khi khảo sát”.",
             "explanation": "Đi theo nhóm thuộc nhóm Nên thực hiện khi khảo sát; Ghi chép kết quả thuộc nhóm Nên thực hiện khi khảo sát; Giữ vệ sinh môi trường thuộc nhóm Nên thực hiện khi khảo sát; Chạm vào sinh vật lạ thuộc nhóm Không nên thực hiện khi khảo sát; Thu mẫu tuỳ tiện thuộc nhóm Không nên thực hiện khi khảo sát."
           }
         },
@@ -1103,7 +1103,7 @@
               "quảng cáo"
             ],
             "correctWord": "báo cáo",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Sau khi quan sát cần sắp xếp dữ liệu và viết [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “báo cáo”."
           }
         }

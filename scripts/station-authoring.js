@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { replacePlaceholderStationHints } from '../src/utils/stationHints.js';
 
 export const writeStation = ({ grade, station, title, book, notes, stages }) => {
   if (stages.length !== 10) throw new Error('Mỗi trạm phải có đúng 10 ải.');
@@ -35,6 +36,6 @@ export const writeStation = ({ grade, station, title, book, notes, stages }) => 
   const directory = `content/stations/grade-${String(grade).padStart(2, '0')}`;
   fs.mkdirSync(directory, { recursive: true });
   const output = `${directory}/station-${suffix}.json`;
-  fs.writeFileSync(output, `${JSON.stringify(document, null, 2)}\n`);
+  fs.writeFileSync(output, `${JSON.stringify(replacePlaceholderStationHints(document), null, 2)}\n`);
   console.log(`Đã tạo ${output}`);
 };

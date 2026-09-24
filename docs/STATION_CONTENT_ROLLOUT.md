@@ -88,6 +88,31 @@ chơi đủ năm trò và kiểm tra demo hiện sao/rương/linh vật nhưng s
 lượt thường. Dừng phát
 hành thêm trạm nếu bất kỳ ca nào không đúng.
 
+### Sửa phản hồi sai và gợi ý theo nội dung
+
+Sau bản gameplay fix, chạy `supabase_station_content_v2_match_retry_fix.sql`
+trước khi đưa client mới lên production. Hàm nối cặp mới vẫn kiểm tra quyền sở hữu,
+trạng thái lượt chơi và cặp hợp lệ, nhưng không chặn cặp cuối vì số lần thử sai
+trước đó. Kiểm thử SQL này riêng bằng việc cố ý ghép sai nhiều tổ hợp rồi ghép
+đúng cặp cuối.
+
+Client mới giữ lựa chọn sai của `quiz`, `fill`, `dragdrop` trong 2,2 giây, hiện
+gợi ý, rồi bỏ chọn/xóa từ để học viên làm lần hai. Lần hai vẫn chấm và hiện đáp
+án như trước. Nếu database còn gợi ý mẫu theo số ải, client dựng gợi ý từ câu
+đang chơi để học viên không gặp câu “Dựa vào kiến thức của ải N”.
+
+21 JSON và SQL nháp tương ứng đã thay **chỉ trường gợi ý** của 840 trò chơi;
+câu hỏi, đáp án và nguồn không đổi. Không nhập lại SQL nháp `2026.1` vào release
+`review`, `published` hoặc `archived`: bản SQL nháp chỉ cập nhật release còn
+`draft` và có thể bị từ chối ở trạng thái khác. Để đồng bộ database hiện có,
+chạy `generated/station-releases/station-hints-review.sql` **sau khi kiểm duyệt
+gợi ý**. Script chỉ thay gợi ý mẫu trên release `draft/review` nếu nội dung câu
+vẫn trùng bản nguồn; nó không ghi đè câu đã sửa trên admin. Release `published`
+được sao chép từ dữ liệu database hiện hành sang bản `-hints.1` ở trạng thái
+`review`; publication cũ vẫn phục vụ học viên. Duyệt bản mới trên admin rồi
+phát hành từng trạm, sau khi thử đủ năm trò. SQL này không tự phát hành và chạy
+lại không tạo bản sao trùng.
+
 1. Chạy `npm test`, `npm run validate:stations`, lint riêng tệp thay đổi và `npm run build`.
 2. Chạy `supabase_station_content_v2.sql`. Migration này chỉ thêm bảng/hàm/chính sách, không xóa bảng `station_questions` và không đổi tiến trình cũ.
 3. Tạo SQL nháp từ JSON bằng `npm run build:station-release -- <file.json> <output.sql>`.

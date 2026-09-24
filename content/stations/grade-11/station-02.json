@@ -52,7 +52,7 @@
                 "right": "Phản ứng của cơ thể"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Kích thích” và “Thụ thể” trước khi nối. Mô tả của “Kích thích” bắt đầu bằng “T”.",
             "explanation": "Kích thích: Thay đổi từ môi trường; Thụ thể: Tiếp nhận kích thích; Đáp ứng: Phản ứng của cơ thể."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Khả năng nhận và phản ứng với kích thích gọi là [blank].",
             "correctAnswer": "cảm ứng",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Khả năng nhận và phản ứng với kích thích gọi là [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “cảm ứng”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Biểu hiện cảm ứng” và “Không phải biểu hiện cảm ứng” theo đặc điểm của từng mục. “Cây hướng sáng” thuộc nhóm “Biểu hiện cảm ứng”.",
             "explanation": "Cây hướng sáng thuộc nhóm Biểu hiện cảm ứng; Người rụt tay khi chạm nóng thuộc nhóm Biểu hiện cảm ứng; Chim tránh tiếng động mạnh thuộc nhóm Biểu hiện cảm ứng; DNA gồm nucleotide thuộc nhóm Không phải biểu hiện cảm ứng."
           }
         },
@@ -107,7 +107,7 @@
               "màu bìa"
             ],
             "correctWord": "môi trường",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Cảm ứng giúp sinh vật phản ứng với thay đổi của [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “môi trường”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Phản ứng không phụ thuộc hướng tác nhân"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Hướng động” và “Hướng sáng” trước khi nối. Mô tả của “Hướng động” bắt đầu bằng “P”.",
             "explanation": "Hướng động: Phản ứng có hướng theo tác nhân kích thích; Hướng sáng: Sinh trưởng liên quan hướng chiếu sáng; Ứng động: Phản ứng không phụ thuộc hướng tác nhân."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Ngọn cây cong về phía ánh sáng là hiện tượng hướng [blank].",
             "correctAnswer": "sáng",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Ngọn cây cong về phía ánh sáng là hiện tượng hướng [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “sáng”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Hướng động” và “Ứng động” theo đặc điểm của từng mục. “Ngọn cây hướng sáng” thuộc nhóm “Hướng động”.",
             "explanation": "Ngọn cây hướng sáng thuộc nhóm Hướng động; Rễ hướng trọng lực thuộc nhóm Hướng động; Lá trinh nữ cụp khi chạm thuộc nhóm Ứng động; Hoa nở theo điều kiện môi trường thuộc nhóm Ứng động."
           }
         },
@@ -213,7 +213,7 @@
               "âm thanh"
             ],
             "correctWord": "trọng lực",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Rễ cây thường có tính hướng [blank] dương.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “trọng lực”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Thu dữ liệu phản ứng"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Nguồn sáng một phía” và “Nhóm đối chứng” trước khi nối. Mô tả của “Nguồn sáng một phía” bắt đầu bằng “T”.",
             "explanation": "Nguồn sáng một phía: Tạo kích thích có hướng; Nhóm đối chứng: Giúp so sánh kết quả; Ghi chép hướng thân: Thu dữ liệu phản ứng."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Để kết luận về ánh sáng, cần giữ các điều kiện khác tương đối [blank].",
             "correctAnswer": "giống nhau",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Để kết luận về ánh sáng, cần giữ các điều kiện khác tương đối [blank].”. Từ cần chọn bắt đầu bằng “g” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “giống nhau”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Thiết kế phù hợp” và “Thiết kế khó kết luận” theo đặc điểm của từng mục. “Có mẫu đối chứng” thuộc nhóm “Thiết kế phù hợp”.",
             "explanation": "Có mẫu đối chứng thuộc nhóm Thiết kế phù hợp; Ghi hướng thân định kì thuộc nhóm Thiết kế phù hợp; Giữ lượng nước tương tự thuộc nhóm Thiết kế phù hợp; Đổi ánh sáng và nước cùng lúc thuộc nhóm Thiết kế khó kết luận."
           }
         },
@@ -319,7 +319,7 @@
               "không ghi tên"
             ],
             "correctWord": "đối chứng",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Một thí nghiệm tốt nên có mẫu [blank] để so sánh.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “đối chứng”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Dẫn tín hiệu ra khỏi thân neuron"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Sợi nhánh” và “Thân neuron” trước khi nối. Mô tả của “Sợi nhánh” bắt đầu bằng “T”.",
             "explanation": "Sợi nhánh: Tiếp nhận nhiều tín hiệu; Thân neuron: Chứa nhân tế bào; Sợi trục: Dẫn tín hiệu ra khỏi thân neuron."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Tế bào thần kinh còn được gọi là [blank].",
             "correctAnswer": "neuron",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Tế bào thần kinh còn được gọi là [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “neuron”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Bộ phận neuron” và “Không thuộc neuron” theo đặc điểm của từng mục. “Sợi nhánh” thuộc nhóm “Bộ phận neuron”.",
             "explanation": "Sợi nhánh thuộc nhóm Bộ phận neuron; Thân tế bào thuộc nhóm Bộ phận neuron; Sợi trục thuộc nhóm Bộ phận neuron; Mạch gỗ thuộc nhóm Không thuộc neuron."
           }
         },
@@ -425,7 +425,7 @@
               "gỗ"
             ],
             "correctWord": "trục",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Tín hiệu thần kinh thường truyền dọc theo sợi [blank] của neuron.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “trục”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Dẫn lệnh tới cơ quan đáp ứng"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Thụ thể” và “Neuron cảm giác” trước khi nối. Mô tả của “Thụ thể” bắt đầu bằng “T”.",
             "explanation": "Thụ thể: Tiếp nhận kích thích; Neuron cảm giác: Dẫn tín hiệu về trung ương; Neuron vận động: Dẫn lệnh tới cơ quan đáp ứng."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Phản ứng nhanh, tự động của cơ thể trước kích thích gọi là [blank].",
             "correctAnswer": "phản xạ",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Phản ứng nhanh, tự động của cơ thể trước kích thích gọi là [blank].”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “phản xạ”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Thành phần cung phản xạ” và “Không thuộc cung phản xạ” theo đặc điểm của từng mục. “Thụ thể” thuộc nhóm “Thành phần cung phản xạ”.",
             "explanation": "Thụ thể thuộc nhóm Thành phần cung phản xạ; Neuron cảm giác thuộc nhóm Thành phần cung phản xạ; Neuron vận động thuộc nhóm Thành phần cung phản xạ; Lục lạp thuộc nhóm Không thuộc cung phản xạ."
           }
         },
@@ -531,7 +531,7 @@
               "bài tiết"
             ],
             "correctWord": "đáp ứng",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Trong phản xạ rụt tay, cơ là cơ quan [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “đáp ứng”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Có thể làm hình thành phản ứng mới"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “Tập tính bẩm sinh” và “Tập tính học được” trước khi nối. Mô tả của “Tập tính bẩm sinh” bắt đầu bằng “C”.",
             "explanation": "Tập tính bẩm sinh: Có sẵn, mang tính di truyền; Tập tính học được: Hình thành qua trải nghiệm; Huấn luyện: Có thể làm hình thành phản ứng mới."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Tập tính hình thành nhờ học tập là tập tính [blank].",
             "correctAnswer": "học được",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Tập tính hình thành nhờ học tập là tập tính [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “học được”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Bẩm sinh” và “Học được” theo đặc điểm của từng mục. “Nhện giăng tơ” thuộc nhóm “Bẩm sinh”.",
             "explanation": "Nhện giăng tơ thuộc nhóm Bẩm sinh; Trẻ sơ sinh bú mẹ thuộc nhóm Bẩm sinh; Chó đáp lệnh sau huấn luyện thuộc nhóm Học được; Quạ dùng công cụ sau học tập thuộc nhóm Học được."
           }
         },
@@ -637,7 +637,7 @@
               "loài ngay lập tức"
             ],
             "correctWord": "tập tính",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Học tập và kinh nghiệm có thể thay đổi [blank] của động vật.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “tập tính”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Một biểu hiện phát triển ở cây"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Sinh trưởng” và “Phát triển” trước khi nối. Mô tả của “Sinh trưởng” bắt đầu bằng “T”.",
             "explanation": "Sinh trưởng: Tăng kích thước và khối lượng; Phát triển: Biến đổi về cấu trúc và chức năng; Ra hoa: Một biểu hiện phát triển ở cây."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Cây tăng chiều cao là một biểu hiện của [blank].",
             "correctAnswer": "sinh trưởng",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Cây tăng chiều cao là một biểu hiện của [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “sinh trưởng”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Sinh trưởng” và “Phát triển” theo đặc điểm của từng mục. “Thân dài thêm” thuộc nhóm “Sinh trưởng”.",
             "explanation": "Thân dài thêm thuộc nhóm Sinh trưởng; Khối lượng tăng thuộc nhóm Sinh trưởng; Hình thành hoa thuộc nhóm Phát triển; Chuyển sang giai đoạn sinh sản thuộc nhóm Phát triển."
           }
         },
@@ -743,7 +743,7 @@
               "quang hợp"
             ],
             "correctWord": "phát triển",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Sự biến đổi chất lượng trong vòng đời sinh vật gọi là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “phát triển”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Điều hoà sinh trưởng và phát triển"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Mô phân sinh đỉnh” và “Mô phân sinh bên” trước khi nối. Mô tả của “Mô phân sinh đỉnh” bắt đầu bằng “G”.",
             "explanation": "Mô phân sinh đỉnh: Góp phần tăng chiều dài; Mô phân sinh bên: Góp phần tăng bề ngang ở nhiều cây; Hormone thực vật: Điều hoà sinh trưởng và phát triển."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Mô phân sinh [blank] giúp nhiều cơ quan cây tăng chiều dài.",
             "correctAnswer": "đỉnh",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Mô phân sinh [blank] giúp nhiều cơ quan cây tăng chiều dài.”. Từ cần chọn bắt đầu bằng “đ” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “đỉnh”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Liên quan sinh trưởng cây” và “Không thuộc cơ thể cây” theo đặc điểm của từng mục. “Mô phân sinh đỉnh” thuộc nhóm “Liên quan sinh trưởng cây”.",
             "explanation": "Mô phân sinh đỉnh thuộc nhóm Liên quan sinh trưởng cây; Mô phân sinh bên thuộc nhóm Liên quan sinh trưởng cây; Auxin thuộc nhóm Liên quan sinh trưởng cây; Neuron vận động thuộc nhóm Không thuộc cơ thể cây."
           }
         },
@@ -849,7 +849,7 @@
               "đông máu"
             ],
             "correctWord": "phát triển",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Các hormone thực vật có thể điều hoà sinh trưởng và [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “phát triển”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Giai đoạn trong biến thái hoàn toàn"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Bướm” và “Châu chấu” trước khi nối. Mô tả của “Bướm” bắt đầu bằng “B”.",
             "explanation": "Bướm: Biến thái hoàn toàn; Châu chấu: Biến thái không hoàn toàn; Nhộng: Giai đoạn trong biến thái hoàn toàn."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Vòng đời bướm gồm trứng, sâu non, [blank] và bướm trưởng thành.",
             "correctAnswer": "nhộng",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Vòng đời bướm gồm trứng, sâu non, [blank] và bướm trưởng thành.”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “nhộng”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Biến thái hoàn toàn” và “Biến thái không hoàn toàn” theo đặc điểm của từng mục. “Bướm” thuộc nhóm “Biến thái hoàn toàn”.",
             "explanation": "Bướm thuộc nhóm Biến thái hoàn toàn; Ruồi thuộc nhóm Biến thái hoàn toàn; Châu chấu thuộc nhóm Biến thái không hoàn toàn; Gián thuộc nhóm Biến thái không hoàn toàn."
           }
         },
@@ -955,7 +955,7 @@
               "hạt"
             ],
             "correctWord": "trưởng thành",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “Con non của châu chấu lột xác nhiều lần rồi thành con [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “trưởng thành”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Giúp nhận biết các giai đoạn biến thái"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Dinh dưỡng” và “Hormone” trước khi nối. Mô tả của “Dinh dưỡng” bắt đầu bằng “C”.",
             "explanation": "Dinh dưỡng: Cung cấp vật chất và năng lượng; Hormone: Điều hoà quá trình phát triển; Quan sát vòng đời: Giúp nhận biết các giai đoạn biến thái."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Sự phát triển của động vật chịu tác động của gene, hormone và điều kiện [blank].",
             "correctAnswer": "môi trường",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Sự phát triển của động vật chịu tác động của gene, hormone và điều kiện [blank].”. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “môi trường”."
           }
         },
@@ -1046,7 +1046,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Hỗ trợ phát triển bình thường” và “Có thể cản trở phát triển” theo đặc điểm của từng mục. “Dinh dưỡng phù hợp” thuộc nhóm “Hỗ trợ phát triển bình thường”.",
             "explanation": "Dinh dưỡng phù hợp thuộc nhóm Hỗ trợ phát triển bình thường; Điều kiện sống phù hợp thuộc nhóm Hỗ trợ phát triển bình thường; Thiếu dinh dưỡng kéo dài thuộc nhóm Có thể cản trở phát triển; Môi trường ô nhiễm nặng thuộc nhóm Có thể cản trở phát triển."
           }
         },
@@ -1061,7 +1061,7 @@
               "phiên mã"
             ],
             "correctWord": "biến thái",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Quan sát các giai đoạn vòng đời giúp nhận ra kiểu [blank] của động vật.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “biến thái”."
           }
         }

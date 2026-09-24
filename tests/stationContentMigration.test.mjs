@@ -20,6 +20,14 @@ const grade8Releases = await Promise.all([1, 2, 3].map((station) => fs.readFile(
 const cutover = await fs.readFile('supabase_station_content_v2_cutover.sql', 'utf8');
 const adminEditMigration = await fs.readFile('supabase_station_content_v2_admin_edit.sql', 'utf8');
 const gameplayFixMigration = await fs.readFile('supabase_station_content_v2_gameplay_fix.sql', 'utf8');
+const matchRetryMigration = await fs.readFile('supabase_station_content_v2_match_retry_fix.sql', 'utf8');
+const hintReviewMigration = await fs.readFile('generated/station-releases/station-hints-review.sql', 'utf8');
+
+async function restorePlaceholderHints(db, releaseId) {
+  await db.query(`update station_content_items
+    set public_content = jsonb_set(public_content, '{hint}', to_jsonb('Dựa vào kiến thức của ải ' || day_index || '.'))
+    where release_id = $1 and game_type <> 'quiz'`, [releaseId]);
+}
 
 test('generated SQL uses a portable PL/pgSQL declaration block', () => {
   assert.match(pilotRelease, /do \$station_release\$\r?\ndeclare\r?\n\s+v_release_id uuid;/);
@@ -196,6 +204,72 @@ test('V2 matching checks each pair before green feedback and category reports wr
     assert.equal(first.feedback.find(item => item.name === 'Vi khuẩn').correct, false);
     assert.equal(first.feedback.find(item => item.name === 'Tế bào thực vật').correct, true);
     assert.equal(first.answer_reveal, null);
+  } finally { await db.close(); }
+});
+
+test('V2 matching lets a student finish after every distinct wrong pairing', async () => {
+  const db = await setup();
+  try {
+    await db.exec(gameplayFixMigration);
+    await db.exec(matchRetryMigration);
+    const releaseId = await createCompleteRelease(db, 'g6-st1-match-retry');
+    await db.query('select admin_publish_station_release($1)', [releaseId]);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${student}', false); set role authenticated;`);
+    const started = (await db.query("select start_station_attempt(6, 'g6_st1', 1) as result")).rows[0].result;
+    const match = started.games.find(game => game.type === 'match');
+    const check = async (left, right) => (await db.query(
+      'select check_station_match_pair($1,$2,$3,$4) as result',
+      [started.attempt_id, match.id, left, right],
+    )).rows[0].result;
+    assert.deepEqual(await check('Màng tế bào', 'Chứa vật chất di truyền'), { correct: false });
+    assert.deepEqual(await check('Nhân', 'Bao bọc tế bào'), { correct: false });
+    assert.deepEqual(await check('Nhân', 'Bao bọc tế bào'), { correct: false });
+    assert.deepEqual(await check('Màng tế bào', 'Bao bọc tế bào'), { correct: true });
+    assert.deepEqual(await check('Nhân', 'Chứa vật chất di truyền'), { correct: true });
+    await assert.rejects(check('Khác', 'Bao bọc tế bào'), /invalid_match_pair/);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${ordinaryStudent}', false);`);
+    await assert.rejects(check('Màng tế bào', 'Bao bọc tế bào'), /attempt_not_found/);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${student}', false);`);
+    const submitted = (await db.query('select submit_station_answer($1,$2,$3::jsonb) as result',
+      [started.attempt_id, match.id, JSON.stringify({ value: fiveGames[1][2].value })])).rows[0].result;
+    assert.equal(submitted.resolved, true);
+  } finally { await db.close(); }
+});
+
+test('hint review changes only untouched draft hints and preserves admin-edited content', async () => {
+  const db = await setup();
+  try {
+    await db.exec(pilotRelease);
+    const release = (await db.query("select id from station_content_releases where version = 'g6-st1-2026.1'")).rows[0];
+    await restorePlaceholderHints(db, release.id);
+    await db.query(`update station_content_items
+      set public_content = jsonb_set(public_content, '{sentence}', '"Câu đã chỉnh trên admin [blank]."'::jsonb)
+      where release_id = $1 and day_index = 1 and game_type = 'fill'`, [release.id]);
+    await db.exec(hintReviewMigration);
+    const items = (await db.query('select game_type, public_content from station_content_items where release_id = $1 and day_index = 1', [release.id])).rows;
+    assert.equal(items.find(item => item.game_type === 'fill').public_content.hint, 'Dựa vào kiến thức của ải 1.');
+    assert.match(items.find(item => item.game_type === 'match').public_content.hint, /Thị kính/);
+    assert.equal((await db.query('select status from station_content_releases where id = $1', [release.id])).rows[0].status, 'review');
+    await db.exec(hintReviewMigration);
+    assert.equal((await db.query('select count(*) as n from station_content_releases')).rows[0].n, 1);
+  } finally { await db.close(); }
+});
+
+test('hint review clones a published release without changing its live content', async () => {
+  const db = await setup();
+  try {
+    await db.exec(pilotRelease);
+    await db.exec(`select set_config('request.jwt.claim.sub', '${admin}', false);`);
+    const original = (await db.query("select id from station_content_releases where version = 'g6-st1-2026.1'")).rows[0];
+    await restorePlaceholderHints(db, original.id);
+    await db.query('select admin_publish_station_release($1)', [original.id]);
+    await db.exec(hintReviewMigration);
+    const clone = (await db.query("select id, status from station_content_releases where version = 'g6-st1-2026.1-hints.1'")).rows[0];
+    assert.equal(clone.status, 'review');
+    assert.equal((await db.query('select release_id from station_content_publications where grade = 6 and station_id = $1', ['g6_st1'])).rows[0].release_id, original.id);
+    assert.equal((await db.query('select public_content->>\'hint\' as hint from station_content_items where release_id = $1 and day_index = 1 and game_type = $2', [original.id, 'match'])).rows[0].hint, 'Dựa vào kiến thức của ải 1.');
+    assert.match((await db.query('select public_content->>\'hint\' as hint from station_content_items where release_id = $1 and day_index = 1 and game_type = $2', [clone.id, 'match'])).rows[0].hint, /Thị kính/);
+    assert.equal((await db.query('select count(*) as n from station_content_items where release_id = $1', [clone.id])).rows[0].n, 50);
   } finally { await db.close(); }
 });
 

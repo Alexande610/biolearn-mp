@@ -52,7 +52,7 @@
                 "right": "DNA con giữ một mạch cũ"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Mạch khuôn” và “DNA polymerase” trước khi nối. Mô tả của “Mạch khuôn” bắt đầu bằng “Đ”.",
             "explanation": "Mạch khuôn: Định hướng tổng hợp mạch mới; DNA polymerase: Tham gia kéo dài mạch DNA mới; Bán bảo tồn: DNA con giữ một mạch cũ."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "DNA tái bản theo nguyên tắc bổ sung và bán [blank].",
             "correctAnswer": "bảo tồn",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “DNA tái bản theo nguyên tắc bổ sung và bán [blank].”. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “bảo tồn”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Tham gia tái bản DNA” và “Không phải thành phần trực tiếp của tái bản” theo đặc điểm của từng mục. “Mạch DNA khuôn” thuộc nhóm “Tham gia tái bản DNA”.",
             "explanation": "Mạch DNA khuôn thuộc nhóm Tham gia tái bản DNA; Nucleotide tự do thuộc nhóm Tham gia tái bản DNA; DNA polymerase thuộc nhóm Tham gia tái bản DNA; Ribosome dịch mã thuộc nhóm Không phải thành phần trực tiếp của tái bản."
           }
         },
@@ -107,7 +107,7 @@
               "G"
             ],
             "correctWord": "T",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Base A trên mạch khuôn DNA bắt cặp với base [blank] trên mạch mới.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “T” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “T”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Nơi diễn ra dịch mã"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Phiên mã” và “Dịch mã” trước khi nối. Mô tả của “Phiên mã” bắt đầu bằng “T”.",
             "explanation": "Phiên mã: Tổng hợp RNA từ DNA; Dịch mã: Tổng hợp chuỗi amino acid theo mRNA; Ribosome: Nơi diễn ra dịch mã."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Bộ ba trên mRNA được gọi là [blank].",
             "correctAnswer": "codon",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Bộ ba trên mRNA được gọi là [blank].”. Từ cần chọn bắt đầu bằng “c” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “codon”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Phiên mã” và “Dịch mã” theo đặc điểm của từng mục. “Mạch DNA làm khuôn” thuộc nhóm “Phiên mã”.",
             "explanation": "Mạch DNA làm khuôn thuộc nhóm Phiên mã; Tạo mRNA thuộc nhóm Phiên mã; Ribosome đọc codon thuộc nhóm Dịch mã; Tạo chuỗi amino acid thuộc nhóm Dịch mã."
           }
         },
@@ -213,7 +213,7 @@
               "nước"
             ],
             "correctWord": "protein",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Thông tin từ DNA qua mRNA được dùng để tổng hợp [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “protein”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Một sản phẩm có thể được tạo từ thông tin gene"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Biểu hiện gene” và “Điều hoà biểu hiện” trước khi nối. Mô tả của “Biểu hiện gene” bắt đầu bằng “G”.",
             "explanation": "Biểu hiện gene: Gene tạo sản phẩm chức năng; Điều hoà biểu hiện: Kiểm soát thời điểm và mức tạo sản phẩm; Protein: Một sản phẩm có thể được tạo từ thông tin gene."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Điều hoà biểu hiện gene giúp tế bào tạo sản phẩm đúng lúc và đúng [blank].",
             "correctAnswer": "mức",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Điều hoà biểu hiện gene giúp tế bào tạo sản phẩm đúng lúc và đúng [blank].”. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “mức”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Liên quan điều hoà biểu hiện gene” và “Không phải điều hoà biểu hiện gene” theo đặc điểm của từng mục. “Bật phiên mã gene phù hợp” thuộc nhóm “Liên quan điều hoà biểu hiện gene”.",
             "explanation": "Bật phiên mã gene phù hợp thuộc nhóm Liên quan điều hoà biểu hiện gene; Giảm tổng hợp một protein thuộc nhóm Liên quan điều hoà biểu hiện gene; Tăng biểu hiện gene khi cần thuộc nhóm Liên quan điều hoà biểu hiện gene; Đổi tên tế bào trên nhãn thuộc nhóm Không phải điều hoà biểu hiện gene."
           }
         },
@@ -319,7 +319,7 @@
               "không xảy ra"
             ],
             "correctWord": "khác nhau",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Cùng một hệ gene có thể tạo nhiều loại tế bào nhờ biểu hiện gene [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “khác nhau”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Xuất hiện thêm một hoặc vài cặp nucleotide"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Thay thế” và “Mất” trước khi nối. Mô tả của “Thay thế” bắt đầu bằng “M”.",
             "explanation": "Thay thế: Một cặp nucleotide đổi thành cặp khác; Mất: Thiếu một hoặc vài cặp nucleotide; Thêm: Xuất hiện thêm một hoặc vài cặp nucleotide."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Đột biến gene làm thay đổi trình tự [blank] của gene.",
             "correctAnswer": "nucleotide",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Đột biến gene làm thay đổi trình tự [blank] của gene.”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “nucleotide”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Đột biến gene” và “Không phải đột biến gene” theo đặc điểm của từng mục. “Thay thế một cặp base” thuộc nhóm “Đột biến gene”.",
             "explanation": "Thay thế một cặp base thuộc nhóm Đột biến gene; Mất một cặp base thuộc nhóm Đột biến gene; Thêm một cặp base thuộc nhóm Đột biến gene; Mất cả nhiễm sắc thể thuộc nhóm Không phải đột biến gene."
           }
         },
@@ -425,7 +425,7 @@
               "hệ sinh thái"
             ],
             "correctWord": "allele",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Đột biến gene có thể tạo [blank] mới.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “a” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “allele”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "DNA có các đoạn được kết hợp từ nguồn khác"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Gene mục tiêu” và “Vector” trước khi nối. Mô tả của “Gene mục tiêu” bắt đầu bằng “M”.",
             "explanation": "Gene mục tiêu: Mang thông tin cần khai thác; Vector: Giúp đưa gene vào tế bào nhận; DNA tái tổ hợp: DNA có các đoạn được kết hợp từ nguồn khác."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Phân tử mang gene mục tiêu vào tế bào nhận gọi là [blank].",
             "correctAnswer": "vector",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Phân tử mang gene mục tiêu vào tế bào nhận gọi là [blank].”. Từ cần chọn bắt đầu bằng “v” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “vector”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Liên quan công nghệ gene” và “Không phải thao tác công nghệ gene” theo đặc điểm của từng mục. “Chọn gene mục tiêu” thuộc nhóm “Liên quan công nghệ gene”.",
             "explanation": "Chọn gene mục tiêu thuộc nhóm Liên quan công nghệ gene; Tạo DNA tái tổ hợp thuộc nhóm Liên quan công nghệ gene; Đưa DNA vào tế bào nhận thuộc nhóm Liên quan công nghệ gene; Chỉ đổi màu chậu cây thuộc nhóm Không phải thao tác công nghệ gene."
           }
         },
@@ -531,7 +531,7 @@
               "khí tượng"
             ],
             "correctWord": "di truyền",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Công nghệ gene tác động trên vật chất [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “di truyền”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Vùng gắn với bộ máy phân li nhiễm sắc thể"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “DNA” và “Histone” trước khi nối. Mô tả của “DNA” bắt đầu bằng “M”.",
             "explanation": "DNA: Mang thông tin di truyền; Histone: Protein tham gia đóng gói DNA; Centromere: Vùng gắn với bộ máy phân li nhiễm sắc thể."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "DNA quấn quanh protein [blank] tạo các nucleosome.",
             "correctAnswer": "histone",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “DNA quấn quanh protein [blank] tạo các nucleosome.”. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “histone”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Thành phần hoặc vùng của nhiễm sắc thể” và “Không thuộc nhiễm sắc thể” theo đặc điểm của từng mục. “DNA” thuộc nhóm “Thành phần hoặc vùng của nhiễm sắc thể”.",
             "explanation": "DNA thuộc nhóm Thành phần hoặc vùng của nhiễm sắc thể; Histone thuộc nhóm Thành phần hoặc vùng của nhiễm sắc thể; Centromere thuộc nhóm Thành phần hoặc vùng của nhiễm sắc thể; Lục lạp của tế bào lá thuộc nhóm Không thuộc nhiễm sắc thể."
           }
         },
@@ -637,7 +637,7 @@
               "phế nang"
             ],
             "correctWord": "gene",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Nhiễm sắc thể là cấu trúc mang nhiều [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “g” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “gene”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Đồng hợp lặn"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Kiểu gene đồng hợp trội AA” và “Kiểu gene dị hợp Aa” trước khi nối. Mô tả của “Kiểu gene đồng hợp trội AA” bắt đầu bằng “Đ”.",
             "explanation": "Kiểu gene đồng hợp trội AA: Đồng hợp trội; Kiểu gene dị hợp Aa: Dị hợp; Kiểu gene đồng hợp lặn aa: Đồng hợp lặn."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Aa × Aa tạo tỉ lệ kiểu gene 1 AA : 2 Aa : 1 [blank].",
             "correctAnswer": "aa",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Aa × Aa tạo tỉ lệ kiểu gene 1 AA : 2 Aa : 1 [blank].”. Từ cần chọn bắt đầu bằng “a” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “aa”."
           }
         },
@@ -724,7 +724,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Biểu hiện trội khi A trội hoàn toàn” và “Biểu hiện lặn” theo đặc điểm của từng mục. “Đồng hợp trội AA” thuộc nhóm “Biểu hiện trội khi A trội hoàn toàn”.",
             "explanation": "Đồng hợp trội AA thuộc nhóm Biểu hiện trội khi A trội hoàn toàn; Dị hợp Aa thuộc nhóm Biểu hiện trội khi A trội hoàn toàn; Đồng hợp lặn aa thuộc nhóm Biểu hiện lặn."
           }
         },
@@ -739,7 +739,7 @@
               "đồng hợp trội AA"
             ],
             "correctWord": "đồng hợp lặn aa",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Trong trội hoàn toàn, kiểu gene [blank] có kiểu hình lặn.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 4 tiếng.",
             "explanation": "Từ đúng là “đồng hợp lặn aa”."
           }
         }
@@ -790,7 +790,7 @@
                 "right": "Hai allele cùng biểu hiện ở dị hợp"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Trội hoàn toàn” và “Trội không hoàn toàn” trước khi nối. Mô tả của “Trội hoàn toàn” bắt đầu bằng “D”.",
             "explanation": "Trội hoàn toàn: Dị hợp biểu hiện tính trạng trội; Trội không hoàn toàn: Dị hợp có kiểu hình trung gian; Đồng trội: Hai allele cùng biểu hiện ở dị hợp."
           }
         },
@@ -800,7 +800,7 @@
           "data": {
             "sentence": "Hai allele cùng biểu hiện rõ ở cá thể dị hợp là hiện tượng [blank].",
             "correctAnswer": "đồng trội",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Hai allele cùng biểu hiện rõ ở cá thể dị hợp là hiện tượng [blank].”. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “đồng trội”."
           }
         },
@@ -830,7 +830,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Trội không hoàn toàn” và “Đồng trội” theo đặc điểm của từng mục. “Kiểu hình dị hợp trung gian” thuộc nhóm “Trội không hoàn toàn”.",
             "explanation": "Kiểu hình dị hợp trung gian thuộc nhóm Trội không hoàn toàn; Hoa đỏ × trắng tạo hoa hồng trong mô hình đơn giản thuộc nhóm Trội không hoàn toàn; Hai allele cùng biểu hiện thuộc nhóm Đồng trội; Nhóm máu AB ở người thuộc nhóm Đồng trội."
           }
         },
@@ -845,7 +845,7 @@
               "liên kết"
             ],
             "correctWord": "không hoàn toàn",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Kiểu hình trung gian ở dị hợp có thể do trội [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 3 tiếng.",
             "explanation": "Từ đúng là “không hoàn toàn”."
           }
         }
@@ -896,7 +896,7 @@
                 "right": "Thường có một X và một Y"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Nhiễm sắc thể X” và “Nhiễm sắc thể Y” trước khi nối. Mô tả của “Nhiễm sắc thể X” bắt đầu bằng “M”.",
             "explanation": "Nhiễm sắc thể X: Mang nhiều gene liên kết giới tính; Nhiễm sắc thể Y: Có vùng gene khác X; Nam XY: Thường có một X và một Y."
           }
         },
@@ -906,7 +906,7 @@
           "data": {
             "sentence": "Gene nằm trên nhiễm sắc thể X có thể cho kiểu di truyền liên kết với [blank].",
             "correctAnswer": "giới tính",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Gene nằm trên nhiễm sắc thể X có thể cho kiểu di truyền liên kết với [blank].”. Từ cần chọn bắt đầu bằng “g” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “giới tính”."
           }
         },
@@ -936,7 +936,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Thông thường ở nam XY” và “Thông thường ở nữ XX” theo đặc điểm của từng mục. “Một nhiễm sắc thể X” thuộc nhóm “Thông thường ở nam XY”.",
             "explanation": "Một nhiễm sắc thể X thuộc nhóm Thông thường ở nam XY; Một nhiễm sắc thể Y thuộc nhóm Thông thường ở nam XY; Hai nhiễm sắc thể X thuộc nhóm Thông thường ở nữ XX; Không có nhiễm sắc thể Y thuộc nhóm Thông thường ở nữ XX."
           }
         },
@@ -951,7 +951,7 @@
               "không có DNA"
             ],
             "correctWord": "XY",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “Gene nằm trên X có thể biểu hiện đặc thù ở người mang bộ nhiễm sắc thể [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “X” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “XY”."
           }
         }
@@ -1002,7 +1002,7 @@
                 "right": "Quá trình có thể xảy ra trao đổi chéo"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Liên kết gene” và “Hoán vị gene” trước khi nối. Mô tả của “Liên kết gene” bắt đầu bằng “C”.",
             "explanation": "Liên kết gene: Các gene cùng nhiễm sắc thể có xu hướng đi cùng; Hoán vị gene: Tạo tổ hợp allele mới từ trao đổi chéo; Giảm phân: Quá trình có thể xảy ra trao đổi chéo."
           }
         },
@@ -1012,7 +1012,7 @@
           "data": {
             "sentence": "Trao đổi chéo có thể tạo biến dị [blank].",
             "correctAnswer": "tổ hợp",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Trao đổi chéo có thể tạo biến dị [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “tổ hợp”."
           }
         },
@@ -1042,7 +1042,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Liên kết gene” và “Hoán vị gene” theo đặc điểm của từng mục. “Gene cùng nhiễm sắc thể đi cùng” thuộc nhóm “Liên kết gene”.",
             "explanation": "Gene cùng nhiễm sắc thể đi cùng thuộc nhóm Liên kết gene; Hạn chế tổ hợp tự do giữa gene gần nhau thuộc nhóm Liên kết gene; Trao đổi đoạn chromatid thuộc nhóm Hoán vị gene; Tạo tổ hợp allele mới thuộc nhóm Hoán vị gene."
           }
         },
@@ -1057,7 +1057,7 @@
               "cùng tế bào"
             ],
             "correctWord": "chị em",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Hoán vị gene liên quan trao đổi chéo giữa các chromatid không [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “chị em”."
           }
         }

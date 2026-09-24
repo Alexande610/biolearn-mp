@@ -1,4 +1,5 @@
 import { STATION_GAME_TYPES, getStationById } from '../data/stationCatalog.js';
+import { isPlaceholderStationHint } from './stationHints.js';
 
 const hasText = (value) => typeof value === 'string' && value.trim().length > 0;
 const hasOneBlank = (value) => hasText(value) && (value.match(/\[blank\]/g) || []).length === 1;
@@ -22,6 +23,7 @@ const validateCommon = (game, errors) => {
   if (!STATION_GAME_TYPES.includes(game?.type)) errors.push(`Loại trò chơi không hợp lệ: ${game?.type || '(trống)'}`);
   if (!hasText(game?.title)) errors.push('Thiếu tiêu đề trò chơi.');
   if (!hasText(game?.data?.hint)) errors.push(`${game?.type || 'Trò chơi'} thiếu gợi ý.`);
+  if (isPlaceholderStationHint(game?.data?.hint)) errors.push(`${game?.type || 'Trò chơi'} còn gợi ý mẫu theo số ải.`);
   if (!hasText(game?.data?.explanation)) errors.push(`${game?.type || 'Trò chơi'} thiếu giải thích.`);
 };
 

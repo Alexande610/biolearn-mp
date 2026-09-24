@@ -52,7 +52,7 @@
                 "right": "Tham gia vận chuyển chọn lọc nhiều chất"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Khuếch tán đơn giản” và “Vận chuyển chủ động” trước khi nối. Mô tả của “Khuếch tán đơn giản” bắt đầu bằng “C”.",
             "explanation": "Khuếch tán đơn giản: Chất đi xuôi chiều gradient nồng độ; Vận chuyển chủ động: Có thể đưa chất ngược chiều gradient; Protein màng: Tham gia vận chuyển chọn lọc nhiều chất."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Vận chuyển chủ động thường tiêu tốn [blank] của tế bào.",
             "correctAnswer": "năng lượng",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Vận chuyển chủ động thường tiêu tốn [blank] của tế bào.”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “năng lượng”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Vận chuyển thụ động” và “Vận chuyển chủ động” theo đặc điểm của từng mục. “Khuếch tán oxygen qua màng” thuộc nhóm “Vận chuyển thụ động”.",
             "explanation": "Khuếch tán oxygen qua màng thuộc nhóm Vận chuyển thụ động; Chất đi xuôi gradient nồng độ thuộc nhóm Vận chuyển thụ động; Bơm ion ngược gradient thuộc nhóm Vận chuyển chủ động; Cần ATP để vận chuyển ion thuộc nhóm Vận chuyển chủ động."
           }
         },
@@ -107,7 +107,7 @@
               "bất kể"
             ],
             "correctWord": "xuôi",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Khuếch tán thụ động diễn ra theo chiều [blank] gradient nồng độ.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “x” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “xuôi”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Có nồng độ chất tan thấp hơn bên so sánh"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Thẩm thấu” và “Dung dịch ưu trương” trước khi nối. Mô tả của “Thẩm thấu” bắt đầu bằng “N”.",
             "explanation": "Thẩm thấu: Nước di chuyển qua màng bán thấm; Dung dịch ưu trương: Có nồng độ chất tan cao hơn bên so sánh; Dung dịch nhược trương: Có nồng độ chất tan thấp hơn bên so sánh."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Sự di chuyển của nước qua màng bán thấm gọi là [blank].",
             "correctAnswer": "thẩm thấu",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Sự di chuyển của nước qua màng bán thấm gọi là [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “thẩm thấu”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Liên quan thẩm thấu” và “Không phải thẩm thấu” theo đặc điểm của từng mục. “Nước qua màng” thuộc nhóm “Liên quan thẩm thấu”.",
             "explanation": "Nước qua màng thuộc nhóm Liên quan thẩm thấu; Tế bào mất nước trong môi trường ưu trương thuộc nhóm Liên quan thẩm thấu; Phân tử nước di chuyển thuộc nhóm Liên quan thẩm thấu; Ribosome tổng hợp protein thuộc nhóm Không phải thẩm thấu."
           }
         },
@@ -213,7 +213,7 @@
               "nhân đôi"
             ],
             "correctWord": "co",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Tế bào thực vật trong dung dịch ưu trương có thể bị [blank] nguyên sinh.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “co”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Vận chuyển vật chất kích thước lớn"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Nhập bào” và “Xuất bào” trước khi nối. Mô tả của “Nhập bào” bắt đầu bằng “Đ”.",
             "explanation": "Nhập bào: Đưa vật chất vào bằng túi màng; Xuất bào: Đưa vật chất ra bằng túi màng; Túi màng: Vận chuyển vật chất kích thước lớn."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Đưa chất từ túi màng ra bên ngoài tế bào gọi là [blank].",
             "correctAnswer": "xuất bào",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Đưa chất từ túi màng ra bên ngoài tế bào gọi là [blank].”. Từ cần chọn bắt đầu bằng “x” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “xuất bào”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Đưa vật chất vào tế bào” và “Đưa vật chất ra khỏi tế bào” theo đặc điểm của từng mục. “Nhập bào” thuộc nhóm “Đưa vật chất vào tế bào”.",
             "explanation": "Nhập bào thuộc nhóm Đưa vật chất vào tế bào; Thực bào thuộc nhóm Đưa vật chất vào tế bào; Xuất bào thuộc nhóm Đưa vật chất ra khỏi tế bào; Tiết enzyme ra ngoài tế bào thuộc nhóm Đưa vật chất ra khỏi tế bào."
           }
         },
@@ -319,7 +319,7 @@
               "khuếch tán oxygen"
             ],
             "correctWord": "nhập bào",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Tế bào có thể dùng [blank] để đưa hạt lớn vào bên trong.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “nhập bào”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Khối nguyên sinh trương lại khi nhận nước"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Môi trường ưu trương” và “Co nguyên sinh” trước khi nối. Mô tả của “Môi trường ưu trương” bắt đầu bằng “T”.",
             "explanation": "Môi trường ưu trương: Tế bào có xu hướng mất nước; Co nguyên sinh: Khối nguyên sinh tách khỏi thành tế bào; Phản co nguyên sinh: Khối nguyên sinh trương lại khi nhận nước."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Trong dung dịch ưu trương, tế bào thực vật có thể xảy ra hiện tượng co [blank].",
             "correctAnswer": "nguyên sinh",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Trong dung dịch ưu trương, tế bào thực vật có thể xảy ra hiện tượng co [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “nguyên sinh”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Co nguyên sinh” và “Phản co nguyên sinh” theo đặc điểm của từng mục. “Tế bào mất nước” thuộc nhóm “Co nguyên sinh”.",
             "explanation": "Tế bào mất nước thuộc nhóm Co nguyên sinh; Khối nguyên sinh co lại thuộc nhóm Co nguyên sinh; Tế bào nhận nước trở lại thuộc nhóm Phản co nguyên sinh; Khối nguyên sinh trương lên thuộc nhóm Phản co nguyên sinh."
           }
         },
@@ -425,7 +425,7 @@
               "thụ tinh"
             ],
             "correctWord": "phản co nguyên sinh",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Khi chuyển tế bào đã co nguyên sinh sang nước, có thể quan sát hiện tượng [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 4 tiếng.",
             "explanation": "Từ đúng là “phản co nguyên sinh”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Thay đổi hoạt động sau khi nhận tín hiệu"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Tín hiệu” và “Thụ thể” trước khi nối. Mô tả của “Tín hiệu” bắt đầu bằng “M”.",
             "explanation": "Tín hiệu: Mang thông tin giữa tế bào; Thụ thể: Nhận biết tín hiệu phù hợp; Đáp ứng tế bào: Thay đổi hoạt động sau khi nhận tín hiệu."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Phân tử nhận biết tín hiệu ở tế bào đích gọi là [blank].",
             "correctAnswer": "thụ thể",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Phân tử nhận biết tín hiệu ở tế bào đích gọi là [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “thụ thể”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Thành phần truyền tin tế bào” và “Không phải thành phần truyền tin” theo đặc điểm của từng mục. “Phân tử tín hiệu” thuộc nhóm “Thành phần truyền tin tế bào”.",
             "explanation": "Phân tử tín hiệu thuộc nhóm Thành phần truyền tin tế bào; Thụ thể thuộc nhóm Thành phần truyền tin tế bào; Đáp ứng tế bào thuộc nhóm Thành phần truyền tin tế bào; Sỏi trong đất thuộc nhóm Không phải thành phần truyền tin."
           }
         },
@@ -531,7 +531,7 @@
               "ánh sáng luôn luôn"
             ],
             "correctWord": "thụ thể",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Tế bào chỉ đáp ứng tín hiệu khi có [blank] thích hợp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “thụ thể”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Xúc tác sinh học"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “ATP” và “Chuyển hoá vật chất” trước khi nối. Mô tả của “ATP” bắt đầu bằng “C”.",
             "explanation": "ATP: Chất mang năng lượng dùng trực tiếp; Chuyển hoá vật chất: Tập hợp các phản ứng hoá học trong tế bào; Enzyme: Xúc tác sinh học."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "ATP được xem là đồng tiền [blank] của tế bào.",
             "correctAnswer": "năng lượng",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “ATP được xem là đồng tiền [blank] của tế bào.”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “năng lượng”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Quá trình có thể cần ATP” và “Không phải quá trình sống của tế bào” theo đặc điểm của từng mục. “Vận chuyển chủ động” thuộc nhóm “Quá trình có thể cần ATP”.",
             "explanation": "Vận chuyển chủ động thuộc nhóm Quá trình có thể cần ATP; Tổng hợp đại phân tử thuộc nhóm Quá trình có thể cần ATP; Vận động tế bào thuộc nhóm Quá trình có thể cần ATP; Đá lăn xuống dốc thuộc nhóm Không phải quá trình sống của tế bào."
           }
         },
@@ -637,7 +637,7 @@
               "cellulose"
             ],
             "correctWord": "ATP",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Nhiều hoạt động tế bào sử dụng năng lượng trực tiếp từ [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “A” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “ATP”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Vùng gắn cơ chất phù hợp"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Enzyme” và “Cơ chất” trước khi nối. Mô tả của “Enzyme” bắt đầu bằng “C”.",
             "explanation": "Enzyme: Chất xúc tác sinh học; Cơ chất: Chất tham gia phản ứng do enzyme xúc tác; Trung tâm hoạt động: Vùng gắn cơ chất phù hợp."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Enzyme thường có tính [blank] với cơ chất hoặc phản ứng.",
             "correctAnswer": "đặc hiệu",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Enzyme thường có tính [blank] với cơ chất hoặc phản ứng.”. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “đặc hiệu”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Đúng về enzyme” và “Không đúng về enzyme” theo đặc điểm của từng mục. “Xúc tác phản ứng” thuộc nhóm “Đúng về enzyme”.",
             "explanation": "Xúc tác phản ứng thuộc nhóm Đúng về enzyme; Có vùng gắn cơ chất thuộc nhóm Đúng về enzyme; Hoạt tính chịu ảnh hưởng nhiệt độ thuộc nhóm Đúng về enzyme; Luôn hoạt động tốt ở mọi nhiệt độ thuộc nhóm Không đúng về enzyme."
           }
         },
@@ -743,7 +743,7 @@
               "sinh sản"
             ],
             "correctWord": "hoạt động",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Cơ chất gắn vào trung tâm [blank] của enzyme.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “hoạt động”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Enzyme thường hoạt động hiệu quả nhất"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Nhiệt độ quá cao” và “pH không phù hợp” trước khi nối. Mô tả của “Nhiệt độ quá cao” bắt đầu bằng “C”.",
             "explanation": "Nhiệt độ quá cao: Có thể làm enzyme biến tính; pH không phù hợp: Có thể làm giảm hoạt tính enzyme; Điều kiện tối ưu: Enzyme thường hoạt động hiệu quả nhất."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Nhiệt độ và [blank] có thể ảnh hưởng đến hoạt tính enzyme.",
             "correctAnswer": "pH",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Nhiệt độ và [blank] có thể ảnh hưởng đến hoạt tính enzyme.”. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “pH”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Có thể ảnh hưởng hoạt tính enzyme” và “Không phải yếu tố của phản ứng enzyme” theo đặc điểm của từng mục. “Nhiệt độ” thuộc nhóm “Có thể ảnh hưởng hoạt tính enzyme”.",
             "explanation": "Nhiệt độ thuộc nhóm Có thể ảnh hưởng hoạt tính enzyme; pH thuộc nhóm Có thể ảnh hưởng hoạt tính enzyme; Nồng độ cơ chất thuộc nhóm Có thể ảnh hưởng hoạt tính enzyme; Tên người ghi nhãn ống nghiệm thuộc nhóm Không phải yếu tố của phản ứng enzyme."
           }
         },
@@ -849,7 +849,7 @@
               "đáp án"
             ],
             "correctWord": "yếu tố",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Trong thí nghiệm enzyme, cần thay đổi một [blank] mỗi lần để dễ rút kết luận.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “y” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “yếu tố”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Một quá trình phân giải để giải phóng năng lượng"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Tổng hợp” và “Phân giải” trước khi nối. Mô tả của “Tổng hợp” bắt đầu bằng “T”.",
             "explanation": "Tổng hợp: Tạo chất phức tạp từ chất đơn giản; Phân giải: Phá vỡ chất phức tạp thành chất đơn giản; Hô hấp tế bào: Một quá trình phân giải để giải phóng năng lượng."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Phân giải chất hữu cơ có thể giải phóng [blank].",
             "correctAnswer": "năng lượng",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Phân giải chất hữu cơ có thể giải phóng [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “năng lượng”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Tổng hợp” và “Phân giải” theo đặc điểm của từng mục. “Tạo protein từ amino acid” thuộc nhóm “Tổng hợp”.",
             "explanation": "Tạo protein từ amino acid thuộc nhóm Tổng hợp; Tạo tinh bột từ glucose thuộc nhóm Tổng hợp; Phân giải glucose thuộc nhóm Phân giải; Phân giải protein thuộc nhóm Phân giải."
           }
         },
@@ -955,7 +955,7 @@
               "thẩm thấu"
             ],
             "correctWord": "tổng hợp",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “Quá trình tạo phân tử phức tạp từ các đơn vị đơn giản gọi là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “tổng hợp”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Mang năng lượng trực tiếp cho nhiều hoạt động"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Quang hợp” và “Hô hấp tế bào” trước khi nối. Mô tả của “Quang hợp” bắt đầu bằng “T”.",
             "explanation": "Quang hợp: Tổng hợp chất hữu cơ nhờ ánh sáng; Hô hấp tế bào: Phân giải chất hữu cơ giải phóng năng lượng; ATP: Mang năng lượng trực tiếp cho nhiều hoạt động."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Quang hợp chuyển năng lượng ánh sáng thành [blank] năng.",
             "correctAnswer": "hoá",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Quang hợp chuyển năng lượng ánh sáng thành [blank] năng.”. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “hoá”."
           }
         },
@@ -1046,7 +1046,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Quang hợp” và “Hô hấp tế bào” theo đặc điểm của từng mục. “Tổng hợp chất hữu cơ” thuộc nhóm “Quang hợp”.",
             "explanation": "Tổng hợp chất hữu cơ thuộc nhóm Quang hợp; Tích luỹ năng lượng thuộc nhóm Quang hợp; Phân giải chất hữu cơ thuộc nhóm Hô hấp tế bào; Giải phóng năng lượng thuộc nhóm Hô hấp tế bào."
           }
         },
@@ -1061,7 +1061,7 @@
               "xuất bào"
             ],
             "correctWord": "hô hấp",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Sản phẩm hữu cơ của quang hợp có thể là nguyên liệu cho [blank] tế bào.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “hô hấp”."
           }
         }

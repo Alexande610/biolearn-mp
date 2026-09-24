@@ -52,7 +52,7 @@
                 "right": "Chứa các phế nang trao đổi khí"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Mũi” và “Khí quản” trước khi nối. Mô tả của “Mũi” bắt đầu bằng “L”.",
             "explanation": "Mũi: Lọc bớt bụi và làm ấm không khí; Khí quản: Dẫn khí đến phế quản; Phổi: Chứa các phế nang trao đổi khí."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Không khí từ khí quản đi tiếp vào [blank] trước khi đến phế nang.",
             "correctAnswer": "phế quản",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Không khí từ khí quản đi tiếp vào [blank] trước khi đến phế nang.”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “phế quản”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Đường dẫn khí” và “Nơi trao đổi khí” theo đặc điểm của từng mục. “Mũi” thuộc nhóm “Đường dẫn khí”.",
             "explanation": "Mũi thuộc nhóm Đường dẫn khí; Khí quản thuộc nhóm Đường dẫn khí; Phế quản thuộc nhóm Đường dẫn khí; Phế nang thuộc nhóm Nơi trao đổi khí."
           }
         },
@@ -107,7 +107,7 @@
               "lông ruột"
             ],
             "correctWord": "phế nang",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Các [blank] trong phổi là nơi trao đổi oxygen và carbon dioxide với máu.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “phế nang”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Giúp giảm tác hại với hệ hô hấp"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Phế nang” và “Mao mạch phổi” trước khi nối. Mô tả của “Phế nang” bắt đầu bằng “N”.",
             "explanation": "Phế nang: Nơi trao đổi khí với máu; Mao mạch phổi: Nhận oxygen từ phế nang; Tránh khói thuốc: Giúp giảm tác hại với hệ hô hấp."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Carbon dioxide từ máu đi vào [blank] để được thở ra.",
             "correctAnswer": "phế nang",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Carbon dioxide từ máu đi vào [blank] để được thở ra.”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “phế nang”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Bảo vệ hệ hô hấp” và “Gây hại hệ hô hấp” theo đặc điểm của từng mục. “Tránh khói thuốc” thuộc nhóm “Bảo vệ hệ hô hấp”.",
             "explanation": "Tránh khói thuốc thuộc nhóm Bảo vệ hệ hô hấp; Giữ không khí trong lành thuộc nhóm Bảo vệ hệ hô hấp; Vận động phù hợp thuộc nhóm Bảo vệ hệ hô hấp; Hít khói thuốc thường xuyên thuộc nhóm Gây hại hệ hô hấp."
           }
         },
@@ -213,7 +213,7 @@
               "methane"
             ],
             "correctWord": "oxygen",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Khi hít vào, cơ thể nhận khí [blank] để cung cấp cho tế bào.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “o” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “oxygen”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Chứa nước tiểu trước khi thải ra"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Thận” và “Ống dẫn nước tiểu” trước khi nối. Mô tả của “Thận” bắt đầu bằng “L”.",
             "explanation": "Thận: Lọc máu và tạo nước tiểu; Ống dẫn nước tiểu: Dẫn nước tiểu đến bóng đái; Bóng đái: Chứa nước tiểu trước khi thải ra."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Nước tiểu được tạo ra chủ yếu ở [blank].",
             "correctAnswer": "thận",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Nước tiểu được tạo ra chủ yếu ở [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “thận”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Thuộc hệ bài tiết nước tiểu” và “Không thuộc hệ bài tiết nước tiểu” theo đặc điểm của từng mục. “Thận” thuộc nhóm “Thuộc hệ bài tiết nước tiểu”.",
             "explanation": "Thận thuộc nhóm Thuộc hệ bài tiết nước tiểu; Ống dẫn nước tiểu thuộc nhóm Thuộc hệ bài tiết nước tiểu; Bóng đái thuộc nhóm Thuộc hệ bài tiết nước tiểu; Tim thuộc nhóm Không thuộc hệ bài tiết nước tiểu."
           }
         },
@@ -319,7 +319,7 @@
               "dạ dày"
             ],
             "correctWord": "bóng đái",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Từ thận, nước tiểu đi qua ống dẫn nước tiểu đến [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “bóng đái”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Thải carbon dioxide ra môi trường"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Máu” và “Thận” trước khi nối. Mô tả của “Máu” bắt đầu bằng “V”.",
             "explanation": "Máu: Vận chuyển nhiều chất trong môi trường trong; Thận: Tham gia điều chỉnh lượng nước và chất tan; Phổi: Thải carbon dioxide ra môi trường."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Duy trì các điều kiện bên trong cơ thể tương đối ổn định gọi là cân bằng [blank].",
             "correctAnswer": "nội môi",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Duy trì các điều kiện bên trong cơ thể tương đối ổn định gọi là cân bằng [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “nội môi”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Tham gia điều hoà môi trường trong” và “Không phải cơ quan người” theo đặc điểm của từng mục. “Thận” thuộc nhóm “Tham gia điều hoà môi trường trong”.",
             "explanation": "Thận thuộc nhóm Tham gia điều hoà môi trường trong; Phổi thuộc nhóm Tham gia điều hoà môi trường trong; Tim và mạch máu thuộc nhóm Tham gia điều hoà môi trường trong; Mạch gỗ của cây thuộc nhóm Không phải cơ quan người."
           }
         },
@@ -425,7 +425,7 @@
               "đất trồng"
             ],
             "correctWord": "trong",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Hệ bài tiết góp phần duy trì sự ổn định của môi trường [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “trong”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Liên hệ trung ương với các bộ phận cơ thể"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Não” và “Tuỷ sống” trước khi nối. Mô tả của “Não” bắt đầu bằng “X”.",
             "explanation": "Não: Xử lí nhiều thông tin và điều khiển hoạt động; Tuỷ sống: Dẫn truyền và tham gia một số phản xạ; Dây thần kinh: Liên hệ trung ương với các bộ phận cơ thể."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Hệ thần kinh trung ương gồm não và [blank] sống.",
             "correctAnswer": "tuỷ",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Hệ thần kinh trung ương gồm não và [blank] sống.”. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “tuỷ”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Hệ thần kinh trung ương” và “Hệ thần kinh ngoại biên” theo đặc điểm của từng mục. “Não” thuộc nhóm “Hệ thần kinh trung ương”.",
             "explanation": "Não thuộc nhóm Hệ thần kinh trung ương; Tuỷ sống thuộc nhóm Hệ thần kinh trung ương; Dây thần kinh thuộc nhóm Hệ thần kinh ngoại biên; Hạch thần kinh thuộc nhóm Hệ thần kinh ngoại biên."
           }
         },
@@ -531,7 +531,7 @@
               "ống tiêu hoá"
             ],
             "correctWord": "dây",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Các [blank] thần kinh truyền thông tin giữa trung ương và cơ thể.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “d” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “dây”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Nhận kích thích từ môi trường"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “Mắt” và “Tai” trước khi nối. Mô tả của “Mắt” bắt đầu bằng “T”.",
             "explanation": "Mắt: Tiếp nhận ánh sáng; Tai: Tiếp nhận âm thanh; Thụ thể cảm giác: Nhận kích thích từ môi trường."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Cơ quan cảm giác tiếp nhận âm thanh là [blank].",
             "correctAnswer": "tai",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Cơ quan cảm giác tiếp nhận âm thanh là [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “tai”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Liên quan thị giác” và “Liên quan thính giác” theo đặc điểm của từng mục. “Ánh sáng” thuộc nhóm “Liên quan thị giác”.",
             "explanation": "Ánh sáng thuộc nhóm Liên quan thị giác; Mắt thuộc nhóm Liên quan thị giác; Âm thanh thuộc nhóm Liên quan thính giác; Tai thuộc nhóm Liên quan thính giác."
           }
         },
@@ -637,7 +637,7 @@
               "thận"
             ],
             "correctWord": "mắt",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Đọc sách ở nơi đủ ánh sáng giúp bảo vệ [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “mắt”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Vận chuyển hormone đến cơ quan đích"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Tuyến nội tiết” và “Hormone” trước khi nối. Mô tả của “Tuyến nội tiết” bắt đầu bằng “T”.",
             "explanation": "Tuyến nội tiết: Tiết hormone vào máu; Hormone: Chất truyền tín hiệu điều hoà; Máu: Vận chuyển hormone đến cơ quan đích."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Sản phẩm của tuyến nội tiết được gọi là [blank].",
             "correctAnswer": "hormone",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Sản phẩm của tuyến nội tiết được gọi là [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “hormone”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Tuyến nội tiết” và “Không phải tuyến nội tiết” theo đặc điểm của từng mục. “Tuyến yên” thuộc nhóm “Tuyến nội tiết”.",
             "explanation": "Tuyến yên thuộc nhóm Tuyến nội tiết; Tuyến giáp thuộc nhóm Tuyến nội tiết; Tuyến thượng thận thuộc nhóm Tuyến nội tiết; Tuyến mồ hôi thuộc nhóm Không phải tuyến nội tiết."
           }
         },
@@ -743,7 +743,7 @@
               "lá"
             ],
             "correctWord": "đích",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Hormone được máu vận chuyển tới cơ quan [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “đích”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Tăng tỏa nhiệt khi trời nóng"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Da” và “Mồ hôi bay hơi” trước khi nối. Mô tả của “Da” bắt đầu bằng “B”.",
             "explanation": "Da: Bảo vệ cơ thể và cảm nhận kích thích; Mồ hôi bay hơi: Góp phần làm mát cơ thể; Mạch máu dưới da giãn: Tăng tỏa nhiệt khi trời nóng."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Da giúp bảo vệ cơ thể và góp phần điều hoà thân [blank].",
             "correctAnswer": "nhiệt",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Da giúp bảo vệ cơ thể và góp phần điều hoà thân [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “nhiệt”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Khi trời nóng” và “Khi trời lạnh” theo đặc điểm của từng mục. “Tăng tiết mồ hôi” thuộc nhóm “Khi trời nóng”.",
             "explanation": "Tăng tiết mồ hôi thuộc nhóm Khi trời nóng; Tăng tỏa nhiệt qua da thuộc nhóm Khi trời nóng; Giảm tiết mồ hôi thuộc nhóm Khi trời lạnh; Giảm tỏa nhiệt qua da thuộc nhóm Khi trời lạnh."
           }
         },
@@ -849,7 +849,7 @@
               "hoá đá"
             ],
             "correctWord": "bay hơi",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Mồ hôi [blank] giúp cơ thể tỏa nhiệt.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “b” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “bay hơi”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Được tạo sau thụ tinh"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Tinh trùng” và “Trứng” trước khi nối. Mô tả của “Tinh trùng” bắt đầu bằng “G”.",
             "explanation": "Tinh trùng: Giao tử đực; Trứng: Giao tử cái; Hợp tử: Được tạo sau thụ tinh."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Tinh trùng kết hợp với trứng tạo thành [blank].",
             "correctAnswer": "hợp tử",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Tinh trùng kết hợp với trứng tạo thành [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “hợp tử”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Trước thụ tinh” và “Sau thụ tinh” theo đặc điểm của từng mục. “Tạo tinh trùng” thuộc nhóm “Trước thụ tinh”.",
             "explanation": "Tạo tinh trùng thuộc nhóm Trước thụ tinh; Tạo trứng thuộc nhóm Trước thụ tinh; Giao tử kết hợp thuộc nhóm Trước thụ tinh; Hợp tử phân chia thuộc nhóm Sau thụ tinh."
           }
         },
@@ -955,7 +955,7 @@
               "bài tiết"
             ],
             "correctWord": "thụ tinh",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “Sự kết hợp giữa tinh trùng và trứng gọi là [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “thụ tinh”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Hỗ trợ phát triển khỏe mạnh"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Dậy thì” và “Vệ sinh cá nhân” trước khi nối. Mô tả của “Dậy thì” bắt đầu bằng “G”.",
             "explanation": "Dậy thì: Giai đoạn cơ thể có nhiều thay đổi; Vệ sinh cá nhân: Giúp giữ cơ thể sạch sẽ; Dinh dưỡng và vận động phù hợp: Hỗ trợ phát triển khỏe mạnh."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Ở tuổi dậy thì, cần giữ vệ sinh [blank] đều đặn.",
             "correctAnswer": "cá nhân",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Ở tuổi dậy thì, cần giữ vệ sinh [blank] đều đặn.”. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “cá nhân”."
           }
         },
@@ -1046,7 +1046,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Thói quen chăm sóc bản thân” và “Thói quen không có lợi” theo đặc điểm của từng mục. “Giữ vệ sinh cơ thể” thuộc nhóm “Thói quen chăm sóc bản thân”.",
             "explanation": "Giữ vệ sinh cơ thể thuộc nhóm Thói quen chăm sóc bản thân; Ngủ đủ thời gian phù hợp thuộc nhóm Thói quen chăm sóc bản thân; Ăn uống đa dạng thuộc nhóm Thói quen chăm sóc bản thân; Bỏ vệ sinh cơ thể kéo dài thuộc nhóm Thói quen không có lợi."
           }
         },
@@ -1061,7 +1061,7 @@
               "sau khi chết"
             ],
             "correctWord": "dậy thì",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Cơ thể có nhiều thay đổi về hình thái và sinh lí ở tuổi [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “dậy thì”."
           }
         }

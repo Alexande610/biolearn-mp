@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { useToast } from '../components/Toast';
+import { contextualStationHint, isPlaceholderStationHint } from '../utils/stationHints.js';
 import {
   ArrowLeft, Star, Lock, Sparkles, Trophy, Coins, Zap,
   CheckCircle2, Compass, Ship, Anchor, ChevronRight,
@@ -219,6 +220,9 @@ export default function StationExpeditionPage() {
   const matchCheckSequence = useRef(0);
   const matchFeedbackTimer = useRef(null);
   const categoryFeedbackTimer = useRef(null);
+  const wrongAnswerTimer = useRef(null);
+  const wrongAnswerInFlight = useRef(false);
+  const [wrongAnswerFeedbackPending, setWrongAnswerFeedbackPending] = useState(false);
 
   // Game 3: Fill
   const [fillInputText, setFillInputText] = useState('');
@@ -463,6 +467,9 @@ export default function StationExpeditionPage() {
     matchCheckSequence.current += 1;
     if (matchFeedbackTimer.current) clearTimeout(matchFeedbackTimer.current);
     if (categoryFeedbackTimer.current) clearTimeout(categoryFeedbackTimer.current);
+    if (wrongAnswerTimer.current) clearTimeout(wrongAnswerTimer.current);
+    wrongAnswerInFlight.current = false;
+    setWrongAnswerFeedbackPending(false);
     matchCheckInFlight.current = false;
     setCheckingMatchPair(false);
     setCategoryFeedbackPending(false);
@@ -476,6 +483,9 @@ export default function StationExpeditionPage() {
     matchCheckSequence.current += 1;
     if (matchFeedbackTimer.current) clearTimeout(matchFeedbackTimer.current);
     if (categoryFeedbackTimer.current) clearTimeout(categoryFeedbackTimer.current);
+    if (wrongAnswerTimer.current) clearTimeout(wrongAnswerTimer.current);
+    wrongAnswerInFlight.current = false;
+    setWrongAnswerFeedbackPending(false);
     setCheckingMatchPair(false);
     matchCheckInFlight.current = false;
     setCategoryFeedbackPending(false);
@@ -597,7 +607,25 @@ export default function StationExpeditionPage() {
     };
   };
 
+  const showFirstWrongAnswer = (type) => {
+    setAttempt1Wrong(true);
+    setShowHintModal(true);
+    if (!['quiz', 'fill', 'dragdrop'].includes(type)) return;
+    const sequence = matchCheckSequence.current;
+    wrongAnswerInFlight.current = true;
+    setWrongAnswerFeedbackPending(true);
+    wrongAnswerTimer.current = setTimeout(() => {
+      if (sequence !== matchCheckSequence.current) return;
+      if (type === 'quiz') setSelectedQuizOptText(null);
+      if (type === 'fill') setFillInputText('');
+      if (type === 'dragdrop') setDragWordChoice(null);
+      wrongAnswerInFlight.current = false;
+      setWrongAnswerFeedbackPending(false);
+    }, 2200);
+  };
+
   const handleSubmitCurrentGame = async () => {
+    if (wrongAnswerInFlight.current) return;
     const currentGame = currentGames[gameStep];
 
     if (serverAttemptId) {
@@ -634,8 +662,7 @@ export default function StationExpeditionPage() {
         }
       } else {
         setAttemptCount(result.attempt_no);
-        setAttempt1Wrong(true);
-        setShowHintModal(true);
+        showFirstWrongAnswer(currentGame.type);
         if (currentGame.type === 'match') {
           setMatchedPairs([]);
           setSelectedLeftMatch(null);
@@ -679,8 +706,7 @@ export default function StationExpeditionPage() {
           setGameScores(prev => { const n = [...prev]; n[gameStep] = 1; return n; });
         } else {
           setAttemptCount(1);
-          setAttempt1Wrong(true);
-          setShowHintModal(true); // Mở gợi ý cho làm lần 2, TUYỆT ĐỐI CHƯA BẢO ĐÁP ÁN ĐÚNG!
+          showFirstWrongAnswer('quiz');
         }
       } else if (attemptCount === 1) {
         setAttemptCount(2);
@@ -706,8 +732,7 @@ export default function StationExpeditionPage() {
           setGameScores(prev => { const n = [...prev]; n[gameStep] = 1; return n; });
         } else {
           setAttemptCount(1);
-          setAttempt1Wrong(true);
-          setShowHintModal(true); // Mở gợi ý cho làm lần 2, CHƯA BẢO ĐÁP ÁN ĐÚNG!
+          showFirstWrongAnswer('fill');
         }
       } else if (attemptCount === 1) {
         setAttemptCount(2);
@@ -791,8 +816,7 @@ export default function StationExpeditionPage() {
           setGameScores(prev => { const n = [...prev]; n[gameStep] = 1; return n; });
         } else {
           setAttemptCount(1);
-          setAttempt1Wrong(true);
-          setShowHintModal(true);
+          showFirstWrongAnswer('dragdrop');
         }
       } else if (attemptCount === 1) {
         setAttemptCount(2);
@@ -960,11 +984,14 @@ export default function StationExpeditionPage() {
   const totalStationCards = stationsForGrade.length;
   const seaPathWidth = 180 + (totalStationCards - 1) * 320;
   const currentGame = currentGames[gameStep] || {};
+  const currentHint = isPlaceholderStationHint(currentGame.hint)
+    ? contextualStationHint(currentGame)
+    : currentGame.hint;
 
   // KIỂM TRA ĐIỀU KIỆN KHÓA NÚT "TRẢ LỜI" THEO DẠNG GAME (GAME NỐI TỪ BẮT BUỘC NỐI ĐỦ MỚI MỞ NÚT)
   const isSubmitDisabled = () => {
     if (attempt2Finished) return false;
-    if (categoryFeedbackPending || checkingMatchPair || Boolean(wrongMatchPair)) return true;
+    if (categoryFeedbackPending || wrongAnswerFeedbackPending || checkingMatchPair || Boolean(wrongMatchPair)) return true;
     if (currentGame.type === 'quiz') return selectedQuizOptText === null;
     if (currentGame.type === 'match') return matchedPairs.length < (currentGame.pairs?.length || 0);
     if (currentGame.type === 'fill') return !fillInputText.trim();
@@ -1317,7 +1344,7 @@ export default function StationExpeditionPage() {
               </div>
 
               <div className="flex items-center gap-2">
-                {currentGame.hint && (
+                {currentHint && (
                   <button
                     onClick={() => setShowHintModal(prev => !prev)}
                     className="px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-300 font-extrabold text-xs flex items-center gap-1.5 cursor-pointer transition"
@@ -1330,12 +1357,12 @@ export default function StationExpeditionPage() {
             </div>
 
             {/* BẢNG GỢI Ý HINT (MỞ KHI LẦN 1 TRẢ LỜI SAI HOẶC BẤM XEM GỢI Ý) */}
-            {showHintModal && currentGame.hint && (
+            {showHintModal && currentHint && (
               <div className="mb-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-400/40 text-amber-200 text-xs animate-in fade-in duration-200 flex items-start gap-2">
                 <Lightbulb className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-black block mb-1">Gợi Ý Sinh Học:</span>
-                  <p>{currentGame.hint}</p>
+                  <p>{currentHint}</p>
                 </div>
               </div>
             )}
@@ -1361,7 +1388,7 @@ export default function StationExpeditionPage() {
                     if (isSelected) {
                       if (attempt2Finished) {
                         btnStyle = isCorrectOpt ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 font-bold' : 'bg-rose-500/20 border-rose-500 text-rose-300 font-bold';
-                      } else if (attempt1Wrong) {
+                      } else if (attempt1Wrong && wrongAnswerFeedbackPending) {
                         btnStyle = 'bg-rose-500/20 border-rose-500 text-rose-300 font-bold';
                       } else {
                         btnStyle = 'bg-cyan-500/20 border-cyan-400 text-cyan-300 font-bold';
@@ -1371,7 +1398,7 @@ export default function StationExpeditionPage() {
                     return (
                       <button
                         key={idx}
-                        disabled={attempt2Finished}
+                        disabled={attempt2Finished || wrongAnswerFeedbackPending}
                         onClick={() => {
                           setSelectedQuizOptText(optText);
                         }}
@@ -1454,7 +1481,7 @@ export default function StationExpeditionPage() {
                 </div>
                 <input
                   type="text"
-                  disabled={attempt2Finished}
+                  disabled={attempt2Finished || wrongAnswerFeedbackPending}
                   placeholder="Gõ từ đáp án tại đây..."
                   value={fillInputText}
                   onChange={(e) => setFillInputText(e.target.value)}
@@ -1462,7 +1489,7 @@ export default function StationExpeditionPage() {
                     ? fillInputText.trim().toLowerCase() === currentGame.correctAnswer.trim().toLowerCase()
                       ? 'border-emerald-400 text-emerald-300'
                       : 'border-rose-500 text-rose-300'
-                    : attempt1Wrong
+                    : attempt1Wrong && wrongAnswerFeedbackPending
                       ? 'border-rose-500 text-rose-300'
                       : 'border-cyan-400/40 focus:border-cyan-400'
                     }`}
@@ -1567,14 +1594,14 @@ export default function StationExpeditionPage() {
                     return (
                       <button
                         key={wIdx}
-                        disabled={attempt2Finished}
+                        disabled={attempt2Finished || wrongAnswerFeedbackPending}
                         onClick={() => setDragWordChoice(word)}
                         className={`px-4 py-3 rounded-xl border text-xs font-black transition cursor-pointer ${isSelected
                           ? attempt2Finished
                             ? word === currentGame.correctWord
                               ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300'
                               : 'bg-rose-500/20 border-rose-500 text-rose-300'
-                            : attempt1Wrong
+                            : attempt1Wrong && wrongAnswerFeedbackPending
                               ? 'bg-rose-500/20 border-rose-500 text-rose-300'
                               : 'bg-amber-500/20 border-amber-400 text-amber-300'
                           : 'bg-slate-900 border-slate-700 hover:border-cyan-400'

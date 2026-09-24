@@ -52,7 +52,7 @@
                 "right": "Yếu tố có thể làm tăng khả năng xuất hiện đột biến"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Gene” và “Đột biến gene” trước khi nối. Mô tả của “Gene” bắt đầu bằng “Đ”.",
             "explanation": "Gene: Đoạn DNA mang thông tin di truyền; Đột biến gene: Biến đổi trong cấu trúc gene; Tác nhân gây đột biến: Yếu tố có thể làm tăng khả năng xuất hiện đột biến."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Đột biến gene là biến đổi trong cấu trúc của [blank].",
             "correctAnswer": "gene",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Đột biến gene là biến đổi trong cấu trúc của [blank].”. Từ cần chọn bắt đầu bằng “g” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “gene”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Có thể là đột biến gene” và “Không đủ bằng chứng là đột biến gene” theo đặc điểm của từng mục. “Thay một cặp nucleotide trong gene” thuộc nhóm “Có thể là đột biến gene”.",
             "explanation": "Thay một cặp nucleotide trong gene thuộc nhóm Có thể là đột biến gene; Mất một cặp nucleotide của gene thuộc nhóm Có thể là đột biến gene; Lá héo vì thiếu nước thuộc nhóm Không đủ bằng chứng là đột biến gene; Da sạm sau tiếp xúc nắng thuộc nhóm Không đủ bằng chứng là đột biến gene."
           }
         },
@@ -107,7 +107,7 @@
               "thoát hơi nước"
             ],
             "correctWord": "đột biến",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Thay đổi một cặp nucleotide trong gene có thể tạo ra [blank] gene.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “đ” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “đột biến”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Tập hợp nhiễm sắc thể đặc trưng của loài"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Nhiễm sắc thể” và “Gene” trước khi nối. Mô tả của “Nhiễm sắc thể” bắt đầu bằng “C”.",
             "explanation": "Nhiễm sắc thể: Cấu trúc mang DNA và protein; Gene: Đoạn DNA mang thông tin di truyền; Bộ nhiễm sắc thể: Tập hợp nhiễm sắc thể đặc trưng của loài."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Nhiễm sắc thể chứa phân tử [blank] mang các gene.",
             "correctAnswer": "DNA",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Nhiễm sắc thể chứa phân tử [blank] mang các gene.”. Từ cần chọn bắt đầu bằng “D” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “DNA”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Liên quan vật chất di truyền” và “Không phải vật chất di truyền” theo đặc điểm của từng mục. “DNA” thuộc nhóm “Liên quan vật chất di truyền”.",
             "explanation": "DNA thuộc nhóm Liên quan vật chất di truyền; Gene thuộc nhóm Liên quan vật chất di truyền; Nhiễm sắc thể thuộc nhóm Liên quan vật chất di truyền; Tinh bột dự trữ thuộc nhóm Không phải vật chất di truyền."
           }
         },
@@ -213,7 +213,7 @@
               "khí khổng"
             ],
             "correctWord": "nhiễm sắc thể",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Nhiều gene nằm trên [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 3 tiếng.",
             "explanation": "Từ đúng là “nhiễm sắc thể”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Được tạo liên quan đến giảm phân ở nhiều loài"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Nguyên phân” và “Giảm phân” trước khi nối. Mô tả của “Nguyên phân” bắt đầu bằng “T”.",
             "explanation": "Nguyên phân: Tạo hai tế bào con sau một lần phân chia; Giảm phân: Tạo tế bào có số nhiễm sắc thể giảm một nửa; Giao tử: Được tạo liên quan đến giảm phân ở nhiều loài."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Nguyên phân tạo ra [blank] tế bào con từ một tế bào mẹ.",
             "correctAnswer": "hai",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Nguyên phân tạo ra [blank] tế bào con từ một tế bào mẹ.”. Từ cần chọn bắt đầu bằng “h” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “hai”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Nguyên phân” và “Giảm phân” theo đặc điểm của từng mục. “Tạo hai tế bào con” thuộc nhóm “Nguyên phân”.",
             "explanation": "Tạo hai tế bào con thuộc nhóm Nguyên phân; Giúp cơ thể lớn lên thuộc nhóm Nguyên phân; Tạo tế bào có bộ nhiễm sắc thể giảm nửa thuộc nhóm Giảm phân; Liên quan hình thành giao tử thuộc nhóm Giảm phân."
           }
         },
@@ -319,7 +319,7 @@
               "không còn"
             ],
             "correctWord": "một nửa",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Giảm phân làm số nhiễm sắc thể trong tế bào con giảm còn [blank] so với tế bào mẹ.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “một nửa”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Mang bộ nhiễm sắc thể được khôi phục"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Giảm phân” và “Thụ tinh” trước khi nối. Mô tả của “Giảm phân” bắt đầu bằng “T”.",
             "explanation": "Giảm phân: Tạo tế bào có bộ nhiễm sắc thể đơn bội; Thụ tinh: Kết hợp hai giao tử; Hợp tử: Mang bộ nhiễm sắc thể được khôi phục."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Sự kết hợp của hai giao tử trong thụ tinh tạo thành [blank].",
             "correctAnswer": "hợp tử",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Sự kết hợp của hai giao tử trong thụ tinh tạo thành [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “hợp tử”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Giảm phân” và “Thụ tinh” theo đặc điểm của từng mục. “Tạo giao tử đơn bội” thuộc nhóm “Giảm phân”.",
             "explanation": "Tạo giao tử đơn bội thuộc nhóm Giảm phân; Làm giảm nửa số nhiễm sắc thể thuộc nhóm Giảm phân; Kết hợp giao tử thuộc nhóm Thụ tinh; Khôi phục bộ lưỡng bội ở hợp tử thuộc nhóm Thụ tinh."
           }
         },
@@ -425,7 +425,7 @@
               "hô hấp"
             ],
             "correctWord": "thụ tinh",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Giảm phân và [blank] góp phần duy trì bộ nhiễm sắc thể đặc trưng qua thế hệ.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “thụ tinh”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Thường phát triển giới tính nữ"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Trứng ở người” và “Tinh trùng ở người” trước khi nối. Mô tả của “Trứng ở người” bắt đầu bằng “T”.",
             "explanation": "Trứng ở người: Thường mang nhiễm sắc thể X; Tinh trùng ở người: Có thể mang X hoặc Y; Hợp tử XX: Thường phát triển giới tính nữ."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Ở người, tinh trùng có thể mang nhiễm sắc thể giới tính X hoặc [blank].",
             "correctAnswer": "Y",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Ở người, tinh trùng có thể mang nhiễm sắc thể giới tính X hoặc [blank].”. Từ cần chọn bắt đầu bằng “Y” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “Y”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Giao tử thường mang X” và “Giao tử có thể mang X hoặc Y” theo đặc điểm của từng mục. “Trứng của người” thuộc nhóm “Giao tử thường mang X”.",
             "explanation": "Trứng của người thuộc nhóm Giao tử thường mang X; Trứng của mẹ thuộc nhóm Giao tử thường mang X; Tinh trùng của người thuộc nhóm Giao tử có thể mang X hoặc Y; Tinh trùng của cha thuộc nhóm Giao tử có thể mang X hoặc Y."
           }
         },
@@ -531,7 +531,7 @@
               "YY"
             ],
             "correctWord": "XY",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Trong mô hình cơ bản, sự kết hợp trứng X với tinh trùng Y tạo hợp tử [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “X” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “XY”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Các gene có xu hướng truyền cùng nhau"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “Gene liên kết” và “Nhiễm sắc thể” trước khi nối. Mô tả của “Gene liên kết” bắt đầu bằng “C”.",
             "explanation": "Gene liên kết: Cùng nằm trên một nhiễm sắc thể; Nhiễm sắc thể: Mang nhiều gene; Di truyền liên kết: Các gene có xu hướng truyền cùng nhau."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Các gene cùng nằm trên một nhiễm sắc thể có thể di truyền [blank].",
             "correctAnswer": "liên kết",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Các gene cùng nằm trên một nhiễm sắc thể có thể di truyền [blank].”. Từ cần chọn bắt đầu bằng “l” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “liên kết”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Phù hợp di truyền liên kết” và “Không mô tả di truyền liên kết” theo đặc điểm của từng mục. “Hai gene cùng nhiễm sắc thể” thuộc nhóm “Phù hợp di truyền liên kết”.",
             "explanation": "Hai gene cùng nhiễm sắc thể thuộc nhóm Phù hợp di truyền liên kết; Các gene có xu hướng truyền cùng nhau thuộc nhóm Phù hợp di truyền liên kết; Hai gene ở hai nhiễm sắc thể khác nhau luôn dính nhau thuộc nhóm Không mô tả di truyền liên kết; Gene không bao giờ được truyền thuộc nhóm Không mô tả di truyền liên kết."
           }
         },
@@ -637,7 +637,7 @@
               "chỉ đúng một"
             ],
             "correctWord": "nhiều",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Một nhiễm sắc thể thường mang [blank] gene.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “nhiều”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Đột biến số lượng"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Mất đoạn” và “Lặp đoạn” trước khi nối. Mô tả của “Mất đoạn” bắt đầu bằng “M”.",
             "explanation": "Mất đoạn: Một đoạn nhiễm sắc thể bị thiếu; Lặp đoạn: Một đoạn nhiễm sắc thể xuất hiện thêm; Thừa một nhiễm sắc thể: Đột biến số lượng."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Thừa hoặc thiếu nhiễm sắc thể là đột biến về [blank] nhiễm sắc thể.",
             "correctAnswer": "số lượng",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Thừa hoặc thiếu nhiễm sắc thể là đột biến về [blank] nhiễm sắc thể.”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “số lượng”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Đột biến cấu trúc” và “Đột biến số lượng” theo đặc điểm của từng mục. “Mất đoạn” thuộc nhóm “Đột biến cấu trúc”.",
             "explanation": "Mất đoạn thuộc nhóm Đột biến cấu trúc; Lặp đoạn thuộc nhóm Đột biến cấu trúc; Thừa một nhiễm sắc thể thuộc nhóm Đột biến số lượng; Thiếu một nhiễm sắc thể thuộc nhóm Đột biến số lượng."
           }
         },
@@ -743,7 +743,7 @@
               "môi trường sống"
             ],
             "correctWord": "cấu trúc",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Mất một đoạn DNA trên nhiễm sắc thể là biến đổi về [blank] nhiễm sắc thể.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “cấu trúc”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Cung cấp thông tin về nguy cơ di truyền"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Phả hệ” và “Tính trạng di truyền” trước khi nối. Mô tả của “Phả hệ” bắt đầu bằng “S”.",
             "explanation": "Phả hệ: Sơ đồ quan hệ và tính trạng qua các thế hệ; Tính trạng di truyền: Có thể truyền trong gia đình; Tư vấn di truyền: Cung cấp thông tin về nguy cơ di truyền."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Sơ đồ biểu diễn sự xuất hiện của tính trạng qua nhiều thế hệ gia đình gọi là [blank].",
             "correctAnswer": "phả hệ",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Sơ đồ biểu diễn sự xuất hiện của tính trạng qua nhiều thế hệ gia đình gọi là [blank].”. Từ cần chọn bắt đầu bằng “p” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “phả hệ”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Nguồn thông tin cho phân tích phả hệ” và “Không phải dữ liệu phả hệ” theo đặc điểm của từng mục. “Quan hệ cha mẹ và con” thuộc nhóm “Nguồn thông tin cho phân tích phả hệ”.",
             "explanation": "Quan hệ cha mẹ và con thuộc nhóm Nguồn thông tin cho phân tích phả hệ; Tính trạng của các thành viên thuộc nhóm Nguồn thông tin cho phân tích phả hệ; Các thế hệ trong gia đình thuộc nhóm Nguồn thông tin cho phân tích phả hệ; Màu sơn của căn nhà thuộc nhóm Không phải dữ liệu phả hệ."
           }
         },
@@ -849,7 +849,7 @@
               "thụ phấn"
             ],
             "correctWord": "tư vấn",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Di truyền học có thể hỗ trợ [blank] di truyền cho gia đình.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “tư vấn”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Ứng dụng thao tác trên gene hoặc DNA"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Gene” và “DNA” trước khi nối. Mô tả của “Gene” bắt đầu bằng “Đ”.",
             "explanation": "Gene: Đơn vị mang thông tin di truyền; DNA: Vật chất mang thông tin di truyền; Công nghệ gene: Ứng dụng thao tác trên gene hoặc DNA."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Công nghệ gene liên quan tới thao tác với vật chất [blank].",
             "correctAnswer": "di truyền",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Công nghệ gene liên quan tới thao tác với vật chất [blank].”. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “di truyền”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Liên quan công nghệ gene” và “Không trực tiếp là công nghệ gene” theo đặc điểm của từng mục. “Thao tác với DNA” thuộc nhóm “Liên quan công nghệ gene”.",
             "explanation": "Thao tác với DNA thuộc nhóm Liên quan công nghệ gene; Chuyển một gene mục tiêu thuộc nhóm Liên quan công nghệ gene; Nghiên cứu sản phẩm của gene thuộc nhóm Liên quan công nghệ gene; Chọn chậu cây màu đẹp thuộc nhóm Không trực tiếp là công nghệ gene."
           }
         },
@@ -955,7 +955,7 @@
               "cơ khí"
             ],
             "correctWord": "di truyền",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “DNA và gene là đối tượng quan trọng của công nghệ [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “di truyền”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Mang nhiễm sắc thể từ cha hoặc mẹ"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Gene” và “Nhiễm sắc thể” trước khi nối. Mô tả của “Gene” bắt đầu bằng “M”.",
             "explanation": "Gene: Mang thông tin di truyền; Nhiễm sắc thể: Mang các gene; Giao tử: Mang nhiễm sắc thể từ cha hoặc mẹ."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Giao tử mang các nhiễm sắc thể và [blank] từ cha mẹ.",
             "correctAnswer": "gene",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Giao tử mang các nhiễm sắc thể và [blank] từ cha mẹ.”. Từ cần chọn bắt đầu bằng “g” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “gene”."
           }
         },
@@ -1046,7 +1046,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Tham gia truyền thông tin di truyền” và “Không mang thông tin di truyền của cha mẹ” theo đặc điểm của từng mục. “Gene” thuộc nhóm “Tham gia truyền thông tin di truyền”.",
             "explanation": "Gene thuộc nhóm Tham gia truyền thông tin di truyền; Nhiễm sắc thể thuộc nhóm Tham gia truyền thông tin di truyền; Giao tử thuộc nhóm Tham gia truyền thông tin di truyền; Ánh sáng môi trường thuộc nhóm Không mang thông tin di truyền của cha mẹ."
           }
         },
@@ -1061,7 +1061,7 @@
               "mạch gỗ"
             ],
             "correctWord": "hợp tử",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Sau thụ tinh, [blank] nhận vật chất di truyền từ hai giao tử.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “hợp tử”."
           }
         }

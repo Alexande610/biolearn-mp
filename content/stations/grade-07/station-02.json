@@ -52,7 +52,7 @@
                 "right": "Được giải phóng cho hoạt động sống"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Chất hữu cơ” và “Oxygen” trước khi nối. Mô tả của “Chất hữu cơ” bắt đầu bằng “N”.",
             "explanation": "Chất hữu cơ: Nguồn chất được phân giải; Oxygen: Tham gia hô hấp tế bào hiếu khí; Năng lượng: Được giải phóng cho hoạt động sống."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Hô hấp tế bào giải phóng [blank] từ chất hữu cơ.",
             "correctAnswer": "năng lượng",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Hô hấp tế bào giải phóng [blank] từ chất hữu cơ.”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “năng lượng”."
           }
         },
@@ -92,7 +92,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Tham gia hô hấp tế bào hiếu khí” và “Được tạo ra từ hô hấp tế bào hiếu khí” theo đặc điểm của từng mục. “Chất hữu cơ” thuộc nhóm “Tham gia hô hấp tế bào hiếu khí”.",
             "explanation": "Chất hữu cơ thuộc nhóm Tham gia hô hấp tế bào hiếu khí; Oxygen thuộc nhóm Tham gia hô hấp tế bào hiếu khí; Carbon dioxide thuộc nhóm Được tạo ra từ hô hấp tế bào hiếu khí; Nước thuộc nhóm Được tạo ra từ hô hấp tế bào hiếu khí."
           }
         },
@@ -107,7 +107,7 @@
               "diệp lục"
             ],
             "correctWord": "năng lượng",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Hô hấp tế bào giúp cung cấp [blank] cho các hoạt động sống.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “năng lượng”."
           }
         }
@@ -158,7 +158,7 @@
                 "right": "Vừa quang hợp vừa hô hấp tế bào"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Quang hợp” và “Hô hấp tế bào” trước khi nối. Mô tả của “Quang hợp” bắt đầu bằng “T”.",
             "explanation": "Quang hợp: Tổng hợp chất hữu cơ nhờ ánh sáng; Hô hấp tế bào: Phân giải chất hữu cơ để giải phóng năng lượng; Thực vật: Vừa quang hợp vừa hô hấp tế bào."
           }
         },
@@ -168,7 +168,7 @@
           "data": {
             "sentence": "Cây xanh thực hiện cả quang hợp và hô hấp [blank].",
             "correctAnswer": "tế bào",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Cây xanh thực hiện cả quang hợp và hô hấp [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “tế bào”."
           }
         },
@@ -198,7 +198,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Quang hợp” và “Hô hấp tế bào” theo đặc điểm của từng mục. “Cần ánh sáng để tổng hợp chất hữu cơ” thuộc nhóm “Quang hợp”.",
             "explanation": "Cần ánh sáng để tổng hợp chất hữu cơ thuộc nhóm Quang hợp; Tích luỹ năng lượng trong chất hữu cơ thuộc nhóm Quang hợp; Phân giải chất hữu cơ thuộc nhóm Hô hấp tế bào; Giải phóng năng lượng cho tế bào thuộc nhóm Hô hấp tế bào."
           }
         },
@@ -213,7 +213,7 @@
               "loại bỏ"
             ],
             "correctWord": "giải phóng",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Khác với quang hợp, hô hấp tế bào [blank] năng lượng từ chất hữu cơ.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “g” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “giải phóng”."
           }
         }
@@ -264,7 +264,7 @@
                 "right": "Cần cho hô hấp tế bào hiếu khí"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Nhiệt độ” và “Nước” trước khi nối. Mô tả của “Nhiệt độ” bắt đầu bằng “Ả”.",
             "explanation": "Nhiệt độ: Ảnh hưởng hoạt động enzyme hô hấp; Nước: Cần cho hoạt động sống của tế bào; Oxygen: Cần cho hô hấp tế bào hiếu khí."
           }
         },
@@ -274,7 +274,7 @@
           "data": {
             "sentence": "Nhiệt độ, hàm lượng nước và nồng độ [blank] có thể ảnh hưởng đến hô hấp tế bào.",
             "correctAnswer": "oxygen",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Nhiệt độ, hàm lượng nước và nồng độ [blank] có thể ảnh hưởng đến hô hấp tế bào.”. Từ cần chọn bắt đầu bằng “o” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “oxygen”."
           }
         },
@@ -304,7 +304,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Yếu tố ảnh hưởng đến hô hấp tế bào” và “Không phải yếu tố sinh học trực tiếp” theo đặc điểm của từng mục. “Nhiệt độ” thuộc nhóm “Yếu tố ảnh hưởng đến hô hấp tế bào”.",
             "explanation": "Nhiệt độ thuộc nhóm Yếu tố ảnh hưởng đến hô hấp tế bào; Nước thuộc nhóm Yếu tố ảnh hưởng đến hô hấp tế bào; Oxygen thuộc nhóm Yếu tố ảnh hưởng đến hô hấp tế bào; Màu chữ in trên lọ thuộc nhóm Không phải yếu tố sinh học trực tiếp."
           }
         },
@@ -319,7 +319,7 @@
               "thoát hơi nước"
             ],
             "correctWord": "tế bào",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Bảo quản hạt giống khô giúp hạn chế tốc độ hô hấp [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “tế bào”."
           }
         }
@@ -370,7 +370,7 @@
                 "right": "Sản phẩm có thể phát hiện trong thí nghiệm"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Hạt nảy mầm” và “Oxygen” trước khi nối. Mô tả của “Hạt nảy mầm” bắt đầu bằng “C”.",
             "explanation": "Hạt nảy mầm: Có hô hấp tế bào mạnh; Oxygen: Được dùng trong hô hấp hiếu khí; Carbon dioxide: Sản phẩm có thể phát hiện trong thí nghiệm."
           }
         },
@@ -380,7 +380,7 @@
           "data": {
             "sentence": "Hạt nảy mầm sử dụng khí [blank] trong quá trình hô hấp hiếu khí.",
             "correctAnswer": "oxygen",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Hạt nảy mầm sử dụng khí [blank] trong quá trình hô hấp hiếu khí.”. Từ cần chọn bắt đầu bằng “o” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “oxygen”."
           }
         },
@@ -410,7 +410,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Phù hợp để kiểm tra hô hấp ở hạt” và “Không phù hợp để so sánh” theo đặc điểm của từng mục. “Dùng hạt đang nảy mầm” thuộc nhóm “Phù hợp để kiểm tra hô hấp ở hạt”.",
             "explanation": "Dùng hạt đang nảy mầm thuộc nhóm Phù hợp để kiểm tra hô hấp ở hạt; Chuẩn bị mẫu đối chứng thuộc nhóm Phù hợp để kiểm tra hô hấp ở hạt; Giữ điều kiện so sánh tương tự thuộc nhóm Phù hợp để kiểm tra hô hấp ở hạt; Thay đổi nhiều điều kiện cùng lúc thuộc nhóm Không phù hợp để so sánh."
           }
         },
@@ -425,7 +425,7 @@
               "nitrogen"
             ],
             "correctWord": "carbon dioxide",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Hạt nảy mầm giải phóng khí [blank] khi hô hấp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “carbon dioxide”."
           }
         }
@@ -476,7 +476,7 @@
                 "right": "Sử dụng carbon dioxide để tổng hợp chất hữu cơ"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Trao đổi khí” và “Hô hấp tế bào hiếu khí” trước khi nối. Mô tả của “Trao đổi khí” bắt đầu bằng “K”.",
             "explanation": "Trao đổi khí: Khí đi vào và ra khỏi cơ thể; Hô hấp tế bào hiếu khí: Sử dụng oxygen trong tế bào; Quang hợp: Sử dụng carbon dioxide để tổng hợp chất hữu cơ."
           }
         },
@@ -486,7 +486,7 @@
           "data": {
             "sentence": "Khi hô hấp, sinh vật thường lấy khí [blank] từ môi trường.",
             "correctAnswer": "oxygen",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Khi hô hấp, sinh vật thường lấy khí [blank] từ môi trường.”. Từ cần chọn bắt đầu bằng “o” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “oxygen”."
           }
         },
@@ -516,7 +516,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Gắn với hô hấp tế bào hiếu khí” và “Gắn với quang hợp” theo đặc điểm của từng mục. “Sử dụng oxygen” thuộc nhóm “Gắn với hô hấp tế bào hiếu khí”.",
             "explanation": "Sử dụng oxygen thuộc nhóm Gắn với hô hấp tế bào hiếu khí; Thải carbon dioxide thuộc nhóm Gắn với hô hấp tế bào hiếu khí; Sử dụng carbon dioxide thuộc nhóm Gắn với quang hợp; Tạo oxygen thuộc nhóm Gắn với quang hợp."
           }
         },
@@ -531,7 +531,7 @@
               "khoáng"
             ],
             "correctWord": "khí",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Trao đổi khí là sự lấy và thải các chất [blank] giữa cơ thể và môi trường.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “khí”."
           }
         }
@@ -582,7 +582,7 @@
                 "right": "Có thể thoát khỏi lá khi quang hợp"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “Khí khổng” và “Carbon dioxide” trước khi nối. Mô tả của “Khí khổng” bắt đầu bằng “Đ”.",
             "explanation": "Khí khổng: Đóng mở và trao đổi khí; Carbon dioxide: Đi vào lá khi quang hợp; Oxygen: Có thể thoát khỏi lá khi quang hợp."
           }
         },
@@ -592,7 +592,7 @@
           "data": {
             "sentence": "Lá cây trao đổi khí với môi trường chủ yếu qua [blank].",
             "correctAnswer": "khí khổng",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Lá cây trao đổi khí với môi trường chủ yếu qua [blank].”. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “khí khổng”."
           }
         },
@@ -622,7 +622,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Diễn ra khi lá quang hợp” và “Diễn ra khi tế bào lá hô hấp hiếu khí” theo đặc điểm của từng mục. “Nhận carbon dioxide” thuộc nhóm “Diễn ra khi lá quang hợp”.",
             "explanation": "Nhận carbon dioxide thuộc nhóm Diễn ra khi lá quang hợp; Tạo oxygen thuộc nhóm Diễn ra khi lá quang hợp; Sử dụng oxygen thuộc nhóm Diễn ra khi tế bào lá hô hấp hiếu khí; Tạo carbon dioxide thuộc nhóm Diễn ra khi tế bào lá hô hấp hiếu khí."
           }
         },
@@ -637,7 +637,7 @@
               "lông hút"
             ],
             "correctWord": "khí khổng",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Sự đóng mở [blank] giúp điều chỉnh trao đổi khí ở lá.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “khí khổng”."
           }
         }
@@ -688,7 +688,7 @@
                 "right": "Phổi"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Cá” và “Châu chấu” trước khi nối. Mô tả của “Cá” bắt đầu bằng “M”.",
             "explanation": "Cá: Mang; Châu chấu: Hệ thống ống khí; Người: Phổi."
           }
         },
@@ -698,7 +698,7 @@
           "data": {
             "sentence": "Ở người, cơ quan trao đổi khí chính là [blank].",
             "correctAnswer": "phổi",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Ở người, cơ quan trao đổi khí chính là [blank].”. Từ cần chọn bắt đầu bằng “p” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “phổi”."
           }
         },
@@ -728,7 +728,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Trao đổi khí chủ yếu qua mang” và “Trao đổi khí chủ yếu qua phổi” theo đặc điểm của từng mục. “Cá chép” thuộc nhóm “Trao đổi khí chủ yếu qua mang”.",
             "explanation": "Cá chép thuộc nhóm Trao đổi khí chủ yếu qua mang; Cá rô thuộc nhóm Trao đổi khí chủ yếu qua mang; Người thuộc nhóm Trao đổi khí chủ yếu qua phổi; Chim bồ câu thuộc nhóm Trao đổi khí chủ yếu qua phổi."
           }
         },
@@ -743,7 +743,7 @@
               "rễ"
             ],
             "correctWord": "ống khí",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Côn trùng như châu chấu trao đổi khí qua hệ thống [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “ố” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “ống khí”."
           }
         }
@@ -794,7 +794,7 @@
                 "right": "Đưa chất dinh dưỡng vào môi trường trong cơ thể"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Lấy thức ăn” và “Tiêu hoá” trước khi nối. Mô tả của “Lấy thức ăn” bắt đầu bằng “Đ”.",
             "explanation": "Lấy thức ăn: Đưa thức ăn vào cơ thể; Tiêu hoá: Biến đổi thức ăn thành chất dễ hấp thụ; Hấp thụ: Đưa chất dinh dưỡng vào môi trường trong cơ thể."
           }
         },
@@ -804,7 +804,7 @@
           "data": {
             "sentence": "Thức ăn được biến đổi thành chất đơn giản hơn trong quá trình [blank].",
             "correctAnswer": "tiêu hoá",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Thức ăn được biến đổi thành chất đơn giản hơn trong quá trình [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “tiêu hoá”."
           }
         },
@@ -834,7 +834,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Trước hấp thụ chất dinh dưỡng” và “Sau hấp thụ chất dinh dưỡng” theo đặc điểm của từng mục. “Lấy thức ăn” thuộc nhóm “Trước hấp thụ chất dinh dưỡng”.",
             "explanation": "Lấy thức ăn thuộc nhóm Trước hấp thụ chất dinh dưỡng; Tiêu hoá thức ăn thuộc nhóm Trước hấp thụ chất dinh dưỡng; Vận chuyển chất dinh dưỡng tới tế bào thuộc nhóm Sau hấp thụ chất dinh dưỡng; Tế bào sử dụng chất dinh dưỡng thuộc nhóm Sau hấp thụ chất dinh dưỡng."
           }
         },
@@ -849,7 +849,7 @@
               "thụ phấn"
             ],
             "correctWord": "hấp thụ",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Chất dinh dưỡng cần được [blank] sau tiêu hoá để đi vào cơ thể.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “hấp thụ”."
           }
         }
@@ -900,7 +900,7 @@
                 "right": "Một con đường thải nước khỏi cơ thể"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Nước uống” và “Thức ăn” trước khi nối. Mô tả của “Nước uống” bắt đầu bằng “N”.",
             "explanation": "Nước uống: Nguồn cung cấp nước; Thức ăn: Cũng có thể cung cấp nước; Nước tiểu: Một con đường thải nước khỏi cơ thể."
           }
         },
@@ -910,7 +910,7 @@
           "data": {
             "sentence": "Động vật lấy nước từ nước uống và [blank].",
             "correctAnswer": "thức ăn",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Động vật lấy nước từ nước uống và [blank].”. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “thức ăn”."
           }
         },
@@ -940,7 +940,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Nước đi vào cơ thể” và “Nước đi ra khỏi cơ thể” theo đặc điểm của từng mục. “Nước uống” thuộc nhóm “Nước đi vào cơ thể”.",
             "explanation": "Nước uống thuộc nhóm Nước đi vào cơ thể; Nước trong thức ăn thuộc nhóm Nước đi vào cơ thể; Nước tiểu thuộc nhóm Nước đi ra khỏi cơ thể; Mồ hôi thuộc nhóm Nước đi ra khỏi cơ thể."
           }
         },
@@ -955,7 +955,7 @@
               "lông hút"
             ],
             "correctWord": "mồ hôi",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “Ở người, nước có thể được thải ra ngoài qua nước tiểu và [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “mồ hôi”."
           }
         }
@@ -1006,7 +1006,7 @@
                 "right": "Đường dẫn máu trong cơ thể"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Máu” và “Tim” trước khi nối. Mô tả của “Máu” bắt đầu bằng “M”.",
             "explanation": "Máu: Môi trường vận chuyển nhiều chất; Tim: Co bóp đẩy máu; Mạch máu: Đường dẫn máu trong cơ thể."
           }
         },
@@ -1016,7 +1016,7 @@
           "data": {
             "sentence": "Máu được tim đẩy đi trong hệ thống [blank] máu.",
             "correctAnswer": "mạch",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Máu được tim đẩy đi trong hệ thống [blank] máu.”. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “mạch”."
           }
         },
@@ -1050,7 +1050,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Thành phần hệ tuần hoàn” và “Không thuộc hệ tuần hoàn” theo đặc điểm của từng mục. “Tim” thuộc nhóm “Thành phần hệ tuần hoàn”.",
             "explanation": "Tim thuộc nhóm Thành phần hệ tuần hoàn; Mạch máu thuộc nhóm Thành phần hệ tuần hoàn; Máu thuộc nhóm Thành phần hệ tuần hoàn; Khí khổng thuộc nhóm Không thuộc hệ tuần hoàn; Mạch gỗ thuộc nhóm Không thuộc hệ tuần hoàn."
           }
         },
@@ -1065,7 +1065,7 @@
               "không khí ngoài trời"
             ],
             "correctWord": "máu",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Tim co bóp tạo lực đẩy [blank] lưu thông trong mạch.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “m” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “máu”."
           }
         }

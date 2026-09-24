@@ -52,7 +52,7 @@
                 "right": "Sinh vật tiêu thụ"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt vai trò của “Ánh sáng” và “Cây cỏ” trước khi nối. Mô tả của “Ánh sáng” bắt đầu bằng “N”.",
             "explanation": "Ánh sáng: Nhân tố vô sinh cung cấp năng lượng; Cây cỏ: Sinh vật tự dưỡng phổ biến; Động vật ăn cỏ: Sinh vật tiêu thụ."
           }
         },
@@ -62,7 +62,7 @@
           "data": {
             "sentence": "Các sinh vật trong môi trường thuộc nhóm nhân tố [blank].",
             "correctAnswer": "hữu sinh",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Các sinh vật trong môi trường thuộc nhóm nhân tố [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “hữu sinh”."
           }
         },
@@ -96,7 +96,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Phân biệt hai nhóm “Nhân tố vô sinh” và “Nhân tố hữu sinh” theo đặc điểm của từng mục. “Nhiệt độ” thuộc nhóm “Nhân tố vô sinh”.",
             "explanation": "Nhiệt độ thuộc nhóm Nhân tố vô sinh; Nước thuộc nhóm Nhân tố vô sinh; Ánh sáng thuộc nhóm Nhân tố vô sinh; Cây cỏ thuộc nhóm Nhân tố hữu sinh; Động vật thuộc nhóm Nhân tố hữu sinh."
           }
         },
@@ -111,7 +111,7 @@
               "sinh sản"
             ],
             "correctWord": "vô sinh",
-            "hint": "Dựa vào kiến thức của ải 1.",
+            "hint": "Thử từng từ trong kho vào câu “Nhiệt độ là một nhân tố sinh thái [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “vô sinh”."
           }
         }
@@ -162,7 +162,7 @@
                 "right": "Số cá thể trên một đơn vị diện tích hoặc thể tích"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt vai trò của “Quần thể” và “Kích thước quần thể” trước khi nối. Mô tả của “Quần thể” bắt đầu bằng “C”.",
             "explanation": "Quần thể: Các cá thể cùng loài sống trong khu vực xác định; Kích thước quần thể: Số lượng cá thể của quần thể; Mật độ quần thể: Số cá thể trên một đơn vị diện tích hoặc thể tích."
           }
         },
@@ -172,7 +172,7 @@
           "data": {
             "sentence": "Các cá thể trong một quần thể phải thuộc cùng một [blank].",
             "correctAnswer": "loài",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Các cá thể trong một quần thể phải thuộc cùng một [blank].”. Từ cần chọn bắt đầu bằng “l” và gồm 1 tiếng.",
             "explanation": "Từ cần điền là “loài”."
           }
         },
@@ -202,7 +202,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Phân biệt hai nhóm “Một quần thể” và “Không phải một quần thể” theo đặc điểm của từng mục. “Các cây lúa cùng giống trên một ruộng” thuộc nhóm “Một quần thể”.",
             "explanation": "Các cây lúa cùng giống trên một ruộng thuộc nhóm Một quần thể; Đàn cá rô cùng loài trong ao thuộc nhóm Một quần thể; Nhiều loài chim trong rừng thuộc nhóm Không phải một quần thể; Cá và tôm trong ao thuộc nhóm Không phải một quần thể."
           }
         },
@@ -217,7 +217,7 @@
               "khối lượng sách"
             ],
             "correctWord": "thể tích",
-            "hint": "Dựa vào kiến thức của ải 2.",
+            "hint": "Thử từng từ trong kho vào câu “Mật độ quần thể là số cá thể trên một đơn vị diện tích hoặc [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “thể tích”."
           }
         }
@@ -268,7 +268,7 @@
                 "right": "Thể hiện mức phong phú loài trong quần xã"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt vai trò của “Quần thể” và “Quần xã” trước khi nối. Mô tả của “Quần thể” bắt đầu bằng “C”.",
             "explanation": "Quần thể: Các cá thể cùng loài; Quần xã: Nhiều quần thể khác loài; Độ đa dạng: Thể hiện mức phong phú loài trong quần xã."
           }
         },
@@ -278,7 +278,7 @@
           "data": {
             "sentence": "Một quần xã gồm nhiều [blank] thuộc các loài khác nhau.",
             "correctAnswer": "quần thể",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Một quần xã gồm nhiều [blank] thuộc các loài khác nhau.”. Từ cần chọn bắt đầu bằng “q” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “quần thể”."
           }
         },
@@ -308,7 +308,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Phân biệt hai nhóm “Quần thể” và “Quần xã” theo đặc điểm của từng mục. “Đàn cá chép trong ao” thuộc nhóm “Quần thể”.",
             "explanation": "Đàn cá chép trong ao thuộc nhóm Quần thể; Các cây thông cùng loài trong rừng thuộc nhóm Quần thể; Nhiều loài sinh vật trong ao thuộc nhóm Quần xã; Nhiều loài sinh vật trong rừng thuộc nhóm Quần xã."
           }
         },
@@ -323,7 +323,7 @@
               "tế bào máu"
             ],
             "correctWord": "loài",
-            "hint": "Dựa vào kiến thức của ải 3.",
+            "hint": "Thử từng từ trong kho vào câu “Quần xã có các quần thể thuộc nhiều [blank] khác nhau.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “l” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “loài”."
           }
         }
@@ -374,7 +374,7 @@
                 "right": "Phân huỷ xác và chất thải hữu cơ"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt vai trò của “Sinh vật sản xuất” và “Sinh vật tiêu thụ” trước khi nối. Mô tả của “Sinh vật sản xuất” bắt đầu bằng “T”.",
             "explanation": "Sinh vật sản xuất: Tạo chất hữu cơ từ chất vô cơ; Sinh vật tiêu thụ: Sử dụng sinh vật khác làm thức ăn; Sinh vật phân giải: Phân huỷ xác và chất thải hữu cơ."
           }
         },
@@ -384,7 +384,7 @@
           "data": {
             "sentence": "Hệ sinh thái gồm quần xã sinh vật và môi trường [blank].",
             "correctAnswer": "vô sinh",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Hệ sinh thái gồm quần xã sinh vật và môi trường [blank].”. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “vô sinh”."
           }
         },
@@ -418,7 +418,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Phân biệt hai nhóm “Thành phần hữu sinh” và “Thành phần vô sinh” theo đặc điểm của từng mục. “Cây xanh” thuộc nhóm “Thành phần hữu sinh”.",
             "explanation": "Cây xanh thuộc nhóm Thành phần hữu sinh; Động vật thuộc nhóm Thành phần hữu sinh; Nấm phân giải thuộc nhóm Thành phần hữu sinh; Nước thuộc nhóm Thành phần vô sinh; Ánh sáng thuộc nhóm Thành phần vô sinh."
           }
         },
@@ -433,7 +433,7 @@
               "kí sinh bắt buộc"
             ],
             "correctWord": "sản xuất",
-            "hint": "Dựa vào kiến thức của ải 4.",
+            "hint": "Thử từng từ trong kho vào câu “Cây xanh thường đóng vai trò sinh vật [blank] trong hệ sinh thái.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “sản xuất”."
           }
         }
@@ -484,7 +484,7 @@
                 "right": "Sinh vật tiêu thụ bậc hai"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt vai trò của “Cỏ” và “Châu chấu” trước khi nối. Mô tả của “Cỏ” bắt đầu bằng “S”.",
             "explanation": "Cỏ: Sinh vật sản xuất; Châu chấu: Sinh vật tiêu thụ bậc một; Ếch: Sinh vật tiêu thụ bậc hai."
           }
         },
@@ -494,7 +494,7 @@
           "data": {
             "sentence": "Mũi tên trong chuỗi thức ăn chỉ chiều truyền vật chất và [blank].",
             "correctAnswer": "năng lượng",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Mũi tên trong chuỗi thức ăn chỉ chiều truyền vật chất và [blank].”. Từ cần chọn bắt đầu bằng “n” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “năng lượng”."
           }
         },
@@ -524,7 +524,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Phân biệt hai nhóm “Sinh vật sản xuất” và “Sinh vật tiêu thụ” theo đặc điểm của từng mục. “Cỏ” thuộc nhóm “Sinh vật sản xuất”.",
             "explanation": "Cỏ thuộc nhóm Sinh vật sản xuất; Tảo lục thuộc nhóm Sinh vật sản xuất; Châu chấu thuộc nhóm Sinh vật tiêu thụ; Ếch thuộc nhóm Sinh vật tiêu thụ."
           }
         },
@@ -539,7 +539,7 @@
               "ánh sáng"
             ],
             "correctWord": "châu chấu",
-            "hint": "Dựa vào kiến thức của ải 5.",
+            "hint": "Thử từng từ trong kho vào câu “Trong chuỗi cỏ → châu chấu → ếch, ếch ăn [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “c” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “châu chấu”."
           }
         }
@@ -590,7 +590,7 @@
                 "right": "Một kiểu hệ sinh thái dưới nước"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt vai trò của “Sinh quyển” và “Hệ sinh thái rừng” trước khi nối. Mô tả của “Sinh quyển” bắt đầu bằng “P”.",
             "explanation": "Sinh quyển: Phần Trái Đất có sự sống; Hệ sinh thái rừng: Một kiểu hệ sinh thái trên cạn; Hệ sinh thái biển: Một kiểu hệ sinh thái dưới nước."
           }
         },
@@ -600,7 +600,7 @@
           "data": {
             "sentence": "Phần Trái Đất có sự sống được gọi là [blank].",
             "correctAnswer": "sinh quyển",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Phần Trái Đất có sự sống được gọi là [blank].”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “sinh quyển”."
           }
         },
@@ -630,7 +630,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Phân biệt hai nhóm “Hệ sinh thái trên cạn” và “Hệ sinh thái dưới nước” theo đặc điểm của từng mục. “Rừng” thuộc nhóm “Hệ sinh thái trên cạn”.",
             "explanation": "Rừng thuộc nhóm Hệ sinh thái trên cạn; Đồng cỏ thuộc nhóm Hệ sinh thái trên cạn; Hồ thuộc nhóm Hệ sinh thái dưới nước; Biển thuộc nhóm Hệ sinh thái dưới nước."
           }
         },
@@ -645,7 +645,7 @@
               "tiêu hoá"
             ],
             "correctWord": "sinh thái",
-            "hint": "Dựa vào kiến thức của ải 6.",
+            "hint": "Thử từng từ trong kho vào câu “Rừng, hồ và biển đều là các kiểu hệ [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “sinh thái”."
           }
         }
@@ -696,7 +696,7 @@
                 "right": "Có thể là nguồn thức ăn của loài khác"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt vai trò của “Cân bằng tự nhiên” và “Loài săn mồi” trước khi nối. Mô tả của “Cân bằng tự nhiên” bắt đầu bằng “T”.",
             "explanation": "Cân bằng tự nhiên: Trạng thái tương đối ổn định của hệ sinh thái; Loài săn mồi: Có thể ảnh hưởng số lượng con mồi; Loài bị săn mồi: Có thể là nguồn thức ăn của loài khác."
           }
         },
@@ -706,7 +706,7 @@
           "data": {
             "sentence": "Các loài trong hệ sinh thái có quan hệ [blank] và ảnh hưởng lẫn nhau.",
             "correctAnswer": "dinh dưỡng",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Các loài trong hệ sinh thái có quan hệ [blank] và ảnh hưởng lẫn nhau.”. Từ cần chọn bắt đầu bằng “d” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “dinh dưỡng”."
           }
         },
@@ -736,7 +736,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Phân biệt hai nhóm “Góp phần duy trì cân bằng” và “Có thể phá vỡ cân bằng” theo đặc điểm của từng mục. “Bảo vệ sinh cảnh” thuộc nhóm “Góp phần duy trì cân bằng”.",
             "explanation": "Bảo vệ sinh cảnh thuộc nhóm Góp phần duy trì cân bằng; Khai thác hợp lí thuộc nhóm Góp phần duy trì cân bằng; Bảo vệ đa dạng sinh học thuộc nhóm Góp phần duy trì cân bằng; Săn bắt tận diệt thuộc nhóm Có thể phá vỡ cân bằng."
           }
         },
@@ -751,7 +751,7 @@
               "mạch"
             ],
             "correctWord": "lưới",
-            "hint": "Dựa vào kiến thức của ải 7.",
+            "hint": "Thử từng từ trong kho vào câu “Thay đổi số lượng một loài có thể ảnh hưởng tới cả [blank] thức ăn.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “l” và gồm 1 tiếng.",
             "explanation": "Từ đúng là “lưới”."
           }
         }
@@ -802,7 +802,7 @@
                 "right": "Làm giảm số lượng loài bị khai thác"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt vai trò của “Phá rừng” và “Ô nhiễm nước” trước khi nối. Mô tả của “Phá rừng” bắt đầu bằng “L”.",
             "explanation": "Phá rừng: Làm mất sinh cảnh; Ô nhiễm nước: Gây hại sinh vật thuỷ sinh; Săn bắt trái phép: Làm giảm số lượng loài bị khai thác."
           }
         },
@@ -812,7 +812,7 @@
           "data": {
             "sentence": "Phá rừng có thể làm mất [blank] của nhiều loài.",
             "correctAnswer": "sinh cảnh",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Phá rừng có thể làm mất [blank] của nhiều loài.”. Từ cần chọn bắt đầu bằng “s” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “sinh cảnh”."
           }
         },
@@ -842,7 +842,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Phân biệt hai nhóm “Tác động gây suy giảm” và “Biện pháp bảo vệ” theo đặc điểm của từng mục. “Phá rừng” thuộc nhóm “Tác động gây suy giảm”.",
             "explanation": "Phá rừng thuộc nhóm Tác động gây suy giảm; Xả chất thải chưa xử lí thuộc nhóm Tác động gây suy giảm; Săn bắt trái phép thuộc nhóm Tác động gây suy giảm; Trồng và bảo vệ rừng thuộc nhóm Biện pháp bảo vệ."
           }
         },
@@ -857,7 +857,7 @@
               "trong đá khô"
             ],
             "correctWord": "thuỷ sinh",
-            "hint": "Dựa vào kiến thức của ải 8.",
+            "hint": "Thử từng từ trong kho vào câu “Giữ sạch nguồn nước giúp bảo vệ các sinh vật [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “t” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “thuỷ sinh”."
           }
         }
@@ -908,7 +908,7 @@
                 "right": "Giữ sinh cảnh và góp phần bảo vệ đất"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt vai trò của “Phân loại rác” và “Tiết kiệm nước” trước khi nối. Mô tả của “Phân loại rác” bắt đầu bằng “H”.",
             "explanation": "Phân loại rác: Hỗ trợ tái chế và xử lí phù hợp; Tiết kiệm nước: Giảm lãng phí tài nguyên; Bảo vệ rừng: Giữ sinh cảnh và góp phần bảo vệ đất."
           }
         },
@@ -918,7 +918,7 @@
           "data": {
             "sentence": "Sử dụng tài nguyên cần tiết kiệm và [blank].",
             "correctAnswer": "hợp lí",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Sử dụng tài nguyên cần tiết kiệm và [blank].”. Từ cần chọn bắt đầu bằng “h” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “hợp lí”."
           }
         },
@@ -948,7 +948,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Phân biệt hai nhóm “Hành động bảo vệ môi trường” và “Hành động gây ô nhiễm” theo đặc điểm của từng mục. “Thu gom rác đúng nơi” thuộc nhóm “Hành động bảo vệ môi trường”.",
             "explanation": "Thu gom rác đúng nơi thuộc nhóm Hành động bảo vệ môi trường; Tiết kiệm nước thuộc nhóm Hành động bảo vệ môi trường; Trồng cây thuộc nhóm Hành động bảo vệ môi trường; Xả rác xuống kênh thuộc nhóm Hành động gây ô nhiễm."
           }
         },
@@ -963,7 +963,7 @@
               "đốt tùy tiện"
             ],
             "correctWord": "xử lí",
-            "hint": "Dựa vào kiến thức của ải 9.",
+            "hint": "Thử từng từ trong kho vào câu “Rác thải cần được thu gom và [blank] phù hợp.” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “x” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “xử lí”."
           }
         }
@@ -1014,7 +1014,7 @@
                 "right": "Lưu bằng chứng để phân tích"
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt vai trò của “Quan sát sinh vật” và “Quan sát môi trường” trước khi nối. Mô tả của “Quan sát sinh vật” bắt đầu bằng “G”.",
             "explanation": "Quan sát sinh vật: Ghi các loài có mặt; Quan sát môi trường: Ghi ánh sáng, nước hoặc đất; Ghi chép kết quả: Lưu bằng chứng để phân tích."
           }
         },
@@ -1024,7 +1024,7 @@
           "data": {
             "sentence": "Khảo sát hệ sinh thái cần quan sát cả sinh vật và yếu tố [blank].",
             "correctAnswer": "vô sinh",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Xét ngữ cảnh của ô trống trong “Khảo sát hệ sinh thái cần quan sát cả sinh vật và yếu tố [blank].”. Từ cần chọn bắt đầu bằng “v” và gồm 2 tiếng.",
             "explanation": "Từ cần điền là “vô sinh”."
           }
         },
@@ -1054,7 +1054,7 @@
                 "catIndex": 1
               }
             ],
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Phân biệt hai nhóm “Nên làm khi khảo sát” và “Không nên làm khi khảo sát” theo đặc điểm của từng mục. “Ghi chép quan sát” thuộc nhóm “Nên làm khi khảo sát”.",
             "explanation": "Ghi chép quan sát thuộc nhóm Nên làm khi khảo sát; Không làm hại sinh vật thuộc nhóm Nên làm khi khảo sát; Tuân thủ an toàn thuộc nhóm Nên làm khi khảo sát; Phá tổ để đếm cá thể thuộc nhóm Không nên làm khi khảo sát."
           }
         },
@@ -1069,7 +1069,7 @@
               "số đo tùy ý"
             ],
             "correctWord": "kết luận",
-            "hint": "Dựa vào kiến thức của ải 10.",
+            "hint": "Thử từng từ trong kho vào câu “Sau khảo sát, cần sắp xếp dữ liệu và rút ra [blank].” để tạo phát biểu đúng. Từ cần chọn bắt đầu bằng “k” và gồm 2 tiếng.",
             "explanation": "Từ đúng là “kết luận”."
           }
         }
