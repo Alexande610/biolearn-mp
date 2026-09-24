@@ -288,6 +288,46 @@ test('hint review clones a published release without changing its live content',
   } finally { await db.close(); }
 });
 
+test('full hint review skips the completed pilot and stages other published stations once', async () => {
+  const db = await setup();
+  try {
+    await db.exec(`select set_config('request.jwt.claim.sub', '${admin}', false);`);
+    for (const sql of [pilotRelease, station2Release, station3Release]) {
+      await db.exec(sql);
+    }
+    for (const station of [1, 2, 3]) {
+      const version = `g6-st${station}-2026.1`;
+      const original = (await db.query('select id from station_content_releases where version = $1', [version])).rows[0];
+      await restorePlaceholderHints(db, original.id);
+      await db.query('select admin_publish_station_release($1)', [original.id]);
+    }
+    await db.exec(hintReviewMigration);
+    const pilotClone = (await db.query("select id from station_content_releases where version = 'g6-st1-2026.1-hints.1'")).rows[0];
+    await db.query('select admin_publish_station_release($1)', [pilotClone.id]);
+
+    await db.exec(allHintsReviewMigration);
+    await db.exec(allHintsReviewMigration);
+    const releases = (await db.query(`select version, status from station_content_releases
+      where version like 'g6-st%-hints.1' order by version`)).rows;
+    assert.deepEqual(releases, [
+      { version: 'g6-st1-2026.1-hints.1', status: 'published' },
+      { version: 'g6-st2-2026.1-hints.1', status: 'review' },
+      { version: 'g6-st3-2026.1-hints.1', status: 'review' },
+    ]);
+    for (const station of [2, 3]) {
+      const baseVersion = `g6-st${station}-2026.1`;
+      const original = (await db.query('select id from station_content_releases where version = $1', [baseVersion])).rows[0];
+      const clone = (await db.query('select id from station_content_releases where version = $1', [`${baseVersion}-hints.1`])).rows[0];
+      assert.equal((await db.query('select release_id from station_content_publications where grade = 6 and station_id = $1', [`g6_st${station}`])).rows[0].release_id, original.id);
+      const counts = (await db.query(`select count(*) as items,
+        count(*) filter (where game_type <> 'quiz' and public_content->>'hint' like 'Dựa vào kiến thức của ải %') as placeholders
+        from station_content_items where release_id = $1`, [clone.id])).rows[0];
+      assert.equal(Number(counts.items), 50);
+      assert.equal(Number(counts.placeholders), 0);
+    }
+  } finally { await db.close(); }
+});
+
 test('test account can demo locked day without progress or reward; ordinary student cannot', async () => {
   const db = await setup();
   try {
