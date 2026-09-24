@@ -23,6 +23,6 @@ begin
   end if;
 
   execute 'revoke execute on function public.claim_station_reward(text, integer, integer) from public, anon, authenticated';
-  execute 'revoke all on table public.station_questions from anon, authenticated';
+  execute 'revoke all on table public.station_questions from public, anon, authenticated';
 end;
 $cutover$;

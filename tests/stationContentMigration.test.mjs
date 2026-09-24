@@ -592,7 +592,7 @@ test('legacy cutover revokes direct reward and question access after 21 publicat
   const db = await setup();
   try {
     await db.exec(`create table public.station_questions(id integer);
-      grant select on public.station_questions to anon, authenticated;
+      grant select on public.station_questions to public, anon, authenticated;
       select set_config('request.jwt.claim.sub', '${admin}', false);`);
     for (let grade = 6; grade <= 12; grade += 1) {
       for (let station = 1; station <= 3; station += 1) {
@@ -606,10 +606,14 @@ test('legacy cutover revokes direct reward and question access after 21 publicat
     await db.exec(cutover);
     const grants = (await db.query(`select
       has_function_privilege('authenticated', 'public.claim_station_reward(text, integer, integer)', 'EXECUTE') as old_reward,
+      has_function_privilege('anon', 'public.claim_station_reward(text, integer, integer)', 'EXECUTE') as anonymous_old_reward,
       has_table_privilege('authenticated', 'public.station_questions', 'SELECT') as old_questions,
+      has_table_privilege('anon', 'public.station_questions', 'SELECT') as anonymous_old_questions,
       has_function_privilege('authenticated', 'public.submit_station_answer(uuid, uuid, jsonb)', 'EXECUTE') as v2_answer`)).rows[0];
     assert.equal(grants.old_reward, false);
+    assert.equal(grants.anonymous_old_reward, false);
     assert.equal(grants.old_questions, false);
+    assert.equal(grants.anonymous_old_questions, false);
     assert.equal(grants.v2_answer, true);
     const answerRows = (await db.query(`select i.id, i.answer_key from station_content_items i
       join station_content_releases r on r.id = i.release_id
