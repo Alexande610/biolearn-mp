@@ -105,13 +105,16 @@ gợi ý, rồi bỏ chọn/xóa từ để học viên làm lần hai. Lần ha
 câu hỏi, đáp án và nguồn không đổi. Không nhập lại SQL nháp `2026.1` vào release
 `review`, `published` hoặc `archived`: bản SQL nháp chỉ cập nhật release còn
 `draft` và có thể bị từ chối ở trạng thái khác. Để đồng bộ database hiện có,
-chạy `generated/station-releases/station-hints-review.sql` **sau khi kiểm duyệt
-gợi ý**. Script chỉ thay gợi ý mẫu trên release `draft/review` nếu nội dung câu
+chạy `generated/station-releases/station-hints-review.sql` sau khi thí điểm đạt.
+Script chỉ thay gợi ý mẫu trên release `draft/review` nếu nội dung câu
 vẫn trùng bản nguồn; nó không ghi đè câu đã sửa trên admin. Release `published`
 được sao chép từ dữ liệu database hiện hành sang bản `-hints.1` ở trạng thái
-`review`; publication cũ vẫn phục vụ học viên. Duyệt bản mới trên admin rồi
-phát hành từng trạm, sau khi thử đủ năm trò. SQL này không tự phát hành và chạy
-lại không tạo bản sao trùng.
+`review`; publication cũ vẫn phục vụ học viên. Duyệt nội dung từng bản mới trên
+admin rồi phát hành từng trạm, sau khi thử đủ năm trò. SQL này không tự phát
+hành và chạy lại không tạo bản sao trùng. Sau khi chạy, dùng
+`generated/station-releases/station-hints-status.sql` để xác nhận từng bản
+`review` đủ 50 trò, 10 ải, 5 dạng và không còn gợi ý mẫu; dừng nếu một bản
+không đạt.
 
 Thí điểm trước với `generated/station-releases/g6-st1-hints-review.sql`: chỉ
 chứa 40 gợi ý của `g6_st1`. Trò nối và phân loại cho một ví dụ đúng; trò điền
@@ -124,7 +127,9 @@ duyệt cả 10 ải rồi phát hành. Tài khoản demo chỉ chơi được b
 vì vậy kiểm tra gameplay và gợi ý bằng demo ngay sau khi phát hành thí điểm;
 nếu có lỗi thì phát hành lại bản cũ. Khi thí điểm đạt, tạo SQL riêng cho mỗi trạm tiếp theo bằng
 `node scripts/build-station-hint-review-sql.js <releaseVersion> <output.sql>`.
-Không chạy bản tổng 840 gợi ý trước khi duyệt đủ nội dung.
+Nếu 20 trạm còn lại đã `published` và thí điểm được duyệt, có thể chạy bản
+tổng 840 gợi ý một lần để tạo 20 bản `review`; bản gốc của thí điểm đã
+`archived` sẽ bị bỏ qua. Kiểm duyệt và phát hành lần lượt từng bản `review`.
 
 1. Chạy `npm test`, `npm run validate:stations`, lint riêng tệp thay đổi và `npm run build`.
 2. Chạy `supabase_station_content_v2.sql`. Migration này chỉ thêm bảng/hàm/chính sách, không xóa bảng `station_questions` và không đổi tiến trình cũ.
