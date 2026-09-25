@@ -301,7 +301,6 @@ export default function AdminPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
-        {sampleCount > 0 && <p className="mb-4 text-xs text-amber-200">Số liệu tổng hợp có {sampleCount} hồ sơ mẫu dùng cho bài trình bày.</p>}
         {statsError && <p role="alert" className="mb-4 rounded-xl border border-red-400 p-3 text-red-500">{statsError}</p>}
 
         <div className={`game-card mb-6 ${isLight ? '!bg-white/90 !border-slate-300 shadow-lg' : ''}`}>
@@ -448,6 +447,7 @@ export default function AdminPage() {
               <div>
                 <p className="text-gray-400 text-sm">Tổng người dùng</p>
                 <p className="text-2xl font-bold text-white">{stats?.totalUsers?.toLocaleString()}</p>
+                {sampleCount > 0 && <p className={`text-[11px] ${isLight ? 'text-amber-800' : 'text-amber-200'}`}>Gồm {sampleCount} hồ sơ mẫu</p>}
               </div>
             </div>
           </div>

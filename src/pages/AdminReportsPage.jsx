@@ -365,7 +365,6 @@ export default function AdminReportsPage() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-6">
-        {sampleCount > 0 && <p className="mb-4 text-xs text-amber-200">Số liệu tổng hợp có {sampleCount} hồ sơ mẫu dùng cho bài trình bày.</p>}
         {loading ? (
           <div className="flex justify-center items-center py-24">
             <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
@@ -383,6 +382,7 @@ export default function AdminReportsPage() {
                   <div>
                     <p className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Tổng người dùng</p>
                     <p className="text-xl font-bold text-white">{stats?.totalUsers}</p>
+                    {sampleCount > 0 && <p className={`text-[10px] ${theme === 'light' ? 'text-amber-800' : 'text-amber-200'}`}>Gồm {sampleCount} hồ sơ mẫu</p>}
                   </div>
                 </div>
               </div>

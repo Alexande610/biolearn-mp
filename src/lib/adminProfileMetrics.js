@@ -1,10 +1,10 @@
 const PAGE_SIZE = 500;
 
-export async function loadAllAdminProfiles(supabase) {
+export async function loadAllAdminProfiles(supabase, selectFields = 'id,role,total_score,created_at,last_active_at,class_progress') {
   const rows = [];
   for (let offset = 0; ; offset += PAGE_SIZE) {
     const { data, error } = await supabase.from('profiles')
-      .select('id,role,total_score,created_at,last_active_at,class_progress')
+      .select(selectFields)
       .order('id', { ascending: true })
       .range(offset, offset + PAGE_SIZE - 1);
     if (error) throw error;

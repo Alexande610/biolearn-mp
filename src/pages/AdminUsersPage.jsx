@@ -10,6 +10,9 @@ import { supabase } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 import { useToast } from '../components/Toast';
 import { loadPresentationPeople } from '../lib/presentationPeople';
+import { loadAllAdminProfiles } from '../lib/adminProfileMetrics';
+import { composeAdminUserList } from '../lib/adminUserList';
+import PresentationUserDetail from '../components/PresentationUserDetail';
 
 const USERS_PAGE_LIMIT = 12;
 const DEFAULT_LOCK_REASON = 'Phát hiện hành vi bất thường. Vui lòng liên hệ quản trị viên.';
@@ -50,7 +53,7 @@ export default function AdminUsersPage() {
   const { showToast } = useToast();
 
   const [users, setUsers] = useState([]);
-  const [presentationPeople, setPresentationPeople] = useState([]);
+  const [sampleCount, setSampleCount] = useState(0);
   const [usersTotal, setUsersTotal] = useState(0);
   const [usersPage, setUsersPage] = useState(1);
   const [usersTotalPages, setUsersTotalPages] = useState(1);
@@ -108,31 +111,20 @@ export default function AdminUsersPage() {
     setLoading(true);
     setError('');
     try {
-      let query = supabase
-        .from('profiles')
-        .select('*', { count: 'exact' });
-
-      if (usersRoleFilter !== 'all') {
-        query = query.eq('role', usersRoleFilter);
-      }
-      
-      if (usersSearchTerm) {
-        query = query.or(`display_name.ilike.%${usersSearchTerm}%,email.ilike.%${usersSearchTerm}%`);
-      }
-
-      const from = (usersPage - 1) * USERS_PAGE_LIMIT;
-      const to = from + USERS_PAGE_LIMIT - 1;
-
-      const { data, count, error } = await query
-        .range(from, to)
-        .order('created_at', { ascending: false });
-
-      if (error) throw error;
-
-      setUsers(data || []);
-      setUsersTotal(count || 0);
-      setUsersTotalPages(Math.ceil((count || 0) / USERS_PAGE_LIMIT));
-      setPresentationPeople(await loadPresentationPeople(supabase));
+      const [realUsers, presentationPeople] = await Promise.all([
+        loadAllAdminProfiles(supabase, '*'), loadPresentationPeople(supabase)
+      ]);
+      const result = composeAdminUserList(realUsers, presentationPeople, {
+        role: usersRoleFilter,
+        search: usersSearchTerm,
+        page: usersPage,
+        pageSize: USERS_PAGE_LIMIT
+      });
+      setUsers(result.rows);
+      setUsersTotal(result.total);
+      setUsersTotalPages(result.totalPages);
+      setSampleCount(result.sampleCount);
+      if (result.page !== usersPage) setUsersPage(result.page);
     } catch (err) {
       console.error(err);
       setUsers([]);
@@ -149,7 +141,7 @@ export default function AdminUsersPage() {
   };
 
   const toggleUserLock = async (targetUser) => {
-    if (!targetUser?.id || !adminId || targetUser.role === 'admin') return;
+    if (!targetUser?.id || !adminId || targetUser.role === 'admin' || targetUser.is_presentation_data) return;
 
     let lockReason = '';
     if (!targetUser.is_locked) {
@@ -197,6 +189,13 @@ export default function AdminUsersPage() {
       setSelectedUserDetail(null);
     } else {
       setSelectedUserDetail(userItem);
+      if (userItem.is_presentation_data) {
+        setShowMailForm(false);
+        setUserPvPMatches([]);
+        setUserQuizRooms([]);
+        setUserSystemLogs([]);
+        return;
+      }
       setEditLevel(String(userItem.level || 1));
       setEditCoin(formatNumberCompact(userItem.coins || 0));
       fetchUserExtraDetails(userItem.id);
@@ -250,6 +249,7 @@ export default function AdminUsersPage() {
   };
 
   const handleUpdateResources = async (userId) => {
+    if (selectedUserDetail?.is_presentation_data) return;
     const levelInt = parseInt(editLevel, 10);
     const coinsInt = parseCompactNumber(editCoin);
 
@@ -283,7 +283,7 @@ export default function AdminUsersPage() {
 
   const handleSendMail = async (e) => {
     e.preventDefault();
-    if (!mailTitle.trim() || !mailContent.trim() || !selectedUserDetail?.id) return;
+    if (!mailTitle.trim() || !mailContent.trim() || !selectedUserDetail?.id || selectedUserDetail.is_presentation_data) return;
 
     setSendingMail(true);
     try {
@@ -432,7 +432,7 @@ export default function AdminUsersPage() {
             <div className="game-card mb-6">
               <div className="flex items-center gap-2 text-white font-semibold mb-4">
                 <Users className="w-5 h-5 text-blue-400" />
-                Danh sách tài khoản thật
+                Danh sách người dùng
               </div>
 
               <div className="grid md:grid-cols-4 gap-3 mb-4">
@@ -477,7 +477,7 @@ export default function AdminUsersPage() {
 
                 <div className="flex items-end">
                   <div className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-300 text-sm">
-                    Tổng: {usersTotal.toLocaleString()}
+                    Tổng: {usersTotal.toLocaleString()} {sampleCount > 0 && <span className="text-amber-200">({sampleCount} mẫu)</span>}
                   </div>
                 </div>
               </div>
@@ -508,8 +508,8 @@ export default function AdminUsersPage() {
                       >
                         <div className="flex flex-col md:flex-row md:items-center gap-3 md:justify-between">
                           <div>
-                            <p className="text-white font-semibold">{item.display_name || item.username || item.email}</p>
-                            <p className="text-gray-300 text-xs">{item.email || 'Không có email'} • {getRoleLabel(item.role)}</p>
+                            <p className="text-white font-semibold">{item.display_name || item.username || item.email}{item.is_presentation_data && <span className="ml-2 text-[10px] text-amber-200">Mẫu</span>}</p>
+                            <p className="text-gray-300 text-xs">{item.is_presentation_data ? `Khối ${item.grade} · Hồ sơ trình bày` : item.email || 'Không có email'} • {getRoleLabel(item.role)}</p>
                             <p className="text-gray-400 text-[10px] mt-1">Hoạt động gần nhất: {formatDateTime(item.last_active_at)}</p>
                             {item.is_locked && (
                               <p className="text-red-200 text-[10px] mt-1">Bị khóa: {item.lock_reason || DEFAULT_LOCK_REASON}</p>
@@ -517,11 +517,11 @@ export default function AdminUsersPage() {
                           </div>
 
                           <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                            <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${item.is_locked ? 'bg-red-500/20 text-red-200 border border-red-400/30' : 'bg-green-500/20 text-green-200 border border-green-400/30'}`}>
-                              {item.is_locked ? 'Đang khóa' : 'Bình thường'}
+                            <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${item.is_presentation_data ? 'bg-amber-500/20 text-amber-200 border border-amber-400/30' : item.is_locked ? 'bg-red-500/20 text-red-200 border border-red-400/30' : 'bg-green-500/20 text-green-200 border border-green-400/30'}`}>
+                              {item.is_presentation_data ? 'Chỉ xem' : item.is_locked ? 'Đang khóa' : 'Bình thường'}
                             </span>
 
-                            {item.role !== 'admin' && (
+                            {item.role !== 'admin' && !item.is_presentation_data && (
                               <button
                                 onClick={() => toggleUserLock(item)}
                                 disabled={actionLoadingId === item.id}
@@ -557,27 +557,11 @@ export default function AdminUsersPage() {
               </div>
             </div>
 
-          {presentationPeople.length > 0 && (
-            <div className="game-card mb-6">
-              <h2 className="text-white font-semibold mb-2">Hồ sơ mẫu dùng cho bài trình bày ({presentationPeople.length})</h2>
-              <p className="text-gray-300 text-xs mb-3">Các hồ sơ này không có tài khoản đăng nhập, phần thưởng hoặc quyền tham gia PvP.</p>
-              <div className="max-h-72 overflow-y-auto space-y-1">
-                {presentationPeople.filter(person =>
-                  (usersRoleFilter === 'all' || person.role === usersRoleFilter)
-                  && (!usersSearchTerm || person.display_name.toLocaleLowerCase('vi-VN').includes(usersSearchTerm.toLocaleLowerCase('vi-VN')))
-                ).map(person => (
-                  <div key={person.id} className="flex justify-between gap-3 rounded-lg bg-white/5 px-3 py-2 text-xs text-white">
-                    <span>{person.display_name} · {getRoleLabel(person.role)} lớp {person.grade}</span>
-                    <span>{Number(person.total_score || 0).toLocaleString('vi-VN')} điểm</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
           </div>
 
           {/* Cột phải: Chi tiết người dùng slide-out panel */}
-          {selectedUserDetail && (
+          {selectedUserDetail?.is_presentation_data && <PresentationUserDetail person={selectedUserDetail} onClose={() => setSelectedUserDetail(null)} />}
+          {selectedUserDetail && !selectedUserDetail.is_presentation_data && (
             <div 
               className="w-full lg:w-[42%] lg:fixed lg:right-4 lg:top-24 lg:bottom-4 bg-slate-900/90 border border-white/10 rounded-3xl p-6 overflow-y-auto z-40 backdrop-blur-xl animate-in slide-in-from-right duration-300 flex flex-col justify-between"
             >
