@@ -21,7 +21,6 @@ export default function AdminReportsPage() {
 
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState(null);
-  const [sampleCount, setSampleCount] = useState(0);
   const [roleDistribution, setRoleDistribution] = useState([]);
   
   // Real activity and explicitly marked presentation records are shown together.
@@ -74,7 +73,6 @@ export default function AdminReportsPage() {
       // 1. Fetch real statistics from profiles
       const realProfiles = await loadAllAdminProfiles(supabase);
       const presentation = await loadPresentationPeople(supabase);
-      setSampleCount(presentation.length);
       const profiles = [...realProfiles, ...presentation.map(person => ({
         ...person, is_presentation_data: true
       }))];
@@ -382,7 +380,6 @@ export default function AdminReportsPage() {
                   <div>
                     <p className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">Tổng người dùng</p>
                     <p className="text-xl font-bold text-white">{stats?.totalUsers}</p>
-                    {sampleCount > 0 && <p className={`text-[10px] ${theme === 'light' ? 'text-amber-800' : 'text-amber-200'}`}>Gồm {sampleCount} hồ sơ mẫu</p>}
                   </div>
                 </div>
               </div>

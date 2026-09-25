@@ -632,7 +632,6 @@ export default function LeaderboardPage() {
                         <div className="text-center z-20 flex flex-col items-center">
                            <div className="flex items-center justify-center gap-1.5 mb-2 max-w-36">
                              <h4 className="text-white font-black text-sm drop-shadow-lg truncate uppercase tracking-widest">{actualPlayer.display_name || 'Người chơi'}</h4>
-                             {actualPlayer.is_presentation_data && <span className="text-[8px] text-amber-200 shrink-0">Mẫu</span>}
                              {isCurrentUser && <span className="leaderboard-current-badge bg-orange-500 text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest shrink-0">Bạn</span>}
                            </div>
                            <div className={`${config.pillColor} text-white px-4 py-1.5 rounded-full text-[10px] font-black shadow-[0_5px_15px_rgba(0,0,0,0.3)] flex items-center gap-2 border border-white/20 transition-all hover:scale-105`}>
@@ -694,7 +693,7 @@ export default function LeaderboardPage() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-0.5">
                              <p className={`font-black text-base truncate uppercase tracking-tight ${isCurrentUser ? 'text-white' : 'text-white/90'}`}>
-                               {player.display_name || 'Người chơi'}{player.is_presentation_data && <span className="ml-2 text-[9px] text-amber-200">Mẫu</span>}
+                               {player.display_name || 'Người chơi'}
                              </p>
                              {isCurrentUser && <span className="bg-white/20 text-[8px] font-black px-1.5 py-0.5 rounded uppercase tracking-widest">Bạn</span>}
                           </div>
@@ -800,7 +799,7 @@ export default function LeaderboardPage() {
                     </div>
 
                     <div className="flex-1">
-                      <p className="text-white font-semibold text-sm">{player.display_name || 'Người chơi'}{player.is_presentation_data && <span className="ml-2 text-[9px] text-amber-200">Mẫu</span>}</p>
+                      <p className="text-white font-semibold text-sm">{player.display_name || 'Người chơi'}</p>
                       <p className="text-purple-300 text-xs">{player.wins || 0} trận thắng</p>
                     </div>
 

@@ -16,7 +16,7 @@ export default function PresentationUserDetail({ person, onClose }) {
         <div className="min-w-0">
           <h4 className="text-white font-bold truncate">{person.display_name}</h4>
           <p className="text-gray-300 text-xs">{person.role === 'teacher' ? 'Giáo viên' : 'Học sinh'} · Khối {person.grade}</p>
-          <p className="text-amber-200 text-xs">Dữ liệu mẫu · Chỉ xem</p>
+          <p className="text-gray-400 text-xs">Chỉ xem</p>
         </div>
       </div>
       <dl className="grid grid-cols-2 gap-3 text-sm">

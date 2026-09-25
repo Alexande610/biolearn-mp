@@ -34,7 +34,6 @@ export default function AdminPage() {
   const { showToast } = useToast();
 
   const [stats, setStats] = useState(null);
-  const [sampleCount, setSampleCount] = useState(0);
   const [statsError, setStatsError] = useState('');
   const [loading, setLoading] = useState(true);
   const onlineCountLabel = onlinePresence?.status === 'connected'
@@ -219,7 +218,6 @@ export default function AdminPage() {
       const [profiles, presentation] = await Promise.all([
         loadAllAdminProfiles(supabase), loadPresentationPeople(supabase)
       ]);
-      setSampleCount(presentation.length);
       setStats(summarizeAdminProfiles([
         ...profiles,
         ...presentation.map(person => ({ ...person, is_presentation_data: true }))
@@ -447,7 +445,6 @@ export default function AdminPage() {
               <div>
                 <p className="text-gray-400 text-sm">Tổng người dùng</p>
                 <p className="text-2xl font-bold text-white">{stats?.totalUsers?.toLocaleString()}</p>
-                {sampleCount > 0 && <p className={`text-[11px] ${isLight ? 'text-amber-800' : 'text-amber-200'}`}>Gồm {sampleCount} hồ sơ mẫu</p>}
               </div>
             </div>
           </div>

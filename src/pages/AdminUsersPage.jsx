@@ -53,7 +53,6 @@ export default function AdminUsersPage() {
   const { showToast } = useToast();
 
   const [users, setUsers] = useState([]);
-  const [sampleCount, setSampleCount] = useState(0);
   const [usersTotal, setUsersTotal] = useState(0);
   const [usersPage, setUsersPage] = useState(1);
   const [usersTotalPages, setUsersTotalPages] = useState(1);
@@ -123,7 +122,6 @@ export default function AdminUsersPage() {
       setUsers(result.rows);
       setUsersTotal(result.total);
       setUsersTotalPages(result.totalPages);
-      setSampleCount(result.sampleCount);
       if (result.page !== usersPage) setUsersPage(result.page);
     } catch (err) {
       console.error(err);
@@ -477,7 +475,7 @@ export default function AdminUsersPage() {
 
                 <div className="flex items-end">
                   <div className="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-gray-300 text-sm">
-                    Tổng: {usersTotal.toLocaleString()} {sampleCount > 0 && <span className="text-amber-200">({sampleCount} mẫu)</span>}
+                    Tổng: {usersTotal.toLocaleString()}
                   </div>
                 </div>
               </div>
@@ -508,8 +506,8 @@ export default function AdminUsersPage() {
                       >
                         <div className="flex flex-col md:flex-row md:items-center gap-3 md:justify-between">
                           <div>
-                            <p className="text-white font-semibold">{item.display_name || item.username || item.email}{item.is_presentation_data && <span className="ml-2 text-[10px] text-amber-200">Mẫu</span>}</p>
-                            <p className="text-gray-300 text-xs">{item.is_presentation_data ? `Khối ${item.grade} · Hồ sơ trình bày` : item.email || 'Không có email'} • {getRoleLabel(item.role)}</p>
+                            <p className="text-white font-semibold">{item.display_name || item.username || item.email}</p>
+                            <p className="text-gray-300 text-xs">{item.is_presentation_data ? `${getRoleLabel(item.role)} · Khối ${item.grade}` : `${item.email || 'Không có email'} • ${getRoleLabel(item.role)}`}</p>
                             <p className="text-gray-400 text-[10px] mt-1">Hoạt động gần nhất: {formatDateTime(item.last_active_at)}</p>
                             {item.is_locked && (
                               <p className="text-red-200 text-[10px] mt-1">Bị khóa: {item.lock_reason || DEFAULT_LOCK_REASON}</p>
