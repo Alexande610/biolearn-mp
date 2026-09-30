@@ -3,14 +3,16 @@ import { useLocation,useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { bossFeatureEnabled,bossRpc,bossUrl,formatBossTime,remainingSeconds } from '../lib/bossBattle';
 import './bossBattle.css';
+import { bossNoticeClass } from '../utils/bossNoticeScope';
 
 export default function BossEncounterNotice() {
   const {user}=useAuth(); const location=useLocation();const navigate=useNavigate();
   const [encounters,setEncounters]=useState([]);const [expanded,setExpanded]=useState(false);
   const [now,setNow]=useState(()=>Date.now());const [clockOffset,setClockOffset]=useState(0);
   const [owner,setOwner]=useState('');
+  const noticeClass=bossNoticeClass(location.pathname);
   useEffect(()=>{
-    if(!bossFeatureEnabled || !user || user.role!=='student') return;
+    if(!bossFeatureEnabled || !noticeClass || !user || user.role!=='student') return;
     let active=true;
     const refresh=async()=>{try {
       const data=await bossRpc('boss_list_encounters');
@@ -21,9 +23,9 @@ export default function BossEncounterNotice() {
     refresh();const poll=setInterval(refresh,15000);const clock=setInterval(()=>setNow(Date.now()),1000);
     window.addEventListener('boss-encounter',onEncounter);
     return()=>{active=false;clearInterval(poll);clearInterval(clock);window.removeEventListener('boss-encounter',onEncounter);};
-  },[user]);
-  const e=encounters.find(item=>item.status==='active' || remainingSeconds(item.expiresAt,now+clockOffset)>0);
-  if(!e || location.pathname.startsWith('/boss') || !user || owner!==user.id) return null;
+  },[user,noticeClass]);
+  const e=encounters.find(item=>Number(item.classId)===noticeClass && (item.status==='active' || remainingSeconds(item.expiresAt,now+clockOffset)>0));
+  if(!noticeClass || !e || !user || user.role!=='student' || owner!==user.id) return null;
   const seconds=remainingSeconds(e.expiresAt,now+clockOffset);
   return <aside className={`boss-notice ${expanded?'is-expanded':''}`} aria-live="polite">
     <div className="boss-notice-icon">🦠</div><div className="boss-notice-body">
