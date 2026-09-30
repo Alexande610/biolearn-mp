@@ -45,65 +45,65 @@ export const classData = {
     "chapters": [
       {
         "id": 1,
-        "name": "Chương 1: Mở đầu về khoa học tự nhiên",
+        "name": "Chương 1: Tế bào",
         "color": "from-blue-400 to-indigo-600",
         "icon": "🔬",
         "lessons": [
           {
             "id": 1,
-            "name": "Bài 1: Giới thiệu về khoa học tự nhiên"
+            "name": "Bài 17: Tế bào - Đơn vị cơ sở của sự sống"
           },
           {
             "id": 2,
-            "name": "Bài 2: An toàn trong phòng thực hành"
+            "name": "Bài 18: Cấu tạo và chức năng các thành phần của tế bào"
           },
           {
             "id": 3,
-            "name": "Bài 3: Sử dụng kính lúp và kính hiển vi"
+            "name": "Bài 19: Sự lớn lên và sinh sản của tế bào"
           }
         ]
       },
       {
         "id": 2,
-        "name": "Chương 2: Các cấp độ tổ chức trong thế giới sống",
+        "name": "Chương 2: Từ tế bào đến cơ quan",
         "color": "from-green-400 to-emerald-600",
         "icon": "🌱",
         "lessons": [
           {
             "id": 4,
-            "name": "Bài 4: Tế bào - Đơn vị cơ bản của sự sống"
+            "name": "Bài 20: Từ tế bào đến mô"
           },
           {
             "id": 5,
-            "name": "Bài 5: Từ tế bào đến cơ thể"
+            "name": "Bài 21: Từ mô đến cơ quan"
           }
         ]
       },
       {
         "id": 3,
-        "name": "Chương 3: Sự đa dạng của thế giới sống",
+        "name": "Chương 3: Hệ cơ quan và sự đa dạng của thế giới sống",
         "color": "from-orange-400 to-amber-600",
         "icon": "🦎",
         "lessons": [
           {
             "id": 6,
-            "name": "Bài 6: Phân loại thế giới sống"
+            "name": "Bài 22: Từ cơ quan đến hệ cơ quan"
           },
           {
             "id": 7,
-            "name": "Bài 7: Virus và vi khuẩn"
+            "name": "Bài 23: Phân loại thế giới sống"
           },
           {
             "id": 8,
-            "name": "Bài 8: Protozoa và Nấm"
+            "name": "Virus và vi khuẩn"
           },
           {
             "id": 9,
-            "name": "Bài 9: Thực vật"
+            "name": "Nguyên sinh vật"
           },
           {
             "id": 10,
-            "name": "Bài 10: Động vật"
+            "name": "Nấm"
           }
         ]
       }

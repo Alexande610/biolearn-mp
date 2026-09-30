@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { getMapStageIdentity, MAP_STAGE_TYPES } from '../utils/mapStages';
+import { bossRpc, notifyBossEncounter } from '../lib/bossBattle';
 
 // Mapping classId sang file tài liệu tương ứng trong /document/
 const documentMap = {
@@ -884,6 +885,21 @@ export default function GamePlayPage() {
   const [finalScore, setFinalScore] = useState(0);
   const [hasWrongAnswer, setHasWrongAnswer] = useState(false); // Theo dõi có sai câu nào không
   const [rewardResult, setRewardResult] = useState(null);
+  const bossStageRequest = useRef(null);
+  const bossStageFinished = useRef(false);
+
+  useEffect(() => {
+    bossStageFinished.current = false;
+    if (Number(classId) !== 6 || Number(lessonId) === 99 || requestedType === 'skip-challenge') {
+      bossStageRequest.current = null;
+      return;
+    }
+    // The normal game remains usable when the additive migration is not deployed.
+    bossStageRequest.current = bossRpc('boss_prepare_stage', {
+      p_class_id: Number(classId), p_chapter_id: Number(chapterId),
+      p_lesson_id: Number(lessonId), p_level: level
+    }).catch(() => null);
+  }, [classId, chapterId, lessonId, level, requestedType]);
 
   // Fetch lesson data from Supabase
   useEffect(() => {
@@ -1089,6 +1105,19 @@ export default function GamePlayPage() {
   const handleGameComplete = async (gameScore) => {
     setFinalScore(gameScore);
     setGameWon(true);
+    // A finished attempt is eligible even when some answers were wrong.
+    if (!bossStageFinished.current) {
+      bossStageFinished.current = true;
+      try {
+        const ticket = await bossStageRequest.current;
+        if (ticket?.stageSessionId) {
+          const result = await bossRpc('boss_finish_stage', { p_stage_session_id: ticket.stageSessionId });
+          notifyBossEncounter(result?.encounter);
+        }
+      } catch (bossError) {
+        console.error('Boss encounter could not be checked:', bossError);
+      }
+    }
     
     // Chỉ lưu progress và thưởng khi hoàn thành màn HOÀN HẢO (không sai câu nào)
     if (!hasWrongAnswer) {

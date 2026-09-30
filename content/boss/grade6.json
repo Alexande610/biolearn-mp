@@ -1,0 +1,2028 @@
+{
+  "version": "g6-boss-2026.1",
+  "status": "draft",
+  "grade": 6,
+  "reviewNote": "Nội dung gốc biên soạn cho bản thử; cần duyệt học thuật trước khi bật production.",
+  "lessons": [
+    {
+      "chapterId": 1,
+      "lessonId": 1,
+      "title": "Tế bào — đơn vị cơ sở của sự sống",
+      "questions": [
+        {
+          "id": "g6-1-1-1",
+          "question": "Đơn vị cấu tạo cơ bản của cơ thể sống là gì?",
+          "options": [
+            "Tế bào",
+            "Hòn đá",
+            "Giọt nước"
+          ],
+          "correctAnswer": 0,
+          "hint": "Hãy nghĩ đến đơn vị nhỏ tạo nên cơ thể.",
+          "explanation": "Tế bào. Hãy nghĩ đến đơn vị nhỏ tạo nên cơ thể.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-2",
+          "question": "Cơ thể đơn bào được cấu tạo từ bao nhiêu tế bào?",
+          "options": [
+            "Hai tế bào",
+            "Một tế bào",
+            "Rất nhiều tế bào"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chú ý nghĩa của từ “đơn”.",
+          "explanation": "Một tế bào. Chú ý nghĩa của từ “đơn”.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-3",
+          "question": "Cơ thể đa bào có đặc điểm nào?",
+          "options": [
+            "Không có tế bào",
+            "Chỉ gồm một tế bào",
+            "Gồm nhiều tế bào"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chú ý nghĩa của từ “đa”.",
+          "explanation": "Gồm nhiều tế bào. Chú ý nghĩa của từ “đa”.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-4",
+          "question": "Vật nào sau đây là cơ thể sống có cấu tạo tế bào?",
+          "options": [
+            "Cây đậu",
+            "Viên sỏi",
+            "Chiếc cốc"
+          ],
+          "correctAnswer": 0,
+          "hint": "Chọn vật có sinh trưởng và trao đổi chất.",
+          "explanation": "Cây đậu. Chọn vật có sinh trưởng và trao đổi chất.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-5",
+          "question": "Muốn quan sát phần lớn tế bào, em dùng dụng cụ nào?",
+          "options": [
+            "Thước dây",
+            "Kính hiển vi",
+            "Nhiệt kế"
+          ],
+          "correctAnswer": 1,
+          "hint": "Cần dụng cụ phóng đại những vật rất nhỏ.",
+          "explanation": "Kính hiển vi. Cần dụng cụ phóng đại những vật rất nhỏ.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-6",
+          "question": "Vì sao phần lớn tế bào không nhìn rõ bằng mắt thường?",
+          "options": [
+            "Không có hình dạng",
+            "Không có vật chất",
+            "Kích thước rất nhỏ"
+          ],
+          "correctAnswer": 2,
+          "hint": "Hãy xét kích thước của đối tượng quan sát.",
+          "explanation": "Kích thước rất nhỏ. Hãy xét kích thước của đối tượng quan sát.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-7",
+          "question": "Nhận xét nào đúng về hình dạng tế bào?",
+          "options": [
+            "Tế bào có nhiều hình dạng",
+            "Mọi tế bào đều hình cầu",
+            "Mọi tế bào đều hình vuông"
+          ],
+          "correctAnswer": 0,
+          "hint": "Các tế bào đảm nhiệm những công việc khác nhau.",
+          "explanation": "Tế bào có nhiều hình dạng. Các tế bào đảm nhiệm những công việc khác nhau.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-8",
+          "question": "Nhận xét nào đúng về kích thước tế bào?",
+          "options": [
+            "Tất cả tế bào lớn bằng nhau",
+            "Các loại tế bào có thể khác kích thước",
+            "Mọi tế bào dài một mét"
+          ],
+          "correctAnswer": 1,
+          "hint": "Không nên khái quát một kích thước cho mọi loại.",
+          "explanation": "Các loại tế bào có thể khác kích thước. Không nên khái quát một kích thước cho mọi loại.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-9",
+          "question": "Cơ thể người thuộc loại cơ thể nào?",
+          "options": [
+            "Đơn bào",
+            "Không có tế bào",
+            "Đa bào"
+          ],
+          "correctAnswer": 2,
+          "hint": "Hãy nghĩ đến các tế bào da, cơ và thần kinh.",
+          "explanation": "Đa bào. Hãy nghĩ đến các tế bào da, cơ và thần kinh.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-10",
+          "question": "Vi khuẩn điển hình thuộc loại cơ thể nào?",
+          "options": [
+            "Đơn bào",
+            "Đa bào có nhiều cơ quan",
+            "Không cấu tạo từ tế bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Một đơn vị nhỏ có thể thực hiện hoạt động sống.",
+          "explanation": "Đơn bào. Một đơn vị nhỏ có thể thực hiện hoạt động sống.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-11",
+          "question": "Phát biểu nào đúng về cây xanh và động vật?",
+          "options": [
+            "Chỉ cây xanh có tế bào",
+            "Đều được cấu tạo từ tế bào",
+            "Chỉ động vật có tế bào"
+          ],
+          "correctAnswer": 1,
+          "hint": "Đối chiếu đặc điểm cấu tạo chung của sinh vật.",
+          "explanation": "Đều được cấu tạo từ tế bào. Đối chiếu đặc điểm cấu tạo chung của sinh vật.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-12",
+          "question": "Tế bào được gọi là đơn vị chức năng vì sao?",
+          "options": [
+            "Chỉ có tác dụng trang trí",
+            "Không trao đổi chất",
+            "Thực hiện các hoạt động sống"
+          ],
+          "correctAnswer": 2,
+          "hint": "Cấu tạo cần gắn với khả năng hoạt động.",
+          "explanation": "Thực hiện các hoạt động sống. Cấu tạo cần gắn với khả năng hoạt động.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-13",
+          "question": "Đơn vị micromet thường được dùng khi mô tả gì?",
+          "options": [
+            "Kích thước tế bào",
+            "Khối lượng cơ thể",
+            "Thời gian sinh trưởng"
+          ],
+          "correctAnswer": 0,
+          "hint": "Đây là đơn vị đo độ dài rất nhỏ.",
+          "explanation": "Kích thước tế bào. Đây là đơn vị đo độ dài rất nhỏ.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-14",
+          "question": "Quan sát hai mẫu tế bào khác hình dạng, em nên kết luận gì?",
+          "options": [
+            "Một mẫu chắc chắn không phải tế bào",
+            "Hình dạng tế bào có thể khác nhau",
+            "Tất cả sinh vật có cùng tế bào"
+          ],
+          "correctAnswer": 1,
+          "hint": "Dựa vào quan sát, tránh kết luận tuyệt đối.",
+          "explanation": "Hình dạng tế bào có thể khác nhau. Dựa vào quan sát, tránh kết luận tuyệt đối.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        },
+        {
+          "id": "g6-1-1-15",
+          "question": "Cơ thể một cây lớn được tạo nên từ gì?",
+          "options": [
+            "Một tế bào khổng lồ duy nhất",
+            "Chỉ nước và không có tế bào",
+            "Rất nhiều tế bào"
+          ],
+          "correctAnswer": 2,
+          "hint": "Kích thước cơ thể không phải kích thước một tế bào.",
+          "explanation": "Rất nhiều tế bào. Kích thước cơ thể không phải kích thước một tế bào.",
+          "objective": "Tế bào — đơn vị cơ sở của sự sống"
+        }
+      ]
+    },
+    {
+      "chapterId": 1,
+      "lessonId": 2,
+      "title": "Cấu tạo và chức năng các thành phần của tế bào",
+      "questions": [
+        {
+          "id": "g6-1-2-1",
+          "question": "Thành phần nào bao bọc tế bào?",
+          "options": [
+            "Màng tế bào",
+            "Nhân",
+            "Lục lạp"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét cấu trúc ở ranh giới tế bào.",
+          "explanation": "Màng tế bào. Xét cấu trúc ở ranh giới tế bào.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-2",
+          "question": "Màng tế bào có chức năng nào?",
+          "options": [
+            "Tạo mọi tế bào con",
+            "Bảo vệ và kiểm soát trao đổi chất",
+            "Chỉ chứa vật chất di truyền"
+          ],
+          "correctAnswer": 1,
+          "hint": "Ranh giới tế bào vẫn cần cho một số chất đi qua.",
+          "explanation": "Bảo vệ và kiểm soát trao đổi chất. Ranh giới tế bào vẫn cần cho một số chất đi qua.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-3",
+          "question": "Thành phần nào là nơi diễn ra nhiều hoạt động sống của tế bào?",
+          "options": [
+            "Thành tế bào",
+            "Khoảng không ngoài tế bào",
+            "Tế bào chất"
+          ],
+          "correctAnswer": 2,
+          "hint": "Hãy xét phần nằm phía trong màng.",
+          "explanation": "Tế bào chất. Hãy xét phần nằm phía trong màng.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-4",
+          "question": "Trong tế bào nhân thực, cấu trúc nào chứa phần lớn vật chất di truyền?",
+          "options": [
+            "Nhân",
+            "Thành tế bào",
+            "Không bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Chú ý điều kiện “tế bào nhân thực”.",
+          "explanation": "Nhân. Chú ý điều kiện “tế bào nhân thực”.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-5",
+          "question": "Nhân tế bào thường có vai trò nào?",
+          "options": [
+            "Chỉ tạo màu xanh",
+            "Điều khiển hoạt động tế bào",
+            "Chỉ làm tế bào cứng"
+          ],
+          "correctAnswer": 1,
+          "hint": "Vai trò liên quan thông tin di truyền.",
+          "explanation": "Điều khiển hoạt động tế bào. Vai trò liên quan thông tin di truyền.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-6",
+          "question": "Tế bào thực vật và động vật điển hình cùng có gì?",
+          "options": [
+            "Đều có thành tế bào và lục lạp",
+            "Đều không có màng",
+            "Màng tế bào, tế bào chất và nhân"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chọn các thành phần chung, không chọn phần riêng của thực vật.",
+          "explanation": "Màng tế bào, tế bào chất và nhân. Chọn các thành phần chung, không chọn phần riêng của thực vật.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-7",
+          "question": "Cấu trúc nào giúp tế bào thực vật có hình dạng tương đối ổn định?",
+          "options": [
+            "Thành tế bào",
+            "Lục lạp",
+            "Nhân"
+          ],
+          "correctAnswer": 0,
+          "hint": "Hãy nghĩ đến lớp tương đối cứng phía ngoài màng.",
+          "explanation": "Thành tế bào. Hãy nghĩ đến lớp tương đối cứng phía ngoài màng.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-8",
+          "question": "Lục lạp ở tế bào lá xanh tham gia quá trình nào?",
+          "options": [
+            "Bơm máu",
+            "Quang hợp",
+            "Dẫn truyền âm thanh"
+          ],
+          "correctAnswer": 1,
+          "hint": "Quá trình sử dụng năng lượng ánh sáng.",
+          "explanation": "Quang hợp. Quá trình sử dụng năng lượng ánh sáng.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-9",
+          "question": "Tế bào động vật điển hình không có cấu trúc nào?",
+          "options": [
+            "Màng tế bào",
+            "Tế bào chất",
+            "Thành tế bào"
+          ],
+          "correctAnswer": 2,
+          "hint": "Đừng nhầm lớp bao bọc chung với lớp cứng của thực vật.",
+          "explanation": "Thành tế bào. Đừng nhầm lớp bao bọc chung với lớp cứng của thực vật.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-10",
+          "question": "Tế bào vi khuẩn khác tế bào nhân thực ở điểm nào?",
+          "options": [
+            "Chưa có nhân hoàn chỉnh",
+            "Không có màng tế bào",
+            "Không có vật chất di truyền"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét đặc điểm của vùng chứa vật chất di truyền.",
+          "explanation": "Chưa có nhân hoàn chỉnh. Xét đặc điểm của vùng chứa vật chất di truyền.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-11",
+          "question": "Tên nào chỉ loại tế bào có nhân hoàn chỉnh?",
+          "options": [
+            "Tế bào nhân sơ",
+            "Tế bào nhân thực",
+            "Tế bào không sống"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chú ý đặc điểm có màng bao quanh nhân.",
+          "explanation": "Tế bào nhân thực. Chú ý đặc điểm có màng bao quanh nhân.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-12",
+          "question": "Vi khuẩn có kiểu tế bào nào?",
+          "options": [
+            "Nhân thực",
+            "Không có tế bào",
+            "Nhân sơ"
+          ],
+          "correctAnswer": 2,
+          "hint": "Đối chiếu đặc điểm nhân chưa hoàn chỉnh.",
+          "explanation": "Nhân sơ. Đối chiếu đặc điểm nhân chưa hoàn chỉnh.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-13",
+          "question": "Khi mô tả tế bào lá xanh, nhận xét nào phù hợp?",
+          "options": [
+            "Có thể có lục lạp",
+            "Chắc chắn không có màng",
+            "Không có tế bào chất"
+          ],
+          "correctAnswer": 0,
+          "hint": "Từ “lá xanh” liên quan khả năng quang hợp.",
+          "explanation": "Có thể có lục lạp. Từ “lá xanh” liên quan khả năng quang hợp.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-14",
+          "question": "Trao đổi chất giữa tế bào và môi trường liên quan trực tiếp cấu trúc nào?",
+          "options": [
+            "Chỉ nhân",
+            "Màng tế bào",
+            "Chỉ lục lạp"
+          ],
+          "correctAnswer": 1,
+          "hint": "Các chất phải đi qua ranh giới của tế bào.",
+          "explanation": "Màng tế bào. Các chất phải đi qua ranh giới của tế bào.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        },
+        {
+          "id": "g6-1-2-15",
+          "question": "Phát biểu nào chính xác hơn về tế bào thực vật?",
+          "options": [
+            "Mọi tế bào thực vật đều có lục lạp",
+            "Tế bào thực vật không có màng",
+            "Không phải mọi tế bào thực vật đều có lục lạp"
+          ],
+          "correctAnswer": 2,
+          "hint": "So sánh tế bào lá xanh với tế bào ở rễ.",
+          "explanation": "Không phải mọi tế bào thực vật đều có lục lạp. So sánh tế bào lá xanh với tế bào ở rễ.",
+          "objective": "Cấu tạo và chức năng các thành phần của tế bào"
+        }
+      ]
+    },
+    {
+      "chapterId": 1,
+      "lessonId": 3,
+      "title": "Sự lớn lên và sinh sản của tế bào",
+      "questions": [
+        {
+          "id": "g6-1-3-1",
+          "question": "Tế bào lớn lên nhờ hoạt động nào?",
+          "options": [
+            "Trao đổi chất",
+            "Không cần chất dinh dưỡng",
+            "Chỉ đổi màu"
+          ],
+          "correctAnswer": 0,
+          "hint": "Lớn lên cần nguyên liệu và năng lượng.",
+          "explanation": "Trao đổi chất. Lớn lên cần nguyên liệu và năng lượng.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-2",
+          "question": "Khi lớn lên, tế bào thường thay đổi như thế nào?",
+          "options": [
+            "Mất hết tế bào chất",
+            "Tăng kích thước và khối lượng",
+            "Biến thành hòn đá"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xét đặc điểm của sự sinh trưởng.",
+          "explanation": "Tăng kích thước và khối lượng. Xét đặc điểm của sự sinh trưởng.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-3",
+          "question": "Từ một tế bào mẹ phân chia một lần thường tạo bao nhiêu tế bào con trong mô hình của bài?",
+          "options": [
+            "Một",
+            "Tám",
+            "Hai"
+          ],
+          "correctAnswer": 2,
+          "hint": "Mô hình mô tả một tế bào tách thành hai.",
+          "explanation": "Hai. Mô hình mô tả một tế bào tách thành hai.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-4",
+          "question": "Từ hai tế bào, mỗi tế bào phân chia một lần, có bao nhiêu tế bào?",
+          "options": [
+            "Bốn",
+            "Hai",
+            "Ba"
+          ],
+          "correctAnswer": 0,
+          "hint": "Tính số tế bào con từ từng tế bào mẹ.",
+          "explanation": "Bốn. Tính số tế bào con từ từng tế bào mẹ.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-5",
+          "question": "Từ một tế bào, sau hai lần phân chia liên tiếp của tất cả tế bào, có bao nhiêu tế bào?",
+          "options": [
+            "Hai",
+            "Bốn",
+            "Sáu"
+          ],
+          "correctAnswer": 1,
+          "hint": "Theo dõi từng bước, không cộng số thế hệ.",
+          "explanation": "Bốn. Theo dõi từng bước, không cộng số thế hệ.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-6",
+          "question": "Từ một tế bào, sau ba lần phân chia liên tiếp của tất cả tế bào, có bao nhiêu tế bào?",
+          "options": [
+            "Ba",
+            "Sáu",
+            "Tám"
+          ],
+          "correctAnswer": 2,
+          "hint": "Mỗi lượt số tế bào tăng gấp đôi.",
+          "explanation": "Tám. Mỗi lượt số tế bào tăng gấp đôi.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-7",
+          "question": "Sự phân chia tế bào giúp cơ thể đa bào như thế nào?",
+          "options": [
+            "Tăng số lượng tế bào",
+            "Giảm mọi hoạt động sống",
+            "Mất cấu tạo tế bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Tế bào mới bổ sung cho cơ thể.",
+          "explanation": "Tăng số lượng tế bào. Tế bào mới bổ sung cho cơ thể.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-8",
+          "question": "Cơ thể lớn lên liên quan quá trình nào?",
+          "options": [
+            "Chỉ thay đổi màu da",
+            "Tế bào lớn lên và phân chia",
+            "Chỉ nhận ánh sáng mà không trao đổi chất"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xét cả kích thước và số lượng tế bào.",
+          "explanation": "Tế bào lớn lên và phân chia. Xét cả kích thước và số lượng tế bào.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-9",
+          "question": "Tế bào mới giúp vết thương lành lại bằng cách nào?",
+          "options": [
+            "Làm mọi tế bào biến mất",
+            "Ngăn cơ thể có tế bào",
+            "Thay thế, bổ sung tế bào bị tổn thương"
+          ],
+          "correctAnswer": 2,
+          "hint": "Lành vết thương cần tái tạo phần bị hỏng.",
+          "explanation": "Thay thế, bổ sung tế bào bị tổn thương. Lành vết thương cần tái tạo phần bị hỏng.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-10",
+          "question": "Ở cơ thể đơn bào, phân chia tế bào có thể mang ý nghĩa gì?",
+          "options": [
+            "Sinh sản tạo cơ thể mới",
+            "Tạo nhiều hệ cơ quan",
+            "Chỉ làm cơ thể đổi màu"
+          ],
+          "correctAnswer": 0,
+          "hint": "Một tế bào đã là một cơ thể.",
+          "explanation": "Sinh sản tạo cơ thể mới. Một tế bào đã là một cơ thể.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-11",
+          "question": "Tế bào con được sinh ra từ đâu?",
+          "options": [
+            "Hòn đá tự biến đổi",
+            "Tế bào có trước",
+            "Khoảng trống không có vật chất"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ quá trình phân chia tế bào mẹ.",
+          "explanation": "Tế bào có trước. Liên hệ quá trình phân chia tế bào mẹ.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-12",
+          "question": "Sau phân chia, tế bào con thường cần làm gì trước lần phân chia tiếp theo?",
+          "options": [
+            "Không cần trao đổi chất",
+            "Mất màng tế bào",
+            "Tiếp tục lớn lên"
+          ],
+          "correctAnswer": 2,
+          "hint": "Các tế bào mới cần phát triển.",
+          "explanation": "Tiếp tục lớn lên. Các tế bào mới cần phát triển.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-13",
+          "question": "Nếu tất cả bốn tế bào đều phân chia một lần, số tế bào thành bao nhiêu?",
+          "options": [
+            "Tám",
+            "Bốn",
+            "Năm"
+          ],
+          "correctAnswer": 0,
+          "hint": "Mỗi tế bào mẹ tạo hai tế bào con.",
+          "explanation": "Tám. Mỗi tế bào mẹ tạo hai tế bào con.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-14",
+          "question": "Vì sao cơ thể cần tạo tế bào mới?",
+          "options": [
+            "Để bỏ mọi cơ quan",
+            "Để sinh trưởng và thay thế tế bào",
+            "Để ngừng trao đổi chất"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ lớn lên và sửa chữa tổn thương.",
+          "explanation": "Để sinh trưởng và thay thế tế bào. Liên hệ lớn lên và sửa chữa tổn thương.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        },
+        {
+          "id": "g6-1-3-15",
+          "question": "Nhận xét nào đúng khi tế bào phân chia?",
+          "options": [
+            "Số tế bào luôn giảm",
+            "Không tạo tế bào con",
+            "Số lượng tế bào tăng"
+          ],
+          "correctAnswer": 2,
+          "hint": "Đừng nhầm tăng số lượng với chỉ tăng kích thước.",
+          "explanation": "Số lượng tế bào tăng. Đừng nhầm tăng số lượng với chỉ tăng kích thước.",
+          "objective": "Sự lớn lên và sinh sản của tế bào"
+        }
+      ]
+    },
+    {
+      "chapterId": 2,
+      "lessonId": 4,
+      "title": "Từ tế bào đến mô",
+      "questions": [
+        {
+          "id": "g6-2-4-1",
+          "question": "Mô được hình thành từ gì?",
+          "options": [
+            "Nhóm tế bào cùng thực hiện chức năng nhất định",
+            "Nhóm hệ cơ quan",
+            "Nhóm cơ thể khác loài"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét cấp độ ngay trên tế bào.",
+          "explanation": "Nhóm tế bào cùng thực hiện chức năng nhất định. Xét cấp độ ngay trên tế bào.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-2",
+          "question": "Tế bào của một mô thường có đặc điểm nào?",
+          "options": [
+            "Không liên quan nhau",
+            "Có sự tương đồng và phối hợp chức năng",
+            "Đều là tế bào vi khuẩn"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ cấu tạo với công việc chung.",
+          "explanation": "Có sự tương đồng và phối hợp chức năng. Liên hệ cấu tạo với công việc chung.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-3",
+          "question": "Mô cơ ở động vật liên quan chức năng nào?",
+          "options": [
+            "Quang hợp",
+            "Hút nước từ đất",
+            "Co dãn tạo vận động"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xét khả năng co của tế bào cơ.",
+          "explanation": "Co dãn tạo vận động. Xét khả năng co của tế bào cơ.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-4",
+          "question": "Mô thần kinh liên quan chức năng nào?",
+          "options": [
+            "Tiếp nhận và dẫn truyền thông tin",
+            "Quang hợp",
+            "Hấp thụ nước ở rễ"
+          ],
+          "correctAnswer": 0,
+          "hint": "Các tế bào giúp cơ thể đáp ứng kích thích.",
+          "explanation": "Tiếp nhận và dẫn truyền thông tin. Các tế bào giúp cơ thể đáp ứng kích thích.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-5",
+          "question": "Mô biểu bì có vai trò thường gặp nào?",
+          "options": [
+            "Chỉ bơm máu",
+            "Bao phủ và bảo vệ",
+            "Chỉ vận chuyển nước trong gân lá"
+          ],
+          "correctAnswer": 1,
+          "hint": "Hãy xét lớp nằm ngoài cấu trúc.",
+          "explanation": "Bao phủ và bảo vệ. Hãy xét lớp nằm ngoài cấu trúc.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-6",
+          "question": "Mô dẫn của thực vật liên quan chức năng nào?",
+          "options": [
+            "Phát ra âm thanh",
+            "Điều khiển hành vi động vật",
+            "Vận chuyển các chất"
+          ],
+          "correctAnswer": 2,
+          "hint": "Các chất cần đi giữa rễ, thân và lá.",
+          "explanation": "Vận chuyển các chất. Các chất cần đi giữa rễ, thân và lá.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-7",
+          "question": "Mô phân sinh giúp cây thực hiện hoạt động nào?",
+          "options": [
+            "Sinh trưởng nhờ tạo tế bào mới",
+            "Tiêu hóa trong dạ dày",
+            "Bơm máu"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ khả năng phân chia tế bào.",
+          "explanation": "Sinh trưởng nhờ tạo tế bào mới. Liên hệ khả năng phân chia tế bào.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-8",
+          "question": "Nhóm tế bào cơ phối hợp với nhau tạo cấp độ nào?",
+          "options": [
+            "Hệ tiêu hóa",
+            "Mô cơ",
+            "Một quần thể"
+          ],
+          "correctAnswer": 1,
+          "hint": "Từ tế bào cùng loại chuyển lên cấp độ kế tiếp.",
+          "explanation": "Mô cơ. Từ tế bào cùng loại chuyển lên cấp độ kế tiếp.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-9",
+          "question": "Cấp độ nào nhỏ hơn mô?",
+          "options": [
+            "Cơ quan",
+            "Cơ thể",
+            "Tế bào"
+          ],
+          "correctAnswer": 2,
+          "hint": "Đối chiếu trình tự tổ chức cơ thể.",
+          "explanation": "Tế bào. Đối chiếu trình tự tổ chức cơ thể.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-10",
+          "question": "Nhận xét nào đúng về mô của thực vật và động vật?",
+          "options": [
+            "Có các loại mô với chức năng khác nhau",
+            "Mọi mô đều làm cùng một việc",
+            "Chỉ động vật có mô"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ ví dụ mô dẫn và mô cơ.",
+          "explanation": "Có các loại mô với chức năng khác nhau. Liên hệ ví dụ mô dẫn và mô cơ.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-11",
+          "question": "Mô gồm các tế bào phối hợp nhằm mục đích gì?",
+          "options": [
+            "Tạo một loài mới ngay lập tức",
+            "Thực hiện chức năng chung",
+            "Không thực hiện hoạt động nào"
+          ],
+          "correctAnswer": 1,
+          "hint": "Tên cấp độ gắn với hoạt động của nhóm tế bào.",
+          "explanation": "Thực hiện chức năng chung. Tên cấp độ gắn với hoạt động của nhóm tế bào.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-12",
+          "question": "Ví dụ nào thuộc cấp độ mô?",
+          "options": [
+            "Dạ dày",
+            "Cây đậu hoàn chỉnh",
+            "Mô cơ"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chọn nhóm tế bào, không chọn cơ quan hoặc cơ thể.",
+          "explanation": "Mô cơ. Chọn nhóm tế bào, không chọn cơ quan hoặc cơ thể.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-13",
+          "question": "Mô nào thích hợp với chức năng che phủ bề mặt?",
+          "options": [
+            "Mô biểu bì",
+            "Mô cơ",
+            "Mô thần kinh"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét vị trí và vai trò bảo vệ.",
+          "explanation": "Mô biểu bì. Xét vị trí và vai trò bảo vệ.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-14",
+          "question": "Những tế bào tham gia vận chuyển chất trong cây có thể thuộc mô nào?",
+          "options": [
+            "Mô cơ",
+            "Mô dẫn",
+            "Mô thần kinh"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chọn mô đặc trưng của thực vật.",
+          "explanation": "Mô dẫn. Chọn mô đặc trưng của thực vật.",
+          "objective": "Từ tế bào đến mô"
+        },
+        {
+          "id": "g6-2-4-15",
+          "question": "Một mô có thể được xem là tập hợp tùy ý của mọi tế bào không?",
+          "options": [
+            "Có, mọi tập hợp đều là mô",
+            "Có, kể cả gồm hòn đá",
+            "Không, các tế bào phải có quan hệ cấu tạo và chức năng"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chú ý điều kiện để nhóm tế bào thành một cấp tổ chức.",
+          "explanation": "Không, các tế bào phải có quan hệ cấu tạo và chức năng. Chú ý điều kiện để nhóm tế bào thành một cấp tổ chức.",
+          "objective": "Từ tế bào đến mô"
+        }
+      ]
+    },
+    {
+      "chapterId": 2,
+      "lessonId": 5,
+      "title": "Từ mô đến cơ quan",
+      "questions": [
+        {
+          "id": "g6-2-5-1",
+          "question": "Cơ quan được cấu tạo từ gì?",
+          "options": [
+            "Nhiều mô phối hợp hoạt động",
+            "Chỉ các hòn đá",
+            "Nhiều cơ thể riêng biệt"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét cấp độ trên mô.",
+          "explanation": "Nhiều mô phối hợp hoạt động. Xét cấp độ trên mô.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-2",
+          "question": "Ví dụ nào là cơ quan ở người?",
+          "options": [
+            "Một tế bào cơ",
+            "Dạ dày",
+            "Toàn bộ cơ thể người"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chọn một bộ phận gồm nhiều mô.",
+          "explanation": "Dạ dày. Chọn một bộ phận gồm nhiều mô.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-3",
+          "question": "Ví dụ nào là cơ quan ở thực vật?",
+          "options": [
+            "Một tế bào biểu bì",
+            "Cả cây hoàn chỉnh",
+            "Lá"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xét bộ phận có chức năng nhất định.",
+          "explanation": "Lá. Xét bộ phận có chức năng nhất định.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-4",
+          "question": "Rễ cây có chức năng chính nào?",
+          "options": [
+            "Hấp thụ nước và muối khoáng",
+            "Bơm máu",
+            "Tiêu hóa thức ăn trong dạ dày"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét bộ phận thường nằm trong đất.",
+          "explanation": "Hấp thụ nước và muối khoáng. Xét bộ phận thường nằm trong đất.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-5",
+          "question": "Thân cây có vai trò nào?",
+          "options": [
+            "Tạo hệ thần kinh",
+            "Nâng đỡ và vận chuyển chất",
+            "Bơm máu"
+          ],
+          "correctAnswer": 1,
+          "hint": "Thân nối rễ với các bộ phận phía trên.",
+          "explanation": "Nâng đỡ và vận chuyển chất. Thân nối rễ với các bộ phận phía trên.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-6",
+          "question": "Lá xanh thường có chức năng nào?",
+          "options": [
+            "Lọc máu",
+            "Co cơ tạo bước đi",
+            "Quang hợp"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ các tế bào có lục lạp.",
+          "explanation": "Quang hợp. Liên hệ các tế bào có lục lạp.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-7",
+          "question": "Tim có chức năng nào?",
+          "options": [
+            "Bơm máu",
+            "Quang hợp",
+            "Hấp thụ muối khoáng từ đất"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ sự tuần hoàn của máu.",
+          "explanation": "Bơm máu. Liên hệ sự tuần hoàn của máu.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-8",
+          "question": "Phổi liên quan chức năng nào?",
+          "options": [
+            "Tạo quả",
+            "Trao đổi khí",
+            "Hút nước trong đất"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xét hoạt động hô hấp.",
+          "explanation": "Trao đổi khí. Xét hoạt động hô hấp.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-9",
+          "question": "Dạ dày tham gia hoạt động nào?",
+          "options": [
+            "Quang hợp",
+            "Hấp thụ nước ở rễ",
+            "Tiêu hóa thức ăn"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ con đường xử lý thức ăn.",
+          "explanation": "Tiêu hóa thức ăn. Liên hệ con đường xử lý thức ăn.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-10",
+          "question": "Cơ quan nào thuộc cây có hoa?",
+          "options": [
+            "Hoa",
+            "Tim",
+            "Phổi"
+          ],
+          "correctAnswer": 0,
+          "hint": "Chọn bộ phận sinh sản của thực vật.",
+          "explanation": "Hoa. Chọn bộ phận sinh sản của thực vật.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-11",
+          "question": "Cấp độ nào nằm giữa mô và hệ cơ quan?",
+          "options": [
+            "Tế bào",
+            "Cơ quan",
+            "Quần thể"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xếp theo thứ tự từ nhỏ đến lớn.",
+          "explanation": "Cơ quan. Xếp theo thứ tự từ nhỏ đến lớn.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-12",
+          "question": "Vì sao lá được xem là một cơ quan?",
+          "options": [
+            "Chỉ gồm một tế bào",
+            "Không có cấu tạo tế bào",
+            "Gồm nhiều mô phối hợp thực hiện chức năng"
+          ],
+          "correctAnswer": 2,
+          "hint": "Cơ quan không phải một mô đơn lẻ.",
+          "explanation": "Gồm nhiều mô phối hợp thực hiện chức năng. Cơ quan không phải một mô đơn lẻ.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-13",
+          "question": "Một dạ dày hoạt động cần sự phối hợp nào?",
+          "options": [
+            "Các mô cấu tạo nên dạ dày",
+            "Chỉ một hòn đá",
+            "Các cây khác nhau"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ mô cơ, mô bao phủ và các mô khác.",
+          "explanation": "Các mô cấu tạo nên dạ dày. Liên hệ mô cơ, mô bao phủ và các mô khác.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-14",
+          "question": "Ví dụ nào không phải một cơ quan?",
+          "options": [
+            "Rễ cây",
+            "Một tế bào thần kinh",
+            "Tim"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chú ý phân biệt cấp tế bào và cấp cơ quan.",
+          "explanation": "Một tế bào thần kinh. Chú ý phân biệt cấp tế bào và cấp cơ quan.",
+          "objective": "Từ mô đến cơ quan"
+        },
+        {
+          "id": "g6-2-5-15",
+          "question": "Trình tự nào đúng?",
+          "options": [
+            "Cơ quan → tế bào → mô",
+            "Mô → cơ quan → tế bào",
+            "Tế bào → mô → cơ quan"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xếp theo mức độ tổ chức tăng dần.",
+          "explanation": "Tế bào → mô → cơ quan. Xếp theo mức độ tổ chức tăng dần.",
+          "objective": "Từ mô đến cơ quan"
+        }
+      ]
+    },
+    {
+      "chapterId": 3,
+      "lessonId": 6,
+      "title": "Từ cơ quan đến hệ cơ quan",
+      "questions": [
+        {
+          "id": "g6-3-6-1",
+          "question": "Hệ cơ quan gồm những gì?",
+          "options": [
+            "Các cơ quan phối hợp thực hiện chức năng chung",
+            "Một nhóm hòn đá",
+            "Chỉ một tế bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét cấp độ trên cơ quan.",
+          "explanation": "Các cơ quan phối hợp thực hiện chức năng chung. Xét cấp độ trên cơ quan.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-2",
+          "question": "Tim và mạch máu thuộc hệ nào?",
+          "options": [
+            "Hệ tiêu hóa",
+            "Hệ tuần hoàn",
+            "Hệ vận động"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ con đường vận chuyển máu.",
+          "explanation": "Hệ tuần hoàn. Liên hệ con đường vận chuyển máu.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-3",
+          "question": "Miệng, dạ dày và ruột phối hợp trong hệ nào?",
+          "options": [
+            "Hệ tuần hoàn",
+            "Hệ vận động",
+            "Hệ tiêu hóa"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ đường đi của thức ăn.",
+          "explanation": "Hệ tiêu hóa. Liên hệ đường đi của thức ăn.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-4",
+          "question": "Các cơ quan hô hấp phối hợp để làm gì?",
+          "options": [
+            "Trao đổi khí với môi trường",
+            "Tạo hoa và quả",
+            "Hấp thụ muối khoáng từ đất"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét nhu cầu khí của cơ thể.",
+          "explanation": "Trao đổi khí với môi trường. Xét nhu cầu khí của cơ thể.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-5",
+          "question": "Xương và cơ phối hợp trong hệ nào?",
+          "options": [
+            "Hệ tiêu hóa",
+            "Hệ vận động",
+            "Hệ tuần hoàn"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ việc đi, chạy và giữ tư thế.",
+          "explanation": "Hệ vận động. Liên hệ việc đi, chạy và giữ tư thế.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-6",
+          "question": "Ở thực vật, hệ rễ thường có chức năng gì?",
+          "options": [
+            "Tiêu hóa trong ruột",
+            "Bơm máu",
+            "Hấp thụ nước và muối khoáng"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xét bộ phận nằm trong đất.",
+          "explanation": "Hấp thụ nước và muối khoáng. Xét bộ phận nằm trong đất.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-7",
+          "question": "Các hệ cơ quan trong cơ thể có quan hệ thế nào?",
+          "options": [
+            "Phối hợp với nhau",
+            "Hoàn toàn tách biệt",
+            "Không ảnh hưởng đến cơ thể"
+          ],
+          "correctAnswer": 0,
+          "hint": "Khi chạy, nhiều hệ cùng hoạt động.",
+          "explanation": "Phối hợp với nhau. Khi chạy, nhiều hệ cùng hoạt động.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-8",
+          "question": "Cấp độ nào lớn hơn hệ cơ quan trong một cá thể?",
+          "options": [
+            "Tế bào",
+            "Cơ thể",
+            "Mô"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xếp các cấp tổ chức của một cá thể.",
+          "explanation": "Cơ thể. Xếp các cấp tổ chức của một cá thể.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-9",
+          "question": "Trình tự nào đúng?",
+          "options": [
+            "Hệ cơ quan → tế bào → cơ thể",
+            "Cơ thể → mô → cơ quan",
+            "Cơ quan → hệ cơ quan → cơ thể"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xếp theo mức độ tổ chức tăng dần.",
+          "explanation": "Cơ quan → hệ cơ quan → cơ thể. Xếp theo mức độ tổ chức tăng dần.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-10",
+          "question": "Khi chạy, hô hấp và tuần hoàn tăng hoạt động thể hiện điều gì?",
+          "options": [
+            "Sự phối hợp của các hệ",
+            "Mỗi hệ hoàn toàn độc lập",
+            "Cơ thể chỉ có một tế bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ cung cấp khí và vận chuyển chất.",
+          "explanation": "Sự phối hợp của các hệ. Liên hệ cung cấp khí và vận chuyển chất.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-11",
+          "question": "Một cây hoàn chỉnh thuộc cấp độ nào?",
+          "options": [
+            "Chỉ một mô",
+            "Cơ thể",
+            "Chỉ một cơ quan"
+          ],
+          "correctAnswer": 1,
+          "hint": "Cây có rễ, thân, lá cùng hoạt động.",
+          "explanation": "Cơ thể. Cây có rễ, thân, lá cùng hoạt động.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-12",
+          "question": "Cơ quan và hệ cơ quan khác nhau thế nào?",
+          "options": [
+            "Cơ quan luôn lớn hơn cơ thể",
+            "Hai khái niệm đều chỉ tế bào",
+            "Hệ cơ quan gồm các cơ quan phối hợp"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chú ý thành phần cấu tạo của từng cấp.",
+          "explanation": "Hệ cơ quan gồm các cơ quan phối hợp. Chú ý thành phần cấu tạo của từng cấp.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-13",
+          "question": "Hệ tiêu hóa có chức năng chung nào?",
+          "options": [
+            "Xử lý thức ăn để cơ thể sử dụng chất dinh dưỡng",
+            "Vận chuyển máu bằng tim",
+            "Tạo lá mới"
+          ],
+          "correctAnswer": 0,
+          "hint": "Phân biệt xử lý thức ăn với vận chuyển chất.",
+          "explanation": "Xử lý thức ăn để cơ thể sử dụng chất dinh dưỡng. Phân biệt xử lý thức ăn với vận chuyển chất.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-14",
+          "question": "Hệ tuần hoàn giúp cơ thể như thế nào?",
+          "options": [
+            "Quang hợp ở lá",
+            "Vận chuyển các chất qua máu",
+            "Hút nước từ đất"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ tim và mạch máu.",
+          "explanation": "Vận chuyển các chất qua máu. Liên hệ tim và mạch máu.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        },
+        {
+          "id": "g6-3-6-15",
+          "question": "Điều gì đúng về cơ thể đa bào?",
+          "options": [
+            "Các cơ quan không liên quan nhau",
+            "Không được cấu tạo từ tế bào",
+            "Các cấp tổ chức phối hợp duy trì hoạt động sống"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xét cả chuỗi tế bào, mô, cơ quan và hệ cơ quan.",
+          "explanation": "Các cấp tổ chức phối hợp duy trì hoạt động sống. Xét cả chuỗi tế bào, mô, cơ quan và hệ cơ quan.",
+          "objective": "Từ cơ quan đến hệ cơ quan"
+        }
+      ]
+    },
+    {
+      "chapterId": 3,
+      "lessonId": 7,
+      "title": "Phân loại thế giới sống",
+      "questions": [
+        {
+          "id": "g6-3-7-1",
+          "question": "Phân loại sinh vật giúp ích gì?",
+          "options": [
+            "Sắp xếp và nhận biết sự đa dạng sinh vật",
+            "Làm mọi sinh vật giống nhau",
+            "Biến vật không sống thành sinh vật"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ nhu cầu nghiên cứu nhiều loại sinh vật.",
+          "explanation": "Sắp xếp và nhận biết sự đa dạng sinh vật. Liên hệ nhu cầu nghiên cứu nhiều loại sinh vật.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-2",
+          "question": "Cấp phân loại nào cơ bản trong hệ thống phân loại?",
+          "options": [
+            "Cơ quan",
+            "Loài",
+            "Tế bào"
+          ],
+          "correctAnswer": 1,
+          "hint": "Đừng nhầm cấp phân loại với cấp tổ chức cơ thể.",
+          "explanation": "Loài. Đừng nhầm cấp phân loại với cấp tổ chức cơ thể.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-3",
+          "question": "Trong các cấp sau, cấp nào bao quát hơn loài?",
+          "options": [
+            "Một tế bào",
+            "Một cơ quan",
+            "Chi"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xét thứ bậc trong hệ thống phân loại.",
+          "explanation": "Chi. Xét thứ bậc trong hệ thống phân loại.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-4",
+          "question": "Thứ tự nào đúng từ nhỏ đến lớn?",
+          "options": [
+            "Loài → chi → họ",
+            "Họ → loài → chi",
+            "Chi → họ → loài"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét quan hệ bao gồm của các bậc.",
+          "explanation": "Loài → chi → họ. Xét quan hệ bao gồm của các bậc.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-5",
+          "question": "Cấp nào bao quát nhất trong các lựa chọn?",
+          "options": [
+            "Loài",
+            "Giới",
+            "Chi"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chọn bậc có phạm vi rộng hơn.",
+          "explanation": "Giới. Chọn bậc có phạm vi rộng hơn.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-6",
+          "question": "Khóa lưỡng phân dựa vào cách lựa chọn nào?",
+          "options": [
+            "Chọn ngẫu nhiên không quan sát",
+            "Luôn chọn theo màu duy nhất",
+            "Hai đặc điểm đối lập ở mỗi bước"
+          ],
+          "correctAnswer": 2,
+          "hint": "Tên “lưỡng” gợi số nhánh của mỗi bước.",
+          "explanation": "Hai đặc điểm đối lập ở mỗi bước. Tên “lưỡng” gợi số nhánh của mỗi bước.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-7",
+          "question": "Khi dùng khóa lưỡng phân, bước đầu cần làm gì?",
+          "options": [
+            "Quan sát đặc điểm đối tượng",
+            "Đoán tên ngay",
+            "Bỏ qua đặc điểm"
+          ],
+          "correctAnswer": 0,
+          "hint": "Việc lựa chọn nhánh phải có bằng chứng quan sát.",
+          "explanation": "Quan sát đặc điểm đối tượng. Việc lựa chọn nhánh phải có bằng chứng quan sát.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-8",
+          "question": "Đặc điểm nào có thể dùng phân biệt nhóm cây?",
+          "options": [
+            "Tên người quan sát",
+            "Có hoa hay không có hoa",
+            "Ngày mua chậu"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chọn đặc điểm của sinh vật.",
+          "explanation": "Có hoa hay không có hoa. Chọn đặc điểm của sinh vật.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-9",
+          "question": "Theo hệ thống năm giới trong bài, vi khuẩn thuộc giới nào?",
+          "options": [
+            "Động vật",
+            "Thực vật",
+            "Khởi sinh"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ kiểu tế bào nhân sơ.",
+          "explanation": "Khởi sinh. Liên hệ kiểu tế bào nhân sơ.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-10",
+          "question": "Theo hệ thống năm giới, nấm thuộc nhóm nào?",
+          "options": [
+            "Giới Nấm",
+            "Giới Động vật",
+            "Giới Thực vật"
+          ],
+          "correctAnswer": 0,
+          "hint": "Nhóm này có đặc điểm dinh dưỡng riêng.",
+          "explanation": "Giới Nấm. Nhóm này có đặc điểm dinh dưỡng riêng.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-11",
+          "question": "Tên khoa học giúp ích gì?",
+          "options": [
+            "Mỗi nơi buộc dùng một tên khác",
+            "Thống nhất cách gọi sinh vật",
+            "Thay thế việc quan sát"
+          ],
+          "correctAnswer": 1,
+          "hint": "Tên địa phương có thể không giống nhau.",
+          "explanation": "Thống nhất cách gọi sinh vật. Tên địa phương có thể không giống nhau.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-12",
+          "question": "Vì sao chỉ dựa vào tên gọi địa phương có thể gây nhầm?",
+          "options": [
+            "Mọi sinh vật đều không có tên",
+            "Tên địa phương luôn giống khắp nơi",
+            "Một sinh vật có thể có nhiều tên"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ khác biệt vùng miền.",
+          "explanation": "Một sinh vật có thể có nhiều tên. Liên hệ khác biệt vùng miền.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-13",
+          "question": "Hai sinh vật được xếp gần nhau thường dựa vào điều gì?",
+          "options": [
+            "Các đặc điểm và quan hệ phù hợp",
+            "Chỉ vì ở cùng một chiếc hộp",
+            "Chỉ vì được mua cùng ngày"
+          ],
+          "correctAnswer": 0,
+          "hint": "Phân loại phải dựa trên cơ sở sinh học.",
+          "explanation": "Các đặc điểm và quan hệ phù hợp. Phân loại phải dựa trên cơ sở sinh học.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-14",
+          "question": "Một bước khóa hỏi “có xương sống/không có xương sống” thể hiện gì?",
+          "options": [
+            "Ba lựa chọn đồng thời",
+            "Hai nhánh đặc điểm đối lập",
+            "Không cần quan sát"
+          ],
+          "correctAnswer": 1,
+          "hint": "Đối chiếu nguyên tắc khóa lưỡng phân.",
+          "explanation": "Hai nhánh đặc điểm đối lập. Đối chiếu nguyên tắc khóa lưỡng phân.",
+          "objective": "Phân loại thế giới sống"
+        },
+        {
+          "id": "g6-3-7-15",
+          "question": "Khi chưa chắc đặc điểm trong khóa, em nên làm gì?",
+          "options": [
+            "Chọn ngẫu nhiên và khẳng định",
+            "Đổi đáp án của khóa",
+            "Quan sát hoặc kiểm tra thêm"
+          ],
+          "correctAnswer": 2,
+          "hint": "Cần xác nhận trước khi đi sang nhánh tiếp.",
+          "explanation": "Quan sát hoặc kiểm tra thêm. Cần xác nhận trước khi đi sang nhánh tiếp.",
+          "objective": "Phân loại thế giới sống"
+        }
+      ]
+    },
+    {
+      "chapterId": 3,
+      "lessonId": 8,
+      "title": "Virus và vi khuẩn",
+      "questions": [
+        {
+          "id": "g6-3-8-1",
+          "question": "Vi khuẩn có kiểu cấu tạo tế bào nào?",
+          "options": [
+            "Nhân sơ",
+            "Nhân thực điển hình",
+            "Không có tế bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét đặc điểm chưa có nhân hoàn chỉnh.",
+          "explanation": "Nhân sơ. Xét đặc điểm chưa có nhân hoàn chỉnh.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-2",
+          "question": "Vi khuẩn điển hình là cơ thể gì?",
+          "options": [
+            "Đa bào có nhiều cơ quan",
+            "Đơn bào",
+            "Cơ thể có hệ tuần hoàn"
+          ],
+          "correctAnswer": 1,
+          "hint": "Một tế bào thực hiện hoạt động sống.",
+          "explanation": "Đơn bào. Một tế bào thực hiện hoạt động sống.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-3",
+          "question": "Virus khác vi khuẩn ở điểm nào?",
+          "options": [
+            "Virus có nhiều cơ quan",
+            "Virus có mô cơ",
+            "Virus chưa có cấu tạo tế bào"
+          ],
+          "correctAnswer": 2,
+          "hint": "Đừng đồng nhất hai nhóm rất nhỏ này.",
+          "explanation": "Virus chưa có cấu tạo tế bào. Đừng đồng nhất hai nhóm rất nhỏ này.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-4",
+          "question": "Virus nhân lên ở đâu?",
+          "options": [
+            "Trong tế bào vật chủ",
+            "Chỉ trong nước sạch không có tế bào",
+            "Trong mọi hòn đá"
+          ],
+          "correctAnswer": 0,
+          "hint": "Virus phụ thuộc hoạt động của tế bào khác.",
+          "explanation": "Trong tế bào vật chủ. Virus phụ thuộc hoạt động của tế bào khác.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-5",
+          "question": "Cấu tạo đơn giản của virus gồm gì?",
+          "options": [
+            "Rễ, thân và lá",
+            "Vật chất di truyền và vỏ protein",
+            "Tim và mạch máu"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xét các phần cơ bản của một hạt virus.",
+          "explanation": "Vật chất di truyền và vỏ protein. Xét các phần cơ bản của một hạt virus.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-6",
+          "question": "Vi khuẩn có thể được tìm thấy ở đâu?",
+          "options": [
+            "Chỉ trong phòng thí nghiệm",
+            "Chỉ trong cơ thể người",
+            "Nhiều môi trường khác nhau"
+          ],
+          "correctAnswer": 2,
+          "hint": "Không nên giới hạn nhóm này vào một môi trường.",
+          "explanation": "Nhiều môi trường khác nhau. Không nên giới hạn nhóm này vào một môi trường.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-7",
+          "question": "Nhận xét nào đúng về vi khuẩn?",
+          "options": [
+            "Có loại có lợi và có loại gây hại",
+            "Tất cả đều gây bệnh",
+            "Tất cả đều vô ích"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ lên men thực phẩm và bệnh tật.",
+          "explanation": "Có loại có lợi và có loại gây hại. Liên hệ lên men thực phẩm và bệnh tật.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-8",
+          "question": "Hoạt động làm sữa chua liên quan nhóm nào?",
+          "options": [
+            "Hệ tuần hoàn",
+            "Vi khuẩn có lợi",
+            "Tế bào thần kinh"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ quá trình lên men.",
+          "explanation": "Vi khuẩn có lợi. Liên hệ quá trình lên men.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-9",
+          "question": "Rửa tay đúng cách giúp ích gì?",
+          "options": [
+            "Làm mọi vi khuẩn biến mất vĩnh viễn",
+            "Thay thế hoàn toàn mọi biện pháp phòng bệnh",
+            "Giảm nguy cơ lây truyền mầm bệnh"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chọn tác dụng hợp lý, tránh khẳng định tuyệt đối.",
+          "explanation": "Giảm nguy cơ lây truyền mầm bệnh. Chọn tác dụng hợp lý, tránh khẳng định tuyệt đối.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-10",
+          "question": "Thực phẩm ôi thiu nhắc em cần làm gì?",
+          "options": [
+            "Không sử dụng và xử lý phù hợp",
+            "Ăn thử nhiều hơn",
+            "Trộn vào thức ăn mới"
+          ],
+          "correctAnswer": 0,
+          "hint": "Chú ý vệ sinh và an toàn thực phẩm.",
+          "explanation": "Không sử dụng và xử lý phù hợp. Chú ý vệ sinh và an toàn thực phẩm.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-11",
+          "question": "Đặc điểm nào thường dùng mô tả hình dạng vi khuẩn?",
+          "options": [
+            "Có rễ và lá",
+            "Dạng cầu, que hoặc xoắn",
+            "Có cánh và chân"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xét hình dạng vi thể.",
+          "explanation": "Dạng cầu, que hoặc xoắn. Xét hình dạng vi thể.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-12",
+          "question": "Vì sao cần bảo quản thực phẩm đúng cách?",
+          "options": [
+            "Để mọi thực phẩm không bao giờ hỏng",
+            "Để vi khuẩn tự biến thành cây",
+            "Hạn chế điều kiện làm thực phẩm hỏng"
+          ],
+          "correctAnswer": 2,
+          "hint": "Vi sinh vật có thể phát triển trong thực phẩm.",
+          "explanation": "Hạn chế điều kiện làm thực phẩm hỏng. Vi sinh vật có thể phát triển trong thực phẩm.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-13",
+          "question": "Virus có thể tự nhân lên độc lập ngoài tế bào sống không?",
+          "options": [
+            "Không",
+            "Có trong mọi môi trường",
+            "Có nhờ mọc rễ"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ sự phụ thuộc vào vật chủ.",
+          "explanation": "Không. Liên hệ sự phụ thuộc vào vật chủ.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-14",
+          "question": "Khi tìm hiểu bệnh truyền nhiễm, nhận xét nào đúng?",
+          "options": [
+            "Mọi bệnh đều do một loại vi khuẩn",
+            "Một số virus và vi khuẩn có thể gây bệnh",
+            "Virus luôn có lợi"
+          ],
+          "correctAnswer": 1,
+          "hint": "Không khái quát tất cả nhóm có cùng tác dụng.",
+          "explanation": "Một số virus và vi khuẩn có thể gây bệnh. Không khái quát tất cả nhóm có cùng tác dụng.",
+          "objective": "Virus và vi khuẩn"
+        },
+        {
+          "id": "g6-3-8-15",
+          "question": "Biện pháp nào phù hợp để hạn chế lây bệnh trong sinh hoạt?",
+          "options": [
+            "Dùng chung mọi đồ cá nhân",
+            "Bỏ qua vệ sinh tay",
+            "Giữ vệ sinh và thực hiện hướng dẫn phòng bệnh"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ đường truyền mầm bệnh.",
+          "explanation": "Giữ vệ sinh và thực hiện hướng dẫn phòng bệnh. Liên hệ đường truyền mầm bệnh.",
+          "objective": "Virus và vi khuẩn"
+        }
+      ]
+    },
+    {
+      "chapterId": 3,
+      "lessonId": 9,
+      "title": "Nguyên sinh vật",
+      "questions": [
+        {
+          "id": "g6-3-9-1",
+          "question": "Nguyên sinh vật có kiểu tế bào nào?",
+          "options": [
+            "Nhân thực",
+            "Nhân sơ",
+            "Không cấu tạo từ tế bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ đặc điểm có nhân hoàn chỉnh.",
+          "explanation": "Nhân thực. Liên hệ đặc điểm có nhân hoàn chỉnh.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-2",
+          "question": "Đặc điểm thường gặp ở nhiều nguyên sinh vật là gì?",
+          "options": [
+            "Đều là cây gỗ lớn",
+            "Kích thước nhỏ, thường cần kính hiển vi",
+            "Đều có hệ cơ quan như người"
+          ],
+          "correctAnswer": 1,
+          "hint": "Không đồng nhất nhóm với động vật lớn.",
+          "explanation": "Kích thước nhỏ, thường cần kính hiển vi. Không đồng nhất nhóm với động vật lớn.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-3",
+          "question": "Môi trường nào thường gặp nguyên sinh vật?",
+          "options": [
+            "Chỉ kim loại nóng chảy",
+            "Chỉ bên trong đá khô",
+            "Nước hoặc nơi ẩm"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ mẫu nước ao quan sát dưới kính.",
+          "explanation": "Nước hoặc nơi ẩm. Liên hệ mẫu nước ao quan sát dưới kính.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-4",
+          "question": "Trùng roi thường di chuyển nhờ gì?",
+          "options": [
+            "Roi",
+            "Chân có xương",
+            "Cánh"
+          ],
+          "correctAnswer": 0,
+          "hint": "Tên gọi gợi cấu trúc vận động.",
+          "explanation": "Roi. Tên gọi gợi cấu trúc vận động.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-5",
+          "question": "Trùng giày thường di chuyển nhờ gì?",
+          "options": [
+            "Cánh",
+            "Lông bơi",
+            "Chân có xương"
+          ],
+          "correctAnswer": 1,
+          "hint": "Quan sát các cấu trúc nhỏ quanh bề mặt.",
+          "explanation": "Lông bơi. Quan sát các cấu trúc nhỏ quanh bề mặt.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-6",
+          "question": "Trùng biến hình thường di chuyển nhờ gì?",
+          "options": [
+            "Cánh",
+            "Vây có xương",
+            "Chân giả"
+          ],
+          "correctAnswer": 2,
+          "hint": "Tên gọi liên quan khả năng đổi hình dạng.",
+          "explanation": "Chân giả. Tên gọi liên quan khả năng đổi hình dạng.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-7",
+          "question": "Tảo có thể có vai trò nào?",
+          "options": [
+            "Tạo chất hữu cơ nhờ quang hợp",
+            "Bơm máu cho người",
+            "Tạo hệ xương"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ sắc tố và ánh sáng.",
+          "explanation": "Tạo chất hữu cơ nhờ quang hợp. Liên hệ sắc tố và ánh sáng.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-8",
+          "question": "Nhận xét nào đúng về nguyên sinh vật?",
+          "options": [
+            "Tất cả đều gây bệnh",
+            "Có loại có ích và có loại gây bệnh",
+            "Tất cả đều không có nhân"
+          ],
+          "correctAnswer": 1,
+          "hint": "Tránh kết luận chung cho mọi đại diện.",
+          "explanation": "Có loại có ích và có loại gây bệnh. Tránh kết luận chung cho mọi đại diện.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-9",
+          "question": "Trùng sốt rét gây bệnh nào?",
+          "options": [
+            "Gãy xương",
+            "Cận thị",
+            "Sốt rét"
+          ],
+          "correctAnswer": 2,
+          "hint": "Tên sinh vật gợi bệnh được học.",
+          "explanation": "Sốt rét. Tên sinh vật gợi bệnh được học.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-10",
+          "question": "Phòng tránh muỗi đốt có ý nghĩa gì đối với sốt rét?",
+          "options": [
+            "Hạn chế nguy cơ lây truyền",
+            "Làm mọi nguyên sinh vật biến mất",
+            "Thay thế mọi xử lý môi trường"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ vật trung gian truyền bệnh.",
+          "explanation": "Hạn chế nguy cơ lây truyền. Liên hệ vật trung gian truyền bệnh.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-11",
+          "question": "Ăn uống hợp vệ sinh giúp hạn chế nguy cơ nào?",
+          "options": [
+            "Mọi tai nạn giao thông",
+            "Một số bệnh do nguyên sinh vật đường ruột",
+            "Mọi bệnh di truyền"
+          ],
+          "correctAnswer": 1,
+          "hint": "Xét đường xâm nhập qua thức ăn và nước.",
+          "explanation": "Một số bệnh do nguyên sinh vật đường ruột. Xét đường xâm nhập qua thức ăn và nước.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-12",
+          "question": "Cách quan sát trùng giày phù hợp là gì?",
+          "options": [
+            "Dùng thước dây đo cây",
+            "Dùng nhiệt kế thay kính",
+            "Dùng kính hiển vi với mẫu thích hợp"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chọn dụng cụ quan sát vật rất nhỏ.",
+          "explanation": "Dùng kính hiển vi với mẫu thích hợp. Chọn dụng cụ quan sát vật rất nhỏ.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-13",
+          "question": "Nguyên sinh vật khác vi khuẩn về đặc điểm nào?",
+          "options": [
+            "Nguyên sinh vật là nhân thực",
+            "Nguyên sinh vật không có tế bào",
+            "Vi khuẩn luôn có nhân hoàn chỉnh"
+          ],
+          "correctAnswer": 0,
+          "hint": "Đối chiếu hai kiểu tế bào.",
+          "explanation": "Nguyên sinh vật là nhân thực. Đối chiếu hai kiểu tế bào.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-14",
+          "question": "Nhận xét nào đúng khi quan sát nhiều nguyên sinh vật?",
+          "options": [
+            "Mọi loại đều có cùng hình dạng",
+            "Hình dạng và cách di chuyển có thể khác nhau",
+            "Mọi loại đều có chân xương"
+          ],
+          "correctAnswer": 1,
+          "hint": "So sánh trùng roi, giày và biến hình.",
+          "explanation": "Hình dạng và cách di chuyển có thể khác nhau. So sánh trùng roi, giày và biến hình.",
+          "objective": "Nguyên sinh vật"
+        },
+        {
+          "id": "g6-3-9-15",
+          "question": "Giữ vệ sinh nguồn nước có ý nghĩa gì?",
+          "options": [
+            "Làm nước không bao giờ bị bẩn",
+            "Không liên quan sức khỏe",
+            "Góp phần hạn chế mầm bệnh"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chú ý môi trường sống và đường truyền bệnh.",
+          "explanation": "Góp phần hạn chế mầm bệnh. Chú ý môi trường sống và đường truyền bệnh.",
+          "objective": "Nguyên sinh vật"
+        }
+      ]
+    },
+    {
+      "chapterId": 3,
+      "lessonId": 10,
+      "title": "Nấm",
+      "questions": [
+        {
+          "id": "g6-3-10-1",
+          "question": "Nấm có kiểu tế bào nào?",
+          "options": [
+            "Nhân thực",
+            "Nhân sơ",
+            "Không có tế bào"
+          ],
+          "correctAnswer": 0,
+          "hint": "Xét đặc điểm có nhân hoàn chỉnh.",
+          "explanation": "Nhân thực. Xét đặc điểm có nhân hoàn chỉnh.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-2",
+          "question": "Nấm dinh dưỡng chủ yếu theo cách nào?",
+          "options": [
+            "Tự quang hợp như lá xanh",
+            "Dị dưỡng",
+            "Không cần chất dinh dưỡng"
+          ],
+          "correctAnswer": 1,
+          "hint": "Nấm không có lục lạp để quang hợp.",
+          "explanation": "Dị dưỡng. Nấm không có lục lạp để quang hợp.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-3",
+          "question": "Đại diện nào thuộc nhóm nấm?",
+          "options": [
+            "Vi khuẩn điển hình",
+            "Cây đậu",
+            "Nấm men"
+          ],
+          "correctAnswer": 2,
+          "hint": "Liên hệ vi sinh vật làm bánh nở.",
+          "explanation": "Nấm men. Liên hệ vi sinh vật làm bánh nở.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-4",
+          "question": "Nấm men thường có cơ thể như thế nào?",
+          "options": [
+            "Đơn bào",
+            "Có hệ tuần hoàn",
+            "Có rễ, thân và lá thật"
+          ],
+          "correctAnswer": 0,
+          "hint": "Không phải mọi nấm đều là tai nấm lớn.",
+          "explanation": "Đơn bào. Không phải mọi nấm đều là tai nấm lớn.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-5",
+          "question": "Nấm mốc thường có cấu tạo dạng nào?",
+          "options": [
+            "Hệ xương",
+            "Các sợi nấm",
+            "Rễ và lá xanh"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ lớp mốc mọc trên thực phẩm.",
+          "explanation": "Các sợi nấm. Liên hệ lớp mốc mọc trên thực phẩm.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-6",
+          "question": "Nhiều loại nấm sinh sản bằng gì?",
+          "options": [
+            "Hoa có hạt",
+            "Tế bào máu",
+            "Bào tử"
+          ],
+          "correctAnswer": 2,
+          "hint": "Chọn cấu trúc sinh sản thường được học ở nấm.",
+          "explanation": "Bào tử. Chọn cấu trúc sinh sản thường được học ở nấm.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-7",
+          "question": "Nấm men được dùng trong hoạt động nào?",
+          "options": [
+            "Làm bánh mì",
+            "Bơm máu",
+            "Quang hợp ở lá"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ quá trình làm khối bột nở.",
+          "explanation": "Làm bánh mì. Liên hệ quá trình làm khối bột nở.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-8",
+          "question": "Vai trò nào của nấm có ích trong tự nhiên?",
+          "options": [
+            "Tạo mọi hòn đá",
+            "Phân giải chất hữu cơ",
+            "Làm mọi sinh vật ngừng sống"
+          ],
+          "correctAnswer": 1,
+          "hint": "Liên hệ xử lý xác sinh vật và chất hữu cơ.",
+          "explanation": "Phân giải chất hữu cơ. Liên hệ xử lý xác sinh vật và chất hữu cơ.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-9",
+          "question": "Nhận xét nào đúng về nấm?",
+          "options": [
+            "Tất cả nấm đều ăn được",
+            "Tất cả nấm đều độc",
+            "Có loại có ích và có loại gây hại"
+          ],
+          "correctAnswer": 2,
+          "hint": "Tránh khái quát từ một vài đại diện.",
+          "explanation": "Có loại có ích và có loại gây hại. Tránh khái quát từ một vài đại diện.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-10",
+          "question": "Khi gặp nấm lạ ngoài tự nhiên, em nên làm gì?",
+          "options": [
+            "Không tự ý hái ăn",
+            "Ăn thử để nhận biết",
+            "Chọn theo màu đẹp"
+          ],
+          "correctAnswer": 0,
+          "hint": "Nhận biết nấm độc không đơn giản.",
+          "explanation": "Không tự ý hái ăn. Nhận biết nấm độc không đơn giản.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-11",
+          "question": "Thức ăn có nấm mốc cần được xử lý thế nào?",
+          "options": [
+            "Chỉ đổi tên rồi ăn",
+            "Không dùng và xử lý an toàn",
+            "Trộn với thực phẩm mới"
+          ],
+          "correctAnswer": 1,
+          "hint": "Một phần mốc nhìn thấy không phản ánh toàn bộ nguy cơ.",
+          "explanation": "Không dùng và xử lý an toàn. Một phần mốc nhìn thấy không phản ánh toàn bộ nguy cơ.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-12",
+          "question": "Nấm khác cây xanh ở đặc điểm nào?",
+          "options": [
+            "Đều có lá xanh",
+            "Đều có hệ rễ thật",
+            "Không có lục lạp để quang hợp"
+          ],
+          "correctAnswer": 2,
+          "hint": "Xét cách tạo hoặc lấy chất dinh dưỡng.",
+          "explanation": "Không có lục lạp để quang hợp. Xét cách tạo hoặc lấy chất dinh dưỡng.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-13",
+          "question": "Điều kiện ẩm có thể ảnh hưởng nấm mốc thế nào?",
+          "options": [
+            "Thuận lợi cho nhiều loại phát triển",
+            "Luôn diệt mọi loại nấm",
+            "Biến nấm thành động vật"
+          ],
+          "correctAnswer": 0,
+          "hint": "Liên hệ bảo quản đồ dùng và thực phẩm.",
+          "explanation": "Thuận lợi cho nhiều loại phát triển. Liên hệ bảo quản đồ dùng và thực phẩm.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-14",
+          "question": "Giữ đồ dùng sạch và khô giúp ích gì?",
+          "options": [
+            "Bảo đảm không có nấm ở mọi nơi",
+            "Hạn chế nấm phát triển trên đồ dùng",
+            "Làm nấm quang hợp"
+          ],
+          "correctAnswer": 1,
+          "hint": "Chọn tác dụng hợp lý của vệ sinh.",
+          "explanation": "Hạn chế nấm phát triển trên đồ dùng. Chọn tác dụng hợp lý của vệ sinh.",
+          "objective": "Nấm"
+        },
+        {
+          "id": "g6-3-10-15",
+          "question": "Ví dụ nào cho thấy nấm có thể gây hại?",
+          "options": [
+            "Làm bánh mì bằng nấm men",
+            "Phân giải lá rụng",
+            "Làm hỏng thực phẩm"
+          ],
+          "correctAnswer": 2,
+          "hint": "Phân biệt tác dụng có ích với tác hại.",
+          "explanation": "Làm hỏng thực phẩm. Phân biệt tác dụng có ích với tác hại.",
+          "objective": "Nấm"
+        }
+      ]
+    }
+  ]
+}

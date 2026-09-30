@@ -14,7 +14,8 @@ import ClassSelectPage from './pages/ClassSelectPage';
 import MapPage from './pages/MapPage';
 import GamePlayPage from './pages/GamePlayPage';
 import MiniGamePage from './pages/MiniGamePage';
-import BossBattlePage from './pages/BossBattlePage';
+import BossBattlePage from './pages/BossBattleV2Page';
+import BossEncounterNotice from './components/BossEncounterNotice';
 import LeaderboardPage from './pages/LeaderboardPage';
 import MissionPage from './pages/MissionPage';
 import ProfilePage from './pages/ProfilePage';
@@ -909,6 +910,7 @@ function App() {
                   <Route path="/privacy" element={<LandingResourcePage />} />
                   <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
+                <BossEncounterNotice />
                 <ChatboxManager user={user} />
               </>
             )}
