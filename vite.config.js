@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import {bossBuildFlag} from './scripts/boss-build-config.mjs'
 
 // Custom dev middleware for /api/chat in local Vite server
 function chatApiDevPlugin(env) {
@@ -73,6 +74,7 @@ export default defineConfig(({ mode, command }) => {
 
   return {
     define: {
+      'import.meta.env.VITE_BOSS_V2_ENABLED': JSON.stringify(bossBuildFlag(env.VITE_BOSS_V2_ENABLED, process.env.VERCEL_ENV)),
       'import.meta.env.VITE_APP_VERSION': JSON.stringify(env.VITE_APP_VERSION || `${command === 'serve' ? 'local' : 'build'}-${new Date().toISOString().replace(/[-:.]/g, '')}`),
     },
     plugins: [

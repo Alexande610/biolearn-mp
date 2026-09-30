@@ -88,7 +88,7 @@ export default function BossBattleV2Page({previewAdapter}){
     <span className="boss-eyebrow">{s.finalChance?'CƠ HỘI CUỐI CỦA BÀI':'MỘT THỬ THÁCH ĐÃ XUẤT HIỆN'}</span><h2>Kiến thức là<br/><em>vũ khí của bạn.</em></h2>
     <p>Vượt đường chạy sinh học, né chướng ngại và đánh bại boss bằng kiến thức của bài vừa học.</p>
     <div className="boss-intro-stats"><span><Heart/>3 tim</span><span><Swords/>100 HP boss</span><span><Timer/>{Math.round((s.battleSeconds||480)/60)} phút</span></div>
-    <div className="boss-prize"><Trophy/><div><strong>1000 XP <span>+ 500 vàng</span></strong><small>Chỉ nhận khi thắng, tối đa một lần mỗi bài.</small></div></div>
+    <div className="boss-prize"><Trophy/><div><strong>1000 XP <span>+ 500 vàng</span></strong><small>{s.preview?'Phần thưởng bản chính thức; chế độ thử không cộng thưởng.':'Chỉ nhận khi thắng, tối đa một lần mỗi bài.'}</small></div></div>
     {s.preview&&<p className="boss-control-guide">Bạn đang chơi bản thử nghiệm. Không cộng XP hoặc vàng thật.</p>}
     <div className="boss-offer-time">Lời mời còn <strong>{formatBossTime(time)}</strong> · Đồng hồ trận bắt đầu khi vào chơi.</div>
     <button className="boss-button primary" disabled={busy||time===0} onClick={start}>Sẵn sàng chinh phục <ChevronRight size={19}/></button>
@@ -96,7 +96,7 @@ export default function BossBattleV2Page({previewAdapter}){
    </div><div className="boss-intro-guide"><BossArena snapshot={s} onJump={()=>{}} busy/>
     <h3>Hành trang trước trận</h3><div className="boss-items">{items.map(item=>{const [Icon,title,text]=item;return <article key={title}><Icon/><div><h4>{title}</h4><p>{text}</p></div></article>;})}</div>
     <p className="boss-control-guide"><strong>Điều khiển:</strong> Space / ↑ hoặc chạm đường chạy để nhảy. Đường chạy tạm dừng khi đọc câu hỏi; đồng hồ trận vẫn chạy. Hết tim hoặc hết giờ là thua.</p>
-    <p className="boss-control-guide">{s.finalChance?'Thắng, thua hoặc hết hạn lời mời này sẽ đóng cơ hội boss của bài.':'Nếu thua, hãy kết thúc một ải khác để có cơ hội gặp lại. Boss đã thắng không xuất hiện lại.'}</p>
+    <p className="boss-control-guide">{s.repeatTest?'Chế độ tài khoản thử: kết thúc bất kỳ ải nào của 10 bài lớp 6 đều có boss. Có thể chơi lại sau khi thắng, thua hoặc hết hạn; không nhận thưởng thật.':s.finalChance?'Thắng, thua hoặc hết hạn lời mời này sẽ đóng cơ hội boss của bài.':'Nếu thua, hãy kết thúc một ải khác để có cơ hội gặp lại. Boss đã thắng không xuất hiện lại.'}</p>
    </div></section>}
    {s.status==='active'&&<><div className="boss-hud"><div className="boss-hearts" aria-label={`${s.hearts} tim`}>{[0,1,2].map(n=><Heart key={n} className={n<s.hearts?'full':''}/>)}</div>
     <div className="boss-hp"><div><span>MÁU BOSS</span><strong>{s.bossHp}/100</strong></div><div className="boss-hp-track"><i style={{width:`${s.bossHp}%`}}/></div></div>
@@ -119,7 +119,7 @@ export default function BossBattleV2Page({previewAdapter}){
    {finished&&<section className={`boss-result ${s.status==='won'?'won':''}`}><div className="boss-result-icon">{s.status==='won'?<Trophy size={58}/>:<Heart size={58}/>}</div>
     <span className="boss-eyebrow">{s.status==='won'?'BOSS ĐÃ BỊ ĐÁNH BẠI':'CUỘC CHẠM TRÁN KẾT THÚC'}</span><h2>{s.status==='won'?'Kiến thức chiến thắng!':s.status==='expired'?'Bạn đã bỏ lỡ lời mời':'Chưa thể chinh phục'}</h2>
     <p>{s.status==='won'?'Bạn đã tung đủ 10 đòn đúng để hạ boss.':reasons[s.reason]||'Cuộc gặp này đã kết thúc.'}</p>
-    {s.status==='won'?s.reward?.awarded?<div className="boss-result-reward"><strong>+1000 XP</strong><strong>+500 vàng</strong><small>Phần thưởng đã được lưu.</small></div>:<p>{s.reward?.preview?'Bản thử nghiệm: không cộng XP hoặc vàng thật.':'Không cộng thêm thưởng cho sự kiện đã ghi nhận.'}</p>:<><strong className="boss-zero-reward">0 XP · 0 vàng</strong><p>{s.finalChance?'Cơ hội boss của bài đã đóng. Hãy tìm boss ở bài mới.':'Kết thúc một ải khác trong bài để có cơ hội gặp lại boss.'}</p></>}
+    {s.status==='won'?s.reward?.awarded?<div className="boss-result-reward"><strong>+1000 XP</strong><strong>+500 vàng</strong><small>Phần thưởng đã được lưu.</small></div>:<p>{s.reward?.preview?s.repeatTest?'Bản thử nghiệm: không cộng XP hoặc vàng thật. Kết thúc lại bất kỳ ải nào để gặp boss mới.':'Bản thử nghiệm: không cộng XP hoặc vàng thật.':'Không cộng thêm thưởng cho sự kiện đã ghi nhận.'}</p>:<><strong className="boss-zero-reward">0 XP · 0 vàng</strong><p>{s.repeatTest?'Chế độ thử: kết thúc lại bất kỳ ải nào để gặp boss mới, kể cả ải đã chơi.':s.finalChance?'Cơ hội boss của bài đã đóng. Hãy tìm boss ở bài mới.':'Kết thúc một ải khác trong bài để có cơ hội gặp lại boss.'}</p></>}
     <button className="boss-button primary" onClick={back}>Trở về bản đồ <ChevronRight size={18}/></button></section>}
   </>}</main></div>;
 }

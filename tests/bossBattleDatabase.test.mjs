@@ -5,6 +5,7 @@ import { PGlite } from '@electric-sql/pglite';
 const migration=await fs.readFile('supabase_boss_battle_v2.sql','utf8');
 const seed=await fs.readFile('generated/boss-releases/g6-boss-2026.1-draft.sql','utf8');
 const arenaUpgrade=await fs.readFile('generated/boss-releases/upgrade-arena-v2.sql','utf8');
+const repeatUpgrade=await fs.readFile('generated/boss-releases/repeat-test-grade6.sql','utf8');
 const student='00000000-0000-4000-8000-000000000002';
 const other='00000000-0000-4000-8000-000000000003';
 async function setup() {
@@ -188,5 +189,39 @@ test('additive arena upgrade is rerunnable and preserves active course, deadline
   await db.query("update boss_encounters set course='[]',world_time=4,processed_events=2,last_tick=clock_timestamp() where id=$1",[encounter.id]);
   const old=await rpc(db,"select boss_action($1,'tick') result",[encounter.id]);
   assert.equal(old.nextWeaponAt,12);assert.deepEqual(old.courseEvents.map(e=>e.kind),['obstacle','hint','projectile','potion']);
+ }finally{await db.close();}
+});
+
+test('repeat test permits any completed or locked stage and repeats after win, loss or expiry without real rewards',async()=>{
+ const db=await setup();try{
+  await db.exec(repeatUpgrade);await db.exec(repeatUpgrade);
+  await db.exec(`update profiles set class_progress='{"6":{"completedLevels":["1_review_0"]}}' where id='${student}'`);
+  const before=(await db.query('select class_progress,xp,coins from profiles where id=$1',[student])).rows[0];
+  const finish=async()=>{const t=await rpc(db,'select boss_prepare_stage(6,1,1,9) result');assert.equal(t.enabled,true);
+   const result=await rpc(db,'select boss_finish_stage($1) result',[t.stageSessionId]);assert.ok(result.encounter);assert.equal(result.encounter.repeatTest,true);assert.equal(result.encounter.finalChance,false);
+   const again=await rpc(db,'select boss_finish_stage($1) result',[t.stageSessionId]);assert.equal(again.encounter.id,result.encounter.id);return result.encounter;};
+  const first=await finish();await rpc(db,'select boss_start_encounter($1) result',[first.id]);
+  for(let n=0;n<10;n++){const v=await weapon(db,first.id);const a=(await db.query('select correct_answer from boss_questions where id=$1',[v.question.id])).rows[0].correct_answer;
+   const result=await rpc(db,"select boss_action($1,'answer',$2,$3) result",[first.id,v.question.id,a]);if(n===9){assert.equal(result.status,'won');assert.equal(result.reward.awarded,false);}}
+  const second=await finish();assert.notEqual(first.id,second.id);
+  await rpc(db,'select boss_start_encounter($1) result',[second.id]);await rpc(db,"select boss_action($1,'abandon') result",[second.id]);
+  const third=await finish();assert.notEqual(second.id,third.id);
+  await db.query("update boss_encounters set expires_at=clock_timestamp()-interval '1 second' where id=$1",[third.id]);
+  const fourth=await finish();assert.notEqual(third.id,fourth.id);
+  assert.deepEqual((await db.query('select class_progress,xp,coins from profiles where id=$1',[student])).rows[0],before);
+  assert.equal((await db.query('select count(*) n from reward_ledger')).rows[0].n,0);
+ }finally{await db.close();}
+});
+
+test('repeat flag cannot override ordinary student access or live completed-stage restrictions',async()=>{
+ const db=await setup();try{
+  await db.exec(repeatUpgrade);
+  await db.exec(`select set_config('request.jwt.claim.sub','${other}',false)`);
+  assert.equal((await rpc(db,'select boss_prepare_stage(6,1,1,9) result')).enabled,false);
+  await db.exec(`update boss_lessons set test_only=false,reviewed=true,security_ready=true;
+    update profiles set class_progress='{"6":{"completedLevels":["1_review_0"]}}';`);
+  assert.equal((await rpc(db,'select boss_prepare_stage(6,1,1,9) result')).enabled,false);
+  await db.exec(`select set_config('request.jwt.claim.sub','${student}',false)`);
+  assert.equal((await rpc(db,'select boss_prepare_stage(6,1,1,9) result')).enabled,false);
  }finally{await db.close();}
 });

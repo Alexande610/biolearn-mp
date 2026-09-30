@@ -29,7 +29,7 @@ export default function BossEncounterNotice() {
     <div className="boss-notice-icon">🦠</div><div className="boss-notice-body">
       <strong>{e.status==='active'?'Trận boss đang diễn ra':'Boss đã xuất hiện!'}</strong>
       <span>{e.title}</span>
-      {expanded && <p>{e.finalChance?'Cơ hội cuối của bài này. ':''}Chinh phục để nhận 1000 XP và 500 vàng. {e.status==='offered'?'Bạn có thể đổi ý trong thời hạn lời mời.':''}</p>}
+      {expanded && <p>{e.finalChance?'Cơ hội cuối của bài này. ':''}{e.preview?'Bản thử nghiệm: không nhận XP hoặc vàng thật.':'Chinh phục để nhận 1000 XP và 500 vàng.'} {e.status==='offered'?'Bạn có thể đổi ý trong thời hạn lời mời.':''}</p>}
     </div>
     <span className="boss-notice-time">{e.status==='offered'?formatBossTime(seconds):'Đang chơi'}</span>
     <button className="boss-button" onClick={()=>navigate(bossUrl(e))}>{e.status==='active'?'Tiếp tục':'Chinh phục'}</button>

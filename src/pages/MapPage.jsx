@@ -709,6 +709,8 @@ export default function MapPage() {
 
   // Check if level is unlocked
   const isLevelUnlocked = (chapterId, lessonId, levelIndex) => {
+    // Test accounts can select any of the ten grade-6 lessons for Boss pilot testing.
+    if (userStats?.is_test_account === true && normalizedClassId === 6 && lessonId >= 1 && lessonId <= 10 && levelIndex >= 0 && levelIndex < 10) return true;
     // Level đầu tiên của chương đầu tiên luôn mở khóa
     const firstChapterId = getFirstChapterId();
     if (chapterId === firstChapterId && lessonId === 1 && levelIndex === 0) return true;

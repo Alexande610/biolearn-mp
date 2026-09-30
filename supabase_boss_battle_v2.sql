@@ -88,6 +88,8 @@ $$;
 -- Persist a server-generated course. Existing active courses retain their legacy timing.
 alter table public.boss_encounters add column if not exists course jsonb not null default '[]'::jsonb;
 
+alter table public.boss_lessons add column if not exists test_repeat_enabled boolean not null default false;
+
 -- Lock the per-lesson record BEFORE the encounter in every state-changing RPC.
 create or replace function public.boss_internal_sync(p_id uuid)
 returns void language plpgsql security definer set search_path=public as $$
@@ -156,7 +158,8 @@ begin
   select * into l from boss_lessons where class_id=e.class_id and chapter_id=e.chapter_id and lesson_id=e.lesson_id;
   select * into q from boss_questions where id=e.pending_question;
   return jsonb_build_object('id',e.id,'classId',e.class_id,'chapterId',e.chapter_id,'lessonId',e.lesson_id,
-    'title',l.title,'preview',l.test_only,'battleSeconds',l.battle_seconds,'status',e.status,'expiresAt',e.expires_at,'deadline',e.deadline,'serverNow',clock_timestamp(),
+    'title',l.title,'preview',l.test_only,
+    'repeatTest',l.test_only and l.test_repeat_enabled and coalesce((select is_test_account from profiles where id=e.user_id),false),'battleSeconds',l.battle_seconds,'status',e.status,'expiresAt',e.expires_at,'deadline',e.deadline,'serverNow',clock_timestamp(),
     'finalChance',final,'hearts',e.hearts,'bossHp',e.boss_hp,'shield',e.shield,'hints',e.hints,
     'worldTime',e.world_time,
     'courseEvents',coalesce((select jsonb_agg(v order by (v->>'at')::numeric) from jsonb_array_elements(e.course) v
@@ -171,16 +174,18 @@ end $$;
 
 create or replace function public.boss_prepare_stage(p_class_id integer,p_chapter_id integer,p_lesson_id integer,p_level integer)
 returns jsonb language plpgsql security definer set search_path=public as $$
-declare p profiles%rowtype; id_value uuid; completed jsonb; prev_chapter integer; prev_lesson integer;
+declare p profiles%rowtype; id_value uuid; completed jsonb; prev_chapter integer; prev_lesson integer; repeat_test boolean;
 begin
   if not boss_internal_access(p_class_id,p_chapter_id,p_lesson_id) then return jsonb_build_object('enabled',false); end if;
   if p_level not between 0 and 9 then raise exception 'invalid_stage'; end if;
   select * into p from profiles where id=auth.uid();
-  if boss_internal_complete(p.class_progress,p_chapter_id,p_lesson_id) then return jsonb_build_object('enabled',false); end if;
+  select l.test_only and l.test_repeat_enabled and coalesce(p.is_test_account,false) into repeat_test
+    from boss_lessons l where l.class_id=p_class_id and l.chapter_id=p_chapter_id and l.lesson_id=p_lesson_id;
+  if not repeat_test and boss_internal_complete(p.class_progress,p_chapter_id,p_lesson_id) then return jsonb_build_object('enabled',false); end if;
   if not exists(select 1 from lesson_questions where class_id=p_class_id and chapter_id=p_chapter_id
     and lesson_id=p_lesson_id and level=p_level and stage_type='lesson') then raise exception 'stage_missing'; end if;
   completed:=coalesce(p.class_progress->'6'->'completedLevels','[]'::jsonb);
-  if not (p_chapter_id=1 and p_lesson_id=1 and p_level=0)
+  if not repeat_test and not (p_chapter_id=1 and p_lesson_id=1 and p_level=0)
     and not completed @> jsonb_build_array(p_chapter_id::text||'_review_0') then
     if p_level>0 then
       if not completed @> jsonb_build_array(p_chapter_id::text||'_'||p_lesson_id::text||'_'||(p_level-1)::text)
@@ -202,7 +207,7 @@ end $$;
 create or replace function public.boss_finish_stage(p_stage_session_id uuid)
 returns jsonb language plpgsql security definer set search_path=public as $$
 declare s boss_stage_sessions%rowtype; p boss_lesson_progress%rowtype; e boss_encounters%rowtype;
-  id_value uuid; chance numeric;
+  id_value uuid; chance numeric; repeat_test boolean;
 begin
   select * into s from boss_stage_sessions where id=p_stage_session_id and user_id=auth.uid();
   if not found then raise exception 'stage_session_invalid'; end if;
@@ -222,16 +227,25 @@ begin
   update boss_stage_sessions set completed_at=clock_timestamp() where id=s.id;
   select * into p from boss_lesson_progress where user_id=s.user_id and class_id=s.class_id
     and chapter_id=s.chapter_id and lesson_id=s.lesson_id;
-  if p.status<>'eligible' or s.level=any(p.checked_levels) then return jsonb_build_object('encounter',null); end if;
+  select l.test_only and l.test_repeat_enabled and coalesce(u.is_test_account,false) into repeat_test
+    from boss_lessons l join profiles u on u.id=s.user_id
+    where l.class_id=s.class_id and l.chapter_id=s.chapter_id and l.lesson_id=s.lesson_id;
+  if repeat_test then
+    update boss_lesson_progress set status='eligible',final_stage_ended=false
+      where user_id=s.user_id and class_id=s.class_id and chapter_id=s.chapter_id and lesson_id=s.lesson_id;
+  end if;
+  if not repeat_test and (p.status<>'eligible' or s.level=any(p.checked_levels)) then return jsonb_build_object('encounter',null); end if;
+  if not repeat_test then
   update boss_lesson_progress set checked_levels=array_append(checked_levels,s.level),
     final_stage_ended=final_stage_ended or s.level=9 where user_id=p.user_id and class_id=p.class_id
     and chapter_id=p.chapter_id and lesson_id=p.lesson_id;
+  end if;
   select * into e from boss_encounters where user_id=s.user_id and class_id=s.class_id
     and chapter_id=s.chapter_id and lesson_id=s.lesson_id and status in ('offered','active') limit 1;
   id_value:=e.id;
   if id_value is null then
     select encounter_chance into chance from boss_lessons where class_id=s.class_id and chapter_id=s.chapter_id and lesson_id=s.lesson_id;
-    if random()<chance then
+    if repeat_test or random()<chance then
       insert into boss_encounters(user_id,class_id,chapter_id,lesson_id,source_level,expires_at)
         values(s.user_id,s.class_id,s.chapter_id,s.lesson_id,s.level,clock_timestamp()+interval '5 minutes') returning id into id_value;
     elsif s.level=9 then
