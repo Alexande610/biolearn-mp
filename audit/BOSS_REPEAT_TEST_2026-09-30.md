@@ -20,6 +20,6 @@ Kỳ vọng 10 dòng: enabled=true, test_only=true, test_repeat_enabled=true, se
 
 Để dừng chế độ lặp: `update public.boss_lessons set test_repeat_enabled=false where class_id=6;`.
 
-Build Vercel Preview mặc định bật frontend Boss nếu không đặt cờ rõ ràng. Production mặc định tắt; giá trị `VITE_BOSS_V2_ENABLED=false` luôn được tôn trọng. Phân biệt môi trường dựa vào [biến hệ thống VERCEL_ENV của Vercel](https://vercel.com/docs/environment-variables/system-environment-variables). Database vẫn quyết định ai được vào.
+Theo yêu cầu đưa bản thử lên main, build Vercel Preview và Production mặc định bật frontend Boss nếu không đặt cờ rõ ràng. Giá trị `VITE_BOSS_V2_ENABLED=false` luôn được tôn trọng. Phân biệt môi trường dựa vào [biến hệ thống VERCEL_ENV của Vercel](https://vercel.com/docs/environment-variables/system-environment-variables). Database vẫn quyết định ai được vào; việc bật giao diện Production không tự mở Boss cho học viên thường.
 
 Bản cập nhật dành cho kiểm thử trước phát hành chính thức. Điều kiện bảo vệ XP/vàng và xác nhận kết thúc ải trong báo cáo phát hành vẫn chưa hoàn tất; không tự đổi test_only hoặc security_ready để mở học viên thường.
